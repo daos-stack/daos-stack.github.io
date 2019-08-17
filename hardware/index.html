@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Hardware Requirements - DAOS Documentation</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Hardware Requirements";
+    var mkdocs_page_input_path = "hardware.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DAOS Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../admin/index.md">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">DAOS Administration Guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../admin/intro.md">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/architecture.md">DAOS Architecture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/hardware.md">Hardware Requirements</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/installation.md">DAOS Software Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/deployment.md">DAOS System Deployment</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/administration.md">DAOS Administration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/pool_operations.md">DAOS Pool Operations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/app_interface_tiering.md">Applications Interface and Tiering</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/performance_tuning.md">DAOS Performance Tuning</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/troubleshooting.md">DAOS Troubleshooting</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/utilities_examples.md">DAOS Utilities and Usage Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/env_variables.md">DAOS Environment Variables</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DAOS Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Hardware Requirements</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="hardware-requirements">Hardware Requirements</h1>
+<p>The purpose of this section is to describe processor, storage and
+network requirements to deploy a DAOS system.</p>
+<h2 id="deployment-options">Deployment Options</h2>
+<p>As illustrated in the figure below, a DAOS system can be deployed in two
+different ways:</p>
+<ul>
+<li>
+<p><strong>Pooled Storage Model</strong> : The DAOS servers can run on dedicated
+    storage nodes in separate racks. This is a traditional pool model
+    where storage is uniformly accessed by all compute nodes. In order
+    to minimize the number of I/O racks and to optimize floor space,
+    this approach usually requires high density storage servers.</p>
+</li>
+<li>
+<p><strong>Disaggregated Storage Model</strong> : In the disaggregated model, the
+    storage nodes are integrated into compute racks and can be either
+    dedicated or shared (e.g. in a hyper-converged infrastructure)
+    nodes. The DAOS servers are thus massively distributed and storage
+    access is non-uniform and must take locality into account.</p>
+</li>
+</ul>
+<p>While DAOS is mostly deployed following the pooled model, active
+research is conducted to efficiently support the disaggregated model as
+well.</p>
+<p><img alt="" src="../media/image1.png" /></p>
+<h2 id="processor-requirements">Processor Requirements</h2>
+<p>DAOS requires a 64-bit processor architecture and is primarily developed
+on Intel 64 architecture. The DAOS software and the libraries it depends
+on (e.g. ISA-L, SPDK, PMDK and DPDK) can take advantage of Intel® SSE
+and AVX extensions.</p>
+<p>DAOS is also regularly tested on 64-bit ARM processors configured in
+Little Endian mode. The same build instructions that are used for x86-64
+are applicable for ARM builds as well. DAOS and its dependencies will
+make the necessary adjustments automatically in their respective build
+systems for ARM platforms.</p>
+<h2 id="network-requirements">Network Requirements</h2>
+<p>The DAOS network layer relies on libfabrics and supports OFI providers
+for Ethernet/sockets, InfiniBand/verbs, RoCE, Cray’s GNI, and the Intel
+Omni-Path Architecture. An RDMA-capable fabric is preferred for better
+performance. DAOS can support multiple rails by binding different
+instances of the DAOS server to individual network card.</p>
+<p>An additional out-of-band network connecting the nodes in the DAOS
+service cluster is required for DAOS administration. Management traffic
+uses IP over Fabric.</p>
+<h2 id="storage-requirements">Storage Requirements</h2>
+<p>DAOS requires each storage node to have direct access to storage-class
+memory (SCM). While DAOS is primarily tested and tuned for Optane DC
+Persistent Memory, the DAOS software stack is built over the Persistent
+Memory Development Kit (PMDK) and the DAX feature of the Linux and
+Windows operating systems as described in the SNIA NVM Programming
+Model<a href="https://www.snia.org/sites/default/files/technical_work/final/NVMProgrammingModel_v1.2.pdf">^1</a>. As a result, the open-source DAOS software stack should be
+able to run transparently over any type of storage-class memory
+supported by PMDK.</p>
+<p>The storage node can be optionally equipped with NVMe (non-volatile
+memory express) SSDs to provide capacity. HDDs as well as SATA and SAS
+SSDs are not supported by DAOS. Both NVMe 3D-NAND and Optane SSDs are
+supported. Optane SSDs are preferred for DAOS installation that targets
+a very high IOPS rate. NVMe-oF devices are also supported by the
+userspace storage stack, but have never been tested.</p>
+<p>The minimal recommended ratio between SCM and SSDs capacity is 6% to
+guarantee that DAOS has enough space in SCM to store internal metadata
+(e.g. pool metadata, SSD block allocation tracking).</p>
+<p>For testing purposes, SCM can be emulated with DRAM by mounting a tmpfs
+filesystem and NVMe SSDs can be also emulated with DRAM or a loopback
+file.</p>
+<h2 id="cpu-affinity">CPU Affinity</h2>
+<p>On recent Xeon platforms, PCIe slots have a natural affinity to one CPU.
+Although globally accessible from any of the system cores, NVMe SSDs and
+network interface cards connected through the PCIe bus may provide
+different performance characteristics (e.g., higher latency, lower
+bandwidth) to each CPU. Accessing “remote” PCIe devices may involve
+traffic over the UPI (Ultra Path Interconnect) link that might become a
+point of congestion. Similarly, persistent memory is non-uniformly
+accessible (NUMA), and CPU affinity must be respected for maximal
+performance.</p>
+<p>Therefore, when running in a multi-socket and multi-rail environment,
+the DAOS service must be able to detect the CPU to PCIe device and
+persistent memory affinity and minimize as much as possible non-local
+access. This can be achieved by spawning one instance of the I/O server
+per CPU, then accessing only local persistent memory and PCI devices
+from that server instance. The control plane is responsible for
+detecting the storage and network affinity and starting the I/O servers
+accordingly.</p>
+<h2 id="fault-domains">Fault Domains</h2>
+<p>DAOS relies on single-ported storage massively distributed across
+different storage nodes. Each storage node is thus a single point of
+failure. DAOS achieves fault tolerance by providing data redundancy
+across storage nodes in different fault domains.</p>
+<p>DAOS assumes that fault domains are hierarchical and do no overlap. For
+instance, the first level of fault domain could be the racks and the
+second one the storage nodes.</p>
+<p>For efficient placement and optimal data resilience, the more fault
+domains, the better. As a result, it is preferable to distribute storage
+nodes across as many racks as possible.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
