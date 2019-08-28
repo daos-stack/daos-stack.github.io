@@ -200,10 +200,10 @@
 <h2 id="container-snapshot">Container Snapshot</h2>
 <p>As shown in the <a href="#f4.4">figure</a> below below, the content of a container can be snapshot at any time.</p>
 <p><a id="f4.4"></a>
-<img alt="/doc/graph/container_snapshots.png" src="/doc/graph/container_snapshots.png" title="Example of Container Snapshots" /></p>
+<img alt="../graph/container_snapshots.png" src="../../graph/container_snapshots.png" title="Example of Container Snapshots" /></p>
 <p>DAOS snasphots are very lightweight and are tagged with the epoch associated with the time when the snapshot was created. Once successfully created, a snapshot remains readable until it is explicitely destroyed. The content of a container can be rolled back to a particular snapshot.</p>
 <p>The container snapshot feature allows to support native producer/consumer pipeline as represented in the diagram below.</p>
-<p><img alt="/doc/graph/producer_consumer.png" src="/doc/graph/producer_consumer.png" title="Producer/Consumer Workflow with DAOS Containers" /></p>
+<p><img alt="../graph/producer_consumer.png" src="../../graph/producer_consumer.png" title="Producer/Consumer Workflow with DAOS Containers" /></p>
 <p>The producer will generate a snapshot once a consistent version of the dataset has been successfully written. The consumer applications may subscribe to container snapshot events so that new updates can be processed as the producer commits them. The immutability of the snapshots guarantees that the consumer sees consistent data, even while the producer continues with new updates. Both the producer and consumer indeed operate on different versions of the container and do not need any serialization. Once the producer generates a new version of the dataset, the consumer may just query the differences between the two snapshots and process only the incremental changes.</p>
 <p><a id="4.2.3"></a></p>
 <h2 id="distributed-transactions">Distributed Transactions</h2>

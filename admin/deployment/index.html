@@ -227,7 +227,7 @@ or daos_agent you may see the message:</p>
 /var/run/daos_server and /var/run/daos_agent respectively. To change
 the default location that daos_server uses for its runtime directory
 either uncomment and set the socket_dir configuration value in
-install/etc/daos_server.yaml or pass the location to daos_server on
+install/etc/daos_server.yml or pass the location to daos_server on
 the command line using the -d flag. For the daos_agent an alternate
 location can be passed on the command line using the -runtime_dir flag.</p>
 <h4 id="default-directory-non-persistent">Default Directory (non-persistent)</h4>
@@ -543,8 +543,8 @@ support is to pass the -i flag to daos_server.</p>
 <code>daos_server</code> process. The configuration file location can be specified
 on the command line (<code>daos_server -h</code> for usage) or default location
 (<code>install/etc/daos_server.yml</code>).</p>
-<p>Parameter descriptions are specified in <a href="/utils/config/daos_server.yml">daos_server.yml</a>
-and example configurations files in the <a href="/utils/config/examples">examples</a>
+<p>Parameter descriptions are specified in <a href="../../utils/config/daos_server.yml">daos_server.yml</a>
+and example configurations files in the <a href="../../utils/config/examples">examples</a>
 directory.</p>
 <p>Any option supplied to <code>daos_server</code> as a commandline option or flag will
 take precedence over equivalent configuration file parameter.</p>
