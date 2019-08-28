@@ -1,67 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-     <loc>None</loc>
+     <loc></loc>
+     
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://daos.io/storage_model/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/terminology/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/admin/intro/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/admin/architecture/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/admin/hardware/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/admin/installation/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/admin/deployment/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/admin/administration/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/admin/pool_operations/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/admin/app_interface_tiering/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/admin/performance_tuning/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/admin/troubleshooting/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>None</loc>
+     <loc>http://daos.io/admin/utilities_examples/</loc>
+     <lastmod>2019-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://daos.io/admin/env_variables/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>

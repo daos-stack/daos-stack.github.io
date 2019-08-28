@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="DAOS Project">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>DAOS Debugging - DAOS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "DAOS Debugging";
+    var mkdocs_page_input_path = "debugging.md";
+    var mkdocs_page_url = "/debugging/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DAOS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../index.md">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Overview</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../storage_model/">Storage Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../terminology/">Terminology</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Administration Guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../admin/intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/architecture/">DAOS Architecture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/hardware/">Hardware Requirements</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/installation/">Software Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/deployment/">System Deployment</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/administration/">Administration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/pool_operations/">Pool Operations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/app_interface_tiering/">Applications Interface and Tiering</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/performance_tuning/">Performance Tuning</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/troubleshooting/">Troubleshooting</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/utilities_examples/">Utilities and Usage Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/env_variables/">Environment Variables</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DAOS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>DAOS Debugging</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/debugging.md"> Edit on daos-stack/daos</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="daos-debugging">DAOS Debugging</h1>
+<p>DAOS uses the debug system defined in <a href="https://github.com/daos-stack/cart">CaRT</a>
+but more specifically the GURT library. Logging for both client and server are
+written to "/tmp/daos.log" unless otherwise set by <code>D_LOG_FILE</code>.</p>
+<h2 id="registered-subsystemsfacilities">Registered Subsystems/Facilities</h2>
+<p>The debug logging system includes a series of subsystems or facilities which
+define groups for related log messages (defined per source file). There are
+common facilities which are defined in GURT, as well as other facilities that
+can be defined on a per-project basis (such as those for CaRT and DAOS).
+<code>DD_SUBSYS</code> can be used to set which subsystems to enable logging for. By
+default all subsystems are enabled ("DD_SUBSYS=all").
+- DAOS Facilities: [common, tree, vos, client, server, rdb, pool, container,
+            object, placement, rebuild, tier, mgmt, eio, tests]
+- Common Facilities (GURT): [MISC, MEM]
+- CaRT Facilities: [RPC, BULK, CORPC, GRP, LM, HG, PMIX, ST, IV]</p>
+<h2 id="priority-logging">Priority Logging</h2>
+<p>All macros which output logs have a priority level, shown in decending order
+below.
+- D_FATAL(fmt, ...)     FATAL
+- D_CRIT(fmt, ...)      CRIT
+- D_ERROR(fmt, ...)     ERR
+- D_WARN(fmt, ...)      WARN
+- D_NOTE(fmt, ...)      NOTE
+- D_INFO(fmt, ...)      INFO
+- D_DEBUG(mask, fmt, ...)   DEBUG</p>
+<p>The priority level that outputs to stderr can be set with <code>DD_STDERR</code>. By
+default in DAOS (specific to project), this is set to CRIT ("DD_STDERR=CRIT")
+meaning that all CRIT and more severe log messages will dump to stderr. This
+however is separate from the priority of logging to "/tmp/daos.log". The
+priority level of logging can be set with <code>D_LOG_MASK</code>, which by default is set
+to INFO ("D_LOG_MASK=INFO"), which will result in all messages excluding DEBUG
+messages being logged. <code>D_LOG_MASK</code> can also be used to specify the level of
+logging on a per-subsystem basis as well ("D_LOG_MASK=DEBUG,MEM=ERR").</p>
+<h2 id="debug-masksstreams">Debug Masks/Streams:</h2>
+<p>DEBUG messages account for a majority of the log messages, and finer-granularity
+might be desired. Mask bits are set as the first argument passed in
+D_DEBUG(mask, ...). In order to accomplish this, <code>DD_MASK</code> can be set to enable
+different debug streams. Similar to facilities, there are common debug streams
+defined in GURT, as well as other streams that can defined on a per-project
+basis (CaRT and DAOS). All debug streams are enabled by default ("DD_MASK=all").
+- DAOS Debug Masks:
+    - md = metadata operations
+    - pl = placement operations
+    - mgmt = pool management
+    - epc = epoch system
+    - df = durable format
+    - rebuild = rebuild process
+    - daos_default = (group mask) io, md, pl, and rebuild operations
+- Common Debug Masks (GURT):
+    - any = generic messages, no classification
+    - trace = function trace, tree/hash/lru operations
+    - mem = memory operations
+    - net = network operations
+    - io = object I/O
+    - test = test programs</p>
+<h2 id="common-use-cases">Common Use Cases</h2>
+<ul>
+<li>
+<p>Generic setup for all messages (default settings)
+    $ D_LOG_MASK=DEBUG
+    $ DD_SUBSYS=all
+    $ DD_MASK=all</p>
+</li>
+<li>
+<p>Disable all logs for performance tuning
+    $ D_LOG_MASK=ERR -&gt; will only log error messages from all facilities
+    $ D_LOG_MASK=FATAL -&gt; will only log system fatal messages</p>
+</li>
+<li>
+<p>Disable a noisy debug logging subsystem
+    $ D_LOG_MASK=DEBUG,MEM=ERR -&gt; disables MEM facility by restricting all
+    logs from that facility to ERROR or higher priority only</p>
+</li>
+<li>
+<p>Enable a subset of facilities of interest
+    $ DD_SUBSYS=rpc,tests
+    $ D_LOG_MASK=DEBUG -&gt; required to see logs for RPC and TESTS less severe
+    than INFO (majority of log messages)</p>
+</li>
+<li>
+<p>Fine-tune the debug messages by setting a debug mask
+    $ D_LOG_MASK=DEBUG
+    $ DD_MASK=mgmt -&gt; only logs DEBUG messages related to pool management</p>
+</li>
+</ul>
+<p><strong>See <a href="../environ/">DAOS Environment Variables</a> documentation for more info
+about debug system environment.</strong></p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

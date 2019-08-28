@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="DAOS Project">
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>DAOS Environment Variables - DAOS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "DAOS Environment Variables";
+    var mkdocs_page_input_path = "environ.md";
+    var mkdocs_page_url = "/environ/";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> DAOS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../index.md">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Overview</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../storage_model/">Storage Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../terminology/">Terminology</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Administration Guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../admin/intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/architecture/">DAOS Architecture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/hardware/">Hardware Requirements</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/installation/">Software Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/deployment/">System Deployment</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/administration/">Administration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/pool_operations/">Pool Operations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/app_interface_tiering/">Applications Interface and Tiering</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/performance_tuning/">Performance Tuning</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/troubleshooting/">Troubleshooting</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/utilities_examples/">Utilities and Usage Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../admin/env_variables/">Environment Variables</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">DAOS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>DAOS Environment Variables</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/environ.md"> Edit on daos-stack/daos</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="daos-environment-variables">DAOS Environment Variables</h1>
+<p>This file lists the environment variables used by DAOS. <strong>Many of them are meant for development purposes only and may be removed or changed in the future.</strong></p>
+<p>The description of each variable follows the following format:</p>
+<blockquote>
+<p>A short description. <code>Type</code>. Default to what behavior if not set.</p>
+<p>A longer description if necessary.</p>
+</blockquote>
+<p><code>Type</code> is defined by this table:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BOOL</code></td>
+<td><code>0</code> means false; any other value means true</td>
+</tr>
+<tr>
+<td><code>BOOL2</code></td>
+<td><code>no</code> means false; any other value means true</td>
+</tr>
+<tr>
+<td><code>BOOL3</code></td>
+<td>set to empty or any value means true; unset means false</td>
+</tr>
+<tr>
+<td><code>INTEGER</code></td>
+<td>Non-negative decimal integer</td>
+</tr>
+<tr>
+<td><code>STRING</code></td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common">Common</h2>
+<p>Environment variables in this section apply to both the server side and the client side</p>
+<h3 id="daos_io_mode"><code>DAOS_IO_MODE</code></h3>
+<p>Control the DAOS IO mode: server dispatches modification RPCs to replicas or client does that, if it is the former case, whether enable DTX or not. <code>INTEGER</code>. Valid values are as following, default to 0 (server dispatches RPCs and enable DTX).</p>
+<p>0: server dispatches RPCs, enable DTX.</p>
+<p>1: server dispatches RPCs, disable DTX.</p>
+<p>2: client disptaches RPCs, disable DTX.</p>
+<h3 id="daos_io_bypass"><code>DAOS_IO_BYPASS</code></h3>
+<h2 id="server">Server</h2>
+<p>Environment variables in this section only apply to the server side.</p>
+<h3 id="vos_checksum"><code>VOS_CHECKSUM</code></h3>
+<p>Checksum algorithm used by VOS. <code>STRING</code>. Default to disabling checksums.</p>
+<p>These checksum algorithms are currently supported: <code>crc64</code> and <code>crc32</code>.</p>
+<h3 id="vos_mem_class"><code>VOS_MEM_CLASS</code></h3>
+<p>Memory class used by VOS. <code>STRING</code>. Default to persistent memory.</p>
+<p>If the value is set to <code>DRAM</code>, all data will be stored in volatile memory; otherwise, all data will be stored to persistent memory.</p>
+<h3 id="vos_bdev_class"><code>VOS_BDEV_CLASS</code></h3>
+<p>SPDK bdev class used by VOS. <code>STRING</code>. Default to NVMe bdev.</p>
+<p>When testing on node without NVMe device available, it can be set to <code>MALLOC</code> or <code>AIO</code> to make VOS using SPDK malloc or AIO device.</p>
+<h3 id="io_stat_period"><code>IO_STAT_PERIOD</code></h3>
+<p>Print SPDK bdev io statistics periodically. <code>INTEGER</code>. Default to 0 (disabled).</p>
+<p>If it is set to N (non-zero), SPDK bdev io statistics will be printed on server console in every N seconds.</p>
+<h3 id="rdb_election_timeout"><code>RDB_ELECTION_TIMEOUT</code></h3>
+<p>Raft election timeout used by RDBs in milliseconds. <code>INTEGER</code>. Default to 7000 ms.</p>
+<h3 id="rdb_request_timeout"><code>RDB_REQUEST_TIMEOUT</code></h3>
+<p>Raft request timeout used by RDBs in milliseconds. <code>INTEGER</code>. Default to 3000 ms.</p>
+<h3 id="rdb_compact_threshold"><code>RDB_COMPACT_THRESHOLD</code></h3>
+<p>Raft log compaction threshold in applied entries. <code>INTEGER</code>. Default to 0 entries.</p>
+<p>If set to 0, Raft log entries will never be compacted.</p>
+<h3 id="daos_rebuild"><code>DAOS_REBUILD</code></h3>
+<p>Whether to start rebuilds when excluding targets. <code>BOOL2</code>. Default to true.</p>
+<h3 id="daos_md_cap"><code>DAOS_MD_CAP</code></h3>
+<p>Size of a metadata pmem pool/file in MBs. <code>INTEGER</code>. Default to 128 MB.</p>
+<h3 id="daos_start_pool_svc"><code>DAOS_START_POOL_SVC</code></h3>
+<p>Whether to start existing pool services when starting a <code>daos_server</code>. <code>BOOL</code>. Default to true.</p>
+<h3 id="daos_implicit_purge"><code>DAOS_IMPLICIT_PURGE</code></h3>
+<p>Whether to aggregate unreferenced epochs. <code>BOOL</code>. Default to false.</p>
+<h3 id="daos_pmixless"><code>DAOS_PMIXLESS</code></h3>
+<p>Whether to disable PMIx. <code>BOOL</code>. Default to false.</p>
+<h2 id="client">Client</h2>
+<p>Environment variables in this section only apply to the client side.</p>
+<h3 id="daos_singleton_cli"><code>DAOS_SINGLETON_CLI</code></h3>
+<p>Whether to run in the singleton mode, in which the client does not need to be launched by orterun. <code>BOOL</code>. Default to false.</p>
+<h3 id="daos_io_srv_dispatch"><code>DAOS_IO_SRV_DISPATCH</code></h3>
+<p>Whether to enable the server-side IO dispatch, in that case the replica IO will be sent to a leader shard which will dispatch to other shards. <code>BOOL</code>. Default to true.</p>
+<h2 id="debug-system-client-server">Debug System (Client &amp; Server)</h2>
+<h3 id="d_log_file"><code>D_LOG_FILE</code></h3>
+<p>DAOS debug logs (both server and client) are written to /tmp/daos.log by
+default. This can be modified by setting this environment variable
+("D_LOG_FILE=/tmp/daos_server").</p>
+<h3 id="dd_subsys"><code>DD_SUBSYS</code></h3>
+<p>Used to specify which subsystems to enable. DD_SUBSYS can be set to individual
+subsystems for finer-grained debugging ("DD_SUBSYS=vos"), multiple facilities
+("DD_SUBSYS=eio,mgmt,misc,mem"), or all facilities ("DD_SUBSYS=all") which is
+also the default setting. If a facility is not enabled, then only ERR messages
+or more severe messages will print.</p>
+<h3 id="dd_stderr"><code>DD_STDERR</code></h3>
+<p>Used to specify the priority level to output to stderr. Options in decreasing
+priority level order: FATAL, CRIT, ERR, WARN, NOTE, INFO, DEBUG. By default, all
+CRIT and more severe DAOS messages will log to stderr ("DD_STDERR=CRIT"), and
+the default for CaRT/GURT is FATAL.</p>
+<h3 id="d_log_mask"><code>D_LOG_MASK</code></h3>
+<p>Used to specify what type/level of logging will be present for either all of the
+registered subsystems, or a select few. Options in decreasing priority level
+order: FATAL, CRIT, ERR, WARN, NOTE, INFO, DEBUG.
+DEBUG option is used to enable all logging (debug messages as well as all higher
+priority level messages).
+Note that if D_LOG_MASK is not set, it will default to logging all messages
+excluding debug ("D_LOG_MASK=INFO").
+EX: "D_LOG_MASK=DEBUG" This will set the logging level for all facilities to
+DEBUG, meaning that all debug messages, as well as higher priority messages will
+be logged (INFO, NOTE, WARN, ERR, CRIT, FATAL).
+EX: "D_LOG_MASK=DEBUG,MEM=ERR,RPC=ERR" This will set the logging level to DEBUG
+for all facilities except MEM &amp; RPC (which will now only log ERR and higher
+priority level messages, skipping all DEBUG, INFO, NOTE &amp; WARN messages)</p>
+<h3 id="dd_mask"><code>DD_MASK</code></h3>
+<p>Used to enable different debug streams for finer-grained debug messages,
+essentially allowing the user to specify an area of interest to debug (possibly
+involving many different subsystems) as opposed to parsing through many lines of
+generic DEBUG messages. All debug streams will be enabled by default
+("DD_MASK=all"). Single debug masks can be set ("DD_MASK=trace") or multiple
+masks ("DD_MASK=trace,test,mgmt").
+Note that since these debug streams are strictly related to the debug log
+messages, D_LOG_MASK must be set to DEBUG.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>

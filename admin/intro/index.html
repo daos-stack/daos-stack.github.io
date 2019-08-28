@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="DAOS Project">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Introduction - DAOS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Introduction";
+    var mkdocs_page_input_path = "admin/intro.md";
+    var mkdocs_page_url = "/admin/intro/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> DAOS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../../index.md">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Overview</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../storage_model/">Storage Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../terminology/">Terminology</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Administration Guide</span>
+    <ul class="subnav">
+                <li class=" current">
+                    
+    <a class="current" href="./">Introduction</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#introduction">Introduction</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#terms-used-in-this-document">Terms used in this Document</a></li>
+        
+            <li><a class="toctree-l4" href="#additional-documentation">Additional Documentation</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../architecture/">DAOS Architecture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hardware/">Hardware Requirements</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../installation/">Software Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deployment/">System Deployment</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../administration/">Administration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../pool_operations/">Pool Operations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../app_interface_tiering/">Applications Interface and Tiering</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../performance_tuning/">Performance Tuning</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../utilities_examples/">Utilities and Usage Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../env_variables/">Environment Variables</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">DAOS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Administration Guide &raquo;</li>
+        
+      
+    
+    <li>Introduction</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/intro.md"> Edit on daos-stack/daos</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="introduction">Introduction</h1>
+<p>The Distributed Asynchronous Object Storage (DAOS) is an open-source
+object store designed from the ground up for massively distributed Non
+Volatile Memory (NVM). DAOS takes advantage of next-generation NVM
+technology, like Storage Class Memory (SCM) and NVM express (NVMe),
+while presenting a key-value storage interface on top of commodity
+hardware that provides features, such as, transactional non-blocking
+I/O, advanced data protection with self-healing, end-to-end data
+integrity, fine-grained data control, and elastic storage, to optimize
+performance and cost.</p>
+<p>This initial administration guide version is associated with DAOS v0.4.</p>
+<h2 id="terms-used-in-this-document">Terms used in this Document</h2>
+<p>The following terms and abbreviations are used in this document.</p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ACLs</td>
+<td>Access Control Lists</td>
+</tr>
+<tr>
+<td>CaRT</td>
+<td>Collective and RPC Transport (CaRT) library. A software library built on top of the Mercury Function Shipping library to support distributed communication functionality.</td>
+</tr>
+<tr>
+<td>CGO</td>
+<td>Go tools that enable creation of Go packages that call C code</td>
+</tr>
+<tr>
+<td>CN</td>
+<td>Compute Node</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>Central Processing Unit</td>
+</tr>
+<tr>
+<td>COTS</td>
+<td>Commercial off-the-shelf</td>
+</tr>
+<tr>
+<td>Daemon</td>
+<td>A process offering system-level resources.</td>
+</tr>
+<tr>
+<td>DCPM</td>
+<td>Intel Optane DC Persistent Memory</td>
+</tr>
+<tr>
+<td>DPDK</td>
+<td>Data Plane Development Kit</td>
+</tr>
+<tr>
+<td>dRPC</td>
+<td>DAOS Remote Procedure Call</td>
+</tr>
+<tr>
+<td>BIO</td>
+<td>Blob I/O</td>
+</tr>
+<tr>
+<td>gRPC</td>
+<td>gRPC<a href="https://grpc.io/">^1</a> Remote Procedure Calls</td>
+</tr>
+<tr>
+<td>URT</td>
+<td>A common library of Gurt Useful Routines and Types provided with CaRT.</td>
+</tr>
+<tr>
+<td>HLD</td>
+<td>High-Level Design</td>
+</tr>
+<tr>
+<td>I/O</td>
+<td>Input/Output</td>
+</tr>
+<tr>
+<td>ISA-L</td>
+<td>Intel® Intelligent Storage Acceleration Library</td>
+</tr>
+<tr>
+<td>libfabric</td>
+<td>A user-space library that exports the Open Fabrics Interface</td>
+</tr>
+<tr>
+<td>Mercury</td>
+<td>A user-space RPC library that can use libfabrics as a transport</td>
+</tr>
+<tr>
+<td>NVM</td>
+<td>Non-Volatile Memory</td>
+</tr>
+<tr>
+<td>NVMe</td>
+<td>Non-Volatile Memory express</td>
+</tr>
+<tr>
+<td>OFI</td>
+<td>OpenFabrics Interfaces</td>
+</tr>
+<tr>
+<td>OS</td>
+<td>Operating System</td>
+</tr>
+<tr>
+<td>PMDK</td>
+<td>Persistent Memory Development Kit</td>
+</tr>
+<tr>
+<td>PMIx</td>
+<td>Process Management Interface for Exascale</td>
+</tr>
+<tr>
+<td>Raft</td>
+<td>Raft is a consensus algorithm used to distribute state transitions among DAOS server nodes.</td>
+</tr>
+<tr>
+<td>RDB</td>
+<td>Replicated Database, containing pool metadata and maintained across DAOS servers using the Raft algorithm.</td>
+</tr>
+<tr>
+<td>RPC</td>
+<td>Remote Procedure Call.</td>
+</tr>
+<tr>
+<td>SPDK</td>
+<td>Storage Performance Development Kit</td>
+</tr>
+<tr>
+<td>SWIM</td>
+<td>Scalable Weakly-consistent Infection-style process group Membership protocol</td>
+</tr>
+<tr>
+<td>UPI</td>
+<td>Intel® Ultra Path Interconnect</td>
+</tr>
+<tr>
+<td>UUID</td>
+<td>Universal Unique Identifier</td>
+</tr>
+<tr>
+<td>VOS</td>
+<td>Versioned Object Store</td>
+</tr>
+</tbody>
+</table>
+<h2 id="additional-documentation">Additional Documentation</h2>
+<p>Refer to the following documentation for architecture and description:</p>
+<table>
+<thead>
+<tr>
+<th>Document</th>
+<th>Location</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DAOS Internals</td>
+<td>https://github.com/daos-stack/daos/blob/master/src/README.md</td>
+</tr>
+<tr>
+<td>DAOS Storage Model</td>
+<td><a href="https://github.com/daos-stack/daos/blob/master/doc/storage_model.md">https://github.com/daos-stack/daos/blob/master/doc/storage_model.md</a></td>
+</tr>
+<tr>
+<td>Community Roadmap</td>
+<td>https://wiki.hpdd.intel.com/display/DC/Roadmap</td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../architecture/" class="btn btn-neutral float-right" title="DAOS Architecture">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../../terminology/" class="btn btn-neutral" title="Terminology"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../../terminology/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../architecture/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
