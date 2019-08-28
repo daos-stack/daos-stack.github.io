@@ -6,12 +6,27 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://daos.io/storage_model/</loc>
+     <loc>http://daos.io/overview/terminology/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://daos.io/terminology/</loc>
+     <loc>http://daos.io/overview/storage/</loc>
+     <lastmod>2019-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://daos.io/overview/transaction/</loc>
+     <lastmod>2019-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://daos.io/overview/fault/</loc>
+     <lastmod>2019-08-28</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://daos.io/overview/security/</loc>
      <lastmod>2019-08-28</lastmod>
      <changefreq>daily</changefreq>
     </url>

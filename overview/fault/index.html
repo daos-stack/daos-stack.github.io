@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="DAOS Project">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Fault Model - DAOS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Fault Model";
+    var mkdocs_page_input_path = "overview/fault.md";
+    var mkdocs_page_url = "/overview/fault/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> DAOS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Overview</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../terminology/">Terminology</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../storage/">Storage Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../transaction/">Transaction Model</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Fault Model</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#fault-model">Fault Model</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#hierarchical-fault-domains">Hierarchical Fault Domains</a></li>
+        
+            <li><a class="toctree-l4" href="#fault-detection">Fault Detection</a></li>
+        
+            <li><a class="toctree-l4" href="#fault-isolation">Fault Isolation</a></li>
+        
+            <li><a class="toctree-l4" href="#fault-recovery">Fault Recovery</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../security/">Security Model</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Administration Guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../admin/intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/architecture/">DAOS Architecture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/hardware/">Hardware Requirements</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/installation/">Software Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/deployment/">System Deployment</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/administration/">Administration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/pool_operations/">Pool Operations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/app_interface_tiering/">Applications Interface and Tiering</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/performance_tuning/">Performance Tuning</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/troubleshooting/">Troubleshooting</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/utilities_examples/">Utilities and Usage Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../admin/env_variables/">Environment Variables</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">DAOS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Overview &raquo;</li>
+        
+      
+    
+    <li>Fault Model</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/overview/fault.md"> Edit on daos-stack/daos</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <p><a id="4.3"></a></p>
+<h1 id="fault-model">Fault Model</h1>
+<p>DAOS relies on massively distributed single-ported storage. Each target is thus effectively a single point of failure. DAOS achieves availability and durability of both data and metadata by providing redundancy across targets in different fault domains. DAOS internal pool and container metadata are replicated via a robust consensus algorithm. DAOS objects are then safely replicated or erasure-coded by transparently leveraging the DAOS distributed transaction mechanisms internally. The purpose of this section is to provide details on how DAOS achieves fault tolerance and guarantees object resilience.</p>
+<p><a id="4.3.1"></a></p>
+<h2 id="hierarchical-fault-domains">Hierarchical Fault Domains</h2>
+<p>A fault domain is a set of servers sharing the same point of failure and which are thus likely to fail altogether. DAOS assumes that fault domains are hierarchical and do no overlap. The actual hierarchy and fault domain membership must be supplied by an external database used by DAOS to generate the pool map.</p>
+<p>Pool metadata are replicated on several nodes from different high-level fault domains for high availability, whereas object data is replicated or erasure-coded over a variable number of fault domains depending on the selected object class.</p>
+<p><a id="4.3.2"></a></p>
+<h2 id="fault-detection">Fault Detection</h2>
+<p>DAOS servers are monitored within a DAOS system through a gossip-based protocol called <a href="http://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1028914">SWIM</a> that provides accurate, efficient and scalable server fault detection.
+Storage attached to each DAOS target is monitored through periodic local health assessment. Whenever a local storage I/O error is returned to the DAOS server, an internal health check procedure will be called automatically. This procedure will make an overall health assessment by analyzing the IO error code and device SMART/Health data. If the result is negative, the target will be marked as faulty, and further I/Os to this target will be rejected and re-routed.</p>
+<p><a id="4.3.3"></a></p>
+<h2 id="fault-isolation">Fault Isolation</h2>
+<p>Once detected, the faulty target or servers (effectivelly a set of targets) must be excluded from the pool map. This process is triggered either manually by the administrator or automatically. Upon exclusion, the new version of the pool map is eagerly pushed to all storage targets. At this point, the pool enters a degraded mode that might require extra processing on access (e.g. reconstructing data out of erasure code). Consequently, DAOS client and storage nodes retry RPC indefinitely until they find an alternative replacement target from the new pool map. At this point, all outstanding communications with the evicted target are aborted and no further messages should be sent to the target until it is explicitly reintegrated (possibly only after maintenance action).</p>
+<p>All storage targets are promptly notified of pool map changes by the pool service. This is not the case for client nodes, which are lazily informed of pool map invalidation each time they communicate with servers. To do so, clients pack in every RPC their current pool map version. Servers reply not only with the current pool map version. Consequently, when a DAOS client experiences RPC timeout, it regularly communicates with the other DAOS target to guarantee that its pool map is always current. Clients will then eventually be informed of the target exclusion and enter into degraded mode.</p>
+<p>This mechanism guarantees global node eviction and that all nodes eventually share the same view of target aliveness.</p>
+<p><a id="4.3.4"></a></p>
+<h2 id="fault-recovery">Fault Recovery</h2>
+<p>Upon exclusion from the pool map, each target starts the rebuild process automatically to restore data redundancy. First, each target creates a list of local objects impacted by the target exclusion. This is done by scanning a local object table maintained by the underlying storage layer. Then for each impacted object, the location of the new object shard is determined and redundancy of the object restored for the whole history (i.e., snapshots). Once all impacted objects have been rebuilt, the pool map is updated a second time to report the target as failed out. This marks the end of collective rebuild process and the exit from degraded mode for this particular fault. At this point, the pool has fully recovered from the fault and client nodes can now read from the rebuilt object shards.</p>
+<p>This rebuild process is executed online while applications continue accessing and updating objects.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../security/" class="btn btn-neutral float-right" title="Security Model">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../transaction/" class="btn btn-neutral" title="Transaction Model"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../transaction/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../security/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
