@@ -176,8 +176,6 @@
 <h2 id="preflight-checklist">Preflight Checklist</h2>
 <p>This section covers the preliminary setup required on the compute and
 storage nodes before deploying DAOS.</p>
-<p>For the impatient, skip to <a href="#-basic-workflow">Basic Workflows</a> for
-commands to get you started quickly.</p>
 <h3 id="time-synchronization">Time Synchronization</h3>
 <p>The DAOS transaction model relies on timestamps and requires time to be
 synchronized across all the storage and client nodes. This can be done
@@ -970,13 +968,17 @@ storage on the server node (skipping confirmation) on devices specified
 in the server configuration file, then writes the superblock and
 starts the data plane.</p>
 <p><img alt="Server format diagram" src="/doc/graph/server_format_flow.png" /></p>
-<p>Typically an administrator will perform the following tasks:
-1. Prepare NVMe and SCM Storage
-    - <code>sudo daos_server [&lt;app_opts&gt;] storage prep-nvme [&lt;cmd_opts&gt;]</code>
-    <a href="#nvme-prep">NVMe details</a>
-    - <code>sudo daos_server [&lt;app_opts&gt;] storage prep-scm [&lt;cmd_opts&gt;]</code>
-    <a href="#scm-prep">SCM details</a></p>
+<p>Typically an administrator will perform the following tasks:</p>
 <ol>
+<li>
+<p>Prepare NVMe and SCM Storage</p>
+<ul>
+<li><code>sudo daos_server [&lt;app_opts&gt;] storage prep-nvme [&lt;cmd_opts&gt;]</code>
+<a href="#nvme-prep">NVMe details</a></li>
+<li><code>sudo daos_server [&lt;app_opts&gt;] storage prep-scm [&lt;cmd_opts&gt;]</code>
+<a href="#scm-prep">SCM details</a></li>
+</ul>
+</li>
 <li>
 <p>Scan Storage</p>
 <ul>
@@ -1018,8 +1020,8 @@ requires subsequent restart of <code>daos_server</code>)</p>
 <li>
 <p>Format Storage (from any node)</p>
 <ul>
-<li>When 'daos_server' is started for the first time (and no SCM directory exists),
-'daos_server' enters "maintenance mode" and waits for a 'daos_shell storage format' call to be issued from the management tool. This remote call will trigger the formatting of the locally attached storage on the host for use with DAOS using the parameters defined in the server config file.</li>
+<li>When <code>daos_server</code> is started for the first time (and no SCM directory exists),
+<code>daos_server</code> enters "maintenance mode" and waits for a <code>daos_shell storage format</code> call to be issued from the management tool. This remote call will trigger the formatting of the locally attached storage on the host for use with DAOS using the parameters defined in the server config file.</li>
 <li><code>daos_shell -i -l &lt;host:port&gt;,... storage format -f</code>
 <a href="/src/control/cmd/dmg/README.md#storage-format">management tool details</a></li>
 <li><a href="/src/control/server/README.md#scm-format">SCM specific details</a></li>
