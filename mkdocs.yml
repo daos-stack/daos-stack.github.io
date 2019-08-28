@@ -13,7 +13,6 @@ repo_url: https://github.com/daos-stack/daos
 theme:
   name: readthedocs
   language: en
-  logo: https://avatars3.githubusercontent.com/u/20561043?s=400&u=0aebbeb06413dede6d22de37acc54a2947be2d01&v=4
 
 docs_dir: ./
 
