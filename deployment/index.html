@@ -84,11 +84,15 @@
         
             <li><a class="toctree-l4" href="#preflight-checklist">Preflight Checklist</a></li>
         
+            <li><a class="toctree-l4" href="#hardware-provisioning">Hardware Provisioning</a></li>
+        
             <li><a class="toctree-l4" href="#server-configuration">Server Configuration</a></li>
         
             <li><a class="toctree-l4" href="#server-startup">Server Startup</a></li>
         
-            <li><a class="toctree-l4" href="#daos-formatting">DAOS Formatting</a></li>
+            <li><a class="toctree-l4" href="#daos-storage-server-formatting">DAOS Storage &amp; Server Formatting</a></li>
+        
+            <li><a class="toctree-l4" href="#basic-workflow">Basic Workflow</a></li>
         
             <li><a class="toctree-l4" href="#agent-configuration">Agent Configuration</a></li>
         
@@ -254,8 +258,9 @@ time the system is provisioned and requires a reboot to take effect.</p>
 <p>Several tasks (e.g. storage access, hugepages configuration) performed
 by the DAOS server require elevated permissions on the storage nodes
 (requiring certain commands to be run as root or with sudo).</p>
+<h2 id="hardware-provisioning">Hardware Provisioning</h2>
 <h3 id="storage-preparation">Storage Preparation</h3>
-<h4 id="scm-prep">SCM prep</h4>
+<h4 id="scm">SCM</h4>
 <p>This section addresses how to verify that Optane DC Persistent memory
 (DCPM) is correctly installed on the storage nodes and how to configure
 it in interleaved mode to be used by DAOS in AppDirect mode.
@@ -316,42 +321,89 @@ help output (use “ipmctl help” to display it).</p>
 </tbody>
 </table>
 <p>Moreover, DAOS requires DCPM to be configured in interleaved mode. A
-command mode option (--set-interleaved) can be used as a "one-shot"
+storage subcommand (prep-scm) can be used as a "command mode"
 invocation of <em>daos_server</em> and must be run as root. SCM modules will
 be configured into interleaved regions with memory mode set to
-"app-direct" with one set per socket (each module is assigned to socket
-and reports this via its NUMA rating). This configuration may require a
-reboot and <em>daos_server</em> will exit on completion of the task.</p>
-<p>This can be done manually via the following commands:</p>
-<p># to verify there is non-volatile memory type</p>
-<p># ipmctl show -a -topology | egrep 'Capac|MemoryType'</p>
-<p>MemoryType=Logical Non-Volatile Device</p>
-<p>Capacity=502.6 GiB</p>
-<p>MemoryType=Logical Non-Volatile Device</p>
-<p>Capacity=502.6 GiB</p>
-<p>MemoryType=Logical Non-Volatile Device</p>
-<p>Capacity=502.6 GiB
-[…]</p>
-<p># ipmctl create -goal PersistentMemoryType=AppDirect</p>
-<p>A reboot is required after those changes.</p>
-<h4 id="nvme-prep">NVMe prep</h4>
+"AppDirect" mode with one set per socket (each module is assigned to socket
+and reports this via its NUMA rating).</p>
+<p><code>sudo daos_server [&lt;app_opts&gt;] storage prep-scm [&lt;cmd_opts&gt;]</code>
+The first time the command is run, SCM AppDirect regions will be created as
+resource allocations on any available DCPM modules (one region per NUMA
+node/socket). The regions are activated after BIOS reads the new resource
+allocations and therefore after initial completion the command prints a
+message to ask for a reboot (the command will not a initiate reboot itself).</p>
+<p>'sudo daos_server storage prep-scm' should be run for a second time after
+system reboot in order to create the pmem kernel devices (/dev/pmemX -
+namespaces created on the new SCM regions).</p>
+<p>One namespace per region is created, each namespace may take up to a few
+minutes to create. Details of pmem devices will be displayed in JSON format
+on command completion.</p>
+<p>Example output from initial call (with SCM modules set to default MemoryMode):</p>
+<pre><code class="bash">Memory allocation goals for SCM will be changed and namespaces modified, this
+will be a destructive operation.  ensure namespaces are unmounted and SCM is
+otherwise unused.
+Are you sure you want to continue? (yes/no)
+yes
+A reboot is required to process new memory allocation goals.
+</code></pre>
+
+<p>Example output from subsequent call (SCM modules configured to AppDirect
+mode and host rebooted):</p>
+<pre><code class="bash">Memory allocation goals for SCM will be changed and namespaces modified, this
+will be a destructive operation. Please ensure namespaces are unmounted and SCM
+is otherwise unused.
+Are you sure you want to continue? (yes/no)
+yes
+creating SCM namespace, may take a few minutes...
+creating SCM namespace, may take a few minutes...
+Persistent memory kernel devices:
+[{UUID:5d2f2517-9217-4d7d-9c32-70731c9ac11e Blockdev:pmem1 Dev:namespace1.0 NumaNode:1} {UUID:2bfe6c40-f79a-4b8e-bddf-ba81d4427b9b Blockdev:pmem0 Dev:namespace0.0 NumaNode:0}]
+</code></pre>
+
+<p><code>sudo daos_server [&lt;app_opts&gt;] storage prep-scm --reset [&lt;cmd_opts&gt;]</code></p>
+<p>All namespaces are disabled and destroyed. SCM regions are removed by
+resetting modules into "MemoryMode" through resource allocations.</p>
+<p>Note, undefined behaviour may result if the namespaces/pmem kernel
+devices are mounted prior to running reset (as per the printed warning).</p>
+<p>Subsequent reboot is required in order for BIOS to read the new resource
+allocations.</p>
+<p>Example output when resetting SCM modules:</p>
+<pre><code class="bash">Memory allocation goals for SCM will be changed and namespaces modified, this
+will be a destructive operation.  ensure namespaces are unmounted and SCM is
+otherwise unused.
+Are you sure you want to continue? (yes/no)
+yes
+removing SCM namespace, may take a few minutes...
+removing SCM namespace, may take a few minutes...
+resetting SCM memory allocations
+A reboot is required to process new memory allocation goals.
+</code></pre>
+
+<h4 id="nvme">NVMe</h4>
 <p>DAOS supports only NVMe-capable SSDs that are accessed directly from
 userspace through the SPDK library.</p>
-<p>NVMe access through SPDK as an unprivileged user can be enabled by first
-running <code>sudo daos_server storage prep-nvme -p 4096 -u bob</code> (list of
-PCI addresses can also be supplied to avoid unbinding all PCI devices
-from the kernel, see <code>daos_server storage prep-nvme --help</code> for details).
-This will perform the required setup in order for daos_server to be run
+<p>NVMe access through SPDK as an unprivileged user can be enabled by
+running the example command
+<code>sudo daos_server storage prep-nvme -p 4096 -u bob</code>.</p>
+<p>This will perform the required setup in order for <code>daos_server</code> to be run
 by user "bob" who will own the hugepage mountpoint directory and vfio
-groups as needed in SPDK operations. If the target-user is unspecified
-(-u short option), the target user will be the issuer of the sudo command
-(or root if not using sudo). The specification of hugepages (-p short
-option) defines the number of huge pages to allocate for use by SPDK.</p>
-<p><code>sudo daos_server storage prep-nvme ...</code> command wraps the SPDK setup script
-to unbind the devices from original kernel drivers and then bind the devices
-to a generic driver through which SPDK can communicate. The devices can then
-be bound back to the original drivers with the command
-<code>sudo daos_server storage prep-nvme --reset</code>.</p>
+groups as needed in SPDK operations.</p>
+<p>If the target-user is unspecified (<code>-u</code> short option), the target user
+will be the issuer of the sudo command (or root if not using sudo).</p>
+<p>The specification of hugepages (<code>-p</code> short option) defines the number
+of huge pages to allocate for use by SPDK.</p>
+<p>A list of PCI addresses can also be supplied to avoid unbinding all
+PCI devices from the kernel, using the <code>-w</code> / <code>--pci-whitelist</code> option.</p>
+<p><code>sudo daos_server [&lt;app_opts&gt;] storage prep-nvme [&lt;cmd_opts&gt;]</code>
+command wraps the SPDK setup script to unbind the devices from
+original kernel drivers and then binds the devices to a UIO driver
+through which SPDK can communicate.</p>
+<p>When a PCI address whitelist is not specified, SPDK access to all SSDs
+will be enabled for the user (either the user executing sudo, the user
+specified as --target-user or effective user - in that order of precedence)
+involving changing ownership of relevant files in addition to SPDK setup.</p>
+<p>The devices can then be bound back to the original drivers with the command
+<code>sudo daos_server [&lt;app_opts&gt;] storage prep-nvme --reset [&lt;cmd_opts&gt;]</code>.</p>
 <h3 id="storage-detection-selection">Storage Detection &amp; Selection</h3>
 <p>While the DAOS server will eventually auto-detect all the usable
 storage, the administrator will still be provided the ability through
@@ -362,51 +414,34 @@ populate the configuration file when the administrator wants to have
 finer control over the storage selection.</p>
 <p><code>sudo daos_server storage scan</code> can be used to display locally-attached SSDs
 and Intel Persistent Memory Models usable by DAOS.</p>
-<pre><code>$ daos_server storage scan
-
+<pre><code class="bash">$ daos_server storage scan
 […]
-
-Listing attached storage...
-
-NVMe:
-- id: 0
-model: 'INTEL SSDPED1K375GA '
-serial: 'PHKS7335006W375AGN '
-pciaddr: 0000:81:00.0
-fwrev: E2010420
-namespace:
-- id: 1
-capacity: 375
-
-SCM:
-- physicalid: 28
-  channel: 0
-  channelpos: 1
-  memctrlr: 0
-  socket: 0
-  capacity: 539661172736
-- physicalid: 40
-  channel: 0
-  channelpos: 1
-  memctrlr: 1
-  socket: 0
-  capacity: 539661172736
-- physicalid: 50
-  channel: 0
-  channelpos: 1
-  memctrlr: 0
-  socket: 1
-  capacity: 539661172736
-- physicalid: 62
-  channel: 0
-  channelpos: 1
-  memctrlr: 1
-  socket: 1
-  capacity: 539661172736
+NVMe SSD controller and constituent namespaces:
+        PCI Addr:0000:da:00.0 Serial:PHKS7505005Y750BGN   Model:INTEL SSDPED1K750GA  Fwrev:E2010325 Socket:1
+                Namespace: id:1 capacity:750
+        PCI Addr:0000:81:00.0 Serial:PHKS7505007J750BGN   Model:INTEL SSDPED1K750GA  Fwrev:E2010325 Socket:1
+                Namespace: id:1 capacity:750
+        PCI Addr:0000:87:00.0 Serial:CVFT5392000G1P6DGN   Model:INTEL SSDPEDMD016T4  Fwrev:8DV10171 Socket:1
+                Namespace: id:1 capacity:1600
+SCM modules:
+        PhysicalID:36 Capacity:539661172736 Location:(socket:0 memctrlr:0 chan:0 pos:1)
+        PhysicalID:40 Capacity:539661172736 Location:(socket:0 memctrlr:0 chan:1 pos:1)
+        PhysicalID:44 Capacity:539661172736 Location:(socket:0 memctrlr:0 chan:2 pos:1)
+        PhysicalID:50 Capacity:539661172736 Location:(socket:0 memctrlr:1 chan:0 pos:1)
+        PhysicalID:52 Capacity:539661172736 Location:(socket:0 memctrlr:1 chan:1 pos:0)
+        PhysicalID:55 Capacity:539661172736 Location:(socket:0 memctrlr:1 chan:2 pos:0)
+        PhysicalID:62 Capacity:539661172736 Location:(socket:1 memctrlr:0 chan:0 pos:1)
+        PhysicalID:66 Capacity:539661172736 Location:(socket:1 memctrlr:0 chan:1 pos:1)
+        PhysicalID:70 Capacity:539661172736 Location:(socket:1 memctrlr:0 chan:2 pos:1)
+        PhysicalID:76 Capacity:539661172736 Location:(socket:1 memctrlr:1 chan:0 pos:1)
+        PhysicalID:78 Capacity:539661172736 Location:(socket:1 memctrlr:1 chan:1 pos:0)
+        PhysicalID:81 Capacity:539661172736 Location:(socket:1 memctrlr:1 chan:2 pos:0)
 </code></pre>
 
 <p>The pciaddr field above is what should be used in the server
 configuration file to identified NVMe SSDs.</p>
+<p>Devices with the same NUMA node/socket should be used in the same per-server
+section of the server configuration file for best performance.</p>
 <h3 id="network-interface-detection-selection">Network Interface Detection &amp; Selection</h3>
 <p>To display the supported OFI provider, use the following command:</p>
 <p># /scratch/standan/daos_m/opt/ofi/bin/fi_info -l</p>
@@ -444,8 +479,29 @@ to verify that the targeted OFI provider works fine:</p>
 <p>64k 10 =10 1.2m 0.00s 2145.20 30.55 0.03</p>
 <p>1m 10 =10 20m 0.00s 8867.45 118.25 0.01</p>
 <p>Further details will be added to this section in a future revision.</p>
+<h3 id="storage-firmware-upgrade">Storage Firmware Upgrade</h3>
+<p>Firmware on an NVMe controller can be updated from an image on local
+storage (initially installing from a local path on the host that is
+running <em>daos_server</em> but to be extended to downloading remotely from
+central storage location).</p>
+<p>When the controller is selected and an update firmware task runs,
+controller data is accessed through an existing linked list through the
+binding fwupdate call and a raw command specifying firmware update with
+local image (specified by filepath) and slot identifier. The firmware
+update is followed by a hard reset on the controller.</p>
+<h3 id="storage-burn-in">Storage Burn in</h3>
+<p>Burn-in testing can be performed on discovered NVMe controllers. By
+default this involves a 15-minute slow burn-in test with a mixed
+read/write workload issued by fio but test duration and load strength
+should be user configurable. Burn-in should run in the background to
+allow administrators to use the control-plane for other tasks in the
+meantime.</p>
+<p>The fio repo is to be built and needs to be referenced when building the
+SPDK fio_plugin. The plug-in can then be run by fio to exercise the
+NVMe device through SPDK. Currently the output of the burn-in is
+displayed in the shell and control is returned to the user after
+completion. Future iterations may perform this as a background task.</p>
 <h2 id="server-configuration">Server Configuration</h2>
-<hr />
 <p>This section addresses how to configure the DAOS servers on the storage
 nodes before starting it.</p>
 <h3 id="certificate-generation">Certificate Generation</h3>
@@ -712,7 +768,6 @@ block devices that should be different across different server instance.</p>
 <p>bdev_class: kdev</p>
 <p>bdev_list: [/dev/sdc,/dev/sdd]</p>
 <h2 id="server-startup">Server Startup</h2>
-<hr />
 <p>DAOS currently relies on PMIx for server wire-up and application to
 server connection. As a result, the DAOS servers can only be started via
 orterun (part of OpenMPI). A new bootstrap procedure is under
@@ -747,7 +802,7 @@ to storage format).</p>
 <summary>Example output from invoking `daos_server` on multiple hosts with `orterun` (with logging to stdout for illustration purposes)</summary>
 <p>
 
-<pre><code class="bash">[tanabarr@boro-45 daos_m]$ orterun -np 2 -H boro-44,boro-45 --report-uri /tmp/urifile --enable-recovery daos_server -t 1 -o /home/tanabarr/projects/daos_m/utils/config/examples/daos_server_sockets.yml
+<pre><code class="bash">[tanabarr@boro-45 daos_m]$ orterun -np 2 -H boro-44,boro-45 --report-uri /tmp/urifile --enable-recovery daos_server -o /home/tanabarr/projects/daos_m/utils/config/examples/daos_server_sockets.yml start -t 1
 2019/03/28 12:28:07 config.go:85: debug: DAOS config read from /home/tanabarr/projects/daos_m/utils/config/examples/daos_server_sockets.yml
 2019/03/28 12:28:07 config.go:85: debug: DAOS config read from /home/tanabarr/projects/daos_m/utils/config/examples/daos_server_sockets.yml
 2019/03/28 12:28:07 main.go:79: debug: Switching control log level to DEBUG
@@ -802,123 +857,29 @@ DAOS I/O server (v0.0.2) process 23680 started on rank 0 (out of 2) with 1 targe
 </p>
 </details>
 
-<h3 id="basic-workflow">Basic Workflow</h3>
-<p>Control plane server (<a href="/src/control/server">daos_server</a>) instances will
-listen for requests from the management tool (<a href="/src/control/cmd/dmg">daos_shell</a>),
-enabling users to perform provisioning operations on network and storage
-hardware remotely on storage nodes (from for example a login node).</p>
-<p>When <code>daos_server</code> instances have been started on each storage node
-for the first time, calling
-<code>daos_shell -l &lt;host:port&gt;,... storage format -f</code> formats persistent
-storage on the server node (skipping confirmation) on devices specified
-in the server configuration file, then writes the superblock and
-starts the data plane.</p>
-<p><img alt="Server format diagram" src="/doc/graph/server_format_flow.png" /></p>
-<p>Typically an administrator will perform the following tasks:
-1. Prepare NVMe and SCM Storage
-    - <code>sudo daos_server storage prep-nvme ...</code>
-    <a href="#-nvme-prep">NVMe details</a>
-    - <a href="#-scm-prep">SCM details</a></p>
-<ol>
-<li>
-<p>Scan Storage</p>
-<ul>
-<li><code>sudo daos_server storage scan</code>
-<a href="#-storage-detection-&amp;-selection">details</a></li>
-</ul>
-</li>
-<li>
-<p>Add device identifiers to Server config file</p>
-<ul>
-<li><code>vim &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
-<a href="#-server-configuration">details</a></li>
-<li>For DCPM SCM, these fields need to be specified:</li>
-</ul>
-<p># When scm_class is set to dcpm, scm_list is the list of device paths for</p>
-<p># AppDirect pmem namespaces (currently only one per server supported).</p>
-</li>
-</ol>
-<p>scm_mount: /mnt/pmem1</p>
-<p>scm_class: dcpm</p>
-<p>scm_list: [/dev/pmem1]</p>
-<ol>
-<li>
-<p>Start DAOS control plane</p>
-<ul>
-<li><code>orterun -np 2 -H boro-44,boro-45 --report-uri /tmp/urifile --enable-recovery daos_server -t 1 -i -o &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
-<a href="#-parallel-launcher">details</a></li>
-</ul>
-</li>
-<li>
-<p>Provision Storage</p>
-<ul>
-<li>firmware update <a href="#-firmware-upgrade">details</a></li>
-<li>burn-in testing <a href="#-storage-burn-in">details</a></li>
-</ul>
-</li>
-<li>
-<p>Amend Server config file (optional, requires subsequent restart of
-<code>daos_server</code>)</p>
-<ul>
-<li><code>vim &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
-<a href="#-server-configuration">details</a></li>
-</ul>
-</li>
-<li>
-<p>Format Storage (from any node)</p>
-<ul>
-<li><code>daos_shell -i -l &lt;host:port&gt;,... storage format -f</code>
-<a href="/src/control/cmd/dmg/README.md#-storage-format">management tool details</a></li>
-<li><a href="/src/control/server/README.md#-scm-format">SCM specific details</a></li>
-<li><a href="/src/control/server/README.md#-nvme-format">NVMe specific details</a></li>
-</ul>
-</li>
-</ol>
-<div style="margin-left: 4em;">
-<details>
-<summary>Example output</summary>
-<p>
-
-<pre><code class="bash">[tanabarr@ssh-1 ~]$ daos_shell -l boro-45:10001 storage format -f
-2019/06/19 15:51:44 config.go:122: debug: DAOS Client config read from /home/tanabarr/projects/daos_m/install/etc/daos.yml
-Active connections: [boro-45:10001]
-
-This is a destructive operation and storage devices specified in the server config file will be erased.
-Please be patient as it may take several minutes.
-
-
-Listing NVMe storage format results on connected storage servers:
-boro-45:10001:
-- pciaddr: &quot;&quot;
-  state:
-    status: 0
-    error: &quot;&quot;
-    info: no controllers specified
-
-
-Listing SCM storage format results on connected storage servers:
-boro-45:10001:
-- mntpoint: /mnt/daos
-  state:
-    status: 0
-    error: &quot;&quot;
-    info: status=CTRL_SUCCESS
+<h3 id="systemd-integration">Systemd Integration</h3>
+<p>Systemd support for daos_server is still experimental as it will start the
+daos_server and daos_io_server components in PMIXless mode which is still in
+development.</p>
+<p>DAOS Server can be started as a systemd service. The DAOS Server
+unit file is installed in the correct location when installing from RPMs.
+If you wish to use systemd with a development build you must copy the service
+file from utils/systemd to /usr/lib/systemd/system. Once the file is copied
+modify the ExecStart line to point to your in tree daos_server binary.</p>
+<p>Once the service file is installed you can start daos_server
+with the following commands:</p>
+<pre><code class="bash">systemctl enable daos-server
+systemctl start daos-server
 </code></pre>
 
+<p>To check the component status use:</p>
+<pre><code class="bash">systemctl status daos-server
+</code></pre>
 
-</p>
-</details>
-</div>
+<p>If DAOS Server failed to start check the logs with:</p>
+<pre><code class="bash">journalctl --unit daos-server
+</code></pre>
 
-<ol>
-<li>Create Pool (DAOS I/O - data plane - should now be running)
-TODO: add instructions</li>
-</ol>
-<h3 id="systemd-integration">Systemd Integration</h3>
-<p>A preliminary systemd script to manage the DAOS server is available
-under utils/system. That being said, this startup method is not
-supported yet since the current DAOS version still relies on PMIx for
-DAOS server wireup.</p>
 <h3 id="kubernetes-pod">Kubernetes Pod</h3>
 <p>DAOS service integration with Kubernetes is planned and will be
 supported in a future DAOS version.</p>
@@ -938,9 +899,9 @@ components:</p>
 </li>
 <li>
 <p>SPDK environment using a shared memory segment identifier causing
-    the process to act as a primary in multi-process mode. From there,
-    the main process can respond to requests over the client API for
-    information through the SPDK interface.</p>
+the process to act as a primary in multi-process mode. From there,
+the main process can respond to requests over the client API for
+information through the SPDK interface.</p>
 </li>
 </ul>
 <p>The daos_shell is a transitory tool used to exercise the management api
@@ -952,67 +913,153 @@ storage node. This command will show whether the DAOS server is properly
 running and initialized on each storage node. A more comprehensive and
 user-friendly tool built over the management API is under development. A
 first version will be available for DAOS v1.0.</p>
-<h3 id="firmware-upgrade">Firmware Upgrade</h3>
-<hr />
-<p>Firmware on an NVMe controller can be updated from an image on local
-storage (initially installing from a local path on the host that is
-running <em>daos_server</em> but to be extended to downloading remotely from
-central storage location).</p>
-<p>When the controller is selected and an update firmware task runs,
-controller data is accessed through an existing linked list through the
-binding fwupdate call and a raw command specifying firmware update with
-local image (specified by filepath) and slot identifier. The firmware
-update is followed by a hard reset on the controller.</p>
-<h3 id="storage-burn-in">Storage Burn in</h3>
-<hr />
-<p>Burn-in testing can be performed on discovered NVMe controllers. By
-default this involves a 15-minute slow burn-in test with a mixed
-read/write workload issued by fio but test duration and load strength
-should be user configurable. Burn-in should run in the background to
-allow administrators to use the control-plane for other tasks in the
-meantime.</p>
-<p>The fio repo is to be built and needs to be referenced when building the
-SPDK fio_plugin. The plug-in can then be run by fio to exercise the
-NVMe device through SPDK. Currently the output of the burn-in is
-displayed in the shell and control is returned to the user after
-completion. Future iterations may perform this as a background task.</p>
-<h2 id="daos-formatting">DAOS Formatting</h2>
-<p>Distributed formatting through the DAOS servers for both SCM and SSDs is
-under development and will be documented there once available.</p>
-<p>Meanwhile, we need to create namespace for SCM:</p>
-<p># Create a /dev/pmem* device for one NUMA node, use ndctl as root user</p>
-<p># ndctl create-namespace</p>
-<p>{</p>
-<p>"dev":"namespace1.0",</p>
-<p>"mode":"fsdax",</p>
-<p>"map":"dev",</p>
-<p>"size":"2964.94 GiB (3183.58 GB)",</p>
-<p>"uuid":"842fc847-28e0-4bb6-8dfc-d24afdba1528",</p>
-<p>"raw_uuid":"dedb4b28-dc4b-4ccd-b7d1-9bd475c91264",</p>
-<p>"sector_size":512,</p>
-<p>"blockdev":"pmem1",</p>
-<p>"numa_node":1</p>
-<p>}</p>
-<p># Show regions with 0 free space after namespace created</p>
-<p># ipmctl show -region</p>
-<p>SocketID | ISetID | PersistentMemoryType | Capacity | FreeCapacity |
-HealthState</p>
-<p>================================================================================</p>
-<p>0x0000 | 0xb1887f48651e2ccc | AppDirect | 3012.0 GiB | 3012.0 GiB |
-Healthy</p>
-<p>0x0001 | 0xf77a7f481e352ccc | AppDirect | 3012.0 GiB | 0.0 GiB | Healthy</p>
-<p>For the first time DAOS installation, the <a href="/src/control/server/README.md#-scm-format">SCM format</a> will be handled by DAOS. Otherwise, it should be formatted manually as an ext4 filesystem and mounted
-with the dax option prior to start the DAOS servers on each storage node:</p>
-<p># mkfs.ext4 /dev/pmem1</p>
-<p>[…]</p>
-<p># mount -o dax /dev/pmem1 /mnt/daos</p>
-<p>If SCM is emulated with DRAM, then a tmpfs filesystem should be mounted:</p>
-<p># mount –t tmpfs –o size=16G tmpfs /mnt/daos</p>
-<p>Replace 16G with the desired tmpfs size.</p>
+<h2 id="daos-storage-server-formatting">DAOS Storage &amp; Server Formatting</h2>
+<h3 id="storage-format">Storage Format</h3>
+<p>When 'daos_server' is started for the first time (and no SCM directory exists),
+it enters "maintenance mode" and waits for a <code>daos_shell storage format</code> call to
+be issued from the management tool.
+This remote call will trigger the formatting of the locally attached storage on
+the host for use with DAOS using the parameters defined in the server config file.</p>
+<p><code>daos_shell -i -l &lt;host:port&gt;[,...] storage format</code> will normally be run on a login
+node specifying a hostlist (<code>-l &lt;host:port&gt;[,...]</code>) of storage nodes with SCM/DCPM
+modules and NVMe SSDs installed and prepared.</p>
+<h4 id="scm-format">SCM Format</h4>
+<p>When the command is run, pmem kernel devices created on SCM/DCPM regions are
+formatted and mounted based on the parameters provided in the server config file.</p>
+<ul>
+<li><code>scm_mount</code> specifies location of the mountpoint to create.</li>
+<li><code>scm_class</code> can be set to <code>ram</code> to use a tmpfs in the situation that no SCM/DCPM
+is available (scm_size dictates size of tmpfs in GB), when set to <code>dcpm</code> the device
+specified under <code>scm_list</code> will be mounted at <code>scm_mount</code> path.</li>
+</ul>
+<h4 id="nvme-format">NVMe Format</h4>
+<p>When the command is run, NVMe SSDs are formatted and setup to be used by DAOS
+based on the parameters provided in the server config file.</p>
+<p><code>bdev_class</code> can be set to <code>nvme</code> to use actual NVMe devices with SPDK for DAOS
+storage.
+Other <code>bdev_class</code> values can be used for emulation of NVMe storage as specified
+in the server config file.
+<code>bdev_list</code> identifies devices to use with a list of PCI addresses (this can be
+populated after viewing results from <code>storage scan</code> command).</p>
+<p>After the format command is run, the path specified by the server configuration
+file <code>scm_mount</code> parameter should be mounted and should contain a file named
+<code>daos_nvme.conf</code>.
+The file should describe the devices with PCI addresses as listed in the
+<code>bdev_list</code> parameter of the server config file.
+The presence and contents of the file indicates that the specified NVMe SSDs have
+been configured correctly for use with DAOS.</p>
+<p>The contents of the NVMe SSDs listed in the server configuration file <code>bdev_list</code>
+parameter will be reset on format.</p>
+<h3 id="server-format">Server Format</h3>
+<p>Before the format command is run, no <code>superblock</code> file should exist under the
+path specified by <code>scm_mount</code> parameter in the server configuration file.</p>
+<p>After the <code>storage format</code> command is run, the path specified by the server
+configuration file <code>scm_mount</code> parameter should be mounted and should contain
+a file named <code>superblock</code> indicating that the server has been formatted.</p>
+<p>When starting, <code>daos_server</code> will skip <code>maintenance mode</code> and attempt to start
+IO services if the <code>superblock</code> is found in <code>scm_mount</code>.</p>
+<h2 id="basic-workflow">Basic Workflow</h2>
+<p>Control plane server (<a href="/src/control/server">daos_server</a>) instances will
+listen for requests from the management tool (<a href="/src/control/cmd/dmg">daos_shell</a>),
+enabling users to perform provisioning operations on network and storage
+hardware remotely on storage nodes (from for example a login node).</p>
+<p>When <code>daos_server</code> instances have been started on each storage node
+for the first time, calling
+<code>daos_shell -l &lt;host:port&gt;,... storage format -f</code> formats persistent
+storage on the server node (skipping confirmation) on devices specified
+in the server configuration file, then writes the superblock and
+starts the data plane.</p>
+<p><img alt="Server format diagram" src="/doc/graph/server_format_flow.png" /></p>
+<p>Typically an administrator will perform the following tasks:
+1. Prepare NVMe and SCM Storage
+    - <code>sudo daos_server [&lt;app_opts&gt;] storage prep-nvme [&lt;cmd_opts&gt;]</code>
+    <a href="#nvme-prep">NVMe details</a>
+    - <code>sudo daos_server [&lt;app_opts&gt;] storage prep-scm [&lt;cmd_opts&gt;]</code>
+    <a href="#scm-prep">SCM details</a></p>
+<ol>
+<li>
+<p>Scan Storage</p>
+<ul>
+<li><code>sudo daos_server [&lt;app_opts&gt;] storage scan [&lt;cmd_opts&gt;]</code>
+<a href="#storage-detection--selection">details</a></li>
+</ul>
+</li>
+<li>
+<p>Add device identifiers to Server config file</p>
+<ul>
+<li><code>vim &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
+<a href="#server-configuration">details</a></li>
+<li>just specify NVMe PCI addresses with <code>bdev_list</code> for now</li>
+</ul>
+</li>
+<li>
+<p>Start DAOS control plane</p>
+<ul>
+<li><code>orterun -np 2 -H boro-44,boro-45 --report-uri /tmp/urifile --enable-recovery daos_server -o &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml start -t 1 -i</code>
+<a href="#parallel-launcher">details</a></li>
+</ul>
+</li>
+<li>
+<p>Provision Storage</p>
+<ul>
+<li>firmware update <a href="#firmware-upgrade">details</a></li>
+<li>burn-in testing <a href="#storage-burn-in">details</a></li>
+</ul>
+</li>
+<li>
+<p>Amend Server config file (adjust based on the results of storage provisioning,
+requires subsequent restart of <code>daos_server</code>)</p>
+<ul>
+<li><code>vim &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
+<a href="#server-configuration">details</a></li>
+<li>populate the <code>scm_*</code> and <code>bdev_*</code> parameters as used in format (below)</li>
+</ul>
+</li>
+<li>
+<p>Format Storage (from any node)</p>
+<ul>
+<li>When 'daos_server' is started for the first time (and no SCM directory exists),
+'daos_server' enters "maintenance mode" and waits for a 'daos_shell storage format' call to be issued from the management tool. This remote call will trigger the formatting of the locally attached storage on the host for use with DAOS using the parameters defined in the server config file.</li>
+<li><code>daos_shell -i -l &lt;host:port&gt;,... storage format -f</code>
+<a href="/src/control/cmd/dmg/README.md#storage-format">management tool details</a></li>
+<li><a href="/src/control/server/README.md#scm-format">SCM specific details</a></li>
+<li><a href="/src/control/server/README.md#nvme-format">NVMe specific details</a></li>
+</ul>
+</li>
+</ol>
+<div style="margin-left: 4em;">
+<details>
+<summary>Example output</summary>
+<p>
+
+<pre><code class="bash">[tanabarr@&lt;hostname&gt; daos_m]# daos_shell -i -l &lt;hostname&gt;:10001 -i storage format -f
+Active connections: [&lt;hostname):10001]
+This is a destructive operation and storage devices specified in the server config file will be erased.
+Please be patient as it may take several minutes.
+
+NVMe storage format results:
+&lt;hostname&gt;:10001:
+        pci-address 0000:da:00.0: status CTRL_SUCCESS
+        pci-address 0000:81:00.0: status CTRL_SUCCESS
+
+SCM storage format results:
+&lt;hostname&gt;:10001:
+        mntpoint /mnt/daos: status CTRL_SUCCESS
+</code></pre>
+
+
+</p>
+</details>
+</div>
+
+<ol>
+<li>Create Pool (DAOS I/O - data plane - should now be running)
+TODO: add instructions</li>
+</ol>
 <h2 id="agent-configuration">Agent Configuration</h2>
 <p>This section addresses how to configure the DAOS agents on the storage
 nodes before starting it.</p>
-<h3 id="certificate-generation_1">Certificate Generation</h3>
+<h3 id="agent-certificate-generation">Agent Certificate Generation</h3>
 <p>The DAOS security framework relies on certificates to authenticate
 administrators. The security infrastructure is currently under
 development and will be delivered in DAOS v1.0. Initial support for certificates
@@ -1079,14 +1126,32 @@ components. This setting is the base location to place the sockets in.</p>
 <p>default: /tmp/daos_agent.log</p>
 <p>log_file: /tmp/daos_agent2.log</p>
 <h2 id="agent-startup">Agent Startup</h2>
-<hr />
 <p>DAOS Agent is a standalone application to be run on each compute node.
 It can be configured to use secure communications (default) or can be allowed
 to communicate with the control plane over unencrypted channels. The following
 example shows daos_agent being configured to operate in insecure mode due to
 incomplete integration of certificate support as of the 0.6 release.</p>
-<p>To start the DAOS Agent, run:</p>
-<pre><code>daos_agent -i
+<p>To start the DAOS Agent from the command line, run:</p>
+<pre><code class="bash">daos_agent -i
+</code></pre>
+
+<p>Alternatively the DAOS Agent can be started as a systemd service. The DAOS Agent
+unit file is installed in the correct location when installing from RPMs.
+If you wish to use systemd with a development build you must copy the service
+file from utils/systemd to /usr/lib/systemd/system. Once the file is copied
+modify the ExecStart line to point to your in tree daos_agent binary.</p>
+<p>Once the service file is installed you can start daos_agent
+with the following commands:</p>
+<pre><code class="bash">systemctl enable daos-agent
+systemctl start daos-agent
+</code></pre>
+
+<p>To check the component status use:</p>
+<pre><code class="bash">systemctl status daos-agent
+</code></pre>
+
+<p>If DAOS Agent failed to start check the logs with:</p>
+<pre><code class="bash">journalctl --unit daos-agent
 </code></pre>
 
 <h2 id="system-validation">System Validation</h2>
