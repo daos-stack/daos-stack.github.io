@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="DAOS Project">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Software Installation - DAOS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Software Installation";
+    var mkdocs_page_input_path = "admin/installation.md";
+    var mkdocs_page_url = "/admin/installation/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> DAOS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Overview</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../overview/terminology/">Terminology</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/storage/">Storage Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/transaction/">Transaction Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/fault/">Fault Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/security/">Security Model</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Administration Guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../architecture/">DAOS Architecture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hardware/">Hardware Requirements</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Software Installation</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#daos-software-installation">DAOS Software Installation</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#software-dependencies">Software Dependencies</a></li>
+        
+            <li><a class="toctree-l4" href="#distribution-packages">Distribution Packages</a></li>
+        
+            <li><a class="toctree-l4" href="#daos-source-code">DAOS Source Code</a></li>
+        
+            <li><a class="toctree-l4" href="#daos-from-scratch">DAOS from Scratch</a></li>
+        
+            <li><a class="toctree-l4" href="#daos-in-docker">DAOS in Docker</a></li>
+        
+            <li><a class="toctree-l4" href="#daos-for-development">DAOS for Development</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deployment/">System Deployment</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../administration/">Administration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../pool_operations/">Pool Operations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../app_interface_tiering/">Applications Interface and Tiering</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../performance_tuning/">Performance Tuning</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../utilities_examples/">Utilities and Usage Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../env_variables/">Environment Variables</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">DAOS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Administration Guide &raquo;</li>
+        
+      
+    
+    <li>Software Installation</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/installation.md"> Edit on daos-stack/daos</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="daos-software-installation">DAOS Software Installation</h1>
+<p>DAOS runs on both Intel 64 and ARM64 platforms and has been successfully tested
+on CentOS7, OpenSUSE 42.2 and Ubuntu 18.04 distributions.</p>
+<h2 id="software-dependencies">Software Dependencies</h2>
+<p>DAOS requires a C99-capable compiler, a Go compiler, and the scons build tool.
+Moreover, the DAOS stack leverages the following open source projects:</p>
+<ul>
+<li>
+<p><a href="https://github.com/daos-stack/cart"><em>CaRT</em></a> for high-performance
+    communication leveraging advanced network capabilities.</p>
+</li>
+<li>
+<p><a href="https://grpc.io/"><em>gRPC</em></a> provides an secured out-of-band channel for
+    DAOS administration.</p>
+</li>
+<li>
+<p><a href="https://github.com/pmem/pmdk.git"><em>PMDK</em></a> for persistent memory
+    programming.</p>
+</li>
+<li>
+<p><a href="http://spdk.io/"><em>SPDK</em></a> for userspace NVMe device access and management.</p>
+</li>
+<li>
+<p><a href="https://github.com/axboe/fio"><em>FIO</em></a> for flexible testing of Linux I/O
+    subsystems, specifically enabling validation of userspace NVMe device
+    performance through fio-spdk plugin.</p>
+</li>
+<li>
+<p><a href="https://github.com/01org/isa-l"><em>ISA-L</em></a> for checksum and erasure code
+    computation.</p>
+</li>
+<li>
+<p><a href="https://github.com/pmodels/argobots"><em>Argobots</em></a> for thread management.</p>
+</li>
+</ul>
+<p>The DAOS build system can be configured to download and build any missing
+dependencies automatically.</p>
+<h2 id="distribution-packages">Distribution Packages</h2>
+<p>DAOS RPM and deb packaging is under development and will be available for DAOS
+v1.0. Integration with the <a href="https://spack.io/">Spack</a> package manager is also
+under consideration.</p>
+<h2 id="daos-source-code">DAOS Source Code</h2>
+<p>To check out the DAOS source code, run the following command:</p>
+<pre><code>git clone https://github.com/daos-stack/daos.git
+</code></pre>
+<p>This command clones the DAOS git repository (path referred as ${daospath}
+below). Then initialize the submodules with:</p>
+<pre><code>cd ${daospath}
+git submodule init
+git submodule update
+</code></pre>
+<h2 id="daos-from-scratch">DAOS from Scratch</h2>
+<p>The below instructions have been verified with CentOS. Installations on other
+Linux distributions might be similar with some variations.
+Developers of DAOS may want to check additional sections below before beginning
+for suggestions related specifically to development. Please contact us in our
+<a href="https://daos.groups.io/g/daos"><em>forum</em></a> if running into issues.</p>
+<h3 id="build-prerequisites">Build Prerequisites</h3>
+<p>First of all, please verify that the autotools packages listed below are at the
+appropriate versions (or above):
+-   m4 (GNU M4) 1.4.16
+-   flex 2.5.37
+-   autoconf (GNU Autoconf) 2.69
+-   automake (GNU automake) 1.13.4
+-   libtool (GNU libtool) 2.4.2</p>
+<p>Moreover, a Go version of at least 1.10 is required.</p>
+<p>To build DAOS and its dependencies, several software packages must be installed
+on the system. This includes scons, libuuid, cmocka, ipmctl and several other
+packages usually available on all the Linux distributions.</p>
+<p>A exhaustive list of packages for each supported Linux distribution is
+maintained in the Docker files:
+- <a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.centos.7#L53-L72">CentOS</a>
+- <a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.leap.15#L16-L40">OpenSUSE</a>
+- <a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.ubuntu.18.04#L21-L38">Ubuntu</a></p>
+<p>The command lines to install the required packages can be easily extracted from
+the Docker files by removing the "RUN" command which is specific to Docker.
+Please check the <a href="https://github.com/daos-stack/daos/tree/master/utils/docker">docker</a>
+directory for different Linux distribution versions.</p>
+<h3 id="building-daos-dependencies">Building DAOS &amp; Dependencies</h3>
+<p>If all the software dependencies listed previously are already satisfied, then
+type the following command in the top source directory to build the DAOS stack:</p>
+<pre><code>    scons --config=force install
+</code></pre>
+
+<p>If you are a developer of DAOS, we recommend following the instructions in the
+last section of this chapter.</p>
+<p>Otherwise, the missing dependencies can be built automatically by invoking scons
+with the following parameters:</p>
+<pre><code>    scons --config=force --build-deps=yes install
+</code></pre>
+
+<p>By default, DAOS and its dependencies are installed under ${daospath}/install.
+The installation path can be modified by adding the PREFIX= option to the above
+command line (e.g., PREFIX=/usr/local).</p>
+<h3 id="environment-setup">Environment setup</h3>
+<p>Once built, the environment must be modified to search for binaries and header
+files in the installation path. This step is not required if standard locations
+(e.g. /bin, /sbin, /usr/lib, ...) are used.</p>
+<pre><code>    CPATH=${daospath}/install/include/:$CPATH
+    PATH=${daospath}/install/bin/:${daospath}/install/sbin:$PATH
+    export CPATH PATH
+</code></pre>
+
+<p>If using bash, PATH can be set up for you after a build by sourcing the script
+scons_local/utils/setup_local.sh from the daos root. This script utilizes a file
+generated by the build to determine the location of daos and its dependencies.</p>
+<p>If required, ${daospath}/install must be replaced with the alternative path
+specified through PREFIX.</p>
+<h2 id="daos-in-docker">DAOS in Docker</h2>
+<p>To build the Docker image directly from GitHub, run the following command:</p>
+<pre><code>    $ docker build -t daos -f Dockerfile.centos.7 github.com/daos-stack/daos#:utils/docker
+</code></pre>
+
+<p>This creates a CentOS7 image, fetches the latest DAOS version from GitHub and
+builds it in the container. For Ubuntu and other Linux distributions, replace
+Dockerfile.centos.7 with Dockerfile.ubuntu.18.04 and the appropriate version
+of interest.</p>
+<p>To build from a local tree stored on the host, a volume must be created to share
+the source tree with the Docker container. To do so, please execute the following
+command to create a docker image without checking out the DAOS source tree:</p>
+<pre><code>    $ docker build -t daos -f utils/docker/Dockerfile.centos.7 --build-arg NOBUILD=1 .
+</code></pre>
+
+<p>Then please execute the following command to export the DAOS source tree to the
+docker container and build it:</p>
+<pre><code>    $ docker run -v ${daospath}:/home/daos/daos:Z daos /bin/bash -c &quot;scons --config=force --build-deps=yes install&quot;
+</code></pre>
+
+<p>${daospath} should be replaced with the full path to your DAOS source tree.</p>
+<h2 id="daos-for-development">DAOS for Development</h2>
+<p>This section covers specific instructions to create a developer-friendly
+environment to contribute to the DAOS development. This includes how to
+regenerate the protobuf files or add new Go package dependencies which is
+only required for development purpose.</p>
+<h3 id="building-daos-for-development">Building DAOS for Development</h3>
+<p>For development, it is recommended to build and install each dependency in a
+unique subdirectory. The DAOS build system supports this through the
+TARGET_PREFIX variable. Once the submodules have been initialized and updated,
+run the following commands:</p>
+<pre><code>    scons PREFIX=${daos_prefix_path} TARGET_PREFIX=${daos_prefix_path}/opt install --build-deps=yes --config=force
+</code></pre>
+
+<p>Installing the components into seperate directories allow to upgrade the
+components individually replacing --build-deps=yes with
+--update-prereq={component_name}. This requires change to the environment
+configuration from before. For automated environment setup, source
+scons_local/utils/setup_local.sh.</p>
+<pre><code>    ARGOBOTS=${daos_prefix_path}/opt/argobots
+    CART=${daos_prefix_path}/opt/cart
+    HWLOC=${daos_prefix_path}/opt/hwloc
+    MERCURY=${daos_prefix_path}/opt/mercury
+    PMDK=${daos_prefix_path}/opt/pmdk
+    OMPI=${daos_prefix_path}/opt/ompi
+    OPA=${daos_prefix_path}/opt/openpa
+    PMIX=${daos_prefix_path}/opt/pmix
+    FIO=${daos_prefix_path}/opt/fio
+    SPDK=${daos_prefix_path}/opt/spdk
+
+    PATH=$CART/bin/:$OMPI/bin/:${daos_prefix_path}/bin/:$PATH
+</code></pre>
+
+<p>With this approach DAOS would get built using the prebuilt dependencies in
+${daos_prefix_path}/opt and required options are saved for future compilations.
+So, after the first time, during development, a mere "scons --config=force" and
+"scons --config=force install" would suffice for compiling changes to DAOS
+source code.</p>
+<p>If you wish to compile DAOS with clang rather than gcc, set COMPILER=clang on
+the scons command line.   This option is also saved for future compilations.</p>
+<h3 id="go-dependencies">Go dependencies</h3>
+<p>Developers contributing Go code may need to change the external dependencies
+located in the src/control/vendor directory. The DAOS codebase uses
+<a href="https://github.com/golang/dep">dep</a> to manage these dependencies.</p>
+<p>On EL7 and later:</p>
+<pre><code>    yum install yum-plugin-copr
+    yum copr enable hnakamur/golang-dep
+    yum install golang-dep
+</code></pre>
+
+<p>On Fedora 27 and later:</p>
+<pre><code>    dnf install dep
+</code></pre>
+
+<p>On Ubuntu 18.04 and later:</p>
+<pre><code>    apt-get install go-dep
+</code></pre>
+
+<p>For OSes that don't supply a package:
+- Ensure that you have a personal GOPATH (see "go env GOPATH", referred to as
+"$GOPATH" in this document) and a GOBIN ($GOPATH/bin) set up and included in
+your PATH:</p>
+<pre><code>    mkdir -p $GOPATH/bin
+    export PATH=$GOPATH/bin:$PATH
+</code></pre>
+
+<ul>
+<li>Then follow the <a href="https://github.com/golang/dep">installation instructions on Github</a>.</li>
+</ul>
+<p>To update the vendor directory using dep after changing Gopkg.toml, first make
+sure DAOS is cloned into</p>
+<pre><code>    $GOPATH/src/github.com/daos-stack/daos
+</code></pre>
+
+<p>Then:</p>
+<pre><code>    cd $GOPATH/src/github.com/daos-stack/daos/src/control
+    dep ensure
+</code></pre>
+
+<h3 id="protobuf-compiler">Protobuf Compiler</h3>
+<p>The DAOS control plane infrastructure use protobuf as the data serialization
+format for its RPC requests. The DAOS proto files use protobuf 3 syntax which is
+not supported by the platform protobuf compiler in all cases. Not all developers
+will need to build the proto files into the various source files.
+However, if changes are made to the proto files, the corresponding C and Go
+source files will need to be regenerated with a protobuf 3.* or higher
+compiler.</p>
+<p>The recommended installation method is to clone the git repositories, check out
+the tagged releases noted below, and install from source. Later versions may
+work, but are not guaranteed.</p>
+<ul>
+<li><a href="https://github.com/protocolbuffers/protobuf">Protocol Buffers</a> v3.5.1.
+  <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/README.md">Installation instructions</a>.</li>
+<li><a href="https://github.com/protobuf-c/protobuf-c">Protobuf-C</a> v1.3.1.
+  <a href="https://github.com/protobuf-c/protobuf-c/blob/master/README.md">Installation instructions</a>.</li>
+<li>gRPC plugin: <a href="https://github.com/golang/protobuf">protoc-gen-go</a> v1.2.0.
+  Must match the proto version in src/control/Gopkg.toml.
+  Install the specific version using GIT_TAG instructions <a href="https://github.com/golang/protobuf/blob/master/README.md">here</a>.</li>
+</ul>
+<p>Generate the Go file using the gRPC plugin. You can designate the directory
+location:</p>
+<pre><code>    protoc myfile.proto --go_out=plugins=grpc:&lt;go_file_dir&gt;
+</code></pre>
+
+<p>Generate the C files using Protobuf-C. As the header and source files in DAOS
+are typically kept in separate locations, you will need to move them manually
+to their destination directories:</p>
+<pre><code>    protoc-c myfile.proto --c_out=.
+    mv myfile.pb-c.h &lt;c_file_include_dir&gt;
+    mv myfile.pb-c.c &lt;c_file_src_dir&gt;
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../deployment/" class="btn btn-neutral float-right" title="System Deployment">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../hardware/" class="btn btn-neutral" title="Hardware Requirements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../hardware/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../deployment/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

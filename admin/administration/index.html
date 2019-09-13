@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="DAOS Project">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Administration - DAOS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Administration";
+    var mkdocs_page_input_path = "admin/administration.md";
+    var mkdocs_page_url = "/admin/administration/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> DAOS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Overview</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../overview/terminology/">Terminology</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/storage/">Storage Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/transaction/">Transaction Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/fault/">Fault Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/security/">Security Model</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Administration Guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../architecture/">DAOS Architecture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hardware/">Hardware Requirements</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../installation/">Software Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deployment/">System Deployment</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Administration</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#daos-system-administration">DAOS System Administration</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#system-monitoring">System Monitoring</a></li>
+        
+            <li><a class="toctree-l4" href="#system-operations">System Operations</a></li>
+        
+            <li><a class="toctree-l4" href="#fault-management">Fault Management</a></li>
+        
+            <li><a class="toctree-l4" href="#software-upgrade">Software Upgrade</a></li>
+        
+            <li><a class="toctree-l4" href="#storage-scrubbing">Storage Scrubbing</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../pool_operations/">Pool Operations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../app_interface_tiering/">Applications Interface and Tiering</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../performance_tuning/">Performance Tuning</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../utilities_examples/">Utilities and Usage Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../env_variables/">Environment Variables</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">DAOS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Administration Guide &raquo;</li>
+        
+      
+    
+    <li>Administration</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/administration.md"> Edit on daos-stack/daos</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="daos-system-administration">DAOS System Administration</h1>
+<h2 id="system-monitoring">System Monitoring</h2>
+<p>System monitoring and telemetry data will be provided as part of the
+control plane and will be documented in a future revision.</p>
+<h2 id="system-operations">System Operations</h2>
+<h3 id="full-shutdown-and-restart">Full Shutdown and Restart</h3>
+<p>Details on how to support proper DAOS server shutdown will be provided
+in future revision.</p>
+<h3 id="fault-domain-maintenance-reintegration">Fault Domain Maintenance &amp; Reintegration</h3>
+<p>Details on how to drain an individual storage node or fault domain (e.g.
+rack) in preparation for maintenance activity and how to reintegrate it
+will be provided in future revision.</p>
+<h3 id="daos-system-extension">DAOS System Extension</h3>
+<p>Ability to add new DAOS server instances to a pre-existing DAOS system
+will be documented in future revision.</p>
+<h2 id="fault-management">Fault Management</h2>
+<p>DAOS relies on massively distributed single-ported storage. Each target
+is thus effectively a single point of failure. DAOS achieves
+availability and durability of both data and metadata by providing
+redundancy across targets in different fault domains.</p>
+<h3 id="fault-detection-isolation">Fault Detection &amp; Isolation</h3>
+<p>DAOS servers are monitored within a DAOS system through a gossip-based
+protocol called SWIM<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1028914">^1</a> that provides accurate, efficient and scalable
+server fault detection.</p>
+<p>Storage attached to each DAOS target is monitored through periodic local
+health assessment. Whenever a local storage I/O error is returned to the
+DAOS server, an internal health check procedure will be called
+automatically. This procedure makes an overall health assessment by
+analyzing the IO error code and device SMART/Health data. If the result
+is negative, the target will be marked as faulty, and further I/Os to
+this target will be rejected and re-routed.</p>
+<p>Once detected, the faulty target or servers (effectively a set of
+targets) must be excluded from each pool membership. This process is
+triggered either manually by the administrator or automatically (see
+next section for more information). Upon exclusion from the pool map,
+each target starts the collective rebuild process automatically to
+restore data redundancy. The rebuild process is designed to operate
+online while servers continue to process incoming I/O operations from
+applications.</p>
+<p>Tools to monitor and manage rebuild are still under development.</p>
+<h3 id="rebuild-throttling">Rebuild Throttling</h3>
+<p>The rebuild process may consume a lot of resources on each server and
+can be throttled to reduce impact on application performance. This
+current logic relies on CPU cycles on the storage nodes. By default, the
+rebuild process is configured to consume up to 30% of the CPU cycles,
+leaving the other 70% for regular I/O operations.</p>
+<p>During rebuild process, the user can set the throttle to guarantee the
+rebuild will not use more resource than the user setting. The user can
+only set the CPU cycle for now. For example, if the user set the
+throttle to 50, then the rebuild will at most use 50% of CPU cycle to do
+rebuild job. The default rebuild throttle for CPU cycle is 30. This
+parameter can be changed via the daos_mgmt_set_params() API call and
+will be eventually available through the management tools.</p>
+<h2 id="software-upgrade">Software Upgrade</h2>
+<p>Interoperability in DAOS is handled via protocol and schema versioning
+for persistent data structures. Further instructions on how to manage
+DAOS software upgrades will be provided in future revision.</p>
+<h3 id="protocol-interoperability">Protocol Interoperability</h3>
+<p>Limited protocol interoperability is provided by the DAOS storage stack.
+Version compatibility checks will be performed to verify that:</p>
+<ul>
+<li>
+<p>All targets in the same pool run the same protocol version.</p>
+</li>
+<li>
+<p>Client libraries linked with the application may be up to one
+    protocol version older than the targets.</p>
+</li>
+</ul>
+<p>If a protocol version mismatch is detected among storage targets in the
+same pool, the entire DAOS system will fail to start up and will report
+failure to the control API. Similarly, the connection from clients
+running a protocol version incompatible with the targets will return an
+error.</p>
+<h3 id="persistent-schema-compatibility-and-update">Persistent Schema Compatibility and Update</h3>
+<p>The schema of persistent data structures may evolve from time to time to
+fix bugs, add new optimizations or support new features. To that end,
+the persistent data structures support schema versioning.</p>
+<p>Upgrading the schema version will not be performed automatically and
+must be initiated by the administrator. A dedicated upgrade tool will be
+provided to upgrade the schema version to the latest one. All targets in
+the same pool must have the same schema version. Version checks are
+performed at system initialization time to enforce this constraint.</p>
+<p>To limit the validation matrix, each new DAOS release will be published
+with a list of supported schema versions. To run with the new DAOS
+release, administrators will then need to upgrade the DAOS system to one
+of the supported schema versions. New pool shards will always be
+formatted with the latest version. This versioning schema only applies
+to a data structure stored in persistent memory and not to block storage
+that only stores user data with no metadata.</p>
+<h2 id="storage-scrubbing">Storage Scrubbing</h2>
+<p>Support for end-to-end data integrity is planned for DAOS v1.2 and
+background checksum scrubbing for v2.2. Once available, those
+functionality will be documented here.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../pool_operations/" class="btn btn-neutral float-right" title="Pool Operations">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../deployment/" class="btn btn-neutral" title="System Deployment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../deployment/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../pool_operations/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

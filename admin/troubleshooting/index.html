@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="DAOS Project">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Troubleshooting - DAOS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Troubleshooting";
+    var mkdocs_page_input_path = "admin/troubleshooting.md";
+    var mkdocs_page_url = "/admin/troubleshooting/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> DAOS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Overview</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../overview/terminology/">Terminology</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/storage/">Storage Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/transaction/">Transaction Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/fault/">Fault Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/security/">Security Model</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Administration Guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../architecture/">DAOS Architecture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hardware/">Hardware Requirements</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../installation/">Software Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deployment/">System Deployment</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../administration/">Administration</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../pool_operations/">Pool Operations</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../app_interface_tiering/">Applications Interface and Tiering</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../performance_tuning/">Performance Tuning</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Troubleshooting</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#daos-troubleshooting">DAOS Troubleshooting</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#daos-errors">DAOS Errors</a></li>
+        
+            <li><a class="toctree-l4" href="#debugging-system">Debugging System</a></li>
+        
+            <li><a class="toctree-l4" href="#common-daos-problems">Common DAOS Problems</a></li>
+        
+            <li><a class="toctree-l4" href="#bug-report">Bug Report</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../utilities_examples/">Utilities and Usage Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../env_variables/">Environment Variables</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">DAOS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Administration Guide &raquo;</li>
+        
+      
+    
+    <li>Troubleshooting</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/troubleshooting.md"> Edit on daos-stack/daos</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="daos-troubleshooting">DAOS Troubleshooting</h1>
+<h2 id="daos-errors">DAOS Errors</h2>
+<p>DAOS has its own error numbering that starts at 1000. The most common
+errors are documented in the table below.</p>
+<table>
+<thead>
+<tr>
+<th>DAOS Error</th>
+<th>Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DER_NO_PERM</td>
+<td>1001</td>
+<td>No permission</td>
+</tr>
+<tr>
+<td>DER_NO_HDL</td>
+<td>1002</td>
+<td>Invalid handle</td>
+</tr>
+<tr>
+<td>DER_INVAL</td>
+<td>1003</td>
+<td>Invalid parameters</td>
+</tr>
+<tr>
+<td>DER_NOSPACE</td>
+<td>1007</td>
+<td>No space left on storage target</td>
+</tr>
+<tr>
+<td>DER_NOSYS</td>
+<td>1010</td>
+<td>Function not implemented</td>
+</tr>
+<tr>
+<td>DER_IO</td>
+<td>2001</td>
+<td>Generic I/O error</td>
+</tr>
+<tr>
+<td>DER_ENOENT</td>
+<td>2003</td>
+<td>Entry not found</td>
+</tr>
+<tr>
+<td>DER_KEY2BIG</td>
+<td>2012</td>
+<td>Key is too large</td>
+</tr>
+<tr>
+<td>DER_IO_INVAL</td>
+<td>2014</td>
+<td>IO buffers can't match object extents</td>
+</tr>
+</tbody>
+</table>
+<p>When an operation fails, DAOS returns a negative DER error. For a full
+list of errors, please check
+<a href="https://github.com/daos-stack/cart/blob/master/src/include/gurt/errno.h">https://github.com/daos-stack/cart/blob/master/src/include/gurt/errno.h</a>
+(DER_ERR_GURT_BASE is equal to 1000 and DER_ERR_DAOS_BASE is equal
+to 2000).</p>
+<p>The function d_errstr() is provided in the API to convert an error
+number to an error message.</p>
+<h2 id="debugging-system">Debugging System</h2>
+<p>DAOS uses the debug system defined in
+<a href="https://github.com/daos-stack/cart">CaRT</a> but more specifically the
+GURT library. Log files for both client and server are written to
+"/tmp/daos.log" unless otherwise set by D_LOG_FILE.</p>
+<h3 id="registered-subsystemsfacilities">Registered Subsystems/Facilities</h3>
+<p>The debug logging system includes a series of subsystems or facilities
+which define groups for related log messages (defined per source file).
+There are common facilities which are defined in GURT, as well as other
+facilities that can be defined on a per-project basis (such as those for
+CaRT and DAOS). DD_SUBSYS can be used to set which subsystems to enable
+logging. By default all subsystems are enabled ("DD_SUBSYS=all").</p>
+<ul>
+<li>
+<p>DAOS Facilities:
+    common, tree, vos, client, server, rdb, pool, container, object,
+    placement, rebuild, tier, mgmt, bio, tests</p>
+</li>
+<li>
+<p>Common Facilities (GURT):
+    MISC, MEM</p>
+</li>
+<li>
+<p>CaRT Facilities:
+    RPC, BULK, CORPC, GRP, LM, HG, PMIX, ST, IV</p>
+</li>
+</ul>
+<h3 id="priority-logging">Priority Logging</h3>
+<p>All macros that output logs have a priority level, shown in descending
+order below.</p>
+<ul>
+<li>
+<p>D_FATAL(fmt, ...) FATAL</p>
+</li>
+<li>
+<p>D_CRIT(fmt, ...) CRIT</p>
+</li>
+<li>
+<p>D_ERROR(fmt, ...) ERR</p>
+</li>
+<li>
+<p>D_WARN(fmt, ...) WARN</p>
+</li>
+<li>
+<p>D_NOTE(fmt, ...) NOTE</p>
+</li>
+<li>
+<p>D_INFO(fmt, ...) INFO</p>
+</li>
+<li>
+<p>D_DEBUG(mask, fmt, ...) DEBUG</p>
+</li>
+</ul>
+<p>The priority level that outputs to stderr is set with DD_STDERR. By
+default in DAOS (specific to the project), this is set to CRIT
+("DD_STDERR=CRIT") meaning that all CRIT and more severe log messages
+will dump to stderr. This, however, is separate from the priority of
+logging to "/tmp/daos.log". The priority level of logging can be set
+with D_LOG_MASK, which by default is set to INFO
+("D_LOG_MASK=INFO"), which will result in all messages excluding DEBUG
+messages being logged. D_LOG_MASK can also be used to specify the
+level of logging on a per-subsystem basis as well
+("D_LOG_MASK=DEBUG,MEM=ERR").</p>
+<h3 id="debug-masksstreams">Debug Masks/Streams:</h3>
+<p>DEBUG messages account for a majority of the log messages, and
+finer-granularity might be desired. Mask bits are set as the first
+argument passed in D_DEBUG(mask, ...). To accomplish this, DD_MASK can
+be set to enable different debug streams. Similar to facilities, there
+are common debug streams defined in GURT, as well as other streams that
+can be defined on a per-project basis (CaRT and DAOS). All debug streams
+are enabled by default ("DD_MASK=all").</p>
+<ul>
+<li>
+<p>DAOS Debug Masks:</p>
+<ul>
+<li>
+<p>md = metadata operations</p>
+</li>
+<li>
+<p>pl = placement operations</p>
+</li>
+<li>
+<p>mgmt = pool management</p>
+</li>
+<li>
+<p>epc = epoch system</p>
+</li>
+<li>
+<p>df = durable format</p>
+</li>
+<li>
+<p>rebuild = rebuild process</p>
+</li>
+<li>
+<p>daos_default = (group mask) io, md, pl, and rebuild operations</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Common Debug Masks (GURT):</p>
+<ul>
+<li>
+<p>any = generic messages, no classification</p>
+</li>
+<li>
+<p>trace = function trace, tree/hash/lru operations</p>
+</li>
+<li>
+<p>mem = memory operations</p>
+</li>
+<li>
+<p>net = network operations</p>
+</li>
+<li>
+<p>io = object I/Otest = test programs</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="common-use-cases">Common Use Cases</h3>
+<ul>
+<li>
+<p>Generic setup for all messages (default settings)</p>
+<pre><code>$ D_LOG_MASK=DEBUG
+$ DD_SUBSYS=all
+$ DD_MASK=all
+</code></pre>
+</li>
+<li>
+<p>Disable all logs for performance tuning</p>
+<pre><code>$ D_LOG_MASK=ERR -&gt; will only log error messages from all facilities
+$ D_LOG_MASK=FATAL -&gt; will only log system fatal messages
+</code></pre>
+</li>
+<li>
+<p>Disable a noisy debug logging subsystem</p>
+<pre><code>$ D_LOG_MASK=DEBUG,MEM=ERR -&gt; disables MEM facility by 
+restricting all logs from that facility to ERROR or higher priority only
+</code></pre>
+</li>
+<li>
+<p>Enable a subset of facilities of interest</p>
+<pre><code>$ DD_SUBSYS=rpc,tests
+$ D_LOG_MASK=DEBUG -&gt; required to see logs for RPC and TESTS
+less severe than INFO (the majority of log messages)
+</code></pre>
+</li>
+<li>
+<p>Fine-tune the debug messages by setting a debug mask</p>
+<pre><code>$ D_LOG_MASK=DEBUG
+$ DD_MASK=mgmt -&gt; only logs DEBUG messages related to pool
+management
+</code></pre>
+</li>
+</ul>
+<p>Refer to the DAOS Environment Variables documentation for
+more information about the debug system environment.</p>
+<h2 id="common-daos-problems">Common DAOS Problems</h2>
+<p>This section to be updated in a future revision.</p>
+<h2 id="bug-report">Bug Report</h2>
+<p>Bugs should be reported through our issue tracker<a href="https://jira.hpdd.intel.com">^1</a> with a test case
+to reproduce the issue (when applicable) and debug
+logs.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../utilities_examples/" class="btn btn-neutral float-right" title="Utilities and Usage Examples">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../performance_tuning/" class="btn btn-neutral" title="Performance Tuning"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../performance_tuning/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../utilities_examples/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>

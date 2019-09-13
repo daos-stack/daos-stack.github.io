@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <meta name="author" content="DAOS Project">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Pool Operations - DAOS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Pool Operations";
+    var mkdocs_page_input_path = "admin/pool_operations.md";
+    var mkdocs_page_url = "/admin/pool_operations/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> DAOS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Overview</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../../overview/terminology/">Terminology</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/storage/">Storage Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/transaction/">Transaction Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/fault/">Fault Model</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../../overview/security/">Security Model</a>
+                </li>
+    </ul>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <span class="caption-text">Administration Guide</span>
+    <ul class="subnav">
+                <li class="">
+                    
+    <a class="" href="../intro/">Introduction</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../architecture/">DAOS Architecture</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../hardware/">Hardware Requirements</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../installation/">Software Installation</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../deployment/">System Deployment</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../administration/">Administration</a>
+                </li>
+                <li class=" current">
+                    
+    <a class="current" href="./">Pool Operations</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l3"><a href="#daos-pool-operations">DAOS Pool Operations</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l4" href="#pool-creationdestroy">Pool Creation/Destroy</a></li>
+        
+            <li><a class="toctree-l4" href="#pool-properties">Pool Properties</a></li>
+        
+            <li><a class="toctree-l4" href="#pool-acls">Pool ACLs</a></li>
+        
+            <li><a class="toctree-l4" href="#pool-modifications">Pool Modifications</a></li>
+        
+            <li><a class="toctree-l4" href="#pool-catastrophic-recovery">Pool Catastrophic Recovery</a></li>
+        
+        </ul>
+    
+
+    </ul>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../app_interface_tiering/">Applications Interface and Tiering</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../performance_tuning/">Performance Tuning</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../utilities_examples/">Utilities and Usage Examples</a>
+                </li>
+                <li class="">
+                    
+    <a class="" href="../env_variables/">Environment Variables</a>
+                </li>
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">DAOS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Administration Guide &raquo;</li>
+        
+      
+    
+    <li>Pool Operations</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/pool_operations.md"> Edit on daos-stack/daos</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="daos-pool-operations">DAOS Pool Operations</h1>
+<p>A DAOS pool is a storage reservation that can span any storage nodes and
+is managed by the administrator. The amount of space allocated to a pool
+is decided at creation time and can be eventually expanded through the
+management interface.</p>
+<h2 id="pool-creationdestroy">Pool Creation/Destroy</h2>
+<p>A DAOS pool can be created and destroyed through the DAOS management API
+(see daos_mgmt.h). DAOS also provides a utility called dmg to manage
+storage pools from the command line.</p>
+<p><strong>To create a pool:</strong></p>
+<pre><code>orterun --ompi-server file:${urifile} dmg create --size=xxG –nvme=yyT
+</code></pre>
+<p>This command creates a pool distributed across the DAOS servers with a
+target size on each server with xxGB of SCM and yyTB of NVMe storage.
+The UUID allocated to the newly created pool is printed to stdout
+(referred as ${puuid}) as well as the rank where the pool service is
+located (referred as ${svcl}).</p>
+<p>The typical output of this command is as follows:</p>
+<pre><code>orterun --ompi-server file:${urifile} dmg create --size=xxG –nvme=yyT
+4056fb6d-9fca-4f2d-af8a-cfd57d92a92d 1:2
+</code></pre>
+<p>This created a pool with UUID 4056fb6d-9fca-4f2d-af8a-cfd57d92a92d with
+two pool service replica on rank 1 and 2.</p>
+<p><strong>To destroy a pool:</strong></p>
+<pre><code>orterun --ompi-server file:${urifile} dmg destroy --pool=${puuid}
+</code></pre>
+<h2 id="pool-properties">Pool Properties</h2>
+<p>At creation time, a list of pool properties can be specified through the
+API (not supported by the tool yet):</p>
+<ul>
+<li>
+<p>DAOS_PROP_CO_LABEL is a string that the administrator can
+    associated with a pool. e.g. “project A”, “project B”, “IO500 test
+    pool”</p>
+</li>
+<li>
+<p>DAOS_PROP_PO_ACL are access control list (ACL) associated with
+    the pool</p>
+</li>
+<li>
+<p>DAOS_PROP_PO_SPACE_RB is the space to be reserved on each target
+    for rebuild purpose.</p>
+</li>
+<li>
+<p>DAOS_PROP_PO_SELF_HEAL defines whether the pool wants
+    automatically-trigger or manually-triggered self-healing.</p>
+</li>
+<li>
+<p>DAOS_PROP_PO_RECLAIM is used to tune the space reclaim strategy
+    based on time interval, batched commits or snapshot creation.</p>
+</li>
+</ul>
+<p>While those pool properties are currently stored persistently with pool
+metadata, many of them are still under development. Moreover, the
+ability to modify some of those properties on an existing pool will also
+be eventually provided.</p>
+<h2 id="pool-acls">Pool ACLs</h2>
+<p>Support for per-pool Access Control Lists (ACLs) is under development
+and is scheduled for DAOS v1.0. DAOS ACLs will implement a subset of the
+NFSv4 ACL standard. This feature will be documented here once available.</p>
+<p>The pool query operation retrieves information (i.e. number of targets,
+space usage, rebuild status, property list, …) about a created pool. It
+is integrated into the dmg utility.</p>
+<p><strong>To query a pool:</strong></p>
+<pre><code>orterun --ompi-server file:${urifile} dmg query --svc=${svcl}
+--pool=${puuid}
+</code></pre>
+<p>Below is the output for a pool created with SCM space only.</p>
+<pre><code>pool=47293abe-aa6f-4147-97f6-42a9f796d64a
+Pool 47293abe-aa6f-4147-97f6-42a9f796d64a, ntarget=64, disabled=8
+Pool space info:
+- Target(VOS) count:56
+- SCM:
+    Total size: 30064771072
+    Free: 30044570496, min:530139584, max:536869696, mean:536510187
+- NVMe:
+    Total size: 0
+    Free: 0, min:0, max:0, mean:0
+Rebuild done, 10 objs, 1026 recs
+</code></pre>
+<p>The total and free sizes are the sum across all the targets whereas
+min/max/mean gives information about individual targets. A min value
+close to 0 means that one target is running out of space.</p>
+<p>The example below shows a rebuild in progress and NVMe space allocated.</p>
+<pre><code>pool=95886b8b-7eb8-454d-845c-fc0ae0ba5671
+Pool 95886b8b-7eb8-454d-845c-fc0ae0ba5671, ntarget=64, disabled=8
+Pool space info:
+- Target(VOS) count:56
+- SCM:
+    Total size: 30064771072
+    Free: 29885237632, min:493096384, max:536869696, mean:533664957
+- NVMe:
+    Total size: 60129542144
+    Free: 29885237632, min:493096384, max:536869696, mean:533664957
+Rebuild busy, 75 objs, 9722 recs
+</code></pre>
+<p>Additional status and telemetry data are planned to be exported through
+the management API and tool and will be documented here once available.</p>
+<h2 id="pool-modifications">Pool Modifications</h2>
+<h3 id="target-exclusion-self-healing">Target Exclusion &amp; Self-Healing</h3>
+<p><strong>To exclude a target from a pool:</strong></p>
+<pre><code>orterun --ompi-server file:${urifile} dmg exclude --svc=${svcl}
+--pool=${puuid} –target=${rank}
+</code></pre>
+<h3 id="pool-extension">Pool Extension</h3>
+<h4 id="target-addition-space-rebalancing">Target Addition &amp; Space Rebalancing</h4>
+<p>Support for online target addition and automatic space rebalancing is
+planned for DAOS v1.4 and will be documented here once available.</p>
+<h4 id="pool-shard-resize">Pool Shard Resize</h4>
+<p>Support for quiescent pool shard resize is currently not supported and
+is under consideration.</p>
+<h2 id="pool-catastrophic-recovery">Pool Catastrophic Recovery</h2>
+<p>A DAOS pool is instantiated on each target by a set of pmemobj files
+managed by PMDK and SPDK blobs on SSDs. Tools to verify and repair this
+persistent data is scheduled for DAOS v2.4 and will be documented here
+once available.</p>
+<p>Meanwhile, PMDK provides a recovery tool (i.e. pmempool check) to verify
+and possibly repair a pmemobj file. As show in the previous section, the
+rebuild status can be consulted via the pool query and will be expanded
+with more information.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../app_interface_tiering/" class="btn btn-neutral float-right" title="Applications Interface and Tiering">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../administration/" class="btn btn-neutral" title="Administration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../administration/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../app_interface_tiering/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+
+</body>
+</html>
