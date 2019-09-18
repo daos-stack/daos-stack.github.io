@@ -200,14 +200,14 @@ control plane and will be documented in a future revision.</p>
 <h2 id="system-operations">System Operations</h2>
 <h3 id="full-shutdown-and-restart">Full Shutdown and Restart</h3>
 <p>Details on how to support proper DAOS server shutdown will be provided
-in future revision.</p>
-<h3 id="fault-domain-maintenance-reintegration">Fault Domain Maintenance &amp; Reintegration</h3>
+in a future revision.</p>
+<h3 id="fault-domain-maintenance-and-reintegration">Fault Domain Maintenance and Reintegration</h3>
 <p>Details on how to drain an individual storage node or fault domain (e.g.
 rack) in preparation for maintenance activity and how to reintegrate it
-will be provided in future revision.</p>
+will be provided in a future revision.</p>
 <h3 id="daos-system-extension">DAOS System Extension</h3>
 <p>Ability to add new DAOS server instances to a pre-existing DAOS system
-will be documented in future revision.</p>
+will be documented in a future revision.</p>
 <h2 id="fault-management">Fault Management</h2>
 <p>DAOS relies on massively distributed single-ported storage. Each target
 is thus effectively a single point of failure. DAOS achieves
@@ -215,7 +215,7 @@ availability and durability of both data and metadata by providing
 redundancy across targets in different fault domains.</p>
 <h3 id="fault-detection-isolation">Fault Detection &amp; Isolation</h3>
 <p>DAOS servers are monitored within a DAOS system through a gossip-based
-protocol called SWIM<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1028914">^1</a> that provides accurate, efficient and scalable
+protocol called SWIM<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1028914">^1</a> that provides accurate, efficient, and scalable
 server fault detection.</p>
 <p>Storage attached to each DAOS target is monitored through periodic local
 health assessment. Whenever a local storage I/O error is returned to the
@@ -234,22 +234,22 @@ online while servers continue to process incoming I/O operations from
 applications.</p>
 <p>Tools to monitor and manage rebuild are still under development.</p>
 <h3 id="rebuild-throttling">Rebuild Throttling</h3>
-<p>The rebuild process may consume a lot of resources on each server and
-can be throttled to reduce impact on application performance. This
+<p>The rebuild process may consume many resources on each server and
+can be throttled to reduce the impact on application performance. This
 current logic relies on CPU cycles on the storage nodes. By default, the
 rebuild process is configured to consume up to 30% of the CPU cycles,
 leaving the other 70% for regular I/O operations.</p>
-<p>During rebuild process, the user can set the throttle to guarantee the
+<p>During the rebuild process, the user can set the throttle to guarantee the
 rebuild will not use more resource than the user setting. The user can
 only set the CPU cycle for now. For example, if the user set the
-throttle to 50, then the rebuild will at most use 50% of CPU cycle to do
-rebuild job. The default rebuild throttle for CPU cycle is 30. This
+throttle to 50, then the rebuild will at most use 50% of the CPU cycle to do
+the rebuild job. The default rebuild throttle for CPU cycle is 30. This
 parameter can be changed via the daos_mgmt_set_params() API call and
 will be eventually available through the management tools.</p>
 <h2 id="software-upgrade">Software Upgrade</h2>
 <p>Interoperability in DAOS is handled via protocol and schema versioning
 for persistent data structures. Further instructions on how to manage
-DAOS software upgrades will be provided in future revision.</p>
+DAOS software upgrades will be provided in a future revision.</p>
 <h3 id="protocol-interoperability">Protocol Interoperability</h3>
 <p>Limited protocol interoperability is provided by the DAOS storage stack.
 Version compatibility checks will be performed to verify that:</p>
@@ -269,7 +269,7 @@ running a protocol version incompatible with the targets will return an
 error.</p>
 <h3 id="persistent-schema-compatibility-and-update">Persistent Schema Compatibility and Update</h3>
 <p>The schema of persistent data structures may evolve from time to time to
-fix bugs, add new optimizations or support new features. To that end,
+fix bugs, add new optimizations, or support new features. To that end,
 the persistent data structures support schema versioning.</p>
 <p>Upgrading the schema version will not be performed automatically and
 must be initiated by the administrator. A dedicated upgrade tool will be
@@ -285,7 +285,7 @@ to a data structure stored in persistent memory and not to block storage
 that only stores user data with no metadata.</p>
 <h2 id="storage-scrubbing">Storage Scrubbing</h2>
 <p>Support for end-to-end data integrity is planned for DAOS v1.2 and
-background checksum scrubbing for v2.2. Once available, those
+background checksum scrubbing for v2.2. Once available, that
 functionality will be documented here.</p>
               
             </div>

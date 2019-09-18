@@ -249,31 +249,35 @@ below). Then initialize the submodules with:</p>
 </code></pre>
 
 <h2 id="daos-from-scratch">DAOS from Scratch</h2>
-<p>The below instructions have been verified with CentOS. Installations on other
+<p>The following instructions have been verified with CentOS. Installations on other
 Linux distributions might be similar with some variations.
-Developers of DAOS may want to check additional sections below before beginning
-for suggestions related specifically to development. Please contact us in our
-<a href="https://daos.groups.io/g/daos"><em>forum</em></a> if running into issues.</p>
+Developers of DAOS may want to review the additional sections below before beginning,
+for suggestions related specifically to development. Contact us in our
+<a href="https://daos.groups.io/g/daos"><em>forum</em></a> for further help with any issues.</p>
 <h3 id="build-prerequisites">Build Prerequisites</h3>
-<p>First of all, please verify that the autotools packages listed below are at the
-appropriate versions (or above):
--   m4 (GNU M4) 1.4.16
--   flex 2.5.37
--   autoconf (GNU Autoconf) 2.69
--   automake (GNU automake) 1.13.4
--   libtool (GNU libtool) 2.4.2</p>
+<p>First, verify that the autotools packages listed below are at the
+appropriate versions (or above):</p>
+<ul>
+<li>m4 (GNU M4) 1.4.16</li>
+<li>flex 2.5.37</li>
+<li>autoconf (GNU Autoconf) 2.69</li>
+<li>automake (GNU automake) 1.13.4</li>
+<li>libtool (GNU libtool) 2.4.2</li>
+</ul>
 <p>Moreover, a Go version of at least 1.10 is required.</p>
 <p>To build DAOS and its dependencies, several software packages must be installed
-on the system. This includes scons, libuuid, cmocka, ipmctl and several other
+on the system. This includes scons, libuuid, cmocka, ipmctl, and several other
 packages usually available on all the Linux distributions.</p>
 <p>A exhaustive list of packages for each supported Linux distribution is
-maintained in the Docker files:
-- <a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.centos.7#L53-L72">CentOS</a>
-- <a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.leap.15#L16-L40">OpenSUSE</a>
-- <a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.ubuntu.18.04#L21-L38">Ubuntu</a></p>
-<p>The command lines to install the required packages can be easily extracted from
+maintained in the Docker files:</p>
+<ul>
+<li><a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.centos.7#L53-L72">CentOS</a></li>
+<li><a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.leap.15#L16-L40">OpenSUSE</a></li>
+<li><a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.ubuntu.18.04#L21-L38">Ubuntu</a></li>
+</ul>
+<p>The command lines to install the required packages can be extracted from
 the Docker files by removing the "RUN" command which is specific to Docker.
-Please check the <a href="https://github.com/daos-stack/daos/tree/master/utils/docker">docker</a>
+Check the <a href="https://github.com/daos-stack/daos/tree/master/utils/docker">docker</a>
 directory for different Linux distribution versions.</p>
 <h3 id="building-daos-dependencies">Building DAOS &amp; Dependencies</h3>
 <p>If all the software dependencies listed previously are already satisfied, then
@@ -282,7 +286,7 @@ type the following command in the top source directory to build the DAOS stack:<
 </code></pre>
 
 <p>If you are a developer of DAOS, we recommend following the instructions in the
-last section of this chapter.</p>
+<a href="https://daos-stack.github.io/admin/installation/#daos-for-development">DAOS for Development</a> section.</p>
 <p>Otherwise, the missing dependencies can be built automatically by invoking scons
 with the following parameters:</p>
 <pre><code>    $ scons --config=force --build-deps=yes install
@@ -314,22 +318,22 @@ container. A minimum of 5GB of DRAM and 16GB of disk space will be required.</p>
 </code></pre>
 
 <p>This creates a CentOS 7 image, fetches the latest DAOS version from GitHub,
-builds it and install it in the image.
+builds it, and installs it in the image.
 For Ubuntu and other Linux distributions, replace Dockerfile.centos.7 with
 Dockerfile.ubuntu.18.04 and the appropriate version of interest.</p>
 <p>Once the image created, one can start start a container that will eventually run
-the DAOS service (see section below):</p>
+the DAOS service:</p>
 <pre><code>    $ docker run -it -d --privileged --name server \
             -v /tmp/uri:/tmp/uri \
             -v /dev/hugepages:/dev/hugepages \
             daos
 </code></pre>
 
-<p>If Docker is being run on a non Linux system (e.g. OSX), the export of /dev/hugepages
+<p>If Docker is being run on a non-Linux system (e.g., OSX), the export of /dev/hugepages
 should be removed since it is not supported.</p>
-<h3 id="building-from-local-tree">Building from Local Tree</h3>
+<h3 id="building-from-a-local-tree">Building from a Local Tree</h3>
 <p>To build from a local tree stored on the host, a volume must be created to share
-the source tree with the Docker container. To do so, please execute the following
+the source tree with the Docker container. To do so, execute the following
 command to create a docker image without checking out the DAOS source tree:</p>
 <pre><code>    $ docker build -t daos -f utils/docker/Dockerfile.centos.7 --build-arg NOBUILD=1 .
 </code></pre>
@@ -344,20 +348,20 @@ command to create a docker image without checking out the DAOS source tree:</p>
 
 <p>${daospath} should be replaced with the full path to your DAOS source tree.
 As mentioned above, the export of /dev/hugepages should be removed if the
-host is a not a Linux system.</p>
-<p>Then please execute the following command to build and install DAOS in the
+host is not a Linux system.</p>
+<p>Then execute the following command to build and install DAOS in the
 container:</p>
 <pre><code>    $ docker exec server scons --build-deps=yes install PREFIX=/usr
 </code></pre>
 
 <h3 id="running-daos-service-in-docker">Running DAOS Service in Docker</h3>
-<p>First of all, SPDK should be initialized in this newly created container.
+<p>First, SPDK should be initialized in this newly created container.
 This can be done by running the following command:</p>
 <pre><code>    $ docker exec server daos_server storage prepare -n -f
 </code></pre>
 
-<p>Please note that this command reports that /dev/hugepages is not accessible on
-OSX. This still allows to run the DAOS service despite the error.</p>
+<p>Note that this command reports that /dev/hugepages is not accessible on
+OSX. This still allows running the DAOS service despite the error.</p>
 <p>The DAOS service can then be started as follows:</p>
 <pre><code>    $ docker exec server mkdir /var/run/daos_server
     $ docker exec server orterun -allow-run-as-root -H localhost -np 1 \
@@ -369,30 +373,33 @@ OSX. This still allows to run the DAOS service despite the error.</p>
 <p>The daos_server_local.yml configuration file sets up a simple local DAOS system
 with a single server instance running in the container. By default, it uses 4GB
 of DRAM to emulate persistent memory and 16GB of bulk storage under /tmp.
-The storage size can be tweaked in the yaml file if necessariy.</p>
+The storage size can be changed in the yaml file if necessariy.</p>
 <p>Once started, the DAOS server waits for the administrator to format the system.
-This can be triggered in a different shell via the following command:</p>
+This can be triggered in a different shell, using the following command:</p>
 <pre><code>    $ docker exec server daos_shell -i storage format -f
 </code></pre>
 
-<p>Upon successful completion of format, the storage engine is started and pools
-can be created via the daos admin tool (see next section).</p>
+<p>Upon successful completion of the format, the storage engine is started, and pools
+can be created using the daos admin tool (see next section).</p>
 <h2 id="daos-for-development">DAOS for Development</h2>
 <p>This section covers specific instructions to create a developer-friendly
 environment to contribute to the DAOS development. This includes how to
-regenerate the protobuf files or add new Go package dependencies which is
-only required for development purpose.</p>
+regenerate the protobuf files or add new Go package dependencies, which is
+only required for development purposes.</p>
 <h3 id="building-daos-for-development">Building DAOS for Development</h3>
 <p>For development, it is recommended to build and install each dependency in a
 unique subdirectory. The DAOS build system supports this through the
 TARGET_PREFIX variable. Once the submodules have been initialized and updated,
 run the following commands:</p>
-<pre><code>    scons PREFIX=${daos_prefix_path} TARGET_PREFIX=${daos_prefix_path}/opt install --build-deps=yes --config=force
+<pre><code>    scons PREFIX=${daos_prefix_path} 
+    TARGET_PREFIX=${daos_prefix_path}/opt install 
+    --build-deps=yes 
+    --config=force
 </code></pre>
 
-<p>Installing the components into seperate directories allow to upgrade the
-components individually replacing --build-deps=yes with
---update-prereq={component_name}. This requires change to the environment
+<p>Installing the components into seperate directories allow upgrading the
+components individually by replacing --build-deps=yes with
+--update-prereq={component_name}. This requires a change to the environment
 configuration from before. For automated environment setup, source
 scons_local/utils/setup_local.sh.</p>
 <pre><code>    ARGOBOTS=${daos_prefix_path}/opt/argobots
@@ -409,13 +416,13 @@ scons_local/utils/setup_local.sh.</p>
     PATH=$CART/bin/:$OMPI/bin/:${daos_prefix_path}/bin/:$PATH
 </code></pre>
 
-<p>With this approach DAOS would get built using the prebuilt dependencies in
-${daos_prefix_path}/opt and required options are saved for future compilations.
-So, after the first time, during development, a mere "scons --config=force" and
+<p>With this approach, DAOS would get built using the prebuilt dependencies in
+${daos_prefix_path}/opt, and required options are saved for future compilations.
+So, after the first time, during development, only "scons --config=force" and
 "scons --config=force install" would suffice for compiling changes to DAOS
 source code.</p>
 <p>If you wish to compile DAOS with clang rather than gcc, set COMPILER=clang on
-the scons command line.   This option is also saved for future compilations.</p>
+the scons command line. This option is also saved for future compilations.</p>
 <h3 id="go-dependencies">Go dependencies</h3>
 <p>Developers contributing Go code may need to change the external dependencies
 located in the src/control/vendor directory. The DAOS codebase uses
@@ -434,10 +441,12 @@ located in the src/control/vendor directory. The DAOS codebase uses
 <pre><code>    $ apt-get install go-dep
 </code></pre>
 
-<p>For OSes that don't supply a package:
-- Ensure that you have a personal GOPATH (see "go env GOPATH", referred to as
+<p>For OSes that don't supply a package:</p>
+<ul>
+<li>Ensure that you have a personal GOPATH (see "go env GOPATH", referred to as
 "$GOPATH" in this document) and a GOBIN ($GOPATH/bin) set up and included in
-your PATH:</p>
+your PATH:</li>
+</ul>
 <pre><code>    $ mkdir -p $GOPATH/bin
     $ export PATH=$GOPATH/bin:$PATH
 </code></pre>
@@ -445,7 +454,7 @@ your PATH:</p>
 <ul>
 <li>Then follow the <a href="https://github.com/golang/dep">installation instructions on Github</a>.</li>
 </ul>
-<p>To update the vendor directory using dep after changing Gopkg.toml, first make
+<p>To update the vendor directory using dep after changing Gopkg.toml, make
 sure DAOS is cloned into</p>
 <pre><code>    $GOPATH/src/github.com/daos-stack/daos
 </code></pre>
@@ -456,8 +465,8 @@ sure DAOS is cloned into</p>
 </code></pre>
 
 <h3 id="protobuf-compiler">Protobuf Compiler</h3>
-<p>The DAOS control plane infrastructure use protobuf as the data serialization
-format for its RPC requests. The DAOS proto files use protobuf 3 syntax which is
+<p>The DAOS control plane infrastructure uses protobuf as the data serialization
+format for its RPC requests. The DAOS proto files use protobuf 3 syntax, which is
 not supported by the platform protobuf compiler in all cases. Not all developers
 will need to build the proto files into the various source files.
 However, if changes are made to the proto files, the corresponding C and Go

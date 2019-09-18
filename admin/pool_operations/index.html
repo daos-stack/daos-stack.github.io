@@ -196,7 +196,7 @@
                 <h1 id="daos-pool-operations">DAOS Pool Operations</h1>
 <p>A DAOS pool is a storage reservation that can span any storage nodes and
 is managed by the administrator. The amount of space allocated to a pool
-is decided at creation time and can be eventually expanded through the
+is decided at creation time and can eventually be expanded through the
 management interface.</p>
 <h2 id="pool-creationdestroy">Pool Creation/Destroy</h2>
 <p>A DAOS pool can be created and destroyed through the DAOS management API
@@ -225,11 +225,11 @@ API (not supported by the tool yet):</p>
 <ul>
 <li>
 <p>DAOS_PROP_CO_LABEL is a string that the administrator can
-    associated with a pool. e.g. “project A”, “project B”, “IO500 test
+    associate with a pool. e.g., “project A,” “project B,” “IO500 test
     pool”</p>
 </li>
 <li>
-<p>DAOS_PROP_PO_ACL are access control list (ACL) associated with
+<p>DAOS_PROP_PO_ACL is the access control list (ACL) associated with
     the pool</p>
 </li>
 <li>
@@ -238,7 +238,7 @@ API (not supported by the tool yet):</p>
 </li>
 <li>
 <p>DAOS_PROP_PO_SELF_HEAL defines whether the pool wants
-    automatically-trigger or manually-triggered self-healing.</p>
+    automatically-trigger, or manually-triggered self-healing.</p>
 </li>
 <li>
 <p>DAOS_PROP_PO_RECLAIM is used to tune the space reclaim strategy
@@ -248,13 +248,13 @@ API (not supported by the tool yet):</p>
 <p>While those pool properties are currently stored persistently with pool
 metadata, many of them are still under development. Moreover, the
 ability to modify some of those properties on an existing pool will also
-be eventually provided.</p>
+be provided in a future release.</p>
 <h2 id="pool-acls">Pool ACLs</h2>
 <p>Support for per-pool Access Control Lists (ACLs) is under development
 and is scheduled for DAOS v1.0. DAOS ACLs will implement a subset of the
 NFSv4 ACL standard. This feature will be documented here once available.</p>
-<p>The pool query operation retrieves information (i.e. number of targets,
-space usage, rebuild status, property list, …) about a created pool. It
+<p>The pool query operation retrieves information (i.e., the number of targets,
+space usage, rebuild status, property list, and more) about a created pool. It
 is integrated into the dmg utility.</p>
 <p><strong>To query a pool:</strong></p>
 <pre><code>orterun --ompi-server file:${urifile} dmg query --svc=${svcl}
@@ -292,7 +292,7 @@ Rebuild busy, 75 objs, 9722 recs
 <p>Additional status and telemetry data are planned to be exported through
 the management API and tool and will be documented here once available.</p>
 <h2 id="pool-modifications">Pool Modifications</h2>
-<h3 id="target-exclusion-self-healing">Target Exclusion &amp; Self-Healing</h3>
+<h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing</h3>
 <p><strong>To exclude a target from a pool:</strong></p>
 <pre><code>orterun --ompi-server file:${urifile} dmg exclude --svc=${svcl}
 --pool=${puuid} –target=${rank}
@@ -309,8 +309,8 @@ is under consideration.</p>
 managed by PMDK and SPDK blobs on SSDs. Tools to verify and repair this
 persistent data is scheduled for DAOS v2.4 and will be documented here
 once available.</p>
-<p>Meanwhile, PMDK provides a recovery tool (i.e. pmempool check) to verify
-and possibly repair a pmemobj file. As show in the previous section, the
+<p>Meanwhile, PMDK provides a recovery tool (i.e., pmempool check) to verify
+and possibly repair a pmemobj file. As discussed in the previous section, the
 rebuild status can be consulted via the pool query and will be expanded
 with more information.</p>
               
