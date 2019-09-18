@@ -203,30 +203,33 @@ management interface.</p>
 (see daos_mgmt.h). DAOS also provides a utility called dmg to manage
 storage pools from the command line.</p>
 <p><strong>To create a pool:</strong></p>
-<pre><code>orterun --ompi-server file:${urifile} dmg create --size=xxG –nvme=yyT
+<pre><code>dmg create --size=xxG --nvme=yyT
 </code></pre>
+
 <p>This command creates a pool distributed across the DAOS servers with a
 target size on each server with xxGB of SCM and yyTB of NVMe storage.
 The UUID allocated to the newly created pool is printed to stdout
 (referred as ${puuid}) as well as the rank where the pool service is
 located (referred as ${svcl}).</p>
 <p>The typical output of this command is as follows:</p>
-<pre><code>orterun --ompi-server file:${urifile} dmg create --size=xxG –nvme=yyT
+<pre><code>dmg create --size=xxG --nvme=yyT
 4056fb6d-9fca-4f2d-af8a-cfd57d92a92d 1:2
 </code></pre>
+
 <p>This created a pool with UUID 4056fb6d-9fca-4f2d-af8a-cfd57d92a92d with
 two pool service replica on rank 1 and 2.</p>
 <p><strong>To destroy a pool:</strong></p>
-<pre><code>orterun --ompi-server file:${urifile} dmg destroy --pool=${puuid}
+<pre><code>dmg destroy --pool=${puuid}
 </code></pre>
+
 <h2 id="pool-properties">Pool Properties</h2>
 <p>At creation time, a list of pool properties can be specified through the
 API (not supported by the tool yet):</p>
 <ul>
 <li>
 <p>DAOS_PROP_CO_LABEL is a string that the administrator can
-    associate with a pool. e.g., “project A,” “project B,” “IO500 test
-    pool”</p>
+    associate with a pool. e.g., project A, project B, IO500 test
+    pool</p>
 </li>
 <li>
 <p>DAOS_PROP_PO_ACL is the access control list (ACL) associated with
@@ -257,9 +260,9 @@ NFSv4 ACL standard. This feature will be documented here once available.</p>
 space usage, rebuild status, property list, and more) about a created pool. It
 is integrated into the dmg utility.</p>
 <p><strong>To query a pool:</strong></p>
-<pre><code>orterun --ompi-server file:${urifile} dmg query --svc=${svcl}
---pool=${puuid}
+<pre><code>dmg query --svc=${svcl} --pool=${puuid}
 </code></pre>
+
 <p>Below is the output for a pool created with SCM space only.</p>
 <pre><code>pool=47293abe-aa6f-4147-97f6-42a9f796d64a
 Pool 47293abe-aa6f-4147-97f6-42a9f796d64a, ntarget=64, disabled=8
@@ -294,9 +297,9 @@ the management API and tool and will be documented here once available.</p>
 <h2 id="pool-modifications">Pool Modifications</h2>
 <h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing</h3>
 <p><strong>To exclude a target from a pool:</strong></p>
-<pre><code>orterun --ompi-server file:${urifile} dmg exclude --svc=${svcl}
---pool=${puuid} –target=${rank}
+<pre><code>dmg exclude --svc=${svcl} --pool=${puuid} --target=${rank}
 </code></pre>
+
 <h3 id="pool-extension">Pool Extension</h3>
 <h4 id="target-addition-space-rebalancing">Target Addition &amp; Space Rebalancing</h4>
 <p>Support for online target addition and automatic space rebalancing is
