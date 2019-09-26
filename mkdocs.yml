@@ -31,7 +31,7 @@ nav:
         - 'Hardware Requirements': 'admin/hardware.md'
         - 'Software Installation': 'admin/installation.md'
         - 'System Deployment': 'admin/deployment.md'
-        - 'Administration': 'admin/administration.md'
+        - 'System Administration': 'admin/administration.md'
         - 'Pool Operations': 'admin/pool_operations.md'
         - 'Applications Interface and Tiering': 'admin/app_interface_tiering.md'
         - 'Performance Tuning': 'admin/performance_tuning.md'

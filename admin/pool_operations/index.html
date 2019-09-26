@@ -106,7 +106,7 @@
                 </li>
                 <li class="">
                     
-    <a class="" href="../administration/">Administration</a>
+    <a class="" href="../administration/">System Administration</a>
                 </li>
                 <li class=" current">
                     
@@ -203,7 +203,7 @@ management interface.</p>
 (see daos_mgmt.h). DAOS also provides a utility called dmg to manage
 storage pools from the command line.</p>
 <p><strong>To create a pool:</strong></p>
-<pre><code>dmg create --size=xxG --nvme=yyT
+<pre><code>$ dmg create --size=xxG --nvme=yyT
 </code></pre>
 
 <p>This command creates a pool distributed across the DAOS servers with a
@@ -212,14 +212,14 @@ The UUID allocated to the newly created pool is printed to stdout
 (referred as ${puuid}) as well as the rank where the pool service is
 located (referred as ${svcl}).</p>
 <p>The typical output of this command is as follows:</p>
-<pre><code>dmg create --size=xxG --nvme=yyT
+<pre><code>$ dmg create --size=xxG --nvme=yyT
 4056fb6d-9fca-4f2d-af8a-cfd57d92a92d 1:2
 </code></pre>
 
 <p>This created a pool with UUID 4056fb6d-9fca-4f2d-af8a-cfd57d92a92d with
 two pool service replica on rank 1 and 2.</p>
 <p><strong>To destroy a pool:</strong></p>
-<pre><code>dmg destroy --pool=${puuid}
+<pre><code>$ dmg destroy --pool=${puuid}
 </code></pre>
 
 <h2 id="pool-properties">Pool Properties</h2>
@@ -260,7 +260,7 @@ NFSv4 ACL standard. This feature will be documented here once available.</p>
 space usage, rebuild status, property list, and more) about a created pool. It
 is integrated into the dmg utility.</p>
 <p><strong>To query a pool:</strong></p>
-<pre><code>dmg query --svc=${svcl} --pool=${puuid}
+<pre><code>$ dmg query --svc=${svcl} --pool=${puuid}
 </code></pre>
 
 <p>Below is the output for a pool created with SCM space only.</p>
@@ -297,7 +297,7 @@ the management API and tool and will be documented here once available.</p>
 <h2 id="pool-modifications">Pool Modifications</h2>
 <h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing</h3>
 <p><strong>To exclude a target from a pool:</strong></p>
-<pre><code>dmg exclude --svc=${svcl} --pool=${puuid} --target=${rank}
+<pre><code>$ dmg exclude --svc=${svcl} --pool=${puuid} --target=${rank}
 </code></pre>
 
 <h3 id="pool-extension">Pool Extension</h3>
@@ -326,7 +326,7 @@ with more information.</p>
         <a href="../app_interface_tiering/" class="btn btn-neutral float-right" title="Applications Interface and Tiering">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href="../administration/" class="btn btn-neutral" title="Administration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../administration/" class="btn btn-neutral" title="System Administration"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
