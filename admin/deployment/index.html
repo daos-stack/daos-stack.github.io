@@ -238,14 +238,14 @@ required directories manually. To do this execute the following commands.</p>
 <pre><code>$ mkdir /var/run/daos_server
 $ chmod 0755 /var/run/daos_server
 $ chown user:user /var/run/daos_server (where user is the user you
-    will run daos\_server as)
+    will run daos_server as)
 </code></pre>
 
 <p>daos_agent:</p>
 <pre><code>$ mkdir /var/run/daos_agent
 $ chmod 0755 /var/run/daos_agent
 $ chown user:user /var/run/daos_agent (where user is the user you
-    will run daos\_agent as)
+    will run daos_agent as)
 </code></pre>
 
 <h4 id="default-directory-persistent">Default Directory (persistent)</h4>
@@ -464,10 +464,10 @@ section of the server configuration file for best performance.</p>
 psm2:
 version: 1.7
 
-ofi\_rxm:
+ofi_rxm:
 version: 1.0
 
-ofi\_rxd:
+ofi_rxd:
 version: 1.0
 
 verbs:
@@ -581,7 +581,7 @@ connect. Also, the DAOS server must be started with the --enable-recovery option
 to support server failure. See the orterun(1) man page for additional options.</p>
 <p>To start the DAOS server, run:</p>
 <pre><code>orterun --map-by node --mca btl tcp,self --mca oob tcp -np &lt;num_servers&gt;
--H &lt;server_list&gt; --enable-recovery daos_server -a &lt;shared_dir&gt; -o &lt;config_file&gt;
+-H &lt;server_list&gt; --enable-recovery daos_server start -a &lt;shared_dir&gt; -o &lt;config_file&gt;
 </code></pre>
 
 <p>The --enable-recovery is required for fault tolerance to guarantee that
@@ -646,10 +646,10 @@ the main process can respond to requests over the client API for
 information through the SPDK interface.</p>
 </li>
 </ul>
-<p>The daos_shell is a transitory tool used to exercise the management api
-and can be used to verify that the DAOS servers are up and running. It
-is to be run as a standard, unprivileged user as follows:</p>
-<pre><code>$ daos_shell -l storagenode1:10001,storagenode2:10001 storage scan
+<p>dmg is a tool built on top of the management api and can be used
+to verify that the DAOS servers are up and running. It is to be run
+as a standard, unprivileged user as follows:</p>
+<pre><code>$ dmg -l storagenode1:10001,storagenode2:10001 storage scan
 </code></pre>
 
 <p>"storagenode" should be replaced with the actual hostname of each
@@ -659,11 +659,11 @@ user-friendly tool built over the management API is under development. A
 first version will be available for DAOS v1.0.</p>
 <h2 id="storage-formatting">Storage Formatting</h2>
 <p>When 'daos_server' is started for the first time (and no SCM directory exists),
-it enters "maintenance mode" and waits for a <code>daos_shell storage format</code> call to
+it enters "maintenance mode" and waits for a <code>dmg storage format</code> call to
 be issued from the management tool.
 This remote call will trigger the formatting of the locally attached storage on
 the host for use with DAOS using the parameters defined in the server config file.</p>
-<p><code>daos_shell -i -l &lt;host:port&gt;[,...] storage format</code> will normally be run on a login
+<p><code>dmg -i -l &lt;host:port&gt;[,...] storage format</code> will normally be run on a login
 node specifying a hostlist (<code>-l &lt;host:port&gt;[,...]</code>) of storage nodes with SCM/DCPM
 modules and NVMe SSDs installed and prepared.</p>
 <h3 id="scm-format">SCM Format</h3>
@@ -703,15 +703,14 @@ a file named <code>superblock</code> indicating that the server has been formatt
 IO services if the <code>superblock</code> is found in <code>scm_mount</code>.</p>
 <h2 id="basic-workflow">Basic Workflow</h2>
 <p>Control plane server (<a href="/src/control/server">daos_server</a>) instances will
-listen for requests from the management tool (<a href="/src/control/cmd/dmg">daos_shell</a>),
+listen for requests from the management tool (<a href="/src/control/cmd/dmg">dmg</a>),
 enabling users to perform provisioning operations on network and storage
 hardware remotely on storage nodes (from for example a login node).</p>
 <p>When <code>daos_server</code> instances have been started on each storage node
-for the first time, calling
-<code>daos_shell -l &lt;host:port&gt;,... storage format -f</code> formats persistent
-storage on the server node (skipping confirmation) on devices specified
-in the server configuration file, then writes the superblock and
-starts the data plane.</p>
+for the first time, calling <code>dmg -l &lt;host:port&gt;,... storage format</code>
+formats persistent storage on the server node on devices specified in
+the server configuration file, then writes the superblock and starts
+the data plane.</p>
 <p><img alt="../graph/server_format_flow.png" src="../../graph/server_format_flow.png" title="Server Format Diagram" /></p>
 <p>Typically an administrator will perform the following tasks:</p>
 <ol>
@@ -741,7 +740,7 @@ starts the data plane.</p>
 <li>
 <p>Start DAOS control plane</p>
 <ul>
-<li><code>orterun -np 2 -H boro-44,boro-45 --enable-recovery daos_server -a shared_dir -o &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml start</code>
+<li><code>orterun -np 2 -H boro-44,boro-45 --enable-recovery daos_server start -a shared_dir -o &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
 <a href="#parallel-launcher">details</a></li>
 </ul>
 </li>
@@ -765,8 +764,9 @@ requires a subsequent restart of <code>daos_server</code>)</p>
 <p>Format Storage (from any node)</p>
 <ul>
 <li>When <code>daos_server</code> is started for the first time (and no SCM directory exists),
-<code>daos_server</code> enters "maintenance mode" and waits for a <code>daos_shell storage format</code> call to be issued from the management tool. This remote call will trigger the formatting of the locally attached storage on the host for use with DAOS using the parameters defined in the server config file.</li>
-<li><code>daos_shell -i -l &lt;host:port&gt;,... storage format -f</code>
+<code>daos_server</code> enters "maintenance mode" and waits for a <code>dmg storage format</code> call to be
+issued from the management tool.</li>
+<li><code>dmg -i -l &lt;host:port&gt;,... storage format</code>
 <a href="/src/control/cmd/dmg/README.md#storage-format">management tool details</a></li>
 <li><a href="/src/control/server/README.md#scm-format">SCM specific details</a></li>
 <li><a href="/src/control/server/README.md#nvme-format">NVMe specific details</a></li>
@@ -778,7 +778,7 @@ requires a subsequent restart of <code>daos_server</code>)</p>
 <summary>Example output</summary>
 <p>
 
-<pre><code class="bash">$ daos_shell -i -l &lt;hostname&gt;:10001 -i storage format -f
+<pre><code class="bash">$ dmg -i -l &lt;hostname&gt;:10001 -i storage format
 Active connections: [&lt;hostname):10001]
 This is a destructive operation and storage devices specified in the server config file will be erased.
 Please be patient as it may take several minutes.

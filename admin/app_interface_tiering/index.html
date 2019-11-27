@@ -301,7 +301,7 @@ available under src/tests.</p>
 files.</p>
 <p>[TODO] Generate Doxygen document and add a link here.</p>
 <h3 id="bindings-to-different-languages">Bindings to Different Languages</h3>
-<p>API bindings to both Python<a href="https://github.com/daos-stack/daos/blob/master/src/utils/py/README.md">^1</a> and Go<a href="https://godoc.org/github.com/daos-stack/go-daos/pkg/daos">^2</a> languages are available.</p>
+<p>API bindings to both Python<a href="https://github.com/daos-stack/daos/blob/master/src/client/pydaos/raw/README.md">^1</a> and Go<a href="https://godoc.org/github.com/daos-stack/go-daos/pkg/daos">^2</a> languages are available.</p>
 <h2 id="posix-filesystem">POSIX Filesystem</h2>
 <p>A regular POSIX namespace can be encapsulated into a DAOS container.  This
 capability is provided by the libdfs library that implements the file and
@@ -329,21 +329,25 @@ filesystem tree. dfuse exposes one mountpoint as a single DFS namespace with a
 single pool and container and can be mounted by regular use (provided that it
 is granted access to the pool and container).
 To mount an existing POSIX container with dfuse, run the following command:</p>
-<pre><code>$ dfuse -p a171434a-05a5-4671-8fe2-615aa0d05094 -s 0 -c 464e68ca-0a30-4a5f-8829-238e890899d2 -m /tmp/daos -S
+<pre><code>$ dfuse --pool a171434a-05a5-4671-8fe2-615aa0d05094 -s 0 --container 464e68ca-0a30-4a5f-8829-238e890899d2 -m /tmp/daos
 </code></pre>
 
 <p>The UUID after -p and -c should be replaced with respectively the pool and
 container UUID. -s should be followed by the pool svc rank list and -m is the
 local directory where the mount point will be setup.
 When done, the file system can be unmounted via fusermount:</p>
-<pre><code>$ fusermount -u /tmp/daos
+<pre><code>$ fusermount3 -u /tmp/daos
 </code></pre>
 
 <h3 id="libioil">libioil</h3>
-<p>An interception library called libioil is under development. This library will
-work in conjunction with dfuse and allow to intercept POSIX read(2) and write(2)
-and issue the I/O operations directly from the application context through
-libdaos and without any application changes.</p>
+<p>An interception library called libioil is available to work with dfuse. This
+library works in conjunction with dfuse and allow to interception of POSIX I/O
+calls and issue the I/O operations directly from the application context through
+libdaos without any appliction changes.  This provides kernel-bypass for I/O data
+leading to improved performance.
+To use this set the LD_PRELOAD to point to the shared libray in the DOAS install
+dir</p>
+<p>LD_PRELOAD=/path/to/daos/install/lib/libioil.so</p>
 <p>Support for libioil is currently planned for DAOS v1.2.</p>
 <h2 id="unified-namespace">Unified Namespace</h2>
 <p>The DAOS tier can be tightly integrated with the Lustre parallel filesystem in

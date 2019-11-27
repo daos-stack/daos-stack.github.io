@@ -121,7 +121,9 @@
         
             <li><a class="toctree-l4" href="#pool-properties">Pool Properties</a></li>
         
-            <li><a class="toctree-l4" href="#pool-acls">Pool ACLs</a></li>
+            <li><a class="toctree-l4" href="#pool-access-control-lists">Pool Access Control Lists</a></li>
+        
+            <li><a class="toctree-l4" href="#pool-query">Pool Query</a></li>
         
             <li><a class="toctree-l4" href="#pool-modifications">Pool Modifications</a></li>
         
@@ -203,7 +205,7 @@ management interface.</p>
 (see daos_mgmt.h). DAOS also provides a utility called dmg to manage
 storage pools from the command line.</p>
 <p><strong>To create a pool:</strong></p>
-<pre><code>$ dmg create --size=xxG --nvme=yyT
+<pre><code>$ dmg pool create --scm-size=xxG --nvme-size=yyT
 </code></pre>
 
 <p>This command creates a pool distributed across the DAOS servers with a
@@ -211,15 +213,31 @@ target size on each server with xxGB of SCM and yyTB of NVMe storage.
 The UUID allocated to the newly created pool is printed to stdout
 (referred as ${puuid}) as well as the rank where the pool service is
 located (referred as ${svcl}).</p>
-<p>The typical output of this command is as follows:</p>
-<pre><code>$ dmg create --size=xxG --nvme=yyT
-4056fb6d-9fca-4f2d-af8a-cfd57d92a92d 1:2
+<pre><code>$ dmg pool create --help
+...
+[create command options]
+      -g, --group=     DAOS pool to be owned by given group, format name@domain
+      -u, --user=      DAOS pool to be owned by given user, format name@domain
+      -a, --acl-file=  Access Control List file path for DAOS pool
+      -s, --scm-size=  Size of SCM component of DAOS pool
+      -n, --nvme-size= Size of NVMe component of DAOS pool
+      -r, --ranks=     Storage server unique identifiers (ranks) for DAOS pool
+      -v, --nsvc=      Number of pool service replicas (default: 1)
+      -S, --sys=       DAOS system that pool is to be a part of (default: daos_server)
 </code></pre>
 
-<p>This created a pool with UUID 4056fb6d-9fca-4f2d-af8a-cfd57d92a92d with
-two pool service replica on rank 1 and 2.</p>
+<p>The typical output of this command is as follows:</p>
+<pre><code>$ dmg -i pool create -s 1G -n 10G -g root -u root -S daos
+Active connections: [localhost:10001]
+Creating DAOS pool with 1GB SCM and 10GB NvMe storage (0.100 ratio)
+Pool-create command SUCCEEDED: UUID: 5d6fa7bf-637f-4dba-bcd2-480ad251cdc7,
+Service replicas: 0,1
+</code></pre>
+
+<p>This created a pool with UUID 5d6fa7bf-637f-4dba-bcd2-480ad251cdc7,
+two pool service replica on rank 0 and 1.</p>
 <p><strong>To destroy a pool:</strong></p>
-<pre><code>$ dmg destroy --pool=${puuid}
+<pre><code>$ dmg pool destroy --pool=${puuid}
 </code></pre>
 
 <h2 id="pool-properties">Pool Properties</h2>
@@ -252,15 +270,104 @@ API (not supported by the tool yet):</p>
 metadata, many of them are still under development. Moreover, the
 ability to modify some of those properties on an existing pool will also
 be provided in a future release.</p>
-<h2 id="pool-acls">Pool ACLs</h2>
-<p>Support for per-pool Access Control Lists (ACLs) is under development
-and is scheduled for DAOS v1.0. DAOS ACLs will implement a subset of the
-NFSv4 ACL standard. This feature will be documented here once available.</p>
+<h2 id="pool-access-control-lists">Pool Access Control Lists</h2>
+<p>User and group access for pools is controlled by Access Control Lists (ACLs).
+A DAOS ACL is a list of zero or more Access Control Entries (ACEs). ACEs are
+the individual rules applied to each access decision.</p>
+<p>If no ACL is provided when creating the pool, the default ACL grants read and
+write access to the pool's owner-user and owner-group.</p>
+<h3 id="access-control-entries">Access Control Entries</h3>
+<p>ACEs are designated by a colon-separated string format:
+<code>TYPE:FLAGS:IDENTITY:PERMISSIONS</code></p>
+<p>Available values for these fields:</p>
+<ul>
+<li>TYPE: Allow (A)</li>
+<li>FLAGS: Group (G)</li>
+<li>IDENTITY: See below</li>
+<li>PERMISSIONS: Read (r), Write (w)</li>
+</ul>
+<h4 id="identity">Identity</h4>
+<p>The identity (also called the principal) is specified in the name@domain format.
+The domain should be left off if the name is a user/group on the local domain.
+Currently, this is the only case supported by DAOS.</p>
+<p>There are three special identities, <code>OWNER@</code>, <code>GROUP@</code> and <code>EVERYONE@</code>,
+which align with User, Group, and Other from traditional POSIX permission bits.
+When providing them in the ACE string format, they must be spelled exactly as
+written here, in uppercase with no domain appended.</p>
+<h4 id="examples">Examples</h4>
+<ul>
+<li><code>A::daos_user@:rw</code></li>
+<li>Allow the UNIX user named daos_user to have read-write access</li>
+<li><code>A:G:project_users@:r</code></li>
+<li>Allow anyone in the UNIX group project_users to have read-only access</li>
+<li><code>A::EVERYONE@:r</code></li>
+<li>Allow any user not covered by other rules to have read-only access</li>
+</ul>
+<h3 id="enforcement">Enforcement</h3>
+<p>Access Control Entries (ACEs) will be enforced in the following order:</p>
+<ul>
+<li>Owner-User</li>
+<li>Named users</li>
+<li>Owner-Group and named groups</li>
+<li>Everyone</li>
+</ul>
+<p>In general, enforcement will be based on the first match, ignoring
+lower-priority entries. For example, if the user has an ACE for their user
+identity, they will not receive the permissions for any of their groups, even if
+those group entries have broader permissions than the user entry does. The user
+is expected to match at most one user entry.</p>
+<p>If no matching user entry is found, but entries match one or more of the user's
+groups, enforcement will be based on the union of the permissions of all
+matching groups.</p>
+<p>By default, if a user matches no ACEs in the list, access will be denied.</p>
+<h3 id="creating-a-pool-with-a-custom-acl">Creating a pool with a custom ACL</h3>
+<p>To create a pool with a custom ACL:</p>
+<pre><code>$ dmg pool create --scm-size &lt;size&gt; --acl-file &lt;path&gt;
+</code></pre>
+
+<p>The ACL file is expected to be a text file with one ACE listed on each line. For
+example:</p>
+<pre><code># Entries:
+A::OWNER@:rw
+A:G:GROUP@:rw
+# Everyone should be allowed to read
+A::EVERYONE@:r
+</code></pre>
+
+<p>You may add comments to the ACL file by starting the line with <code>#</code>.</p>
+<h3 id="displaying-a-pools-acl">Displaying a pool's ACL</h3>
+<p>To view a pool's ACL:</p>
+<pre><code>$ dmg pool get-acl --pool &lt;UUID&gt;
+</code></pre>
+
+<p>The output is in the same string format used in the ACL file during creation,
+with one ACE per line.</p>
+<h3 id="modifying-a-pools-acl">Modifying a pool's ACL</h3>
+<p>For all of these commands using an ACL file, the ACL file must be in the format
+noted above for pool creation.</p>
+<h4 id="overwriting-the-acl">Overwriting the ACL</h4>
+<p>To replace a pool's ACL with a new ACL:</p>
+<pre><code>$ dmg pool overwrite-acl --pool &lt;UUID&gt; --acl-file &lt;path&gt;
+</code></pre>
+
+<h4 id="updating-entries-in-an-existing-acl">Updating entries in an existing ACL</h4>
+<p>To add or update multiple entries in an existing pool ACL:</p>
+<pre><code>$ dmg pool update-acl --pool &lt;UUID&gt; --acl-file &lt;path&gt;
+</code></pre>
+
+<p>To add or update a single entry in an existing pool ACL:</p>
+<pre><code>$ dmg pool update-acl --pool &lt;UUID&gt; --entry &lt;ACE&gt;
+</code></pre>
+
+<p>If there is no existing entry for the principal in the ACL, the new entry is
+added to the ACL. If there is already an entry for the principal, that entry
+is replaced with the new one.</p>
+<h2 id="pool-query">Pool Query</h2>
 <p>The pool query operation retrieves information (i.e., the number of targets,
 space usage, rebuild status, property list, and more) about a created pool. It
-is integrated into the dmg utility.</p>
+is integrated into the dmg_old utility.</p>
 <p><strong>To query a pool:</strong></p>
-<pre><code>$ dmg query --svc=${svcl} --pool=${puuid}
+<pre><code>$ dmg_old query --svc=${svcl} --pool=${puuid}
 </code></pre>
 
 <p>Below is the output for a pool created with SCM space only.</p>
@@ -297,7 +404,7 @@ the management API and tool and will be documented here once available.</p>
 <h2 id="pool-modifications">Pool Modifications</h2>
 <h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing</h3>
 <p><strong>To exclude a target from a pool:</strong></p>
-<pre><code>$ dmg exclude --svc=${svcl} --pool=${puuid} --target=${rank}
+<pre><code>$ dmg_old exclude --svc=${svcl} --pool=${puuid} --target=${rank}
 </code></pre>
 
 <h3 id="pool-extension">Pool Extension</h3>
