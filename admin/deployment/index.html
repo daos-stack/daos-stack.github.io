@@ -565,40 +565,33 @@ line. Otherwise, /etc/daos_server.conf is used.</p>
 <p>Refer to the example configuration file (<a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml">daos_server.yml</a>)
 for latest information and examples.</p>
 <h2 id="server-startup">Server Startup</h2>
-<p>DAOS currently relies on PMIx for server wire-up and application to
-server connection. As a result, the DAOS servers can only be started via
-orterun (part of OpenMPI). A new bootstrap procedure is under
-implementation and will be available for DAOS v1.0. This will remove the
-dependency on PMIx and will allow the DAOS servers to be started
+<p>DAOS is currently switching from the PMIx-based server wire-up to a
+self-contained bootstrap procedure. The new bootstrap procedure will be
+available for DAOS v1.0 and will allow the DAOS servers to be started
 individually (e.g. independently on each storage node via systemd) or
-collectively (e.g. pdsh, mpirun or as a Kubernetes Pod).</p>
+collectively (e.g. pdsh, mpirun or as a Kubernetes Pod). Meanwhile, servers
+no longer have to be started by orterun, with a temporary limitation that if
+one of them is restarted, the others must also be restarted.</p>
 <h3 id="parallel-launcher">Parallel Launcher</h3>
-<p>As stated above, only orterun(1) is currently supported.</p>
+<p>As stated above, orterun(1) is no longer required, provided the temporary
+limitation is accommodated. The section still uses orterun as an example.</p>
 <p>The list of storage nodes can be specified on the command line via the -H
-option. The DAOS server and the application can be started
-separately but must share a URI directory (referred to as shared_dir) to
-connect. Also, the DAOS server must be started with the --enable-recovery option
+option. The DAOS server and the application can be started separately.
+Also, the DAOS server must be started with the --enable-recovery option
 to support server failure. See the orterun(1) man page for additional options.</p>
 <p>To start the DAOS server, run:</p>
 <pre><code>orterun --map-by node --mca btl tcp,self --mca oob tcp -np &lt;num_servers&gt;
--H &lt;server_list&gt; --enable-recovery daos_server start -a &lt;shared_dir&gt; -o &lt;config_file&gt;
+-H &lt;server_list&gt; --enable-recovery daos_server start -o &lt;config_file&gt;
 </code></pre>
 
 <p>The --enable-recovery is required for fault tolerance to guarantee that
 the fault of one server does not cause the others to be stopped.</p>
-<p>The shared directory should be accessible by all nodes.</p>
 <p>The --allow-run-as-root option can be added to the command line to
 allow the daos_server to run with root privileges on each storage
 nodes (for example when needing to perform privileged tasks relating
 to storage format).</p>
 <p>The content of the configuration file is documented in the next section
 and a few examples are <a href="/src/utils/config/examples">available</a>.</p>
-<p>Client processes (i.e. utilities, applications, ...) should have the
-following environment variables set to connect to the DAOS servers:</p>
-<pre><code>export DAOS_SINGLETON_CLI=1
-export CRT_ATTACH_INFO_PATH=/path/to/shared_dir
-</code></pre>
-
 <h3 id="systemd-integration">Systemd Integration</h3>
 <p>Systemd support for daos_server is still experimental as it will start the
 daos_server and daos_io_server components in PMIXless mode, which is still in
@@ -740,7 +733,7 @@ the data plane.</p>
 <li>
 <p>Start DAOS control plane</p>
 <ul>
-<li><code>orterun -np 2 -H boro-44,boro-45 --enable-recovery daos_server start -a shared_dir -o &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
+<li><code>orterun -np 2 -H boro-44,boro-45 --enable-recovery daos_server start -o &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
 <a href="#parallel-launcher">details</a></li>
 </ul>
 </li>
@@ -757,6 +750,8 @@ requires a subsequent restart of <code>daos_server</code>)</p>
 <ul>
 <li><code>vim &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
 <a href="#server-configuration">details</a></li>
+<li>pick one server in the system and set <code>access_points</code> to this server's
+  host and port</li>
 <li>populate the <code>scm_*</code> and <code>bdev_*</code> parameters as used in format (below)</li>
 </ul>
 </li>

@@ -362,6 +362,25 @@ noted above for pool creation.</p>
 <p>If there is no existing entry for the principal in the ACL, the new entry is
 added to the ACL. If there is already an entry for the principal, that entry
 is replaced with the new one.</p>
+<h4 id="removing-an-entry-from-the-acl">Removing an entry from the ACL</h4>
+<p>To delete an entry for a given principal, or identity, in an existing pool ACL:</p>
+<pre><code>$ dmg pool delete-acl --pool &lt;UUID&gt; --principal &lt;principal&gt;
+</code></pre>
+
+<p>The principal corresponds to the principal/identity portion of an ACE that was
+set during pool creation or a previous pool ACL operation. For the delete
+operation, the principal argument must be formatted as follows:</p>
+<ul>
+<li>Named user: <code>u:username@</code></li>
+<li>Named group: <code>g:groupname@</code></li>
+<li>Special principals:</li>
+<li><code>OWNER@</code></li>
+<li><code>GROUP@</code></li>
+<li><code>EVERYONE@</code></li>
+</ul>
+<p>The entry for that principal will be completely removed. This does not always
+mean that the principal will have no access. Rather, their access to the pool
+will be decided based on the remaining ACL rules.</p>
 <h2 id="pool-query">Pool Query</h2>
 <p>The pool query operation retrieves information (i.e., the number of targets,
 space usage, rebuild status, property list, and more) about a created pool. It

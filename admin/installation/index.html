@@ -315,7 +315,6 @@ Dockerfile.ubuntu.18.04 and the appropriate version of interest.</p>
 <p>Once the image created, one can start a container that will eventually run
 the DAOS service:</p>
 <pre><code>$ docker run -it -d --privileged --name server \
-        -v /tmp/uri:/tmp/uri \
         -v /dev/hugepages:/dev/hugepages \
         daos
 </code></pre>
@@ -332,7 +331,6 @@ command to create a docker image without checking out the DAOS source tree:</p>
 <p>Then create a container that can access the local DAOS source tree:</p>
 <pre><code>$ docker run -it -d --privileged --name server \
         -v ${daospath}:/home/daos/daos:Z \
-        -v /tmp/uri:/tmp/uri \
         -v /dev/hugepages:/dev/hugepages \
         daos
 </code></pre>
@@ -368,7 +366,6 @@ OSX. This still allows running the DAOS service despite the error.</p>
 <pre><code>$ docker exec server mkdir /var/run/daos_server
 $ docker exec server orterun -allow-run-as-root -H localhost -np 1 \
         daos_server start \
-        -a /tmp/uri \
         -o /home/daos/daos/utils/config/examples/daos_server_local.yml
 </code></pre>
 
