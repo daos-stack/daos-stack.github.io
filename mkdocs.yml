@@ -11,7 +11,7 @@ repo_url: https://github.com/daos-stack/daos
 
 # Theme
 theme:
-    name: rtd-dropdown
+    name: windmill
     language: en
 
 extra:
