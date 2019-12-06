@@ -1,175 +1,62 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="DAOS Project">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Use Cases - DAOS</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="DAOS Project">
+    <link rel="canonical" href="http://daos.io/overview/use_cases/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Use Cases - DAOS</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Use Cases";
-    var mkdocs_page_input_path = "overview/use_cases.md";
-    var mkdocs_page_url = "/overview/use_cases/";
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Use Cases", url: "#_top", children: [
+              {title: "Storage Management &amp; Workflow Integration", url: "#storage-management-workflow-integration" },
+              {title: "Workflow Execution", url: "#workflow-execution" },
+              {title: "Storage Node Failure and Resilvering", url: "#storage-node-failure-and-resilvering" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
-  <div class="wy-grid-for-nav">
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
 
     
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> DAOS</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Overview</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../terminology/">Terminology</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../storage/">Storage Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../transaction/">Transaction Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../fault/">Fault Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../security/">Security Model</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Administration Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../admin/intro/">Introduction</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/architecture/">DAOS Architecture</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/hardware/">Hardware Requirements</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/installation/">Software Installation</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/deployment/">System Deployment</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/administration/">System Administration</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/pool_operations/">Pool Operations</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/app_interface_tiering/">Applications Interface and Tiering</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/performance_tuning/">Performance Tuning</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/troubleshooting/">Troubleshooting</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/utilities_examples/">Utilities and Usage Examples</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../admin/env_variables/">Environment Variables</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">DAOS</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
-    
-      
-    
-    <li>Use Cases</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/daos-stack/daos/edit/master/docs/overview/use_cases.md"> Edit on daos-stack/daos</a>
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="use-cases">Use Cases</h1>
+    <h1 id="use-cases">Use Cases</h1>
 <p>This section provides a non-exhaustive list of use cases presenting how the DAOS storage model and stack could be used on a real HPC cluster.</p>
 <p>This document contains the following sections:</p>
 <ul>
@@ -231,39 +118,19 @@
 <h2 id="storage-node-failure-and-resilvering">Storage Node Failure and Resilvering</h2>
 <p>In this section, we consider a workflow connected to a DAOS pool and one storage node that suddenly fails. Both DAOS clients and servers communicating with the failed server experience RPC timeouts and inform the RAS system. Failing RPCs are resent repeatedly until the RAS system or the pool metadata service itself decides to declare the storage node dead and evicts it from the pool map. The pool map update, along with the new version, is propagated to all the storage nodes that lazily (in RPC replies) inform clients that a new pool map version is available. Both clients and servers are thus eventually informed of the failure and enter into recovery mode.</p>
 <p>Server nodes will cooperate to restore redundancy on different servers for the impacted objects, whereas clients will enter in degraded mode and read from other replicas, or reconstruct data from erasure code. This rebuild process is executed online while the container is still being accessed and modified. Once redundancy has been restored for all objects, the poolmap is updated again to inform everyone that the system has recovered from the fault and the system can exit from degraded mode.</p>
-              
-            </div>
-          </div>
-          <footer>
-  
 
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+  <br>
     
-  </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-      
-    </span>
+    <br>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/overview/use_cases.md">Edit on daos-stack/daos</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
 
 </body>
 </html>

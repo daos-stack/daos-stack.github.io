@@ -1,199 +1,91 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="DAOS Project">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>System Administration - DAOS</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="DAOS Project">
+    <link rel="canonical" href="http://daos.io/admin/administration/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>System Administration - DAOS</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "System Administration";
-    var mkdocs_page_input_path = "admin/administration.md";
-    var mkdocs_page_url = "/admin/administration/";
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "DAOS System Administration", url: "#_top", children: [
+              {title: "System Monitoring", url: "#system-monitoring" },
+              {title: "System Operations", url: "#system-operations" },
+              {title: "Fault Management", url: "#fault-management" },
+              {title: "Software Upgrade", url: "#software-upgrade" },
+              {title: "Storage Scrubbing", url: "#storage-scrubbing" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
-  <div class="wy-grid-for-nav">
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> DAOS</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Overview</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../overview/terminology/">Terminology</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../overview/storage/">Storage Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../overview/transaction/">Transaction Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../overview/fault/">Fault Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../overview/security/">Security Model</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Administration Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../intro/">Introduction</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../architecture/">DAOS Architecture</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../hardware/">Hardware Requirements</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../installation/">Software Installation</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../deployment/">System Deployment</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">System Administration</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#daos-system-administration">DAOS System Administration</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#system-monitoring">System Monitoring</a></li>
-        
-            <li><a class="toctree-l4" href="#system-operations">System Operations</a></li>
-        
-            <li><a class="toctree-l4" href="#fault-management">Fault Management</a></li>
-        
-            <li><a class="toctree-l4" href="#software-upgrade">Software Upgrade</a></li>
-        
-            <li><a class="toctree-l4" href="#storage-scrubbing">Storage Scrubbing</a></li>
-        
-        </ul>
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
     
 
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../pool_operations/">Pool Operations</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../app_interface_tiering/">Applications Interface and Tiering</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../performance_tuning/">Performance Tuning</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../troubleshooting/">Troubleshooting</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../utilities_examples/">Utilities and Usage Examples</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../env_variables/">Environment Variables</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">DAOS</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
+    
     
       
-        
-          <li>Administration Guide &raquo;</li>
-        
-      
     
-    <li>System Administration</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/administration.md"> Edit on daos-stack/daos</a>
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="daos-system-administration">DAOS System Administration</h1>
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../pool_operations/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../pool_operations/" class="btn btn-xs btn-link">
+        Pool Operations
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../deployment/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../deployment/" class="btn btn-xs btn-link">
+        System Deployment
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="daos-system-administration">DAOS System Administration</h1>
 <h2 id="system-monitoring">System Monitoring</h2>
 <p>System monitoring and telemetry data will be provided as part of the
 control plane and will be documented in a future revision.</p>
@@ -287,52 +179,46 @@ that only stores user data with no metadata.</p>
 <p>Support for end-to-end data integrity is planned for DAOS v1.2 and
 background checksum scrubbing for v2.2. Once available, that
 functionality will be documented here.</p>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+  <br>
+    
+
+    
+    
       
-        <a href="../pool_operations/" class="btn btn-neutral float-right" title="Pool Operations">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../deployment/" class="btn btn-neutral" title="System Deployment"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../pool_operations/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../pool_operations/" class="btn btn-xs btn-link">
+        Pool Operations
+      </a>
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+    
+    <div class="wm-article-nav">
+      <a href="../deployment/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../deployment/" class="btn btn-xs btn-link">
+        System Deployment
+      </a>
+    </div>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../deployment/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../pool_operations/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+    <br>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/administration.md">Edit on daos-stack/daos</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
 
 </body>
 </html>

@@ -1,199 +1,91 @@
 <!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <meta name="author" content="DAOS Project">
-  <link rel="shortcut icon" href="../../img/favicon.ico">
-  <title>Software Installation - DAOS</title>
-  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="DAOS Project">
+    <link rel="canonical" href="http://daos.io/admin/installation/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Software Installation - DAOS</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
 
-  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
-  
-  <script>
-    // Current page data
-    var mkdocs_page_name = "Software Installation";
-    var mkdocs_page_input_path = "admin/installation.md";
-    var mkdocs_page_url = "/admin/installation/";
-  </script>
-  
-  <script src="../../js/jquery-2.1.1.min.js" defer></script>
-  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-  <script>hljs.initHighlightingOnLoad();</script> 
-  
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "DAOS Software Installation", url: "#_top", children: [
+              {title: "Software Dependencies", url: "#software-dependencies" },
+              {title: "Distribution Packages", url: "#distribution-packages" },
+              {title: "DAOS from Scratch", url: "#daos-from-scratch" },
+              {title: "DAOS in Docker", url: "#daos-in-docker" },
+              {title: "DAOS for Development", url: "#daos-for-development" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
 </head>
 
-<body class="wy-body-for-nav" role="document">
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
 
-  <div class="wy-grid-for-nav">
 
-    
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
-      <div class="wy-side-nav-search">
-        <a href="../.." class="icon icon-home"> DAOS</a>
-        <div role="search">
-  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
-  </form>
-</div>
-      </div>
 
-      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-	<ul class="current">
-	  
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../..">Home</a>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Overview</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../../overview/terminology/">Terminology</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../overview/storage/">Storage Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../overview/transaction/">Transaction Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../overview/fault/">Fault Model</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../../overview/security/">Security Model</a>
-                </li>
-    </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <span class="caption-text">Administration Guide</span>
-    <ul class="subnav">
-                <li class="">
-                    
-    <a class="" href="../intro/">Introduction</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../architecture/">DAOS Architecture</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../hardware/">Hardware Requirements</a>
-                </li>
-                <li class=" current">
-                    
-    <a class="current" href="./">Software Installation</a>
-    <ul class="subnav">
-            
-    <li class="toctree-l3"><a href="#daos-software-installation">DAOS Software Installation</a></li>
-    
-        <ul>
-        
-            <li><a class="toctree-l4" href="#software-dependencies">Software Dependencies</a></li>
-        
-            <li><a class="toctree-l4" href="#distribution-packages">Distribution Packages</a></li>
-        
-            <li><a class="toctree-l4" href="#daos-from-scratch">DAOS from Scratch</a></li>
-        
-            <li><a class="toctree-l4" href="#daos-in-docker">DAOS in Docker</a></li>
-        
-            <li><a class="toctree-l4" href="#daos-for-development">DAOS for Development</a></li>
-        
-        </ul>
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
     
 
-    </ul>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../deployment/">System Deployment</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../administration/">System Administration</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../pool_operations/">Pool Operations</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../app_interface_tiering/">Applications Interface and Tiering</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../performance_tuning/">Performance Tuning</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../troubleshooting/">Troubleshooting</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../utilities_examples/">Utilities and Usage Examples</a>
-                </li>
-                <li class="">
-                    
-    <a class="" href="../env_variables/">Environment Variables</a>
-                </li>
-    </ul>
-	    </li>
-          
-        </ul>
-      </div>
-      &nbsp;
-    </nav>
-
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
-        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-        <a href="../..">DAOS</a>
-      </nav>
-
-      
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="breadcrumbs navigation">
-  <ul class="wy-breadcrumbs">
-    <li><a href="../..">Docs</a> &raquo;</li>
+    
     
       
-        
-          <li>Administration Guide &raquo;</li>
-        
-      
     
-    <li>Software Installation</li>
-    <li class="wy-breadcrumbs-aside">
-      
-        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/installation.md"> Edit on daos-stack/daos</a>
-      
-    </li>
-  </ul>
-  <hr/>
-</div>
-          <div role="main">
-            <div class="section">
-              
-                <h1 id="daos-software-installation">DAOS Software Installation</h1>
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../deployment/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../deployment/" class="btn btn-xs btn-link">
+        System Deployment
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../hardware/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../hardware/" class="btn btn-xs btn-link">
+        Hardware Requirements
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="daos-software-installation">DAOS Software Installation</h1>
 <p>DAOS runs on both Intel 64 and ARM64 platforms and has been successfully tested
 on CentOS 7, OpenSUSE 42.2, and Ubuntu 18.04 distributions.</p>
 <h2 id="software-dependencies">Software Dependencies</h2>
@@ -357,15 +249,14 @@ $ ls /sys/bus/pci/drivers/uio_pci_generic
 </code></pre>
 
 <p>SCM and NVMe storage can then be configured by running the follow command:</p>
-<pre><code>$ docker exec server daos_server storage prepare -n -f
+<pre><code>$ docker exec server daos_server storage prepare
 </code></pre>
 
 <p>Note that this command reports that /dev/hugepages is not accessible on
 OSX. This still allows running the DAOS service despite the error.</p>
 <p>The DAOS service can then be started as follows:</p>
 <pre><code>$ docker exec server mkdir /var/run/daos_server
-$ docker exec server orterun -allow-run-as-root -H localhost -np 1 \
-        daos_server start \
+$ docker exec server daos_server start \
         -o /home/daos/daos/utils/config/examples/daos_server_local.yml
 </code></pre>
 
@@ -375,7 +266,7 @@ of DRAM to emulate persistent memory and 16GB of bulk storage under /tmp.
 The storage size can be changed in the yaml file if necessary.</p>
 <p>Once started, the DAOS server waits for the administrator to format the system.
 This can be triggered in a different shell, using the following command:</p>
-<pre><code>$ docker exec server dmg -i storage format -f
+<pre><code>$ docker exec server dmg -i storage format
 </code></pre>
 
 <p>Upon successful completion of the format, the storage engine is started, and pools
@@ -401,8 +292,8 @@ components individually by replacing --build-deps=yes with
 --update-prereq={component_name}. This requires a change to the environment
 configuration from before. For automated environment setup, source
 scons_local/utils/setup_local.sh.</p>
-<pre><code>ARGOBOTS=${daos_prefix_path}/opt/argobots                          
-CART=${daos_prefix_path}/opt/cart        
+<pre><code>ARGOBOTS=${daos_prefix_path}/opt/argobots
+CART=${daos_prefix_path}/opt/cart
 FIO=${daos_prefix_path}/opt/fio
 FUSE=${daos_prefix_path}/opt/fuse
 HWLOC=${daos_prefix_path}/opt/hwloc
@@ -499,52 +390,46 @@ to their destination directories:</p>
 $ mv myfile.pb-c.h &lt;c_file_include_dir&gt;
 $ mv myfile.pb-c.c &lt;c_file_src_dir&gt;
 </code></pre>
-              
-            </div>
-          </div>
-          <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+
+  <br>
+    
+
+    
+    
       
-        <a href="../deployment/" class="btn btn-neutral float-right" title="System Deployment">Next <span class="icon icon-circle-arrow-right"></span></a>
-      
-      
-        <a href="../hardware/" class="btn btn-neutral" title="Hardware Requirements"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../deployment/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../deployment/" class="btn btn-xs btn-link">
+        System Deployment
+      </a>
     </div>
-  
-
-  <hr/>
-
-  <div role="contentinfo">
-    <!-- Copyright etc -->
+    
+    <div class="wm-article-nav">
+      <a href="../hardware/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../hardware/" class="btn btn-xs btn-link">
+        Hardware Requirements
+      </a>
+    </div>
     
   </div>
 
-  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
-</footer>
-      
-        </div>
-      </div>
-
-    </section>
-
-  </div>
-
-  <div class="rst-versions" role="note" style="cursor: pointer">
-    <span class="rst-current-version" data-toggle="rst-current-version">
-      
-      
-        <span><a href="../hardware/" style="color: #fcfcfc;">&laquo; Previous</a></span>
-      
-      
-        <span style="margin-left: 15px"><a href="../deployment/" style="color: #fcfcfc">Next &raquo;</a></span>
-      
-    </span>
+    <br>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/installation.md">Edit on daos-stack/daos</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
 
 </body>
 </html>

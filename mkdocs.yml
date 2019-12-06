@@ -11,7 +11,7 @@ repo_url: https://github.com/daos-stack/daos
 
 # Theme
 theme:
-    name: readthedocs
+    name: windmill
     language: en
 
 docs_dir: ./
