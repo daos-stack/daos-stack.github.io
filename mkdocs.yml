@@ -14,6 +14,10 @@ theme:
     name: windmill
     language: en
 
+extra:
+    extra.version: v0.7
+    extra.logo: https://avatars3.githubusercontent.com/u/20561043?s=400&u=0aebbeb06413dede6d22de37acc54a2947be2d01&v=4
+
 docs_dir: ./
 
 # Page tree
