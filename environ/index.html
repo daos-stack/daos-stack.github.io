@@ -120,7 +120,7 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 <h3 id="rdb_request_timeout"><code>RDB_REQUEST_TIMEOUT</code></h3>
 <p>Raft request timeout used by RDBs in milliseconds. <code>INTEGER</code>. Default to 3000 ms.</p>
 <h3 id="rdb_compact_threshold"><code>RDB_COMPACT_THRESHOLD</code></h3>
-<p>Raft log compaction threshold in applied entries. <code>INTEGER</code>. Default to 0 entries.</p>
+<p>Raft log compaction threshold in applied entries. <code>INTEGER</code>. Default to 256 entries.</p>
 <p>If set to 0, Raft log entries will never be compacted.</p>
 <h3 id="daos_rebuild"><code>DAOS_REBUILD</code></h3>
 <p>Whether to start rebuilds when excluding targets. <code>BOOL2</code>. Default to true.</p>
