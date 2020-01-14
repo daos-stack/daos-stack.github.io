@@ -158,13 +158,6 @@
     
       
 
-  <li class="toctree-l2 current with-children">
-    <a href="#daos-system-deployment">
-      DAOS System Deployment
-      <span class="toctree-expand"></span>
-    </a>
-  </li>
-
 
 
   <li class="toctree-l2 current">
@@ -280,32 +273,15 @@
           <a class="toctree-l5" href="#step-6-format-storage-from-any-node">Step 6. Format Storage (from any node)</a>
         </li>
     
-    </ul>
-  </li>
-
       
-    
-    </ul>
-  </li>
-
-      
-
-  <li class="toctree-l2">
-    <a href="#2-and-is-in-format-mode-scm-format-required-displayed-on-daos">
-      2) and is in format mode (SCM format required displayed on DAOS
-      <span class="toctree-expand"></span>
-    </a>
-  </li>
-
-
-
-  <li class="toctree-l2">
-    <ul class="subnav-l2 toc-hidden">
-    
-      
-        <li class="toctree-l3">
-          <a class="toctree-l4" href="#step-7-optional-reset-daos-storage">Step 7. (optional) Reset DAOS storage</a>
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#step-7-optional-reset-daos-storage">Step 7. (optional) Reset DAOS storage</a>
         </li>
+    
+    </ul>
+  </li>
+
+      
     
       
           
@@ -576,7 +552,7 @@
 
 
   <li class="navtree toctree-l2 inactive">
-    <a class="" href="../app_interface_tiering/">Applications Interface and Tiering</a>
+    <a class="" href="../app_interface_tiering/">Application Interface and Tiering</a>
   </li>
         
           
@@ -648,7 +624,7 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="daos-system-deployment">DAOS System Deployment</h1>
+                <h1 id="system-deployment">System Deployment</h1>
 <h2 id="preflight-checklist">Preflight Checklist</h2>
 <p>This section covers the preliminary setup required on the compute and
 storage nodes before deploying DAOS.</p>
@@ -886,21 +862,21 @@ servers:
 
 <h3 id="step-6-format-storage-from-any-node">Step 6. Format Storage (from any node)</h3>
 <ul>
-<li>Assuming <code>daos_server</code> is running on all desired hosts (see step</li>
-</ul>
-<h1 id="2-and-is-in-format-mode-scm-format-required-displayed-on-daos">2) and is in <code>format</code> mode (<code>SCM format required</code> displayed on DAOS</h1>
-<p>Control Server stdout).
-- <code>dmg -l wolf-[118-121,130-133] -i storage format</code> will create
+<li>Assuming <code>daos_server</code> is running on all desired hosts (see step
+2) and is in <code>format</code> mode (<code>SCM format required</code> displayed on DAOS
+Control Server stdout).</li>
+<li><code>dmg -l wolf-[118-121,130-133] -i storage format</code> will create
 necessary metadata on the SCM mount at the path specified in the
 config file. The device specified in the config file (<code>scm_list</code>)
 will be mounted at the given path.
 The NVMe devices specified in the config file (<code>bdev_list</code>) will be
 formatted using SPDK (Optane drives may take a while) and configuration
 written to each SCM mount to enable DAOS I/O instances to use designated
-SSDs through SPDK.
-- <a href="/src/control/cmd/dmg/README.md#storage-format">management tool details</a>
-- <a href="/src/control/server/README.md#scm-format">SCM specific details</a>
-- <a href="/src/control/server/README.md#nvme-format">NVMe specific details</a></p>
+SSDs through SPDK.</li>
+<li><a href="/src/control/cmd/dmg/README.md#storage-format">management tool details</a></li>
+<li><a href="/src/control/server/README.md#scm-format">SCM specific details</a></li>
+<li><a href="/src/control/server/README.md#nvme-format">NVMe specific details</a></li>
+</ul>
 <p>After successful format, DAOS Control Servers will start DAOS IO
 instances that have been specified in the server config file.</p>
 <p>Successful start-up is indicated by the following on stdout:
