@@ -1,95 +1,654 @@
 <!DOCTYPE html>
-<html lang="en">
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
 <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
+  <meta name="author" content="DAOS Project">
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>System Deployment - DAOS</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+  <link href='https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
   
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <meta name="author" content="DAOS Project">
-    <link rel="canonical" href="http://daos.io/admin/deployment/">
-    <link rel="shortcut icon" href="../../img/favicon.ico">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
-    <title>System Deployment - DAOS</title>
-    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
-    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
-    <link href="../../css/base.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../css/highlight.css">
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
-    <![endif]-->
-
-    <script src="../../js/jquery-3.2.1.min.js"></script>
-    <script src="../../js/bootstrap-3.3.7.min.js"></script>
-    <script src="../../js/highlight.pack.js"></script>
-    
-    <base target="_top">
-    <script>
-      var base_url = '../..';
-      var is_top_frame = false;
-        
-        var pageToc = [
-          {title: "DAOS System Deployment", url: "#_top", children: [
-              {title: "Preflight Checklist", url: "#preflight-checklist" },
-              {title: "Hardware Provisioning", url: "#hardware-provisioning" },
-              {title: "Server Configuration", url: "#server-configuration" },
-              {title: "Server Startup", url: "#server-startup" },
-              {title: "Storage Formatting", url: "#storage-formatting" },
-              {title: "Basic Workflow", url: "#basic-workflow" },
-              {title: "Agent Configuration", url: "#agent-configuration" },
-              {title: "Agent Startup", url: "#agent-startup" },
-              {title: "System Validation", url: "#system-validation" },
-          ]},
-        ];
-
-    </script>
-    <script src="../../js/base.js"></script> 
+  <script>
+    // Current page data
+    var mkdocs_page_name = "System Deployment";
+    var mkdocs_page_input_path = "admin/deployment.md";
+    var mkdocs_page_url = "/admin/deployment/";
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
 </head>
 
-<body>
-<script>
-if (is_top_frame) { $('body').addClass('wm-top-page'); }
-</script>
+<body class="wy-body-for-nav" role="document">
 
+  <div class="wy-grid-for-nav">
 
-
-<div class="container-fluid wm-page-content">
-  <a name="_top"></a>
     
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> DAOS</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
 
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="tocbase current">
     
     
       
-    
 
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../administration/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../administration/" class="btn btn-xs btn-link">
-        System Administration
-      </a>
-    </div>
-    
-    <div class="wm-article-nav">
-      <a href="../installation/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../installation/" class="btn btn-xs btn-link">
-        Software Installation
-      </a>
-    </div>
-    
-  </div>
 
+  <li class="navtree toctree-l1 inactive">
+    <a class="" href="../..">Home</a>
+  </li>
     
+      
+  <li class="navtree toctree-l1 label">
+    <p class="caption">Overview</p>
+  </li>
 
-    <h1 id="daos-system-deployment">DAOS System Deployment</h1>
+
+  
+
+  
+    <li class="navtree toctree-l1 group">
+      <ul class="navtree subnav-l1 current">
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../overview/terminology/">Terminology</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../overview/storage/">Storage Model</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../overview/transaction/">Transaction Model</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../overview/fault/">Fault Model</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../../overview/security/">Security Model</a>
+  </li>
+        
+      </ul>
+    </li>
+    
+      
+  <li class="navtree toctree-l1 label">
+    <p class="caption">Administration Guide</p>
+  </li>
+
+
+  
+
+  
+    <li class="navtree toctree-l1 group">
+      <ul class="navtree subnav-l1 current">
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../intro/">Introduction</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../architecture/">DAOS Architecture</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../hardware/">Hardware Requirements</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../installation/">Software Installation</a>
+  </li>
+        
+          
+
+
+  
+    
+    <li class="navtree toctree-l2 page current">
+      <a class="current" href="./">
+        System Deployment
+          <span class="toctree-expand"></span>
+      </a>
+    </li>
+    
+      
+
+  <li class="toctree-l2 current with-children">
+    <a href="#daos-system-deployment">
+      DAOS System Deployment
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l2 current">
+    <ul class="subnav-l2 current">
+    
+      
+          
+
+  <li class="toctree-l3 current with-children">
+    <a href="#preflight-checklist">
+      Preflight Checklist
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3 current">
+    <ul class="subnav-l3 current">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#time-synchronization">Time Synchronization</a>
+        </li>
+    
+      
+          
+
+  <li class="toctree-l4">
+    <a href="#runtime-directory-setup">
+      Runtime Directory Setup
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l4">
+    <ul class="subnav-l4 toc-hidden">
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#non-default-directory">Non-default Directory</a>
+        </li>
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#default-directory-non-persistent">Default Directory (non-persistent)</a>
+        </li>
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#default-directory-persistent">Default Directory (persistent)</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#elevated-privileges">Elevated Privileges</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#typical-workflow">
+      Typical Workflow
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#step-1-create-or-copy-server-configuration-file">Step 1. Create or copy server configuration file</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#step-2-start-daos-control-servers">Step 2. Start DAOS Control Servers</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#step-3-prepare-dcpm-modules-for-use-with-daos">Step 3. Prepare DCPM modules for use with DAOS</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#step-4-scan-storage-to-check-device-details-and-state">Step 4. Scan Storage to check device details and state</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#step-5-add-device-identifiers-to-server-config-file">Step 5. Add device identifiers to server config file</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#step-6-format-storage-from-any-node">Step 6. Format Storage (from any node)</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+    </ul>
+  </li>
+
+      
+
+  <li class="toctree-l2">
+    <a href="#2-and-is-in-format-mode-scm-format-required-displayed-on-daos">
+      2) and is in format mode (SCM format required displayed on DAOS
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l2">
+    <ul class="subnav-l2 toc-hidden">
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#step-7-optional-reset-daos-storage">Step 7. (optional) Reset DAOS storage</a>
+        </li>
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#hardware-provisioning">
+      Hardware Provisioning
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+          
+
+  <li class="toctree-l4 current with-children">
+    <a href="#storage-preparation">
+      Storage Preparation
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l4 current">
+    <ul class="subnav-l4 current">
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#scm-preparation">SCM Preparation</a>
+        </li>
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#nvme-preparation">NVMe Preparation</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#storage-detection-selection">Storage Detection &amp; Selection</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#network-interface-detection-and-selection">Network Interface Detection and Selection</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#server-configuration">
+      Server Configuration
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#certificate-generation">Certificate Generation</a>
+        </li>
+    
+      
+          
+
+  <li class="toctree-l4">
+    <a href="#server-configuration-file">
+      Server Configuration File
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l4">
+    <ul class="subnav-l4 toc-hidden">
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#configuration-file-options">Configuration File Options</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#server-startup">
+      Server Startup
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#parallel-launcher">Parallel Launcher</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#systemd-integration">Systemd Integration</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#kubernetes-pod">Kubernetes Pod</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#internal-daos-control-server-components">Internal DAOS Control Server Components</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#storage-formatting">
+      Storage Formatting
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#scm-format">SCM Format</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#nvme-format">NVMe Format</a>
+        </li>
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#server-format">Server Format</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+      
+          
+
+  <li class="toctree-l3">
+    <a href="#agent-configuration">
+      Agent Configuration
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l3">
+    <ul class="subnav-l3 toc-hidden">
+    
+      
+        <li class="toctree-l4">
+          <a class="toctree-l5" href="#agent-certificate-generation">Agent Certificate Generation</a>
+        </li>
+    
+      
+          
+
+  <li class="toctree-l4">
+    <a href="#agent-configuration-file">
+      Agent Configuration File
+      <span class="toctree-expand"></span>
+    </a>
+  </li>
+
+
+
+  <li class="toctree-l4">
+    <ul class="subnav-l4 toc-hidden">
+    
+      
+        <li class="toctree-l5">
+          <a class="toctree-l6" href="#configuration-file-options_1">Configuration File Options</a>
+        </li>
+    
+    </ul>
+  </li>
+
+      
+    
+    </ul>
+  </li>
+
+      
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#agent-startup">Agent Startup</a>
+        </li>
+    
+      
+        <li class="toctree-l3">
+          <a class="toctree-l4" href="#system-validation">System Validation</a>
+        </li>
+    
+    </ul>
+  </li>
+
+
+  
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../administration/">System Administration</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../pool_operations/">Pool Operations</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../app_interface_tiering/">Applications Interface and Tiering</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../performance_tuning/">Performance Tuning</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../troubleshooting/">Troubleshooting</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../utilities_examples/">Utilities and Usage Examples</a>
+  </li>
+        
+          
+
+
+  <li class="navtree toctree-l2 inactive">
+    <a class="" href="../env_variables/">Environment Variables</a>
+  </li>
+        
+      </ul>
+    </li>
+    
+  </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">DAOS</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Administration Guide &raquo;</li>
+        
+      
+    
+    <li>System Deployment</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/deployment.md"> Edit on daos-stack/daos</a>
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="daos-system-deployment">DAOS System Deployment</h1>
 <h2 id="preflight-checklist">Preflight Checklist</h2>
 <p>This section covers the preliminary setup required on the compute and
 storage nodes before deploying DAOS.</p>
@@ -157,9 +716,206 @@ time the system is provisioned and requires a reboot to take effect.</p>
 </li>
 </ul>
 <h3 id="elevated-privileges">Elevated Privileges</h3>
-<p>Several tasks (e.g., storage access, hugepages configuration) performed
-by the DAOS server require elevated permissions on the storage nodes
-(requiring certain commands to be run as root or with sudo).</p>
+<p>DAOS employs a privileged helper binary (<code>daos_admin</code>) to perform tasks
+that require elevated privileges on behalf of <code>daos_server</code>.</p>
+<p>Due to limitations introduced by recent security fixes in the kernel,
+DAOS I/O processes are also required to run with elevated privileges
+in order to access NVMe SSDs through the SPDK framework.</p>
+<p>This is a temporary requirement that will be mitigated by moving to
+use VFIO driver with SPDK (requires IOMMU enabled) rather than UIO.</p>
+<h2 id="typical-workflow">Typical Workflow</h2>
+<p>DAOS Control Server (<a href="/src/control/server"><code>daos_server</code></a>) instances will
+listen for requests from the management tool (<a href="/src/control/cmd/dmg"><code>dmg</code></a>),
+enabling users to perform remote operations in parallel across
+multiple storage nodes.
+The first type of commands run after installation include network and
+storage hardware provisioning and would typically be run from a login
+node.</p>
+<p>After <code>daos_server</code> instances have been started on each storage node
+for the first time (using a parallel launcher), <code>dmg storage prepare</code>
+will set DCPM storage into the necessary state for use with DAOS.
+Then <code>dmg storage format</code> formats persistent storage devices
+(specified in the server configuration file) on the storage nodes
+and writes necessary metadata before starting DAOS I/O processes that
+will operate across the fabric.</p>
+<p>Typically an administrator will perform the following steps:</p>
+<ol>
+<li>Create or copy server configuration file</li>
+<li>Start DAOS Control Servers (one per host)</li>
+<li>Prepare DCPM modules for use with DAOS (one-time only, requires reboot)</li>
+<li>Scan storage to check device details and state</li>
+<li>Update device identifiers in server configuration file</li>
+<li>Format storage (DAOS I/O processes will be auto-started after format)</li>
+<li>(Optional) Reset DAOS storage</li>
+</ol>
+<p>Note that starting the DAOS Control Server instances can be performed
+automatically on boot if start-up scripts are registered with systemd.</p>
+<p>The following subsections will cover each step in more detail.</p>
+<h3 id="step-1-create-or-copy-server-configuration-file">Step 1. Create or copy server configuration file</h3>
+<p>Example configuration files can be found in the
+<a href="https://github.com/daos-stack/daos/blob/master/utils/config/examples">examples directory</a>
+and description of the parameters in
+<a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml"><code>daos_server.yml</code></a>.</p>
+<h3 id="step-2-start-daos-control-servers">Step 2. Start DAOS Control Servers</h3>
+<p>One instance of the <code>daos_server</code> process is to be started per
+storage node (please complete the
+<a href="#preflight-checklist">pre-flight checklist</a> first).</p>
+<p>This is typically performed using a parallel launcher, for the
+examples in this document, <code>clush</code> will be used.</p>
+<p><code>clush -w wolf-[118-121,130-133] daos_server start -o utils/config/examples/daos_server_sockets.yml</code>
+will launch <code>daos_server</code> on the specified hosts connecting to
+the <code>port</code> parameter value specified in the server config file.</p>
+<p>Note that the DAOS Control Servers can be started automatically on
+boot with systemd. Practically any parallel launcher can be used
+e.g. pdsh, orterun.</p>
+<h3 id="step-3-prepare-dcpm-modules-for-use-with-daos">Step 3. Prepare DCPM modules for use with DAOS</h3>
+<p>DCPM preparation is required once per DAOS installation and
+requires the DAOS Control Servers to be running as root.</p>
+<p>This step requires a reboot to enable DCPM resource allocation
+changes to be read by BIOS.</p>
+<p>DCPM preparation can be performed from the management tool
+<code>dmg storage prepare --scm-only</code> or using the Control Server directly
+<code>sudo daos_server storage prepare --scm-only</code>.</p>
+<p>After running the command a reboot will be required, then the Control
+Servers will then need to be started again and the command run for a
+second time to expose the namespace device to be used by DAOS.
+(<a href="#scm-preparation">more details</a>)</p>
+<p>Example usage:
+- <code>dmg -l wolf-[118-121,130-133] -i storage prepare --scm-only</code>
+after running, the user should be prompted for a reboot.
+- <code>clush -w wolf-[118-121,130-133] reboot</code>
+- <code>clush -w wolf-[118-121,130-133] daos_server start -o utils/config/examples/daos_server_sockets.yml</code>
+- <code>dmg -l wolf-[118-121,130-133] -i storage prepare --scm-only</code>
+after running, <code>/dev/pmemX</code> devices should be available on each of the hosts.</p>
+<h3 id="step-4-scan-storage-to-check-device-details-and-state">Step 4. Scan Storage to check device details and state</h3>
+<ul>
+<li><code>dmg -l wolf-[118-121,130-133] -i storage scan [--verbose]</code>
+will display details of NVMe and DCPM devices on the specified hosts that can be used with DAOS.
+<a href="#storage-detection--selection">more details</a></li>
+</ul>
+<p>Note that other storage query commands are also available,
+<code>dmg storage --help</code> for listings.</p>
+<h3 id="step-5-add-device-identifiers-to-server-config-file">Step 5. Add device identifiers to server config file</h3>
+<p>Edit <code>$DAOS_SRC/utils/config/examples/daos_server_sockets.yml</code>
+to update the server configuration file with the information
+received from scan to instruct which devices to use.
+The <code>servers</code> section is a list specifying details for each DAOS I/O
+instance to be started on the host (currently a maximum of 2 per host
+is imposed).
+Devices with the same NUMA rating/node/socket should be colocated on
+a single DAOS I/O instance where possible.
+<a href="#server-configuration">more details</a></p>
+<ul>
+<li><code>bdev_list</code> should be populated with NVMe PCI addresses</li>
+<li><code>scm_list</code> should be populated with DCPM interleaved set namespaces
+(e.g. <code>/dev/pmem1</code>)</li>
+<li>DAOS Control Servers will need to be restarted on all hosts after
+updates to the server configuration file.</li>
+<li>Pick one host in the system and set <code>access_points</code> to host and
+listening port (probably going to be the same as server config <code>port</code>
+parameter).
+This will be the host which bootstraps the DAOS management service
+(MS).</li>
+</ul>
+<p>To illustrate, assume a cluster with homogenous hardware
+configurations that returns the following from scan for each host:</p>
+<pre><code>[daos@wolf-72 daos_m]$ dmg -l wolf-7[1-2] -i storage scan --verbose
+wolf-7[1-2]:10001: connected
+-------
+wolf-7[1-2]
+-------
+SCM Namespace Socket ID Capacity
+------------- --------- --------
+pmem0         0         2.90TB
+pmem1         1         2.90TB
+
+NVMe PCI     Model                FW Revision Socket ID Capacity
+--------     -----                ----------- --------- --------
+0000:81:00.0 INTEL SSDPED1K750GA  E2010325    0         750.00GB
+0000:87:00.0 INTEL SSDPEDMD016T4  8DV10171    0         1.56TB
+0000:da:00.0 INTEL SSDPED1K750GA  E2010325    1         750.00GB
+</code></pre>
+
+<p>In this situation, the configuration file <code>servers</code> section could be
+populated as follows:</p>
+<pre><code>&lt;snip&gt;
+port: 10001
+access_points: [&quot;wolf-71:10001&quot;] # &lt;----- updated
+&lt;snip&gt;
+servers:
+-
+  targets: 8                # count of storage targets per each server
+  first_core: 0             # offset of the first core for service xstreams
+  nr_xs_helpers: 2          # count of offload/helper xstreams per target
+  fabric_iface: eth0        # map to OFI_INTERFACE=eth0
+  fabric_iface_port: 31416  # map to OFI_PORT=31416
+  log_mask: ERR             # map to D_LOG_MASK=ERR
+  log_file: /tmp/server.log # map to D_LOG_FILE=/tmp/server.log
+  env_vars:                 # influence DAOS IO Server behaviour by setting env variables
+  - DAOS_MD_CAP=1024
+  - CRT_CTX_SHARE_ADDR=0
+  - CRT_TIMEOUT=30
+  - FI_SOCKETS_MAX_CONN_RETRY=1
+  - FI_SOCKETS_CONN_TIMEOUT=2000
+  scm_mount: /mnt/daos  # map to -s /mnt/daos
+  scm_class: dcpm
+  scm_list: [/dev/pmem0] # &lt;----- updated
+  bdev_class: nvme
+  bdev_list: [&quot;0000:87:00.0&quot;, &quot;0000:81:00.0&quot;]  # &lt;----- updated
+-
+  targets: 8                # count of storage targets per each server
+  first_core: 0             # offset of the first core for service xstreams
+  nr_xs_helpers: 2          # count of offload/helper xstreams per target
+  fabric_iface: eth0        # map to OFI_INTERFACE=eth0
+  fabric_iface_port: 31416  # map to OFI_PORT=31416
+  log_mask: ERR             # map to D_LOG_MASK=ERR
+  log_file: /tmp/server.log # map to D_LOG_FILE=/tmp/server.log
+  env_vars:                 # influence DAOS IO Server behaviour by setting env variables
+  - DAOS_MD_CAP=1024
+  - CRT_CTX_SHARE_ADDR=0
+  - CRT_TIMEOUT=30
+  - FI_SOCKETS_MAX_CONN_RETRY=1
+  - FI_SOCKETS_CONN_TIMEOUT=2000
+  scm_mount: /mnt/daos  # map to -s /mnt/daos
+  scm_class: dcpm
+  scm_list: [/dev/pmem1] # &lt;----- updated
+  bdev_class: nvme
+  bdev_list: [&quot;0000:da:00.0&quot;]  # &lt;----- updated
+&lt;end&gt;
+</code></pre>
+
+<h3 id="step-6-format-storage-from-any-node">Step 6. Format Storage (from any node)</h3>
+<ul>
+<li>Assuming <code>daos_server</code> is running on all desired hosts (see step</li>
+</ul>
+<h1 id="2-and-is-in-format-mode-scm-format-required-displayed-on-daos">2) and is in <code>format</code> mode (<code>SCM format required</code> displayed on DAOS</h1>
+<p>Control Server stdout).
+- <code>dmg -l wolf-[118-121,130-133] -i storage format</code> will create
+necessary metadata on the SCM mount at the path specified in the
+config file. The device specified in the config file (<code>scm_list</code>)
+will be mounted at the given path.
+The NVMe devices specified in the config file (<code>bdev_list</code>) will be
+formatted using SPDK (Optane drives may take a while) and configuration
+written to each SCM mount to enable DAOS I/O instances to use designated
+SSDs through SPDK.
+- <a href="/src/control/cmd/dmg/README.md#storage-format">management tool details</a>
+- <a href="/src/control/server/README.md#scm-format">SCM specific details</a>
+- <a href="/src/control/server/README.md#nvme-format">NVMe specific details</a></p>
+<p>After successful format, DAOS Control Servers will start DAOS IO
+instances that have been specified in the server config file.</p>
+<p>Successful start-up is indicated by the following on stdout:
+<code>DAOS I/O server (v0.8.0) process 433456 started on rank 1 with 8 target, 2 helper XS per target, firstcore 0, host wolf-72.wolf.hpdd.intel.com.</code></p>
+<h3 id="step-7-optional-reset-daos-storage">Step 7. (optional) Reset DAOS storage</h3>
+<p>To reset the DAOS metadata across all hosts the system must be reformatted.
+First ensure all <code>daos_server</code> processes on all hosts have been
+stopped, then for each SCM mount specified in the config file
+(<code>scm_mount</code> in the <code>servers</code> section) umount and wipe FS signatures.</p>
+<p>Example illustration with two IO instances specified in the config file:
+- <code>clush -w wolf-[118-121,130-133] umount /mnt/daos1</code>
+- <code>clush -w wolf-[118-121,130-133] umount /mnt/daos0</code>
+- <code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem1</code>
+- <code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem0</code>
+- Then restart DAOS Control Servers (step #2) and format (step #6).</p>
 <h2 id="hardware-provisioning">Hardware Provisioning</h2>
 <h3 id="storage-preparation">Storage Preparation</h3>
 <h4 id="scm-preparation">SCM Preparation</h4>
@@ -246,8 +1002,6 @@ on command completion.</p>
 <pre><code class="bash">Memory allocation goals for SCM will be changed and namespaces modified, this
 will be a destructive operation.  ensure namespaces are unmounted and SCM is
 otherwise unused.
-Are you sure you want to continue? (yes/no)
-yes
 A reboot is required to process new memory allocation goals.
 </code></pre>
 
@@ -256,8 +1010,6 @@ mode, and host rebooted):</p>
 <pre><code class="bash">Memory allocation goals for SCM will be changed and namespaces modified. This
 will be a destructive operation. Ensure namespaces are unmounted and the SCM
 is otherwise unused.
-Are you sure you want to continue? (yes/no)
-yes
 creating SCM namespace, may take a few minutes...
 creating SCM namespace, may take a few minutes...
 Persistent memory kernel devices:
@@ -275,8 +1027,6 @@ allocations.</p>
 <pre><code class="bash">Memory allocation goals for SCM will be changed and namespaces modified, this
 will be a destructive operation.  ensure namespaces are unmounted and SCM is
 otherwise unused.
-Are you sure you want to continue? (yes/no)
-yes
 removing SCM namespace, may take a few minutes...
 removing SCM namespace, may take a few minutes...
 resetting SCM memory allocations
@@ -316,33 +1066,29 @@ storage devices to be (or not) used. This section covers how to manually
 detect the storage devices potentially usable by DAOS to
 populate the configuration file when the administrator wants to have
 finer control over the storage selection.</p>
-<p><code>sudo daos_server storage scan</code> can be used to display locally-attached SSDs
-and Intel Persistent Memory Models usable by DAOS.</p>
-<pre><code class="bash">$ daos_server storage scan
-[...]
-NVMe SSD controller and constituent namespaces:
-        PCI Addr:0000:da:00.0 Serial:PHKS7505005Y750BGN   Model:INTEL SSDPED1K750GA  Fwrev:E2010325 Socket:1
-                Namespace: id:1 capacity:750
-        PCI Addr:0000:81:00.0 Serial:PHKS7505007J750BGN   Model:INTEL SSDPED1K750GA  Fwrev:E2010325 Socket:1
-                Namespace: id:1 capacity:750
-        PCI Addr:0000:87:00.0 Serial:CVFT5392000G1P6DGN   Model:INTEL SSDPEDMD016T4  Fwrev:8DV10171 Socket:1
-                Namespace: id:1 capacity:1600
-SCM modules:
-        PhysicalID:36 Capacity:539661172736 Location:(socket:0 memctrlr:0 chan:0 pos:1)
-        PhysicalID:40 Capacity:539661172736 Location:(socket:0 memctrlr:0 chan:1 pos:1)
-        PhysicalID:44 Capacity:539661172736 Location:(socket:0 memctrlr:0 chan:2 pos:1)
-        PhysicalID:50 Capacity:539661172736 Location:(socket:0 memctrlr:1 chan:0 pos:1)
-        PhysicalID:52 Capacity:539661172736 Location:(socket:0 memctrlr:1 chan:1 pos:0)
-        PhysicalID:55 Capacity:539661172736 Location:(socket:0 memctrlr:1 chan:2 pos:0)
-        PhysicalID:62 Capacity:539661172736 Location:(socket:1 memctrlr:0 chan:0 pos:1)
-        PhysicalID:66 Capacity:539661172736 Location:(socket:1 memctrlr:0 chan:1 pos:1)
-        PhysicalID:70 Capacity:539661172736 Location:(socket:1 memctrlr:0 chan:2 pos:1)
-        PhysicalID:76 Capacity:539661172736 Location:(socket:1 memctrlr:1 chan:0 pos:1)
-        PhysicalID:78 Capacity:539661172736 Location:(socket:1 memctrlr:1 chan:1 pos:0)
-        PhysicalID:81 Capacity:539661172736 Location:(socket:1 memctrlr:1 chan:2 pos:0)
+<p><code>dmg storage scan</code> can be run to query remote running <code>daos_server</code>
+processes over the management network.</p>
+<p><code>sudo daos_server storage scan</code> can be used to query <code>daos_server</code>
+directly (scans locally-attached SSDs and Intel Persistent Memory
+Modules usable by DAOS).</p>
+<pre><code class="bash">[daos@wolf-72 daos_m]$ dmg -l wolf-7[1-2] -i storage scan --verbose
+wolf-[71-72]:10001: connected
+------------
+wolf-[71-72]
+------------
+SCM Namespace Socket ID Capacity
+------------- --------- --------
+pmem0         0         2.90TB
+pmem1         1         2.90TB
+
+NVMe PCI     Model                FW Revision Socket ID Capacity
+--------     -----                ----------- --------- --------
+0000:81:00.0 INTEL SSDPED1K750GA  E2010325    1         750.00GB
+0000:87:00.0 INTEL SSDPEDMD016T4  8DV10171    1         1.56TB
+0000:da:00.0 INTEL SSDPED1K750GA  E2010325    1         750.00GB
 </code></pre>
 
-<p>The pciaddr field above is what should be used in the server
+<p>The NVMe PCI field above is what should be used in the server
 configuration file to identified NVMe SSDs.</p>
 <p>Devices with the same NUMA node/socket should be used in the same per-server
 section of the server configuration file for best performance.</p>
@@ -449,28 +1195,6 @@ bytes #sent #ack total time  MB/sec  usec/xfer Mxfers/sec
 1m    10    =10  20m   0.00s 8867.45 118.25    0.01
 </code></pre>
 
-<h3 id="storage-firmware-upgrade">Storage Firmware Upgrade</h3>
-<p>Firmware on an NVMe controller can be updated from an image on local
-storage (initially installing from a local path on the host that is
-running <em>daos_server</em> but to be extended to downloading remotely from
-central storage location).</p>
-<p>When the controller is selected, and an update firmware task runs,
-controller data is accessed through an existing linked list through the
-binding fwupdate call, and a raw command specifying a firmware update with
-the local image (specified by file path) and slot identifier. The firmware
-update is followed by a hard reset on the controller.</p>
-<h3 id="storage-burn-in">Storage Burn in</h3>
-<p>Burn-in testing can be performed on discovered NVMe controllers. By
-default, this involves a 15-minute slow burn-in test with a mixed
-read/write workload issued by fio, but test duration and load strength
-should be user-configurable. Burn-in should run in the background to
-allow administrators to use the control-plane for other tasks in the
-meantime.</p>
-<p>The fio repo is to be built and needs to be referenced when building the
-SPDK fio_plugin. The plug-in can then be run by fio to exercise the
-NVMe device through SPDK. Currently, the output of the burn-in is
-displayed in the shell, and control is returned to the user after
-completion. Future iterations may perform this as a background task.</p>
 <h2 id="server-configuration">Server Configuration</h2>
 <p>This section addresses how to configure the DAOS servers on the storage
 nodes before starting it.</p>
@@ -486,7 +1210,7 @@ support is to pass the -i flag to daos_server.</p>
 <code>daos_server</code> process. The configuration file location can be specified
 on the command line (<code>daos_server -h</code> for usage) or default location
 (<code>install/etc/daos_server.yml</code>).</p>
-<p>Parameter descriptions are specified in <a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml">daos_server.yml</a>
+<p>Parameter descriptions are specified in <a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml"><code>daos_server.yml</code></a>
 and example configuration files in the <a href="https://github.com/daos-stack/daos/tree/master/utils/config/examples">examples</a>
 directory.</p>
 <p>Any option supplied to <code>daos_server</code> as a command line option or flag will
@@ -557,8 +1281,8 @@ $ systemctl start daos-server
 <h3 id="kubernetes-pod">Kubernetes Pod</h3>
 <p>DAOS service integration with Kubernetes is planned and will be
 supported in a future DAOS version.</p>
-<h3 id="service-monitoring">Service Monitoring</h3>
-<p>On start-up, the daos_server will create and initialize the following
+<h3 id="internal-daos-control-server-components">Internal DAOS Control Server Components</h3>
+<p>On start-up, the <code>daos_server</code> will create and initialize the following
 components:</p>
 <ul>
 <li>
@@ -566,31 +1290,15 @@ components:</p>
 </li>
 <li>
 <p>dRPC server to handle requests from IO servers over the UNIX domain
-    socket</p>
+socket</p>
 </li>
 <li>
-<p>storage subsystems for handling interactions with NVM devices</p>
-</li>
-<li>
-<p>SPDK environment using a shared memory segment identifier, causing
-the process to act as a primary in multi-process mode. From there,
-the main process can respond to requests over the client API for
-information through the SPDK interface.</p>
+<p>communication primitives for request/response to/from privileged binary
+helper <code>daos_admin</code></p>
 </li>
 </ul>
-<p>dmg is a tool built on top of the management api and can be used
-to verify that the DAOS servers are up and running. It is to be run
-as a standard, unprivileged user as follows:</p>
-<pre><code>$ dmg -l storagenode1:10001,storagenode2:10001 storage scan
-</code></pre>
-
-<p>"storagenode" should be replaced with the actual hostname of each
-storage node. This command will show whether the DAOS server is properly
-running and initialized on each storage node. A more comprehensive and
-user-friendly tool built over the management API is under development. A
-first version will be available for DAOS v1.0.</p>
 <h2 id="storage-formatting">Storage Formatting</h2>
-<p>When 'daos_server' is started for the first time (and no SCM directory exists),
+<p>When <code>daos_server</code> is started for the first time (and no SCM directory exists),
 it enters "maintenance mode" and waits for a <code>dmg storage format</code> call to
 be issued from the management tool.
 This remote call will trigger the formatting of the locally attached storage on
@@ -626,181 +1334,13 @@ been configured correctly for use with DAOS.</p>
 <p>The contents of the NVMe SSDs listed in the server configuration file <code>bdev_list</code>
 parameter will be reset on format.</p>
 <h3 id="server-format">Server Format</h3>
-<p>Before the format command is run, no <code>superblock</code> file should exist under the
+<p>Before the format command is run, no DAOS metadata should exist under the
 path specified by <code>scm_mount</code> parameter in the server configuration file.</p>
 <p>After the <code>storage format</code> command is run, the path specified by the server
 configuration file <code>scm_mount</code> parameter should be mounted and should contain
-a file named <code>superblock</code> indicating that the server has been formatted.</p>
+the necessary DAOS metadata indicating that the server has been formatted.</p>
 <p>When starting, <code>daos_server</code> will skip <code>maintenance mode</code> and attempt to start
-IO services if the <code>superblock</code> is found in <code>scm_mount</code>.</p>
-<h2 id="basic-workflow">Basic Workflow</h2>
-<p>Control plane server (<a href="/src/control/server">daos_server</a>) instances will
-listen for requests from the management tool (<a href="/src/control/cmd/dmg">dmg</a>),
-enabling users to perform provisioning operations on network and storage
-hardware remotely on storage nodes (from for example a login node).</p>
-<p>When <code>daos_server</code> instances have been started on each storage node
-for the first time, calling <code>dmg -l &lt;host:port&gt;,... storage format</code>
-formats persistent storage on the server node on devices specified in
-the server configuration file, then writes the superblock and starts
-the data plane.</p>
-<p><img alt="../graph/server_format_flow.png" src="../../graph/server_format_flow.png" title="Server Format Diagram" /></p>
-<p>Typically an administrator will perform the following tasks:</p>
-<ol>
-<li>
-<p>Create or copy server configuration file</p>
-<ul>
-<li>Example configuration files can be found in the
-<a href="https://github.com/daos-stack/daos/blob/master/utils/config/examples">examples directory</a>
-and description of the parameters in
-<a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml">daos_server.yml</a>.</li>
-</ul>
-</li>
-<li>
-<p>Start DAOS Control Server instances (one per host)</p>
-<ul>
-<li>This is typically performed using a parallel launcher, for these examples <code>clush</code> will be used.</li>
-<li><code>clush -w wolf-[118-121,130-133] daos_server start -o utils/config/examples/daos_server_sockets.yml</code>
-will launch daos_server on the specified host sets connecting to the "port" parameter value specified in the yaml server config file.</li>
-</ul>
-</li>
-<li>
-<p>Prepare DCPM modules for use with DAOS (one-time only, run as root)</p>
-<ul>
-<li>The first time DAOS is used, DCPM modules should be <a href="#scm-preparation">prepared</a>. 
-After running the command a reboot will be required to enable the new resource allocations to be read
-by the system BIOS. The Control Servers will then need to be restarted after reboot and the command run
-for a second time to expose the namespace device to be used by DAOS. (<a href="#scm-preparation">more details</a>)</li>
-<li><code>dmg -l wolf-[118-121,130-133] -i storage prepare --scm-only</code></li>
-<li>After setting the memory modules into interleaved sets, the user should be prompted for a reboot.</li>
-<li><code>clush -w wolf-[118-121,130-133] reboot</code></li>
-<li><code>clush -w wolf-[118-121,130-133] daos_server start -o utils/config/examples/daos_server_sockets.yml</code></li>
-<li><code>dmg -l wolf-[118-121,130-133] -i storage prepare --scm-only</code></li>
-<li><code>/dev/pmemX</code> devices should then be available on each of the hosts.</li>
-</ul>
-</li>
-<li>
-<p>Scan Storage</p>
-<ul>
-<li><code>dmg -l wolf-[118-121,130-133] -i storage scan [--verbose]</code>
-will display details of NVMe and DCPM devices on the specified hosts that can be used with DAOS.
-<a href="#storage-detection--selection">more details</a></li>
-</ul>
-</li>
-<li>
-<p>Add device identifiers to Server config file</p>
-<ul>
-<li><code>vim $DAOS_SRC/utils/config/examples/daos_server_sockets.yml</code>
-edit the server configuration file using the information received from scan to instruct which devices
-to use. The <code>servers</code> section is a list specifying details for each <code>IO instance</code> to be started on the host
-(currently a maximum of 2 per host is imposed). Devices with the same NUMA rating/node/socket should be colocated
-on a single <code>IO instance</code> where possible. <a href="#server-configuration">more details</a></li>
-<li><code>bdev_list</code> should be populated with NVMe PCI addresses</li>
-<li><code>scm_list</code> should be populated with DCPM interleaved set namespaces (e.g. <code>/dev/pmem1</code>)</li>
-<li>DAOS Control Servers will need to be restarted on all hosts after updates to the server configuration file.</li>
-<li>Pick one host in the system and set <code>access_points</code> to host and listening port (probably going to be the 
-same as server config <code>port</code> parameter). This will be the host which bootstraps the DAOS management service (MS).</li>
-<li>For a cluster with homogenous hardware configurations that returns the following from scan for each host:</li>
-</ul>
-</li>
-</ol>
-<pre><code>[daos@wolf-72 daos_m]$ dmg -l wolf-7[1-2] -i storage scan --verbose
-wolf-7[1-2]:10001: connected
--------
-wolf-7[1-2]
--------
-SCM Namespace Socket ID Capacity
-------------- --------- --------
-pmem0         0         2.90TB
-pmem1         1         2.90TB
-
-NVMe PCI     Model                FW Revision Socket ID Capacity
---------     -----                ----------- --------- --------
-0000:81:00.0 INTEL SSDPED1K750GA  E2010325    0         750.00GB
-0000:87:00.0 INTEL SSDPEDMD016T4  8DV10171    0         1.56TB
-0000:da:00.0 INTEL SSDPED1K750GA  E2010325    1         750.00GB
-</code></pre>
-
-<p>the configuration file <code>servers</code> section could be populated as follows:</p>
-<pre><code>servers:
--
-  targets: 8                # count of storage targets per each server
-  first_core: 0             # offset of the first core for service xstreams
-  nr_xs_helpers: 2          # count of offload/helper xstreams per target
-  fabric_iface: eth0        # map to OFI_INTERFACE=eth0
-  fabric_iface_port: 31416  # map to OFI_PORT=31416
-  log_mask: ERR             # map to D_LOG_MASK=ERR
-  log_file: /tmp/server.log # map to D_LOG_FILE=/tmp/server.log
-  env_vars:                 # influence DAOS IO Server behaviour by setting env variables
-  - DAOS_MD_CAP=1024
-  - CRT_CTX_SHARE_ADDR=0
-  - CRT_TIMEOUT=30
-  - FI_SOCKETS_MAX_CONN_RETRY=1
-  - FI_SOCKETS_CONN_TIMEOUT=2000
-  scm_mount: /mnt/daos  # map to -s /mnt/daos
-  scm_class: dcpm
-  scm_list: [/dev/pmem0] # &lt;----- updated
-  bdev_class: nvme
-  bdev_list: [&quot;0000:87:00.0&quot;, &quot;0000:81:00.0&quot;]  # &lt;----- updated
--
-  targets: 8                # count of storage targets per each server
-  first_core: 0             # offset of the first core for service xstreams
-  nr_xs_helpers: 2          # count of offload/helper xstreams per target
-  fabric_iface: eth0        # map to OFI_INTERFACE=eth0
-  fabric_iface_port: 31416  # map to OFI_PORT=31416
-  log_mask: ERR             # map to D_LOG_MASK=ERR
-  log_file: /tmp/server.log # map to D_LOG_FILE=/tmp/server.log
-  env_vars:                 # influence DAOS IO Server behaviour by setting env variables
-  - DAOS_MD_CAP=1024
-  - CRT_CTX_SHARE_ADDR=0
-  - CRT_TIMEOUT=30
-  - FI_SOCKETS_MAX_CONN_RETRY=1
-  - FI_SOCKETS_CONN_TIMEOUT=2000
-  scm_mount: /mnt/daos  # map to -s /mnt/daos
-  scm_class: dcpm
-  scm_list: [/dev/pmem1] # &lt;----- updated
-  bdev_class: nvme
-  bdev_list: [&quot;0000:da:00.0&quot;]  # &lt;----- updated
-</code></pre>
-
-<ol>
-<li>
-<p>Format Storage (from any node)</p>
-<ul>
-<li>Assuming <code>daos_server</code> is running on all desired hosts (see step #2) and is in <code>format</code> mode
-(<code>SCM format required</code> displayed on stdout).</li>
-<li><code>dmg -l wolf-[118-121,130-133] -i storage format</code>
-will create necessary metadata on the SCM mount at the path specified in the config file using the
-pmem device specified in the config file (<code>scm_list</code>). The NVMe devices specified in the config file
-(<code>bdev_list</code>) will be formatted using SPDK ctrlr interface (Optane drives may take a while) and <code>nvme.conf</code>
-is written to each SCM mount to instruct SPDK to attach to NVMe devices on DAOS IO instance start-up. </li>
-<li><a href="/src/control/cmd/dmg/README.md#storage-format">management tool details</a></li>
-<li><a href="/src/control/server/README.md#scm-format">SCM specific details</a></li>
-<li><a href="/src/control/server/README.md#nvme-format">NVMe specific details</a></li>
-</ul>
-</li>
-<li>
-<p>Start DAOS IO instances</p>
-<ul>
-<li>On successful format, DAOS Control Servers will start DAOS IO instances that have been specified in the server
-config file. Successful start-up is indicated by the following on stdout:
-<code>DAOS I/O server (v0.8.0) process 433456 started on rank 1 with 8 target, 2 helper XS per target, firstcore 0, host wolf-72.wolf.hpdd.intel.com.</code></li>
-</ul>
-</li>
-<li>
-<p>Reformatting</p>
-<ul>
-<li>To reset the DAOS metadata across all hosts the system must be reformatted.</li>
-<li>First ensure all <code>daos_server</code> processes on all hosts have been stopped, then for each SCM mount
-specified in the config file (<code>scm_mount</code> in the <code>servers</code> section) umount and wipe FS signatures (example illustration
-with two IO instances specified in the config file):</li>
-<li><code>clush -w wolf-[118-121,130-133] umount /mnt/daos1</code></li>
-<li><code>clush -w wolf-[118-121,130-133] umount /mnt/daos0</code></li>
-<li><code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem1</code></li>
-<li><code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem0</code></li>
-<li>Then restart DAOS Control Servers (step #2) and format (step #6).</li>
-</ul>
-</li>
-</ol>
+IO services if valid DAOS metadata is found in <code>scm_mount</code>.</p>
 <h2 id="agent-configuration">Agent Configuration</h2>
 <p>This section addresses how to configure the DAOS agents on the storage
 nodes before starting it.</p>
@@ -871,46 +1411,52 @@ environment variables are properly set as described <a href="#server-startup">he
 
 <p>daos_test requires at least 8GB of SCM (or DRAM with tmpfs) storage on
 each storage node.</p>
-
-  <br>
-    
-
-    
-    
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-    
+        <a href="../administration/" class="btn btn-neutral float-right" title="System Administration">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../installation/" class="btn btn-neutral" title="Software Installation"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
 
-  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
-    
-    <div class="wm-article-nav pull-right">
-      <a href="../administration/" class="btn btn-xs btn-default pull-right">
-        Next
-        <i class="fa fa-chevron-right" aria-hidden="true"></i>
-      </a>
-      <a href="../administration/" class="btn btn-xs btn-link">
-        System Administration
-      </a>
-    </div>
-    
-    <div class="wm-article-nav">
-      <a href="../installation/" class="btn btn-xs btn-default pull-left">
-        <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../installation/" class="btn btn-xs btn-link">
-        Software Installation
-      </a>
-    </div>
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
     
   </div>
 
-    <br>
-</div>
-
-<footer class="col-md-12 wm-page-content">
-      <p>
-        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/deployment.md">Edit on daos-stack/daos</a>
-      </p>
-  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
 </footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../installation/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../administration/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
 
 </body>
 </html>
