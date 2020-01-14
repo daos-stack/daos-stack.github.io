@@ -103,14 +103,31 @@ Then <code>dmg storage format</code> formats persistent storage devices
 and writes necessary metadata before starting DAOS I/O processes that
 will operate across the fabric.</p>
 <p>To sum up, the typical workflow of a DAOS system deployment consists of the
-following steps:
-1. Configure and start the <a href="#DAOS-Server-Setup">DAOS server</a>.
-2. <a href="#Hardware-Provisioning">Provision Hardware</a> on all the storage nodes via the
-   dmg utility.
-3. <a href="#Storage-Formatting">Format</a> the DAOS system
-4. <a href="Agent-Configuration">Set up the agent</a> on the client nodes
-5. <a href="Agent-Startup">Start the agent</a>
-6. <a href="#System-Validation">Validate</a> that the DAOS system is operational</p>
+following steps:</p>
+<ul>
+<li>
+<p>Configure and start the <a href="https://daos-stack.github.io/admin/deployment/#DAOS-Server-Setup">DAOS server</a>.</p>
+</li>
+<li>
+<p><a href="https://daos-stack.github.io/admin/deployment/#Hardware-Provisioning">Provision Hardware</a>
+  on all the storage nodes via the dmg utility.</p>
+</li>
+<li>
+<p><a href="https://daos-stack.github.io/admin/deployment/#Storage-Formatting">Format</a>
+  the DAOS system</p>
+</li>
+<li>
+<p><a href="https://daos-stack.github.io/admin/deployment/Agent-Configuration">Set up the agent</a>
+  on the client nodes</p>
+</li>
+<li>
+<p><a href="https://daos-stack.github.io/admin/deployment/#Agent-Startup">Start the agent</a></p>
+</li>
+<li>
+<p><a href="https://daos-stack.github.io/admin/deployment/#System-Validation">Validate</a>
+  that the DAOS system is operational</p>
+</li>
+</ul>
 <p>Note that starting the DAOS server instances can be performed automatically
 on boot if start-up scripts are registered with systemd.</p>
 <p>The following subsections will cover each step in more detail.</p>
