@@ -37,8 +37,7 @@
               {title: "DAOS Server Setup", url: "#daos-server-setup" },
               {title: "Hardware Provisioning", url: "#hardware-provisioning" },
               {title: "Storage Formatting", url: "#storage-formatting" },
-              {title: "Agent Configuration", url: "#agent-configuration" },
-              {title: "Agent Startup", url: "#agent-startup" },
+              {title: "Agent Configuration and Startup", url: "#agent-configuration-and-startup" },
               {title: "System Validation", url: "#system-validation" },
           ]},
         ];
@@ -116,10 +115,7 @@ following steps:</p>
 <p><a href="#storage-formatting">Format</a> the DAOS system</p>
 </li>
 <li>
-<p><a href="#agent-configuration">Set up the agent</a> on the client nodes</p>
-</li>
-<li>
-<p><a href="#agent-startup">Start the agent</a></p>
+<p><a href="#agent-configuration-and-startup">Set up and start the agent</a> on the client nodes</p>
 </li>
 <li>
 <p><a href="#system-validation">Validate</a> that the DAOS system is operational</p>
@@ -655,7 +651,7 @@ stopped, then for each SCM mount specified in the config file
 - <code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem1</code>
 - <code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem0</code>
 - Then restart DAOS Servers and format.</p>
-<h2 id="agent-configuration">Agent Configuration</h2>
+<h2 id="agent-configuration-and-startup">Agent Configuration and Startup</h2>
 <p>This section addresses how to configure the DAOS agents on the storage
 nodes before starting it.</p>
 <h3 id="agent-certificate-generation">Agent Certificate Generation</h3>
@@ -677,7 +673,6 @@ take precedence over equivalent configuration file parameter.</p>
 file for reference, and the location will be written to the log.</p>
 <p>The following section lists the format, options, defaults, and
 descriptions available in the configuration file.</p>
-<h4 id="configuration-file-options_1">Configuration File Options</h4>
 <p>The example configuration file lists the default empty configuration listing all the
 options (living documentation of the config file). Live examples are
 available at
@@ -685,8 +680,9 @@ available at
 <p>The location of this configuration file is determined by first checking
 for the path specified through the -o option of the daos_agent command
 line. Otherwise, /etc/daos_agent.conf is used.</p>
-<p>Refer to the example configuration file (<a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml">daos_server.yml</a>) for latest information and examples.</p>
-<h2 id="agent-startup">Agent Startup</h2>
+<p>Refer to the example configuration file (<a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml">daos_server.yml</a>)
+for latest information and examples.</p>
+<h3 id="agent-startup">Agent Startup</h3>
 <p>DAOS Agent is a standalone application to be run on each compute node.
 It can be configured to use secure communications (default) or can be allowed
 to communicate with the control plane over unencrypted channels. The following
