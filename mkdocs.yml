@@ -1,5 +1,5 @@
 # Project Information
-site_name: DAOS v0.8
+site_name: DAOS
 site_description: Distributed Asynchronous Object Storage
 site_author: DAOS Project
 site_url: http://daos.io
@@ -11,7 +11,7 @@ repo_url: https://github.com/daos-stack/daos
 
 # Theme
 theme:
-    name: rtd-dropdown
+    name: windmill
     language: en
     collapse_by_default: false
 
