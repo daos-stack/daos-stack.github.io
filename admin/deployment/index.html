@@ -347,44 +347,95 @@ configuration file to identified NVMe SSDs.</p>
 <p>Devices with the same NUMA node/socket should be used in the same per-server
 section of the server configuration file for best performance.</p>
 <h3 id="network-interface-detection-and-selection">Network Interface Detection and Selection</h3>
-<p>To display the supported OFI provider, use the following command:</p>
-<pre><code>$ fi_info -l
-psm2:
-version: 1.7
+<p>To display the fabric interface, OFI provider and NUMA node
+combinations detected on the DAOS server, use the following command:</p>
+<pre><code>$ daos_server network scan --all
 
-ofi_rxm:
-version: 1.0
+        fabric_iface: ib0
+        provider: ofi+psm2
+        pinned_numa_node: 0
 
-ofi_rxd:
-version: 1.0
 
-verbs:
-version: 1.0
+        fabric_iface: ib1
+        provider: ofi+psm2
+        pinned_numa_node: 1
 
-UDP:
-version: 1.1
 
-sockets:
-version: 2.0
+        fabric_iface: ib0
+        provider: ofi+verbs;ofi_rxm
+        pinned_numa_node: 0
 
-tcp:
-version: 0.1
 
-ofi_perf_hook:
-version: 1.0
+        fabric_iface: ib1
+        provider: ofi+verbs;ofi_rxm
+        pinned_numa_node: 1
 
-ofi_noop_hook:
-version: 1.0
 
-shm:
-version: 1.0
+        fabric_iface: ib0
+        provider: ofi+verbs
+        pinned_numa_node: 0
 
-ofi_mrail:
-version: 1.0
+
+        fabric_iface: ib1
+        provider: ofi+verbs
+        pinned_numa_node: 1
+
+
+        fabric_iface: ib0
+        provider: ofi+sockets
+        pinned_numa_node: 0
+
+
+        fabric_iface: ib1
+        provider: ofi+sockets
+        pinned_numa_node: 1
+
+
+        fabric_iface: eth0
+        provider: ofi+sockets
+        pinned_numa_node: 0
+
+
+        fabric_iface: lo
+        provider: ofi+sockets
+        pinned_numa_node: 0
 </code></pre>
 
-<p>The fi_pingpong test (delivered as part of OFI/libfabric) can be used
-to verify that the targeted OFI provider works fine:</p>
+<p>The network scan leverages data from libfabric.  Results are ordered from
+highest performance at the top to lowest performance at the bottom of the list.
+Once the fabric_iface and provider pair has been chosen, those items and the
+pinned_numa_node may be inserted directly into the corresponding sections within
+daos_server.yml.  Note that the provider is currently the same for all DAOS
+IO server instances and is configured once in the server configuration.  The fabric_iface and pinned_numa_node are configured for each IO server instance.</p>
+<p>A list of providers that may be querried is found with the command:</p>
+<pre><code>$ daos_server network list
+
+Supported providers:
+        ofi+gni, ofi+psm2, ofi+tcp, ofi+sockets, ofi+verbs, ofi_rxm
+</code></pre>
+
+<p>Performing a network scan that filters on a specific provider is accomplished
+by issuing the following command:</p>
+<pre><code>$ daos_server network scan --provider 'ofi+verbs;ofi_rxm'
+
+Scanning fabric for cmdline specified provider: ofi+verbs;ofi_rxm
+Fabric scan found 2 devices matching the provider spec: ofi+verbs;ofi_rxm
+
+        fabric_iface: ib0
+        provider: ofi+verbs;ofi_rxm
+        pinned_numa_node: 0
+
+
+        fabric_iface: ib1
+        provider: ofi+verbs;ofi_rxm
+        pinned_numa_node: 1
+</code></pre>
+
+<p>To aid in provider configuration and debug, it may be helpful to run the
+fi_pingpong test (delivered as part of OFI/libfabric).  To run that test,
+determine the name of the provider to test usually by removing the "ofi+" prefix from the network scan provider data.  Do use the "ofi+" prefix in the
+daos_server.yml.  Do not use the "ofi+" prefix with fi_pingpong.</p>
+<p>Then, the fi_pingpong test can be used to verify that the targeted OFI provider works fine:</p>
 <pre><code>node1$ fi_pingpong -p psm2
 
 node2$ fi_pingpong -p psm2 ${IP_ADDRESS_NODE1}
@@ -596,91 +647,160 @@ the data plane.</p>
 <p>Typically an administrator will perform the following tasks:</p>
 <ol>
 <li>
-<p>Prepare NVMe and SCM Storage</p>
+<p>Create or copy server configuration file</p>
 <ul>
-<li><code>sudo daos_server [&lt;app_opts&gt;] storage prepare [&lt;cmd_opts&gt;]</code>
-<a href="#nvme-preparation">NVMe details</a>
-<a href="#scm-preparation">SCM details</a></li>
+<li>Example configuration files can be found in the
+<a href="https://github.com/daos-stack/daos/blob/master/utils/config/examples">examples directory</a>
+and description of the parameters in
+<a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml">daos_server.yml</a>.</li>
+</ul>
+</li>
+<li>
+<p>Start DAOS Control Server instances (one per host)</p>
+<ul>
+<li>This is typically performed using a parallel launcher, for these examples <code>clush</code> will be used.</li>
+<li><code>clush -w wolf-[118-121,130-133] daos_server start -o utils/config/examples/daos_server_sockets.yml</code>
+will launch daos_server on the specified host sets connecting to the "port" parameter value specified in the yaml server config file.</li>
+</ul>
+</li>
+<li>
+<p>Prepare DCPM modules for use with DAOS (one-time only, run as root)</p>
+<ul>
+<li>The first time DAOS is used, DCPM modules should be <a href="#scm-preparation">prepared</a>. 
+After running the command a reboot will be required to enable the new resource allocations to be read
+by the system BIOS. The Control Servers will then need to be restarted after reboot and the command run
+for a second time to expose the namespace device to be used by DAOS. (<a href="#scm-preparation">more details</a>)</li>
+<li><code>dmg -l wolf-[118-121,130-133] -i storage prepare --scm-only</code></li>
+<li>After setting the memory modules into interleaved sets, the user should be prompted for a reboot.</li>
+<li><code>clush -w wolf-[118-121,130-133] reboot</code></li>
+<li><code>clush -w wolf-[118-121,130-133] daos_server start -o utils/config/examples/daos_server_sockets.yml</code></li>
+<li><code>dmg -l wolf-[118-121,130-133] -i storage prepare --scm-only</code></li>
+<li><code>/dev/pmemX</code> devices should then be available on each of the hosts.</li>
 </ul>
 </li>
 <li>
 <p>Scan Storage</p>
 <ul>
-<li><code>sudo daos_server [&lt;app_opts&gt;] storage scan [&lt;cmd_opts&gt;]</code>
-<a href="#storage-detection--selection">details</a></li>
+<li><code>dmg -l wolf-[118-121,130-133] -i storage scan [--verbose]</code>
+will display details of NVMe and DCPM devices on the specified hosts that can be used with DAOS.
+<a href="#storage-detection--selection">more details</a></li>
 </ul>
 </li>
 <li>
 <p>Add device identifiers to Server config file</p>
 <ul>
-<li><code>vim &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
-<a href="#server-configuration">details</a></li>
-<li>just specify NVMe PCI addresses with <code>bdev_list</code> for now</li>
+<li><code>vim $DAOS_SRC/utils/config/examples/daos_server_sockets.yml</code>
+edit the server configuration file using the information received from scan to instruct which devices
+to use. The <code>servers</code> section is a list specifying details for each <code>IO instance</code> to be started on the host
+(currently a maximum of 2 per host is imposed). Devices with the same NUMA rating/node/socket should be colocated
+on a single <code>IO instance</code> where possible. <a href="#server-configuration">more details</a></li>
+<li><code>bdev_list</code> should be populated with NVMe PCI addresses</li>
+<li><code>scm_list</code> should be populated with DCPM interleaved set namespaces (e.g. <code>/dev/pmem1</code>)</li>
+<li>DAOS Control Servers will need to be restarted on all hosts after updates to the server configuration file.</li>
+<li>Pick one host in the system and set <code>access_points</code> to host and listening port (probably going to be the 
+same as server config <code>port</code> parameter). This will be the host which bootstraps the DAOS management service (MS).</li>
+<li>For a cluster with homogenous hardware configurations that returns the following from scan for each host:</li>
 </ul>
 </li>
-<li>
-<p>Start DAOS control plane</p>
-<ul>
-<li><code>orterun -np 2 -H boro-44,boro-45 --enable-recovery daos_server start -o &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
-<a href="#parallel-launcher">details</a></li>
-</ul>
-</li>
-<li>
-<p>Provision Storage</p>
-<ul>
-<li>firmware update <a href="#firmware-upgrade">details</a></li>
-<li>burn-in testing <a href="#storage-burn-in">details</a></li>
-</ul>
-</li>
-<li>
-<p>Amend Server config file (adjust based on the results of storage provisioning,
-requires a subsequent restart of <code>daos_server</code>)</p>
-<ul>
-<li><code>vim &lt;daos&gt;/utils/config/examples/daos_server_sockets.yml</code>
-<a href="#server-configuration">details</a></li>
-<li>pick one server in the system and set <code>access_points</code> to this server's
-  host and port</li>
-<li>populate the <code>scm_*</code> and <code>bdev_*</code> parameters as used in format (below)</li>
-</ul>
-</li>
+</ol>
+<pre><code>[daos@wolf-72 daos_m]$ dmg -l wolf-7[1-2] -i storage scan --verbose
+wolf-7[1-2]:10001: connected
+-------
+wolf-7[1-2]
+-------
+SCM Namespace Socket ID Capacity
+------------- --------- --------
+pmem0         0         2.90TB
+pmem1         1         2.90TB
+
+NVMe PCI     Model                FW Revision Socket ID Capacity
+--------     -----                ----------- --------- --------
+0000:81:00.0 INTEL SSDPED1K750GA  E2010325    0         750.00GB
+0000:87:00.0 INTEL SSDPEDMD016T4  8DV10171    0         1.56TB
+0000:da:00.0 INTEL SSDPED1K750GA  E2010325    1         750.00GB
+</code></pre>
+
+<p>the configuration file <code>servers</code> section could be populated as follows:</p>
+<pre><code>servers:
+-
+  targets: 8                # count of storage targets per each server
+  first_core: 0             # offset of the first core for service xstreams
+  nr_xs_helpers: 2          # count of offload/helper xstreams per target
+  fabric_iface: eth0        # map to OFI_INTERFACE=eth0
+  fabric_iface_port: 31416  # map to OFI_PORT=31416
+  log_mask: ERR             # map to D_LOG_MASK=ERR
+  log_file: /tmp/server.log # map to D_LOG_FILE=/tmp/server.log
+  env_vars:                 # influence DAOS IO Server behaviour by setting env variables
+  - DAOS_MD_CAP=1024
+  - CRT_CTX_SHARE_ADDR=0
+  - CRT_TIMEOUT=30
+  - FI_SOCKETS_MAX_CONN_RETRY=1
+  - FI_SOCKETS_CONN_TIMEOUT=2000
+  scm_mount: /mnt/daos  # map to -s /mnt/daos
+  scm_class: dcpm
+  scm_list: [/dev/pmem0] # &lt;----- updated
+  bdev_class: nvme
+  bdev_list: [&quot;0000:87:00.0&quot;, &quot;0000:81:00.0&quot;]  # &lt;----- updated
+-
+  targets: 8                # count of storage targets per each server
+  first_core: 0             # offset of the first core for service xstreams
+  nr_xs_helpers: 2          # count of offload/helper xstreams per target
+  fabric_iface: eth0        # map to OFI_INTERFACE=eth0
+  fabric_iface_port: 31416  # map to OFI_PORT=31416
+  log_mask: ERR             # map to D_LOG_MASK=ERR
+  log_file: /tmp/server.log # map to D_LOG_FILE=/tmp/server.log
+  env_vars:                 # influence DAOS IO Server behaviour by setting env variables
+  - DAOS_MD_CAP=1024
+  - CRT_CTX_SHARE_ADDR=0
+  - CRT_TIMEOUT=30
+  - FI_SOCKETS_MAX_CONN_RETRY=1
+  - FI_SOCKETS_CONN_TIMEOUT=2000
+  scm_mount: /mnt/daos  # map to -s /mnt/daos
+  scm_class: dcpm
+  scm_list: [/dev/pmem1] # &lt;----- updated
+  bdev_class: nvme
+  bdev_list: [&quot;0000:da:00.0&quot;]  # &lt;----- updated
+</code></pre>
+
+<ol>
 <li>
 <p>Format Storage (from any node)</p>
 <ul>
-<li>When <code>daos_server</code> is started for the first time (and no SCM directory exists),
-<code>daos_server</code> enters "maintenance mode" and waits for a <code>dmg storage format</code> call to be
-issued from the management tool.</li>
-<li><code>dmg -i -l &lt;host:port&gt;,... storage format</code>
-<a href="/src/control/cmd/dmg/README.md#storage-format">management tool details</a></li>
+<li>Assuming <code>daos_server</code> is running on all desired hosts (see step #2) and is in <code>format</code> mode
+(<code>SCM format required</code> displayed on stdout).</li>
+<li><code>dmg -l wolf-[118-121,130-133] -i storage format</code>
+will create necessary metadata on the SCM mount at the path specified in the config file using the
+pmem device specified in the config file (<code>scm_list</code>). The NVMe devices specified in the config file
+(<code>bdev_list</code>) will be formatted using SPDK ctrlr interface (Optane drives may take a while) and <code>nvme.conf</code>
+is written to each SCM mount to instruct SPDK to attach to NVMe devices on DAOS IO instance start-up. </li>
+<li><a href="/src/control/cmd/dmg/README.md#storage-format">management tool details</a></li>
 <li><a href="/src/control/server/README.md#scm-format">SCM specific details</a></li>
 <li><a href="/src/control/server/README.md#nvme-format">NVMe specific details</a></li>
 </ul>
 </li>
+<li>
+<p>Start DAOS IO instances</p>
+<ul>
+<li>On successful format, DAOS Control Servers will start DAOS IO instances that have been specified in the server
+config file. Successful start-up is indicated by the following on stdout:
+<code>DAOS I/O server (v0.8.0) process 433456 started on rank 1 with 8 target, 2 helper XS per target, firstcore 0, host wolf-72.wolf.hpdd.intel.com.</code></li>
+</ul>
+</li>
+<li>
+<p>Reformatting</p>
+<ul>
+<li>To reset the DAOS metadata across all hosts the system must be reformatted.</li>
+<li>First ensure all <code>daos_server</code> processes on all hosts have been stopped, then for each SCM mount
+specified in the config file (<code>scm_mount</code> in the <code>servers</code> section) umount and wipe FS signatures (example illustration
+with two IO instances specified in the config file):</li>
+<li><code>clush -w wolf-[118-121,130-133] umount /mnt/daos1</code></li>
+<li><code>clush -w wolf-[118-121,130-133] umount /mnt/daos0</code></li>
+<li><code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem1</code></li>
+<li><code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem0</code></li>
+<li>Then restart DAOS Control Servers (step #2) and format (step #6).</li>
+</ul>
+</li>
 </ol>
-<div style="margin-left: 4em;">
-<details>
-<summary>Example output</summary>
-<p>
-
-<pre><code class="bash">$ dmg -i -l &lt;hostname&gt;:10001 -i storage format
-Active connections: [&lt;hostname):10001]
-This is a destructive operation and storage devices specified in the server config file will be erased.
-Please be patient as it may take several minutes.
-
-NVMe storage format results:
-&lt;hostname&gt;:10001:
-        pci-address 0000:da:00.0: status CTRL_SUCCESS
-        pci-address 0000:81:00.0: status CTRL_SUCCESS
-
-SCM storage format results:
-&lt;hostname&gt;:10001:
-        mntpoint /mnt/daos: status CTRL_SUCCESS
-</code></pre>
-
-
-</p>
-</details>
-</div>
-
 <h2 id="agent-configuration">Agent Configuration</h2>
 <p>This section addresses how to configure the DAOS agents on the storage
 nodes before starting it.</p>
