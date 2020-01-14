@@ -141,7 +141,7 @@ are a mounted tmpfs file system. There are several methods for ensuring
 the necessary directories are setup.</p>
 <p>A sign that this step may have been missed is when starting daos_server
 or daos_agent, you may see the message:</p>
-<pre><code>$ mkdir /var/run/daos_server: permission denied
+<pre><code class="bash">$ mkdir /var/run/daos_server: permission denied
 Unable to create socket directory: /var/run/daos_server
 </code></pre>
 
@@ -159,14 +159,14 @@ the next reboot. However, if reboots are infrequent, an easy solution
 while still utilizing the default locations is to create the
 required directories manually. To do this execute the following commands.</p>
 <p>daos_server:</p>
-<pre><code>$ mkdir /var/run/daos_server
+<pre><code class="bash">$ mkdir /var/run/daos_server
 $ chmod 0755 /var/run/daos_server
 $ chown user:user /var/run/daos_server (where user is the user you
     will run daos_server as)
 </code></pre>
 
 <p>daos_agent:</p>
-<pre><code>$ mkdir /var/run/daos_agent
+<pre><code class="bash">$ mkdir /var/run/daos_agent
 $ chmod 0755 /var/run/daos_agent
 $ chown user:user /var/run/daos_agent (where user is the user you
     will run daos_agent as)
@@ -244,7 +244,7 @@ Kubernetes Pod).</p>
 <p>Practically any parallel launcher can be used to start the DAOS server
 collectively on a set of storage nodes. pdsh, clush and orterun are most
 commonly used.</p>
-<pre><code>clush -w &lt;server_list&gt; -o &quot;-t -t&quot; daos_server start -o &lt;config_file&gt;`
+<pre><code class="bash">$ clush -w &lt;server_list&gt; -o &quot;-t -t&quot; daos_server start -o &lt;config_file&gt;`
 </code></pre>
 
 <p>will launch <code>daos_server</code> on the specified hosts connecting to the <code>port</code>
@@ -252,12 +252,12 @@ parameter value specified in the server config file.
 If the number of storage node exceed the default fanout value, then "-f"
 followed by the number of storage nodes should be used.</p>
 <p>Similarly, pdsh can be used:</p>
-<pre><code>pdsh -w &lt;server_list&gt; daos_server start -o &lt;config_file&gt;`
+<pre><code class="bash">$ pdsh -w &lt;server_list&gt; daos_server start -o &lt;config_file&gt;`
 </code></pre>
 
 <p>As for orterun, the list of storage nodes can be specified on the command line
 via the -H option. To start the DAOS server, run:</p>
-<pre><code>orterun --map-by node --mca btl tcp,self --mca oob tcp -np &lt;num_servers&gt;
+<pre><code class="bash">$ orterun --map-by node --mca btl tcp,self --mca oob tcp -np &lt;num_servers&gt;
 -H &lt;server_list&gt; --enable-recovery daos_server start -o &lt;config_file&gt;
 </code></pre>
 
@@ -330,7 +330,7 @@ namespaces created on the new SCM regions).</p>
 take up to a few minutes to create. Details of the pmem devices will be
 displayed in JSON format on command completion.</p>
 <p>Example output from the initial call (with the SCM modules set to default MemoryMode):</p>
-<pre><code>Memory allocation goals for SCM will be changed and namespaces modified, this
+<pre><code class="bash">Memory allocation goals for SCM will be changed and namespaces modified, this
 will be a destructive operation.  ensure namespaces are unmounted and SCM is
 otherwise unused.
 A reboot is required to process new memory allocation goals.
@@ -338,7 +338,7 @@ A reboot is required to process new memory allocation goals.
 
 <p>Example output from the subsequent call (SCM modules configured to AppDirect
 mode, and host rebooted):</p>
-<pre><code>Memory allocation goals for SCM will be changed and namespaces modified. This
+<pre><code class="bash">Memory allocation goals for SCM will be changed and namespaces modified. This
 will be a destructive operation. Ensure namespaces are unmounted and the SCM
 is otherwise unused.
 creating SCM namespace, may take a few minutes...
@@ -358,7 +358,7 @@ devices are mounted before running reset (as per the printed warning).</p>
 <p>A subsequent reboot is required for BIOS to read the new resource
 allocations.</p>
 <p>Example output when resetting the SCM modules:</p>
-<pre><code>Memory allocation goals for SCM will be changed and namespaces modified, this
+<pre><code class="bash">Memory allocation goals for SCM will be changed and namespaces modified, this
 will be a destructive operation.  ensure namespaces are unmounted and SCM is
 otherwise unused.
 removing SCM namespace, may take a few minutes...
@@ -423,7 +423,7 @@ This will be the host which bootstraps the DAOS management service
 </ul>
 <p>To illustrate, assume a cluster with homogenous hardware
 configurations that returns the following from scan for each host:</p>
-<pre><code>[daos@wolf-72 daos_m]$ dmg -l wolf-7[1-2] -i storage scan --verbose
+<pre><code class="bash">[daos@wolf-72 daos_m]$ dmg -l wolf-7[1-2] -i storage scan --verbose
 wolf-7[1-2]:10001: connected
 -------
 wolf-7[1-2]
@@ -497,46 +497,37 @@ combinations detected on the DAOS server, use the following command:</p>
         provider: ofi+psm2
         pinned_numa_node: 0
 
-
         fabric_iface: ib1
         provider: ofi+psm2
         pinned_numa_node: 1
 
-
         fabric_iface: ib0
         provider: ofi+verbs;ofi_rxm
         pinned_numa_node: 0
-
 
         fabric_iface: ib1
         provider: ofi+verbs;ofi_rxm
         pinned_numa_node: 1
 
-
         fabric_iface: ib0
         provider: ofi+verbs
         pinned_numa_node: 0
-
 
         fabric_iface: ib1
         provider: ofi+verbs
         pinned_numa_node: 1
 
-
         fabric_iface: ib0
         provider: ofi+sockets
         pinned_numa_node: 0
 
-
         fabric_iface: ib1
         provider: ofi+sockets
         pinned_numa_node: 1
-
 
         fabric_iface: eth0
         provider: ofi+sockets
         pinned_numa_node: 0
-
 
         fabric_iface: lo
         provider: ofi+sockets
@@ -548,9 +539,11 @@ highest performance at the top to lowest performance at the bottom of the list.
 Once the fabric_iface and provider pair has been chosen, those items and the
 pinned_numa_node may be inserted directly into the corresponding sections within
 daos_server.yml.  Note that the provider is currently the same for all DAOS
-IO server instances and is configured once in the server configuration.  The fabric_iface and pinned_numa_node are configured for each IO server instance.</p>
+IO server instances and is configured once in the server configuration.
+The fabric_iface and pinned_numa_node are configured for each IO server
+instance.</p>
 <p>A list of providers that may be querried is found with the command:</p>
-<pre><code>$ daos_server network list
+<pre><code class="bash">$ daos_server network list
 
 Supported providers:
         ofi+gni, ofi+psm2, ofi+tcp, ofi+sockets, ofi+verbs, ofi_rxm
@@ -558,7 +551,7 @@ Supported providers:
 
 <p>Performing a network scan that filters on a specific provider is accomplished
 by issuing the following command:</p>
-<pre><code>$ daos_server network scan --provider 'ofi+verbs;ofi_rxm'
+<pre><code class="bash">$ daos_server network scan --provider 'ofi+verbs;ofi_rxm'
 
 Scanning fabric for cmdline specified provider: ofi+verbs;ofi_rxm
 Fabric scan found 2 devices matching the provider spec: ofi+verbs;ofi_rxm
@@ -578,7 +571,7 @@ fi_pingpong test (delivered as part of OFI/libfabric).  To run that test,
 determine the name of the provider to test usually by removing the "ofi+" prefix from the network scan provider data.  Do use the "ofi+" prefix in the
 daos_server.yml.  Do not use the "ofi+" prefix with fi_pingpong.</p>
 <p>Then, the fi_pingpong test can be used to verify that the targeted OFI provider works fine:</p>
-<pre><code>node1$ fi_pingpong -p psm2
+<pre><code class="bash">node1$ fi_pingpong -p psm2
 
 node2$ fi_pingpong -p psm2 ${IP_ADDRESS_NODE1}
 
@@ -716,7 +709,7 @@ $ systemctl start daos-agent
 suite can be executed. Ensure the DAOS Agent is configured and running before
 running daos_test and that the DAOS_SINGLETON_CLI and CRT_ATTACH_INFO_PATH
 environment variables are properly set as described <a href="#server-startup">here</a>.</p>
-<pre><code>orterun -np &lt;num_clients&gt; --hostfile &lt;hostfile&gt; ./daos_test
+<pre><code class="bash">orterun -np &lt;num_clients&gt; --hostfile &lt;hostfile&gt; ./daos_test
 </code></pre>
 
 <p>daos_test requires at least 8GB of SCM (or DRAM with tmpfs) storage on
