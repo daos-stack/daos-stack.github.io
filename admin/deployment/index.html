@@ -648,12 +648,24 @@ IO services if valid DAOS metadata is found in <code>scm_mount</code>.</p>
 First ensure all <code>daos_server</code> processes on all hosts have been
 stopped, then for each SCM mount specified in the config file
 (<code>scm_mount</code> in the <code>servers</code> section) umount and wipe FS signatures.</p>
-<p>Example illustration with two IO instances specified in the config file:
-- <code>clush -w wolf-[118-121,130-133] umount /mnt/daos1</code>
-- <code>clush -w wolf-[118-121,130-133] umount /mnt/daos0</code>
-- <code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem1</code>
-- <code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem0</code>
-- Then restart DAOS Servers and format.</p>
+<p>Example illustration with two IO instances specified in the config file:</p>
+<ul>
+<li>
+<p><code>clush -w wolf-[118-121,130-133] umount /mnt/daos1</code></p>
+</li>
+<li>
+<p><code>clush -w wolf-[118-121,130-133] umount /mnt/daos0</code></p>
+</li>
+<li>
+<p><code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem1</code></p>
+</li>
+<li>
+<p><code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem0</code></p>
+</li>
+<li>
+<p>Then restart DAOS Servers and format.</p>
+</li>
+</ul>
 <h2 id="agent-configuration-and-startup">Agent Configuration and Startup</h2>
 <p>This section addresses how to configure the DAOS agents on the storage
 nodes before starting it.</p>
