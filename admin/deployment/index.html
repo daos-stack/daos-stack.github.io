@@ -316,13 +316,23 @@ message to ask for a reboot (the command will not initiate reboot itself).</p>
 <p>After running the command a reboot will be required, then the Control
 Servers will then need to be started again and the command run for a
 second time to expose the namespace device to be used by DAOS.</p>
-<p>Example usage:
-- <code>dmg -l wolf-[118-121,130-133] -i storage prepare --scm-only</code>
-after running, the user should be prompted for a reboot.
-- <code>clush -w wolf-[118-121,130-133] reboot</code>
-- <code>clush -w wolf-[118-121,130-133] daos_server start -o utils/config/examples/daos_server_sockets.yml</code>
-- <code>dmg -l wolf-[118-121,130-133] -i storage prepare --scm-only</code>
+<p>Example usage:</p>
+<ul>
+<li>
+<p><code>dmg -l wolf-[118-121,130-133] -i storage prepare --scm-only</code>
+after running, the user should be prompted for a reboot.</p>
+</li>
+<li>
+<p><code>clush -w wolf-[118-121,130-133] reboot</code></p>
+</li>
+<li>
+<p><code>clush -w wolf-[118-121,130-133] daos_server start -o utils/config/examples/daos_server_sockets.yml</code></p>
+</li>
+<li>
+<p><code>dmg -l wolf-[118-121,130-133] -i storage prepare --scm-only</code>
 after running, <code>/dev/pmemX</code> devices should be available on each of the hosts.</p>
+</li>
+</ul>
 <p>'sudo daos_server storage prepare --scm-only' should be run for a second time after
 system reboot to create the pmem kernel devices (/dev/pmemX
 namespaces created on the new SCM regions).</p>
