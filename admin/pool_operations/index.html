@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="DAOS Project">
+    <link rel="canonical" href="http://daos.io/admin/pool_operations/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Pool Operations - DAOS</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Pool Operations", url: "#_top", children: [
+              {title: "Pool Creation/Destroy", url: "#pool-creationdestroy" },
+              {title: "Pool Properties", url: "#pool-properties" },
+              {title: "Pool Access Control Lists", url: "#pool-access-control-lists" },
+              {title: "Pool Query", url: "#pool-query" },
+              {title: "Pool Modifications", url: "#pool-modifications" },
+              {title: "Pool Catastrophic Recovery", url: "#pool-catastrophic-recovery" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../app_interface_tiering/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../app_interface_tiering/" class="btn btn-xs btn-link">
+        Application Interface and Tiering
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../administration/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../administration/" class="btn btn-xs btn-link">
+        System Administration
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="pool-operations">Pool Operations</h1>
+<p>A DAOS pool is a storage reservation that can span any storage nodes and
+is managed by the administrator. The amount of space allocated to a pool
+is decided at creation time and can eventually be expanded through the
+management interface.</p>
+<h2 id="pool-creationdestroy">Pool Creation/Destroy</h2>
+<p>A DAOS pool can be created and destroyed through the DAOS management API
+(see daos_mgmt.h). DAOS also provides a utility called dmg to manage
+storage pools from the command line.</p>
+<p><strong>To create a pool:</strong></p>
+<pre><code class="bash">$ dmg pool create --scm-size=xxG --nvme-size=yyT
+</code></pre>
+
+<p>This command creates a pool distributed across the DAOS servers with a
+target size on each server with xxGB of SCM and yyTB of NVMe storage.
+The UUID allocated to the newly created pool is printed to stdout
+(referred as ${puuid}) as well as the rank where the pool service is
+located (referred as ${svcl}).</p>
+<pre><code class="bash">$ dmg pool create --help
+...
+[create command options]
+      -g, --group=     DAOS pool to be owned by given group, format name@domain
+      -u, --user=      DAOS pool to be owned by given user, format name@domain
+      -a, --acl-file=  Access Control List file path for DAOS pool
+      -s, --scm-size=  Size of SCM component of DAOS pool
+      -n, --nvme-size= Size of NVMe component of DAOS pool
+      -r, --ranks=     Storage server unique identifiers (ranks) for DAOS pool
+      -v, --nsvc=      Number of pool service replicas (default: 1)
+      -S, --sys=       DAOS system that pool is to be a part of (default: daos_server)
+</code></pre>
+
+<p>The typical output of this command is as follows:</p>
+<pre><code class="bash">$ dmg -i pool create -s 1G -n 10G -g root -u root -S daos
+Active connections: [localhost:10001]
+Creating DAOS pool with 1GB SCM and 10GB NvMe storage (0.100 ratio)
+Pool-create command SUCCEEDED: UUID: 5d6fa7bf-637f-4dba-bcd2-480ad251cdc7,
+Service replicas: 0,1
+</code></pre>
+
+<p>This created a pool with UUID 5d6fa7bf-637f-4dba-bcd2-480ad251cdc7,
+two pool service replica on rank 0 and 1.</p>
+<p><strong>To destroy a pool:</strong></p>
+<pre><code class="bash">$ dmg pool destroy --pool=${puuid}
+</code></pre>
+
+<p><strong>To see a list of the pools in your DAOS system:</strong></p>
+<pre><code class="bash">$ dmg system list-pools
+</code></pre>
+
+<p>This will return a table of pool UUIDs and the ranks of their pool service
+replicas. For example:</p>
+<pre><code class="bash">$ dmg system list-pools
+localhost:10001: connected
+Pool UUID               Svc Replicas
+---------               ------------
+2a8ec3b2-729b-4617-bf51-77f37f764194    0,1
+a106d667-5c5d-4d6f-ac3a-89099196c41a    0
+85141a07-e3ba-42a6-81c2-3f18253c5e47    0
+</code></pre>
+
+<h2 id="pool-properties">Pool Properties</h2>
+<p>At creation time, a list of pool properties can be specified through the
+API (not supported by the tool yet):</p>
+<ul>
+<li>
+<p>DAOS_PROP_CO_LABEL is a string that the administrator can
+    associate with a pool. e.g., project A, project B, IO500 test
+    pool</p>
+</li>
+<li>
+<p>DAOS_PROP_PO_ACL is the access control list (ACL) associated with
+    the pool</p>
+</li>
+<li>
+<p>DAOS_PROP_PO_SPACE_RB is the space to be reserved on each target
+    for rebuild purpose.</p>
+</li>
+<li>
+<p>DAOS_PROP_PO_SELF_HEAL defines whether the pool wants
+    automatically-trigger, or manually-triggered self-healing.</p>
+</li>
+<li>
+<p>DAOS_PROP_PO_RECLAIM is used to tune the space reclaim strategy
+    based on time interval, batched commits or snapshot creation.</p>
+</li>
+</ul>
+<p>While those pool properties are currently stored persistently with pool
+metadata, many of them are still under development. Moreover, the
+ability to modify some of those properties on an existing pool will also
+be provided in a future release.</p>
+<h2 id="pool-access-control-lists">Pool Access Control Lists</h2>
+<p>User and group access for pools is controlled by Access Control Lists (ACLs).
+A DAOS ACL is a list of zero or more Access Control Entries (ACEs). ACEs are
+the individual rules applied to each access decision.</p>
+<p>If no ACL is provided when creating the pool, the default ACL grants read and
+write access to the pool's owner-user and owner-group.</p>
+<h3 id="access-control-entries">Access Control Entries</h3>
+<p>ACEs are designated by a colon-separated string format:
+<code>TYPE:FLAGS:IDENTITY:PERMISSIONS</code></p>
+<p>Available values for these fields:</p>
+<ul>
+<li>TYPE: Allow (A)</li>
+<li>FLAGS: Group (G)</li>
+<li>IDENTITY: See below</li>
+<li>PERMISSIONS: Read (r), Write (w)</li>
+</ul>
+<h4 id="identity">Identity</h4>
+<p>The identity (also called the principal) is specified in the name@domain format.
+The domain should be left off if the name is a user/group on the local domain.
+Currently, this is the only case supported by DAOS.</p>
+<p>There are three special identities, <code>OWNER@</code>, <code>GROUP@</code> and <code>EVERYONE@</code>,
+which align with User, Group, and Other from traditional POSIX permission bits.
+When providing them in the ACE string format, they must be spelled exactly as
+written here, in uppercase with no domain appended.</p>
+<h4 id="examples">Examples</h4>
+<ul>
+<li><code>A::daos_user@:rw</code></li>
+<li>Allow the UNIX user named daos_user to have read-write access</li>
+<li><code>A:G:project_users@:r</code></li>
+<li>Allow anyone in the UNIX group project_users to have read-only access</li>
+<li><code>A::EVERYONE@:r</code></li>
+<li>Allow any user not covered by other rules to have read-only access</li>
+</ul>
+<h3 id="enforcement">Enforcement</h3>
+<p>Access Control Entries (ACEs) will be enforced in the following order:</p>
+<ul>
+<li>Owner-User</li>
+<li>Named users</li>
+<li>Owner-Group and named groups</li>
+<li>Everyone</li>
+</ul>
+<p>In general, enforcement will be based on the first match, ignoring
+lower-priority entries. For example, if the user has an ACE for their user
+identity, they will not receive the permissions for any of their groups, even if
+those group entries have broader permissions than the user entry does. The user
+is expected to match at most one user entry.</p>
+<p>If no matching user entry is found, but entries match one or more of the user's
+groups, enforcement will be based on the union of the permissions of all
+matching groups.</p>
+<p>By default, if a user matches no ACEs in the list, access will be denied.</p>
+<h3 id="limitations">Limitations</h3>
+<p>The maximum length of the ACE list in a DAOS ACL structure is 64KiB.</p>
+<p>To calculate the actual length of an ACL, use the following formula for each
+ACE:</p>
+<ul>
+<li>The base size of an ACE is 256B.</li>
+<li>If the ACE principal is <em>not</em> one of the special principals:</li>
+<li>Add the length of the identity string + 1.</li>
+<li>If that value is not 64B aligned, round up to the nearest 64B boundary.</li>
+</ul>
+<h3 id="creating-a-pool-with-a-custom-acl">Creating a pool with a custom ACL</h3>
+<p>To create a pool with a custom ACL:</p>
+<pre><code class="bash">$ dmg pool create --scm-size &lt;size&gt; --acl-file &lt;path&gt;
+</code></pre>
+
+<p>The ACL file is expected to be a text file with one ACE listed on each line. For
+example:</p>
+<pre><code class="bash"># Entries:
+A::OWNER@:rw
+A:G:GROUP@:rw
+# Everyone should be allowed to read
+A::EVERYONE@:r
+</code></pre>
+
+<p>You may add comments to the ACL file by starting the line with <code>#</code>.</p>
+<h3 id="displaying-a-pools-acl">Displaying a pool's ACL</h3>
+<p>To view a pool's ACL:</p>
+<pre><code class="bash">$ dmg pool get-acl --pool &lt;UUID&gt;
+</code></pre>
+
+<p>The output is in the same string format used in the ACL file during creation,
+with one ACE per line.</p>
+<h3 id="modifying-a-pools-acl">Modifying a pool's ACL</h3>
+<p>For all of these commands using an ACL file, the ACL file must be in the format
+noted above for pool creation.</p>
+<h4 id="overwriting-the-acl">Overwriting the ACL</h4>
+<p>To replace a pool's ACL with a new ACL:</p>
+<pre><code class="bash">$ dmg pool overwrite-acl --pool &lt;UUID&gt; --acl-file &lt;path&gt;
+</code></pre>
+
+<h4 id="updating-entries-in-an-existing-acl">Updating entries in an existing ACL</h4>
+<p>To add or update multiple entries in an existing pool ACL:</p>
+<pre><code class="bash">$ dmg pool update-acl --pool &lt;UUID&gt; --acl-file &lt;path&gt;
+</code></pre>
+
+<p>To add or update a single entry in an existing pool ACL:</p>
+<pre><code class="bash">$ dmg pool update-acl --pool &lt;UUID&gt; --entry &lt;ACE&gt;
+</code></pre>
+
+<p>If there is no existing entry for the principal in the ACL, the new entry is
+added to the ACL. If there is already an entry for the principal, that entry
+is replaced with the new one.</p>
+<h4 id="removing-an-entry-from-the-acl">Removing an entry from the ACL</h4>
+<p>To delete an entry for a given principal, or identity, in an existing pool ACL:</p>
+<pre><code class="bash">$ dmg pool delete-acl --pool &lt;UUID&gt; --principal &lt;principal&gt;
+</code></pre>
+
+<p>The principal corresponds to the principal/identity portion of an ACE that was
+set during pool creation or a previous pool ACL operation. For the delete
+operation, the principal argument must be formatted as follows:</p>
+<ul>
+<li>Named user: <code>u:username@</code></li>
+<li>Named group: <code>g:groupname@</code></li>
+<li>Special principals:</li>
+<li><code>OWNER@</code></li>
+<li><code>GROUP@</code></li>
+<li><code>EVERYONE@</code></li>
+</ul>
+<p>The entry for that principal will be completely removed. This does not always
+mean that the principal will have no access. Rather, their access to the pool
+will be decided based on the remaining ACL rules.</p>
+<h2 id="pool-query">Pool Query</h2>
+<p>The pool query operation retrieves information (i.e., the number of targets,
+space usage, rebuild status, property list, and more) about a created pool. It
+is integrated into the dmg_old utility.</p>
+<p><strong>To query a pool:</strong></p>
+<pre><code class="bash">$ dmg pool query --pool &lt;UUID&gt;
+</code></pre>
+
+<p>Below is the output for a pool created with SCM space only.</p>
+<pre><code>pool=47293abe-aa6f-4147-97f6-42a9f796d64a
+Pool 47293abe-aa6f-4147-97f6-42a9f796d64a, ntarget=64, disabled=8
+Pool space info:
+- Target(VOS) count:56
+- SCM:
+    Total size: 30064771072
+    Free: 30044570496, min:530139584, max:536869696, mean:536510187
+- NVMe:
+    Total size: 0
+    Free: 0, min:0, max:0, mean:0
+Rebuild done, 10 objs, 1026 recs
+</code></pre>
+<p>The total and free sizes are the sum across all the targets whereas
+min/max/mean gives information about individual targets. A min value
+close to 0 means that one target is running out of space.</p>
+<p>The example below shows a rebuild in progress and NVMe space allocated.</p>
+<pre><code>pool=95886b8b-7eb8-454d-845c-fc0ae0ba5671
+Pool 95886b8b-7eb8-454d-845c-fc0ae0ba5671, ntarget=64, disabled=8
+Pool space info:
+- Target(VOS) count:56
+- SCM:
+    Total size: 30064771072
+    Free: 29885237632, min:493096384, max:536869696, mean:533664957
+- NVMe:
+    Total size: 60129542144
+    Free: 29885237632, min:493096384, max:536869696, mean:533664957
+Rebuild busy, 75 objs, 9722 recs
+</code></pre>
+<p>Additional status and telemetry data are planned to be exported through
+the management API and tool and will be documented here once available.</p>
+<h2 id="pool-modifications">Pool Modifications</h2>
+<h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing</h3>
+<p><strong>To exclude a target from a pool:</strong></p>
+<pre><code>$ dmg_old exclude --svc=${svcl} --pool=${puuid} --target=${rank}
+</code></pre>
+
+<h3 id="pool-extension">Pool Extension</h3>
+<h4 id="target-addition-space-rebalancing">Target Addition &amp; Space Rebalancing</h4>
+<p>Support for online target addition and automatic space rebalancing is
+planned for DAOS v1.4 and will be documented here once available.</p>
+<h4 id="pool-shard-resize">Pool Shard Resize</h4>
+<p>Support for quiescent pool shard resize is currently not supported and
+is under consideration.</p>
+<h2 id="pool-catastrophic-recovery">Pool Catastrophic Recovery</h2>
+<p>A DAOS pool is instantiated on each target by a set of pmemobj files
+managed by PMDK and SPDK blobs on SSDs. Tools to verify and repair this
+persistent data is scheduled for DAOS v2.4 and will be documented here
+once available.</p>
+<p>Meanwhile, PMDK provides a recovery tool (i.e., pmempool check) to verify
+and possibly repair a pmemobj file. As discussed in the previous section, the
+rebuild status can be consulted via the pool query and will be expanded
+with more information.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../app_interface_tiering/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../app_interface_tiering/" class="btn btn-xs btn-link">
+        Application Interface and Tiering
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../administration/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../administration/" class="btn btn-xs btn-link">
+        System Administration
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/pool_operations.md">Edit on daos-stack/daos</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

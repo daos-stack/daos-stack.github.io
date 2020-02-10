@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="DAOS Project">
+    <link rel="canonical" href="http://daos.io/admin/administration/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>System Administration - DAOS</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "DAOS System Administration", url: "#_top", children: [
+              {title: "System Monitoring", url: "#system-monitoring" },
+              {title: "System Operations", url: "#system-operations" },
+              {title: "Fault Management", url: "#fault-management" },
+              {title: "Software Upgrade", url: "#software-upgrade" },
+              {title: "Storage Scrubbing", url: "#storage-scrubbing" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../pool_operations/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../pool_operations/" class="btn btn-xs btn-link">
+        Pool Operations
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../deployment/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../deployment/" class="btn btn-xs btn-link">
+        System Deployment
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="daos-system-administration">DAOS System Administration</h1>
+<h2 id="system-monitoring">System Monitoring</h2>
+<p>System monitoring and telemetry data will be provided as part of the
+control plane and will be documented in a future revision.</p>
+<h2 id="system-operations">System Operations</h2>
+<h3 id="full-shutdown-and-restart">Full Shutdown and Restart</h3>
+<p>Details on how to support proper DAOS server shutdown will be provided
+in a future revision.</p>
+<h3 id="fault-domain-maintenance-and-reintegration">Fault Domain Maintenance and Reintegration</h3>
+<p>Details on how to drain an individual storage node or fault domain (e.g.
+rack) in preparation for maintenance activity and how to reintegrate it
+will be provided in a future revision.</p>
+<h3 id="daos-system-extension">DAOS System Extension</h3>
+<p>Ability to add new DAOS server instances to a pre-existing DAOS system
+will be documented in a future revision.</p>
+<h2 id="fault-management">Fault Management</h2>
+<p>DAOS relies on massively distributed single-ported storage. Each target
+is thus effectively a single point of failure. DAOS achieves
+availability and durability of both data and metadata by providing
+redundancy across targets in different fault domains.</p>
+<h3 id="fault-detection-isolation">Fault Detection &amp; Isolation</h3>
+<p>DAOS servers are monitored within a DAOS system through a gossip-based
+protocol called SWIM<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1028914">^1</a> that provides accurate, efficient, and scalable
+server fault detection.</p>
+<p>Storage attached to each DAOS target is monitored through periodic local
+health assessment. Whenever a local storage I/O error is returned to the
+DAOS server, an internal health check procedure will be called
+automatically. This procedure makes an overall health assessment by
+analyzing the IO error code and device SMART/Health data. If the result
+is negative, the target will be marked as faulty, and further I/Os to
+this target will be rejected and re-routed.</p>
+<p>Once detected, the faulty target or servers (effectively a set of
+targets) must be excluded from each pool membership. This process is
+triggered either manually by the administrator or automatically (see
+next section for more information). Upon exclusion from the pool map,
+each target starts the collective rebuild process automatically to
+restore data redundancy. The rebuild process is designed to operate
+online while servers continue to process incoming I/O operations from
+applications.</p>
+<p>Tools to monitor and manage rebuild are still under development.</p>
+<h3 id="rebuild-throttling">Rebuild Throttling</h3>
+<p>The rebuild process may consume many resources on each server and
+can be throttled to reduce the impact on application performance. This
+current logic relies on CPU cycles on the storage nodes. By default, the
+rebuild process is configured to consume up to 30% of the CPU cycles,
+leaving the other 70% for regular I/O operations.</p>
+<p>During the rebuild process, the user can set the throttle to guarantee the
+rebuild will not use more resource than the user setting. The user can
+only set the CPU cycle for now. For example, if the user set the
+throttle to 50, then the rebuild will at most use 50% of the CPU cycle to do
+the rebuild job. The default rebuild throttle for CPU cycle is 30. This
+parameter can be changed via the daos_mgmt_set_params() API call and
+will be eventually available through the management tools.</p>
+<h2 id="software-upgrade">Software Upgrade</h2>
+<p>Interoperability in DAOS is handled via protocol and schema versioning
+for persistent data structures. Further instructions on how to manage
+DAOS software upgrades will be provided in a future revision.</p>
+<h3 id="protocol-interoperability">Protocol Interoperability</h3>
+<p>Limited protocol interoperability is provided by the DAOS storage stack.
+Version compatibility checks will be performed to verify that:</p>
+<ul>
+<li>
+<p>All targets in the same pool run the same protocol version.</p>
+</li>
+<li>
+<p>Client libraries linked with the application may be up to one
+    protocol version older than the targets.</p>
+</li>
+</ul>
+<p>If a protocol version mismatch is detected among storage targets in the
+same pool, the entire DAOS system will fail to start up and will report
+failure to the control API. Similarly, the connection from clients
+running a protocol version incompatible with the targets will return an
+error.</p>
+<h3 id="persistent-schema-compatibility-and-update">Persistent Schema Compatibility and Update</h3>
+<p>The schema of persistent data structures may evolve from time to time to
+fix bugs, add new optimizations, or support new features. To that end,
+the persistent data structures support schema versioning.</p>
+<p>Upgrading the schema version will not be performed automatically and
+must be initiated by the administrator. A dedicated upgrade tool will be
+provided to upgrade the schema version to the latest one. All targets in
+the same pool must have the same schema version. Version checks are
+performed at system initialization time to enforce this constraint.</p>
+<p>To limit the validation matrix, each new DAOS release will be published
+with a list of supported schema versions. To run with the new DAOS
+release, administrators will then need to upgrade the DAOS system to one
+of the supported schema versions. New pool shards will always be
+formatted with the latest version. This versioning schema only applies
+to a data structure stored in persistent memory and not to block storage
+that only stores user data with no metadata.</p>
+<h2 id="storage-scrubbing">Storage Scrubbing</h2>
+<p>Support for end-to-end data integrity is planned for DAOS v1.2 and
+background checksum scrubbing for v2.2. Once available, that
+functionality will be documented here.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../pool_operations/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../pool_operations/" class="btn btn-xs btn-link">
+        Pool Operations
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../deployment/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../deployment/" class="btn btn-xs btn-link">
+        System Deployment
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/administration.md">Edit on daos-stack/daos</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

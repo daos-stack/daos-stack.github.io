@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="DAOS Project">
+    <link rel="canonical" href="http://daos.io/admin/env_variables/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Environment Variables - DAOS</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Environment Variables", url: "#_top", children: [
+              {title: "Common environment variables", url: "#common-environment-variables" },
+              {title: "Server environment variables", url: "#server-environment-variables" },
+              {title: "Client", url: "#client" },
+              {title: "Debug System (Client &amp; Server)", url: "#debug-system-client-server" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../utilities_examples/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../utilities_examples/" class="btn btn-xs btn-link">
+        Utilities and Usage Examples
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="environment-variables">Environment Variables</h1>
+<p>This section lists the environment variables used by DAOS. Many of them
+are used for development purposes only and may be removed or changed in
+the future.</p>
+<p>The description of each variable follows the following format:</p>
+<ul>
+<li>
+<p>Short description</p>
+</li>
+<li>
+<p>Type</p>
+</li>
+<li>
+<p>The default behavior if not set.</p>
+</li>
+<li>
+<p>A longer description if necessary</p>
+</li>
+</ul>
+<p>This table defines a type:</p>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BOOL</td>
+<td>0 means false; any other value means true</td>
+</tr>
+<tr>
+<td>BOOL2</td>
+<td>no means false; any other value means true</td>
+</tr>
+<tr>
+<td>BOOL3</td>
+<td>set to empty, or any value means true; unset means false</td>
+</tr>
+<tr>
+<td>INTEGER</td>
+<td>Non-negative decimal integer</td>
+</tr>
+<tr>
+<td>STRING</td>
+<td>String</td>
+</tr>
+</tbody>
+</table>
+<h2 id="common-environment-variables">Common environment variables</h2>
+<p>Environment variables in this section apply to both the server-side and the client-side.</p>
+<pre><code>DAOS\_IO\_BYPASS
+</code></pre>
+<h2 id="server-environment-variables">Server environment variables</h2>
+<p>Environment variables in this section only apply to the server-side.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VOS_CHECKSUM</td>
+<td>Checksum algorithm used by VOS. STRING. Default to disabling checksums. The following checksum algorithms are supported: crc64 and crc32.</td>
+</tr>
+<tr>
+<td>VOS_MEM_CLASS</td>
+<td>Memory class used by VOS. STRING. Default to persistent memory. If the value is set to DRAM, all data is stored in volatile memory; otherwise, all data is stored in persistent memory.</td>
+</tr>
+<tr>
+<td>RDB_ELECTION_TIMEOUT</td>
+<td>Raft election timeout used by RDBs in milliseconds. INTEGER. Default to 7000 ms.</td>
+</tr>
+<tr>
+<td>RDB_REQUEST_TIMEOUT</td>
+<td>Raft request timeout used by RDBs in milliseconds. INTEGER. Default to 3000 ms.</td>
+</tr>
+<tr>
+<td>DAOS_REBUILD</td>
+<td>Determines whether to start rebuilds when excluding targets. BOOL2. Default to true.</td>
+</tr>
+<tr>
+<td>DAOS_MD_CAP</td>
+<td>Size of a metadata pmem pool/file in MBs. INTEGER. Default to 128 MB.</td>
+</tr>
+<tr>
+<td>DAOS_START_POOL_SVC</td>
+<td>Determines whether to start existing pool services when starting a daos_server. BOOL. Default to true.</td>
+</tr>
+<tr>
+<td>DAOS_IMPLICIT_PURGE</td>
+<td>Whether to aggregate unreferenced epochs. BOOL. Default to false.</td>
+</tr>
+<tr>
+<td>DAOS_PURGE_CREDITS</td>
+<td>The number of credits for probing object trees when aggregating unreferenced epochs. INTEGER. Default to 1000.</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="client">Client</h2>
+<p>Environment variables in this section only apply to the client-side.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N/A</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<h2 id="debug-system-client-server">Debug System (Client &amp; Server)</h2>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>D_LOG_FILE</td>
+<td>DAOS debug logs (both server and client) are written to /tmp/daos.log by default. The debug location can be modified by setting this environment variable ("D_LOG_FILE=/tmp/daos_server").</td>
+</tr>
+<tr>
+<td>DD_SUBSYS</td>
+<td>Used to specify which subsystems to enable. DD_SUBSYS can be set to individual subsystems for finer-grained debugging ("DD_SUBSYS=vos"), multiple facilities ("DD_SUBSYS=eio,mgmt,misc,mem"), or all facilities ("DD_SUBSYS=all") which is also the default setting. If a facility is not enabled, then only ERR messages or more severe messages will print.</td>
+</tr>
+<tr>
+<td>DD_STDERR</td>
+<td>Used to specify the priority level to output to stderr. Options in decreasing priority level order: FATAL, CRIT, ERR, WARN, NOTE, INFO, DEBUG. By default, all CRIT and more severe DAOS messages will log to stderr ("DD_STDERR=CRIT"), and the default for CaRT/GURT is FATAL.</td>
+</tr>
+<tr>
+<td>D_LOG_MASK</td>
+<td>Used to specify what type/level of logging will be present for either all of the registered subsystems or a select few. Options in decreasing priority level order: FATAL, CRIT, ERR, WARN, NOTE, INFO, DEBUG. DEBUG option is used to enable all logging (debug messages as well as all higher priority level messages). Note that if D_LOG_MASK is not set, it will default to logging all messages excluding debug ("D_LOG_MASK=INFO"). EX: "D_LOG_MASK=DEBUG" This will set the logging level for all facilities to DEBUG, meaning that all debug messages, as well as higher priority messages will be logged (INFO, NOTE, WARN, ERR, CRIT, FATAL) EX: "D_LOG_MASK=DEBUG,MEM=ERR,RPC=ERR" This will set the logging level to DEBUG for all facilities except MEM &amp; RPC (which will now only log ERR and higher priority level messages, skipping all DEBUG, INFO, NOTE &amp; WARN messages)</td>
+</tr>
+<tr>
+<td>DD_MASK</td>
+<td>Used to enable different debug streams for finer-grained debug messages, essentially allowing the user to specify an area of interest to debug (possibly involving many different subsystems) as opposed to parsing through many lines of generic DEBUG messages. All debug streams will be enabled by default ("DD_MASK=all"). Single debug masks can be set ("DD_MASK=trace") or multiple masks ("DD_MASK=trace,test,mgmt"). Note that since these debug streams are strictly related to the debug log messages, DD_LOG_MASK must be set to DEBUG. Priority messages higher than DEBUG will still be logged for all facilities unless otherwise specified by D_LOG_MASK (not affected by enabling debug masks).</td>
+</tr>
+</tbody>
+</table>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav">
+      <a href="../utilities_examples/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../utilities_examples/" class="btn btn-xs btn-link">
+        Utilities and Usage Examples
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/env_variables.md">Edit on daos-stack/daos</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

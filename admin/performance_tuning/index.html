@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="DAOS Project">
+    <link rel="canonical" href="http://daos.io/admin/performance_tuning/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Performance Tuning - DAOS</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "DAOS Performance Tuning", url: "#_top", children: [
+              {title: "Network Performance", url: "#network-performance" },
+              {title: "Benchmarking DAOS", url: "#benchmarking-daos" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../troubleshooting/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../troubleshooting/" class="btn btn-xs btn-link">
+        Troubleshooting
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../app_interface_tiering/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../app_interface_tiering/" class="btn btn-xs btn-link">
+        Application Interface and Tiering
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="daos-performance-tuning">DAOS Performance Tuning</h1>
+<p>This section will be expanded in a future revision.</p>
+<h2 id="network-performance">Network Performance</h2>
+<p>Similar to the Lustre Network stack, the DAOS CART layer can validate and benchmark network communications in the same context as
+an application and using the same networks/tuning options as regular
+DAOS. The CART self_test can run against the DAOS servers in a production
+environment in a non-destructive manner. CART self_test supports
+different message sizes, bulk transfers, multiple targets, and the
+following test scenarios:</p>
+<ul>
+<li>
+<p><strong>Selftest client to servers</strong> where self_test issues RPCs directly
+    to a list of servers</p>
+</li>
+<li>
+<p><strong>Cross-servers</strong> where self_test sends instructions to the different
+    servers that will issue cross-server RPCs. This model supports a
+    many to many communication model.</p>
+</li>
+</ul>
+<p>Instructions to run CaRT self_test with test_group as the target server are as follows. </p>
+<p>git clone https://github.com/daos-stack/daos.git
+cd daos
+git submodule init
+git submodule update
+scons --build-deps=yes install
+cd install/TESTING
+<strong>Prepare srvhostfile and clihostfile</strong>
+-   srvhostfile contains list of nodes from which servers will launch
+-   clihostfile contains node from which self_test will launch</p>
+<p>The example below uses Ethernet interface and Sockets provider.
+In the self_test commands:
+-   (client-to-servers) Replace the argument for "--endpoint" accordingly. 
+-   (cross-servers)     Replace the argument for "--endpoint" and "--master-endpoint" accordingly. 
+-   For example, if you have 8 servers, you would specify "--endpoint 0-7:0" (and --master-endpoint 0-7:0)</p>
+<p>The commands below will run self_test benchmark using the following message sizes:
+b1048576     1Mb bulk transfer Get and Put
+b1048576 0   1Mb bulk transfer Get only
+0 b1048576   1Mb bulk transfer Put only
+I2048        2Kb iovec Input and Output
+i2048 0      2Kb iovec Input only
+0 i2048      2Kb iovec Output only</p>
+<p>For full description of self_test usage, run:
+../bin/self_test --help</p>
+<p><strong>To start test_group server:</strong>
+/usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile srvhostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/test_group_srv.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0 -x CRT_CTX_NUM=16  ../bin/crt_launch -e tests/test_group_np_srv --name self_test_srv_grp --cfg_path=. &amp;</p>
+<p><strong>To run self_test in client-to-servers mode:</strong>
+/usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile clihostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/self_test.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0 -x CRT_CTX_NUM=16  ../bin/self_test --group-name self_test_srv_grp --endpoint 0-<MAX_SERVER-1>:0 --message-sizes "b1048576,b1048576 0,0 b1048576,i2048,i2048 0,0 i2048" --max-inflight-rpcs 16 --repetitions 100 -t -n -p .</p>
+<p><strong>To run self_test in cross-servers mode:</strong>
+/usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile clihostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/self_test.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0 -x CRT_CTX_NUM=16  ../bin/self_test --group-name self_test_srv_grp --endpoint 0-<MAX_SERVER-1>:0 --master-endpoint 0-<MAX_SERVER-1>:0 --message-sizes "b1048576,b1048576 0,0 b1048576,i2048,i2048 0,0 i2048" --max-inflight-rpcs 16 --repetitions 100 -t -n -p .</p>
+<p><strong>To shutdown test_group server:</strong>
+/usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile clihostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/test_group_cli.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0  tests/test_group_np_cli --name client-group --attach_to self_test_srv_grp --shut_only --cfg_path=.</p>
+<h2 id="benchmarking-daos">Benchmarking DAOS</h2>
+<p>DAOS can be benchmarked with both IOR and mdtest through the following
+backends:</p>
+<ul>
+<li>
+<p>native MPI-IO plugin combined with the ROMIO DAOS ADIO driver</p>
+</li>
+<li>
+<p>native HDF5 plugin combined with the HDF5 DAOS connector (under
+    development)</p>
+</li>
+<li>
+<p>native POSIX plugin over dfuse and interception library (under
+    development)</p>
+</li>
+<li>
+<p>a custom DFS plugin integrating mdtest &amp; IOR directly with libfs
+    without requiring FUSE or an interception library</p>
+</li>
+<li>
+<p>a custom DAOS plugin integrating IOR directly with the native DAOS
+    array API.</p>
+</li>
+</ul>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../troubleshooting/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../troubleshooting/" class="btn btn-xs btn-link">
+        Troubleshooting
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../app_interface_tiering/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../app_interface_tiering/" class="btn btn-xs btn-link">
+        Application Interface and Tiering
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/performance_tuning.md">Edit on daos-stack/daos</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
