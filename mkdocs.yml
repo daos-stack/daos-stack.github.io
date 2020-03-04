@@ -8,18 +8,20 @@ site_dir: ../site
 # Repository
 repo_name: daos-stack/daos
 repo_url: https://github.com/daos-stack/daos
+edit_url: ""
 
 # Theme
 theme:
     name: 'material'
     language: en
-    primary: 'blue grey'
+    palette:
+        primary: 'blue grey'
 
 docs_dir: ./
 
 # Page tree
 nav:
-    - Home: index.md
+    - Home: 'index.md'
     - Overview:
         - 'Terminology': 'overview/terminology.md'
         - 'Architecture': 'overview/architecture.md'
