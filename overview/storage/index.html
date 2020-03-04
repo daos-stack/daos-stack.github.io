@@ -33,7 +33,6 @@
         
         var pageToc = [
           {title: "Storage Model", url: "#_top", children: [
-              {title: "DAOS Target", url: "#daos-target" },
               {title: "DAOS Pool", url: "#daos-pool" },
               {title: "DAOS Container", url: "#daos-container" },
               {title: "DAOS Object", url: "#daos-object" },
@@ -73,10 +72,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../terminology/" class="btn btn-xs btn-default pull-left">
+      <a href="../architecture/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../terminology/" class="btn btn-xs btn-link">
-        Terminology
+        Previous</a><a href="../architecture/" class="btn btn-xs btn-link">
+        Architecture
       </a>
     </div>
     
@@ -85,7 +84,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     
 
     <h1 id="storage-model">Storage Model</h1>
-<p>We consider a data center with hundreds of thousands of compute nodes interconnected via a scalable high-performance fabric (i.e., Ethernet, RoCE or Infiniband), where all or a subset of the nodes, called storage nodes, have direct access to byte-addressable storage-class memory (SCM) and, optionally, block-based NVMe storage. The DAOS server is a multi-tenant daemon running on a Linux instance (i.e., natively on the physical node or in a VM or container) of each storage node and exporting through the network the locally-attached storage. Inside a DAOS server, the storage is statically partitioned across multiple targets to optimize concurrency. To avoid contention, each target has its private storage, own pool of service threads and dedicated network context that can be directly addressed over the fabric independently of the other targets hosted on the same storage node. The number of targets exported by a DAOS server instance is configurable and depends on the underlying hardware (i.e., number of SCM modules, CPUs, NVMe SSDs, ...). A target is the unit of fault. All DAOS servers connected to the same fabric are grouped to form a DAOS system, identified by a system name. Membership of the DAOS servers is recorded into the system map that assigns a unique integer rank to each server. Two different systems comprise two disjoint sets of servers and do not coordinate with each other.</p>
 <p>The <a href="#f4.1">figure </a> below represents the fundamental abstractions of the DAOS storage model.</p>
 <p><a id="f4.1"></a>
 <img alt="../graph/daos_abstractions.png" src="../../graph/daos_abstractions.png" title="DAOS Storage Abstractions" /></p>
@@ -118,10 +116,6 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
 </tr>
 </tbody>
 </table>
-<p><a id="4.1.1"></a></p>
-<h2 id="daos-target">DAOS Target</h2>
-<p>A target is typically associated with a single-ported SCM module and NVMe SSD attached to a single storage node. Moreover, a target does not implement any internal data protection mechanism against storage media failure. As a result, a target is a single point of failure. A dynamic state is associated with each target and is set to either up and running, or down and not available. A target is the unit of performance. Hardware components associated with the target, such as the backend storage medium, the server, and the network, have limited capability and capacity. Target performance parameters such as bandwidth and latency are exported to the upper layers.</p>
-<p><a id="4.1.2"></a></p>
 <h2 id="daos-pool">DAOS Pool</h2>
 <p>A pool is identified by a unique UUID and maintains target memberships in a persistent versioned list called the pool map. The membership is definitive and consistent, and membership changes are sequentially numbered. The pool map not only records the list of active targets, it also contains the storage topology under the form of a tree that is used to identify targets sharing common hardware components. For instance, the first level of the tree can represent targets sharing the same motherboard, and then the second level can represent all motherboards sharing the same rack and finally the third level can represent all racks in the same cage. This framework effectively represents hierarchical fault domains, which are then used to avoid placing redundant data on targets subject to correlated failures. At any point in time, new targets can be added to the pool map, and failed ones can be excluded. Moreover, the pool map is fully versioned, which effectively assigns a unique sequence to each modification of the map, more particularly for failed node removal.</p>
 <p>A pool shard is a reservation of persistent memory optionally combined with a pre-allocated space on NVMe storage on a specific target. It has a fixed capacity and fails operations when full. Current space usage can be queried at any time and reports the total amount of bytes used by any data type stored in the pool shard.</p>
@@ -232,10 +226,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../terminology/" class="btn btn-xs btn-default pull-left">
+      <a href="../architecture/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../terminology/" class="btn btn-xs btn-link">
-        Terminology
+        Previous</a><a href="../architecture/" class="btn btn-xs btn-link">
+        Architecture
       </a>
     </div>
     

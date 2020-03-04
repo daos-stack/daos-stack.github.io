@@ -25,12 +25,12 @@ nav:
     - Home: index.md
     - Overview:
         - 'Terminology': 'overview/terminology.md'
+        - 'Architecture': 'overview/architecture.md'
         - 'Storage Model': 'overview/storage.md'
         - 'Transaction Model': 'overview/transaction.md'
         - 'Fault Model': 'overview/fault.md'
         - 'Security Model': 'overview/security.md'
     - Administration Guide:
-        - 'DAOS Architecture': 'admin/architecture.md'
         - 'Hardware Requirements': 'admin/hardware.md'
         - 'Software Installation': 'admin/installation.md'
         - 'System Deployment': 'admin/deployment.md'
@@ -43,5 +43,4 @@ nav:
         - 'Environment Variables': 'admin/env_variables.md'
     - User Guide:
         - 'DAOS API Documentation': 'html/doc/index.html'
-    - Developer Guide:
-        - 'https://github.com/daos-stack/daos/blob/master/src/README.md'
+    - Developer Guide: 'https://github.com/daos-stack/daos/blob/master/src/README.md'

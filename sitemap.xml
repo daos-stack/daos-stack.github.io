@@ -11,6 +11,11 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
+     <loc>http://daos.io/overview/architecture/</loc>
+     <lastmod>2020-03-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
      <loc>http://daos.io/overview/storage/</loc>
      <lastmod>2020-03-04</lastmod>
      <changefreq>daily</changefreq>
@@ -27,11 +32,6 @@
     </url>
     <url>
      <loc>http://daos.io/overview/security/</loc>
-     <lastmod>2020-03-04</lastmod>
-     <changefreq>daily</changefreq>
-    </url>
-    <url>
-     <loc>http://daos.io/admin/architecture/</loc>
      <lastmod>2020-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
