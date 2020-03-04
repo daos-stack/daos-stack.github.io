@@ -71,10 +71,10 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     </div>
     
     <div class="wm-article-nav">
-      <a href="../app_interface_tiering/" class="btn btn-xs btn-default pull-left">
+      <a href="../tiering_uns/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../app_interface_tiering/" class="btn btn-xs btn-link">
-        Application Interface and Tiering
+        Previous</a><a href="../tiering_uns/" class="btn btn-xs btn-link">
+        Tiering and Unified Namespace
       </a>
     </div>
     
@@ -85,12 +85,12 @@ if (is_top_frame) { $('body').addClass('wm-top-page'); }
     <h1 id="daos-performance-tuning">DAOS Performance Tuning</h1>
 <p>This section will be expanded in a future revision.</p>
 <h2 id="network-performance">Network Performance</h2>
-<p>Similar to the Lustre Network stack, the DAOS CART layer can validate and benchmark network communications in the same context as
-an application and using the same networks/tuning options as regular
-DAOS. The CART self_test can run against the DAOS servers in a production
-environment in a non-destructive manner. CART self_test supports
-different message sizes, bulk transfers, multiple targets, and the
-following test scenarios:</p>
+<p>Similar to the Lustre Network stack, the DAOS CART layer can validate and
+benchmark network communications in the same context as an application and using
+the same networks/tuning options as regular DAOS.</p>
+<p>The CART self_test can run against the DAOS servers in a production environment
+in a non-destructive manner. CART self_test supports different message sizes,
+bulk transfers, multiple targets, and the following test scenarios:</p>
 <ul>
 <li>
 <p><strong>Selftest client to servers</strong> where self_test issues RPCs directly
@@ -102,38 +102,66 @@ following test scenarios:</p>
     many to many communication model.</p>
 </li>
 </ul>
-<p>Instructions to run CaRT self_test with test_group as the target server are as follows. </p>
-<p>git clone https://github.com/daos-stack/daos.git
-cd daos
-git submodule init
-git submodule update
-scons --build-deps=yes install
-cd install/TESTING
-<strong>Prepare srvhostfile and clihostfile</strong>
--   srvhostfile contains list of nodes from which servers will launch
--   clihostfile contains node from which self_test will launch</p>
+<p>Instructions to run CaRT self_test with test_group as the target server are as follows.</p>
+<pre><code class="bash">$ git clone https://github.com/daos-stack/daos.git
+$ cd daos
+$ git submodule init
+$ git submodule update
+$ scons --build-deps=yes install
+$ cd install/TESTING
+</code></pre>
+
+<p><strong>Prepare srvhostfile and clihostfile</strong></p>
+<ul>
+<li>
+<p>srvhostfile contains list of nodes from which servers will launch</p>
+</li>
+<li>
+<p>clihostfile contains node from which self_test will launch</p>
+</li>
+</ul>
 <p>The example below uses Ethernet interface and Sockets provider.
-In the self_test commands:
--   (client-to-servers) Replace the argument for "--endpoint" accordingly. 
--   (cross-servers)     Replace the argument for "--endpoint" and "--master-endpoint" accordingly. 
--   For example, if you have 8 servers, you would specify "--endpoint 0-7:0" (and --master-endpoint 0-7:0)</p>
-<p>The commands below will run self_test benchmark using the following message sizes:
-b1048576     1Mb bulk transfer Get and Put
+In the self_test commands:</p>
+<ul>
+<li>
+<p>(client-to-servers) Replace the argument for "--endpoint" accordingly.</p>
+</li>
+<li>
+<p>(cross-servers)     Replace the argument for "--endpoint" and "--master-endpoint" accordingly.</p>
+</li>
+<li>
+<p>For example, if you have 8 servers, you would specify "--endpoint 0-7:0" (and --master-endpoint 0-7:0)</p>
+</li>
+</ul>
+<p>The commands below will run self_test benchmark using the following message sizes:</p>
+<pre><code class="bash">b1048576     1Mb bulk transfer Get and Put
 b1048576 0   1Mb bulk transfer Get only
 0 b1048576   1Mb bulk transfer Put only
 I2048        2Kb iovec Input and Output
 i2048 0      2Kb iovec Input only
-0 i2048      2Kb iovec Output only</p>
-<p>For full description of self_test usage, run:
-../bin/self_test --help</p>
-<p><strong>To start test_group server:</strong>
-/usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile srvhostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/test_group_srv.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0 -x CRT_CTX_NUM=16  ../bin/crt_launch -e tests/test_group_np_srv --name self_test_srv_grp --cfg_path=. &amp;</p>
-<p><strong>To run self_test in client-to-servers mode:</strong>
-/usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile clihostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/self_test.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0 -x CRT_CTX_NUM=16  ../bin/self_test --group-name self_test_srv_grp --endpoint 0-<MAX_SERVER-1>:0 --message-sizes "b1048576,b1048576 0,0 b1048576,i2048,i2048 0,0 i2048" --max-inflight-rpcs 16 --repetitions 100 -t -n -p .</p>
-<p><strong>To run self_test in cross-servers mode:</strong>
-/usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile clihostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/self_test.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0 -x CRT_CTX_NUM=16  ../bin/self_test --group-name self_test_srv_grp --endpoint 0-<MAX_SERVER-1>:0 --master-endpoint 0-<MAX_SERVER-1>:0 --message-sizes "b1048576,b1048576 0,0 b1048576,i2048,i2048 0,0 i2048" --max-inflight-rpcs 16 --repetitions 100 -t -n -p .</p>
-<p><strong>To shutdown test_group server:</strong>
-/usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile clihostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/test_group_cli.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0  tests/test_group_np_cli --name client-group --attach_to self_test_srv_grp --shut_only --cfg_path=.</p>
+0 i2048      2Kb iovec Output only
+</code></pre>
+
+<p>For full description of self_test usage, run:</p>
+<pre><code class="bash">$ ../bin/self_test --help
+</code></pre>
+
+<p><strong>To start test_group server:</strong></p>
+<pre><code class="bash">$ /usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile srvhostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/test_group_srv.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0 -x CRT_CTX_NUM=16  ../bin/crt_launch -e tests/test_group_np_srv --name self_test_srv_grp --cfg_path=. &amp;
+</code></pre>
+
+<p><strong>To run self_test in client-to-servers mode:</strong></p>
+<pre><code class="bash">$ /usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile clihostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/self_test.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0 -x CRT_CTX_NUM=16  ../bin/self_test --group-name self_test_srv_grp --endpoint 0-&lt;MAX_SERVER-1&gt;:0 --message-sizes &quot;b1048576,b1048576 0,0 b1048576,i2048,i2048 0,0 i2048&quot; --max-inflight-rpcs 16 --repetitions 100 -t -n -p .
+</code></pre>
+
+<p><strong>To run self_test in cross-servers mode:</strong></p>
+<pre><code class="bash">$ /usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile clihostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/self_test.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0 -x CRT_CTX_NUM=16  ../bin/self_test --group-name self_test_srv_grp --endpoint 0-&lt;MAX_SERVER-1&gt;:0 --master-endpoint 0-&lt;MAX_SERVER-1&gt;:0 --message-sizes &quot;b1048576,b1048576 0,0 b1048576,i2048,i2048 0,0 i2048&quot; --max-inflight-rpcs 16 --repetitions 100 -t -n -p .
+</code></pre>
+
+<p><strong>To shutdown test_group server:</strong></p>
+<pre><code class="bash">$ /usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile clihostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/test_group_cli.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0  tests/test_group_np_cli --name client-group --attach_to self_test_srv_grp --shut_only --cfg_path=.
+</code></pre>
+
 <h2 id="benchmarking-daos">Benchmarking DAOS</h2>
 <p>DAOS can be benchmarked with both IOR and mdtest through the following
 backends:</p>
@@ -158,6 +186,7 @@ backends:</p>
     array API.</p>
 </li>
 </ul>
+<p>Moreover, a fio DAOS engine is also available.</p>
 
   <br>
     
@@ -180,10 +209,10 @@ backends:</p>
     </div>
     
     <div class="wm-article-nav">
-      <a href="../app_interface_tiering/" class="btn btn-xs btn-default pull-left">
+      <a href="../tiering_uns/" class="btn btn-xs btn-default pull-left">
         <i class="fa fa-chevron-left" aria-hidden="true"></i>
-        Previous</a><a href="../app_interface_tiering/" class="btn btn-xs btn-link">
-        Application Interface and Tiering
+        Previous</a><a href="../tiering_uns/" class="btn btn-xs btn-link">
+        Tiering and Unified Namespace
       </a>
     </div>
     

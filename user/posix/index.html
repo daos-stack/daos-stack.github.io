@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="DAOS Project">
+    <link rel="canonical" href="http://daos.io/user/posix/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>POSIX Namespace - DAOS</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "POSIX Namespace", url: "#_top", children: [
+              {title: "libdfs", url: "#libdfs" },
+              {title: "dfuse", url: "#dfuse" },
+              {title: "libioil", url: "#libioil" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../hpc/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../hpc/" class="btn btn-xs btn-link">
+        HPC I/O Middleware
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../interface/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../interface/" class="btn btn-xs btn-link">
+        Native Programming Interface
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="posix-namespace">POSIX Namespace</h1>
+<p>A regular POSIX namespace can be encapsulated into a DAOS container.  This
+capability is provided by the libdfs library that implements the file and
+directory abstractions over the native libdaos library. The POSIX emulation can
+be exposed to applications or I/O frameworks either directly (e.g., for
+frameworks Spark or TensorFlow, or benchmark like IOR or mdtest that support
+different a storage backend plugin), or transparently via a FUSE daemon, combined
+optionally with an interception library to address some of the FUSE performance
+bottleneck by delivering full OS bypass for POSIX read/write operations.</p>
+<h3 id="libdfs">libdfs</h3>
+<p>DFS stands for DAOS File System and is a library that allows a DAOS container to
+be accessed as a hierarchical POSIX namespace. It supports files, directories,
+and symbolic links, but not hard links. Access permissions are inherited from
+the parent pool and not implemented on a per-file or per-directory basis.
+setuid() and setgid() programs, as well as supplementary groups, are currently not
+supported.</p>
+<p>While libdfs can be tested from a single instance (i.e. single process or client
+node if used through dfuse), special care is required when the same POSIX
+container is mounted concurrently by multiple processes. Concurrent DFS mounts
+are not recommended. Support for concurrency control is under development and
+will be documented here once ready.</p>
+<h3 id="dfuse">dfuse</h3>
+<p>A fuse daemon called dfuse is provided to mount a POSIX container in the local
+filesystem tree. dfuse exposes one mountpoint as a single DFS namespace with a
+single pool and container and can be mounted by regular use (provided that it
+is granted access to the pool and container).
+To mount an existing POSIX container with dfuse, run the following command:</p>
+<pre><code class="bash">$ dfuse --pool a171434a-05a5-4671-8fe2-615aa0d05094 -s 0 --container 464e68ca-0a30-4a5f-8829-238e890899d2 -m /tmp/daos
+</code></pre>
+
+<p>The UUID after -p and -c should be replaced with respectively the pool and
+container UUID. -s should be followed by the pool svc rank list and -m is the
+local directory where the mount point will be setup.
+When done, the file system can be unmounted via fusermount:</p>
+<pre><code class="bash">$ fusermount3 -u /tmp/daos
+</code></pre>
+
+<h3 id="libioil">libioil</h3>
+<p>An interception library called libioil is available to work with dfuse. This
+library works in conjunction with dfuse and allow to interception of POSIX I/O
+calls and issue the I/O operations directly from the application context through
+libdaos without any appliction changes.  This provides kernel-bypass for I/O data
+leading to improved performance.
+To use this set the LD_PRELOAD to point to the shared libray in the DOAS install
+dir</p>
+<p>LD_PRELOAD=/path/to/daos/install/lib/libioil.so</p>
+<p>Support for libioil is currently planned for DAOS v1.2.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../hpc/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../hpc/" class="btn btn-xs btn-link">
+        HPC I/O Middleware
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../interface/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../interface/" class="btn btn-xs btn-link">
+        Native Programming Interface
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/user/posix.md">Edit on daos-stack/daos</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

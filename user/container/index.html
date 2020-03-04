@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="DAOS Project">
+    <link rel="canonical" href="http://daos.io/user/container/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Container Management - DAOS</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Container Management", url: "#_top", children: [
+              {title: "Container Creation/Destroy", url: "#container-creationdestroy" },
+              {title: "Container Properties", url: "#container-properties" },
+              {title: "Container Snapshot", url: "#container-snapshot" },
+              {title: "Container User Attributes", url: "#container-user-attributes" },
+              {title: "Container ACLs", url: "#container-acls" },
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../interface/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../interface/" class="btn btn-xs btn-link">
+        Native Programming Interface
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../admin/env_variables/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../admin/env_variables/" class="btn btn-xs btn-link">
+        Environment Variables
+      </a>
+    </div>
+    
+  </div>
+
+    
+
+    <h1 id="container-management">Container Management</h1>
+<p>DAOS containers are the unit of data management for users.</p>
+<h3 id="container-creationdestroy">Container Creation/Destroy</h3>
+<p>Containers can be created and destroyed through the daos_cont_create/destroy()
+functions exported by the DAOS API. A user tool called <code>daos</code> is also
+provided to manage containers.</p>
+<p>To create a container:</p>
+<pre><code class="bash">$ daos container create --pool=a171434a-05a5-4671-8fe2-615aa0d05094 --svc=0
+Successfully created container 008123fc-6b6c-4768-a88a-a2a5ef34a1a2
+</code></pre>
+
+<p>The container type (i.e., POSIX or HDF5) can be passed via the --type option.
+As shown below, the pool UUID, container UUID, and container attributes can be
+stored in the extended attributes of a POSIX file or directory for convenience.
+Then subsequent invocations of the daos tools need to reference the path
+to the POSIX file or directory.</p>
+<pre><code class="bash">$ daos container create --pool=a171434a-05a5-4671-8fe2-615aa0d05094 --svc=0 --path=/tmp/mycontainer --type=POSIX --oclass=large --chunk_size=4K
+Successfully created container 419b7562-5bb8-453f-bd52-917c8f5d80d1 type POSIX
+$ daos container query --svc=0 --path=/tmp/mycontainer
+Pool UUID:      a171434a-05a5-4671-8fe2-615aa0d05094
+Container UUID: 419b7562-5bb8-453f-bd52-917c8f5d80d1
+Number of snapshots: 0
+Latest Persistent Snapshot: 0
+DAOS Unified Namespace Attributes on path /tmp/mycontainer:
+Container Type: POSIX
+Object Class:   large
+Chunk Size:     4096
+</code></pre>
+
+<h3 id="container-properties">Container Properties</h3>
+<p>At creation time, a list of container properties can be specified:</p>
+<ul>
+<li>
+<p>DAOS_PROP_CO_LABEL is a string that a user can associate with a
+    container. e.g., "Cat Pics" or "ResNet-50 training data"</p>
+</li>
+<li>
+<p>DAOS_PROP_CO_LAYOUT_TYPE is the container type (POSIX, MPI-IO,
+    HDF5, ...)</p>
+</li>
+<li>
+<p>DAOS_PROP_CO_LAYOUT_VER is a version of the layout that can be
+    used by I/O middleware and application to handle interoperability.</p>
+</li>
+<li>
+<p>DAOS_PROP_CO_CSUM defines whether checksums are enabled or
+    disabled and the checksum type used. Available values are:</p>
+<ul>
+<li>DAOS_PROP_CO_CSUM_OFF (Default)</li>
+<li>DAOS_PROP_CO_CSUM_CRC16</li>
+<li>DAOS_PROP_CO_CSUM_CRC32</li>
+<li>DAOS_PROP_CO_CSUM_CRC64</li>
+</ul>
+</li>
+<li>
+<p>DAOS_PROP_CO_CSUM_CHUNK_SIZE defines the chunk size used for
+    creating checksums of array types. (default is 32K)</p>
+</li>
+<li>
+<p>DAOS_PROP_CO_CSUM_SERVER_VERIFY is used to enable/disable the server
+    verifying data with checksums on an object update. (default is
+    disabled)</p>
+</li>
+<li>
+<p>DAOS_PROP_CO_REDUN_FAC is the redundancy factor that drives the
+    minimal data protection required for objects stored in the
+    container. e.g., RF1 means no data protection, RF3 only allows 3-way
+    replication or erasure code N+2.</p>
+</li>
+<li>
+<p>DAOS_PROP_CO_REDUN_LVL is the fault domain level that should be
+    used to place data redundancy information (e.g., storage nodes, racks
+    ...). This information will be eventually consumed to determine object
+    placement.</p>
+</li>
+<li>
+<p>DAOS_PROP_CO_SNAPSHOT_MAX is the maximum number of snapshots to
+    retain. When a new snapshot is taken, and the threshold is reached,
+    the oldest snapshot will be automatically deleted.</p>
+</li>
+<li>
+<p>DAOS_PROP_CO_ACL is the list of ACL for the container.</p>
+</li>
+<li>
+<p>DAOS_PROP_CO_COMPRESS and DAOS_PROP_CO_ENCRYPT are reserved for configuring
+ respectively compression and encryption. These features
+    are currently not on the roadmap.</p>
+</li>
+</ul>
+<p>While those properties are currently stored persistently with container
+metadata, many of them are still under development. The ability to modify some
+of these properties on an existing container will also be provided in a future release.</p>
+<h3 id="container-snapshot">Container Snapshot</h3>
+<p>Similar to container create/destroy, a container can be snapshotted through the
+DAOS API by calling daos_cont_create_snap(). Additional functions are provided
+to destroy and list container snapshots.</p>
+<p>The API also provides the ability to subscribe to container snapshot events and
+to rollback the content of a container to a previous snapshot, but those
+operations are not yet fully implemented.</p>
+<p>This section will be updated once support for container snapshot is supported by
+the <code>daos</code> tool.</p>
+<h3 id="container-user-attributes">Container User Attributes</h3>
+<p>Similar to POSIX extended attributes, users can attach some metadata to each
+container through the daos_cont_{list/get/set}_attr() API.</p>
+<h3 id="container-acls">Container ACLs</h3>
+<p>Support for per-container ACLs is scheduled for DAOS v1.2. Similar to pool ACLs,
+container ACLs will implement a subset of the NFSv4 ACL standard. This feature
+will be documented here once available.</p>
+
+  <br>
+    
+
+    
+    
+      
+    
+
+  <div class="row wm-article-nav-buttons" role="navigation" aria-label="navigation">
+    
+    <div class="wm-article-nav pull-right">
+      <a href="../interface/" class="btn btn-xs btn-default pull-right">
+        Next
+        <i class="fa fa-chevron-right" aria-hidden="true"></i>
+      </a>
+      <a href="../interface/" class="btn btn-xs btn-link">
+        Native Programming Interface
+      </a>
+    </div>
+    
+    <div class="wm-article-nav">
+      <a href="../../admin/env_variables/" class="btn btn-xs btn-default pull-left">
+        <i class="fa fa-chevron-left" aria-hidden="true"></i>
+        Previous</a><a href="../../admin/env_variables/" class="btn btn-xs btn-link">
+        Environment Variables
+      </a>
+    </div>
+    
+  </div>
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/user/container.md">Edit on daos-stack/daos</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>

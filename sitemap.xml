@@ -61,7 +61,7 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://daos.io/admin/app_interface_tiering/</loc>
+     <loc>http://daos.io/admin/tiering_uns/</loc>
      <lastmod>2020-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
@@ -86,8 +86,28 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc></loc>
-     
+     <loc>http://daos.io/user/container/</loc>
+     <lastmod>2020-03-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://daos.io/user/interface/</loc>
+     <lastmod>2020-03-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://daos.io/user/posix/</loc>
+     <lastmod>2020-03-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://daos.io/user/hpc/</loc>
+     <lastmod>2020-03-04</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://daos.io/user/spark/</loc>
+     <lastmod>2020-03-04</lastmod>
      <changefreq>daily</changefreq>
     </url>
     <url>
