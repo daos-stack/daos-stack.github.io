@@ -134,7 +134,22 @@ Chunk Size:     4096
 </li>
 <li>
 <p>DAOS_PROP_CO_CSUM defines whether checksums are enabled or
-    disabled and the checksum type used.</p>
+    disabled and the checksum type used. Available values are:</p>
+<ul>
+<li>DAOS_PROP_CO_CSUM_OFF (Default)</li>
+<li>DAOS_PROP_CO_CSUM_CRC16</li>
+<li>DAOS_PROP_CO_CSUM_CRC32</li>
+<li>DAOS_PROP_CO_CSUM_CRC64</li>
+</ul>
+</li>
+<li>
+<p>DAOS_PROP_CO_CSUM_CHUNK_SIZE defines the chunk size used for
+    creating checksums of array types. (default is 32K)</p>
+</li>
+<li>
+<p>DAOS_PROP_CO_CSUM_SERVER_VERIFY is used to enable/disable the server
+    verifying data with checksums on an object update. (default is
+    disabled)</p>
 </li>
 <li>
 <p>DAOS_PROP_CO_REDUN_FAC is the redundancy factor that drives the
@@ -253,7 +268,7 @@ capability is under development and is scheduled for DAOS v1.2.</p>
 <p>each time a DAOS POSIX container is created, using <code>daos</code> utility and its
     '--path' UNS option, a Lustre foreign file/dir of 'daos' type is being
     created with a specific LOV/LMV EA content that will allow to store the
-    DAOS pool and containers UUIDs. </p>
+    DAOS pool and containers UUIDs.</p>
 </li>
 <li>
 <p>Lustre Client patch for LU-12682, adds DAOS specific support to the Lustre

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <meta name="author" content="DAOS Project">
+    <link rel="canonical" href="http://daos.io/overview/data_integrity/">
+    <link rel="shortcut icon" href="../../img/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+    <title>Introduction - DAOS</title>
+    <link href="../../css/bootstrap-3.3.7.min.css" rel="stylesheet">
+    <link href="../../css/font-awesome-4.7.0.css" rel="stylesheet">
+    <link href="../../css/base.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/highlight.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../js/jquery-3.2.1.min.js"></script>
+    <script src="../../js/bootstrap-3.3.7.min.js"></script>
+    <script src="../../js/highlight.pack.js"></script>
+    
+    <base target="_top">
+    <script>
+      var base_url = '../..';
+      var is_top_frame = false;
+        
+        var pageToc = [
+          {title: "Introduction", url: "#_top", children: [
+          ]},
+          {title: "Configuration", url: "#configuration", children: [
+              {title: "Checksum Container Setup", url: "#checksum-container-setup" },
+          ]},
+          {title: "Keys and Value Objects", url: "#keys-and-value-objects", children: [
+              {title: "Keys", url: "#keys" },
+              {title: "Values", url: "#values" },
+          ]},
+          {title: "Checksum calculations", url: "#checksum-calculations", children: [
+          ]},
+        ];
+
+    </script>
+    <script src="../../js/base.js"></script> 
+</head>
+
+<body>
+<script>
+if (is_top_frame) { $('body').addClass('wm-top-page'); }
+</script>
+
+
+
+<div class="container-fluid wm-page-content">
+  <a name="_top"></a>
+    
+
+    
+
+    <h1 id="introduction">Introduction</h1>
+<p>Arguably, one of the worst things a data storage system can do is to return incorrect data without the requester knowing. While each component in the system (network layer, storage devices) may offer protection against silent data corruption, DAOS will provide end-to-end data integrity using checksums to better ensure that user data is not corrupted silently.</p>
+<p>For DAOS, end-to-end means that the client will calculate and verify checksums, providing protection for data through the entire I/O stack. During a write or update, the DAOS Client library (libdaos.so) calculates a checksum and appends it to the RPC message before transferred over the network.
+Depending on the situation, the DAOS Server may or may not calculate checksums to verify the data on receipt. On a fetch, the DAOS Server will send a known good checksum with the requested data to the DAOS Client, which will calculate checksums on the data received and verify.</p>
+<h1 id="configuration">Configuration</h1>
+<p>Checksum configuration is done per container and is disabled by default. To enable and configure checksums, the following container properties are used during container create. Note that currently, once a container is created, its checksum configuration cannot be changed.</p>
+<h2 id="checksum-container-setup">Checksum Container Setup</h2>
+<ul>
+<li><code>DAOS_PROP_CO_CSUM</code>: Type of checksum algorithm to use. Supported values are</li>
+</ul>
+<pre><code class="c">  DAOS_PROP_CO_CSUM_OFF, // default
+  DAOS_PROP_CO_CSUM_CRC16,
+  DAOS_PROP_CO_CSUM_CRC32,
+  DAOS_PROP_CO_CSUM_CRC64,
+</code></pre>
+
+<ul>
+<li><code>DAOS_PROP_CO_CSUM_CHUNK_SIZE</code>: Discussed in the Array Values section below, checksums will be calculated for a subset of the data. The number of bytes of this subset will be configured as the "Chunk size". The default is 32K</li>
+<li><code>DAOS_PROP_CO_CSUM_SERVER_VERIFY</code>: Because of the probable decrease to
+  IOPS, in most cases, it is not desired to verify checksums on an object
+  update on the server side. It is sufficient for the client to verify on
+  a fetch because any data corruption, whether on the object update,
+  storage, or fetch, will be caught. However, there is an advantage to
+  knowing if corruption happens on an update. The update would fail
+  right away, indicating to the client to retry the RPC or report an
+  error to upper levels.</li>
+</ul>
+<h1 id="keys-and-value-objects">Keys and Value Objects</h1>
+<p>Because DAOS is a key/value store, the data for both keys and values will be protected, however, the approach for both is slightly different. For the two different value types, single and array, the approach is also slightly different.</p>
+<h2 id="keys">Keys</h2>
+<p>On an update and fetch, the client will calculate a checksum for the data used as the distribution and attribute keys and will send it to the server within the RPC. The server verifies the keys with the checksum.
+While enumerating keys, the server will calculate checksums for the keys and pack within the RPC message to the client. The client will verify the keys received.</p>
+<p>Note that Checksums for keys are not stored on the server. A hash of the key is calculated and used to index the key in the server tree of the keys (see <a href="../../src/vos/README.md#key-array-stores">VOS Key Array Stores</a>). It is also expected that keys are stored only in Storage Class Memory which has reliable data integrity protection.</p>
+<h2 id="values">Values</h2>
+<p>On an update, the client will calculate a checksum for the data of the value and will send it to the server within the RPC. If "server verify" is enabled, the server will calculate a new checksum for the value and compare with the checksum received from the client to verify the integrity of the value. If the checksums don't match, then data corruption has occurred and an error is returned to the client indicating that the client should try the update again. Whether "server verify" is enabled or not, the server will store the checksum. See <a href="../../src/vos/README.md">VOS</a> for more info about checksum management and storage in VOS.</p>
+<p>On a fetch, the server will return the stored checksum to the client with the values fetched so the client can verify the values received. If the checksums don't match, then the client will fetch from another replica if available in an attempt to get uncorrupted data.</p>
+<p>There are some slight variations to this approach for the two different types of values. (See <a href="../storage/">Storage Model</a> for more details about the single value and array value types)</p>
+<h3 id="single-value">Single Value</h3>
+<p>A Single Value is an atomic value, meaning that writes to a single value will update the entire value and reads retrieve the entire value. Other DAOS features such as Erasure Codes might split a Single Value into multiple shards to be distributed among multiple storage nodes. Either the whole Single Value (if going to a single node) or each shard (if distributed) will have a checksum calculated, sent to the server, and stored on the server.</p>
+<p>Note that it is possible for a single value, or shard of a single value, to be smaller than the checksum derived from it. It is advised that if an application needs many small single values to use an Array Type instead.</p>
+<h3 id="array-values">Array Values</h3>
+<p>Unlike Single Values, Array Values can be updated and fetched at any part of an array. In addition, updates to an array are versioned, so a fetch can include parts from multiple versions of the array. Each of these versioned parts of an array are called extents. The following diagrams illustrate a couple examples (also see <a href="../../src/vos/README.md#key-array-stores">VOS Key Array Stores</a> for more information):</p>
+<div>
+A single extent update (blue line) from index 2-13. A fetched extent (orange line) from index 2-6. The fetch is only part of the original extent written.
+
+![](../graph/data_integrity/array_example_1.png)
+</div>
+
+<div>
+Many extent updates and different epochs. A fetch from index 2-13 requires parts from each extent.
+
+![Array Example 2](../graph/data_integrity/array_example_2.png)
+
+</div>
+
+<p>The nature of the array type requires that a more sophisticated approach to creating checksums is used. DAOS uses a "chunking" approach where each extent will be broken up into "chunks" with a predetermined "chunk size." Checksums will be derived from these chunks. Chunks are aligned with an absolute offset (starting at 0), not an I/O offset. The following diagram illustrates a chunk size configured to be 4 (units is arbitrary in this example). Though not all chunks have a full size of 4, an  absolute offset alignment is maintained. The gray boxes around the extents represent the chunks.</p>
+<p><img src="../graph/data_integrity/array_with_chunks.png" width="700" /></p>
+<p>(See <a href="../../src/object/README.md">Object Layer</a> for more details about the checksum process on object update and fetch)</p>
+<h1 id="checksum-calculations">Checksum calculations</h1>
+<p>The actual checksum calculations are done by the <a href="https://github.com/intel/isa-l">isa-l</a> and <a href="https://github.com/intel/isa-l_crypto">isa-l_crypto</a> libraries. However, these libraries are abstracted away from much of DAOS and a common checksum library is used with appropriate adapters to the actual isa-l implementations. <a href="../../src/common/README.md#checksum">common checksum library</a></p>
+
+  <br>
+    
+
+    <br>
+</div>
+
+<footer class="col-md-12 wm-page-content">
+      <p>
+        <a href="https://github.com/daos-stack/daos/edit/master/docs/overview/data_integrity.md">Edit on daos-stack/daos</a>
+      </p>
+  <p>Documentation built with <a href="http://www.mkdocs.org/">MkDocs</a> using <a href="https://github.com/gristlabs/mkdocs-windmill">Windmill</a> theme by Grist Labs.</p>
+</footer>
+
+</body>
+</html>
