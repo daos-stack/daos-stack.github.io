@@ -11,9 +11,10 @@ repo_url: https://github.com/daos-stack/daos
 
 # Theme
 theme:
-    name: windmill
+#    name: windmill
+    name: 'material'
     language: en
-    collapse_by_default: false
+#    collapse_by_default: false
 
 extra:
     version: v0.9
