@@ -16,6 +16,7 @@ theme:
     language: en
     palette:
         primary: 'blue grey'
+        accent: 'blue'
 
 docs_dir: ./
 
