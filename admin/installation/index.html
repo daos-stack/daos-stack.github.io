@@ -1088,12 +1088,12 @@ uses the environment modules package to detect the presence of MPI.  If none
 is found, the build will skip building those tests.</p>
 <h3 id="daos-source-code">DAOS Source Code<a class="headerlink" href="#daos-source-code" title="Permanent link">&para;</a></h3>
 <p>To check out the DAOS source code, run the following command:</p>
-<pre><code>$ git clone https://github.com/daos-stack/daos.git
+<pre><code class="bash">$ git clone https://github.com/daos-stack/daos.git
 </code></pre>
 
 <p>This command clones the DAOS git repository (path referred as ${daospath}
 below). Then initialize the submodules with:</p>
-<pre><code>$ cd ${daospath}
+<pre><code class="bash">$ cd ${daospath}
 $ git submodule init
 $ git submodule update
 </code></pre>
@@ -1101,14 +1101,14 @@ $ git submodule update
 <h3 id="building-daos-dependencies">Building DAOS &amp; Dependencies<a class="headerlink" href="#building-daos-dependencies" title="Permanent link">&para;</a></h3>
 <p>If all the software dependencies listed previously are already satisfied, then
 type the following command in the top source directory to build the DAOS stack:</p>
-<pre><code>$ scons --config=force install
+<pre><code class="bash">$ scons --config=force install
 </code></pre>
 
 <p>If you are a developer of DAOS, we recommend following the instructions in the
 <a href="https://daos-stack.github.io/admin/installation/#daos-for-development">DAOS for Development</a> section.</p>
 <p>Otherwise, the missing dependencies can be built automatically by invoking scons
 with the following parameters:</p>
-<pre><code>$ scons --config=force --build-deps=yes install
+<pre><code class="bash">$ scons --config=force --build-deps=yes install
 </code></pre>
 
 <p>By default, DAOS and its dependencies are installed under ${daospath}/install.
@@ -1118,7 +1118,7 @@ command line (e.g., PREFIX=/usr/local).</p>
 <p>Once built, the environment must be modified to search for binaries and header
 files in the installation path. This step is not required if standard locations
 (e.g. /bin, /sbin, /usr/lib, ...) are used.</p>
-<pre><code>CPATH=${daospath}/install/include/:$CPATH
+<pre><code class="bash">CPATH=${daospath}/install/include/:$CPATH
 PATH=${daospath}/install/bin/:${daospath}/install/sbin:$PATH
 export CPATH PATH
 </code></pre>
@@ -1135,7 +1135,7 @@ On Mac, please make sure that the Docker settings under
 "Preferences/{Disk,Memory}" are configured accordingly.</p>
 <h3 id="building-from-github">Building from GitHub<a class="headerlink" href="#building-from-github" title="Permanent link">&para;</a></h3>
 <p>To build the Docker image directly from GitHub, run the following command:</p>
-<pre><code>$ docker build -t daos -f Dockerfile.centos.7 github.com/daos-stack/daos#:utils/docker
+<pre><code class="bash">$ curl -L https://raw.githubusercontent.com/daos-stack/daos/master/utils/docker/Dockerfile.centos.7 | docker build --no-cache -t daos -
 </code></pre>
 
 <p>This creates a CentOS 7 image, fetches the latest DAOS version from GitHub,
@@ -1144,7 +1144,7 @@ For Ubuntu and other Linux distributions, replace Dockerfile.centos.7 with
 Dockerfile.ubuntu.18.04 and the appropriate version of interest.</p>
 <p>Once the image created, one can start a container that will eventually run
 the DAOS service:</p>
-<pre><code>$ docker run -it -d --privileged --name server \
+<pre><code class="bash">$ docker run -it -d --privileged --name server \
         -v /dev/hugepages:/dev/hugepages \
         daos
 </code></pre>
@@ -1155,11 +1155,11 @@ should be removed since it is not supported.</p>
 <p>To build from a local tree stored on the host, a volume must be created to share
 the source tree with the Docker container. To do so, execute the following
 command to create a docker image without checking out the DAOS source tree:</p>
-<pre><code>$ docker build -t daos -f utils/docker/Dockerfile.centos.7 --build-arg NOBUILD=1 .
+<pre><code class="bash">$ docker build -t daos -f utils/docker/Dockerfile.centos.7 --build-arg NOBUILD=1 .
 </code></pre>
 
 <p>Then create a container that can access the local DAOS source tree:</p>
-<pre><code>$ docker run -it -d --privileged --name server \
+<pre><code class="bash">$ docker run -it -d --privileged --name server \
         -v ${daospath}:/home/daos/daos:Z \
         -v /dev/hugepages:/dev/hugepages \
         daos
@@ -1170,12 +1170,12 @@ As mentioned above, the export of /dev/hugepages should be removed if the
 host is not a Linux system.</p>
 <p>Then execute the following command to build and install DAOS in the
 container:</p>
-<pre><code>$ docker exec server scons --build-deps=yes install PREFIX=/usr
+<pre><code class="bash">$ docker exec server scons --build-deps=yes install PREFIX=/usr
 </code></pre>
 
 <h3 id="running-daos-service-in-docker">Running DAOS Service in Docker<a class="headerlink" href="#running-daos-service-in-docker" title="Permanent link">&para;</a></h3>
 <p>Please first make sure that the uio_pci_generic module is loaded:</p>
-<pre><code>$ ls /sys/bus/pci/drivers/uio_pci_generic
+<pre><code class="bash">$ ls /sys/bus/pci/drivers/uio_pci_generic
 ls: cannot access /sys/bus/pci/drivers/uio_pci_generic: No such file or director
 
 $ sudo modprobe uio_pci_generic
@@ -1187,13 +1187,13 @@ $ ls /sys/bus/pci/drivers/uio_pci_generic
 </code></pre>
 
 <p>SCM and NVMe storage can then be configured by running the follow command:</p>
-<pre><code>$ docker exec server daos_server storage prepare
+<pre><code class="bash">$ docker exec server daos_server storage prepare
 </code></pre>
 
 <p>Note that this command reports that /dev/hugepages is not accessible on
 OSX. This still allows running the DAOS service despite the error.</p>
 <p>The DAOS service can then be started as follows:</p>
-<pre><code>$ docker exec server mkdir /var/run/daos_server
+<pre><code class="bash">$ docker exec server mkdir /var/run/daos_server
 $ docker exec server daos_server start \
         -o /home/daos/daos/utils/config/examples/daos_server_local.yml
 </code></pre>
@@ -1204,7 +1204,7 @@ of DRAM to emulate persistent memory and 16GB of bulk storage under /tmp.
 The storage size can be changed in the yaml file if necessary.</p>
 <p>Once started, the DAOS server waits for the administrator to format the system.
 This can be triggered in a different shell, using the following command:</p>
-<pre><code>$ docker exec server dmg -i storage format
+<pre><code class="bash">$ docker exec server dmg -i storage format
 </code></pre>
 
 <p>Upon successful completion of the format, the storage engine is started, and pools
@@ -1219,7 +1219,7 @@ only required for development purposes.</p>
 unique subdirectory. The DAOS build system supports this through the
 TARGET_PREFIX variable. Once the submodules have been initialized and updated,
 run the following commands:</p>
-<pre><code>$ scons PREFIX=${daos_prefix_path}
+<pre><code class="bash">$ scons PREFIX=${daos_prefix_path}
       TARGET_PREFIX=${daos_prefix_path}/opt install
       --build-deps=yes
       --config=force
@@ -1230,7 +1230,7 @@ components individually by replacing --build-deps=yes with
 --update-prereq={component_name}. This requires a change to the environment
 configuration from before. For automated environment setup, source
 scons_local/utils/setup_local.sh.</p>
-<pre><code>ARGOBOTS=${daos_prefix_path}/opt/argobots
+<pre><code class="bash">ARGOBOTS=${daos_prefix_path}/opt/argobots
 CART=${daos_prefix_path}/opt/cart
 FIO=${daos_prefix_path}/opt/fio
 FUSE=${daos_prefix_path}/opt/fuse
@@ -1245,7 +1245,6 @@ SPDK=${daos_prefix_path}/opt/spdk
 
 LD_LIBRARY_PATH=${daos_prefix_path}/opt/spdk/lib:${daos_prefix_path}/opt/protobufc/lib:${daos_prefix_path}/opt/pmdk/lib:${daos_prefix_path}/opt/openpa/lib:${daos_prefix_path}/opt/ofi/lib:${daos_prefix_path}/opt/mercury/lib:${daos_prefix_path}/opt/isal/lib:${daos_prefix_path}/opt/fuse/lib64:${daos_prefix_path}/opt/cart/lib:${daos_prefix_path}/opt/argobots/lib
 PATH=${daos_prefix_path}/opt/spdk/bin:${daos_prefix_path}/opt/pmdk/bin:${daos_prefix_path}/opt/ofi/bin:${daos_prefix_path}/opt/isal/bin:${daos_prefix_path}/opt/fio/bin:${daos_prefix_path}/opt/cart/bin
-
 </code></pre>
 
 <p>With this approach, DAOS would get built using the prebuilt dependencies in
@@ -1260,17 +1259,17 @@ the scons command line. This option is also saved for future compilations.</p>
 located in the src/control/vendor directory. The DAOS codebase uses
 <a href="https://github.com/golang/dep">dep</a> to manage these dependencies.</p>
 <p>On EL7 and later:</p>
-<pre><code>$ yum install yum-plugin-copr
+<pre><code class="bash">$ yum install yum-plugin-copr
 $ yum copr enable hnakamur/golang-dep
 $ yum install golang-dep
 </code></pre>
 
 <p>On Fedora 27 and later:</p>
-<pre><code>$ dnf install dep
+<pre><code class="bash">$ dnf install dep
 </code></pre>
 
 <p>On Ubuntu 18.04 and later:</p>
-<pre><code>$ apt-get install go-dep
+<pre><code class="bash">$ apt-get install go-dep
 </code></pre>
 
 <p>For OSes that don't supply a package:</p>
@@ -1279,7 +1278,7 @@ $ yum install golang-dep
 "$GOPATH" in this document) and a GOBIN ($GOPATH/bin) set up and included in
 your PATH:</li>
 </ul>
-<pre><code>$ mkdir -p $GOPATH/bin
+<pre><code class="bash">$ mkdir -p $GOPATH/bin
 $ export PATH=$GOPATH/bin:$PATH
 </code></pre>
 
@@ -1289,7 +1288,7 @@ $ export PATH=$GOPATH/bin:$PATH
 <p>To update the vendor directory using dep after changing Gopkg.toml, make
 sure DAOS is cloned into "$GOPATH/src/github.com/daos-stack/daos"</p>
 <p>Then:</p>
-<pre><code>$ cd $GOPATH/src/github.com/daos-stack/daos/src/control
+<pre><code class="bash">$ cd $GOPATH/src/github.com/daos-stack/daos/src/control
 $ dep ensure
 </code></pre>
 
@@ -1315,13 +1314,13 @@ work but are not guaranteed.</p>
 </ul>
 <p>Generate the Go file using the gRPC plugin. You can designate the directory
 location:</p>
-<pre><code>$ protoc myfile.proto --go_out=plugins=grpc:&lt;go_file_dir&gt;
+<pre><code class="bash">$ protoc myfile.proto --go_out=plugins=grpc:&lt;go_file_dir&gt;
 </code></pre>
 
 <p>Generate the C files using Protobuf-C. As the header and source files in DAOS
 are typically kept in separate locations, you will need to move them manually
 to their destination directories:</p>
-<pre><code>$ protoc-c myfile.proto --c_out=.
+<pre><code class="bash">$ protoc-c myfile.proto --c_out=.
 $ mv myfile.pb-c.h &lt;c_file_include_dir&gt;
 $ mv myfile.pb-c.c &lt;c_file_src_dir&gt;
 </code></pre>
