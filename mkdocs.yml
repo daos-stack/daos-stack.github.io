@@ -17,6 +17,8 @@ theme:
     palette:
         primary: 'blue grey'
         accent: 'blue'
+    feature:
+        tabs: true
 
 docs_dir: ./
 
