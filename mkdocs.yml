@@ -31,7 +31,7 @@ markdown_extensions:
 # Page tree
 nav:
     - Home: 'index.md'
-    - Overview:
+    - Architecture Overview:
         - 'Terminology': 'overview/terminology.md'
         - 'Architecture': 'overview/architecture.md'
         - 'Storage Model': 'overview/storage.md'
@@ -55,6 +55,7 @@ nav:
         - 'POSIX Namespace': 'user/posix.md'
         - 'HPC I/O Middleware': 'user/hpc.md'
         - 'Spark': 'user/spark.md'
-    - Developer Guide: 'https://github.com/daos-stack/daos/blob/master/src/README.md'
+    - Internals (Developers):
+        - 'https://github.com/daos-stack/daos/blob/master/src/README.md'
     - Community Wiki: 'https://wiki.hpdd.intel.com'
     - Roadmap: 'https://wiki.hpdd.intel.com/display/DC/Roadmap/'
