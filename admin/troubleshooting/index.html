@@ -858,8 +858,8 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/troubleshooting.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="troubleshooting">Troubleshooting</h1>
-<h2 id="daos-errors">DAOS Errors</h2>
+                <h1 id="troubleshooting">Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permanent link">&para;</a></h1>
+<h2 id="daos-errors">DAOS Errors<a class="headerlink" href="#daos-errors" title="Permanent link">&para;</a></h2>
 <p>DAOS error numbering starts at 1000. The most common
 errors are documented in the table below.</p>
 <table>
@@ -925,7 +925,7 @@ list of errors, please check
 to 2000).</p>
 <p>The function d_errstr() is provided in the API to convert an error
 number to an error message.</p>
-<h2 id="log-files">Log Files</h2>
+<h2 id="log-files">Log Files<a class="headerlink" href="#log-files" title="Permanent link">&para;</a></h2>
 <p>On the server side, there are three log files created as part of normal
 server operations:</p>
 <table>
@@ -954,7 +954,7 @@ server operations:</p>
 </tr>
 </tbody>
 </table>
-<h3 id="control-plane-log">Control Plane Log</h3>
+<h3 id="control-plane-log">Control Plane Log<a class="headerlink" href="#control-plane-log" title="Permanent link">&para;</a></h3>
 <p>The default log level for the control plane is INFO. The following
 levels may be set using the <code>control_log_mask</code> config parameter:</p>
 <ul>
@@ -962,24 +962,24 @@ levels may be set using the <code>control_log_mask</code> config parameter:</p>
 <li>INFO</li>
 <li>ERROR</li>
 </ul>
-<h3 id="data-plane-log">Data Plane Log</h3>
+<h3 id="data-plane-log">Data Plane Log<a class="headerlink" href="#data-plane-log" title="Permanent link">&para;</a></h3>
 <p>Data Plane (<code>daos_io_server</code>) logging is configured on a per-instance
 basis. In other words, each section under the <code>servers:</code> section must
 have its own logging configuration. The <code>log_file</code> config parameter
 is converted to a D_LOG_FILE environment variable value. For more
 detail, please see the <a href="#debugging-system">Debugging System</a>
 section of this document.</p>
-<h3 id="privileged-helper-log">Privileged Helper Log</h3>
+<h3 id="privileged-helper-log">Privileged Helper Log<a class="headerlink" href="#privileged-helper-log" title="Permanent link">&para;</a></h3>
 <p>By default, the privileged helper only emits ERROR-level logging which
 is captured by the control plane and included in that log. If the
 <code>helper_log_file</code> parameter is set in the server config, then
 DEBUG-level logging will be sent to the specified file.</p>
-<h2 id="debugging-system">Debugging System</h2>
+<h2 id="debugging-system">Debugging System<a class="headerlink" href="#debugging-system" title="Permanent link">&para;</a></h2>
 <p>DAOS uses the debug system defined in
 <a href="https://github.com/daos-stack/cart">CaRT</a> but more specifically the
 GURT library. Log files for both client and server are written to
 "/tmp/daos.log" unless otherwise set by D_LOG_FILE.</p>
-<h3 id="registered-subsystemsfacilities">Registered Subsystems/Facilities</h3>
+<h3 id="registered-subsystemsfacilities">Registered Subsystems/Facilities<a class="headerlink" href="#registered-subsystemsfacilities" title="Permanent link">&para;</a></h3>
 <p>The debug logging system includes a series of subsystems or facilities
 which define groups for related log messages (defined per source file).
 There are common facilities which are defined in GURT, as well as other
@@ -1001,7 +1001,7 @@ logging. By default all subsystems are enabled ("DD_SUBSYS=all").</p>
     RPC, BULK, CORPC, GRP, LM, HG, ST, IV</p>
 </li>
 </ul>
-<h3 id="priority-logging">Priority Logging</h3>
+<h3 id="priority-logging">Priority Logging<a class="headerlink" href="#priority-logging" title="Permanent link">&para;</a></h3>
 <p>All macros that output logs have a priority level, shown in descending
 order below.</p>
 <ul>
@@ -1037,7 +1037,7 @@ with D_LOG_MASK, which by default is set to INFO
 messages being logged. D_LOG_MASK can also be used to specify the
 level of logging on a per-subsystem basis as well
 ("D_LOG_MASK=DEBUG,MEM=ERR").</p>
-<h3 id="debug-masksstreams">Debug Masks/Streams:</h3>
+<h3 id="debug-masksstreams">Debug Masks/Streams:<a class="headerlink" href="#debug-masksstreams" title="Permanent link">&para;</a></h3>
 <p>DEBUG messages account for a majority of the log messages, and
 finer-granularity might be desired. Mask bits are set as the first
 argument passed in D_DEBUG(mask, ...). To accomplish this, DD_MASK can
@@ -1093,7 +1093,7 @@ are enabled by default ("DD_MASK=all").</p>
 </ul>
 </li>
 </ul>
-<h3 id="common-use-cases">Common Use Cases</h3>
+<h3 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h3>
 <ul>
 <li>
 <p>Generic setup for all messages (default settings)</p>
@@ -1131,16 +1131,24 @@ management
 </ul>
 <p>Refer to the DAOS Environment Variables document for
 more information about the debug system environment.</p>
-<h2 id="common-daos-problems">Common DAOS Problems</h2>
+<h2 id="common-daos-problems">Common DAOS Problems<a class="headerlink" href="#common-daos-problems" title="Permanent link">&para;</a></h2>
 <p>This section to be updated in a future revision.</p>
-<h2 id="bug-report">Bug Report</h2>
-<p>Bugs should be reported through our issue tracker<a href="https://jira.hpdd.intel.com">^1</a> with a test case
+<h2 id="bug-report">Bug Report<a class="headerlink" href="#bug-report" title="Permanent link">&para;</a></h2>
+<p>Bugs should be reported through our issue tracker<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> with a test case
 to reproduce the issue (when applicable) and debug logs.</p>
 <p>After creating a ticket, logs should be gathered from the locations
 described in the <a href="#log-files">Log Files</a> section of this document and
 attached to the ticket.</p>
 <p>To avoid problems with attaching large files, please attach the logs
 in a compressed container format, such as .zip or .tar.bz2.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>https://jira.hpdd.intel.com&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 

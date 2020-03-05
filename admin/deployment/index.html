@@ -1248,7 +1248,7 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/deployment.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="system-deployment">System Deployment</h1>
+                <h1 id="system-deployment">System Deployment<a class="headerlink" href="#system-deployment" title="Permanent link">&para;</a></h1>
 <p>The DAOS deployment workflow requires to start the DAOS server instances
 early on to enable administrators to perform remote operations in parallel
 across multiple storage nodes via the dmg management utility. Security is
@@ -1288,14 +1288,14 @@ on boot if start-up scripts are registered with systemd.</p>
 <p>The following subsections will cover each step in more detail.</p>
 <p>Before getting started, please make sure to review and complete the
 <a href="#preflight-checklist">pre-flight checklist</a> below.</p>
-<h2 id="preflight-checklist">Preflight Checklist</h2>
+<h2 id="preflight-checklist">Preflight Checklist<a class="headerlink" href="#preflight-checklist" title="Permanent link">&para;</a></h2>
 <p>This section covers the preliminary setup required on the compute and
 storage nodes before deploying DAOS.</p>
-<h3 id="time-synchronization">Time Synchronization</h3>
+<h3 id="time-synchronization">Time Synchronization<a class="headerlink" href="#time-synchronization" title="Permanent link">&para;</a></h3>
 <p>The DAOS transaction model relies on timestamps and requires time to be
 synchronized across all the storage and client nodes. This can be done
 using NTP or any other equivalent protocol.</p>
-<h3 id="runtime-directory-setup">Runtime Directory Setup</h3>
+<h3 id="runtime-directory-setup">Runtime Directory Setup<a class="headerlink" href="#runtime-directory-setup" title="Permanent link">&para;</a></h3>
 <p>DAOS uses a series of Unix Domain Sockets to communicate between its
 various components. On modern Linux systems, Unix Domain Sockets are
 typically stored under /run or /var/run (usually a symlink to /run) and
@@ -1307,7 +1307,7 @@ or daos_agent, you may see the message:</p>
 Unable to create socket directory: /var/run/daos_server
 </code></pre>
 
-<h4 id="non-default-directory">Non-default Directory</h4>
+<h4 id="non-default-directory">Non-default Directory<a class="headerlink" href="#non-default-directory" title="Permanent link">&para;</a></h4>
 <p>By default, daos_server and daos_agent will use the directories
 /var/run/daos_server and /var/run/daos_agent respectively. To change
 the default location that daos_server uses for its runtime directory,
@@ -1315,7 +1315,7 @@ either uncomment and set the socket_dir configuration value in
 install/etc/daos_server.yml, or pass the location to daos_server on
 the command line using the -d flag. For the daos_agent, an alternate
 location can be passed on the command line using the --runtime_dir flag.</p>
-<h4 id="default-directory-non-persistent">Default Directory (non-persistent)</h4>
+<h4 id="default-directory-non-persistent">Default Directory (non-persistent)<a class="headerlink" href="#default-directory-non-persistent" title="Permanent link">&para;</a></h4>
 <p>Files and directories created in /run and /var/run only survive until
 the next reboot. However, if reboots are infrequent, an easy solution
 while still utilizing the default locations is to create the
@@ -1334,7 +1334,7 @@ $ chown user:user /var/run/daos_agent (where user is the user you
     will run daos_agent as)
 </code></pre>
 
-<h4 id="default-directory-persistent">Default Directory (persistent)</h4>
+<h4 id="default-directory-persistent">Default Directory (persistent)<a class="headerlink" href="#default-directory-persistent" title="Permanent link">&para;</a></h4>
 <p>If the server hosting daos_server or daos_agent will be rebooted often,
 systemd provides a persistent mechanism for creating the required
 directories called tmpfiles.d. This mechanism will be required every
@@ -1354,10 +1354,10 @@ time the system is provisioned and requires a reboot to take effect.</p>
     on all subsequent reboots.</p>
 </li>
 </ul>
-<h3 id="elevated-privileges">Elevated Privileges</h3>
+<h3 id="elevated-privileges">Elevated Privileges<a class="headerlink" href="#elevated-privileges" title="Permanent link">&para;</a></h3>
 <p>DAOS employs a privileged helper binary (<code>daos_admin</code>) to perform tasks
 that require elevated privileges on behalf of <code>daos_server</code>.</p>
-<h4 id="privileged-helper-configuration">Privileged Helper Configuration</h4>
+<h4 id="privileged-helper-configuration">Privileged Helper Configuration<a class="headerlink" href="#privileged-helper-configuration" title="Permanent link">&para;</a></h4>
 <p>When DAOS is installed from RPM, the <code>daos_admin</code> helper is automatically installed
 to the correct location with the correct permissions. The RPM creates a "daos_admins"
 system group and configures permissions such that <code>daos_admin</code> may only be invoked
@@ -1389,11 +1389,11 @@ $ sudo ln -s $SL_PREFIX/include \
 <p>NOTES:
  * The RPM installation is preferred for production scenarios. Manual installation
  is most appropriate for development and predeployment proof-of-concept scenarios.</p>
-<h2 id="daos-server-setup">DAOS Server Setup</h2>
+<h2 id="daos-server-setup">DAOS Server Setup<a class="headerlink" href="#daos-server-setup" title="Permanent link">&para;</a></h2>
 <p>First of all, the DAOS server should be started to allow remote administration
 command to be executed via the dmg tool. This section describes the minimal
 DAOS server configuration and how to start it on all the storage nodes.</p>
-<h3 id="server-configuration-file">Server Configuration File</h3>
+<h3 id="server-configuration-file">Server Configuration File<a class="headerlink" href="#server-configuration-file" title="Permanent link">&para;</a></h3>
 <p>The <code>daos_server</code> configuration file is parsed when starting the
 <code>daos_server</code> process. The configuration file location can be specified
 on the command line (<code>daos_server -h</code> for usage) or default location
@@ -1405,7 +1405,7 @@ directory.</p>
 take precedence over equivalent configuration file parameter.</p>
 <p>For convenience, active parsed configuration values are written to a temporary
 file for reference, and the location will be written to the log.</p>
-<h4 id="configuration-file-options">Configuration File Options</h4>
+<h4 id="configuration-file-options">Configuration File Options<a class="headerlink" href="#configuration-file-options" title="Permanent link">&para;</a></h4>
 <p>The example configuration file lists the default empty configuration, listing all the
 options (living documentation of the config file). Live examples are
 available at
@@ -1417,7 +1417,7 @@ line. Otherwise, /etc/daos_server.conf is used.</p>
 for latest information and examples.</p>
 <p>At this point of the process, the servers: and provider: section of the yaml
 file can be left blank and will be populated in the subsequent sections.</p>
-<h4 id="certificate-generation-and-configuration">Certificate Generation And Configuration</h4>
+<h4 id="certificate-generation-and-configuration">Certificate Generation And Configuration<a class="headerlink" href="#certificate-generation-and-configuration" title="Permanent link">&para;</a></h4>
 <p>The DAOS security framework relies on certificates to authenticate
 components and administrators in addition to encrypting DAOS control plane
 communications. A set of certificates for a given DAOS system may be
@@ -1493,12 +1493,12 @@ transport_config:
   key: /etc/daos/admin.key
 </code></pre>
 
-<h3 id="server-startup">Server Startup</h3>
+<h3 id="server-startup">Server Startup<a class="headerlink" href="#server-startup" title="Permanent link">&para;</a></h3>
 <p>One instance of the <code>daos_server</code> process is to be started per
 storage node. The server can be started either individually (e.g. independently
 on each storage node via systemd) or collectively (e.g. pdsh, mpirun or as a
 Kubernetes Pod).</p>
-<h4 id="parallel-launcher">Parallel Launcher</h4>
+<h4 id="parallel-launcher">Parallel Launcher<a class="headerlink" href="#parallel-launcher" title="Permanent link">&para;</a></h4>
 <p>Practically any parallel launcher can be used to start the DAOS server
 collectively on a set of storage nodes. pdsh, clush and orterun are most
 commonly used.</p>
@@ -1525,7 +1525,7 @@ the fault of one server does not cause the others to be stopped.</p>
 allow the daos_server to run with root privileges on each storage
 nodes (for example when needing to perform privileged tasks relating
 to storage format). See the orterun(1) man page for additional options.</p>
-<h4 id="systemd-integration">Systemd Integration</h4>
+<h4 id="systemd-integration">Systemd Integration<a class="headerlink" href="#systemd-integration" title="Permanent link">&para;</a></h4>
 <p>DAOS Server can be started as a systemd service. The DAOS Server
 unit file is installed in the correct location when installing from RPMs.
 If you wish to use systemd with a development build, you must copy the service
@@ -1545,13 +1545,13 @@ $ systemctl start daos-server
 <pre><code class="bash">$ journalctl --unit daos-server
 </code></pre>
 
-<h4 id="kubernetes-pod">Kubernetes Pod</h4>
+<h4 id="kubernetes-pod">Kubernetes Pod<a class="headerlink" href="#kubernetes-pod" title="Permanent link">&para;</a></h4>
 <p>DAOS service integration with Kubernetes is planned and will be
 supported in a future DAOS version.</p>
-<h2 id="hardware-provisioning">Hardware Provisioning</h2>
+<h2 id="hardware-provisioning">Hardware Provisioning<a class="headerlink" href="#hardware-provisioning" title="Permanent link">&para;</a></h2>
 <p>Once the DAOS server started, the storage and network can be configured on the
 storage nodes via the dmg utility.</p>
-<h3 id="scm-preparation">SCM Preparation</h3>
+<h3 id="scm-preparation">SCM Preparation<a class="headerlink" href="#scm-preparation" title="Permanent link">&para;</a></h3>
 <p>This section addresses how to verify that Optane DC Persistent Memory
 Module (DCPMM) is correctly installed on the storage nodes, and how to configure
 it in interleaved mode to be used by DAOS in AppDirect mode.
@@ -1635,7 +1635,7 @@ resetting SCM memory allocations
 A reboot is required to process new memory allocation goals.
 </code></pre>
 
-<h3 id="storage-detection-selection">Storage Detection &amp; Selection</h3>
+<h3 id="storage-detection-selection">Storage Detection &amp; Selection<a class="headerlink" href="#storage-detection-selection" title="Permanent link">&para;</a></h3>
 <p>While the DAOS server auto-detects all the usable storage, the administrator
 will still be provided with the ability through the configuration file
 (see next section) to whitelist or blacklist the storage devices to be
@@ -1755,7 +1755,7 @@ servers:
 &lt;end&gt;
 </code></pre>
 
-<h3 id="network-interface-detection-and-selection">Network Interface Detection and Selection</h3>
+<h3 id="network-interface-detection-and-selection">Network Interface Detection and Selection<a class="headerlink" href="#network-interface-detection-and-selection" title="Permanent link">&para;</a></h3>
 <p>To display the fabric interface, OFI provider and NUMA node
 combinations detected on the DAOS server, use the following command:</p>
 <pre><code>$ daos_server network scan --all
@@ -1851,7 +1851,7 @@ bytes #sent #ack total time  MB/sec  usec/xfer Mxfers/sec
 1m    10    =10  20m   0.00s 8867.45 118.25    0.01
 </code></pre>
 
-<h2 id="storage-formatting">Storage Formatting</h2>
+<h2 id="storage-formatting">Storage Formatting<a class="headerlink" href="#storage-formatting" title="Permanent link">&para;</a></h2>
 <p>Once the <code>daos_server</code> has been restarted with the correct storage devices and
 network interface to use, one can move to the format phase.
 When <code>daos_server</code> is started for the first time, it enters "maintenance mode"
@@ -1865,7 +1865,7 @@ modules and NVMe SSDs installed and prepared.</p>
 instances that have been specified in the server config file.</p>
 <p>Successful start-up is indicated by the following on stdout:
 <code>DAOS I/O server (v0.8.0) process 433456 started on rank 1 with 8 target, 2 helper XS per target, firstcore 0, host wolf-72.wolf.hpdd.intel.com.</code></p>
-<h3 id="scm-format">SCM Format</h3>
+<h3 id="scm-format">SCM Format<a class="headerlink" href="#scm-format" title="Permanent link">&para;</a></h3>
 <p>When the command is run, the pmem kernel devices created on SCM/DCPM regions are
 formatted and mounted based on the parameters provided in the server config file.</p>
 <ul>
@@ -1874,7 +1874,7 @@ formatted and mounted based on the parameters provided in the server config file
 is available (scm_size dictates the size of tmpfs in GB), when set to <code>dcpm</code> the device
 specified under <code>scm_list</code> will be mounted at <code>scm_mount</code> path.</li>
 </ul>
-<h3 id="nvme-format">NVMe Format</h3>
+<h3 id="nvme-format">NVMe Format<a class="headerlink" href="#nvme-format" title="Permanent link">&para;</a></h3>
 <p>When the command is run, NVMe SSDs are formatted and set up to be used by DAOS
 based on the parameters provided in the server config file.</p>
 <p><code>bdev_class</code> can be set to <code>nvme</code> to use actual NVMe devices with SPDK for DAOS
@@ -1892,7 +1892,7 @@ The presence and contents of the file indicate that the specified NVMe SSDs have
 been configured correctly for use with DAOS.</p>
 <p>The contents of the NVMe SSDs listed in the server configuration file <code>bdev_list</code>
 parameter will be reset on format.</p>
-<h3 id="server-format">Server Format</h3>
+<h3 id="server-format">Server Format<a class="headerlink" href="#server-format" title="Permanent link">&para;</a></h3>
 <p>Before the format command is run, no DAOS metadata should exist under the
 path specified by <code>scm_mount</code> parameter in the server configuration file.</p>
 <p>After the <code>storage format</code> command is run, the path specified by the server
@@ -1900,7 +1900,7 @@ configuration file <code>scm_mount</code> parameter should be mounted and should
 the necessary DAOS metadata indicating that the server has been formatted.</p>
 <p>When starting, <code>daos_server</code> will skip <code>maintenance mode</code> and attempt to start
 IO services if valid DAOS metadata is found in <code>scm_mount</code>.</p>
-<h2 id="stop-and-start-a-formatted-system">Stop and Start a Formatted System</h2>
+<h2 id="stop-and-start-a-formatted-system">Stop and Start a Formatted System<a class="headerlink" href="#stop-and-start-a-formatted-system" title="Permanent link">&para;</a></h2>
 <p>A DAOS system can be restarted after a controlled shutdown providing
 no configurations changes have been made after initial format.</p>
 <p>The DAOS Control Server instance acting as access point records DAOS
@@ -1917,13 +1917,13 @@ managed by DAOS Control Servers will be started.</p>
 <code>dmg -l &lt;access_point_addr&gt; system query</code>, this lists details
 (rank/uuid/control address/state) of DAOS I/O Servers in the
 system membership.</p>
-<h3 id="controlled-startstop-limitations-subject-to-change">Controlled Start/Stop Limitations (subject to change)</h3>
+<h3 id="controlled-startstop-limitations-subject-to-change">Controlled Start/Stop Limitations (subject to change)<a class="headerlink" href="#controlled-startstop-limitations-subject-to-change" title="Permanent link">&para;</a></h3>
 <ul>
 <li>"start" restarts all configured instances on all harnesses that can
   be located in the system membership, regardless of member state</li>
 <li>supplying list of ranks to "start" and "stop" is not yet supported</li>
 </ul>
-<h3 id="fresh-start">Fresh Start</h3>
+<h3 id="fresh-start">Fresh Start<a class="headerlink" href="#fresh-start" title="Permanent link">&para;</a></h3>
 <p>To reset the DAOS metadata across all hosts the system must be reformatted.
 First ensure all <code>daos_server</code> processes on all hosts have been
 stopped, then for each SCM mount specified in the config file
@@ -1946,17 +1946,17 @@ stopped, then for each SCM mount specified in the config file
 <p>Then restart DAOS Servers and format.</p>
 </li>
 </ul>
-<h2 id="agent-configuration-and-startup">Agent Configuration and Startup</h2>
+<h2 id="agent-configuration-and-startup">Agent Configuration and Startup<a class="headerlink" href="#agent-configuration-and-startup" title="Permanent link">&para;</a></h2>
 <p>This section addresses how to configure the DAOS agents on the storage
 nodes before starting it.</p>
-<h3 id="agent-certificate-generation">Agent Certificate Generation</h3>
+<h3 id="agent-certificate-generation">Agent Certificate Generation<a class="headerlink" href="#agent-certificate-generation" title="Permanent link">&para;</a></h3>
 <p>The DAOS security framework relies on certificates to authenticate
 administrators. The security infrastructure is currently under
 development and will be delivered in DAOS v1.0. Initial support for certificates
 has been added to DAOS and can be disabled either via the command line or in the
 DAOS Agent configuration file. Currently, the easiest way to disable certificate
 support is to pass the -i flag to daos_agent.</p>
-<h3 id="agent-configuration-file">Agent Configuration File</h3>
+<h3 id="agent-configuration-file">Agent Configuration File<a class="headerlink" href="#agent-configuration-file" title="Permanent link">&para;</a></h3>
 <p>The <code>daos_agent</code> configuration file is parsed when starting the
 <code>daos_agent</code> process. The configuration file location can be specified
 on the command line (<code>daos_agent -h</code> for usage) or default location
@@ -1977,7 +1977,7 @@ for the path specified through the -o option of the daos_agent command
 line. Otherwise, /etc/daos_agent.conf is used.</p>
 <p>Refer to the example configuration file (<a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml">daos_server.yml</a>)
 for latest information and examples.</p>
-<h3 id="agent-startup">Agent Startup</h3>
+<h3 id="agent-startup">Agent Startup<a class="headerlink" href="#agent-startup" title="Permanent link">&para;</a></h3>
 <p>DAOS Agent is a standalone application to be run on each compute node.
 It can be configured to use secure communications (default) or can be allowed
 to communicate with the control plane over unencrypted channels. The following
@@ -2006,17 +2006,17 @@ $ systemctl start daos-agent
 <pre><code class="bash">$ journalctl --unit daos-agent
 </code></pre>
 
-<h2 id="system-validation">System Validation</h2>
+<h2 id="system-validation">System Validation<a class="headerlink" href="#system-validation" title="Permanent link">&para;</a></h2>
 <p>To validate that the DAOS system is properly installed, the daos_test
 suite can be executed. Ensure the DAOS Agent is configured and running before
 running daos_test and that the DAOS_SINGLETON_CLI and CRT_ATTACH_INFO_PATH
 environment variables are properly set as described <a href="#server-startup">here</a>.</p>
-<pre><code class="bash">orterun -np &lt;num_clients&gt; --hostfile &lt;hostfile&gt; ./daos_test
+<pre><code class="bash">mpirun -np &lt;num_clients&gt; --hostfile &lt;hostfile&gt; ./daos_test
 </code></pre>
 
 <p>daos_test requires at least 8GB of SCM (or DRAM with tmpfs) storage on
 each storage node.</p>
-<h2 id="nvme-ssd-health-monitoring-stats">NVMe SSD Health Monitoring &amp; Stats</h2>
+<h2 id="nvme-ssd-health-monitoring-stats">NVMe SSD Health Monitoring &amp; Stats<a class="headerlink" href="#nvme-ssd-health-monitoring-stats" title="Permanent link">&para;</a></h2>
 <p>Useful admin dmg commands to query NVMe SSD health:</p>
 <ul>
 <li>Query NVMe SSD Health Stats: <strong>$dmg storage query nvme-health</strong></li>
@@ -2122,6 +2122,24 @@ boro-11:10001:
         Device UUID: 5bd91603-d3c7-4fb7-9a71-76bc25690c19
         State: FAULTY
 </code></pre>
+
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>https://github.com/intel/ipmctl&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>https://github.com/daos-stack/daos/tree/master/utils/config&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:3">
+<p><a href="https://www.open-mpi.org/faq/?category=running#mpirun-hostfile"><em>https://www.open-mpi.org/faq/?category=running#mpirun-hostfile</em></a>&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:4">
+<p>https://github.com/daos-stack/daos/tree/master/src/control/README.md&#160;<a class="footnote-backref" href="#fnref:4" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 

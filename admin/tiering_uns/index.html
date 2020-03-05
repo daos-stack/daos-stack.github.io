@@ -734,8 +734,8 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/tiering_uns.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="tiering-and-unified-namespace">Tiering and Unified Namespace</h1>
-<h2 id="unified-namespace">Unified Namespace</h2>
+                <h1 id="tiering-and-unified-namespace">Tiering and Unified Namespace<a class="headerlink" href="#tiering-and-unified-namespace" title="Permanent link">&para;</a></h1>
+<h2 id="unified-namespace">Unified Namespace<a class="headerlink" href="#unified-namespace" title="Permanent link">&para;</a></h2>
 <p>The DAOS tier can be tightly integrated with the Lustre parallel filesystem in
 which DAOS containers will be represented through the Lustre namespace. This
 capability is under development and is scheduled for DAOS v1.2.</p>
@@ -774,15 +774,15 @@ capability is under development and is scheduled for DAOS v1.2.</p>
     present, or dynamically thru <code>llite.*.daos_enable</code> setting.</p>
 </li>
 </ul>
-<h2 id="data-migration">Data Migration</h2>
-<h3 id="migration-tofrom-a-posix-filesystem">Migration to/from a POSIX filesystem</h3>
+<h2 id="data-migration">Data Migration<a class="headerlink" href="#data-migration" title="Permanent link">&para;</a></h2>
+<h3 id="migration-tofrom-a-posix-filesystem">Migration to/from a POSIX filesystem<a class="headerlink" href="#migration-tofrom-a-posix-filesystem" title="Permanent link">&para;</a></h3>
 <p>A dataset mover tool is under consideration to move a snapshot of a POSIX,
 MPI-IO or HDF5 container to a POSIX filesystem and vice versa. The copy will be
 performed at the POSIX or HDF5 level. The resulting HDF5 file over the POSIX
 filesystem will be accessible through the native HDF5 connector with the POSIX
 VFD.</p>
 <p>The first version of the mover tool is currently scheduled for DAOS v1.4.</p>
-<h3 id="container-parking">Container Parking</h3>
+<h3 id="container-parking">Container Parking<a class="headerlink" href="#container-parking" title="Permanent link">&para;</a></h3>
 <p>The mover tool will also eventually support the ability to serialize and
 deserialize a DAOS container to a set of POSIX files that can be stored or
 "parked" in an external POSIX filesystem. This transformation is agnostic to the

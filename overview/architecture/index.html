@@ -748,7 +748,7 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/overview/architecture.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="architecture">Architecture</h1>
+                <h1 id="architecture">Architecture<a class="headerlink" href="#architecture" title="Permanent link">&para;</a></h1>
 <p>DAOS is an open-source software-defined scale-out object store that provides
 high bandwidth and high IOPS storage containers to applications and enables
 next-generation data-centric workflows combining simulation, data analytics,
@@ -763,7 +763,7 @@ performance of the next-generation storage technologies.</p>
 <p>Unlike traditional Burst Buffers, DAOS is a high-performant independent
 and fault-tolerant storage tier that does not rely on a third-party tier
 to manage metadata and data resilience.</p>
-<h2 id="daos-features">DAOS Features</h2>
+<h2 id="daos-features">DAOS Features<a class="headerlink" href="#daos-features" title="Permanent link">&para;</a></h2>
 <p>DAOS relies on OFI for low-latency communications and stores data on
 both storage-class memory and NVMe storage. DAOS presents a native
 key-array-value storage interface that offers a unified storage model
@@ -848,13 +848,13 @@ Figure 2-1. DAOS Storage</p>
     filesystems to DAOS and vice versa</p>
 </li>
 </ul>
-<h2 id="daos-components">DAOS Components</h2>
+<h2 id="daos-components">DAOS Components<a class="headerlink" href="#daos-components" title="Permanent link">&para;</a></h2>
 <p>A data center may have hundreds of thousands of compute nodes
 interconnected via a scalable high-performance fabric, where all, or a
 subset of the nodes called storage nodes, have direct access to NVM
 storage. A DAOS installation involves several components that can be
 either collocated or distributed.</p>
-<h3 id="daos-target-server-and-system">DAOS Target, Server and System</h3>
+<h3 id="daos-target-server-and-system">DAOS Target, Server and System<a class="headerlink" href="#daos-target-server-and-system" title="Permanent link">&para;</a></h3>
 <p>The DAOS server is a multi-tenant daemon running on a Linux instance
 (i.e. natively on the physical node or in a VM or container) of each
 storage node and exporting through the network the locally-attached NVM
@@ -886,7 +886,7 @@ network, have limited capability and capacity.</p>
 <p>The number of targets exported by a DAOS server instance is configurable
 and depends on the underlying hardware (i.e., the number of SCM modules,
 CPUs, NVMe SSDs ...). A target is the unit of fault.</p>
-<h3 id="storage-api-application-interface-and-tools">Storage API, Application Interface and Tools</h3>
+<h3 id="storage-api-application-interface-and-tools">Storage API, Application Interface and Tools<a class="headerlink" href="#storage-api-application-interface-and-tools" title="Permanent link">&para;</a></h3>
 <p>Applications, users, and administrators can interact with a DAOS system
 through two different client APIs. The management API offers the ability
 to administrate a DAOS system. It is intended to be integrated with
@@ -901,7 +901,7 @@ from a CLI.</p>
 the native DAOS API or an I/O middleware libraries (e.g. POSIX
 emulation, MPI-IO, HDF5) or frameworks (e.g., Spark, TensorFlow) already
 integrated with the native DAOS storage model.</p>
-<h3 id="agent">Agent</h3>
+<h3 id="agent">Agent<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h3>
 <p>The DAOS agent is a daemon residing on the client node that interacts
 with the DAOS library to authenticate the application process. It is a
 trusted entity that can sign the DAOS Client credentials using

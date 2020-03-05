@@ -694,9 +694,9 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/performance_tuning.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="daos-performance-tuning">DAOS Performance Tuning</h1>
+                <h1 id="daos-performance-tuning">DAOS Performance Tuning<a class="headerlink" href="#daos-performance-tuning" title="Permanent link">&para;</a></h1>
 <p>This section will be expanded in a future revision.</p>
-<h2 id="network-performance">Network Performance</h2>
+<h2 id="network-performance">Network Performance<a class="headerlink" href="#network-performance" title="Permanent link">&para;</a></h2>
 <p>Similar to the Lustre Network stack, the DAOS CART layer can validate and
 benchmark network communications in the same context as an application and using
 the same networks/tuning options as regular DAOS.</p>
@@ -774,7 +774,7 @@ i2048 0      2Kb iovec Input only
 <pre><code class="bash">$ /usr/lib64/openmpi3/bin/orterun --mca btl self,tcp  -N 1 --hostfile clihostfile --output-filename testLogs/ -x D_LOG_FILE=testLogs/test_group_cli.log -x D_LOG_FILE_APPEND_PID=1 -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 -x CRT_CTX_SHARE_ADDR=0  tests/test_group_np_cli --name client-group --attach_to self_test_srv_grp --shut_only --cfg_path=.
 </code></pre>
 
-<h2 id="benchmarking-daos">Benchmarking DAOS</h2>
+<h2 id="benchmarking-daos">Benchmarking DAOS<a class="headerlink" href="#benchmarking-daos" title="Permanent link">&para;</a></h2>
 <p>DAOS can be benchmarked with both IOR and mdtest through the following
 backends:</p>
 <ul>

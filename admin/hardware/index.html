@@ -750,10 +750,10 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/hardware.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="hardware-requirements">Hardware Requirements</h1>
+                <h1 id="hardware-requirements">Hardware Requirements<a class="headerlink" href="#hardware-requirements" title="Permanent link">&para;</a></h1>
 <p>The purpose of this section is to describe processor, storage, and
 network requirements to deploy a DAOS system.</p>
-<h2 id="deployment-options">Deployment Options</h2>
+<h2 id="deployment-options">Deployment Options<a class="headerlink" href="#deployment-options" title="Permanent link">&para;</a></h2>
 <p>As illustrated in the figure below, a DAOS system can be deployed in two
 different ways:</p>
 <ul>
@@ -776,7 +776,7 @@ different ways:</p>
 research is conducted to efficiently support the disaggregated model as
 well.</p>
 <p><img alt="" src="../media/image1.png" /></p>
-<h2 id="processor-requirements">Processor Requirements</h2>
+<h2 id="processor-requirements">Processor Requirements<a class="headerlink" href="#processor-requirements" title="Permanent link">&para;</a></h2>
 <p>DAOS requires a 64-bit processor architecture and is primarily developed
 on Intel 64 architecture. The DAOS software and the libraries it depends
 on (e.g., ISA-L, SPDK, PMDK, and DPDK) can take advantage of Intel® SSE
@@ -786,7 +786,7 @@ Little Endian mode. The same build instructions that are used for x86-64
 are applicable for ARM builds as well. DAOS and its dependencies will
 make the necessary adjustments automatically in their respective build
 systems for ARM platforms.</p>
-<h2 id="network-requirements">Network Requirements</h2>
+<h2 id="network-requirements">Network Requirements<a class="headerlink" href="#network-requirements" title="Permanent link">&para;</a></h2>
 <p>The DAOS network layer relies on libfabrics and supports OFI providers
 for Ethernet/sockets, InfiniBand/verbs, RoCE, Cray’s GNI, and the Intel
 Omni-Path Architecture. An RDMA-capable fabric is preferred for better
@@ -795,13 +795,13 @@ instances of the DAOS server to individual network cards.</p>
 <p>An additional out-of-band network connecting the nodes in the DAOS
 service cluster is required for DAOS administration. Management traffic
 uses IP over Fabric.</p>
-<h2 id="storage-requirements">Storage Requirements</h2>
+<h2 id="storage-requirements">Storage Requirements<a class="headerlink" href="#storage-requirements" title="Permanent link">&para;</a></h2>
 <p>DAOS requires each storage node to have direct access to storage-class
 memory (SCM). While DAOS is primarily tested and tuned for Optane DC
 Persistent Memory, the DAOS software stack is built over the Persistent
 Memory Development Kit (PMDK) and the DAX feature of the Linux and
 Windows operating systems as described in the SNIA NVM Programming
-Model<a href="https://www.snia.org/sites/default/files/technical_work/final/NVMProgrammingModel_v1.2.pdf">^1</a>. As a result, the open-source DAOS software stack should be
+Model<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. As a result, the open-source DAOS software stack should be
 able to run transparently over any storage-class memory
 supported by PMDK.</p>
 <p>The storage node can be optionally equipped with NVMe (non-volatile
@@ -816,7 +816,7 @@ guarantee that DAOS has enough space in SCM to store internal metadata
 <p>For testing purposes, SCM can be emulated with DRAM by mounting a tmpfs
 filesystem, and NVMe SSDs can be also emulated with DRAM or a loopback
 file.</p>
-<h2 id="cpu-affinity">CPU Affinity</h2>
+<h2 id="cpu-affinity">CPU Affinity<a class="headerlink" href="#cpu-affinity" title="Permanent link">&para;</a></h2>
 <p>On recent Xeon platforms, PCIe slots have a natural affinity to one CPU.
 Although globally accessible from any of the system cores, NVMe SSDs and
 network interface cards connected through the PCIe bus may provide
@@ -834,7 +834,7 @@ per CPU, then accessing only local persistent memory and PCI devices
 from that server instance. The control plane is responsible for
 detecting the storage and network affinity and starting the I/O servers
 accordingly.</p>
-<h2 id="fault-domains">Fault Domains</h2>
+<h2 id="fault-domains">Fault Domains<a class="headerlink" href="#fault-domains" title="Permanent link">&para;</a></h2>
 <p>DAOS relies on single-ported storage massively distributed across
 different storage nodes. Each storage node is thus a single point of
 failure. DAOS achieves fault tolerance by providing data redundancy
@@ -845,6 +845,14 @@ second one the storage nodes.</p>
 <p>For efficient placement and optimal data resilience, more fault
 domains are better. As a result, it is preferable to distribute storage
 nodes across as many racks as possible.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p><a href="https://www.snia.org/sites/default/files/technical_work/final/NVMProgrammingModel_v1.2.pdf">https://www.snia.org/sites/default/files/technical_work/final/NVMProgrammingModel_v1.2.pdf</a>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 

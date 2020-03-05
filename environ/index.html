@@ -818,7 +818,7 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/environ.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="daos-environment-variables">DAOS Environment Variables</h1>
+                <h1 id="daos-environment-variables">DAOS Environment Variables<a class="headerlink" href="#daos-environment-variables" title="Permanent link">&para;</a></h1>
 <p>This file lists the environment variables used by DAOS. <strong>Many of them are meant for development purposes only and may be removed or changed in the future.</strong></p>
 <p>The description of each variable follows the following format:</p>
 <blockquote>
@@ -856,64 +856,64 @@
 </tr>
 </tbody>
 </table>
-<h2 id="common">Common</h2>
+<h2 id="common">Common<a class="headerlink" href="#common" title="Permanent link">&para;</a></h2>
 <p>Environment variables in this section apply to both the server side and the client side</p>
-<h3 id="daos_io_mode"><code>DAOS_IO_MODE</code></h3>
+<h3 id="daos_io_mode"><code>DAOS_IO_MODE</code><a class="headerlink" href="#daos_io_mode" title="Permanent link">&para;</a></h3>
 <p>Control the DAOS IO mode: server dispatches modification RPCs to replicas or client does that, if it is the former case, whether enable DTX or not. <code>INTEGER</code>. Valid values are as following, default to 0 (server dispatches RPCs and enable DTX).</p>
 <p>0: server dispatches RPCs, enable DTX.</p>
 <p>1: server dispatches RPCs, disable DTX.</p>
 <p>2: client disptaches RPCs, disable DTX.</p>
-<h3 id="daos_io_bypass"><code>DAOS_IO_BYPASS</code></h3>
-<h2 id="server">Server</h2>
+<h3 id="daos_io_bypass"><code>DAOS_IO_BYPASS</code><a class="headerlink" href="#daos_io_bypass" title="Permanent link">&para;</a></h3>
+<h2 id="server">Server<a class="headerlink" href="#server" title="Permanent link">&para;</a></h2>
 <p>Environment variables in this section only apply to the server side.</p>
 <p>These checksum algorithms are currently supported: <code>crc64</code> and <code>crc32</code>.</p>
-<h3 id="vos_mem_class"><code>VOS_MEM_CLASS</code></h3>
+<h3 id="vos_mem_class"><code>VOS_MEM_CLASS</code><a class="headerlink" href="#vos_mem_class" title="Permanent link">&para;</a></h3>
 <p>Memory class used by VOS. <code>STRING</code>. Default to persistent memory.</p>
 <p>If the value is set to <code>DRAM</code>, all data will be stored in volatile memory; otherwise, all data will be stored to persistent memory.</p>
-<h3 id="vos_bdev_class"><code>VOS_BDEV_CLASS</code></h3>
+<h3 id="vos_bdev_class"><code>VOS_BDEV_CLASS</code><a class="headerlink" href="#vos_bdev_class" title="Permanent link">&para;</a></h3>
 <p>SPDK bdev class used by VOS. <code>STRING</code>. Default to NVMe bdev.</p>
 <p>When testing on node without NVMe device available, it can be set to <code>MALLOC</code> or <code>AIO</code> to make VOS using SPDK malloc or AIO device.</p>
-<h3 id="io_stat_period"><code>IO_STAT_PERIOD</code></h3>
+<h3 id="io_stat_period"><code>IO_STAT_PERIOD</code><a class="headerlink" href="#io_stat_period" title="Permanent link">&para;</a></h3>
 <p>Print SPDK bdev io statistics periodically. <code>INTEGER</code>. Default to 0 (disabled).</p>
 <p>If it is set to N (non-zero), SPDK bdev io statistics will be printed on server console in every N seconds.</p>
-<h3 id="rdb_election_timeout"><code>RDB_ELECTION_TIMEOUT</code></h3>
+<h3 id="rdb_election_timeout"><code>RDB_ELECTION_TIMEOUT</code><a class="headerlink" href="#rdb_election_timeout" title="Permanent link">&para;</a></h3>
 <p>Raft election timeout used by RDBs in milliseconds. <code>INTEGER</code>. Default to 7000 ms.</p>
-<h3 id="rdb_request_timeout"><code>RDB_REQUEST_TIMEOUT</code></h3>
+<h3 id="rdb_request_timeout"><code>RDB_REQUEST_TIMEOUT</code><a class="headerlink" href="#rdb_request_timeout" title="Permanent link">&para;</a></h3>
 <p>Raft request timeout used by RDBs in milliseconds. <code>INTEGER</code>. Default to 3000 ms.</p>
-<h3 id="rdb_compact_threshold"><code>RDB_COMPACT_THRESHOLD</code></h3>
+<h3 id="rdb_compact_threshold"><code>RDB_COMPACT_THRESHOLD</code><a class="headerlink" href="#rdb_compact_threshold" title="Permanent link">&para;</a></h3>
 <p>Raft log compaction threshold in applied entries. <code>INTEGER</code>. Default to 256 entries.</p>
 <p>If set to 0, Raft log entries will never be compacted.</p>
-<h3 id="daos_rebuild"><code>DAOS_REBUILD</code></h3>
+<h3 id="daos_rebuild"><code>DAOS_REBUILD</code><a class="headerlink" href="#daos_rebuild" title="Permanent link">&para;</a></h3>
 <p>Whether to start rebuilds when excluding targets. <code>BOOL2</code>. Default to true.</p>
-<h3 id="daos_md_cap"><code>DAOS_MD_CAP</code></h3>
+<h3 id="daos_md_cap"><code>DAOS_MD_CAP</code><a class="headerlink" href="#daos_md_cap" title="Permanent link">&para;</a></h3>
 <p>Size of a metadata pmem pool/file in MBs. <code>INTEGER</code>. Default to 128 MB.</p>
-<h3 id="daos_start_pool_svc"><code>DAOS_START_POOL_SVC</code></h3>
+<h3 id="daos_start_pool_svc"><code>DAOS_START_POOL_SVC</code><a class="headerlink" href="#daos_start_pool_svc" title="Permanent link">&para;</a></h3>
 <p>Whether to start existing pool services when starting a <code>daos_server</code>. <code>BOOL</code>. Default to true.</p>
-<h3 id="daos_implicit_purge"><code>DAOS_IMPLICIT_PURGE</code></h3>
+<h3 id="daos_implicit_purge"><code>DAOS_IMPLICIT_PURGE</code><a class="headerlink" href="#daos_implicit_purge" title="Permanent link">&para;</a></h3>
 <p>Whether to aggregate unreferenced epochs. <code>BOOL</code>. Default to false.</p>
-<h3 id="daos_target_oversubscribe"><code>DAOS_TARGET_OVERSUBSCRIBE</code></h3>
+<h3 id="daos_target_oversubscribe"><code>DAOS_TARGET_OVERSUBSCRIBE</code><a class="headerlink" href="#daos_target_oversubscribe" title="Permanent link">&para;</a></h3>
 <p>Whether to accept target number oversubscribe for daos server. <code>BOOL</code>. Default to false.</p>
-<h2 id="client">Client</h2>
+<h2 id="client">Client<a class="headerlink" href="#client" title="Permanent link">&para;</a></h2>
 <p>Environment variables in this section only apply to the client side.</p>
-<h3 id="daos_io_srv_dispatch"><code>DAOS_IO_SRV_DISPATCH</code></h3>
+<h3 id="daos_io_srv_dispatch"><code>DAOS_IO_SRV_DISPATCH</code><a class="headerlink" href="#daos_io_srv_dispatch" title="Permanent link">&para;</a></h3>
 <p>Whether to enable the server-side IO dispatch, in that case the replica IO will be sent to a leader shard which will dispatch to other shards. <code>BOOL</code>. Default to true.</p>
-<h2 id="debug-system-client-server">Debug System (Client &amp; Server)</h2>
-<h3 id="d_log_file"><code>D_LOG_FILE</code></h3>
+<h2 id="debug-system-client-server">Debug System (Client &amp; Server)<a class="headerlink" href="#debug-system-client-server" title="Permanent link">&para;</a></h2>
+<h3 id="d_log_file"><code>D_LOG_FILE</code><a class="headerlink" href="#d_log_file" title="Permanent link">&para;</a></h3>
 <p>DAOS debug logs (both server and client) are written to /tmp/daos.log by
 default. This can be modified by setting this environment variable
 ("D_LOG_FILE=/tmp/daos_server").</p>
-<h3 id="dd_subsys"><code>DD_SUBSYS</code></h3>
+<h3 id="dd_subsys"><code>DD_SUBSYS</code><a class="headerlink" href="#dd_subsys" title="Permanent link">&para;</a></h3>
 <p>Used to specify which subsystems to enable. DD_SUBSYS can be set to individual
 subsystems for finer-grained debugging ("DD_SUBSYS=vos"), multiple facilities
 ("DD_SUBSYS=eio,mgmt,misc,mem"), or all facilities ("DD_SUBSYS=all") which is
 also the default setting. If a facility is not enabled, then only ERR messages
 or more severe messages will print.</p>
-<h3 id="dd_stderr"><code>DD_STDERR</code></h3>
+<h3 id="dd_stderr"><code>DD_STDERR</code><a class="headerlink" href="#dd_stderr" title="Permanent link">&para;</a></h3>
 <p>Used to specify the priority level to output to stderr. Options in decreasing
 priority level order: FATAL, CRIT, ERR, WARN, NOTE, INFO, DEBUG. By default, all
 CRIT and more severe DAOS messages will log to stderr ("DD_STDERR=CRIT"), and
 the default for CaRT/GURT is FATAL.</p>
-<h3 id="d_log_mask"><code>D_LOG_MASK</code></h3>
+<h3 id="d_log_mask"><code>D_LOG_MASK</code><a class="headerlink" href="#d_log_mask" title="Permanent link">&para;</a></h3>
 <p>Used to specify what type/level of logging will be present for either all of the
 registered subsystems, or a select few. Options in decreasing priority level
 order: FATAL, CRIT, ERR, WARN, NOTE, INFO, DEBUG.
@@ -927,7 +927,7 @@ be logged (INFO, NOTE, WARN, ERR, CRIT, FATAL).
 EX: "D_LOG_MASK=DEBUG,MEM=ERR,RPC=ERR" This will set the logging level to DEBUG
 for all facilities except MEM &amp; RPC (which will now only log ERR and higher
 priority level messages, skipping all DEBUG, INFO, NOTE &amp; WARN messages)</p>
-<h3 id="dd_mask"><code>DD_MASK</code></h3>
+<h3 id="dd_mask"><code>DD_MASK</code><a class="headerlink" href="#dd_mask" title="Permanent link">&para;</a></h3>
 <p>Used to enable different debug streams for finer-grained debug messages,
 essentially allowing the user to specify an area of interest to debug (possibly
 involving many different subsystems) as opposed to parsing through many lines of

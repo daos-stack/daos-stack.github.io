@@ -1020,12 +1020,12 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/pool_operations.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="pool-operations">Pool Operations</h1>
+                <h1 id="pool-operations">Pool Operations<a class="headerlink" href="#pool-operations" title="Permanent link">&para;</a></h1>
 <p>A DAOS pool is a storage reservation that can span any storage nodes and
 is managed by the administrator. The amount of space allocated to a pool
 is decided at creation time and can eventually be expanded through the
 management interface.</p>
-<h2 id="pool-creationdestroy">Pool Creation/Destroy</h2>
+<h2 id="pool-creationdestroy">Pool Creation/Destroy<a class="headerlink" href="#pool-creationdestroy" title="Permanent link">&para;</a></h2>
 <p>A DAOS pool can be created and destroyed through the DAOS management API
 (see daos_mgmt.h). DAOS also provides a utility called dmg to manage
 storage pools from the command line.</p>
@@ -1084,7 +1084,7 @@ a106d667-5c5d-4d6f-ac3a-89099196c41a    0
 85141a07-e3ba-42a6-81c2-3f18253c5e47    0
 </code></pre>
 
-<h2 id="pool-properties">Pool Properties</h2>
+<h2 id="pool-properties">Pool Properties<a class="headerlink" href="#pool-properties" title="Permanent link">&para;</a></h2>
 <p>At creation time, a list of pool properties can be specified through the
 API (not supported by the tool yet):</p>
 <ul>
@@ -1114,13 +1114,13 @@ API (not supported by the tool yet):</p>
 metadata, many of them are still under development. Moreover, the
 ability to modify some of those properties on an existing pool will also
 be provided in a future release.</p>
-<h2 id="pool-access-control-lists">Pool Access Control Lists</h2>
+<h2 id="pool-access-control-lists">Pool Access Control Lists<a class="headerlink" href="#pool-access-control-lists" title="Permanent link">&para;</a></h2>
 <p>User and group access for pools is controlled by Access Control Lists (ACLs).
 A DAOS ACL is a list of zero or more Access Control Entries (ACEs). ACEs are
 the individual rules applied to each access decision.</p>
 <p>If no ACL is provided when creating the pool, the default ACL grants read and
 write access to the pool's owner-user and owner-group.</p>
-<h3 id="access-control-entries">Access Control Entries</h3>
+<h3 id="access-control-entries">Access Control Entries<a class="headerlink" href="#access-control-entries" title="Permanent link">&para;</a></h3>
 <p>ACEs are designated by a colon-separated string format:
 <code>TYPE:FLAGS:IDENTITY:PERMISSIONS</code></p>
 <p>Available values for these fields:</p>
@@ -1130,7 +1130,7 @@ write access to the pool's owner-user and owner-group.</p>
 <li>IDENTITY: See below</li>
 <li>PERMISSIONS: Read (r), Write (w)</li>
 </ul>
-<h4 id="identity">Identity</h4>
+<h4 id="identity">Identity<a class="headerlink" href="#identity" title="Permanent link">&para;</a></h4>
 <p>The identity (also called the principal) is specified in the name@domain format.
 The domain should be left off if the name is a user/group on the local domain.
 Currently, this is the only case supported by DAOS.</p>
@@ -1138,7 +1138,7 @@ Currently, this is the only case supported by DAOS.</p>
 which align with User, Group, and Other from traditional POSIX permission bits.
 When providing them in the ACE string format, they must be spelled exactly as
 written here, in uppercase with no domain appended.</p>
-<h4 id="examples">Examples</h4>
+<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h4>
 <ul>
 <li><code>A::daos_user@:rw</code></li>
 <li>Allow the UNIX user named daos_user to have read-write access</li>
@@ -1147,7 +1147,7 @@ written here, in uppercase with no domain appended.</p>
 <li><code>A::EVERYONE@:r</code></li>
 <li>Allow any user not covered by other rules to have read-only access</li>
 </ul>
-<h3 id="enforcement">Enforcement</h3>
+<h3 id="enforcement">Enforcement<a class="headerlink" href="#enforcement" title="Permanent link">&para;</a></h3>
 <p>Access Control Entries (ACEs) will be enforced in the following order:</p>
 <ul>
 <li>Owner-User</li>
@@ -1164,7 +1164,7 @@ is expected to match at most one user entry.</p>
 groups, enforcement will be based on the union of the permissions of all
 matching groups.</p>
 <p>By default, if a user matches no ACEs in the list, access will be denied.</p>
-<h3 id="limitations">Limitations</h3>
+<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
 <p>The maximum length of the ACE list in a DAOS ACL structure is 64KiB.</p>
 <p>To calculate the actual length of an ACL, use the following formula for each
 ACE:</p>
@@ -1174,7 +1174,7 @@ ACE:</p>
 <li>Add the length of the identity string + 1.</li>
 <li>If that value is not 64B aligned, round up to the nearest 64B boundary.</li>
 </ul>
-<h3 id="creating-a-pool-with-a-custom-acl">Creating a pool with a custom ACL</h3>
+<h3 id="creating-a-pool-with-a-custom-acl">Creating a pool with a custom ACL<a class="headerlink" href="#creating-a-pool-with-a-custom-acl" title="Permanent link">&para;</a></h3>
 <p>To create a pool with a custom ACL:</p>
 <pre><code class="bash">$ dmg pool create --scm-size &lt;size&gt; --acl-file &lt;path&gt;
 </code></pre>
@@ -1189,22 +1189,22 @@ A::EVERYONE@:r
 </code></pre>
 
 <p>You may add comments to the ACL file by starting the line with <code>#</code>.</p>
-<h3 id="displaying-a-pools-acl">Displaying a pool's ACL</h3>
+<h3 id="displaying-a-pools-acl">Displaying a pool's ACL<a class="headerlink" href="#displaying-a-pools-acl" title="Permanent link">&para;</a></h3>
 <p>To view a pool's ACL:</p>
 <pre><code class="bash">$ dmg pool get-acl --pool &lt;UUID&gt;
 </code></pre>
 
 <p>The output is in the same string format used in the ACL file during creation,
 with one ACE per line.</p>
-<h3 id="modifying-a-pools-acl">Modifying a pool's ACL</h3>
+<h3 id="modifying-a-pools-acl">Modifying a pool's ACL<a class="headerlink" href="#modifying-a-pools-acl" title="Permanent link">&para;</a></h3>
 <p>For all of these commands using an ACL file, the ACL file must be in the format
 noted above for pool creation.</p>
-<h4 id="overwriting-the-acl">Overwriting the ACL</h4>
+<h4 id="overwriting-the-acl">Overwriting the ACL<a class="headerlink" href="#overwriting-the-acl" title="Permanent link">&para;</a></h4>
 <p>To replace a pool's ACL with a new ACL:</p>
 <pre><code class="bash">$ dmg pool overwrite-acl --pool &lt;UUID&gt; --acl-file &lt;path&gt;
 </code></pre>
 
-<h4 id="updating-entries-in-an-existing-acl">Updating entries in an existing ACL</h4>
+<h4 id="updating-entries-in-an-existing-acl">Updating entries in an existing ACL<a class="headerlink" href="#updating-entries-in-an-existing-acl" title="Permanent link">&para;</a></h4>
 <p>To add or update multiple entries in an existing pool ACL:</p>
 <pre><code class="bash">$ dmg pool update-acl --pool &lt;UUID&gt; --acl-file &lt;path&gt;
 </code></pre>
@@ -1216,7 +1216,7 @@ noted above for pool creation.</p>
 <p>If there is no existing entry for the principal in the ACL, the new entry is
 added to the ACL. If there is already an entry for the principal, that entry
 is replaced with the new one.</p>
-<h4 id="removing-an-entry-from-the-acl">Removing an entry from the ACL</h4>
+<h4 id="removing-an-entry-from-the-acl">Removing an entry from the ACL<a class="headerlink" href="#removing-an-entry-from-the-acl" title="Permanent link">&para;</a></h4>
 <p>To delete an entry for a given principal, or identity, in an existing pool ACL:</p>
 <pre><code class="bash">$ dmg pool delete-acl --pool &lt;UUID&gt; --principal &lt;principal&gt;
 </code></pre>
@@ -1235,7 +1235,7 @@ operation, the principal argument must be formatted as follows:</p>
 <p>The entry for that principal will be completely removed. This does not always
 mean that the principal will have no access. Rather, their access to the pool
 will be decided based on the remaining ACL rules.</p>
-<h2 id="pool-query">Pool Query</h2>
+<h2 id="pool-query">Pool Query<a class="headerlink" href="#pool-query" title="Permanent link">&para;</a></h2>
 <p>The pool query operation retrieves information (i.e., the number of targets,
 space usage, rebuild status, property list, and more) about a created pool. It
 is integrated into the dmg_old utility.</p>
@@ -1274,20 +1274,20 @@ Rebuild busy, 75 objs, 9722 recs
 </code></pre>
 <p>Additional status and telemetry data are planned to be exported through
 the management API and tool and will be documented here once available.</p>
-<h2 id="pool-modifications">Pool Modifications</h2>
-<h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing</h3>
+<h2 id="pool-modifications">Pool Modifications<a class="headerlink" href="#pool-modifications" title="Permanent link">&para;</a></h2>
+<h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing<a class="headerlink" href="#target-exclusion-and-self-healing" title="Permanent link">&para;</a></h3>
 <p><strong>To exclude a target from a pool:</strong></p>
 <pre><code>$ dmg_old exclude --svc=${svcl} --pool=${puuid} --target=${rank}
 </code></pre>
 
-<h3 id="pool-extension">Pool Extension</h3>
-<h4 id="target-addition-space-rebalancing">Target Addition &amp; Space Rebalancing</h4>
+<h3 id="pool-extension">Pool Extension<a class="headerlink" href="#pool-extension" title="Permanent link">&para;</a></h3>
+<h4 id="target-addition-space-rebalancing">Target Addition &amp; Space Rebalancing<a class="headerlink" href="#target-addition-space-rebalancing" title="Permanent link">&para;</a></h4>
 <p>Support for online target addition and automatic space rebalancing is
 planned for DAOS v1.4 and will be documented here once available.</p>
-<h4 id="pool-shard-resize">Pool Shard Resize</h4>
+<h4 id="pool-shard-resize">Pool Shard Resize<a class="headerlink" href="#pool-shard-resize" title="Permanent link">&para;</a></h4>
 <p>Support for quiescent pool shard resize is currently not supported and
 is under consideration.</p>
-<h2 id="pool-catastrophic-recovery">Pool Catastrophic Recovery</h2>
+<h2 id="pool-catastrophic-recovery">Pool Catastrophic Recovery<a class="headerlink" href="#pool-catastrophic-recovery" title="Permanent link">&para;</a></h2>
 <p>A DAOS pool is instantiated on each target by a set of pmemobj files
 managed by PMDK and SPDK blobs on SSDs. Tools to verify and repair this
 persistent data is scheduled for DAOS v2.4 and will be documented here

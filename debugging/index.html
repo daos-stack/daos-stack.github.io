@@ -661,11 +661,11 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/debugging.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="daos-debugging">DAOS Debugging</h1>
+                <h1 id="daos-debugging">DAOS Debugging<a class="headerlink" href="#daos-debugging" title="Permanent link">&para;</a></h1>
 <p>DAOS uses the debug system defined in <a href="https://github.com/daos-stack/cart">CaRT</a>
 but more specifically the GURT library. Logging for both client and server are
 written to "/tmp/daos.log" unless otherwise set by <code>D_LOG_FILE</code>.</p>
-<h2 id="registered-subsystemsfacilities">Registered Subsystems/Facilities</h2>
+<h2 id="registered-subsystemsfacilities">Registered Subsystems/Facilities<a class="headerlink" href="#registered-subsystemsfacilities" title="Permanent link">&para;</a></h2>
 <p>The debug logging system includes a series of subsystems or facilities which
 define groups for related log messages (defined per source file). There are
 common facilities which are defined in GURT, as well as other facilities that
@@ -676,7 +676,7 @@ default all subsystems are enabled ("DD_SUBSYS=all").
             object, placement, rebuild, tier, mgmt, eio, tests]
 - Common Facilities (GURT): [MISC, MEM]
 - CaRT Facilities: [RPC, BULK, CORPC, GRP, LM, HG, ST, IV]</p>
-<h2 id="priority-logging">Priority Logging</h2>
+<h2 id="priority-logging">Priority Logging<a class="headerlink" href="#priority-logging" title="Permanent link">&para;</a></h2>
 <p>All macros which output logs have a priority level, shown in decending order
 below.
 - D_FATAL(fmt, ...)     FATAL
@@ -694,7 +694,7 @@ priority level of logging can be set with <code>D_LOG_MASK</code>, which by defa
 to INFO ("D_LOG_MASK=INFO"), which will result in all messages excluding DEBUG
 messages being logged. <code>D_LOG_MASK</code> can also be used to specify the level of
 logging on a per-subsystem basis as well ("D_LOG_MASK=DEBUG,MEM=ERR").</p>
-<h2 id="debug-masksstreams">Debug Masks/Streams:</h2>
+<h2 id="debug-masksstreams">Debug Masks/Streams:<a class="headerlink" href="#debug-masksstreams" title="Permanent link">&para;</a></h2>
 <p>DEBUG messages account for a majority of the log messages, and finer-granularity
 might be desired. Mask bits are set as the first argument passed in
 D_DEBUG(mask, ...). In order to accomplish this, <code>DD_MASK</code> can be set to enable
@@ -716,7 +716,7 @@ basis (CaRT and DAOS). All debug streams are enabled by default ("DD_MASK=all").
     - net = network operations
     - io = object I/O
     - test = test programs</p>
-<h2 id="common-use-cases">Common Use Cases</h2>
+<h2 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
 <ul>
 <li>
 <p>Generic setup for all messages (default settings)

@@ -870,29 +870,29 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/administration.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="daos-system-administration">DAOS System Administration</h1>
-<h2 id="system-monitoring">System Monitoring</h2>
+                <h1 id="daos-system-administration">DAOS System Administration<a class="headerlink" href="#daos-system-administration" title="Permanent link">&para;</a></h1>
+<h2 id="system-monitoring">System Monitoring<a class="headerlink" href="#system-monitoring" title="Permanent link">&para;</a></h2>
 <p>System monitoring and telemetry data will be provided as part of the
 control plane and will be documented in a future revision.</p>
-<h2 id="system-operations">System Operations</h2>
-<h3 id="full-shutdown-and-restart">Full Shutdown and Restart</h3>
+<h2 id="system-operations">System Operations<a class="headerlink" href="#system-operations" title="Permanent link">&para;</a></h2>
+<h3 id="full-shutdown-and-restart">Full Shutdown and Restart<a class="headerlink" href="#full-shutdown-and-restart" title="Permanent link">&para;</a></h3>
 <p>Details on how to support proper DAOS server shutdown will be provided
 in a future revision.</p>
-<h3 id="fault-domain-maintenance-and-reintegration">Fault Domain Maintenance and Reintegration</h3>
+<h3 id="fault-domain-maintenance-and-reintegration">Fault Domain Maintenance and Reintegration<a class="headerlink" href="#fault-domain-maintenance-and-reintegration" title="Permanent link">&para;</a></h3>
 <p>Details on how to drain an individual storage node or fault domain (e.g.
 rack) in preparation for maintenance activity and how to reintegrate it
 will be provided in a future revision.</p>
-<h3 id="daos-system-extension">DAOS System Extension</h3>
+<h3 id="daos-system-extension">DAOS System Extension<a class="headerlink" href="#daos-system-extension" title="Permanent link">&para;</a></h3>
 <p>Ability to add new DAOS server instances to a pre-existing DAOS system
 will be documented in a future revision.</p>
-<h2 id="fault-management">Fault Management</h2>
+<h2 id="fault-management">Fault Management<a class="headerlink" href="#fault-management" title="Permanent link">&para;</a></h2>
 <p>DAOS relies on massively distributed single-ported storage. Each target
 is thus effectively a single point of failure. DAOS achieves
 availability and durability of both data and metadata by providing
 redundancy across targets in different fault domains.</p>
-<h3 id="fault-detection-isolation">Fault Detection &amp; Isolation</h3>
+<h3 id="fault-detection-isolation">Fault Detection &amp; Isolation<a class="headerlink" href="#fault-detection-isolation" title="Permanent link">&para;</a></h3>
 <p>DAOS servers are monitored within a DAOS system through a gossip-based
-protocol called SWIM<a href="https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1028914">^1</a> that provides accurate, efficient, and scalable
+protocol called SWIM<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> that provides accurate, efficient, and scalable
 server fault detection.</p>
 <p>Storage attached to each DAOS target is monitored through periodic local
 health assessment. Whenever a local storage I/O error is returned to the
@@ -910,7 +910,7 @@ restore data redundancy. The rebuild process is designed to operate
 online while servers continue to process incoming I/O operations from
 applications.</p>
 <p>Tools to monitor and manage rebuild are still under development.</p>
-<h3 id="rebuild-throttling">Rebuild Throttling</h3>
+<h3 id="rebuild-throttling">Rebuild Throttling<a class="headerlink" href="#rebuild-throttling" title="Permanent link">&para;</a></h3>
 <p>The rebuild process may consume many resources on each server and
 can be throttled to reduce the impact on application performance. This
 current logic relies on CPU cycles on the storage nodes. By default, the
@@ -923,11 +923,11 @@ throttle to 50, then the rebuild will at most use 50% of the CPU cycle to do
 the rebuild job. The default rebuild throttle for CPU cycle is 30. This
 parameter can be changed via the daos_mgmt_set_params() API call and
 will be eventually available through the management tools.</p>
-<h2 id="software-upgrade">Software Upgrade</h2>
+<h2 id="software-upgrade">Software Upgrade<a class="headerlink" href="#software-upgrade" title="Permanent link">&para;</a></h2>
 <p>Interoperability in DAOS is handled via protocol and schema versioning
 for persistent data structures. Further instructions on how to manage
 DAOS software upgrades will be provided in a future revision.</p>
-<h3 id="protocol-interoperability">Protocol Interoperability</h3>
+<h3 id="protocol-interoperability">Protocol Interoperability<a class="headerlink" href="#protocol-interoperability" title="Permanent link">&para;</a></h3>
 <p>Limited protocol interoperability is provided by the DAOS storage stack.
 Version compatibility checks will be performed to verify that:</p>
 <ul>
@@ -944,7 +944,7 @@ same pool, the entire DAOS system will fail to start up and will report
 failure to the control API. Similarly, the connection from clients
 running a protocol version incompatible with the targets will return an
 error.</p>
-<h3 id="persistent-schema-compatibility-and-update">Persistent Schema Compatibility and Update</h3>
+<h3 id="persistent-schema-compatibility-and-update">Persistent Schema Compatibility and Update<a class="headerlink" href="#persistent-schema-compatibility-and-update" title="Permanent link">&para;</a></h3>
 <p>The schema of persistent data structures may evolve from time to time to
 fix bugs, add new optimizations, or support new features. To that end,
 the persistent data structures support schema versioning.</p>
@@ -960,10 +960,18 @@ of the supported schema versions. New pool shards will always be
 formatted with the latest version. This versioning schema only applies
 to a data structure stored in persistent memory and not to block storage
 that only stores user data with no metadata.</p>
-<h2 id="storage-scrubbing">Storage Scrubbing</h2>
+<h2 id="storage-scrubbing">Storage Scrubbing<a class="headerlink" href="#storage-scrubbing" title="Permanent link">&para;</a></h2>
 <p>Support for end-to-end data integrity is planned for DAOS v1.2 and
 background checksum scrubbing for v2.2. Once available, that
 functionality will be documented here.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:1">
+<p>https://ieeexplore.ieee.org/stamp/stamp.jsp?arnumber=1028914&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 

@@ -708,7 +708,7 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/user/posix.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="posix-namespace">POSIX Namespace</h1>
+                <h1 id="posix-namespace">POSIX Namespace<a class="headerlink" href="#posix-namespace" title="Permanent link">&para;</a></h1>
 <p>A regular POSIX namespace can be encapsulated into a DAOS container.  This
 capability is provided by the libdfs library that implements the file and
 directory abstractions over the native libdaos library. The POSIX emulation can
@@ -717,7 +717,7 @@ frameworks Spark or TensorFlow, or benchmark like IOR or mdtest that support
 different a storage backend plugin), or transparently via a FUSE daemon, combined
 optionally with an interception library to address some of the FUSE performance
 bottleneck by delivering full OS bypass for POSIX read/write operations.</p>
-<h3 id="libdfs">libdfs</h3>
+<h3 id="libdfs">libdfs<a class="headerlink" href="#libdfs" title="Permanent link">&para;</a></h3>
 <p>DFS stands for DAOS File System and is a library that allows a DAOS container to
 be accessed as a hierarchical POSIX namespace. It supports files, directories,
 and symbolic links, but not hard links. Access permissions are inherited from
@@ -729,7 +729,7 @@ node if used through dfuse), special care is required when the same POSIX
 container is mounted concurrently by multiple processes. Concurrent DFS mounts
 are not recommended. Support for concurrency control is under development and
 will be documented here once ready.</p>
-<h3 id="dfuse">dfuse</h3>
+<h3 id="dfuse">dfuse<a class="headerlink" href="#dfuse" title="Permanent link">&para;</a></h3>
 <p>A fuse daemon called dfuse is provided to mount a POSIX container in the local
 filesystem tree. dfuse exposes one mountpoint as a single DFS namespace with a
 single pool and container and can be mounted by regular use (provided that it
@@ -745,7 +745,7 @@ When done, the file system can be unmounted via fusermount:</p>
 <pre><code class="bash">$ fusermount3 -u /tmp/daos
 </code></pre>
 
-<h3 id="libioil">libioil</h3>
+<h3 id="libioil">libioil<a class="headerlink" href="#libioil" title="Permanent link">&para;</a></h3>
 <p>An interception library called libioil is available to work with dfuse. This
 library works in conjunction with dfuse and allow to interception of POSIX I/O
 calls and issue the I/O operations directly from the application context through

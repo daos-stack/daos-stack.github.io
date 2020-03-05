@@ -624,8 +624,8 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/development.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="daos-for-development">DAOS for Development</h1>
-<h1 id="building-daos-for-development">Building DAOS for Development</h1>
+                <h1 id="daos-for-development">DAOS for Development<a class="headerlink" href="#daos-for-development" title="Permanent link">&para;</a></h1>
+<h1 id="building-daos-for-development">Building DAOS for Development<a class="headerlink" href="#building-daos-for-development" title="Permanent link">&para;</a></h1>
 <p>For development, it is recommended to build and install each dependency in a unique subdirectory. The DAOS build system supports this through the TARGET_PREFIX variable. Once the submodules have been initialized and updated, run the following:</p>
 <pre><code>    scons PREFIX=${daos_prefix_path} TARGET_PREFIX=${daos_prefix_path}/opt install --build-deps=yes --config=force
 </code></pre>
@@ -645,7 +645,7 @@
 
 <p>With this approach DAOS would get built using the prebuilt dependencies in ${daos_prefix_path}/opt and required options are saved for future compilations. So, after the first time, during development, a mere "scons --config=force" and "scons --config=force install" would suffice for compiling changes to daos source code.</p>
 <p>If you wish to compile DAOS with clang rather than gcc, set COMPILER=clang on the scons command line.   This option is also saved for future compilations.</p>
-<h2 id="go-dependencies">Go dependencies</h2>
+<h2 id="go-dependencies">Go dependencies<a class="headerlink" href="#go-dependencies" title="Permanent link">&para;</a></h2>
 <p>Developers contributing Go code may need to change the external dependencies located in the src/control/vendor
 directory. The DAOS codebase uses <a href="https://github.com/golang/go/wiki/Modules">Go Modules</a> to manage these
 dependencies. As this feature is built in to Go distributions starting with version 1.11, no
@@ -707,9 +707,9 @@ $ ./run_go_tests.sh
 $ ls ~/go/pkg/mod # ~/go/pkg/mod should either not exist or be empty
 </code></pre>
 
-<h2 id="protobuf-compiler">Protobuf Compiler</h2>
+<h2 id="protobuf-compiler">Protobuf Compiler<a class="headerlink" href="#protobuf-compiler" title="Permanent link">&para;</a></h2>
 <p>The DAOS control plane infrastructure uses <a href="https://github.com/protocolbuffers/protobuf">Protocol Buffers</a> as the data serialization format for its RPC requests. Not all developers will need to compile the *.proto files, but if Protobuf changes are needed, the developer must regenerate the corresponding C and Go source files using a Protobuf compiler compatible with proto3 syntax.</p>
-<h3 id="recommended-versions">Recommended Versions</h3>
+<h3 id="recommended-versions">Recommended Versions<a class="headerlink" href="#recommended-versions" title="Permanent link">&para;</a></h3>
 <p>The recommended installation method is to clone the git repositories, check out the tagged releases noted below, and install from source. Later versions may work, but are not guaranteed.</p>
 <ul>
 <li><a href="https://github.com/protocolbuffers/protobuf">Protocol Buffers</a> v3.5.1. <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/README.md">Installation instructions</a>.</li>
@@ -718,7 +718,7 @@ $ ls ~/go/pkg/mod # ~/go/pkg/mod should either not exist or be empty
 src/control/go.mod.</strong> Install the specific version using GIT_TAG instructions
 <a href="https://github.com/golang/protobuf/blob/master/README.md">here</a>.</li>
 </ul>
-<h3 id="compiling-protobuf-files">Compiling Protobuf Files</h3>
+<h3 id="compiling-protobuf-files">Compiling Protobuf Files<a class="headerlink" href="#compiling-protobuf-files" title="Permanent link">&para;</a></h3>
 <p>The source (.proto) files live under $DAOSREPO/src/proto. The preferred mechanism for generating
 compiled C/Go protobuf definitions is to use the Makefile in this directory. Care should be taken
 to keep the Makefile updated when source files are added or removed, or generated file destinations

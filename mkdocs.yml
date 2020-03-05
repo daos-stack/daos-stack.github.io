@@ -20,6 +20,12 @@ theme:
 
 docs_dir: ./
 
+markdown_extensions:
+    - admonition
+    - footnotes
+    - toc:
+        permalink: true
+
 # Page tree
 nav:
     - Home: 'index.md'
