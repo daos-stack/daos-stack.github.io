@@ -1135,7 +1135,8 @@ On Mac, please make sure that the Docker settings under
 "Preferences/{Disk,Memory}" are configured accordingly.</p>
 <h3 id="building-from-github">Building from GitHub<a class="headerlink" href="#building-from-github" title="Permanent link">&para;</a></h3>
 <p>To build the Docker image directly from GitHub, run the following command:</p>
-<pre><code class="bash">$ curl -L https://raw.githubusercontent.com/daos-stack/daos/master/utils/docker/Dockerfile.centos.7 | docker build --no-cache -t daos -
+<pre><code class="bash">$ curl -L https://raw.githubusercontent.com/daos-stack/daos/master/utils/docker/Dockerfile.centos.7 | \
+        docker build --no-cache -t daos -
 </code></pre>
 
 <p>This creates a CentOS 7 image, fetches the latest DAOS version from GitHub,
