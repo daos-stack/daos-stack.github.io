@@ -32,7 +32,7 @@ plugins:
     - doxygen:
         packages:
             - doxygen:
-                url: .
+                url: /Users/jlombard/dev/daos/doc/update/daos
             - doxyfwk:
                 config: doc/doxygen.cfg
 
