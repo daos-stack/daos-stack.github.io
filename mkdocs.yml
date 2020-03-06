@@ -32,7 +32,7 @@ plugins:
     - doxygen:
         packages:
             - doxygen:
-                url: ../
+                url: .
             - doxyfwk:
                 config: doc/doxygen.cfg
 
