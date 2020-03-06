@@ -28,6 +28,14 @@ markdown_extensions:
     - toc:
         permalink: true
 
+plugins:
+    - doxygen:
+        packages:
+            - doxygen:
+                url: ../
+            - doxyfwk:
+                config: doc/doxygen.cfg
+
 # Page tree
 nav:
     - Home: 'index.md'
