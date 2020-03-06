@@ -1024,7 +1024,7 @@ control plane and will be documented in a future revision.</p>
 <p>Queries persistently stored device and pool metadata tables. The device table
 maps device UUID to attached VOS target IDs. The pool table maps VOS target IDs
 to attached SPDK blob IDs.</p>
-<pre><code class="bash">$dmg -l boro-11 storage query smd --devices --pools
+<pre><code class="bash">$ dmg -l boro-11 storage query smd --devices --pools
 boro-11:10001: connected
 SMD Device List:
 boro-11:10001:
@@ -1071,7 +1071,7 @@ boro-11:10001:
 </ul>
 <p>Queries the current persistently stored device state of the specified NVMe SSD
 (either NORMAL or FAULTY).</p>
-<pre><code class="bash">$dmg storage query device-state --devuuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19
+<pre><code class="bash">$ dmg storage query device-state --devuuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19
 -l=boro-11:10001
 boro-11:10001: connected
 Device State Info:
@@ -1087,7 +1087,7 @@ boro-11:10001:
 which will trigger faulty device reaction (all targets on the SSD will be
 rebuilt and the SSD will remain in an OUT state until reintegration is
 supported).</p>
-<pre><code class="bash">$dmg storage set nvme-faulty --devuuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19
+<pre><code class="bash">$ dmg storage set nvme-faulty --devuuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19
 -l=boro-11:10001
 boro-11:10001: connected
 Device State Info:
@@ -1116,10 +1116,10 @@ managed by DAOS Control Servers will be started.</p>
 system membership.</p>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Controlled Start/Stop Limitations
-* "start" restarts all configured instances on all harnesses that can
-  be located in the system membership, regardless of member state
-* supplying list of ranks to "start" and "stop" is not yet supported</p>
+<p>Controlled start/stop has some known limitations.
+"start" restarts all configured instances on all harnesses that can
+be located in the system membership, regardless of member state.
+Morever, supplying list of ranks to "start" and "stop" is not yet supported</p>
 </div>
 <h3 id="fresh-start">Fresh Start<a class="headerlink" href="#fresh-start" title="Permanent link">&para;</a></h3>
 <p>To reset the DAOS metadata across all hosts the system must be reformatted.
