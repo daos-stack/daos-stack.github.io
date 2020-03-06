@@ -494,8 +494,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#optional-enable-iommu" class="md-nav__link">
-    (Optional) Enable IOMMU
+  <a href="#enable-iommu-optional" class="md-nav__link">
+    Enable IOMMU (Optional)
   </a>
   
 </li>
@@ -583,15 +583,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuration-file-options" class="md-nav__link">
-    Configuration File Options
+  <a href="#configuration-options" class="md-nav__link">
+    Configuration Options
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#certificate-generation-and-configuration" class="md-nav__link">
-    Certificate Generation And Configuration
+  <a href="#certificate-configuration" class="md-nav__link">
+    Certificate Configuration
   </a>
   
 </li>
@@ -1022,8 +1022,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#optional-enable-iommu" class="md-nav__link">
-    (Optional) Enable IOMMU
+  <a href="#enable-iommu-optional" class="md-nav__link">
+    Enable IOMMU (Optional)
   </a>
   
 </li>
@@ -1111,15 +1111,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#configuration-file-options" class="md-nav__link">
-    Configuration File Options
+  <a href="#configuration-options" class="md-nav__link">
+    Configuration Options
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#certificate-generation-and-configuration" class="md-nav__link">
-    Certificate Generation And Configuration
+  <a href="#certificate-configuration" class="md-nav__link">
+    Certificate Configuration
   </a>
   
 </li>
@@ -1339,7 +1339,7 @@ on boot if start-up scripts are registered with systemd.</p>
 <h2 id="preflight-checklist">Preflight Checklist<a class="headerlink" href="#preflight-checklist" title="Permanent link">&para;</a></h2>
 <p>This section covers the preliminary setup required on the compute and
 storage nodes before deploying DAOS.</p>
-<h3 id="optional-enable-iommu">(Optional) Enable IOMMU<a class="headerlink" href="#optional-enable-iommu" title="Permanent link">&para;</a></h3>
+<h3 id="enable-iommu-optional">Enable IOMMU (Optional)<a class="headerlink" href="#enable-iommu-optional" title="Permanent link">&para;</a></h3>
 <p>In order to run DAOS server as a non-root user with NVMe devices, the hardware
 must support virtualized device access, and it must be enabled in the system BIOS.
 On Intel® systems, this capability is named Intel® Virtualization Technology for
@@ -1475,7 +1475,7 @@ directory.</p>
 take precedence over equivalent configuration file parameter.</p>
 <p>For convenience, active parsed configuration values are written to a temporary
 file for reference, and the location will be written to the log.</p>
-<h4 id="configuration-file-options">Configuration File Options<a class="headerlink" href="#configuration-file-options" title="Permanent link">&para;</a></h4>
+<h4 id="configuration-options">Configuration Options<a class="headerlink" href="#configuration-options" title="Permanent link">&para;</a></h4>
 <p>The example configuration file lists the default empty configuration, listing all the
 options (living documentation of the config file). Live examples are
 available at
@@ -1487,7 +1487,7 @@ line. Otherwise, /etc/daos_server.conf is used.</p>
 for latest information and examples.</p>
 <p>At this point of the process, the servers: and provider: section of the yaml
 file can be left blank and will be populated in the subsequent sections.</p>
-<h4 id="certificate-generation-and-configuration">Certificate Generation And Configuration<a class="headerlink" href="#certificate-generation-and-configuration" title="Permanent link">&para;</a></h4>
+<h4 id="certificate-configuration">Certificate Configuration<a class="headerlink" href="#certificate-configuration" title="Permanent link">&para;</a></h4>
 <p>The DAOS security framework relies on certificates to authenticate
 components and administrators in addition to encrypting DAOS control plane
 communications. A set of certificates for a given DAOS system may be
