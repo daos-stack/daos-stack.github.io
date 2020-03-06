@@ -32,9 +32,12 @@ plugins:
     - doxygen:
         packages:
             - doxygen:
-                url: /Users/jlombard/dev/daos/doc/update/daos
+                #url: /Users/jlombard/dev/daos/doc/update/daos
+                url: .
             - doxyfwk:
+                url: https://github.com/daos-stack/daos
                 config: doc/doxygen.cfg
+                workdir: .
 
 # Page tree
 nav:
