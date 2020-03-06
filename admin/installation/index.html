@@ -1037,11 +1037,6 @@ Moreover, the DAOS stack leverages the following open source projects:</p>
 <p><a href="http://spdk.io/"><em>SPDK</em></a> for userspace NVMe device access and management.</p>
 </li>
 <li>
-<p><a href="https://github.com/axboe/fio"><em>FIO</em></a> for flexible testing of Linux I/O
-    subsystems, specifically enabling validation of userspace NVMe device
-    performance through fio-spdk plugin.</p>
-</li>
-<li>
 <p><a href="https://github.com/01org/isa-l"><em>ISA-L</em></a> for checksum and erasure code
     computation.</p>
 </li>
@@ -1175,18 +1170,6 @@ container:</p>
 </code></pre>
 
 <h3 id="running-daos-in-docker">Running DAOS in Docker<a class="headerlink" href="#running-daos-in-docker" title="Permanent link">&para;</a></h3>
-<p>Please first make sure that the uio_pci_generic module is loaded:</p>
-<pre><code class="bash">$ ls /sys/bus/pci/drivers/uio_pci_generic
-ls: cannot access /sys/bus/pci/drivers/uio_pci_generic: No such file or director
-
-$ sudo modprobe uio_pci_generic
-
-$ ls /sys/bus/pci/drivers/uio_pci_generic
-0000:00:04.0  0000:00:04.3  0000:00:04.6  0000:5f:00.0  0000:80:04.2  0000:80:04.5  0000:81:00.0  module     uevent
-0000:00:04.1  0000:00:04.4  0000:00:04.7  0000:80:04.0  0000:80:04.3  0000:80:04.6  0000:da:00.0  new_id     unbind
-0000:00:04.2  0000:00:04.5  0000:5e:00.0  0000:80:04.1  0000:80:04.4  0000:80:04.7  bind          remove_id
-</code></pre>
-
 <p>SCM and NVMe storage can then be configured by running the follow command:</p>
 <pre><code class="bash">$ docker exec server daos_server storage prepare
 </code></pre>
@@ -1210,6 +1193,17 @@ This can be triggered in a different shell, using the following command:</p>
 
 <p>Upon successful completion of the format, the storage engine is started, and pools
 can be created using the daos admin tool (see next section).</p>
+<p>!! note
+   Please make sure that the uio_pci_generic module is loaded:</p>
+<p>```bash
+   $ ls /sys/bus/pci/drivers/uio_pci_generic
+   ls: cannot access /sys/bus/pci/drivers/uio_pci_generic: No such file or director</p>
+<p>$ sudo modprobe uio_pci_generic</p>
+<p>$ ls /sys/bus/pci/drivers/uio_pci_generic
+   0000:00:04.0  0000:00:04.3  0000:00:04.6  0000:5f:00.0  0000:80:04.2  0000:80:04.5  0000:81:00.0  module     uevent
+   0000:00:04.1  0000:00:04.4  0000:00:04.7  0000:80:04.0  0000:80:04.3  0000:80:04.6  0000:da:00.0  new_id     unbind
+   0000:00:04.2  0000:00:04.5  0000:5e:00.0  0000:80:04.1  0000:80:04.4  0000:80:04.7  bind          remove_id
+   ```</p>
 <h2 id="daos-for-development">DAOS for Development<a class="headerlink" href="#daos-for-development" title="Permanent link">&para;</a></h2>
 <p>This section covers specific instructions to create a developer-friendly
 environment to contribute to the DAOS development. This includes how to

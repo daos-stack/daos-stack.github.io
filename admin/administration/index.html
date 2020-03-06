@@ -502,6 +502,19 @@
     System Monitoring
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvme-ssd-health-monitoring" class="md-nav__link">
+    NVMe SSD Health Monitoring
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -515,6 +528,13 @@
           <li class="md-nav__item">
   <a href="#full-shutdown-and-restart" class="md-nav__link">
     Full Shutdown and Restart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fresh-start" class="md-nav__link">
+    Fresh Start
   </a>
   
 </li>
@@ -856,6 +876,19 @@
     System Monitoring
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvme-ssd-health-monitoring" class="md-nav__link">
+    NVMe SSD Health Monitoring
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -869,6 +902,13 @@
           <li class="md-nav__item">
   <a href="#full-shutdown-and-restart" class="md-nav__link">
     Full Shutdown and Restart
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fresh-start" class="md-nav__link">
+    Fresh Start
   </a>
   
 </li>
@@ -976,10 +1016,132 @@
 <h2 id="system-monitoring">System Monitoring<a class="headerlink" href="#system-monitoring" title="Permanent link">&para;</a></h2>
 <p>System monitoring and telemetry data will be provided as part of the
 control plane and will be documented in a future revision.</p>
+<h3 id="nvme-ssd-health-monitoring">NVMe SSD Health Monitoring<a class="headerlink" href="#nvme-ssd-health-monitoring" title="Permanent link">&para;</a></h3>
+<p>Useful admin dmg commands to query NVMe SSD health:</p>
+<ul>
+<li>Query Per-Server Metadata (SMD): <code>dmg storage query smd</code></li>
+</ul>
+<p>Queries persistently stored device and pool metadata tables. The device table
+maps device UUID to attached VOS target IDs. The pool table maps VOS target IDs
+to attached SPDK blob IDs.</p>
+<pre><code class="bash">$dmg -l boro-11 storage query smd --devices --pools
+boro-11:10001: connected
+SMD Device List:
+boro-11:10001:
+        Device:
+                UUID: 5bd91603-d3c7-4fb7-9a71-76bc25690c19
+                VOS Target IDs: 0 1 2 3
+SMD Pool List:
+boro-11:10001:
+        Pool:
+                UUID: 01b41f76-a783-462f-bbd2-eb27c2f7e326
+                VOS Target IDs: 0 1 3 2
+                SPDK Blobs: 4294967404 4294967405 4294967407 4294967406
+</code></pre>
+
+<ul>
+<li>Query Blobstore Health Data: <code>dmg storage query blobstore-health</code></li>
+</ul>
+<p>Queries in-memory health data for the SPDK blobstore (ie NVMe SSD). This
+includes a subset of the SPDK device health stats, as well as I/O error and
+checksum counters.</p>
+<pre><code class="bash">$ dmg -l boro-11 storage query blobstore-health
+  --devuuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19 -l=boro-11:10001
+boro-11:10001: connected
+Blobstore Health Data:
+boro-11:10001:
+        Device UUID: 5bd91603-d3c7-4fb7-9a71-76bc25690c19
+        Read errors: 0
+        Write errors: 0
+        Unmap errors: 0
+        Checksum errors: 0
+        Device Health:
+                Error log entries: 0
+                Media errors: 0
+                Temperature: 289
+                Temperature: OK
+                Available Spare: OK
+                Device Reliability: OK
+                Read Only: OK
+                Volatile Memory Backup: OK
+</code></pre>
+
+<ul>
+<li>Query Persistent Device State: <code>dmg storage query device-state</code></li>
+</ul>
+<p>Queries the current persistently stored device state of the specified NVMe SSD
+(either NORMAL or FAULTY).</p>
+<pre><code class="bash">$dmg storage query device-state --devuuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19
+-l=boro-11:10001
+boro-11:10001: connected
+Device State Info:
+boro-11:10001:
+        Device UUID: 5bd91603-d3c7-4fb7-9a71-76bc25690c19
+        State: NORMAL
+</code></pre>
+
+<ul>
+<li>Manually Set Device State to FAULTY: <code>dmg storage set nvme-faulty</code></li>
+</ul>
+<p>Allows the admin to manually set the device state of the given device to FAULTY,
+which will trigger faulty device reaction (all targets on the SSD will be
+rebuilt and the SSD will remain in an OUT state until reintegration is
+supported).</p>
+<pre><code class="bash">$dmg storage set nvme-faulty --devuuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19
+-l=boro-11:10001
+boro-11:10001: connected
+Device State Info:
+boro-11:10001:
+        Device UUID: 5bd91603-d3c7-4fb7-9a71-76bc25690c19
+        State: FAULTY
+</code></pre>
+
 <h2 id="system-operations">System Operations<a class="headerlink" href="#system-operations" title="Permanent link">&para;</a></h2>
 <h3 id="full-shutdown-and-restart">Full Shutdown and Restart<a class="headerlink" href="#full-shutdown-and-restart" title="Permanent link">&para;</a></h3>
-<p>Details on how to support proper DAOS server shutdown will be provided
-in a future revision.</p>
+<p>A DAOS system can be restarted after a controlled shutdown providing
+no configurations changes have been made after initial format.</p>
+<p>The DAOS Control Server instance acting as access point records DAOS
+I/O Server instances that join the system in a "membership".</p>
+<p>When up and running, the entire system (all I/O Server instances)
+can be shutdown with the command
+<code>dmg -l &lt;access_point_addr&gt; system stop</code>, after which DAOS Control
+Servers will continue to operate and listen on the management network.</p>
+<p>To start the system again (with no configuration changes) after a
+controlled shutdown, run the command
+<code>dmg -l &lt;access_point_addr&gt; system start</code>, DAOS I/O Servers
+managed by DAOS Control Servers will be started.</p>
+<p>To query the system membership, run the command
+<code>dmg -l &lt;access_point_addr&gt; system query</code>, this lists details
+(rank/uuid/control address/state) of DAOS I/O Servers in the
+system membership.</p>
+<p>!! warning
+   Controlled Start/Stop Limitations
+   * "start" restarts all configured instances on all harnesses that can
+     be located in the system membership, regardless of member state
+   * supplying list of ranks to "start" and "stop" is not yet supported</p>
+<h3 id="fresh-start">Fresh Start<a class="headerlink" href="#fresh-start" title="Permanent link">&para;</a></h3>
+<p>To reset the DAOS metadata across all hosts the system must be reformatted.
+First ensure all <code>daos_server</code> processes on all hosts have been
+stopped, then for each SCM mount specified in the config file
+(<code>scm_mount</code> in the <code>servers</code> section) umount and wipe FS signatures.</p>
+<p>Example illustration with two IO instances specified in the config file:</p>
+<ul>
+<li>
+<p><code>clush -w wolf-[118-121,130-133] umount /mnt/daos1</code></p>
+</li>
+<li>
+<p><code>clush -w wolf-[118-121,130-133] umount /mnt/daos0</code></p>
+</li>
+<li>
+<p><code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem1</code></p>
+</li>
+<li>
+<p><code>clush -w wolf-[118-121,130-133] wipefs -a /dev/pmem0</code></p>
+</li>
+<li>
+<p>Then restart DAOS Servers and format.</p>
+</li>
+</ul>
 <h3 id="fault-domain-maintenance-and-reintegration">Fault Domain Maintenance and Reintegration<a class="headerlink" href="#fault-domain-maintenance-and-reintegration" title="Permanent link">&para;</a></h3>
 <p>Details on how to drain an individual storage node or fault domain (e.g.
 rack) in preparation for maintenance activity and how to reintegrate it
