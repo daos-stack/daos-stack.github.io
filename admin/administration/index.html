@@ -1042,7 +1042,7 @@ boro-11:10001:
 <ul>
 <li>Query Blobstore Health Data: <code>dmg storage query blobstore-health</code></li>
 </ul>
-<p>Queries in-memory health data for the SPDK blobstore (ie NVMe SSD). This
+<p>Queries in-memory health data for the SPDK blobstore (i.e, NVMe SSD). This
 includes a subset of the SPDK device health stats, as well as I/O error and
 checksum counters.</p>
 <pre><code class="bash">$ dmg -l boro-11 storage query blobstore-health
@@ -1099,11 +1099,11 @@ boro-11:10001:
 <h2 id="system-operations">System Operations<a class="headerlink" href="#system-operations" title="Permanent link">&para;</a></h2>
 <h3 id="full-shutdown-and-restart">Full Shutdown and Restart<a class="headerlink" href="#full-shutdown-and-restart" title="Permanent link">&para;</a></h3>
 <p>A DAOS system can be restarted after a controlled shutdown providing
-no configurations changes have been made after initial format.</p>
+no configurations changes have been made after the initial format.</p>
 <p>The DAOS Control Server instance acting as access point records DAOS
 I/O Server instances that join the system in a "membership".</p>
 <p>When up and running, the entire system (all I/O Server instances)
-can be shutdown with the command
+can be shut down with the command:
 <code>dmg -l &lt;access_point_addr&gt; system stop</code>, after which DAOS Control
 Servers will continue to operate and listen on the management network.</p>
 <p>To start the system again (with no configuration changes) after a
@@ -1119,11 +1119,11 @@ system membership.</p>
 <p>Controlled start/stop has some known limitations.
 "start" restarts all configured instances on all harnesses that can
 be located in the system membership, regardless of member state.
-Morever, supplying list of ranks to "start" and "stop" is not yet supported</p>
+Moreover, supplying the list of ranks to "start" and "stop" is not yet supported</p>
 </div>
 <h3 id="fresh-start">Fresh Start<a class="headerlink" href="#fresh-start" title="Permanent link">&para;</a></h3>
-<p>To reset the DAOS metadata across all hosts the system must be reformatted.
-First ensure all <code>daos_server</code> processes on all hosts have been
+<p>To reset the DAOS metadata across all hosts, the system must be reformatted.
+First, ensure all <code>daos_server</code> processes on all hosts have been
 stopped, then for each SCM mount specified in the config file
 (<code>scm_mount</code> in the <code>servers</code> section) umount and wipe FS signatures.</p>
 <p>Example illustration with two IO instances specified in the config file:</p>
@@ -1170,7 +1170,7 @@ this target will be rejected and re-routed.</p>
 <p>Once detected, the faulty target or servers (effectively a set of
 targets) must be excluded from each pool membership. This process is
 triggered either manually by the administrator or automatically (see
-next section for more information). Upon exclusion from the pool map,
+the next section for more information). Upon exclusion from the pool map,
 each target starts the collective rebuild process automatically to
 restore data redundancy. The rebuild process is designed to operate
 online while servers continue to process incoming I/O operations from
@@ -1182,8 +1182,8 @@ can be throttled to reduce the impact on application performance. This
 current logic relies on CPU cycles on the storage nodes. By default, the
 rebuild process is configured to consume up to 30% of the CPU cycles,
 leaving the other 70% for regular I/O operations.</p>
-<p>During the rebuild process, the user can set the throttle to guarantee the
-rebuild will not use more resource than the user setting. The user can
+<p>During the rebuild process, the user can set the throttle to guarantee that
+the rebuild will not use more resources than the user setting. The user can
 only set the CPU cycle for now. For example, if the user set the
 throttle to 50, then the rebuild will at most use 50% of the CPU cycle to do
 the rebuild job. The default rebuild throttle for CPU cycle is 30. This

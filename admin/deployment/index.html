@@ -1497,7 +1497,7 @@ DAOS software if there is not an existing TLS certificate infrastructure.</p>
 may be invoked in the directory to which the certificates will be written. As part
 of the generation process, a new local Certificate Authority is created to handle
 certificate signing, and three role certificates are created:</p>
-<pre><code># /usr/lib64/daos/certgen/gen_certificates.sh
+<pre><code class="bash"># /usr/lib64/daos/certgen/gen_certificates.sh
 Generating Private CA Root Certificate
 Private CA Root Certificate created in ./daosCA
 ...
@@ -1801,7 +1801,7 @@ NVMe PCI     Model                FW Revision Socket ID Capacity
 
 <p>In this situation, the configuration file <code>servers</code> section could be
 populated as follows:</p>
-<pre><code>&lt;snip&gt;
+<pre><code class="yaml">&lt;snip&gt;
 port: 10001
 access_points: [&quot;wolf-71&quot;] # &lt;----- updated
 &lt;snip&gt;
@@ -1850,7 +1850,7 @@ servers:
 <h3 id="network-configuration">Network Configuration<a class="headerlink" href="#network-configuration" title="Permanent link">&para;</a></h3>
 <p>To display the fabric interface, OFI provider and NUMA node
 combinations detected on the DAOS server, use the following command:</p>
-<pre><code>$ daos_server network scan --all
+<pre><code class="bash">$ daos_server network scan --all
 
         fabric_iface: ib0
         provider: ofi+psm2
