@@ -2006,7 +2006,8 @@ support is to pass the -i flag to daos_agent.</p>
 <p>The <code>daos_agent</code> configuration file is parsed when starting the
 <code>daos_agent</code> process. The configuration file location can be specified
 on the command line (<code>daos_agent -h</code> for usage) or default location
-(<code>install/etc/daos_agent.yml</code>).</p>
+(<code>install/etc/daos_agent.yml</code>). If installed from rpms the default location is
+(<code>/usr/etc/daos_agent.yml</code>).</p>
 <p>Parameter descriptions are specified in <a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_agent.yml">daos_agent.yml</a>.</p>
 <p>Any option supplied to <code>daos_agent</code> as a command line option or flag will
 take precedence over equivalent configuration file parameter.</p>
@@ -2028,9 +2029,10 @@ for latest information and examples.</p>
 It can be configured to use secure communications (default) or can be allowed
 to communicate with the control plane over unencrypted channels. The following
 example shows daos_agent being configured to operate in insecure mode due to
-incomplete integration of certificate support as of the 0.6 release.</p>
+incomplete integration of certificate support as of the 0.6 release and
+configured to use a non-default agent configuration file.</p>
 <p>To start the DAOS Agent from the command line, run:</p>
-<pre><code class="bash">$ daos_agent -i
+<pre><code class="bash">$ daos_agent -i -o &lt;'path to agent configuration file/daos_agent.yml'&gt; &amp;
 </code></pre>
 
 <p>Alternatively, the DAOS Agent can be started as a systemd service. The DAOS Agent
@@ -2038,18 +2040,19 @@ unit file is installed in the correct location when installing from RPMs.
 If you wish to use systemd with a development build, you must copy the service
 file from utils/systemd to /usr/lib/systemd/system. Once the file is copied
 modify the ExecStart line to point to your in tree daos_agent binary.</p>
+<p>ExecStart=/usr/bin/daos_agent -i -o &lt;'path to agent configuration file/daos_agent.yml'&gt;</p>
 <p>Once the service file is installed, you can start daos_agent
 with the following commands:</p>
-<pre><code class="bash">$ systemctl enable daos-agent
-$ systemctl start daos-agent
+<pre><code class="bash">$ sudo systemctl enable daos-agent
+$ sudo systemctl start daos-agent
 </code></pre>
 
 <p>To check the component status use:</p>
-<pre><code class="bash">$ systemctl status daos-agent
+<pre><code class="bash">$ sudo systemctl status daos-agent
 </code></pre>
 
 <p>If DAOS Agent failed to start check the logs with:</p>
-<pre><code class="bash">$ journalctl --unit daos-agent
+<pre><code class="bash">$ sudo journalctl --unit daos-agent
 </code></pre>
 
 <h2 id="system-validation">System Validation<a class="headerlink" href="#system-validation" title="Permanent link">&para;</a></h2>

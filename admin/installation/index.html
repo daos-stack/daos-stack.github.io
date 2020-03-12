@@ -578,6 +578,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#using-other-compilers" class="md-nav__link">
+    Using other compilers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#go-dependencies" class="md-nav__link">
     Go dependencies
   </a>
@@ -977,6 +984,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#using-other-compilers" class="md-nav__link">
+    Using other compilers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#go-dependencies" class="md-nav__link">
     Go dependencies
   </a>
@@ -1016,7 +1030,7 @@
                 
                 <h1 id="software-installation">Software Installation<a class="headerlink" href="#software-installation" title="Permanent link">&para;</a></h1>
 <p>DAOS runs on both Intel 64 and ARM64 platforms and has been successfully tested
-on CentOS 7, OpenSUSE 42.2, and Ubuntu 18.04 distributions.</p>
+on CentOS 7, OpenSUSE Leap 15.1, and Ubuntu 18.04 distributions.</p>
 <h2 id="software-dependencies">Software Dependencies<a class="headerlink" href="#software-dependencies" title="Permanent link">&para;</a></h2>
 <p>DAOS requires a C99-capable compiler, a Go compiler, and the scons build tool.
 Moreover, the DAOS stack leverages the following open source projects:</p>
@@ -1239,8 +1253,10 @@ ${daos_prefix_path}/opt, and required options are saved for future compilations.
 So, after the first time, during development, only "scons --config=force" and
 "scons --config=force install" would suffice for compiling changes to DAOS
 source code.</p>
-<p>If you wish to compile DAOS with clang rather than gcc, set COMPILER=clang on
-the scons command line. This option is also saved for future compilations.</p>
+<h3 id="using-other-compilers">Using other compilers<a class="headerlink" href="#using-other-compilers" title="Permanent link">&para;</a></h3>
+<p>If you wish to compile DAOS with clang or use the Intel compilers rather than
+gcc, set COMPILER=clang or COMPILER=icc on the scons command line.
+This option is also saved for future compilations.</p>
 <h3 id="go-dependencies">Go dependencies<a class="headerlink" href="#go-dependencies" title="Permanent link">&para;</a></h3>
 <p>Developers contributing Go code may need to change the external dependencies
 located in the src/control/vendor directory. The DAOS codebase uses

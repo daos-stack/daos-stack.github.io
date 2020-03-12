@@ -581,6 +581,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#daos-agent-log" class="md-nav__link">
+    Daos Agent Log
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -881,6 +888,13 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#daos-agent-log" class="md-nav__link">
+    Daos Agent Log
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -1054,6 +1068,11 @@ server operations:</p>
 <td>helper_log_file</td>
 <td>/tmp/daos_admin.log</td>
 </tr>
+<tr>
+<td>agent</td>
+<td>log_file</td>
+<td>/tmp/daos_agent.log</td>
+</tr>
 </tbody>
 </table>
 <h3 id="control-plane-log">Control Plane Log<a class="headerlink" href="#control-plane-log" title="Permanent link">&para;</a></h3>
@@ -1075,6 +1094,9 @@ section of this document.</p>
 <p>By default, the privileged helper only emits ERROR-level logging which
 is captured by the control plane and included in that log. If the
 <code>helper_log_file</code> parameter is set in the server config, then
+DEBUG-level logging will be sent to the specified file.</p>
+<h3 id="daos-agent-log">Daos Agent Log<a class="headerlink" href="#daos-agent-log" title="Permanent link">&para;</a></h3>
+<p>If the <code>log_file</code> config parameter is set in the agent config, then
 DEBUG-level logging will be sent to the specified file.</p>
 <h2 id="debugging-system">Debugging System<a class="headerlink" href="#debugging-system" title="Permanent link">&para;</a></h2>
 <p>DAOS uses the debug system defined in
