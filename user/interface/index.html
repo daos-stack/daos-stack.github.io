@@ -1010,16 +1010,30 @@ maximize the operation rate.</p>
 <p>Key-value pair are deleted via the put/bput operations by setting the value
 to either None or the empty string. Once deleted, the key won't be reported
 during iteration. It also supports the del operation via 'del dkv.key'.
-The DAOS KV objects behave like a python dictionary and supports:
-- 'dkv[key]' which invokes 'dkv.get(key)'
-- 'dkv[key] = val' which invokes 'dkv.put(key, val)'
-- 'for key in dkv:' allows to walk through the key space via the support of
-  python iterators
-- 'if key is in dkv:' allows to test whether a give key is present in the
-  DAOS KV store.
-- 'len(dkv)' returns the number of key-value pairs
-- 'bool(dkv)' reports 'False' if there is no key-value pairs in the DAOS KV
+The DAOS KV objects behave like a python dictionary and supports:</p>
+<ul>
+<li>
+<p>'dkv[key]' which invokes 'dkv.get(key)'</p>
+</li>
+<li>
+<p>'dkv[key] = val' which invokes 'dkv.put(key, val)'</p>
+</li>
+<li>
+<p>'for key in dkv:' allows to walk through the key space via the support of
+  python iterators</p>
+</li>
+<li>
+<p>'if key is in dkv:' allows to test whether a give key is present in the
+  DAOS KV store.</p>
+</li>
+<li>
+<p>'len(dkv)' returns the number of key-value pairs</p>
+</li>
+<li>
+<p>'bool(dkv)' reports 'False' if there is no key-value pairs in the DAOS KV
   and 'True' otherwise.</p>
+</li>
+</ul>
 <p>Python iterators are supported, which means that "for key in kvobj:" will
 allow you to walk through the key space.
 For each method, a PyDError exception is raised with proper DAOS error code
