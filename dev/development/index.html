@@ -13,7 +13,7 @@
         <meta name="description" content="Distributed Asynchronous Object Storage">
       
       
-        <link rel="canonical" href="http://daos.io/internals/coding/">
+        <link rel="canonical" href="http://daos.io/dev/development/">
       
       
         <meta name="author" content="DAOS Project">
@@ -42,7 +42,7 @@
     
     
       
-        <title>DAOS Coding Rules - DAOS v0.9</title>
+        <title>Dev Environment - DAOS v0.9</title>
       
     
     
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#daos-coding-rules" tabindex="0" class="md-skip">
+      <a href="#development-environment" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -117,7 +117,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                DAOS Coding Rules
+                Dev Environment
               
             </span>
           
@@ -185,14 +185,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../.." class="md-tabs__link">
         Home
       </a>
     
@@ -243,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../development/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link md-tabs__link--active">
           Developer Zone
         </a>
       
@@ -642,10 +644,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Developer Zone
@@ -661,10 +665,74 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Dev Environment
+      </label>
+    
+    <a href="./" title="Dev Environment" class="md-nav__link md-nav__link--active">
+      Dev Environment
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building-daos-for-development" class="md-nav__link">
+    Building DAOS for Development
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-dependencies" class="md-nav__link">
+    Go dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protobuf-compiler" class="md-nav__link">
+    Protobuf Compiler
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
-    <a href="../development/" title="Dev Environment" class="md-nav__link">
-      Dev Environment
+    <a href="../contributing/" title="Contributing" class="md-nav__link">
+      Contributing
     </a>
   </li>
 
@@ -751,6 +819,36 @@
     
   
   
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#building-daos-for-development" class="md-nav__link">
+    Building DAOS for Development
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#go-dependencies" class="md-nav__link">
+    Go dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protobuf-compiler" class="md-nav__link">
+    Protobuf Compiler
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -761,10 +859,122 @@
             <article class="md-content__inner md-typeset">
               
                 
-                  <a href="https://github.com/daos-stack/daos/edit/master/docs/internals/coding.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                  <a href="https://github.com/daos-stack/daos/edit/master/docs/dev/development.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="daos-coding-rules">DAOS Coding Rules<a class="headerlink" href="#daos-coding-rules" title="Permanent link">&para;</a></h1>
+                <h1 id="development-environment">Development Environment<a class="headerlink" href="#development-environment" title="Permanent link">&para;</a></h1>
+<p>This section covers specific instructions to create a developer-friendly
+environment to contribute to the DAOS development. This includes how to
+regenerate the protobuf files or add new Go package dependencies, which is
+only required for development purposes.</p>
+<h2 id="building-daos-for-development">Building DAOS for Development<a class="headerlink" href="#building-daos-for-development" title="Permanent link">&para;</a></h2>
+<p>For development, it is recommended to build and install each dependency in a
+unique subdirectory. The DAOS build system supports this through the
+TARGET_PREFIX variable. Once the submodules have been initialized and updated,
+run the following commands:</p>
+<pre><code class="bash">$ scons PREFIX=${daos_prefix_path}
+      TARGET_PREFIX=${daos_prefix_path}/opt install
+      --build-deps=yes
+      --config=force
+</code></pre>
+
+<p>Installing the components into seperate directories allow upgrading the
+components individually by replacing --build-deps=yes with
+--update-prereq={component_name}. This requires a change to the environment
+configuration from before. For automated environment setup, source
+scons_local/utils/setup_local.sh.</p>
+<pre><code class="bash">ARGOBOTS=${daos_prefix_path}/opt/argobots
+CART=${daos_prefix_path}/opt/cart
+FIO=${daos_prefix_path}/opt/fio
+FUSE=${daos_prefix_path}/opt/fuse
+ISAL=${daos_prefix_path}/opt/isal
+MERCURY=${daos_prefix_path}/opt/mercury
+OFI=${daos_prefix_path}/opt/ofi
+OPENPA=${daos_prefix_path}/opt/openpa
+PMDK=${daos_prefix_path}/opt/pmdk
+PROTOBUFC=${daos_prefix_path}/opt/protobufc
+SPDK=${daos_prefix_path}/opt/spdk
+
+
+LD_LIBRARY_PATH=${daos_prefix_path}/opt/spdk/lib:${daos_prefix_path}/opt/protobufc/lib:${daos_prefix_path}/opt/pmdk/lib:${daos_prefix_path}/opt/openpa/lib:${daos_prefix_path}/opt/ofi/lib:${daos_prefix_path}/opt/mercury/lib:${daos_prefix_path}/opt/isal/lib:${daos_prefix_path}/opt/fuse/lib64:${daos_prefix_path}/opt/cart/lib:${daos_prefix_path}/opt/argobots/lib
+PATH=${daos_prefix_path}/opt/spdk/bin:${daos_prefix_path}/opt/pmdk/bin:${daos_prefix_path}/opt/ofi/bin:${daos_prefix_path}/opt/isal/bin:${daos_prefix_path}/opt/fio/bin:${daos_prefix_path}/opt/cart/bin
+</code></pre>
+
+<p>With this approach, DAOS would get built using the prebuilt dependencies in
+${daos_prefix_path}/opt, and required options are saved for future compilations.
+So, after the first time, during development, only "scons --config=force" and
+"scons --config=force install" would suffice for compiling changes to DAOS
+source code.</p>
+<h2 id="go-dependencies">Go dependencies<a class="headerlink" href="#go-dependencies" title="Permanent link">&para;</a></h2>
+<p>Developers contributing Go code may need to change the external dependencies
+located in the src/control/vendor directory. The DAOS codebase uses
+<a href="https://github.com/golang/dep">dep</a> to manage these dependencies.</p>
+<p>On EL7 and later:</p>
+<pre><code class="bash">$ yum install yum-plugin-copr
+$ yum copr enable hnakamur/golang-dep
+$ yum install golang-dep
+</code></pre>
+
+<p>On Fedora 27 and later:</p>
+<pre><code class="bash">$ dnf install dep
+</code></pre>
+
+<p>On Ubuntu 18.04 and later:</p>
+<pre><code class="bash">$ apt-get install go-dep
+</code></pre>
+
+<p>For OSes that don't supply a package:</p>
+<ul>
+<li>Ensure that you have a personal GOPATH (see "go env GOPATH", referred to as
+"$GOPATH" in this document) and a GOBIN ($GOPATH/bin) set up and included in
+your PATH:</li>
+</ul>
+<pre><code class="bash">$ mkdir -p $GOPATH/bin
+$ export PATH=$GOPATH/bin:$PATH
+</code></pre>
+
+<ul>
+<li>Then follow the <a href="https://github.com/golang/dep">installation instructions on Github</a>.</li>
+</ul>
+<p>To update the vendor directory using dep after changing Gopkg.toml, make
+sure DAOS is cloned into "$GOPATH/src/github.com/daos-stack/daos"</p>
+<p>Then:</p>
+<pre><code class="bash">$ cd $GOPATH/src/github.com/daos-stack/daos/src/control
+$ dep ensure
+</code></pre>
+
+<h2 id="protobuf-compiler">Protobuf Compiler<a class="headerlink" href="#protobuf-compiler" title="Permanent link">&para;</a></h2>
+<p>The DAOS control plane infrastructure uses protobuf as the data serialization
+format for its RPC requests. The DAOS proto files use protobuf 3 syntax, which is
+not supported by the platform protobuf compiler in all cases. Not all developers
+will need to build the proto files into the various source files.
+However, if changes are made to the proto files, the corresponding C and Go
+source files will need to be regenerated with a protobuf 3.* or higher
+compiler.</p>
+<p>The recommended installation method is to clone the git repositories, check out
+the tagged releases noted below, and install from source. Later versions may
+work but are not guaranteed.</p>
+<ul>
+<li><a href="https://github.com/protocolbuffers/protobuf">Protocol Buffers</a> v3.5.1.
+  <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/README.md">Installation instructions</a>.</li>
+<li><a href="https://github.com/protobuf-c/protobuf-c">Protobuf-C</a> v1.3.1.
+  <a href="https://github.com/protobuf-c/protobuf-c/blob/master/README.md">Installation instructions</a>.</li>
+<li>gRPC plugin: <a href="https://github.com/golang/protobuf">protoc-gen-go</a> v1.2.0.
+  Must match the proto version in src/control/Gopkg.toml.
+  Install the specific version using GIT_TAG instructions <a href="https://github.com/golang/protobuf/blob/master/README.md">here</a>.</li>
+</ul>
+<p>Generate the Go file using the gRPC plugin. You can designate the directory
+location:</p>
+<pre><code class="bash">$ protoc myfile.proto --go_out=plugins=grpc:&lt;go_file_dir&gt;
+</code></pre>
+
+<p>Generate the C files using Protobuf-C. As the header and source files in DAOS
+are typically kept in separate locations, you will need to move them manually
+to their destination directories:</p>
+<pre><code class="bash">$ protoc-c myfile.proto --c_out=.
+$ mv myfile.pb-c.h &lt;c_file_include_dir&gt;
+$ mv myfile.pb-c.c &lt;c_file_src_dir&gt;
+</code></pre>
                 
                   
                 
@@ -782,6 +992,41 @@
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../user/spark/" title="Spark" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Spark
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../contributing/" title="Contributing" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Contributing
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

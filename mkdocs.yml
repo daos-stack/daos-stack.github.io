@@ -56,7 +56,8 @@ nav:
         - 'HPC I/O Middleware': 'user/hpc.md'
         - 'Spark': 'user/spark.md'
     - Developer Zone:
-        - 'Dev Environment': 'internals/development.md'
+        - 'Dev Environment': 'dev/development.md'
+        - 'Contributing': 'dev/contributing.md'
         - 'DAOS Internals': 'https://github.com/daos-stack/daos/blob/master/src/README.md'
     - Community Wiki: 'https://wiki.hpdd.intel.com'
     - Roadmap: 'https://wiki.hpdd.intel.com/display/DC/Roadmap/'

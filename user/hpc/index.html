@@ -245,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../internals/development/" class="md-tabs__link">
+        <a href="../../dev/development/" class="md-tabs__link">
           Developer Zone
         </a>
       
@@ -712,8 +712,20 @@
 
 
   <li class="md-nav__item">
-    <a href="../../internals/development/" title="Dev Environment" class="md-nav__link">
+    <a href="../../dev/development/" title="Dev Environment" class="md-nav__link">
       Dev Environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../dev/contributing/" title="Contributing" class="md-nav__link">
+      Contributing
     </a>
   </li>
 
@@ -839,8 +851,8 @@
                 <h1 id="hpc-io-middleware-support">HPC I/O Middleware Support<a class="headerlink" href="#hpc-io-middleware-support" title="Permanent link">&para;</a></h1>
 <p>Several HPC I/O middleware libraries have been ported to the native API.</p>
 <h2 id="mpi-io">MPI-IO<a class="headerlink" href="#mpi-io" title="Permanent link">&para;</a></h2>
-<p>DAOS has its own MPI-IO ROM ADIO driver located in a MPICH fork on GitHub:</p>
-<p><a href="https://github.com/daos-stack/mpich">https://github.com/daos-stack/mpich</a></p>
+<p>DAOS has its own MPI-IO ROM ADIO driver located in a MPICH fork on
+<a href="https://github.com/daos-stack/mpich">GitHub</a>.</p>
 <p>This driver has been submitted upstream for integration.</p>
 <p>To build the MPI-IO driver:</p>
 <ul>
@@ -865,25 +877,26 @@
 <p>make -j8; make install</p>
 </li>
 </ul>
-<p>Switch the PATH and LD_LIBRARY_PATH to where you want to build your client apps or libs
-that use MPI to the installed MPICH.</p>
+<p>Switch the <code>PATH</code> and <code>LD_LIBRARY_PATH</code> to where you want to build your client
+apps or libs that use MPI to the installed MPICH.</p>
 <p>Build any client (HDF5, ior, mpi test suites) normally with the mpicc and mpich
 library installed above (see child pages).</p>
 <p>To run an example:</p>
 <ol>
 <li>Launch DAOS server(s) and create a pool as specified in the previous section.
    This will return a pool uuid "puuid" and service rank list "svcl"</li>
-<li>At the client side, the following environment variables need to be set:<pre><code>export PATH=/path/to/mpich/install/bin:$PATH
-export LD_LIBRARY_PATH=/path/to/mpich/install/lib:$LD_LIBRARY_PATH
-export MPI_LIB=""
-</code></pre>
-<ol>
-<li>export DAOS_POOL=puuid; export DAOS_SVCL=svcl
-This is just temporary till we have a better way of passing pool
-connect info to MPI-IO and other middleware over DAOS.</li>
-<li>Run the client application or test.</li>
+<li>At the client side, the following environment variables need to be set:</li>
 </ol>
-</li>
+<pre><code class="bash">        export PATH=/path/to/mpich/install/bin:$PATH
+        export LD_LIBRARY_PATH=/path/to/mpich/install/lib:$LD_LIBRARY_PATH
+        export MPI_LIB=&quot;&quot;
+</code></pre>
+
+<ol>
+<li><code>export DAOS_POOL=puuid; export DAOS_SVCL=svcl</code>
+    This is just temporary till we have a better way of passing pool
+    connect info to MPI-IO and other middleware over DAOS.</li>
+<li>Run the client application or test.</li>
 </ol>
 <p>Limitations to the current implementation include:</p>
 <ul>
@@ -900,8 +913,9 @@ connect info to MPI-IO and other middleware over DAOS.</li>
 </li>
 </ul>
 <h2 id="hdf5">HDF5<a class="headerlink" href="#hdf5" title="Permanent link">&para;</a></h2>
-<p>A prototype version of an HDF5 DAOS connector is available. Please refer to the
-DAOS VOL connector user guide<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">1</a></sup> for instructions on how to build and use it.</p>
+<p>A <a href="https://bitbucket.hdfgroup.org/projects/HDFFV/repos/hdf5/browse?at=refs%2Fheads%2Ffeature%2Fdaos_vol_support">HDF5 DAOS connector</a>
+is available. Please refer to the DAOS VOL connector user guide<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">1</a></sup> for
+instructions on how to build and use it.</p>
 <div class="footnote">
 <hr />
 <ol>

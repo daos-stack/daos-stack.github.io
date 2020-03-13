@@ -111,7 +111,12 @@
      <changefreq>daily</changefreq>
     </url>
     <url>
-     <loc>http://daos.io/internals/development/</loc>
+     <loc>http://daos.io/dev/development/</loc>
+     <lastmod>2020-03-13</lastmod>
+     <changefreq>daily</changefreq>
+    </url>
+    <url>
+     <loc>http://daos.io/dev/contributing/</loc>
      <lastmod>2020-03-13</lastmod>
      <changefreq>daily</changefreq>
     </url>
