@@ -1009,7 +1009,7 @@ operations are issued in parallel (up to 16 operations in flight) to
 maximize the operation rate.</p>
 <p>Key-value pair are deleted via the put/bput operations by setting the value
 to either None or the empty string. Once deleted, the key won't be reported
-during iteration.
+during iteration. It also supports the del operation via 'del dkv.key'.
 The DAOS KV objects behave like a python dictionary and supports:
 - 'dkv[key]' which invokes 'dkv.get(key)'
 - 'dkv[key] = val' which invokes 'dkv.put(key, val)'
