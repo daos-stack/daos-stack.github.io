@@ -999,11 +999,31 @@ files.</p>
 <p>A python module called <a href="https://github.com/daos-stack/daos/blob/master/src/client/pydaos">PyDAOS</a>
 provides the DAOS python to python users.</p>
 <h3 id="pydaos">pydaos<a class="headerlink" href="#pydaos" title="Permanent link">&para;</a></h3>
-<p>The <a href="https://github.com/daos-stack/daos/blob/master/src/client/pydaos/pydaos_core.py">pydaos</a>
+<p><a href="https://github.com/daos-stack/daos/blob/master/src/client/pydaos/pydaos_core.py">pydaos</a>
 provides a native DAOS python interface exported by a C module. It integrates
-DAOS key-value store with python dictionnaries. This includes support for
-python iterators and direct assignments. Bulk insertion, removal and retrieval
-is supported via the bput/bget interface.</p>
+the DAOS key-value store API with python dictionnaries. Only strings are
+supported for both the key and value for now.</p>
+<p>Key-value pair can be inserted/looked up once at a time (see put/get) or
+in bulk (see bput/bget) taking a python dict as an input. The bulk
+operations are issued in parallel (up to 16 operations in flight) to
+maximize the operation rate.</p>
+<p>Key-value pair are deleted via the put/bput operations by setting the value
+to either None or the empty string. Once deleted, the key won't be reported
+during iteration.
+The DAOS KV objects behave like a python dictionary and supports:
+- 'dkv[key]' which invokes 'dkv.get(key)'
+- 'dkv[key] = val' which invokes 'dkv.put(key, val)'
+- 'for key in dkv:' allows to walk through the key space via the support of
+  python iterators
+- 'if key is in dkv:' allows to test whether a give key is present in the
+  DAOS KV store.
+- 'len(dkv)' returns the number of key-value pairs
+- 'bool(dkv)' reports 'False' if there is no key-value pairs in the DAOS KV
+  and 'True' otherwise.</p>
+<p>Python iterators are supported, which means that "for key in kvobj:" will
+allow you to walk through the key space.
+For each method, a PyDError exception is raised with proper DAOS error code
+(in string format) if the operation cannot be completed.</p>
 <p>Both python 2.7 and 3.x are supported.</p>
 <h3 id="pydaosdbm">pydaos.dbm<a class="headerlink" href="#pydaosdbm" title="Permanent link">&para;</a></h3>
 <p>The <a href="https://github.com/daos-stack/daos/blob/master/src/client/pydaos/daosdbm.py">pydaos.dbm</a>
@@ -1021,8 +1041,10 @@ turnaround time on implementing test cases for DAOS.</p>
 <h4 id="layout">Layout<a class="headerlink" href="#layout" title="Permanent link">&para;</a></h4>
 <p>The Python API is split into several files based on functionality:</p>
 <ul>
-<li>The Python object API: <a href="https://github.com/daos-stack/daos/tree/master/src/client/pydaos/raw/daos_api.py">daos_api.py</a>.</li>
-<li>The mapping of C structures to Python classes: <a href="https://github.com/daos-stack/daos/tree/master/src/client/pydaos/raw/daos_cref.py">daos_cref.py</a></li>
+<li>The Python object API:
+  <a href="https://github.com/daos-stack/daos/tree/master/src/client/pydaos/raw/daos_api.py">daos_api.py</a>.</li>
+<li>The mapping of C structures to Python classes
+  <a href="https://github.com/daos-stack/daos/tree/master/src/client/pydaos/raw/daos_cref.py">daos_cref.py</a></li>
 </ul>
 <p>High-level abstraction classes exist to manipulate DAOS storage:</p>
 <pre><code class="python">class DaosPool(object)
@@ -1136,7 +1158,7 @@ except DaosApiError as e:
 <p>The Python DAOS API exposes functionality to log messages to the DAOS client log.
 Messages can be logged as <code>INFO</code>, <code>DEBUG</code>, <code>WARN</code>, or <code>ERR</code> log levels.
 The DAOS log object must be initialized with the environmental context in which to run:</p>
-<pre><code class="python">from daos_api import DaosLog
+<pre><code class="python">from pydaos.raw import DaosLog
 
 self.d_log = DaosLog(self.context)
 
