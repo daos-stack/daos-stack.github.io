@@ -246,7 +246,7 @@
     <li class="md-tabs__item">
       
         <a href="../../internals/development/" class="md-tabs__link">
-          Developer Guide
+          Developer Zone
         </a>
       
     </li>
@@ -732,11 +732,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      Developer Guide
+      Developer Zone
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        Developer Guide
+        Developer Zone
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -747,8 +747,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../internals/development/" title="Development Environment" class="md-nav__link">
-      Development Environment
+    <a href="../../internals/development/" title="Dev Environment" class="md-nav__link">
+      Dev Environment
     </a>
   </li>
 
@@ -939,25 +939,25 @@ Chunk Size:     4096
 <p>At creation time, a list of container properties can be specified:</p>
 <ul>
 <li>
-<p>DAOS_PROP_CO_LABEL is a string that a user can associate with a
+<p><code>DAOS_PROP_CO_LABEL</code> is a string that a user can associate with a
     container. e.g., "Cat Pics" or "ResNet-50 training data"</p>
 </li>
 <li>
-<p>DAOS_PROP_CO_LAYOUT_TYPE is the container type (POSIX, MPI-IO,
+<p><code>DAOS_PROP_CO_LAYOUT_TYPE</code> is the container type (POSIX, MPI-IO,
     HDF5, ...)</p>
 </li>
 <li>
-<p>DAOS_PROP_CO_LAYOUT_VER is a version of the layout that can be
+<p><code>DAOS_PROP_CO_LAYOUT_VER</code> is a version of the layout that can be
     used by I/O middleware and application to handle interoperability.</p>
 </li>
 <li>
-<p>DAOS_PROP_CO_REDUN_FAC is the redundancy factor that drives the
+<p><code>DAOS_PROP_CO_REDUN_FAC</code> is the redundancy factor that drives the
     minimal data protection required for objects stored in the
     container. e.g., RF1 means no data protection, RF3 only allows 3-way
     replication or erasure code N+2.</p>
 </li>
 <li>
-<p>DAOS_PROP_CO_REDUN_LVL is the fault domain level that should be
+<p><code>DAOS_PROP_CO_REDUN_LVL</code> is the fault domain level that should be
     used to place data redundancy information (e.g., storage nodes, racks
     ...). This information will be eventually consumed to determine object
     placement.</p>
@@ -994,9 +994,9 @@ during container create.</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-</div>
 <p>Note that currently, once a container is created, its checksum configuration
-   cannot be changed.</p>
+cannot be changed.</p>
+</div>
 <h2 id="snapshot-rollback">Snapshot &amp; Rollback<a class="headerlink" href="#snapshot-rollback" title="Permanent link">&para;</a></h2>
 <p>Similar to container create/destroy, a container can be snapshotted through the
 DAOS API by calling daos_cont_create_snap(). Additional functions are provided
@@ -1006,7 +1006,7 @@ to rollback the content of a container to a previous snapshot, but those
 operations are not yet fully implemented.</p>
 <p>This section will be updated once support for container snapshot is supported by
 the <code>daos</code> tool.</p>
-<p>The DAOS_PROP_CO_SNAPSHOT_MAX property is used to limit the maximum number of
+<p>The <code>DAOS_PROP_CO_SNAPSHOT_MAX</code> property is used to limit the maximum number of
 snapshots to retain. When a new snapshot is taken, and the threshold is reached,
 the oldest snapshot will be automatically deleted.</p>
 <p>Rolling back the content of a container to a snapshot is planned for future DAOS
@@ -1019,8 +1019,8 @@ container through the daos_cont_{list/get/set}_attr() API.</p>
 container ACLs will implement a subset of the NFSv4 ACL standard. This feature
 will be documented here once available.</p>
 <h2 id="compression-encryption">Compression &amp; Encryption<a class="headerlink" href="#compression-encryption" title="Permanent link">&para;</a></h2>
-<p>The DAOS_PROP_CO_COMPRESS and DAOS_PROP_CO_ENCRYPT properties are reserved for
-configuring respectively online compression and encryption.
+<p>The <code>DAOS_PROP_CO_COMPRESS</code> and <code>DAOS_PROP_CO_ENCRYPT</code> properties are reserved
+for configuring respectively online compression and encryption.
 These features are currently not on the roadmap.</p>
                 
                   

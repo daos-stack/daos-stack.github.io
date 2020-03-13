@@ -246,7 +246,7 @@
     <li class="md-tabs__item">
       
         <a href="../../internals/development/" class="md-tabs__link">
-          Developer Guide
+          Developer Zone
         </a>
       
     </li>
@@ -697,11 +697,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      Developer Guide
+      Developer Zone
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        Developer Guide
+        Developer Zone
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -712,8 +712,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../internals/development/" title="Development Environment" class="md-nav__link">
-      Development Environment
+    <a href="../../internals/development/" title="Dev Environment" class="md-nav__link">
+      Dev Environment
     </a>
   </li>
 
@@ -876,8 +876,6 @@ library installed above (see child pages).</p>
 <li>At the client side, the following environment variables need to be set:<pre><code>export PATH=/path/to/mpich/install/bin:$PATH
 export LD_LIBRARY_PATH=/path/to/mpich/install/lib:$LD_LIBRARY_PATH
 export MPI_LIB=""
-export CRT_ATTACH_INFO_PATH=/path/ (whatever was passed to daos_server start -a)
-export DAOS_SINGLETON_CLI=1
 </code></pre>
 <ol>
 <li>export DAOS_POOL=puuid; export DAOS_SVCL=svcl
@@ -903,7 +901,15 @@ connect info to MPI-IO and other middleware over DAOS.</li>
 </ul>
 <h2 id="hdf5">HDF5<a class="headerlink" href="#hdf5" title="Permanent link">&para;</a></h2>
 <p>A prototype version of an HDF5 DAOS connector is available. Please refer to the
-DAOS VOL connector user guide[^3] for instructions on how to build and use it.</p>
+DAOS VOL connector user guide<sup id="fnref:3"><a class="footnote-ref" href="#fn:3">1</a></sup> for instructions on how to build and use it.</p>
+<div class="footnote">
+<hr />
+<ol>
+<li id="fn:3">
+<p>https://bitbucket.hdfgroup.org/projects/HDFFV/repos/hdf5/browse?at=refs%2Fheads%2Ffeature%2Fdaos_vol_support&#160;<a class="footnote-backref" href="#fnref:3" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
                 
                   
                 
