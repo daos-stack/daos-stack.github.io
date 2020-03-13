@@ -651,13 +651,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pydaosdbm" class="md-nav__link">
-    pydaos.dbm
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pydaosraw" class="md-nav__link">
     pydaos.raw
   </a>
@@ -908,13 +901,6 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#pydaosdbm" class="md-nav__link">
-    pydaos.dbm
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#pydaosraw" class="md-nav__link">
     pydaos.raw
   </a>
@@ -1039,12 +1025,6 @@ allow you to walk through the key space.
 For each method, a PyDError exception is raised with proper DAOS error code
 (in string format) if the operation cannot be completed.</p>
 <p>Both python 2.7 and 3.x are supported.</p>
-<h3 id="pydaosdbm">pydaos.dbm<a class="headerlink" href="#pydaosdbm" title="Permanent link">&para;</a></h3>
-<p>The <a href="https://github.com/daos-stack/daos/blob/master/src/client/pydaos/daosdbm.py">pydaos.dbm</a>
-submodule emulates the dbm.gnu interface on top of pydaos.
-This allows tranparent migration of application built on top of the dbm.gnu
-module. It also provides an interface to migrate a POSIX dbm file to pydaos
-key-value store.</p>
 <h3 id="pydaosraw">pydaos.raw<a class="headerlink" href="#pydaosraw" title="Permanent link">&para;</a></h3>
 <p>The pydaos.raw submodule provides access to DAOS API functionality via Ctypes
 and was developed with an emphasis on test use cases. While the majority of unit
