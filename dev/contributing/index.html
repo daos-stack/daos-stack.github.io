@@ -748,15 +748,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pull-requests-pr" class="md-nav__link">
     Pull Requests (PR)
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -899,15 +899,15 @@
   
 </li>
         
-          <li class="md-nav__item">
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#pull-requests-pr" class="md-nav__link">
     Pull Requests (PR)
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -932,10 +932,18 @@
                 
                 <h1 id="contributing-to-daos">Contributing to DAOS<a class="headerlink" href="#contributing-to-daos" title="Permanent link">&para;</a></h1>
 <p>Your contributions are most welcome! There are several good ways to suggest new
-features, offer to add a feature, or just begin a dialog about DAOS:
-* Open an issue in <a href="https://jira.hpdd.intel.com">jira</a>
-* Suggest a feature, ask a question, start a discussion, etc. in our <a href="https://daos.groups.io/g/daos">user group</a>
-* Chat with members of the DAOS community real-time on <a href="https://gitter.im/daos-storage">Gitter</a></p>
+features, offer to add a feature, or just begin a dialog about DAOS:</p>
+<ul>
+<li>
+<p>Open an issue in <a href="https://jira.hpdd.intel.com">jira</a></p>
+</li>
+<li>
+<p>Suggest a feature, ask a question, start a discussion, etc. in our <a href="https://daos.groups.io/g/daos">user group</a></p>
+</li>
+<li>
+<p>Chat with members of the DAOS community real-time on <a href="https://gitter.im/daos-storage">Gitter</a></p>
+</li>
+</ul>
 <h2 id="coding-rules">Coding Rules<a class="headerlink" href="#coding-rules" title="Permanent link">&para;</a></h2>
 <p>Please check the <a href="https://wiki.hpdd.intel.com/display/DC/Coding+Rules">coding conventions</a>
 for code contribution.</p>
@@ -977,12 +985,9 @@ git shortlog to extract information from the patches more easily.</p>
 <p>The first line of the commit comment is the commit summary of the change.
 Changes submitted to the DAOS master branch require a DAOS Jira ticket number
 at the beginning of the commit summary. A DAOS Jira ticket is one that begins
-with DAOS and is therefore part of the DAOS project within Jira.</p>
-<p>For patches to other projects, such as CaRT, a different JIRA project should be
-used (e.g. CART). If the patch is submitted a DAOS Jira ID in the first line,
-then it will automatically receive a -2 review which will prevent the patch
-from being submitted to a release branch. You would then need to fix the
-summary line and resubmit the patch.</p>
+with DAOS and is therefore part of the DAOS project within Jira.
+For patches to other projects, such as CaRT, a different JIRA project should be
+used (e.g. CART).</p>
 <p>The commit summary should also have a component: tag immediately following the
 Jira ticket number that indicates which DAOS subsystem that the commit is
 related to. Example DAOS subsystems relate to modules like: client, pool,
@@ -1015,7 +1020,7 @@ for easier searching).  Wrap lines at/under 70 columns.
 Signed-off-by: Your Real Name &lt;your_email@domain.name&gt;
 </code></pre>
 
-<h3 id="the-signed-off-by-line">The Signed-off-by: line<a class="headerlink" href="#the-signed-off-by-line" title="Permanent link">&para;</a></h3>
+<h3 id="the-signed-off-by-line">The <code>Signed-off-by:</code> line<a class="headerlink" href="#the-signed-off-by-line" title="Permanent link">&para;</a></h3>
 <p>The <code>Signed-off-by:</code> line asserts that you have permission to contribute the
 code to the project according to the Developer's Certificate of Origin.</p>
 <h3 id="additional-commit-tags">Additional commit tags<a class="headerlink" href="#additional-commit-tags" title="Permanent link">&para;</a></h3>
@@ -1030,7 +1035,7 @@ Reviewed-by: User Name &lt;user@domain.com&gt;
 CC: User Name &lt;user@domain.com&gt;
 </code></pre>
 
-<h3 id="pull-requests-pr">Pull Requests (PR)<a class="headerlink" href="#pull-requests-pr" title="Permanent link">&para;</a></h3>
+<h2 id="pull-requests-pr">Pull Requests (PR)<a class="headerlink" href="#pull-requests-pr" title="Permanent link">&para;</a></h2>
 <p>DAOS uses the common fork &amp; merge workflow used by most GitHub-hosted projects.
 Please refer to the <a href="https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/proposing-changes-to-your-work-with-pull-requests">online GitHub documentation</a>.</p>
                 
