@@ -245,13 +245,17 @@
   
     <li class="md-tabs__item">
       
-        <a href="https://github.com/daos-stack/daos/blob/master/src/README.md" class="md-tabs__link">
-          Internals (Developers)
+        <a href="../../internals/development/" class="md-tabs__link">
+          Developer Guide
         </a>
       
     </li>
   
 
+      
+        
+      
+        
       
         
       
@@ -943,11 +947,11 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
     <label class="md-nav__link" for="nav-5">
-      Internals (Developers)
+      Developer Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-5">
-        Internals (Developers)
+        Developer Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
@@ -958,8 +962,20 @@
 
 
   <li class="md-nav__item">
-    <a href="https://github.com/daos-stack/daos/blob/master/src/README.md" title="None" class="md-nav__link">
-      None
+    <a href="../../internals/development/" title="Development Environment" class="md-nav__link">
+      Development Environment
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/daos-stack/daos/blob/master/src/README.md" title="DAOS Internals" class="md-nav__link">
+      DAOS Internals
     </a>
   </li>
 
@@ -989,6 +1005,30 @@
   <li class="md-nav__item">
     <a href="https://wiki.hpdd.intel.com/display/DC/Roadmap/" title="Roadmap" class="md-nav__link">
       Roadmap
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://daos.groups.io/g/daos" title="Mailing list" class="md-nav__link">
+      Mailing list
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
+    <a href="https://jira.hpdd.intel.com/projects/DAOS" title="Issue tracker" class="md-nav__link">
+      Issue tracker
     </a>
   </li>
 
@@ -1456,9 +1496,11 @@ $ sudo ln -s $SL_PREFIX/include \
            /usr/share/spdk/include
 </code></pre>
 
-<p>NOTES:
- * The RPM installation is preferred for production scenarios. Manual installation
- is most appropriate for development and predeployment proof-of-concept scenarios.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+</div>
+<p>The RPM installation is preferred for production scenarios. Manual installation
+   is most appropriate for development and predeployment proof-of-concept scenarios.</p>
 <h2 id="daos-server-setup">DAOS Server Setup<a class="headerlink" href="#daos-server-setup" title="Permanent link">&para;</a></h2>
 <p>First of all, the DAOS server should be started to allow remote administration
 command to be executed via the dmg tool. This section describes the minimal
@@ -1897,7 +1939,7 @@ combinations detected on the DAOS server, use the following command:</p>
 highest performance at the top to lowest performance at the bottom of the list.
 Once the fabric_iface and provider pair has been chosen, those items and the
 pinned_numa_node may be inserted directly into the corresponding sections within
-daos_server.yml.  Note that the provider is currently the same for all DAOS
+daos_server.yml. Note that the provider is currently the same for all DAOS
 IO server instances and is configured once in the server configuration.
 The fabric_iface and pinned_numa_node are configured for each IO server
 instance.</p>
