@@ -1038,7 +1038,7 @@ Moreover, the DAOS stack leverages the following open source projects:</p>
 </li>
 <li>
 <p><a href="https://github.com/ofiwg/libfabric"><em>libfabric</em></a> for detecting fabric
-    interfaces, providers and connection management.</p>
+    interfaces, providers, and connection management.</p>
 </li>
 </ul>
 <p>The DAOS build system can be configured to download and build any missing
@@ -1102,10 +1102,10 @@ The installation path can be modified by adding the PREFIX= option to the above
 command line (e.g., PREFIX=/usr/local).</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
+<p>Several parameters can be set (e.g., COMPILER=clang or COMPILER=icc) on the
+scons command line. Please see <code>scons --help</code> for all the possible options.
+Those options are also saved for future compilations.</p>
 </div>
-<p>If you wish to compile DAOS with clang or use the Intel compilers rather than
-   gcc, set COMPILER=clang or COMPILER=icc on the scons command line.
-   This option is also saved for future compilations.</p>
 <h3 id="environment-setup">Environment setup<a class="headerlink" href="#environment-setup" title="Permanent link">&para;</a></h3>
 <p>Once built, the environment must be modified to search for binaries and header
 files in the installation path. This step is not required if standard locations
@@ -1124,7 +1124,7 @@ specified through PREFIX.</p>
 <p>This section describes how to build and run the DAOS service in a Docker
 container. A minimum of 5GB of DRAM and 16GB of disk space will be required.
 On Mac, please make sure that the Docker settings under
-"Preferences/{Disk,Memory}" are configured accordingly.</p>
+"Preferences/{Disk, Memory}" are configured accordingly.</p>
 <h3 id="building-from-github">Building from GitHub<a class="headerlink" href="#building-from-github" title="Permanent link">&para;</a></h3>
 <p>To build the Docker image directly from GitHub, run the following command:</p>
 <pre><code class="bash">$ curl -L https://raw.githubusercontent.com/daos-stack/daos/master/utils/docker/Dockerfile.centos.7 | \
