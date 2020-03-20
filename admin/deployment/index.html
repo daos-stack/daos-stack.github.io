@@ -1413,6 +1413,11 @@ $ sudo grub2-mkconfig --output=/boot/grub2/grub.cfg
 $ sudo reboot
 </code></pre>
 
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>VFIO support is currently planned for DAOS 1.2 and won't work until
+we move to SPDK 20.01.1</p>
+</div>
 <h3 id="time-synchronization">Time Synchronization<a class="headerlink" href="#time-synchronization" title="Permanent link">&para;</a></h3>
 <p>The DAOS transaction model relies on timestamps and requires time to be
 synchronized across all the storage and client nodes. This can be done
@@ -1580,6 +1585,20 @@ preserved for future use.</p>
 <p>The generated keys and certificates must then be securely distributed to all nodes participating
 in the DAOS system (servers, clients, and admin nodes). Permissions for these files should
 be set to prevent unauthorized access to the keys and certificates.</p>
+<p>Client nodes require:
+- CA root cert
+- Agent cert
+- Agent key</p>
+<p>Administrative nodes require:
+- CA root cert
+- Admin cert
+- Admin key</p>
+<p>Server nodes require:
+- CA root cert
+- Server cert
+- Server key
+- All valid agent certs in the DAOS system (in the client cert directory, see
+  config file below)</p>
 <p>After the certificates have been securely distributed, the DAOS configuration files must be
 updated in order to enable authentication and secure communications. These examples assume
 that the configuration files have been installed under <code>/etc/daos</code>:</p>
@@ -2113,8 +2132,24 @@ $ sudo systemctl start daos-agent
 <h2 id="system-validation">System Validation<a class="headerlink" href="#system-validation" title="Permanent link">&para;</a></h2>
 <p>To validate that the DAOS system is properly installed, the daos_test
 suite can be executed. Ensure the DAOS Agent is configured and running before
-running daos_test and that the DAOS_SINGLETON_CLI and CRT_ATTACH_INFO_PATH
-environment variables are properly set as described <a href="#server-startup">here</a>.</p>
+running daos_test and that the following environment variables are properly
+configured:</p>
+<ul>
+<li>
+<p><code>CRT_PHY_ADDR_STR</code> must be set to match the provider specified in the server
+  yaml configuration file (e.g. export <code>CRT_PHY_ADDR_STR="ofi+sockets"</code>)</p>
+</li>
+<li>
+<p><code>OFI_INTERFACE</code> is set to the network interface you want to user on the client
+  node.</p>
+</li>
+<li>
+<p><code>OFI_DOMAIN</code> must optionally be set for infiniband deployments.</p>
+</li>
+</ul>
+<p>While those environment variables need to be set up for DAOS v1.0, versions 1.2
+and upward automatically set up the environment via the agent and don't require
+any special environment set up to run applications.</p>
 <pre><code class="bash">mpirun -np &lt;num_clients&gt; --hostfile &lt;hostfile&gt; ./daos_test
 </code></pre>
 

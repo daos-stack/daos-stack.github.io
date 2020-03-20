@@ -645,9 +645,97 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#container-acls" class="md-nav__link">
-    Container ACLs
+  <a href="#container-access-control-lists" class="md-nav__link">
+    Container Access Control Lists
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pool-permissions-vs-container-permissions" class="md-nav__link">
+    Pool Permissions vs. Container Permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-container-with-a-custom-acl" class="md-nav__link">
+    Creating a container with a custom ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-a-containers-acl" class="md-nav__link">
+    Displaying a container's ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-a-containers-acl" class="md-nav__link">
+    Modifying a container's ACL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overwriting-the-acl" class="md-nav__link">
+    Overwriting the ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-entries-in-an-existing-acl" class="md-nav__link">
+    Updating entries in an existing ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-an-entry-from-the-acl" class="md-nav__link">
+    Removing an entry from the ACL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ownership" class="md-nav__link">
+    Ownership
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-container-with-a-specific-ownership" class="md-nav__link">
+    Creating a container with a specific ownership
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-ownership" class="md-nav__link">
+    Changing the ownership
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -886,9 +974,97 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#container-acls" class="md-nav__link">
-    Container ACLs
+  <a href="#container-access-control-lists" class="md-nav__link">
+    Container Access Control Lists
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pool-permissions-vs-container-permissions" class="md-nav__link">
+    Pool Permissions vs. Container Permissions
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-container-with-a-custom-acl" class="md-nav__link">
+    Creating a container with a custom ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#displaying-a-containers-acl" class="md-nav__link">
+    Displaying a container's ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#modifying-a-containers-acl" class="md-nav__link">
+    Modifying a container's ACL
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#overwriting-the-acl" class="md-nav__link">
+    Overwriting the ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updating-entries-in-an-existing-acl" class="md-nav__link">
+    Updating entries in an existing ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#removing-an-entry-from-the-acl" class="md-nav__link">
+    Removing an entry from the ACL
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ownership" class="md-nav__link">
+    Ownership
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#creating-a-container-with-a-specific-ownership" class="md-nav__link">
+    Creating a container with a specific ownership
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-the-ownership" class="md-nav__link">
+    Changing the ownership
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1026,10 +1202,117 @@ versions.</p>
 <h2 id="user-attributes">User Attributes<a class="headerlink" href="#user-attributes" title="Permanent link">&para;</a></h2>
 <p>Similar to POSIX extended attributes, users can attach some metadata to each
 container through the daos_cont_{list/get/set}_attr() API.</p>
-<h2 id="container-acls">Container ACLs<a class="headerlink" href="#container-acls" title="Permanent link">&para;</a></h2>
-<p>Support for per-container ACLs is scheduled for DAOS v1.2. Similar to pool ACLs,
-container ACLs will implement a subset of the NFSv4 ACL standard. This feature
-will be documented here once available.</p>
+<h2 id="container-access-control-lists">Container Access Control Lists<a class="headerlink" href="#container-access-control-lists" title="Permanent link">&para;</a></h2>
+<p>Client user and group access for containers is controlled by 
+<a href="/doc/user/acl.md">Access Control Lists (ACLs)</a>.</p>
+<p>Access-controlled container accesses include:
+* Opening the container for access.
+* Reading and writing data in the container.
+  * Reading and writing objects.
+  * Getting, setting, and listing user attributes.
+  * Getting, setting, and listing snapshots.
+* Deleting the container (if the pool does not grant the user permission).
+* Getting and setting container properties.
+* Getting and modifying the container ACL.
+* Modifying the container's owner.</p>
+<p>This is reflected in the set of supported 
+<a href="/doc/user/acl.md#permissions">container permissions</a>.</p>
+<h3 id="pool-permissions-vs-container-permissions">Pool Permissions vs. Container Permissions<a class="headerlink" href="#pool-permissions-vs-container-permissions" title="Permanent link">&para;</a></h3>
+<p>In general, pool permissions are separate from container permissions, and access
+to one does not guarantee access to the other. However, a user must have
+permission to connect to a container's pool before they can access the
+container in any way, regardless of their permissions on that container.
+Once the user has connected to a pool, container access decisions are based on
+the individual container ACL. A user need not have read/write access to a pool
+in order to open a container with read/write access, for example.</p>
+<p>There is one situation in which the pool can grant a container-level permission:
+Container deletion. If a user has Delete permission on a pool, this grants them
+the ability to delete <em>any</em> container in the pool, regardless of their
+permissions on that container.</p>
+<p>If the user does not have Delete permission on the pool, they will only be able
+to delete containers for which they have been explicitly granted Delete
+permission in the container's ACL.</p>
+<h3 id="creating-a-container-with-a-custom-acl">Creating a container with a custom ACL<a class="headerlink" href="#creating-a-container-with-a-custom-acl" title="Permanent link">&para;</a></h3>
+<p>To create a container with a custom ACL:</p>
+<pre><code class="bash">$ daos cont create --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --acl-file=&lt;path&gt;
+</code></pre>
+
+<p>The ACL file format is detailed in the <a href="/doc/user/acl.md#acl-file">ACL section</a>.</p>
+<h3 id="displaying-a-containers-acl">Displaying a container's ACL<a class="headerlink" href="#displaying-a-containers-acl" title="Permanent link">&para;</a></h3>
+<p>To view a container's ACL:</p>
+<pre><code class="bash">$ daos cont get-acl --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt;
+</code></pre>
+
+<p>The output is in the same string format used in the ACL file during creation,
+with one ACE per line.</p>
+<h3 id="modifying-a-containers-acl">Modifying a container's ACL<a class="headerlink" href="#modifying-a-containers-acl" title="Permanent link">&para;</a></h3>
+<p>For all of these commands using an ACL file, the ACL file must be in the format
+noted above for container creation.</p>
+<h4 id="overwriting-the-acl">Overwriting the ACL<a class="headerlink" href="#overwriting-the-acl" title="Permanent link">&para;</a></h4>
+<p>To replace a container's ACL with a new ACL:</p>
+<pre><code class="bash">$ daos cont overwrite-acl --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; --acl-file=&lt;path&gt;
+</code></pre>
+
+<h4 id="updating-entries-in-an-existing-acl">Updating entries in an existing ACL<a class="headerlink" href="#updating-entries-in-an-existing-acl" title="Permanent link">&para;</a></h4>
+<p>To add or update multiple entries in an existing container ACL:</p>
+<pre><code class="bash">$ daos cont update-acl --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; --acl-file=&lt;path&gt;
+</code></pre>
+
+<p>To add or update a single entry in an existing container ACL:</p>
+<pre><code class="bash">$ daos cont update-acl --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; --entry &lt;ACE&gt;
+</code></pre>
+
+<p>If there is no existing entry for the principal in the ACL, the new entry is
+added to the ACL. If there is already an entry for the principal, that entry
+is replaced with the new one.</p>
+<h4 id="removing-an-entry-from-the-acl">Removing an entry from the ACL<a class="headerlink" href="#removing-an-entry-from-the-acl" title="Permanent link">&para;</a></h4>
+<p>To delete an entry for a given principal in an existing container ACL:</p>
+<pre><code class="bash">$ daos cont delete-acl --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; --principal=&lt;principal&gt;
+</code></pre>
+
+<p>The principal corresponds to the principal portion of an ACE that was
+set during container creation or a previous container ACL operation. For the
+delete operation, the principal argument must be formatted as follows:</p>
+<ul>
+<li>Named user: <code>u:username@</code></li>
+<li>Named group: <code>g:groupname@</code></li>
+<li>Special principals:</li>
+<li><code>OWNER@</code></li>
+<li><code>GROUP@</code></li>
+<li><code>EVERYONE@</code></li>
+</ul>
+<p>The entry for that principal will be completely removed. This does not always
+mean that the principal will have no access. Rather, their access to the
+container will be decided based on the remaining ACL rules.</p>
+<h3 id="ownership">Ownership<a class="headerlink" href="#ownership" title="Permanent link">&para;</a></h3>
+<p>The ownership of the container corresponds to the special principals <code>OWNER@</code>
+and <code>GROUP@</code> in the ACL. These values are a part of the container properties.
+They may be set on container creation and changed later.</p>
+<p>The owner-user (<code>OWNER@</code>) always has set-ACL and get-ACL permissions, even if
+they are not explicitly granted by the ACL. This applies regardless of the other
+permissions they are granted by ACE(s) in the ACL.</p>
+<p>The owner-group (<code>GROUP@</code>) has no special permissions outside what they are
+granted by the ACL.</p>
+<h4 id="creating-a-container-with-a-specific-ownership">Creating a container with a specific ownership<a class="headerlink" href="#creating-a-container-with-a-specific-ownership" title="Permanent link">&para;</a></h4>
+<p>The default owner user and group are the effective user and group of the user
+creating the container. However, a specific user and/or group may be specified
+at container creation time.</p>
+<pre><code class="bash">$ daos cont create --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --user=&lt;owner-user&gt; --group=&lt;owner-group&gt;
+</code></pre>
+
+<p>The user and group names are case sensitive and must be formatted as
+<a href="/doc/user/acl.md#principal">DAOS ACL user/group principals</a>.</p>
+<h4 id="changing-the-ownership">Changing the ownership<a class="headerlink" href="#changing-the-ownership" title="Permanent link">&para;</a></h4>
+<p>To change the owner user:</p>
+<pre><code class="bash">$ daos cont set-owner --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; --user=&lt;owner-user&gt;
+</code></pre>
+
+<p>To change the owner group:</p>
+<pre><code class="bash">$ daos cont set-owner --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; --group=&lt;owner-group&gt;
+</code></pre>
+
+<p>The user and group names are case sensitive and must be formatted as
+<a href="/doc/user/acl.md#principal">DAOS ACL user/group principals</a>.</p>
 <h2 id="compression-encryption">Compression &amp; Encryption<a class="headerlink" href="#compression-encryption" title="Permanent link">&para;</a></h2>
 <p>The <code>DAOS_PROP_CO_COMPRESS</code> and <code>DAOS_PROP_CO_ENCRYPT</code> properties are reserved
 for configuring respectively online compression and encryption.

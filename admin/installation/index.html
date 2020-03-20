@@ -555,8 +555,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#running-daos-in-docker" class="md-nav__link">
-    Running DAOS in Docker
+  <a href="#simple-docker-setup" class="md-nav__link">
+    Simple Docker Setup
   </a>
   
 </li>
@@ -968,8 +968,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#running-daos-in-docker" class="md-nav__link">
-    Running DAOS in Docker
+  <a href="#simple-docker-setup" class="md-nav__link">
+    Simple Docker Setup
   </a>
   
 </li>
@@ -1166,17 +1166,17 @@ container:</p>
 <pre><code class="bash">$ docker exec server scons --build-deps=yes install PREFIX=/usr
 </code></pre>
 
-<h3 id="running-daos-in-docker">Running DAOS in Docker<a class="headerlink" href="#running-daos-in-docker" title="Permanent link">&para;</a></h3>
-<p>The DAOS service can be started as follows:</p>
+<h3 id="simple-docker-setup">Simple Docker Setup<a class="headerlink" href="#simple-docker-setup" title="Permanent link">&para;</a></h3>
+<p>The <code>daos_server_local.yml</code> configuration file sets up a simple local DAOS
+system with a single server instance running in the container. By default, it
+uses 4GB of DRAM to emulate persistent memory and 16GB of bulk storage under
+/tmp. The storage size can be changed in the yaml file if necessary.</p>
+<p>The DAOS service can be started in the docker container as follows:</p>
 <pre><code class="bash">$ docker exec server mkdir /var/run/daos_server
 $ docker exec server daos_server start \
         -o /home/daos/daos/utils/config/examples/daos_server_local.yml
 </code></pre>
 
-<p>The daos_server_local.yml configuration file sets up a simple local DAOS system
-with a single server instance running in the container. By default, it uses 4GB
-of DRAM to emulate persistent memory and 16GB of bulk storage under /tmp.
-The storage size can be changed in the yaml file if necessary.</p>
 <p>Once started, the DAOS server waits for the administrator to format the system.
 This can be triggered in a different shell, using the following command:</p>
 <pre><code class="bash">$ docker exec server dmg -i storage format
@@ -1188,6 +1188,8 @@ can be created using the daos admin tool (see next section).</p>
 <p class="admonition-title">Note</p>
 <p>Please make sure that the uio_pci_generic module is loaded.</p>
 </div>
+<p>For more advanced configurations involving SCM, SSD or a real fabric, please
+refer to the next section.</p>
                 
                   
                 

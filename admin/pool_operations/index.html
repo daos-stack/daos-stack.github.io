@@ -536,47 +536,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#access-control-entries" class="md-nav__link">
-    Access Control Entries
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identity" class="md-nav__link">
-    Identity
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enforcement" class="md-nav__link">
-    Enforcement
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    Limitations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#creating-a-pool-with-a-custom-acl" class="md-nav__link">
     Creating a pool with a custom ACL
   </a>
@@ -1001,47 +960,6 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#access-control-entries" class="md-nav__link">
-    Access Control Entries
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#identity" class="md-nav__link">
-    Identity
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#examples" class="md-nav__link">
-    Examples
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#enforcement" class="md-nav__link">
-    Enforcement
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    Limitations
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
   <a href="#creating-a-pool-with-a-custom-acl" class="md-nav__link">
     Creating a pool with a custom ACL
   </a>
@@ -1269,80 +1187,25 @@ metadata, many of them are still under development. Moreover, the
 ability to modify some of those properties on an existing pool will also
 be provided in a future release.</p>
 <h2 id="pool-access-control-lists">Pool Access Control Lists<a class="headerlink" href="#pool-access-control-lists" title="Permanent link">&para;</a></h2>
-<p>User and group access for pools is controlled by Access Control Lists (ACLs).
-A DAOS ACL is a list of zero or more Access Control Entries (ACEs). ACEs are
-the individual rules applied to each access decision.</p>
-<p>If no ACL is provided when creating the pool, the default ACL grants read and
-write access to the pool's owner-user and owner-group.</p>
-<h3 id="access-control-entries">Access Control Entries<a class="headerlink" href="#access-control-entries" title="Permanent link">&para;</a></h3>
-<p>ACEs are designated by a colon-separated string format:
-<code>TYPE:FLAGS:IDENTITY:PERMISSIONS</code></p>
-<p>Available values for these fields:</p>
-<ul>
-<li>TYPE: Allow (A)</li>
-<li>FLAGS: Group (G)</li>
-<li>IDENTITY: See below</li>
-<li>PERMISSIONS: Read (r), Write (w)</li>
-</ul>
-<h4 id="identity">Identity<a class="headerlink" href="#identity" title="Permanent link">&para;</a></h4>
-<p>The identity (also called the principal) is specified in the name@domain format.
-The domain should be left off if the name is a user/group on the local domain.
-Currently, this is the only case supported by DAOS.</p>
-<p>There are three special identities, <code>OWNER@</code>, <code>GROUP@</code> and <code>EVERYONE@</code>,
-which align with User, Group, and Other from traditional POSIX permission bits.
-When providing them in the ACE string format, they must be spelled exactly as
-written here, in uppercase with no domain appended.</p>
-<h4 id="examples">Examples<a class="headerlink" href="#examples" title="Permanent link">&para;</a></h4>
-<ul>
-<li><code>A::daos_user@:rw</code></li>
-<li>Allow the UNIX user named daos_user to have read-write access</li>
-<li><code>A:G:project_users@:r</code></li>
-<li>Allow anyone in the UNIX group project_users to have read-only access</li>
-<li><code>A::EVERYONE@:r</code></li>
-<li>Allow any user not covered by other rules to have read-only access</li>
-</ul>
-<h3 id="enforcement">Enforcement<a class="headerlink" href="#enforcement" title="Permanent link">&para;</a></h3>
-<p>Access Control Entries (ACEs) will be enforced in the following order:</p>
-<ul>
-<li>Owner-User</li>
-<li>Named users</li>
-<li>Owner-Group and named groups</li>
-<li>Everyone</li>
-</ul>
-<p>In general, enforcement will be based on the first match, ignoring
-lower-priority entries. For example, if the user has an ACE for their user
-identity, they will not receive the permissions for any of their groups, even if
-those group entries have broader permissions than the user entry does. The user
-is expected to match at most one user entry.</p>
-<p>If no matching user entry is found, but entries match one or more of the user's
-groups, enforcement will be based on the union of the permissions of all
-matching groups.</p>
-<p>By default, if a user matches no ACEs in the list, access will be denied.</p>
-<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
-<p>The maximum length of the ACE list in a DAOS ACL structure is 64KiB.</p>
-<p>To calculate the actual length of an ACL, use the following formula for each
-ACE:</p>
-<ul>
-<li>The base size of an ACE is 256B.</li>
-<li>If the ACE principal is <em>not</em> one of the special principals:</li>
-<li>Add the length of the identity string + 1.</li>
-<li>If that value is not 64B aligned, round up to the nearest 64B boundary.</li>
-</ul>
+<p>Client user and group access for pools is controlled by 
+<a href="/doc/user/acl.md">Access Control Lists (ACLs)</a>. Most pool-related tasks are
+performed using the DMG administrative tool, which is authenticated by the
+administrative certificate rather than user-specific credentials.</p>
+<p>Access-controlled client pool accesses include:
+* Connecting to the pool.
+* Querying the pool.
+* Creating containers in the pool.
+* Deleting containers in the pool.</p>
+<p>This is reflected in the set of supported 
+<a href="/doc/user/acl.md#permissions">pool permissions</a>.</p>
+<p>A user must be able to connect to the pool in order to access any containers
+inside, regardless of their permissions on those containers.</p>
 <h3 id="creating-a-pool-with-a-custom-acl">Creating a pool with a custom ACL<a class="headerlink" href="#creating-a-pool-with-a-custom-acl" title="Permanent link">&para;</a></h3>
 <p>To create a pool with a custom ACL:</p>
 <pre><code class="bash">$ dmg pool create --scm-size &lt;size&gt; --acl-file &lt;path&gt;
 </code></pre>
 
-<p>The ACL file is expected to be a text file with one ACE listed on each line. For
-example:</p>
-<pre><code class="bash"># Entries:
-A::OWNER@:rw
-A:G:GROUP@:rw
-# Everyone should be allowed to read
-A::EVERYONE@:r
-</code></pre>
-
-<p>You may add comments to the ACL file by starting the line with <code>#</code>.</p>
+<p>The ACL file format is detailed in the <a href="/doc/user/acl.md#acl-file">User Guide</a>.</p>
 <h3 id="displaying-a-pools-acl">Displaying a pool's ACL<a class="headerlink" href="#displaying-a-pools-acl" title="Permanent link">&para;</a></h3>
 <p>To view a pool's ACL:</p>
 <pre><code class="bash">$ dmg pool get-acl --pool &lt;UUID&gt;
@@ -1371,11 +1234,11 @@ noted above for pool creation.</p>
 added to the ACL. If there is already an entry for the principal, that entry
 is replaced with the new one.</p>
 <h4 id="removing-an-entry-from-the-acl">Removing an entry from the ACL<a class="headerlink" href="#removing-an-entry-from-the-acl" title="Permanent link">&para;</a></h4>
-<p>To delete an entry for a given principal, or identity, in an existing pool ACL:</p>
+<p>To delete an entry for a given principal in an existing pool ACL:</p>
 <pre><code class="bash">$ dmg pool delete-acl --pool &lt;UUID&gt; --principal &lt;principal&gt;
 </code></pre>
 
-<p>The principal corresponds to the principal/identity portion of an ACE that was
+<p>The principal corresponds to the principal portion of an ACE that was
 set during pool creation or a previous pool ACL operation. For the delete
 operation, the principal argument must be formatted as follows:</p>
 <ul>
