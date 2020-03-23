@@ -2131,9 +2131,8 @@ $ sudo systemctl start daos-agent
 
 <h2 id="system-validation">System Validation<a class="headerlink" href="#system-validation" title="Permanent link">&para;</a></h2>
 <p>To validate that the DAOS system is properly installed, the daos_test
-suite can be executed. Ensure the DAOS Agent is configured and running before
-running daos_test and that the following environment variables are properly
-configured:</p>
+suite can be executed. Ensure the DAOS Agent is configured before running
+daos_test and that the following environment variables are properly set:</p>
 <ul>
 <li>
 <p><code>CRT_PHY_ADDR_STR</code> must be set to match the provider specified in the server
@@ -2145,6 +2144,10 @@ configured:</p>
 </li>
 <li>
 <p><code>OFI_DOMAIN</code> must optionally be set for infiniband deployments.</p>
+</li>
+<li>
+<p><code>DAOS_AGENT_DRPC_DIR</code> must also optionally be set if the agent is using a
+  non-default path for the socket.</p>
 </li>
 </ul>
 <p>While those environment variables need to be set up for DAOS v1.0, versions 1.2

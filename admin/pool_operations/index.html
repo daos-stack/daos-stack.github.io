@@ -528,8 +528,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pool-access-control-lists" class="md-nav__link">
-    Pool Access Control Lists
+  <a href="#access-control-lists" class="md-nav__link">
+    Access Control Lists
   </a>
   
     <nav class="md-nav">
@@ -952,8 +952,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#pool-access-control-lists" class="md-nav__link">
-    Pool Access Control Lists
+  <a href="#access-control-lists" class="md-nav__link">
+    Access Control Lists
   </a>
   
     <nav class="md-nav">
@@ -1186,18 +1186,29 @@ API (not supported by the tool yet):</p>
 metadata, many of them are still under development. Moreover, the
 ability to modify some of those properties on an existing pool will also
 be provided in a future release.</p>
-<h2 id="pool-access-control-lists">Pool Access Control Lists<a class="headerlink" href="#pool-access-control-lists" title="Permanent link">&para;</a></h2>
-<p>Client user and group access for pools is controlled by 
-<a href="/doc/user/acl.md">Access Control Lists (ACLs)</a>. Most pool-related tasks are
-performed using the DMG administrative tool, which is authenticated by the
-administrative certificate rather than user-specific credentials.</p>
-<p>Access-controlled client pool accesses include:
-* Connecting to the pool.
-* Querying the pool.
-* Creating containers in the pool.
-* Deleting containers in the pool.</p>
-<p>This is reflected in the set of supported 
-<a href="/doc/user/acl.md#permissions">pool permissions</a>.</p>
+<h2 id="access-control-lists">Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permanent link">&para;</a></h2>
+<p>Client user and group access for pools is controlled by
+<a href="https://daos-stack.github.io/overview/security/#access-control-lists">Access Control Lists (ACLs)</a>.
+Most pool-related tasks are performed using the DMG administrative tool, which
+is authenticated by the administrative certificate rather than user-specific
+credentials.</p>
+<p>Access-controlled client pool accesses include:</p>
+<ul>
+<li>
+<p>Connecting to the pool.</p>
+</li>
+<li>
+<p>Querying the pool.</p>
+</li>
+<li>
+<p>Creating containers in the pool.</p>
+</li>
+<li>
+<p>Deleting containers in the pool.</p>
+</li>
+</ul>
+<p>This is reflected in the set of supported
+<a href="https://daos-stack.github.io/overview/security/#permissions">pool permissions</a>.</p>
 <p>A user must be able to connect to the pool in order to access any containers
 inside, regardless of their permissions on those containers.</p>
 <h3 id="creating-a-pool-with-a-custom-acl">Creating a pool with a custom ACL<a class="headerlink" href="#creating-a-pool-with-a-custom-acl" title="Permanent link">&para;</a></h3>
@@ -1205,7 +1216,7 @@ inside, regardless of their permissions on those containers.</p>
 <pre><code class="bash">$ dmg pool create --scm-size &lt;size&gt; --acl-file &lt;path&gt;
 </code></pre>
 
-<p>The ACL file format is detailed in the <a href="/doc/user/acl.md#acl-file">User Guide</a>.</p>
+<p>The ACL file format is detailed in the <a href="https://daos-stack.github.io/overview/security/#acl-file">here</a>.</p>
 <h3 id="displaying-a-pools-acl">Displaying a pool's ACL<a class="headerlink" href="#displaying-a-pools-acl" title="Permanent link">&para;</a></h3>
 <p>To view a pool's ACL:</p>
 <pre><code class="bash">$ dmg pool get-acl --pool &lt;UUID&gt;
@@ -1261,40 +1272,42 @@ is integrated into the dmg_old utility.</p>
 </code></pre>
 
 <p>Below is the output for a pool created with SCM space only.</p>
-<pre><code>pool=47293abe-aa6f-4147-97f6-42a9f796d64a
-Pool 47293abe-aa6f-4147-97f6-42a9f796d64a, ntarget=64, disabled=8
-Pool space info:
-- Target(VOS) count:56
-- SCM:
-    Total size: 28GB
-    Free: 28GB, min:505MB, max:512MB, mean:512MB
-- NVMe:
-    Total size: 0
-    Free: 0, min:0, max:0, mean:0
-Rebuild done, 10 objs, 1026 recs
+<pre><code class="bash">    pool=47293abe-aa6f-4147-97f6-42a9f796d64a
+    Pool 47293abe-aa6f-4147-97f6-42a9f796d64a, ntarget=64, disabled=8
+    Pool space info:
+    - Target(VOS) count:56
+    - SCM:
+        Total size: 28GB
+        Free: 28GB, min:505MB, max:512MB, mean:512MB
+    - NVMe:
+        Total size: 0
+        Free: 0, min:0, max:0, mean:0
+    Rebuild done, 10 objs, 1026 recs
 </code></pre>
+
 <p>The total and free sizes are the sum across all the targets whereas
 min/max/mean gives information about individual targets. A min value
 close to 0 means that one target is running out of space.</p>
 <p>The example below shows a rebuild in progress and NVMe space allocated.</p>
-<pre><code>pool=95886b8b-7eb8-454d-845c-fc0ae0ba5671
-Pool 95886b8b-7eb8-454d-845c-fc0ae0ba5671, ntarget=64, disabled=8
-Pool space info:
-- Target(VOS) count:56
-- SCM:
-    Total size: 28GB
-    Free: 28GB, min:470MB, max:512MB, mean:509MB
-- NVMe:
-    Total size: 56GB
-    Free: 28GB, min:470MB, max:512MB, mean:509MB
-Rebuild busy, 75 objs, 9722 recs
+<pre><code class="bash">    pool=95886b8b-7eb8-454d-845c-fc0ae0ba5671
+    Pool 95886b8b-7eb8-454d-845c-fc0ae0ba5671, ntarget=64, disabled=8
+    Pool space info:
+    - Target(VOS) count:56
+    - SCM:
+        Total size: 28GB
+        Free: 28GB, min:470MB, max:512MB, mean:509MB
+    - NVMe:
+        Total size: 56GB
+        Free: 28GB, min:470MB, max:512MB, mean:509MB
+    Rebuild busy, 75 objs, 9722 recs
 </code></pre>
+
 <p>Additional status and telemetry data are planned to be exported through
 the management API and tool and will be documented here once available.</p>
 <h2 id="pool-modifications">Pool Modifications<a class="headerlink" href="#pool-modifications" title="Permanent link">&para;</a></h2>
 <h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing<a class="headerlink" href="#target-exclusion-and-self-healing" title="Permanent link">&para;</a></h3>
 <p><strong>To exclude a target from a pool:</strong></p>
-<pre><code>$ dmg_old exclude --svc=${svcl} --pool=${puuid} --target=${rank}
+<pre><code class="bash">$ dmg_old exclude --svc=${svcl} --pool=${puuid} --target=${rank}
 </code></pre>
 
 <h3 id="pool-extension">Pool Extension<a class="headerlink" href="#pool-extension" title="Permanent link">&para;</a></h3>
