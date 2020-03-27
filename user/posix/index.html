@@ -642,15 +642,70 @@
       
         <li class="md-nav__item">
   <a href="#dfuse" class="md-nav__link">
-    dfuse
+    DFuse
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dfuse-daemon" class="md-nav__link">
+    DFuse Daemon
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#libioil" class="md-nav__link">
-    libioil
+        
+          <li class="md-nav__item">
+  <a href="#restrictions" class="md-nav__link">
+    Restrictions
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launching" class="md-nav__link">
+    Launching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poolcontainer-paths" class="md-nav__link">
+    Pool/Container Paths
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#links-into-other-containers" class="md-nav__link">
+    Links into other Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enabling-caching" class="md-nav__link">
+    Enabling Caching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopping-dfuse" class="md-nav__link">
+    Stopping DFuse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interception-library" class="md-nav__link">
+    Interception Library
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -831,15 +886,70 @@
       
         <li class="md-nav__item">
   <a href="#dfuse" class="md-nav__link">
-    dfuse
+    DFuse
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#dfuse-daemon" class="md-nav__link">
+    DFuse Daemon
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#libioil" class="md-nav__link">
-    libioil
+        
+          <li class="md-nav__item">
+  <a href="#restrictions" class="md-nav__link">
+    Restrictions
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#launching" class="md-nav__link">
+    Launching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#poolcontainer-paths" class="md-nav__link">
+    Pool/Container Paths
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#links-into-other-containers" class="md-nav__link">
+    Links into other Containers
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enabling-caching" class="md-nav__link">
+    Enabling Caching
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#stopping-dfuse" class="md-nav__link">
+    Stopping DFuse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#interception-library" class="md-nav__link">
+    Interception Library
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -870,45 +980,197 @@ be exposed to applications or I/O frameworks either directly (e.g., for
 frameworks Spark or TensorFlow, or benchmark like IOR or mdtest that support
 different a storage backend plugin), or transparently via a FUSE daemon, combined
 optionally with an interception library to address some of the FUSE performance
-bottleneck by delivering full OS bypass for POSIX read/write operations.</p>
+bottlenecks by delivering full OS bypass for POSIX read/write operations.</p>
 <p><img alt="../graph/posix.png" src="../../graph/posix.png" title="POSIX I/O Support" /></p>
-<h3 id="libdfs">libdfs<a class="headerlink" href="#libdfs" title="Permanent link">&para;</a></h3>
+<h2 id="libdfs">libdfs<a class="headerlink" href="#libdfs" title="Permanent link">&para;</a></h2>
 <p>DFS stands for DAOS File System and is a library that allows a DAOS container to
 be accessed as a hierarchical POSIX namespace. It supports files, directories,
 and symbolic links, but not hard links. Access permissions are inherited from
 the parent pool and not implemented on a per-file or per-directory basis.
 setuid() and setgid() programs, as well as supplementary groups, are currently not
 supported.</p>
-<p>While libdfs can be tested from a single instance (i.e. single process or client
-node if used through dfuse), special care is required when the same POSIX
+<p>While libdfs can be tested from a single instance (i.e., single process or client
+node if used through DFuse), special care is required when the same POSIX
 container is mounted concurrently by multiple processes. Concurrent DFS mounts
 are not recommended. Support for concurrency control is under development and
 will be documented here once ready.</p>
-<h3 id="dfuse">dfuse<a class="headerlink" href="#dfuse" title="Permanent link">&para;</a></h3>
-<p>A fuse daemon called dfuse is provided to mount a POSIX container in the local
-filesystem tree. dfuse exposes one mountpoint as a single DFS namespace with a
-single pool and container and can be mounted by regular use (provided that it
-is granted access to the pool and container).
-To mount an existing POSIX container with dfuse, run the following command:</p>
-<pre><code class="bash">$ dfuse --pool a171434a-05a5-4671-8fe2-615aa0d05094 -s 0 --container 464e68ca-0a30-4a5f-8829-238e890899d2 -m /tmp/daos
+<h2 id="dfuse">DFuse<a class="headerlink" href="#dfuse" title="Permanent link">&para;</a></h2>
+<p>DFuse provides File System access to DAOS through the standard libc/kernel/VFS
+POSIX infrastructure.  This allows existing applications to use DAOS without
+modification and provides a path to upgrade those applications to native DAOS
+support.  Additionally, DFuse provides an Interception Library to transparently
+allow POSIX clients to talk directly to DAOS servers providing OS-Bypass for
+I/O without modifying or recompiling of the application.</p>
+<p>DFuse builds heavily on DFS and data written via DFuse can be access by DFS and
+vice versa.</p>
+<h3 id="dfuse-daemon">DFuse Daemon<a class="headerlink" href="#dfuse-daemon" title="Permanent link">&para;</a></h3>
+<p>The dfuse daemon runs a single instance per node to provide a user POSIX access
+to DAOS, and it should be run with the credentials of the user and typically will
+be started and stopped on each compute node as part of the prolog and epilog
+scripts of any resource manager or scheduler in use.  One DFuse daemon per node
+can process requests for multiple clients.</p>
+<p>A single DFuse instance can provide access to multiple pools and containers
+concurrently, or can be limited to a single pool, or a single container.</p>
+<h3 id="restrictions">Restrictions<a class="headerlink" href="#restrictions" title="Permanent link">&para;</a></h3>
+<p>DFuse is limited to a single user. Access to the filesystem from other users,
+including root will not be honored, and as a consequence of this, the chown
+and chgrp calls are not supported.  Hard links and special device files, except
+symbolic links, are not supported, nor are any ACLs.</p>
+<p>DFuse can run in the foreground, keeping the terminal window open, or it can
+daemonize to run like a system daemon, however, to do this and still be
+able to access DAOS it needs to daemonize before calling daos_init() which in
+turns means it cannot report some kinds of startup errors either on
+stdout/stderr or via its return code.  When initially starting with DFuse it
+is recommended to run in foreground mode (<code>--foreground</code>) to better observe
+any failures.</p>
+<p>Inodes are managed on the local node by the DFuse, so while inode numbers
+will be consistent on a node for the duration of the session, they are not
+guaranteed to be consistent across restarts of DFuse or across nodes.</p>
+<p>It is not possible to see pool/container listings through DFuse, so if readdir,
+ls or others are used for this, DFuse will return ENOTSUP.</p>
+<h3 id="launching">Launching<a class="headerlink" href="#launching" title="Permanent link">&para;</a></h3>
+<p>DFuse should be run with the credentials (user/group) of the user that will
+be accessing it, and that owns any pools that will be used.</p>
+<p>There are two mandatory command-line options, these are:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Command-line Option</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--svc=&lt;ranks></td>
+<td>service replicas</td>
+</tr>
+<tr>
+<td>--mountpoint=&lt;path></td>
+<td>path to mount dfuse</td>
+</tr>
+</tbody>
+</table>
+<p>The mount point specified should be en empty directory on the local node that
+is owned by the user.</p>
+<p>Additionally, there are several optional command-line options:</p>
+<table>
+<thead>
+<tr>
+<th><strong>Command-line Option</strong></th>
+<th><strong>Description</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>--pool=&lt;uuid></td>
+<td>pool uuid to connect to</td>
+</tr>
+<tr>
+<td>--container=&lt;uuid></td>
+<td>container uuid to open</td>
+</tr>
+<tr>
+<td>--sys-name=&lt;name></td>
+<td>DAOS server name</td>
+</tr>
+<tr>
+<td>--foreground</td>
+<td>run in foreground</td>
+</tr>
+<tr>
+<td>--singlethreaded</td>
+<td>run single threaded</td>
+</tr>
+</tbody>
+</table>
+<p>When DFuse starts, it will register a single mount with the kernel at the
+location specified by the <code>--mountpoint</code> option, and this mount will be
+visable in /proc/mounts, and possibly the output of df.  The contents of
+multiple pools/containers will be accessible via this single kernel
+mountpoint.</p>
+<h3 id="poolcontainer-paths">Pool/Container Paths<a class="headerlink" href="#poolcontainer-paths" title="Permanent link">&para;</a></h3>
+<p>DFuse will only create one kernel level mount point regardless of how it is
+launched, but how POSIX containers are represented within that varies depending
+on the options.</p>
+<p>If both a pool and container uuids are specified on the command line then the
+mount point will map to the root of the container itself so files can be
+accessed by simply concatenating the mount point and the name of the file,
+relative to the root of the container.</p>
+<p>If neither a pool or container is specified then pools and container can be
+accessed by the path <code>&lt;mount point&gt;/&lt;pool uuid&gt;/&lt;container uuid&gt;</code> however it
+should be noted that readdir() and therefore ls do not work on either mount
+points or directories representing pools here so the pool and container uuids
+will have to be provided from an external source.</p>
+<p>If a pool uuid is specified but not a container uuid the containers can be
+accessed by the path <code>&lt;mount point&gt;/&lt;container uuid</code></p>
+<p>It is anticipated that in most cases, both pool and container uuids shall be
+used, so the mount point itself will map directly onto a POSIX container.</p>
+<h3 id="links-into-other-containers">Links into other Containers<a class="headerlink" href="#links-into-other-containers" title="Permanent link">&para;</a></h3>
+<p>It is possible to link to other containers in DFuse, where subdirectories
+within a container resolve not to regular directories as normal, but rather to
+the root of entirely different POSIX containers.</p>
+<p>To create a new container and link it into the namespace of an existing one
+use the following command.</p>
+<pre><code class="bash">$ daos container create --svc &lt;svc&gt; --type POSIX --pool &lt;pool uuid&gt; --path &lt;path to entry point&gt;
 </code></pre>
 
-<p>The UUID after -p and -c should be replaced with respectively the pool and
-container UUID. -s should be followed by the pool svc rank list and -m is the
-local directory where the mount point will be setup.
-When done, the file system can be unmounted via fusermount:</p>
+<p>The pool uuid should already exist, and the path should specify a location
+somewhere within a DFuse mount point that resolves to a POSIX container.
+Once a link is created it can be accessed through the new path, and following
+the link is virtually transparent.  No container uuid is required. if one is
+not supplied, it will be created.</p>
+<p>To destroy a container again, the following command should be used.</p>
+<pre><code class="bash">$ daos container destroy --svc --path &lt;path to entry point&gt;
+</code></pre>
+
+<p>This will both remove the link between the containers and remove the container
+that was linked to.</p>
+<p>There is no support for adding links to already existing containers or removing
+links to containers without also removing the container itself.</p>
+<p>Information about a container, for example, the presence of an entry point between
+containers, or the pool and container uuids of the container linked to can be
+read with the following command:</p>
+<pre><code class="bash">$ daos container info --svc --path &lt;path to entry point&gt;
+</code></pre>
+
+<h3 id="enabling-caching">Enabling Caching<a class="headerlink" href="#enabling-caching" title="Permanent link">&para;</a></h3>
+<p>DFuse in normal mode simply provides a communication path between the kernel and
+DAOS. However, this can come with a performance impact, and to help alleviate this
+it is possible to turn on caching, both within dfuse itself and by allowing the
+kernel to cache certain data.  Where and when data is cached there is no attempt
+made to invalidate the caches based on changes to DAOS, other than simple timeouts.</p>
+<p>Enabling this option will turn on the following features:</p>
+<ul>
+<li>Kernel caching of dentries.</li>
+<li>Kernel caching of negative dentries</li>
+<li>Kernel caching of inodes (file sizes, permissions etc)</li>
+<li>Kernel caching of file contents</li>
+<li>Readahead in dfuse and inserting data into kernel cache.</li>
+<li>MMAP write optimization</li>
+</ul>
+<p>To turn on caching use the <code>--enable-caching</code> command-line option for dfuse. This
+will enable the feature for all accessed containers.  When this option is used,
+the containers accessed should only be accessed from one node, so it may
+be necessary to create a container per node in this model.</p>
+<h3 id="stopping-dfuse">Stopping DFuse<a class="headerlink" href="#stopping-dfuse" title="Permanent link">&para;</a></h3>
+<p>When done, the file system can be unmounted via fusermount:</p>
 <pre><code class="bash">$ fusermount3 -u /tmp/daos
 </code></pre>
 
-<h3 id="libioil">libioil<a class="headerlink" href="#libioil" title="Permanent link">&para;</a></h3>
-<p>An interception library called libioil is available to work with dfuse. This
-library works in conjunction with dfuse and allow to interception of POSIX I/O
+<p>When this is done, the local DFuse daemon should shut down the mount point,
+disconnect from the DAOS servers, and exit.  You can also verify that the
+mount point is no longer listed in the /proc/mounts file</p>
+<h3 id="interception-library">Interception Library<a class="headerlink" href="#interception-library" title="Permanent link">&para;</a></h3>
+<p>An interception library called libioil is available to work with DDuse. This
+library works in conjunction with DFuse and allows the interception of POSIX I/O
 calls and issue the I/O operations directly from the application context through
-libdaos without any appliction changes.  This provides kernel-bypass for I/O data
+libdaos without any application changes.  This provides kernel-bypass for I/O data
 leading to improved performance.
-To use this set the LD_PRELOAD to point to the shared libray in the DOAS install
-dir</p>
-<p>LD_PRELOAD=/path/to/daos/install/lib/libioil.so</p>
+To use this set the LD_PRELOAD to point to the shared library in the DOAS install
+directory:</p>
+<pre><code>LD_PRELOAD=/path/to/daos/install/lib/libioil.so
+</code></pre>
+
 <p>Support for libioil is currently planned for DAOS v1.2.</p>
                 
                   

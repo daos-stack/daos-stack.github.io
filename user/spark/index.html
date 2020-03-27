@@ -665,8 +665,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-daos-hadoop-filesystem-jars" class="md-nav__link">
-    Deploy DAOS Hadoop Filesystem Jars
+  <a href="#deploy-daos-hadoop-filesystem" class="md-nav__link">
+    Deploy DAOS Hadoop Filesystem
   </a>
   
 </li>
@@ -837,8 +837,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#deploy-daos-hadoop-filesystem-jars" class="md-nav__link">
-    Deploy DAOS Hadoop Filesystem Jars
+  <a href="#deploy-daos-hadoop-filesystem" class="md-nav__link">
+    Deploy DAOS Hadoop Filesystem
   </a>
   
 </li>
@@ -877,61 +877,78 @@
                 
                 
                 <h1 id="getting-started-with-the-daos-hadoop-filesystem">Getting Started with the DAOS Hadoop Filesystem<a class="headerlink" href="#getting-started-with-the-daos-hadoop-filesystem" title="Permanent link">&para;</a></h1>
-<p>Here, we describe the steps required to build and deploy the DAOS Hadoop filesystem, and the configurations to access
-DAOS in Spark. We assume DAOS servers and agents have already been deployed in the environment; otherwise, they can be
-deployed by following the <a href="https://daos-stack.github.io/admin/installation/">DAOS installation guide</a>.</p>
+<p>Here, we describe the steps required to build and deploy the DAOS Hadoop
+filesystem, and the configurations to access DAOS in Spark. We assume DAOS
+servers and agents have already been deployed in the environment; otherwise,
+they can be deployed by following the
+<a href="https://daos-stack.github.io/admin/installation/">DAOS installation guide</a>.</p>
 <h2 id="build-daos-hadoop-filesystem">Build DAOS Hadoop Filesystem<a class="headerlink" href="#build-daos-hadoop-filesystem" title="Permanent link">&para;</a></h2>
-<p>The DAOS DFS Java API and Hadoop filesystem implementation have been merged into the DAOS repository. Below are the steps
-to build the java jar files for the DFS Java API and DAOS Hadoop filesystem. These jar files are required when running
+<p>The DAOS DFS Java API and Hadoop filesystem implementation have been merged into
+the DAOS repository. Below are the steps to build the java jar files for the DFS
+Java API and DAOS Hadoop filesystem. These jar files are required when running
 Spark. You can ignore this section if you already have the pre-built jars.</p>
-<pre><code>$ git clone https://github.com/daos-stack/daos.git
+<pre><code class="bash">$ git clone https://github.com/daos-stack/daos.git
 $ cd daos
 $ git checkout &lt;desired branch or commit&gt;
 ## assume DAOS is built and installed to &lt;daos_install&gt; directory
 $ cd src/client/java
 $ mvn clean package -DskipITs -Ddaos.install.path=&lt;daos_install&gt;
 </code></pre>
-<p>After build, the package daos-java-<version>-assemble.tgz will be available under distribution/target.</p>
-<h2 id="deploy-daos-hadoop-filesystem-jars">Deploy DAOS Hadoop Filesystem Jars<a class="headerlink" href="#deploy-daos-hadoop-filesystem-jars" title="Permanent link">&para;</a></h2>
-<p>After unzipping daos-java-<version>-assemble.tgz, you will get the following files.
-* daos-java-api-<version>.jar and hadoop-daos-<version>.jar
-These files need to be deployed on every compute node that runs Spark. Place them in a directory, e.g.,
-$SPARK_HOME/jars, that are accessible to all the nodes or copy them to every node.</p>
+
+<p>After build, the package daos-java-<version>-assemble.tgz will be available
+under distribution/target.</p>
+<h2 id="deploy-daos-hadoop-filesystem">Deploy DAOS Hadoop Filesystem<a class="headerlink" href="#deploy-daos-hadoop-filesystem" title="Permanent link">&para;</a></h2>
+<p>After unzipping <code>daos-java-&lt;version&gt;-assemble.tgz</code>, you will get the following
+files.</p>
 <ul>
-<li>daos-site-example.xml
-The file contains DAOS configuration and needs to be properly configured with the DAOS pool UUID, container UUID, and a
-few other settings. Rename it to daos-site.xml and place it in Spark’s conf ($SPARK_HOME/conf) directory.</li>
+<li>
+<p><code>daos-java-api-&lt;version&gt;.jar</code> and <code>hadoop-daos-&lt;version&gt;.jar</code>
+These files need to be deployed on every compute node that runs Spark.
+Place them in a directory, e.g., $SPARK_HOME/jars, that are accessible to all
+the nodes or copy them to every node.</p>
+</li>
+<li>
+<p><code>daos-site-example.xml</code>
+The file contains DAOS configuration and needs to be properly configured with
+the DAOS pool UUID, container UUID, and a few other settings. Rename it to
+daos-site.xml and place it in Spark's conf ($SPARK_HOME/conf) directory.</p>
+</li>
 </ul>
 <h2 id="configure-spark-to-use-daos">Configure Spark to use DAOS<a class="headerlink" href="#configure-spark-to-use-daos" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p>To access DAOS Hadoop filesystem in Spark, add the jar files to the classpath of the Spark executor and driver. This
-can be configured in Spark’s configuration file spark-defaults.conf.</p>
+<li>To access DAOS Hadoop filesystem in Spark, add the jar files to the classpath
+of the Spark executor and driver. This can be configured in Spark's
+configuration file spark-defaults.conf.</li>
+</ul>
 <pre><code>spark.executor.extraClassPath   /path/to/daos-java-api-&lt;version&gt;.jar:/path/to/hadoop-daos-&lt;version&gt;.jar
 spark.driver.extraClassPath     /path/to/daos-java-api-&lt;version&gt;.jar:/path/to/hadoop-daos-&lt;version&gt;.jar
 </code></pre>
-</li>
-<li>
-<p>Next, export all DAOS related env variables and the following env variable in spark-env.sh. This enables signal
-chaining in JVM to better interoperate with DAOS native code that installs its own signal handlers. It ensures that
-signal calls are intercepted so that they do not actually replace the JVM's signal handlers if the handlers conflict
-with those already installed by the JVM. Instead, these calls save the new signal handlers, or "chain" them behind the
-JVM-installed handlers. Later, when any of these signals are raised and found not to be targeted at the JVM, the DAOS’s
-handlers are invoked.</p>
-<pre><code>export LD_PRELOAD=&lt;YOUR JDK HOME&gt;/jre/lib/amd64/libjsig.so
+
+<ul>
+<li>Next, export all DAOS related env variables and the following env variable in
+spark-env.sh. This enables signal chaining in JVM to better interoperate with
+DAOS native code that installs its own signal handlers. It ensures that signal
+calls are intercepted so that they do not actually replace the JVM's signal
+handlers if the handlers conflict with those already installed by the JVM.
+Instead, these calls save the new signal handlers, or "chain" them behind the
+JVM-installed handlers. Later, when any of these signals are raised and found
+not to be targeted at the JVM, the DAOS's handlers are invoked.</li>
+</ul>
+<pre><code class="bash">$ export LD_PRELOAD=&lt;YOUR JDK HOME&gt;/jre/lib/amd64/libjsig.so
 </code></pre>
-</li>
-<li>
-<p>Configure daos-site.xml. If the DAOS pool and container have not been created, we can use the following command to
-create them and get the pool UUID, container UUID, and service replicas.</p>
-<pre><code>$ dmg pool create --scm-size=&lt;scm size&gt; --nvme-size=&lt;nvme size&gt; -i
+
+<ul>
+<li>Configure daos-site.xml. If the DAOS pool and container have not been created,
+we can use the following command to create them and get the pool UUID, container
+UUID, and service replicas.</li>
+</ul>
+<pre><code class="bash">$ dmg pool create --scm-size=&lt;scm size&gt; --nvme-size=&lt;nvme size&gt;
 $ daos cont create --pool &lt;pool UUID&gt; --svc &lt;service replicas&gt; --type POSIX
 </code></pre>
-</li>
-</ul>
+
 <p>After that, configure daos-site.xml with the pool and container created.</p>
 <pre><code class="xml">&lt;configuration&gt;
-…
+...
   &lt;property&gt;
     &lt;name&gt;fs.daos.pool.uuid&lt;/name&gt;
     &lt;value&gt;your pool UUID&lt;/value&gt;
@@ -947,39 +964,52 @@ $ daos cont create --pool &lt;pool UUID&gt; --svc &lt;service replicas&gt; --typ
     &lt;value&gt;your pool service replicas&lt;/value&gt;
     &lt;description&gt;service list separated by &quot;:&quot; if more than one service&lt;/description&gt;
   &lt;/property&gt;
-…
+...
 &lt;/configuration&gt;
 </code></pre>
 
-<p>The default pool and container are configured by “fs.daos.pool.uuid” and “fs.daos.container.uuid”. The default DAOS
-filesystem can be accessed by URI “daos://default:1” in Spark. In HDFS, the URI is composed by a master host name
-(or IP address) and a port for example hdfs://<HostName>:8020. In DAOS, we don’t use host name and port to connect,
-instead we use pool UUID and container UUID to specify the DFS filesystem. We do not put the UUIDs in URI as UUID is not
-a valid port number. Instead, the hostname “default” maps to the default pool configured by “fs.daos.pool.uuid” and the
-port 1 maps to the default container configured by “fs.daos.container.uuid”.</p>
-<p>It is also possible to configure multiple pools and containers in the daos-site.xml and use different URI to access
-them. For example, to access another container in the default pool using URI “daos://default:2”, we can configure the
-container UUID in “c2.fs.daos.container.uuid”. To access another pool and container using “daos://pool1:3”, we can
-configure the pool UUID in “pool1.fs.daos.pool.uuid” and container UUID in “c3.fs.daos.container.uuid”. See examples,</p>
-<pre><code>“daos://default:1” reads values of "fs.daos.pool.uuid" and "fs.daos.container.uuid".
-“daos://default:2” reads values of "fs.daos.pool.uuid" and "c2.fs.daos.container.uuid".
-“daos://pool1:3” reads values of "pool1.fs.daos.pool.uuid" and "c3.fs.daos.container.uuid".
+<p>The default pool and container are configured by <code>fs.daos.pool.uuid</code> and
+<code>fs.daos.container.uuid</code>. The default DAOS filesystem can be accessed by URI
+<code>daos://default:1</code> in Spark. In HDFS, the URI is composed by a master host name
+(or IP address) and a port for example hdfs://<HostName>:8020. In DAOS, we
+don't use host name and port to connect, instead we use pool UUID and container
+UUID to specify the DFS filesystem. We do not put the UUIDs in URI as UUID is
+not a valid port number. Instead, the hostname <code>default</code> maps to the default
+pool configured by <code>fs.daos.pool.uuid</code> and the port 1 maps to the default
+container configured by <code>fs.daos.container.uuid</code>.</p>
+<p>It is also possible to configure multiple pools and containers in the
+daos-site.xml and use different URI to access them. For example, to access
+another container in the default pool using URI <code>daos://default:2</code>, we can
+configure the container UUID in <code>c2.fs.daos.container.uuid</code>. To access another
+pool and container using <code>daos://pool1:3</code>, we can configure the pool UUID in
+<code>pool1.fs.daos.pool.uuid</code> and container UUID in <code>c3.fs.daos.container.uuid</code>.
+See examples,</p>
+<pre><code>&quot;daos://default:1&quot; reads values of &quot;fs.daos.pool.uuid&quot; and &quot;fs.daos.container.uuid&quot;
+daos://default:2&quot; reads values of &quot;fs.daos.pool.uuid&quot; and &quot;c2.fs.daos.container.uuid&quot;
+&quot;daos://pool1:3&quot; reads values of &quot;pool1.fs.daos.pool.uuid&quot; and &quot;c3.fs.daos.container.uuid&quot;
 </code></pre>
-<p>Different URIs represent different DAOS filesystem and they can also be configured with different settings like the read
-buffer size, etc. For example, to configure the filesystem represented by “daos://default:2”, we use property name
-prefixed with c2, i.e., “<em>c2.fs.daos.</em>”. To configure the filesystem represented by “daos://pool1:3”, we use property name
-prefixed with pool1c3, i.e., “<em>pool1c3.fs.daos.</em>”. If no specific configurations are set, they fall back to the
-configuration set for the default pool and container started with “<em>fs.daos</em>.”.</p>
-<p>One tricky example is to access same DAOS filesystem with two Hadoop FileSystem instances. One instance is configured
-with preload enabled in the daos-site.xml. The other instance is preload disabled. With above design, you can use two
-different URIs, "daos://default:1" and "daos://default:2". In the daos-site.xml, you can set "fs.daos.container.uuid"
-and "c2.fs.daos.container.uuid" to same container UUID. Then set "fs.daos.preload.size" to a value greater than 0 and
-"c2.fs.daos.preload.size" to 0.</p>
+
+<p>Different URIs represent different DAOS filesystem and they can also be
+configured with different settings like the read buffer size, etc. For example,
+to configure the filesystem represented by <code>daos://default:2</code>, we use property
+name prefixed with c2, i.e., <code>*c2.fs.daos.*</code>. To configure the filesystem
+represented by <code>daos://pool1:3</code>, we use property name prefixed with pool1c3,
+i.e., <code>*pool1c3.fs.daos.*</code>. If no specific configurations are set, they fall
+back to the configuration set for the default pool and container started with
+<code>*fs.daos*.</code>.</p>
+<p>One tricky example is to access same DAOS filesystem with two Hadoop FileSystem
+instances. One instance is configured with preload enabled in the daos-site.xml.
+The other instance is preload disabled. With above design, you can use two
+different URIs, <code>daos://default:1</code> and <code>daos://default:2</code>. In the daos-site.xml,
+you can set <code>fs.daos.container.uuid</code> and <code>c2.fs.daos.container.uuid</code> to same the
+container UUID. Then set <code>fs.daos.preload.size</code> to a value greater than 0 and
+<code>c2.fs.daos.preload.size</code> to 0.</p>
 <h2 id="access-daos-in-spark">Access DAOS in Spark<a class="headerlink" href="#access-daos-in-spark" title="Permanent link">&para;</a></h2>
-<p>All Spark APIs that work with the Hadoop filesystem will work with DAOS. We use the "daos://" URI to access files stored in
-DAOS. For example, to read people.json file from the root directory of DAOS filesystem, we can use the following pySpark
-code:</p>
-<pre><code>df = spark.read.json("daos://default:1/people.json")
+<p>All Spark APIs that work with the Hadoop filesystem will work with DAOS. We use
+the <code>daos://</code> URI to access files stored in DAOS. For example, to read
+people.json file from the root directory of DAOS filesystem, we can use the
+following pySpark code:</p>
+<pre><code class="python">df = spark.read.json(&quot;daos://default:1/people.json&quot;)
 </code></pre>
                 
                   

@@ -919,17 +919,15 @@ different ways:</p>
     this approach usually requires high-density storage servers.</p>
 </li>
 <li>
-<p><strong>Disaggregated Storage Model</strong>: In the disaggregated model, the
+<p><strong>Hyper-converged Storage Model</strong>: In this model, the
     storage nodes are integrated into compute racks and can be either
-    dedicated or shared (e.g., in a hyper-converged infrastructure)
-    nodes. The DAOS servers are thus massively distributed and storage
-    access is non-uniform and must take locality into account. This model is
-    common in hyperconverged infrastructure.</p>
+    dedicated or shared nodes. The DAOS servers are thus massively distributed,
+    and storage access is non-uniform and must take locality into account.
+    This model is common in hyper-converged infrastructure.</p>
 </li>
 </ul>
-<p>While DAOS is mostly deployed following the pooled model, active
-research is conducted to efficiently support the disaggregated model as
-well.</p>
+<p>While DAOS is mostly deployed following the pooled model, active research is
+conducted to efficiently support the hyper-converged model as well.</p>
 <p><img alt="" src="../media/image1.png" /></p>
 <h2 id="processor-requirements">Processor Requirements<a class="headerlink" href="#processor-requirements" title="Permanent link">&para;</a></h2>
 <p>DAOS requires a 64-bit processor architecture and is primarily developed
@@ -964,7 +962,7 @@ memory express) SSDs to provide capacity. HDDs, as well as SATA and SAS
 SSDs, are not supported by DAOS. Both NVMe 3D-NAND and Optane SSDs are
 supported. Optane SSDs are preferred for DAOS installation that targets
 a very high IOPS rate. NVMe-oF devices are also supported by the
-userspace storage stack, but have never been tested.</p>
+userspace storage stack but have never been tested.</p>
 <p>The minimal recommended ratio between SCM and SSDs capacity is 6% to
 guarantee that DAOS has enough space in SCM to store internal metadata
 (e.g., pool metadata, SSD block allocation tracking).</p>
@@ -996,7 +994,7 @@ failure. DAOS achieves fault tolerance by providing data redundancy
 across storage nodes in different fault domains.</p>
 <p>DAOS assumes that fault domains are hierarchical and do not overlap. For
 instance, the first level of a fault domain could be the racks and the
-second one the storage nodes.</p>
+second one, the storage nodes.</p>
 <p>For efficient placement and optimal data resilience, more fault
 domains are better. As a result, it is preferable to distribute storage
 nodes across as many racks as possible.</p>
