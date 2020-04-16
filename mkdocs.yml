@@ -59,6 +59,7 @@ nav:
         - 'Dev Environment': 'dev/development.md'
         - 'Contributing': 'dev/contributing.md'
         - 'DAOS Internals': 'https://github.com/daos-stack/daos/blob/master/src/README.md'
+        - 'DAOS API Documentation': 'api/index.html'
     - Community Wiki: 'https://wiki.hpdd.intel.com'
     - Roadmap: 'https://wiki.hpdd.intel.com/display/DC/Roadmap/'
     - Mailing list: 'https://daos.groups.io/g/daos'
