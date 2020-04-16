@@ -611,6 +611,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#target-reintegration" class="md-nav__link">
+    Target Reintegration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pool-extension" class="md-nav__link">
     Pool Extension
   </a>
@@ -1035,6 +1042,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#target-reintegration" class="md-nav__link">
+    Target Reintegration
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pool-extension" class="md-nav__link">
     Pool Extension
   </a>
@@ -1312,6 +1326,31 @@ the management API and tool and will be documented here once available.</p>
 <h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing<a class="headerlink" href="#target-exclusion-and-self-healing" title="Permanent link">&para;</a></h3>
 <p><strong>To exclude a target from a pool:</strong></p>
 <pre><code class="bash">$ dmg_old exclude --svc=${svcl} --pool=${puuid} --target=${rank}
+</code></pre>
+
+<h3 id="target-reintegration">Target Reintegration<a class="headerlink" href="#target-reintegration" title="Permanent link">&para;</a></h3>
+<p>After a target failure an operator can fix the underlying issue and reintegrate the
+affected targets to restore the pool to its original state.</p>
+<pre><code>$ dmg pool reintegrate --pool=${puuid} --rank=${rank} --target-idx=${idx1},${idx2},${idx3}
+</code></pre>
+
+<p>The pool reintegrate command accepts 3 required parameters:</p>
+<ul>
+<li>The pool UUID of the pool that the targets will be reintegrated into.</li>
+<li>The rank of the affected targets.</li>
+<li>The target Indices of the targets to be reintegrated on that rank.</li>
+</ul>
+<p>When rebuild is triggered it will list the operations and their related targets by their rank ID
+and target index.</p>
+<pre><code>Target (rank 5 idx 0) is down.
+Target (rank 5 idx 1) is down.
+...
+(rank 5 idx 0) is excluded.
+(rank 5 idx 1) is excluded.
+</code></pre>
+
+<p>These should be the same values used when reintegrating the targets.</p>
+<pre><code>$ dmg pool reintegrate --pool=${puuid} --rank=5 --target-idx=0,1
 </code></pre>
 
 <h3 id="pool-extension">Pool Extension<a class="headerlink" href="#pool-extension" title="Permanent link">&para;</a></h3>
