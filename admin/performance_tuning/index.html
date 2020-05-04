@@ -62,8 +62,8 @@
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
@@ -252,6 +252,8 @@
     </li>
   
 
+      
+        
       
         
       
@@ -753,6 +755,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../api/index.html" title="DAOS API Documentation" class="md-nav__link">
+      DAOS API Documentation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="https://wiki.hpdd.intel.com" title="Community Wiki" class="md-nav__link">
       Community Wiki
     </a>
@@ -851,19 +865,19 @@
                 <h1 id="daos-performance-tuning">DAOS Performance Tuning<a class="headerlink" href="#daos-performance-tuning" title="Permanent link">&para;</a></h1>
 <p>This section will be expanded in a future revision.</p>
 <h2 id="network-performance">Network Performance<a class="headerlink" href="#network-performance" title="Permanent link">&para;</a></h2>
-<p>Similar to the Lustre Network stack, the DAOS CART layer can validate and
-benchmark network communications in the same context as an application and using
-the same networks/tuning options as regular DAOS.</p>
+<p>The DAOS CART layer can validate and benchmark network communications in the
+same context as an application and using the same networks/tuning options as
+regular DAOS.</p>
 <p>The CART self_test can run against the DAOS servers in a production environment
 in a non-destructive manner. CART self_test supports different message sizes,
 bulk transfers, multiple targets, and the following test scenarios:</p>
 <ul>
 <li>
-<p><strong>Selftest client to servers</strong> where self_test issues RPCs directly
+<p><strong>Selftest client to servers</strong> - where self_test issues RPCs directly
     to a list of servers</p>
 </li>
 <li>
-<p><strong>Cross-servers</strong> where self_test sends instructions to the different
+<p><strong>Cross-servers</strong> - where self_test sends instructions to the different
     servers that will issue cross-server RPCs. This model supports a
     many to many communication model.</p>
 </li>
@@ -880,7 +894,7 @@ $ cd install/TESTING
 <p><strong>Prepare srvhostfile and clihostfile</strong></p>
 <ul>
 <li>
-<p>srvhostfile contains list of nodes from which servers will launch</p>
+<p>srvhostfile contains a list of nodes from which servers will launch</p>
 </li>
 <li>
 <p>clihostfile contains node from which self_test will launch</p>
@@ -929,30 +943,42 @@ i2048 0      2Kb iovec Input only
 </code></pre>
 
 <h2 id="benchmarking-daos">Benchmarking DAOS<a class="headerlink" href="#benchmarking-daos" title="Permanent link">&para;</a></h2>
-<p>DAOS can be benchmarked with both IOR and mdtest through the following
-backends:</p>
+<p>DAOS can be benchmarked using several widely used IO benchmarks like IOR,
+mdtest, and FIO. There are several backends that can be used with those
+benchmarks.</p>
+<p>IOR (https://github.com/hpc/ior) with the following backends:</p>
 <ul>
 <li>
-<p>native MPI-IO plugin combined with the ROMIO DAOS ADIO driver</p>
+<p>POSIX, MPIIO &amp; HDF5 drivers over dfuse and the interception library.</p>
 </li>
 <li>
-<p>native HDF5 plugin combined with the HDF5 DAOS connector (under
-    development)</p>
+<p>MPI-IO plugin with the ROMIO DAOS ADIO driver to bypass POSIX and dfuse. The
+    MPIIO driver is available in the upstream MPICH repository.</p>
 </li>
 <li>
-<p>native POSIX plugin over dfuse and interception library (under
-    development)</p>
+<p>HDF5 plugin with the HDF5 DAOS connector (under development). This maps the
+    HDF5 data model directly to the DAOS model bypassing POSIX.</p>
 </li>
 <li>
-<p>a custom DFS plugin integrating mdtest &amp; IOR directly with libfs
+<p>A custom DFS (DAOS File System) plugin, integrating IOR directly with libfs
     without requiring FUSE or an interception library</p>
 </li>
 <li>
-<p>a custom DAOS plugin integrating IOR directly with the native DAOS
+<p>A custom DAOS plugin, integrating IOR directly with the native DAOS
     array API.</p>
 </li>
 </ul>
-<p>Moreover, a fio DAOS engine is also available.</p>
+<p>mdtest is released in the same repository as IOR. The corresponding backends that are
+listed above support mdtest, except for the MPI-IO and HDF5 backends that were
+only designed to support IOR.</p>
+<p>FIO can also be used to benchmark DAOS performance using dfuse and the
+interception library with all the POSIX based engines like sync and libaio. We
+do, however, provide a native DFS engine for FIO similar to what we do for
+IOR. That engine is available on GitHub: https://github.com/daos-stack/dfio</p>
+<p>Finally, DAOS provides a tool called daos_perf which allows benchmarking to the
+DAOS object API directly or to the internal VOS API, which bypasses the client
+and network stack and reports performance accessing the storage directy using
+VOS.</p>
                 
                   
                 

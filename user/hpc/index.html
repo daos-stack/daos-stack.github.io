@@ -62,8 +62,8 @@
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
@@ -252,6 +252,8 @@
     </li>
   
 
+      
+        
       
         
       
@@ -753,6 +755,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../api/index.html" title="DAOS API Documentation" class="md-nav__link">
+      DAOS API Documentation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="https://wiki.hpdd.intel.com" title="Community Wiki" class="md-nav__link">
       Community Wiki
     </a>
@@ -851,16 +865,16 @@
                 <h1 id="hpc-io-middleware-support">HPC I/O Middleware Support<a class="headerlink" href="#hpc-io-middleware-support" title="Permanent link">&para;</a></h1>
 <p>Several HPC I/O middleware libraries have been ported to the native API.</p>
 <h2 id="mpi-io">MPI-IO<a class="headerlink" href="#mpi-io" title="Permanent link">&para;</a></h2>
-<p>DAOS has its own MPI-IO ROM ADIO driver located in a MPICH fork on
-<a href="https://github.com/daos-stack/mpich">GitHub</a>.</p>
-<p>This driver has been submitted upstream for integration.</p>
+<p>DAOS has its own MPI-IO ROMIO ADIO driver located in a MPICH fork on
+<a href="https://github.com/daos-stack/mpich">GitHub</a>. This driver has been merged in
+the upstream MPICH repo.</p>
 <p>To build the MPI-IO driver:</p>
 <ul>
 <li>
 <p>export MPI_LIB=""</p>
 </li>
 <li>
-<p>download the mpich repo from above and switch to daos_adio branch</p>
+<p>download the mpich repo from above</p>
 </li>
 <li>
 <p>./autogen.sh</p>
@@ -870,7 +884,7 @@
 </li>
 <li>
 <p>../configure --prefix=dir --enable-fortran=all --enable-romio
-    --enable-cxx --enable-g=all --enable-debuginfo
+    --enable-cxx --enable-g=all --enable-debuginfo --with-device=ch3:sock
     --with-file-system=ufs+daos --with-daos=dir --with-cart=dir</p>
 </li>
 <li>
@@ -883,30 +897,20 @@ apps or libs that use MPI to the installed MPICH.</p>
 library installed above (see child pages).</p>
 <p>To run an example:</p>
 <ol>
-<li>Launch DAOS server(s) and create a pool as specified in the previous section.
-   This will return a pool uuid "puuid" and service rank list "svcl"</li>
-<li>At the client side, the following environment variables need to be set:</li>
-</ol>
-<pre><code class="bash">        export PATH=/path/to/mpich/install/bin:$PATH
-        export LD_LIBRARY_PATH=/path/to/mpich/install/lib:$LD_LIBRARY_PATH
-        export MPI_LIB=&quot;&quot;
-</code></pre>
-
-<ol>
-<li><code>export DAOS_POOL=puuid; export DAOS_SVCL=svcl</code>
-    This is just temporary till we have a better way of passing pool
-    connect info to MPI-IO and other middleware over DAOS.</li>
+<li>Launch DAOS server(s) and create a pool.
+   This will return a pool uuid "puuid" and service rank list "svcl".</li>
+<li>Create a POSIX type container:
+   daos cont create --pool=puuid --svc=svcl --type=POSIX
+   This will return a container uuid "cuuid".</li>
+<li>At the client side, the following environment variables need to be set:
+   <code>export DAOS_POOL=puuid; export DAOS_SVCL=svcl; export DAOS_CONT=cuuid</code>
+   Alternatively, the unified namespace mode can be used instead.</li>
 <li>Run the client application or test.</li>
 </ol>
 <p>Limitations to the current implementation include:</p>
 <ul>
 <li>
-<p>Incorrect MPI_File_set_size and MPI_File_get_size - This will be fixed in
-    the future when DAOS correctly supports records enumeration after punch or
-    key query for max/min key and recx.</p>
-</li>
-<li>
-<p>Reading Holes does not return 0, but leaves the buffer untouched</p>
+<p>Reading Holes does not return 0, but leaves the buffer untouched.</p>
 </li>
 <li>
 <p>No support for MPI file atomicity, preallocate, shared file pointers.</p>

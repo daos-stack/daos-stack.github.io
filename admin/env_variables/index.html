@@ -62,8 +62,8 @@
     
       
         <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
+        <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
       
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
@@ -252,6 +252,8 @@
     </li>
   
 
+      
+        
       
         
       
@@ -588,6 +590,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#server-and-client" class="md-nav__link">
+    Server and Client
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#client" class="md-nav__link">
     Client
   </a>
@@ -767,6 +776,18 @@
 
 
   <li class="md-nav__item">
+    <a href="../../api/index.html" title="DAOS API Documentation" class="md-nav__link">
+      DAOS API Documentation
+    </a>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item">
     <a href="https://wiki.hpdd.intel.com" title="Community Wiki" class="md-nav__link">
       Community Wiki
     </a>
@@ -839,6 +860,13 @@
         <li class="md-nav__item">
   <a href="#server-environment-variables" class="md-nav__link">
     Server environment variables
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#server-and-client" class="md-nav__link">
+    Server and Client
   </a>
   
 </li>
@@ -979,6 +1007,26 @@ the future.</p>
 </tbody>
 </table>
 <hr />
+<h2 id="server-and-client">Server and Client<a class="headerlink" href="#server-and-client" title="Permanent link">&para;</a></h2>
+<p>Environment variables in this section apply to both server-side and client.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FI_OFI_RXM_USE_SRX</td>
+<td>Enable shared receive buffers for RXM-based providers (verbs, tcp). BOOL. Auto-defaults to 1.</td>
+</tr>
+<tr>
+<td>FI_UNIVERSE_SIZE</td>
+<td>Sets expected universe size in OFI layer to be more than expected number of clients. INTEGER. Auto-defaults to 2048.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="client">Client<a class="headerlink" href="#client" title="Permanent link">&para;</a></h2>
 <p>Environment variables in this section only apply to the client-side.</p>
 <table>
@@ -990,8 +1038,8 @@ the future.</p>
 </thead>
 <tbody>
 <tr>
-<td>N/A</td>
-<td>N/A</td>
+<td>FI_MR_CACHE_MAX_COUNT</td>
+<td>Enable MR caching in OFI layer. Recommended to be set to 0 (disable) when CRT_DISABLE_MEM_PIN is NOT set to 1. INTEGER. Default to unset.</td>
 </tr>
 </tbody>
 </table>
