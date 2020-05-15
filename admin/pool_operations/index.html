@@ -261,8 +261,6 @@
       
         
       
-        
-      
     </ul>
   </div>
 </nav>
@@ -873,20 +871,20 @@
   </li>
 
         
-      </ul>
-    </nav>
-  </li>
-
-    
-      
-      
-      
+          
+          
+          
 
 
   <li class="md-nav__item">
     <a href="../../api/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
+  </li>
+
+        
+      </ul>
+    </nav>
   </li>
 
     
@@ -1338,10 +1336,19 @@ close to 0 means that one target is running out of space.</p>
 the management API and tool and will be documented here once available.</p>
 <h2 id="pool-modifications">Pool Modifications<a class="headerlink" href="#pool-modifications" title="Permanent link">&para;</a></h2>
 <h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing<a class="headerlink" href="#target-exclusion-and-self-healing" title="Permanent link">&para;</a></h3>
+<p>An operator can exclude one or more targets from a specific DAOS pool using the rank
+the target resides on as well as the target idx on that rank. Excluding a target will
+automatically start the rebuild process.</p>
 <p><strong>To exclude a target from a pool:</strong></p>
-<pre><code class="bash">$ dmg_old exclude --svc=${svcl} --pool=${puuid} --target=${rank}
+<pre><code class="bash">$ dmg pool exclude --pool=${puuid} --rank=${rank} --target-idx=${idx1},${idx2},${idx3}
 </code></pre>
 
+<p>The pool target exclude command accepts 3 required parameters:</p>
+<ul>
+<li>The pool UUID of the pool that the targets will be excluded from.</li>
+<li>The rank of the target(s) te be excluded.</li>
+<li>The target Indices of the targets to be excluded from that rank.</li>
+</ul>
 <h3 id="target-reintegration">Target Reintegration<a class="headerlink" href="#target-reintegration" title="Permanent link">&para;</a></h3>
 <p>After a target failure an operator can fix the underlying issue and reintegrate the
 affected targets to restore the pool to its original state.</p>
