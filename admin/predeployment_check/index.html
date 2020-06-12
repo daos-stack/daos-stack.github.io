@@ -42,7 +42,7 @@
     
     
       
-        <title>Pre-deployment Checklist - DAOS v0.9</title>
+        <title>Pre-deployment Checklist - DAOS v1.0</title>
       
     
     
@@ -100,7 +100,8 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v0.9" aria-label="DAOS v0.9" class="md-header-nav__button md-logo">
+
+        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,7 +114,8 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v0.9
+
+              DAOS v1.0
             </span>
             <span class="md-header-nav__topic">
               
@@ -274,12 +276,13 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v0.9" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS v0.9
+    DAOS v1.0
+
   </label>
   
     <div class="md-nav__source">
@@ -500,6 +503,41 @@
   <a href="#time-synchronization" class="md-nav__link">
     Time Synchronization
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+
+  <a href="#usergroup-synchronization" class="md-nav__link">
+    User/Group Synchronization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-railnic-setup" class="md-nav__link">
+    Multi-rail/NIC Setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subnet" class="md-nav__link">
+    Subnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infinibandroce" class="md-nav__link">
+    Infiniband/RoCE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -814,7 +852,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -904,6 +943,41 @@
   <a href="#time-synchronization" class="md-nav__link">
     Time Synchronization
   </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+
+  <a href="#usergroup-synchronization" class="md-nav__link">
+    User/Group Synchronization
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-railnic-setup" class="md-nav__link">
+    Multi-rail/NIC Setup
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#subnet" class="md-nav__link">
+    Subnet
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#infinibandroce" class="md-nav__link">
+    Infiniband/RoCE
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1007,14 +1081,57 @@ $ sudo reboot
 
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>VFIO support is a new feature for DAOS 1.2 and has been tested on the
-following platforms:
-•   CentOS 7.7</p>
+<p>VFIO support is a new feature for DAOS 1.2 and has been tested on CentOS 7.7</p>
 </div>
 <h2 id="time-synchronization">Time Synchronization<a class="headerlink" href="#time-synchronization" title="Permanent link">&para;</a></h2>
 <p>The DAOS transaction model relies on timestamps and requires time to be
 synchronized across all the storage and client nodes. This can be done
 using NTP or any other equivalent protocol.</p>
+
+<h2 id="usergroup-synchronization">User/Group Synchronization<a class="headerlink" href="#usergroup-synchronization" title="Permanent link">&para;</a></h2>
+<p>DAOS ACLs store the actual user and group names (instead of numeric IDs), and
+therefore the servers do not need access to a synchronized user/group database.
+The DAOS Agent (running on the client nodes) is responsible for resolving
+UID/GID to user/group names which are added to a signed credential and sent to
+the DAOS storage nodes.</p>
+<h2 id="multi-railnic-setup">Multi-rail/NIC Setup<a class="headerlink" href="#multi-railnic-setup" title="Permanent link">&para;</a></h2>
+<p>Storage nodes can be configured with multiple network interfaces to run
+multiple engine instances.</p>
+<h3 id="subnet">Subnet<a class="headerlink" href="#subnet" title="Permanent link">&para;</a></h3>
+<p>Since all DAOS engines need to be able to communicate, the different network
+interfaces need to be on the same subnet or routing capabilities across the
+different subnet might be configured.</p>
+<h3 id="infinibandroce">Infiniband/RoCE<a class="headerlink" href="#infinibandroce" title="Permanent link">&para;</a></h3>
+<p>Some special configuration is required to use librdmacm with multiple
+interfaces.</p>
+<p>Firstly, the accept_local feature must be enabled on the network interfaces
+to be used by DAOS. This can be done using the following command (<ifaces> must
+be replaced with the interface names):</p>
+<pre><code>$ sysctl -w net.ipv4.conf.&lt;ifaces&gt;.accept_local=1
+</code></pre>
+
+<p>Secondly, Linux must be configured to only send ARP replies on the interface
+targeted in the ARP request. This is configured via the arp_ignore parameter.
+This should be set to 2 if all the interfaces on the client and storage nodes
+are in the same logical subnet (e.g. ib0 == 10.0.0.27, ib1 == 10.0.1.27,
+prefix=16).</p>
+<pre><code>$ sysctl -w net.ipv4.conf.all.arp_ignore=2
+</code></pre>
+
+<p>If separate logical subnets are used (e.g. prefix = 24), then the value must be
+set to 1.</p>
+<pre><code>$ sysctl -w net.ipv4.conf.all.arp_ignore=1
+</code></pre>
+
+<p>Finally, the rp_local parameter for the relevant interfaces (replace below
+<ifaces> with the different interface names) must be set to 0 or 2.</p>
+<pre><code>$ sysctl -w net.ipv4.cong.&lt;ifaces&gt;.arp_ignore=1
+</code></pre>
+
+<p>All those parameters can be made persistent in /etc/sysctl.conf by adding a new
+under /etc/sysctl.d (e.g. /etc/sysctl.d/95-daos-net.conf) with all the relevant
+settings.</p>
+<p>For more information, please refer to the <a href="https://github.com/linux-rdma/rdma-core/blob/master/Documentation/librdmacm.md">librdmacm documentation</a></p>
 <h2 id="runtime-directory-setup">Runtime Directory Setup<a class="headerlink" href="#runtime-directory-setup" title="Permanent link">&para;</a></h2>
 <p>DAOS uses a series of Unix Domain Sockets to communicate between its
 various components. On modern Linux systems, Unix Domain Sockets are
