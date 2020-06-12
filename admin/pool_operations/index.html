@@ -1314,7 +1314,7 @@ will be decided based on the remaining ACL rules.</p>
 <h2 id="pool-query">Pool Query<a class="headerlink" href="#pool-query" title="Permanent link">&para;</a></h2>
 <p>The pool query operation retrieves information (i.e., the number of targets,
 space usage, rebuild status, property list, and more) about a created pool. It
-is integrated into the dmg_old utility.</p>
+is integrated into the dmg utility.</p>
 <p><strong>To query a pool:</strong></p>
 <pre><code class="bash">$ dmg pool query --pool &lt;UUID&gt;
 </code></pre>
@@ -1397,8 +1397,23 @@ Target (rank 5 idx 1) is down.
 
 <h3 id="pool-extension">Pool Extension<a class="headerlink" href="#pool-extension" title="Permanent link">&para;</a></h3>
 <h4 id="target-addition-space-rebalancing">Target Addition &amp; Space Rebalancing<a class="headerlink" href="#target-addition-space-rebalancing" title="Permanent link">&para;</a></h4>
-<p>Support for online target addition and automatic space rebalancing is
+<p>Full Support for online target addition and automatic space rebalancing is
 planned for DAOS v1.4 and will be documented here once available.</p>
+<p>Until then the following command(s) are placeholders and offer limited
+functionality related to Online Server Addition/Rebalancing operations.</p>
+<p>An operator can choose to extend a pool to include ranks not currently in the pool.
+This will automatically trigger a server rebalance operation where objects within the extended
+pool will be rebalanced across the new storage.</p>
+<pre><code>$ dmg pool extend --pool=${puuid} --ranks=${rank1},${rank2}...
+</code></pre>
+
+<p>The pool extend command accepts 2 required parameters:</p>
+<ul>
+<li>The pool UUID of the pool to be extended.</li>
+<li>A comma separated list of server ranks to include in the pool.</li>
+</ul>
+<p>The pool rebalance operation will work most efficiently when the pool is extended to its desired
+size in a single operation, as opposed to multiple, small extensions.</p>
 <h4 id="pool-shard-resize">Pool Shard Resize<a class="headerlink" href="#pool-shard-resize" title="Permanent link">&para;</a></h4>
 <p>Support for quiescent pool shard resize is currently not supported and
 is under consideration.</p>

@@ -1109,7 +1109,7 @@ is owned by the user.</p>
 </table>
 <p>When DFuse starts, it will register a single mount with the kernel at the
 location specified by the <code>--mountpoint</code> option, and this mount will be
-visable in /proc/mounts, and possibly the output of df.  The contents of
+visible in /proc/mounts, and possibly the output of df.  The contents of
 multiple pools/containers will be accessible via this single kernel
 mountpoint.</p>
 <h3 id="poolcontainer-paths">Pool/Container Paths<a class="headerlink" href="#poolcontainer-paths" title="Permanent link">&para;</a></h3>
@@ -1190,7 +1190,7 @@ library works in conjunction with DFuse and allows the interception of POSIX I/O
 calls and issue the I/O operations directly from the application context through
 libdaos without any application changes.  This provides kernel-bypass for I/O data
 leading to improved performance.
-To use this set the LD_PRELOAD to point to the shared library in the DOAS install
+To use this set the LD_PRELOAD to point to the shared library in the DAOS install
 directory:</p>
 <pre><code>LD_PRELOAD=/path/to/daos/install/lib/libioil.so
 </code></pre>
