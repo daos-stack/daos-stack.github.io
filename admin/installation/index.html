@@ -38,11 +38,11 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
     
     
       
-        <title>Software Installation - DAOS v1.0</title>
+        <title>Software Installation - DAOS v1.0.1</title>
       
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS v1.0.1" aria-label="DAOS v1.0.1" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0
+              DAOS v1.0.1
             </span>
             <span class="md-header-nav__topic">
               
@@ -287,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v1.0.1" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS v1.0
+    DAOS v1.0.1
   </label>
   
     <div class="md-nav__source">
@@ -831,6 +831,30 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/cdurf1/cdurf1.github.io/blob/master/v1.0/index.html" title="Release 1.0" class="md-nav__link">
+      Release 1.0
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://github.com/cdurf1/cdurf1.github.io/blob/master/v0.9/index.html" title="Release 0.9" class="md-nav__link">
+      Release 0.9
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1157,13 +1181,24 @@ Clicking the <a href="https://registrationcenter.intel.com/forms/?productid=3412
 <li>packages.tar</li>
 <li>source.tar</li>
 </ul>
-<p>Perform the following steps after download:</p>
-<ol>
-<li>Download the packages directly or transfer them to the host node.</li>
-<li>Extract the 'packages.tar' file.</li>
-<li>Perform <code>yum -y install epel-release</code>.</li>
-<li>Perform a <code>yum install *</code> in the packages folder.</li>
-</ol>
+<p><strong>Recommended steps after download:</strong></p>
+<pre><code>tar -xf /path/to/daos_packages.tar
+
+tar -xf /path/to/daos_source.tar
+
+tar -xf /path/to//daos_debug.tar
+</code></pre>
+<p>Change the Base_url location and public GPG key location in *.repo files to the location where the untarred files reside:</p>
+<pre><code>cp /opt/intel/daos_rpms/packages/daos_packages.repo /etc/yum.repos.d
+
+cp /opt/intel/daos_rpms/source/daos_source.repo /etc/yum.repos.d
+
+cp /opt/intel/daos_rpms/debug/daos_debug.repo /etc/yum.repos.d
+
+sudo yum install epel-release
+</code></pre>
+<p><strong>Installing DAOS from package rpms:</strong></p>
+<p><code>sudo yum install daos daos-client daos-server</code></p>
 <h2 id="daos-from-scratch">DAOS from Scratch<a class="headerlink" href="#daos-from-scratch" title="Permanent link">&para;</a></h2>
 <p>The following instructions have been verified with CentOS. Installations on other
 Linux distributions might be similar with some variations.
@@ -1379,7 +1414,7 @@ refer to the next section.</p>
     
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
     
   </body>
