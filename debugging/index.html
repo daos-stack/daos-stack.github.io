@@ -243,7 +243,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../release/releaseNote_v1_0_1/" class="md-tabs__link">
+        <a href="../release/releaseNote_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -688,7 +688,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../release/releaseNote_v1_0_1/" title="Release Notes" class="md-nav__link">
+    <a href="../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -760,7 +760,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -888,8 +888,8 @@
                 
                 <h1 id="daos-debugging">DAOS Debugging<a class="headerlink" href="#daos-debugging" title="Permanent link">&para;</a></h1>
 <p>DAOS uses the debug system defined in <a href="https://github.com/daos-stack/cart">CaRT</a>
-but more specifically the GURT library. Logging for both client and server are
-written to "/tmp/daos.log" unless otherwise set by <code>D_LOG_FILE</code>.</p>
+but more specifically the GURT library. Default server log is "/tmp/daos.log"
+and client default log is stdout, unless otherwise set by <code>D_LOG_FILE</code>.</p>
 <h2 id="registered-subsystemsfacilities">Registered Subsystems/Facilities<a class="headerlink" href="#registered-subsystemsfacilities" title="Permanent link">&para;</a></h2>
 <p>The debug logging system includes a series of subsystems or facilities which
 define groups for related log messages (defined per source file). There are

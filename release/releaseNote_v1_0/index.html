@@ -42,7 +42,7 @@
     
     
       
-        <title>DAOS Version 1.0 Release Notes - DAOS v1.0</title>
+        <title>Release Notes - DAOS v1.0</title>
       
     
     
@@ -117,7 +117,7 @@
             </span>
             <span class="md-header-nav__topic">
               
-                DAOS Version 1.0 Release Notes
+                Release Notes
               
             </span>
           
@@ -185,14 +185,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../.." class="md-tabs__link">
         Home
       </a>
     
@@ -243,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../releaseNote_v1_0_1/" class="md-tabs__link">
+        <a href="./" class="md-tabs__link md-tabs__link--active">
           Releases
         </a>
       
@@ -667,10 +669,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
     <label class="md-nav__link" for="nav-5">
       Releases
@@ -686,11 +690,242 @@
           
           
 
+  
 
-  <li class="md-nav__item">
-    <a href="../releaseNote_v1_0_1/" title="Release Notes" class="md-nav__link">
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Release Notes
+      </label>
+    
+    <a href="./" title="Release Notes" class="md-nav__link md-nav__link--active">
       Release Notes
     </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#software-dependencies" class="md-nav__link">
+    Software Dependencies
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#distribution-packages" class="md-nav__link">
+    Distribution Packages
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#build-prerequisites" class="md-nav__link">
+    Build Prerequisites
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hardware-support" class="md-nav__link">
+    Hardware Support
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#processor-requirements" class="md-nav__link">
+    Processor Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#network-requirements" class="md-nav__link">
+    Network Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#storage-requirements" class="md-nav__link">
+    Storage Requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#daos-testing" class="md-nav__link">
+    DAOS Testing
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#version-10-major-features" class="md-nav__link">
+    Version 1.0 major features
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#nvme-and-persistent-memory-support" class="md-nav__link">
+    NVMe and Persistent Memory Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#per-pool-acl" class="md-nav__link">
+    Per-Pool ACL
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#certificate-support" class="md-nav__link">
+    Certificate Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unified-namespace-uns-in-daos-via-dfuse" class="md-nav__link">
+    Unified Namespace (UNS) in DAOS via dfuse
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mpi-io-romio-driver" class="md-nav__link">
+    MPI-IO ROMIO Driver
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hdf5-support" class="md-nav__link">
+    HDF5 Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#basic-posix-io-support" class="md-nav__link">
+    Basic POSIX I/O Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication-and-self-healing-preview" class="md-nav__link">
+    Replication and self-healing (preview)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#document-updates" class="md-nav__link">
+    Document updates
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-issues" class="md-nav__link">
+    Known Issues
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-dmg-storage-scan-may-report-incorrect-numa-socket-id" class="md-nav__link">
+    The dmg storage scan may report incorrect NUMA socket ID
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#psm-over-opa-is-not-fully-functional" class="md-nav__link">
+    PSM over OPA is not fully functional
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#replication-and-self-healing" class="md-nav__link">
+    Replication and Self-healing
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#limited-bandwidth-to-scm-with-some-updatewrite-operations" class="md-nav__link">
+    Limited bandwidth to SCM with some update/write operations
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aggregation-issue" class="md-nav__link">
+    Aggregation Issue
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#fixed-issues-details" class="md-nav__link">
+    Fixed Issues Details
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#change-log" class="md-nav__link">
+    Change Log
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -760,7 +995,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1341,6 +1576,41 @@ space even there is plenty of free space in SSD.</p>
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../../user/spark/" title="Spark" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Spark
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../dev/development/" title="Dev Environment" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Dev Environment
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

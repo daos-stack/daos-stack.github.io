@@ -245,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0_1/" class="md-tabs__link">
+        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -940,7 +940,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0_1/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -1012,7 +1012,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1372,8 +1372,8 @@ DAOS server configuration and how to start it on all the storage nodes.</p>
 <h3 id="server-configuration-file">Server Configuration File<a class="headerlink" href="#server-configuration-file" title="Permanent link">&para;</a></h3>
 <p>The <code>daos_server</code> configuration file is parsed when starting the
 <code>daos_server</code> process. The configuration file location can be specified
-on the command line (<code>daos_server -h</code> for usage) or default location
-(<code>install/etc/daos_server.yml</code>).</p>
+on the command line (<code>daos_server -h</code> for usage) or it will be read from
+the default location (<code>/etc/daos/daos_server.yml</code>).</p>
 <p>Parameter descriptions are specified in <a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml"><code>daos_server.yml</code></a>
 and example configuration files in the <a href="https://github.com/daos-stack/daos/tree/master/utils/config/examples">examples</a>
 directory.</p>
@@ -1388,7 +1388,7 @@ available at
 <a href="https://github.com/daos-stack/daos/tree/master/utils/config/examples">https://github.com/daos-stack/daos/tree/master/utils/config/examples</a></p>
 <p>The location of this configuration file is determined by first checking
 for the path specified through the -o option of the <code>daos_server</code> command
-line. Otherwise, /etc/daos_server.conf is used.</p>
+line. Otherwise, /etc/daos/daos_server.yml is used.</p>
 <p>Refer to the example configuration file (<a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml">daos_server.yml</a>)
 for latest information and examples.</p>
 <p>At this point of the process, the servers: and provider: section of the yaml
@@ -1538,13 +1538,15 @@ $ systemctl start daos_server.service
 </code></pre>
 
 <p>After RPM install, <code>daos_server</code> service starts automatically running as user
-"daos". Server config is read from <code>/etc/daos</code> and certificates from <code>/etc/daos/certs</code>.
+"daos". The server config is read from <code>/etc/daos/daos_server.yml</code> and 
+certificates are read from <code>/etc/daos/certs</code>.
 With no other admin intervention other than the loading of certificates,
 <code>daos_server</code> will enter a listening state enabling discovery of storage and
 network hardware through the <code>dmg</code> tool without any I/O Servers specified in the
 configuration file. After device discovery and provisioning, an updated
-configuration with a populated per-server section can be provided and the service
-restarted ready for DAOS servers to be formatted.</p>
+configuration file with a populated per-server section can be stored in
+<code>/etc/daos/daos_server.yml</code>, and after reestarting the <code>daos_server</code> service 
+it is then ready for the storage to be formatted.</p>
 <h4 id="kubernetes-pod">Kubernetes Pod<a class="headerlink" href="#kubernetes-pod" title="Permanent link">&para;</a></h4>
 <p>DAOS service integration with Kubernetes is planned and will be
 supported in a future DAOS version.</p>
@@ -1567,7 +1569,7 @@ storage nodes via the dmg utility.</p>
 <h3 id="scm-preparation">SCM Preparation<a class="headerlink" href="#scm-preparation" title="Permanent link">&para;</a></h3>
 <p>This section addresses how to verify that Optane DC Persistent Memory
 Module (DCPMM) is correctly installed on the storage nodes, and how to configure
-it in interleaved mode to be used by DAOS in AppDirect mode.
+it in Appdirect interleaved mode to be used by DAOS.
 Instructions for other types of SCM may be covered in the future.</p>
 <p>Provisioning the SCM occurs by configuring DCPM modules in AppDirect memory regions
 (interleaved mode) in groups of modules local to a specific socket (NUMA), and
@@ -1967,7 +1969,7 @@ support is to pass the -i flag to <code>daos_agent</code>.</p>
 <code>daos_agent</code> process. The configuration file location can be specified
 on the command line (<code>daos_agent -h</code> for usage) or default location
 (<code>install/etc/daos_agent.yml</code>). If installed from rpms the default location is
-(<code>/usr/etc/daos_agent.yml</code>).</p>
+(<code>/etc/daos/daos_agent.yml</code>).</p>
 <p>Parameter descriptions are specified in <a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_agent.yml">daos_agent.yml</a>.</p>
 <p>Any option supplied to <code>daos_agent</code> as a command line option or flag will
 take precedence over equivalent configuration file parameter.</p>
@@ -1981,8 +1983,8 @@ available at
 <a href="https://github.com/daos-stack/daos/tree/master/utils/config">https://github.com/daos-stack/daos/tree/master/utils/config</a></p>
 <p>The location of this configuration file is determined by first checking
 for the path specified through the -o option of the daos_agent command
-line. Otherwise, /etc/daos_agent.conf is used.</p>
-<p>Refer to the example configuration file (<a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml">daos_server.yml</a>)
+line. Otherwise, /etc/daos/daos_agent.yml is used.</p>
+<p>Refer to the example configuration file (<a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_agent.yml">daos_agent.yml</a>)
 for latest information and examples.</p>
 <h3 id="agent-startup">Agent Startup<a class="headerlink" href="#agent-startup" title="Permanent link">&para;</a></h3>
 <p>DAOS Agent is a standalone application to be run on each compute node.
@@ -1996,14 +1998,18 @@ configured to use a non-default agent configuration file.</p>
 </code></pre>
 
 <p>Alternatively, the DAOS Agent can be started as a systemd service. The DAOS Agent
-unit file is installed in the correct location when installing from RPMs.</p>
+unit file is installed in the correct location when installing from RPMs. 
+If you want to run the DAOS Agent without certificates (not recommended in production
+deployments), you need to add the <code>-i</code> option to the systemd <code>ExecStart</code> invocation
+(see below).</p>
 <p>If you wish to use systemd with a development build, you must copy the service
 file from <code>utils/systemd</code> to <code>/usr/lib/systemd/system</code>. Once the file is copied
 modify the ExecStart line to point to your in tree <code>daos_agent</code> binary.</p>
 <p><code>ExecStart=/usr/bin/daos_agent -i -o &lt;'path to agent configuration file/daos_agent.yml'&gt;</code></p>
 <p>Once the service file is installed, you can start <code>daos_agent</code>
 with the following commands:</p>
-<pre><code class="bash">$ sudo systemctl enable daos_agent.service
+<pre><code class="bash">$ sudo systemctl daemon-reload
+$ sudo systemctl enable daos_agent.service
 $ sudo systemctl start daos_agent.service
 </code></pre>
 

@@ -38,11 +38,11 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
     
     
       
-        <title>Software Installation - DAOS v1.0.1</title>
+        <title>Software Installation - DAOS v1.0</title>
       
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0.1" aria-label="DAOS v1.0.1" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0.1
+              DAOS v1.0
             </span>
             <span class="md-header-nav__topic">
               
@@ -245,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0_1/" class="md-tabs__link">
+        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -287,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0.1" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS v1.0.1
+    DAOS v1.0
   </label>
   
     <div class="md-nav__source">
@@ -825,32 +825,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0_1/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://github.com/cdurf1/cdurf1.github.io/blob/master/v1.0/index.html" title="Release 1.0" class="md-nav__link">
-      Release 1.0
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="https://github.com/cdurf1/cdurf1.github.io/blob/master/v0.9/index.html" title="Release 0.9" class="md-nav__link">
-      Release 0.9
     </a>
   </li>
 
@@ -921,7 +897,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1177,28 +1153,20 @@ under consideration.</p>
 <p>DAOS RPMs are available from the Intel&copy; Registration Center.
 Clicking the <a href="https://registrationcenter.intel.com/forms/?productid=3412">Intel&copy; Registration Center</a> link will take you to the registration center, where you will create an account. After creating an account, the following files can be downloaded:</p>
 <ul>
-<li>debug.tar</li>
-<li>packages.tar</li>
-<li>source.tar</li>
+<li>daos_debug.tar - <em>debuginfo</em> packages</li>
+<li>daos_packages.tar - client and server main packages</li>
+<li>daos_source.tar - source RPMs</li>
 </ul>
 <p><strong>Recommended steps after download:</strong></p>
-<pre><code>tar -xf /path/to/daos_packages.tar
-
-tar -xf /path/to/daos_source.tar
-
-tar -xf /path/to//daos_debug.tar
-</code></pre>
-<p>Change the Base_url location and public GPG key location in *.repo files to the location where the untarred files reside:</p>
-<pre><code>cp /opt/intel/daos_rpms/packages/daos_packages.repo /etc/yum.repos.d
-
-cp /opt/intel/daos_rpms/source/daos_source.repo /etc/yum.repos.d
-
-cp /opt/intel/daos_rpms/debug/daos_debug.repo /etc/yum.repos.d
-
+<pre><code>sudo tar -C / -xf daos_packages.tar 
+sudo cp /opt/intel/daos_rpms/packages/daos_packages.repo /etc/yum.repos.d
+rm /opt/intel/daos_rpms/packages/libabt*
+(cd /opt/intel/daos_rpms/packages/ &amp;&amp; createrepo .)
 sudo yum install epel-release
+sudo yum install daos-server
+sudo yum install daos-client
 </code></pre>
-<p><strong>Installing DAOS from package rpms:</strong></p>
-<p><code>sudo yum install daos daos-client daos-server</code></p>
+<p><strong>Note:</strong> <em>Only daos-client OR daos-server needs to be specified on the yum command line.</em></p>
 <h2 id="daos-from-scratch">DAOS from Scratch<a class="headerlink" href="#daos-from-scratch" title="Permanent link">&para;</a></h2>
 <p>The following instructions have been verified with CentOS. Installations on other
 Linux distributions might be similar with some variations.
@@ -1219,7 +1187,7 @@ maintained in the Docker files:</p>
 </ul>
 <p>The command lines to install the required packages can be extracted from
 the Docker files by removing the "RUN" command, which is specific to Docker.
-Check the <a href="https://github.com/daos-stack/daos/tree/master/utils/docker">docker</a>
+Check the <a href="https://github.com/daos-stack/daos/tree/master/utils/docker">utils/docker</a>
 directory for different Linux distribution versions.</p>
 <p>Some DAOS tests use MPI.   The DAOS build process
 uses the environment modules package to detect the presence of MPI.  If none
@@ -1414,7 +1382,7 @@ refer to the next section.</p>
     
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
       
     
   </body>

@@ -245,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0_1/" class="md-tabs__link">
+        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -559,6 +559,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ownership" class="md-nav__link">
+    Ownership
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#creating-a-pool-with-a-custom-acl" class="md-nav__link">
@@ -886,7 +893,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0_1/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -958,7 +965,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1058,6 +1065,13 @@
   
     <nav class="md-nav">
       <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ownership" class="md-nav__link">
+    Ownership
+  </a>
+  
+</li>
         
           <li class="md-nav__item">
   <a href="#creating-a-pool-with-a-custom-acl" class="md-nav__link">
@@ -1351,6 +1365,10 @@ credentials.</p>
 <a href="https://daos-stack.github.io/overview/security/#permissions">pool permissions</a>.</p>
 <p>A user must be able to connect to the pool in order to access any containers
 inside, regardless of their permissions on those containers.</p>
+<h3 id="ownership">Ownership<a class="headerlink" href="#ownership" title="Permanent link">&para;</a></h3>
+<p>Pool ownership conveys no special privileges for access control decisions. All
+desired privileges of the owner-user (<code>OWNER@</code>) and owner-group (<code>GROUP@</code>) must
+be explicitly defined by an administrator in the pool ACL.</p>
 <h3 id="creating-a-pool-with-a-custom-acl">Creating a pool with a custom ACL<a class="headerlink" href="#creating-a-pool-with-a-custom-acl" title="Permanent link">&para;</a></h3>
 <p>To create a pool with a custom ACL:</p>
 <pre><code class="bash">$ dmg pool create --scm-size &lt;size&gt; --acl-file &lt;path&gt;

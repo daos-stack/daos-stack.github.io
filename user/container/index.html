@@ -245,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0_1/" class="md-tabs__link">
+        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -656,6 +656,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#inline-deduplication-preview" class="md-nav__link">
+    Inline Deduplication (Preview)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compression-encryption" class="md-nav__link">
+    Compression &amp; Encryption
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#snapshot-rollback" class="md-nav__link">
     Snapshot &amp; Rollback
   </a>
@@ -741,6 +755,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#privileges" class="md-nav__link">
+    Privileges
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#creating-containers-with-specific-ownership" class="md-nav__link">
     Creating Containers with Specific Ownership
   </a>
@@ -761,13 +782,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compression-encryption" class="md-nav__link">
-    Compression &amp; Encryption
-  </a>
   
 </li>
       
@@ -860,7 +874,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0_1/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -932,7 +946,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1033,6 +1047,20 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#inline-deduplication-preview" class="md-nav__link">
+    Inline Deduplication (Preview)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#compression-encryption" class="md-nav__link">
+    Compression &amp; Encryption
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#snapshot-rollback" class="md-nav__link">
     Snapshot &amp; Rollback
   </a>
@@ -1118,6 +1146,13 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#privileges" class="md-nav__link">
+    Privileges
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#creating-containers-with-specific-ownership" class="md-nav__link">
     Creating Containers with Specific Ownership
   </a>
@@ -1138,13 +1173,6 @@
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#compression-encryption" class="md-nav__link">
-    Compression &amp; Encryption
-  </a>
   
 </li>
       
@@ -1173,6 +1201,13 @@
 <p>Containers can be created and destroyed through the daos_cont_create/destroy()
 functions exported by the DAOS API. A user tool called <code>daos</code> is also
 provided to manage containers.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In DAOS 1.0, in order to use the <code>daos</code> command the following environment
+variables need to be set (this is no longer needed in later versions of DAOS):
+ * For Omni-Path: <code>export OFI_INTERFACE="ib0"; export CRT_PHY_ADDR_STR="ofi+psm2"</code>
+ * For InfiniBand: <code>export OFI_INTERFACE="ib0"; export CRT_PHY_ADDR_STR="ofi+verbs;ofi_rxm"; export OFI_DOMAIN="mlx5_0"</code></p>
+</div>
 <p>To create a container:</p>
 <pre><code class="bash">$ daos cont create --pool=a171434a-05a5-4671-8fe2-615aa0d05094 --svc=0
 Successfully created container 008123fc-6b6c-4768-a88a-a2a5ef34a1a2
@@ -1236,8 +1271,16 @@ metadata, many of them are still under development. The ability to modify some
 of these properties on an existing container will also be provided in a future
 release.</p>
 <h2 id="data-integrity">Data Integrity<a class="headerlink" href="#data-integrity" title="Permanent link">&para;</a></h2>
-<p>Checksum configuration is done per container and is disabled by default.
-To enable and configure checksums, the following container properties are used
+<p>DAOS allows to detect and fix (when data protection is enabled) silent data
+corruptions. This is done by calculating checksums for both data and metadata
+in the DAOS library on the client side and storing those checksums persistently
+in SCM. The checksums will then be validated on access and on update/write as
+well on the server side if server verify option is enabled.</p>
+<p>Corrupted data will never be returned to the application. When a corruption is
+detected, DAOS will try to read from a different replica, if any.  If the
+original data cannot be recovered, then an error will be reported to the
+application.</p>
+<p>To enable and configure checksums, the following container properties are used
 during container create.</p>
 <ul>
 <li><code>DAOS_PROP_CO_CSUM</code>: Type of checksum algorithm to use. Supported values are</li>
@@ -1246,6 +1289,9 @@ during container create.</p>
   DAOS_PROP_CO_CSUM_CRC16,
   DAOS_PROP_CO_CSUM_CRC32,
   DAOS_PROP_CO_CSUM_CRC64,
+  DAOS_PROP_CO_CSUM_SHA1,
+  DAOS_PROP_CO_CSUM_SHA256,
+  DAOS_PROP_CO_CSUM_SHA512
 </code></pre>
 
 <ul>
@@ -1265,6 +1311,54 @@ during container create.</p>
 <p>Note that currently, once a container is created, its checksum configuration
 cannot be changed.</p>
 </div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>The checksum feature is only supported in DAOS 1.2.</p>
+</div>
+<h2 id="inline-deduplication-preview">Inline Deduplication (Preview)<a class="headerlink" href="#inline-deduplication-preview" title="Permanent link">&para;</a></h2>
+<p>Data deduplication (dedup) is a process that allows to eliminate duplicated
+data copies in order to decrease capacity requirements. DAOS has some initial
+support of inline dedup.</p>
+<p>When dedup is enabled, each DAOS server maintains a per-pool table indexing
+extents by their hash (i.e. checksum). Any new I/Os bigger than the
+deduplication threshold will thus be looked up in this table to find out
+whether an existing extent with the same signature has already been stored.
+If an extent is found, then two options are provided:</p>
+<ul>
+<li>Transferring the data from the client to the server and doing a memory compare
+  (i.e. memcmp) of the two extents to verify that they are indeed identical.</li>
+<li>Trusting the hash function and skipping the data transfer. To minimize issue
+  with hash collision, a cryptographic hash function (i.e. SHA256) is used in
+  this case. The benefit of this approarch is that the data to be written does
+  not need to be transferred to the server. Data processing is thus greatly
+  accelerated.</li>
+</ul>
+<p>The inline dedup feature can be enabled on a per-container basis. To enable and
+configure dedup, the following container properties are used:</p>
+<ul>
+<li><code>DAOS_PROP_CO_DEDUP</code>: Type of dedup mechanism to use. Supported values are</li>
+</ul>
+<pre><code class="c">  DAOS_PROP_CO_DEDUP_OFF, // default
+  DAOS_PROP_CO_DEDUP_MEMCMP, // memory compare
+  DAOS_PROP_CO_CSUM_HASH // hash-based using SHA256
+</code></pre>
+
+<ul>
+<li><code>DAOS_PROP_CO_DEDUP_THRESHOLD</code>: defines the minimal I/O size to consider
+  the I/O for dedup (default is 4K).</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Dedup is a feature preview in 1.2 (i.e. master) and has some known
+limitations. Aggregation of deduplicated extents isn't supported and the
+checksum tree isn't persistent yet. This means that aggregation is disabled
+for a container with dedplication enabled and duplicated extents won't be
+matched after a server restart.</p>
+</div>
+<h2 id="compression-encryption">Compression &amp; Encryption<a class="headerlink" href="#compression-encryption" title="Permanent link">&para;</a></h2>
+<p>The <code>DAOS_PROP_CO_COMPRESS</code> and <code>DAOS_PROP_CO_ENCRYPT</code> properties are reserved
+for configuring respectively online compression and encryption.
+These features are currently not on the roadmap.</p>
 <h2 id="snapshot-rollback">Snapshot &amp; Rollback<a class="headerlink" href="#snapshot-rollback" title="Permanent link">&para;</a></h2>
 <p>Similar to container create/destroy, a container can be snapshotted through the
 DAOS API by calling daos_cont_create_snap(). Additional functions are provided
@@ -1391,9 +1485,14 @@ container will be decided based on the remaining ACL rules.</p>
 <p>The ownership of the container corresponds to the special principals <code>OWNER@</code>
 and <code>GROUP@</code> in the ACL. These values are a part of the container properties.
 They may be set on container creation and changed later.</p>
-<p>The owner-user (<code>OWNER@</code>) always has set-ACL and get-ACL permissions, even if
-they are not explicitly granted by the ACL. This applies regardless of the other
-permissions they are granted by ACE(s) in the ACL.</p>
+<h4 id="privileges">Privileges<a class="headerlink" href="#privileges" title="Permanent link">&para;</a></h4>
+<p>The owner-user (<code>OWNER@</code>) has implicit privileges on their container. The
+owner-user can always open the container, and has set-ACL (A) and get-ACL (a)
+permissions. These permissions are included alongside any permissions that the
+user was explicitly granted by entries in the ACL.</p>
+<p>Because the owner's special permissions are implicit, they apply to access
+control decisions even if they do not appear in the <code>OWNER@</code> entry, and even if
+the <code>OWNER@</code> entry is deleted.</p>
 <p>The owner-group (<code>GROUP@</code>) has no special permissions outside what they are
 granted by the ACL.</p>
 <h4 id="creating-containers-with-specific-ownership">Creating Containers with Specific Ownership<a class="headerlink" href="#creating-containers-with-specific-ownership" title="Permanent link">&para;</a></h4>
@@ -1419,10 +1518,6 @@ at container creation time.</p>
 
 <p>The user and group names are case sensitive and must be formatted as
 <a href="https://daos-stack.github.io/overview/security/#principal">DAOS ACL user/group principals</a>.</p>
-<h2 id="compression-encryption">Compression &amp; Encryption<a class="headerlink" href="#compression-encryption" title="Permanent link">&para;</a></h2>
-<p>The <code>DAOS_PROP_CO_COMPRESS</code> and <code>DAOS_PROP_CO_ENCRYPT</code> properties are reserved
-for configuring respectively online compression and encryption.
-These features are currently not on the roadmap.</p>
                 
                   
                 
