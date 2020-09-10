@@ -1169,60 +1169,63 @@
 <p>DAOS uses a flexible security model that separates authentication from
 authorization. It is designed to have a minimal impact on the I/O path.</p>
 <p>There are two areas of DAOS that require access control. At the user level,
-clients must be able to read and modify only pools and containers to which they
-have been granted access. At the system and administrative levels, only
+clients must be able to read and modify only <em>pools</em> and <em>containers</em> to which 
+they have been granted access. At the system and administrative levels, only
 authorized components must be able to access the DAOS management network.</p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
 <p>There are different means of authentication, depending on whether the caller is
 accessing client resources or the DAOS management network.</p>
 <h3 id="client-library">Client Library<a class="headerlink" href="#client-library" title="Permanent link">&para;</a></h3>
-<p>The client library is an untrusted component. A trusted process, the DAOS agent,
-runs on the client node and authenticates the user process.</p>
+<p>The client library <code>libdaos</code> is an untrusted component. The <code>daos</code> user-level 
+command that uses the client library is also an untrusted component. 
+A trusted process, the DAOS agent (<code>daos_agent</code>),
+runs on each client node and authenticates the user processes.</p>
 <p>The DAOS security model is designed to support different authentication methods
 for client processes. Currently, we support AUTH_SYS authentication only.</p>
 <h3 id="daos-management-network">DAOS Management Network<a class="headerlink" href="#daos-management-network" title="Permanent link">&para;</a></h3>
-<p>Each trusted DAOS component (agent, server, and administrative tool) is
+<p>Each trusted DAOS component (<code>daos_server</code>, <code>daos_agent</code>, 
+and the <code>dmg</code> administrative tool) is
 authenticated by means of a certificate generated for that component. These
 components identify one another over the DAOS management network via
 mutually-authenticated TLS.</p>
 <h2 id="authorization">Authorization<a class="headerlink" href="#authorization" title="Permanent link">&para;</a></h2>
 <p>Client authorization for resources is controlled by the Access Control List
-(ACL) on the resource, while authorization on the management network is
+(ACL) on the resource. Authorization on the management network is
 achieved by settings on the
 <a href="https://daos-stack.github.io/admin/deployment/#certificate-configuration">certificates</a>
-generated while setting up the DAOS system.</p>
+that are generated while setting up the DAOS system.</p>
 <h3 id="component-certificates">Component Certificates<a class="headerlink" href="#component-certificates" title="Permanent link">&para;</a></h3>
 <p>Access to DAOS management RPCs is controlled via the CommonName (CN) set in
 each management component certificate. A given management RPC may only be
 invoked by a component which connects with the correct certificate.</p>
 <h3 id="access-control-lists">Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permanent link">&para;</a></h3>
-<p>Client access to resources like pools and containers is controlled by
-DAOS Access Control Lists (ACL). These ACLs are derived in part from NFSv4 ACLs,
+<p>Client access to resources like <em>pools</em> and <em>containers</em> is controlled by
+DAOS Access Control Lists (ACLs). These ACLs are derived in part from NFSv4 ACLs,
 and adapted for the unique needs of a distributed system.</p>
 <p>The client may request read-only or read-write access to the resource. If the
 resource ACL doesn't grant them the requested access level, they won't
-be able to connect. While connected, their handle to that resource grants their
+be able to connect. While connected, their handle to that resource grants 
 permissions for specific actions.</p>
 <p>The permissions of a handle last for the duration of its existence, similar to
 an open file descriptor in a POSIX system. A handle cannot currently be revoked.</p>
 <h4 id="access-control-entries">Access Control Entries<a class="headerlink" href="#access-control-entries" title="Permanent link">&para;</a></h4>
-<p>In the input and output of DAOS tools, an ACE is defined using a colon-separated
-string format:\
+<p>In the input and output of DAOS tools, an Access Control Entry (ACE) is defined 
+using a colon-separated string with the following format: 
 <code>TYPE:FLAGS:PRINCIPAL:PERMISSIONS</code></p>
 <p>The contents of all the fields are case-sensitive.</p>
 <h5 id="type">Type<a class="headerlink" href="#type" title="Permanent link">&para;</a></h5>
-<p>The type of entry. Only one type of ACE is supported at this time.</p>
+<p>The type of ACE entry (mandatory). Only one type of ACE is supported at this time.</p>
 <ul>
 <li>A (Allow): Allow access to the specified principal for the given permissions.</li>
 </ul>
 <h5 id="flags">Flags<a class="headerlink" href="#flags" title="Permanent link">&para;</a></h5>
-<p>The flags provide additional information about how the ACE should be
+<p>The (optional) flags provide additional information about how the ACE should be
 interpreted.</p>
 <ul>
 <li>G (Group): The principal should be interpreted as a group.</li>
 </ul>
 <h5 id="principal">Principal<a class="headerlink" href="#principal" title="Permanent link">&para;</a></h5>
-<p>The principal (also called the identity) is specified in the name@domain format.
+<p>The principal (also called the identity) is specified in the <code>name@domain</code> format.
 The domain should be left off if the name is a UNIX user/group on the local
 domain. Currently, this is the only case supported by DAOS.</p>
 <p>There are three special principals, <code>OWNER@</code>, <code>GROUP@</code>, and <code>EVERYONE@</code>,
@@ -1231,8 +1234,9 @@ When providing them in the ACE string format, they must be spelled exactly as
 written here, in uppercase with no domain appended. The <code>GROUP@</code> entry must
 also have the <code>G</code> (group) flag.</p>
 <h5 id="permissions">Permissions<a class="headerlink" href="#permissions" title="Permanent link">&para;</a></h5>
-<p>The permissions in a resource's ACL permit a certain type of user access to
-the resource.</p>
+<p>The permissions in a resource's ACE permit a certain type of user access to
+the resource. The order of the permission "bits" (characters) within the 
+<code>PERMISSIONS</code> field of the ACE is not significant.</p>
 <table>
 <thead>
 <tr>
@@ -1245,12 +1249,12 @@ the resource.</p>
 <tr>
 <td>r (Read)</td>
 <td>Alias for 't'</td>
-<td>Read data and attributes</td>
+<td>Read container data and attributes</td>
 </tr>
 <tr>
 <td>w (Write)</td>
 <td>Alias for 'c' + 'd'</td>
-<td>Write data and attributes</td>
+<td>Write container data and attributes</td>
 </tr>
 <tr>
 <td>c (Create)</td>
@@ -1270,7 +1274,7 @@ the resource.</p>
 <tr>
 <td>T (Set-Prop)</td>
 <td>N/A</td>
-<td>Change container properties</td>
+<td>Set/Change container properties</td>
 </tr>
 <tr>
 <td>a (Get-ACL)</td>
@@ -1280,20 +1284,20 @@ the resource.</p>
 <tr>
 <td>A (Set-ACL)</td>
 <td>N/A</td>
-<td>Change container ACL</td>
+<td>Set/Change container ACL</td>
 </tr>
 <tr>
 <td>o (Set-Owner)</td>
 <td>N/A</td>
-<td>Change owner user and group</td>
+<td>Set/Change container's owner user and group</td>
 </tr>
 </tbody>
 </table>
-<p>ACLs containing permissions not applicable to the given resource are considered
+<p>ACEs containing permissions not applicable to the given resource are considered
 invalid.</p>
 <p>To allow a user/group to connect to a resource, that principal's permissions
-must include at least some form of read access (for example, read or get-prop).
-A user with write-only permissions will be rejected when requesting RW access to
+must include at least some form of read access (for example, <code>read</code> or <code>get-prop</code>).
+A user with <code>write</code>-only permissions will be rejected when requesting RW access to
 a resource.</p>
 <h5 id="denying-access">Denying Access<a class="headerlink" href="#denying-access" title="Permanent link">&para;</a></h5>
 <p>Currently, only "Allow" Access Control Entries are supported.</p>
@@ -1301,17 +1305,17 @@ a resource.</p>
 entry for them with no permissions. This is fundamentally different from
 removing a user's ACE, which allows other ACEs in the ACL to determine their
 access.</p>
-<p>It is not possible to deny access to a specific group in this way, due to
+<p>It is <em>not</em> possible to deny access to a specific group in this way, due to
 <a href="#enforcement">the way group permissions are enforced</a>.</p>
 <h5 id="ace-examples">ACE Examples<a class="headerlink" href="#ace-examples" title="Permanent link">&para;</a></h5>
 <ul>
 <li><code>A::daos_user@:rw</code><ul>
-<li>Allow the UNIX user named daos_user to have read-write access.</li>
+<li>Allow the UNIX user named <code>daos_user</code> to have read-write access.</li>
 </ul>
 </li>
 <li><code>A:G:project_users@:tc</code><ul>
-<li>Allow anyone in the UNIX group project_users to access a pool's contents and
-create containers.</li>
+<li>Allow anyone in the UNIX group <code>project_users</code> to access a pool's 
+  contents and create containers.</li>
 </ul>
 </li>
 <li><code>A::OWNER@:rwdtTaAo</code><ul>
@@ -1328,7 +1332,7 @@ create containers.</li>
 </ul>
 </li>
 <li><code>A::daos_user@:</code><ul>
-<li>Deny the UNIX user named daos_user any access to the resource.</li>
+<li>Deny the UNIX user named <code>daos_user</code> any access to the resource.</li>
 </ul>
 </li>
 </ul>
@@ -1342,24 +1346,24 @@ create containers.</li>
 </ul>
 <p>In general, enforcement will be based on the first match, ignoring
 lower-priority entries.</p>
-<p>If the user is the owner of the resource and there is an OWNER@ entry, they
+<p>If the user is the owner of the resource and there is an <code>OWNER@</code> entry, they
 will receive the owner permissions only. They will not receive any of the
 permissions in the named user/group entries, even if they would match those
 other entries.</p>
-<p>If the user isn't the owner, or there is no OWNER@ entry, but there is an ACE
+<p>If the user isn't the owner, or there is no <code>OWNER@</code> entry, but there is an ACE
 for their user identity, they will receive the permissions for their user
 identity only. They will not receive the permissions for any of their
 groups, even if those group entries have broader permissions than the user entry
 does. The user is expected to match at most one user entry.</p>
 <p>If no matching user entry is found, but entries match one or more of the user's
 groups, enforcement will be based on the union of the permissions of all
-matching groups, including the owner-group.</p>
-<p>If no matching groups are found, the "Everyone" entry's permissions will be
+matching groups, including the owner-group <code>GROUP@</code>.</p>
+<p>If no matching groups are found, the <code>EVERYONE@</code> entry's permissions will be
 used, if it exists.</p>
-<p>By default, if a user matches no ACEs in the list, access will be denied.</p>
+<p>By default, if a user matches no ACEs in the ACL list, access will be denied.</p>
 <h4 id="acl-file">ACL File<a class="headerlink" href="#acl-file" title="Permanent link">&para;</a></h4>
 <p>Tools that accept an ACL file expect it to be a simple text file with one ACE
-on each line. A line may be marked as a comment by adding a <code>#</code> as the first
+on each line. A line may be marked as a comment by using a <code>#</code> as the first
 non-whitespace character on the line.</p>
 <p>For example:</p>
 <pre><code># ACL for my container
@@ -1371,7 +1375,7 @@ A:G:my_great_project@:rw
 A::bob@:r
 </code></pre>
 
-<p>That the permission bits and the ACEs themselves don't need to be in any
+<p>The permission bits and the ACEs themselves don't need to be in any
 specific order. However the order may be different when the resulting ACL is
 parsed and displayed by DAOS.</p>
 <h4 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h4>
@@ -1379,10 +1383,10 @@ parsed and displayed by DAOS.</p>
 <p>To calculate the internal data size of an ACL, use the following formula for
 each ACE:</p>
 <ul>
-<li>The base size of an ACE is 256 bytes.</li>
+<li>The base size of an ACE is 256 Bytes.</li>
 <li>If the ACE principal is <em>not</em> one of the special principals:</li>
 <li>Add the length of the principal string + 1.</li>
-<li>If that value is not 64-byte aligned, round up to the nearest 64 byte
+<li>If that value is not 64-Byte aligned, round up to the nearest 64-Byte
     boundary.</li>
 </ul>
                 
