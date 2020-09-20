@@ -1685,8 +1685,8 @@ configuration file to identified NVMe SSDs.</p>
 section of the server configuration file for best performance.</p>
 <p>Note that other storage query commands are also available,
 <code>dmg storage --help</code> for listings.</p>
-<p>SSD health state can be verified via <code>dmg storage query nvme-health</code>:</p>
-<pre><code class="bash">$ dmg -l wolf-71 storage query nvme-health
+<p>SSD health state can be verified via <code>dmg storage scan --nvme-health</code>:</p>
+<pre><code class="bash">$ dmg -l wolf-71 storage scan --nvme-health
 wolf-71:10001: connected
 wolf-71:10001
         NVMe controllers and namespaces detail with health statistics:

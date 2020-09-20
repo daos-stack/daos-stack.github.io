@@ -1426,6 +1426,10 @@ permissions on that container.</p>
 <p>If the user does not have Delete permission on the pool, they will only be able
 to delete containers for which they have been explicitly granted Delete
 permission in the container's ACL.</p>
+<p>!!! note:
+    In DAOS version 1.0, permissions are set on the <em>pool</em> level and all containers
+    in the pool inherit the permissions of the pool. Starting with DAOS version 1.2,
+    pool and container permissions are controlled individually.</p>
 <h3 id="creating-containers-with-custom-acl">Creating Containers with Custom ACL<a class="headerlink" href="#creating-containers-with-custom-acl" title="Permanent link">&para;</a></h3>
 <p>To create a container with a custom ACL:</p>
 <pre><code class="bash">$ daos cont create --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --acl-file=&lt;path&gt;

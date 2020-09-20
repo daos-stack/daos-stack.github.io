@@ -736,6 +736,26 @@
     DAOS URIs
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-daos-uns-path" class="md-nav__link">
+    With DAOS UNS Path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#without-daos-uns-path" class="md-nav__link">
+    Without DAOS UNS Path
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1043,6 +1063,26 @@
     DAOS URIs
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#with-daos-uns-path" class="md-nav__link">
+    With DAOS UNS Path
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#without-daos-uns-path" class="md-nav__link">
+    Without DAOS UNS Path
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
           <li class="md-nav__item">
@@ -1126,9 +1166,11 @@
                 <h1 id="getting-started-with-the-daos-hadoop-filesystem">Getting Started with the DAOS Hadoop Filesystem<a class="headerlink" href="#getting-started-with-the-daos-hadoop-filesystem" title="Permanent link">&para;</a></h1>
 <p>Here, we describe the steps required to build and deploy the DAOS Hadoop
 filesystem, and the configurations to access DAOS in Spark and Hadoop. We
-assume DAOS servers and agents have already been deployed in the environment.
+assume that the DAOS servers and agents have already been deployed in the environment.
 Otherwise, they can be deployed by following the
-<a href="https://daos-stack.github.io/admin/installation/">DAOS installation guide</a>.</p>
+<a href="https://daos-stack.github.io/admin/installation/">DAOS Installation Guide</a>.</p>
+<p>!!!note DAOS support for Spark and Hadoop is not available in DAOS 1.0. 
+        It is targeted for the DAOS 1.2 release.</p>
 <h2 id="build-daos-hadoop-filesystem">Build DAOS Hadoop Filesystem<a class="headerlink" href="#build-daos-hadoop-filesystem" title="Permanent link">&para;</a></h2>
 <p>Below are the steps to build the Java jar files for the DAOS Java and DAOS
 Hadoop filesystem. These jar files are required when running Spark and Hadoop.
@@ -1141,27 +1183,27 @@ $ cd src/client/java
 $ mvn clean package -DskipITs -Ddaos.install.path=&lt;daos_install&gt;
 </code></pre>
 
-<p>After build, the package daos-java-<version>-assemble.tgz will be available
-under distribution/target.</p>
+<p>After build, the package <code>daos-java-&lt;version&gt;-assemble.tgz</code> will be available
+under <code>distribution/target</code>.</p>
 <h2 id="deploy-daos-hadoop-filesystem">Deploy DAOS Hadoop Filesystem<a class="headerlink" href="#deploy-daos-hadoop-filesystem" title="Permanent link">&para;</a></h2>
 <p>After unzipping <code>daos-java-&lt;version&gt;-assemble.tgz</code>, you will get the
 following files.</p>
 <h3 id="daos-java-ltversiongtjar-and-hadoop-daos-ltversiongtjar"><code>daos-java-&lt;version&gt;.jar</code> and <code>hadoop-daos-&lt;version&gt;.jar</code><a class="headerlink" href="#daos-java-ltversiongtjar-and-hadoop-daos-ltversiongtjar" title="Permanent link">&para;</a></h3>
 <p>They need to be deployed on every compute node that runs Spark or Hadoop.
-Place them in a directory, e.g., $SPARK_HOME/jars for Spark and
-$HADOOP_HOME/share/hadoop/common/lib for Hadoop, which are accessible to all
+Place them in a directory, e.g., <code>$SPARK_HOME/jars</code> for Spark and
+<code>$HADOOP_HOME/share/hadoop/common/lib</code> for Hadoop, which is accessible to all
 the nodes or copy them to every node.<br/></p>
 <h3 id="daos-site-examplexml"><code>daos-site-example.xml</code><a class="headerlink" href="#daos-site-examplexml" title="Permanent link">&para;</a></h3>
 <p>You have two choices, with or without UNS path, to
 construct DAOS URI. If you choose the second choice, you have to copy the file
-to your application config directory, e.g., $SPARK_HOME/conf for Spark and
-$HADOOP_HOME/etc/hadoop for Hadoop. Then do some proper configuration and
-rename it to daos-site.xml. For the second choice, daos-site.xml is optional.
+to your application config directory, e.g., <code>$SPARK_HOME/conf</code> for Spark and
+<code>$HADOOP_HOME/etc/hadoop</code> for Hadoop. Then do some proper configuration and
+rename it to <code>daos-site.xml</code>. For the second choice, <code>daos-site.xml</code> is optional.
 See next section for details.</p>
 <h2 id="configure-daos-hadoop-filesystem">Configure DAOS Hadoop FileSystem<a class="headerlink" href="#configure-daos-hadoop-filesystem" title="Permanent link">&para;</a></h2>
 <h3 id="daos-environment-variable">DAOS Environment Variable<a class="headerlink" href="#daos-environment-variable" title="Permanent link">&para;</a></h3>
 <p>Export all DAOS related env variables and the following env variable in
-your application, e.g., spark-env.sh for Spark and hadoop-env.sh for Hadoop.
+your application, e.g., <code>spark-env.sh</code> for Spark and <code>hadoop-env.sh</code> for Hadoop.
 The following env enables signal chaining in JVM to better interoperate with
 DAOS native code that installs its own signal handlers. It ensures that signal
 calls are intercepted so that they do not actually replace the JVM's signal
@@ -1173,16 +1215,14 @@ not to be targeted at the JVM, the DAOS's handlers are invoked.</p>
 </code></pre>
 
 <h3 id="daos-uris">DAOS URIs<a class="headerlink" href="#daos-uris" title="Permanent link">&para;</a></h3>
-<p>DAOS FileSystem binds to schema, "daos". And DAOS URIs are in the format of
+<p>DAOS FileSystem binds to schema "daos".  DAOS URIs are in the format of
 "daos://[authority]//[path]". Both authority and path are optional. There
 are two types of DAOS URIs, with and without DAOS UNS path depending on where
-you want DAOS Filesystem get initialized and configured.</p>
-<ul>
-<li>With DAOS UNS Path</li>
-</ul>
+you want the DAOS Filesystem to get initialized and configured.</p>
+<h4 id="with-daos-uns-path">With DAOS UNS Path<a class="headerlink" href="#with-daos-uns-path" title="Permanent link">&para;</a></h4>
 <p>The simple form of URI is "daos:///\&lt;your uns path>[/sub path]".
-"\&lt;your path>" is your OS file path created with DAOS command or Java DAOS UNS
-method, DaosUns.create(). "[sub path]" is optional. You can create the UNS
+"\&lt;your path>" is your OS file path created with the <code>daos</code> command or Java DAOS UNS
+method, <code>DaosUns.create()</code>. The "[sub path]" is optional. You can create the UNS
 path with below command.</p>
 <pre><code class="bash">$ daos cont create --pool &lt;pool UUID&gt; --svc &lt;svc list&gt; -path &lt;your path&gt; --type=POSIX
 </code></pre>
@@ -1196,14 +1236,12 @@ the path.</p>
 <pre><code class="path">$ getfattr -d -m - &lt;your path&gt;
 </code></pre>
 
-<ul>
-<li>Without DAOS UNS Path</li>
-</ul>
+<h4 id="without-daos-uns-path">Without DAOS UNS Path<a class="headerlink" href="#without-daos-uns-path" title="Permanent link">&para;</a></h4>
 <p>The simple form of URI is "daos:///[sub path]". Please check description of
 "fs.defaultFS" in
-<a href="hadoop-daos/src/main/resources/daos-site-example.xml">example</a> for how to
-configure filesystem. In this way, preferred configurations are in
-daos-site.xml which should be put in right place, e.g., Java classpath, and
+<a href="hadoop-daos/src/main/resources/daos-site-example.xml">daos-site-example.xml</a> 
+for how to configure filesystem. In this way, preferred configurations are in
+<code>daos-site.xml</code> which should be put in right place, e.g., Java classpath, and
 loadable by Hadoop DAOS FileSystem.</p>
 <p>If the DAOS pool and container have not been created, we can use the following
 command to create them and get the pool UUID, container UUID, and service
@@ -1212,7 +1250,7 @@ replicas.</p>
 $ daos cont create --pool &lt;pool UUID&gt; --svc &lt;service replicas&gt; --type POSIX
 </code></pre>
 
-<p>After that, configure daos-site.xml with the pool and container created.</p>
+<p>After that, configure <code>daos-site.xml</code> with the pool and container created.</p>
 <pre><code class="xml">&lt;configuration&gt;
 ...
   &lt;property&gt;
@@ -1241,11 +1279,11 @@ keyed by "schema + authority" in global (JVM). It applies to the both types of
 URIs described above.</p>
 <h3 id="tune-more-configurations">Tune More Configurations<a class="headerlink" href="#tune-more-configurations" title="Permanent link">&para;</a></h3>
 <p>If your DAOS URI is the mapped UUIDs, you can follow descriptions of each
-config item in <a href="hadoop-daos/src/main/resources/daos-site-example.xml">example</a>
-to set your own values in loadable daos-site.xml.</p>
+config item in <a href="hadoop-daos/src/main/resources/daos-site-example.xml">daos-site-example.xml</a>
+to set your own values in loadable <code>daos-site.xml</code>.</p>
 <p>If your DAOS URI is the UNS path, your configurations, except those set by DAOS
-UNS creation, in daos-site.xml can still be effective. To make configuration
-source consistent, an alternative to configuration file, daos-site.xml, is to
+UNS creation, in <code>daos-site.xml</code> can still be effective. To make configuration
+source consistent, an alternative to the configuration file <code>daos-site.xml</code> is to
 set all configurations to the UNS path. You put the configs to the same UNS
 path with below command.</p>
 <pre><code class="bash"># install attr package if get &quot;command not found&quot; error
@@ -1259,36 +1297,36 @@ $ setfattr -n user.daos.hadoop -v &quot;fs.daos.server.group=daos_server:fs.daos
 
 <p>For the "value" property, you need to follow pattern, key1=value1:key2=value2..
 .. And key<em> should be from
-<a href="hadoop-daos/src/main/resources/daos-site-example.xml">example</a>. If value</em>
+<a href="hadoop-daos/src/main/resources/daos-site-example.xml">daos-site-example.xml</a>. If value</em>
 contains characters of '=' or ':', you need to escape the value with below
 command.</p>
 <pre><code class="bash">$ java -Dop=escape-app-value -Dinput=&quot;daos_server:1=2&quot; -cp ./daos-java-1.1.0-shaded.jar io.daos.dfs.DaosUns util
 </code></pre>
 
 <p>You'll get escaped value, "daos_server\u003a1\u003d2", for "daos_server:1=2".</p>
-<p>If you configure the same property in both daos-site.mxl and UNS path, the
-value in daos-sitem.xml takes priority. If user set Hadoop configuration before
+<p>If you configure the same property in both <code>daos-site.xml</code> and UNS path, the
+value in <code>daos-sitem.xml</code> takes priority. If user set Hadoop configuration before
 initializing Hadoop DAOS FileSystem, the user's configuration takes priority.</p>
 <h3 id="configure-spark-to-use-daos">Configure Spark to Use DAOS<a class="headerlink" href="#configure-spark-to-use-daos" title="Permanent link">&para;</a></h3>
 <p>To access DAOS Hadoop filesystem in Spark, add the jar files to the classpath
 of the Spark executor and driver. This can be configured in Spark's
-configuration file spark-defaults.conf.</p>
+configuration file <code>spark-defaults.conf</code>.</p>
 <pre><code>spark.executor.extraClassPath   /path/to/daos-java-&lt;version&gt;.jar:/path/to/hadoop-daos-&lt;version&gt;.jar
 spark.driver.extraClassPath     /path/to/daos-java-&lt;version&gt;.jar:/path/to/hadoop-daos-&lt;version&gt;.jar
 </code></pre>
 
 <h4 id="access-daos-in-spark">Access DAOS in Spark<a class="headerlink" href="#access-daos-in-spark" title="Permanent link">&para;</a></h4>
 <p>All Spark APIs that work with the Hadoop filesystem will work with DAOS. We use
-the <code>daos://</code> URI to access files stored in DAOS. For example, to read
-people.json file from the root directory of DAOS filesystem, we can use the
+the <code>daos://</code> URI to access files stored in DAOS. For example, to read the
+<code>people.json</code> file from the root directory of DAOS filesystem, we can use the
 following pySpark code:</p>
 <pre><code class="python">df = spark.read.json(&quot;daos://default:1/people.json&quot;)
 </code></pre>
 
 <h3 id="configure-hadoop-to-use-daos">Configure Hadoop to Use DAOS<a class="headerlink" href="#configure-hadoop-to-use-daos" title="Permanent link">&para;</a></h3>
-<p>Edit $HADOOP_HOME/etc/hadoop/core-site.xml to change fs.defaultFS to
-“daos://default:1” or "daos://uns/\&lt;your path>". Then append below configuration
-to this file and $HADOOP_HOME/etc/hadoop/yarn-site.xml.</p>
+<p>Edit <code>$HADOOP_HOME/etc/hadoop/core-site.xml</code> to change fs.defaultFS to
+<code>daos://default:1</code> or "daos://uns/\&lt;your path>". Then append below configuration
+to this file and <code>$HADOOP_HOME/etc/hadoop/yarn-site.xml</code>.</p>
 <pre><code class="xml">&lt;property&gt;
     &lt;name&gt;fs.AbstractFileSystem.daos.impl&lt;/name&gt;
     &lt;value&gt;io.daos.fs.hadoop.DaosAbsFsImpl&lt;/value&gt;
@@ -1297,7 +1335,7 @@ to this file and $HADOOP_HOME/etc/hadoop/yarn-site.xml.</p>
 </code></pre>
 
 <p>DAOS has no data locality since it is remote storage. You need to add below
-configuration to scheduler configuration file, like capacity-scheduler.xml in
+configuration to the scheduler configuration file, like <code>capacity-scheduler.xml</code> in
 yarn.</p>
 <pre><code class="xml">&lt;property&gt;
   &lt;name&gt;yarn.scheduler.capacity.node-locality-delay&lt;/name&gt;
@@ -1305,8 +1343,8 @@ yarn.</p>
 &lt;/property&gt;
 </code></pre>
 
-<p>Then replicate daos-site.xml, core-site.xml, yarn-site.xml and
-capacity-scheduler.xml to other nodes.</p>
+<p>Then replicate <code>daos-site.xml</code>, <code>core-site.xml</code>, <code>yarn-site.xml</code> and
+<code>capacity-scheduler.xml</code> to other nodes.</p>
 <h4 id="access-daos-in-hadoop">Access DAOS in Hadoop<a class="headerlink" href="#access-daos-in-hadoop" title="Permanent link">&para;</a></h4>
 <p>If everything goes well, you should see “/user” directory being listed after
 issuing below command.</p>
@@ -1315,7 +1353,7 @@ issuing below command.</p>
 
 <p>You can also play around with other Hadoop commands, like -copyFromLocal and
 -copyToLocal. You can also start Yarn and run some mapreduce jobs on Yarn. Just
-make sure you have DAOS URI, “daos://default:1/”, set correctly in your job.</p>
+make sure you have DAOS URI, <code>daos://default:1/</code>, set correctly in your job.</p>
 <h4 id="known-issues">Known Issues<a class="headerlink" href="#known-issues" title="Permanent link">&para;</a></h4>
 <p>If you use Omni-path PSM2 provider in DAOS, you'll get connection issue in
 Yarn container due to PSM2 resource not being released properly in time.</p>
