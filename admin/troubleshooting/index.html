@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
     
     
       
@@ -790,8 +790,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/spark/" title="Spark" class="md-nav__link">
-      Spark
+    <a href="../../user/spark/" title="Spark and Hadoop" class="md-nav__link">
+      Spark and Hadoop
     </a>
   </li>
 
@@ -898,7 +898,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1157,11 +1157,16 @@ errors are documented in the table below.</p>
 <td>2014</td>
 <td>IO buffers can't match object extents</td>
 </tr>
+<tr>
+<td>DER_AGENT_INCOMPAT</td>
+<td>2029</td>
+<td>Agent is incompatible with libdaos</td>
+</tr>
 </tbody>
 </table>
 <p>When an operation fails, DAOS returns a negative DER error. For a full
 list of errors, please check
-<a href="https://github.com/daos-stack/cart/blob/master/src/include/gurt/errno.h">https://github.com/daos-stack/cart/blob/master/src/include/gurt/errno.h</a>
+<a href="https://github.com/daos-stack/cart/blob/master/src/include/daos_errno.h">https://github.com/daos-stack/cart/blob/master/src/include/daos_errno.h</a>
 (DER_ERR_GURT_BASE is equal to 1000 and DER_ERR_DAOS_BASE is equal
 to 2000).</p>
 <p>The function d_errstr() is provided in the API to convert an error
@@ -1359,7 +1364,7 @@ $ D_LOG_MASK=FATAL -&gt; will only log system fatal messages
 </li>
 <li>
 <p>Disable a noisy debug logging subsystem</p>
-<pre><code>$ D_LOG_MASK=DEBUG,MEM=ERR -&gt; disables MEM facility by 
+<pre><code>$ D_LOG_MASK=DEBUG,MEM=ERR -&gt; disables MEM facility by
 restricting all logs from that facility to ERROR or higher priority only
 </code></pre>
 </li>
@@ -1381,7 +1386,12 @@ management
 <p>Refer to the DAOS Environment Variables document for
 more information about the debug system environment.</p>
 <h2 id="common-daos-problems">Common DAOS Problems<a class="headerlink" href="#common-daos-problems" title="Permanent link">&para;</a></h2>
-<p>This section to be updated in a future revision.</p>
+<p>When DER_AGENT_INCOMPAT is received, it means that the client library libdaos.so
+is likely mismatched with the DAOS Agent.  The libdaos.so, DAOS Agent and DAOS
+Server must be built from compatible sources so that the GetAttachInfo protocol
+is the same between each component.  Depending on your situation, you will need
+to either update the DAOS Agent or the libdaos.so to the newer version in order
+to maintain compatibility with each other.</p>
 <h2 id="bug-report">Bug Report<a class="headerlink" href="#bug-report" title="Permanent link">&para;</a></h2>
 <p>Bugs should be reported through our issue tracker<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> with a test case
 to reproduce the issue (when applicable) and debug logs.</p>
@@ -1470,7 +1480,7 @@ in a compressed container format, such as .zip or .tar.bz2.</p>
     
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
     
   </body>

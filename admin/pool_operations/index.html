@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
     
     
       
@@ -708,6 +708,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#recovering-ownership-of-a-pools-container" class="md-nav__link">
+    Recovering Ownership of a Pool's Container
+  </a>
+  
+</li>
+      
       
       
       
@@ -857,8 +864,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/spark/" title="Spark" class="md-nav__link">
-      Spark
+    <a href="../../user/spark/" title="Spark and Hadoop" class="md-nav__link">
+      Spark and Hadoop
     </a>
   </li>
 
@@ -965,7 +972,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1210,6 +1217,13 @@
         <li class="md-nav__item">
   <a href="#pool-catastrophic-recovery" class="md-nav__link">
     Pool Catastrophic Recovery
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#recovering-ownership-of-a-pools-container" class="md-nav__link">
+    Recovering Ownership of a Pool's Container
   </a>
   
 </li>
@@ -1552,6 +1566,23 @@ once available.</p>
 and possibly repair a pmemobj file. As discussed in the previous section, the
 rebuild status can be consulted via the pool query and will be expanded
 with more information.</p>
+<h2 id="recovering-ownership-of-a-pools-container">Recovering Ownership of a Pool's Container<a class="headerlink" href="#recovering-ownership-of-a-pools-container" title="Permanent link">&para;</a></h2>
+<p>Typically users are expected to manage their containers. However, in the event
+that a container is orphaned and no users have the privileges to change the
+ownership, an administrator can transfer ownership of the container to a new
+user and/or group.</p>
+<p>To change the owner user:</p>
+<pre><code class="bash">$ dmg cont set-owner --pool &lt;UUID&gt; --cont &lt;UUID&gt; --user &lt;owner-user&gt;
+</code></pre>
+
+<p>To change the owner group:</p>
+<pre><code class="bash">$ dmg cont set-owner --pool &lt;UUID&gt; --cont &lt;UUID&gt; --group &lt;owner-group&gt;
+</code></pre>
+
+<p>The user and group names are case sensitive and must be formatted as
+<a href="https://daos-stack.github.io/overview/security/#principal">DAOS ACL user/group principals</a>.</p>
+<p>Because this is an administrative action, it does not require the administrator
+to have any privileges assigned in the container ACL.</p>
                 
                   
                 
@@ -1624,7 +1655,7 @@ with more information.</p>
     
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
     
   </body>
