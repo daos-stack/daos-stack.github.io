@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
     
     
       
@@ -654,8 +654,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/spark/" title="Spark" class="md-nav__link">
-      Spark
+    <a href="../../user/spark/" title="Spark and Hadoop" class="md-nav__link">
+      Spark and Hadoop
     </a>
   </li>
 
@@ -836,7 +836,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -981,9 +981,14 @@ environment to contribute to the DAOS development. This includes how to
 regenerate the protobuf files or add new Go package dependencies, which is
 only required for development purposes.</p>
 <h2 id="building-daos-for-development">Building DAOS for Development<a class="headerlink" href="#building-daos-for-development" title="Permanent link">&para;</a></h2>
-<p>Prerequisite when built using --build-deps are installed in component specific
-directories under PREFIX/prereq/$TARGET_TYPE.  Once the submodules have been
-initialized and updated, run the following commands:</p>
+<p>Prerequisite when built using <code>--build-deps</code> are installed in component
+specific directories under PREFIX/prereq/$TARGET_TYPE.  Initialize and update
+the git submodules:</p>
+<pre><code class="bash">$ git submodule init
+$ git submodule update
+</code></pre>
+
+<p>Run the following <code>scons</code> command:</p>
 <pre><code class="bash">$ scons PREFIX=${daos_prefix_path}
       install
       --build-deps=yes
@@ -991,50 +996,51 @@ initialized and updated, run the following commands:</p>
 </code></pre>
 
 <p>Installing the components into separate directories allow upgrading the
-components individually by replacing --build-deps=yes with
---update-prereq={component_name}. This requires a change to the environment
+components individually by replacing <code>--build-deps=yes</code> with
+<code>--update-prereq={component\_name}</code>. This requires a change to the environment
 configuration from before. For automated environment setup, source
-utils/sl/utils/setup_local.sh.</p>
-<p>The install path should be relocatable with the exception that daos_admin
+<code>utils/sl/utils/setup_local.sh</code>.</p>
+<p>The install path should be relocatable with the exception that <code>daos_admin</code>
 will not be able to find the new location of daos and dependencies. All other
 libraries and binaries should work without any change due to relative
-paths.  Editing the .build-vars.sh file to replace the old with the new can
+paths.  Editing the <code>.build-vars.sh</code> file to replace the old with the new can
 restore the capability of setup_local.sh to automate path setup.</p>
 <p>To run daos_server, either the rpath in daos_admin needs to be patched to
-the new installation location of spdk and isal or LD_LIBRARY_PATH needs to
-be set.  This can be done using SL_SPDK_PREFIX and SL_ISAL_PREFIX set when
-sourcing setup_local.sh.   This can also be done with the following commands</p>
+the new installation location of <code>spdk</code> and <code>isal</code> or <code>LD_LIBRARY_PATH</code> needs to
+be set.  This can be done using <code>SL_SPDK_PREFIX</code> and <code>SL_ISAL_PREFIX</code> set when
+sourcing <code>setup_local.sh</code>.   This can also be done with the following
+commands:</p>
 <pre><code>source utils/sl/setup_local.sh
 sudo -E utils/setup_daos_admin.sh [path to new location of daos]
 </code></pre>
 
-<p>This script is intended only for developer setup of daos_admin.</p>
+<p>This script is intended only for developer setup of <code>daos_admin</code>.</p>
 <p>With this approach, DAOS gets built using the prebuilt dependencies in
-${daos_prefix_path}/prereq, and required options are saved for future compilations.
-So, after the first time, during development, only "scons --config=force" and
-"scons --config=force install" would suffice for compiling changes to DAOS
+<code>${daos_prefix_path}/prereq</code>, and required options are saved for future compilations.
+So, after the first time, during development, only "<code>scons --config=force</code>" and
+"<code>scons --config=force install</code>" would suffice for compiling changes to DAOS
 source code.</p>
-<p>If you wish to compile DAOS with clang rather than gcc, set COMPILER=clang on
+<p>If you wish to compile DAOS with clang rather than <code>gcc</code>, set <code>COMPILER=clang</code> on
 the scons command line.   This option is also saved for future compilations.</p>
-<p>Additionally, users can specify BUILD_TYPE=[dev|release|debug] and scons will
-save the intermediate build for the various BUILD_TYPE, COMPILER, and TARGET_TYPE
+<p>Additionally, users can specify <code>BUILD_TYPE=[dev|release|debug]</code> and scons will
+save the intermediate build for the various <code>BUILD_TYPE</code>, <code>COMPILER</code>, and <code>TARGET_TYPE</code>
 options so a user can switch between options without a full rebuild and thus
-with minimal cost.   By default, TARGET_TYPE is set to 'default' which means
-it uses the BUILD_TYPE setting.  To avoid rebuilding prerequisites for every
-BUILD_TYPE setting, TARGET_TYPE can be explicitly set to a BUILD_TYPE setting
+with minimal cost.   By default, <code>TARGET_TYPE</code> is set to <code>'default'</code> which means
+it uses the <code>BUILD_TYPE</code> setting.  To avoid rebuilding prerequisites for every
+<code>BUILD_TYPE</code> setting, <code>TARGET_TYPE</code> can be explicitly set to a <code>BUILD_TYPE</code> setting
 to always use that set of prerequisites.  These settings are stored in daos.conf
 so setting the values on subsequent builds is not necessary.</p>
-<p>If needed, ALT_PREFIX can be set to a colon separated prefix path where to
+<p>If needed, <code>ALT_PREFIX</code> can be set to a colon separated prefix path where to
 look for already built components.  If set, the build will check these
 paths for components before proceeding to build.</p>
 <h2 id="go-dependencies">Go dependencies<a class="headerlink" href="#go-dependencies" title="Permanent link">&para;</a></h2>
 <p>Developers contributing Go code may need to change the external dependencies
-located in the src/control/vendor directory. The DAOS codebase uses
+located in the <code>src/control/vendor</code> directory. The DAOS codebase uses
 <a href="https://github.com/golang/go/wiki/Modules">Go Modules</a> to manage these
 dependencies. As this feature is built in to Go distributions starting with
 version 1.11, no additional tools are needed to manage dependencies.</p>
 <p>Among other benefits, one of the major advantages of using Go Modules is that it
-removes the requirement for builds to be done within the $GOPATH, which
+removes the requirement for builds to be done within the <code>$GOPATH</code>, which
 simplifies our build system and other internal tooling.</p>
 <p>While it is possible to use Go Modules without checking a vendor directory into
 SCM, the DAOS project continues to use vendored dependencies in order to
@@ -1095,7 +1101,7 @@ $ ls ~/go/pkg/mod # ~/go/pkg/mod should either not exist or be empty
 <h2 id="protobuf-compiler">Protobuf Compiler<a class="headerlink" href="#protobuf-compiler" title="Permanent link">&para;</a></h2>
 <p>The DAOS control plane infrastructure uses <a href="https://github.com/protocolbuffers/protobuf">Protocol Buffers</a>
 as the data serialization format for its RPC requests. Not all developers will
-need to compile the *.proto files, but if Protobuf changes are needed, the
+need to compile the <code>\*.proto</code> files, but if Protobuf changes are needed, the
 developer must regenerate the corresponding C and Go source files using a
 Protobuf compiler compatible with proto3 syntax.</p>
 <h3 id="recommended-versions">Recommended Versions<a class="headerlink" href="#recommended-versions" title="Permanent link">&para;</a></h3>
@@ -1103,14 +1109,14 @@ Protobuf compiler compatible with proto3 syntax.</p>
 the tagged releases noted below, and install from source. Later versions may
 work, but are not guaranteed.  You may encounter installation errors when
 building from source relating to insufficient permissions.  If that occurs,
-you may try relocating the repo to /var/tmp/ in order to build and install from there.</p>
+you may try relocating the repo to <code>/var/tmp/</code> in order to build and install from there.</p>
 <ul>
 <li><a href="https://github.com/protocolbuffers/protobuf">Protocol Buffers</a> v3.11.4. <a href="https://github.com/protocolbuffers/protobuf/blob/master/src/README.md">Installation instructions</a>.</li>
 <li><a href="https://github.com/protobuf-c/protobuf-c">Protobuf-C</a> v1.3.3. <a href="https://github.com/protobuf-c/protobuf-c/blob/master/README.md">Installation instructions</a>.</li>
 <li>gRPC plugin: <a href="https://github.com/golang/protobuf">protoc-gen-go</a> is the version specified in <a href="https://github.com/daos-stack/daos/blob/master/src/control/go.mod">go.mod</a>. This plugin is automatically installed by the Makefile in $DAOSREPO/src/proto.</li>
 </ul>
 <h3 id="compiling-protobuf-files">Compiling Protobuf Files<a class="headerlink" href="#compiling-protobuf-files" title="Permanent link">&para;</a></h3>
-<p>The source (.proto) files live under $DAOSREPO/src/proto. The preferred
+<p>The source (<code>.proto</code>) files live under <code>$DAOSREPO/src/proto</code>. The preferred
 mechanism for generating compiled C/Go protobuf definitions is to use the
 Makefile in this directory. Care should be taken to keep the Makefile updated
 when source files are added or removed, or generated file destinations are
@@ -1204,7 +1210,7 @@ as you would any other file.</p>
     
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
     
   </body>

@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
     
     
       
@@ -728,8 +728,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/spark/" title="Spark" class="md-nav__link">
-      Spark
+    <a href="../../user/spark/" title="Spark and Hadoop" class="md-nav__link">
+      Spark and Hadoop
     </a>
   </li>
 
@@ -836,7 +836,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1118,21 +1118,21 @@ CPUs, NVMe SSDs ...). A target is the unit of fault.</p>
 through two different client APIs. The management API offers the ability
 to administrate a DAOS system. It is intended to be integrated with
 different vendor-specific storage management or open-source
-orchestration frameworks. A CLI tool is built over the DAOS management
-API. On the other hand, the DAOS library (i.e., libdaos) implements the
-DAOS storage model and is primarily targeted at application and I/O
+orchestration frameworks. The <code>dmg</code> CLI tool is built over the DAOS management
+API. On the other hand, the DAOS library (<code>libdaos</code>) implements the
+DAOS storage model. It is primarily targeted at application and I/O
 middleware developers who want to store datasets in a DAOS system. User
-utilities are also built over the API to allow users to manage datasets
-from a CLI.</p>
+utilities like the <code>daos</code> command are also built over the API to allow
+users to manage datasets from a CLI.</p>
 <p>Applications can access datasets stored in DAOS either directly through
-the native DAOS API or an I/O middleware libraries (e.g. POSIX
-emulation, MPI-IO, HDF5) or frameworks (e.g., Spark, TensorFlow) already
-integrated with the native DAOS storage model.</p>
+the native DAOS API, through an I/O middleware library (e.g. POSIX
+emulation, MPI-IO, HDF5) or through frameworks like Spark or TensorFlow
+that have already been integrated with the native DAOS storage model.</p>
 <h3 id="agent">Agent<a class="headerlink" href="#agent" title="Permanent link">&para;</a></h3>
-<p>The DAOS agent is a daemon residing on the client node that interacts
-with the DAOS library to authenticate the application process. It is a
+<p>The DAOS agent is a daemon residing on the client nodes that interacts
+with the DAOS library to authenticate the application processes. It is a
 trusted entity that can sign the DAOS Client credentials using
-certificates. The agent can support different authentication frameworks
+certificates. The agent can support different authentication frameworks,
 and uses a Unix Domain Socket to communicate with the client library.</p>
                 
                   
@@ -1206,7 +1206,7 @@ and uses a Unix Domain Socket to communicate with the client library.</p>
     
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
     
   </body>

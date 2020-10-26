@@ -1,5 +1,6 @@
 var structdaos__iod__t =
 [
+    [ "iod_flags", "structdaos__iod__t.html#a1b2ba7548e5b5f9eceb3c5eb4dc047b7", null ],
     [ "iod_name", "structdaos__iod__t.html#a6340f19f00fce3a8f9fb7a17ba4bf19d", null ],
     [ "iod_nr", "structdaos__iod__t.html#ae43d152005a44d56e3ecb61bf5f69fdc", null ],
     [ "iod_recxs", "structdaos__iod__t.html#ae15eb1a8c6bbe2db55271734d4e400a6", null ],
