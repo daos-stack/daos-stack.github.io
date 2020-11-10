@@ -185,14 +185,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../.." class="md-tabs__link">
         Home
       </a>
     
@@ -230,7 +232,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../container/" class="md-tabs__link">
+        <a href="../container/" class="md-tabs__link md-tabs__link--active">
           User Guide
         </a>
       
@@ -583,10 +585,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
     <label class="md-nav__link" for="nav-4">
       User Guide
@@ -638,10 +642,101 @@
           
           
 
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        MPI-IO Support
+      </label>
+    
+    <a href="./" title="MPI-IO Support" class="md-nav__link md-nav__link--active">
+      MPI-IO Support
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#mpi-implementations-that-support-daos" class="md-nav__link">
+    MPI Implementations that support DAOS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mpich" class="md-nav__link">
+    MPICH
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#intel-mpi" class="md-nav__link">
+    Intel MPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#open-mpi" class="md-nav__link">
+    Open MPI
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mvapich2" class="md-nav__link">
+    MVAPICH2
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#building-mpi-io-with-daos-support" class="md-nav__link">
+    Building MPI-IO with DAOS Support
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
 
   <li class="md-nav__item">
-    <a href="../hpc.md" title="HPC I/O Middleware" class="md-nav__link">
-      HPC I/O Middleware
+    <a href="../hdf5/" title="HDF5 Support" class="md-nav__link">
+      HDF5 Support
     </a>
   </li>
 
@@ -998,6 +1093,41 @@ and mpich library installed above (see child pages).</p>
       
         
 <footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../posix/" title="POSIX Namespace" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                POSIX Namespace
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../hdf5/" title="HDF5 Support" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                HDF5 Support
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
