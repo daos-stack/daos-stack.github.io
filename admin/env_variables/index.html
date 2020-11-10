@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
     
     
       
@@ -91,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#environment-variables" tabindex="0" class="md-skip">
+      <a href="#daos-environment-variables" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -599,13 +599,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#common-environment-variables" class="md-nav__link">
-    Common environment variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#server-environment-variables" class="md-nav__link">
     Server environment variables
   </a>
@@ -613,15 +606,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#server-and-client" class="md-nav__link">
-    Server and Client
+  <a href="#server-and-client-environment-variables" class="md-nav__link">
+    Server and Client environment variables
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#client" class="md-nav__link">
-    Client
+  <a href="#client-environment-variables" class="md-nav__link">
+    Client environment variables
   </a>
   
 </li>
@@ -710,7 +703,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/hpc/" title="HPC I/O Middleware" class="md-nav__link">
+    <a href="../../user/hpc.md" title="HPC I/O Middleware" class="md-nav__link">
       HPC I/O Middleware
     </a>
   </li>
@@ -722,8 +715,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/spark/" title="Spark" class="md-nav__link">
-      Spark
+    <a href="../../user/spark/" title="Spark and Hadoop" class="md-nav__link">
+      Spark and Hadoop
     </a>
   </li>
 
@@ -830,7 +823,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -910,13 +903,6 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#common-environment-variables" class="md-nav__link">
-    Common environment variables
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#server-environment-variables" class="md-nav__link">
     Server environment variables
   </a>
@@ -924,15 +910,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#server-and-client" class="md-nav__link">
-    Server and Client
+  <a href="#server-and-client-environment-variables" class="md-nav__link">
+    Server and Client environment variables
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#client" class="md-nav__link">
-    Client
+  <a href="#client-environment-variables" class="md-nav__link">
+    Client environment variables
   </a>
   
 </li>
@@ -963,17 +949,17 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/env_variables.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="environment-variables">Environment Variables<a class="headerlink" href="#environment-variables" title="Permanent link">&para;</a></h1>
-<p>This section lists the environment variables used by DAOS. Many of them
-are used for development purposes only and may be removed or changed in
-the future.</p>
+                <h1 id="daos-environment-variables">DAOS Environment Variables<a class="headerlink" href="#daos-environment-variables" title="Permanent link">&para;</a></h1>
+<p>This section lists the environment variables used by DAOS. </p>
+<p>!!!warning Many of these variables are used for development purposes only,
+           and may be removed or changed in the future.</p>
 <p>The description of each variable follows the following format:</p>
 <ul>
 <li>
 <p>Short description</p>
 </li>
 <li>
-<p>Type</p>
+<p><code>Type</code></p>
 </li>
 <li>
 <p>The default behavior if not set.</p>
@@ -982,7 +968,7 @@ the future.</p>
 <p>A longer description if necessary</p>
 </li>
 </ul>
-<p>This table defines a type:</p>
+<p><code>Type</code> is defined by this table:</p>
 <table>
 <thead>
 <tr>
@@ -993,11 +979,11 @@ the future.</p>
 <tbody>
 <tr>
 <td>BOOL</td>
-<td>0 means false; any other value means true</td>
+<td><code>0</code> means false; any other value means true</td>
 </tr>
 <tr>
 <td>BOOL2</td>
-<td>no means false; any other value means true</td>
+<td><code>no</code> means false; any other value means true</td>
 </tr>
 <tr>
 <td>BOOL3</td>
@@ -1013,12 +999,8 @@ the future.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="common-environment-variables">Common environment variables<a class="headerlink" href="#common-environment-variables" title="Permanent link">&para;</a></h2>
-<p>Environment variables in this section apply to both the server-side and the client-side.</p>
-<pre><code>DAOS\_IO\_BYPASS
-</code></pre>
 <h2 id="server-environment-variables">Server environment variables<a class="headerlink" href="#server-environment-variables" title="Permanent link">&para;</a></h2>
-<p>Environment variables in this section only apply to the server-side.</p>
+<p>Environment variables in this section only apply to the server side.</p>
 <table>
 <thead>
 <tr>
@@ -1033,7 +1015,7 @@ the future.</p>
 </tr>
 <tr>
 <td>VOS_MEM_CLASS</td>
-<td>Memory class used by VOS. STRING. Default to persistent memory. If the value is set to DRAM, all data is stored in volatile memory; otherwise, all data is stored in persistent memory.</td>
+<td>Memory class used by VOS. STRING. Default to persistent memory. If the value is set to DRAM, all data is stored in volatile memory. Otherwise, all data is stored in persistent memory.</td>
 </tr>
 <tr>
 <td>RDB_ELECTION_TIMEOUT</td>
@@ -1069,9 +1051,8 @@ the future.</p>
 </tr>
 </tbody>
 </table>
-<hr />
-<h2 id="server-and-client">Server and Client<a class="headerlink" href="#server-and-client" title="Permanent link">&para;</a></h2>
-<p>Environment variables in this section apply to both server-side and client.</p>
+<h2 id="server-and-client-environment-variables">Server and Client environment variables<a class="headerlink" href="#server-and-client-environment-variables" title="Permanent link">&para;</a></h2>
+<p>Environment variables in this section apply to both the server side and the client side.</p>
 <table>
 <thead>
 <tr>
@@ -1090,8 +1071,8 @@ the future.</p>
 </tr>
 </tbody>
 </table>
-<h2 id="client">Client<a class="headerlink" href="#client" title="Permanent link">&para;</a></h2>
-<p>Environment variables in this section only apply to the client-side.</p>
+<h2 id="client-environment-variables">Client environment variables<a class="headerlink" href="#client-environment-variables" title="Permanent link">&para;</a></h2>
+<p>Environment variables in this section only apply to the client side.</p>
 <table>
 <thead>
 <tr>
@@ -1117,7 +1098,11 @@ the future.</p>
 <tbody>
 <tr>
 <td>D_LOG_FILE</td>
-<td>DAOS debug logs (both server and client) are written to /tmp/daos.log by default. The debug location can be modified by setting this environment variable ("D_LOG_FILE=/tmp/daos_server").</td>
+<td>DAOS debug logs (both server and client) are written to <code>/tmp/daos.log</code> by default. The debug location can be modified by setting this environment variable ("D_LOG_FILE=/tmp/daos_debug.log").</td>
+</tr>
+<tr>
+<td>D_LOG_SIZE</td>
+<td>DAOS debug logs (both server and client) have a 1GB file size limit by default. When this limit is reached, the current log file is closed and renamed with a .old suffix, and a new one is opened. This mechanism will repeat each time the limit is reached, meaning that available saved log records could be found in both ${D_LOG_FILE} and last generation of ${D_LOG_FILE}.old files, to a maximum of the most recent 2*D_LOG_SIZE records.  This can be modified by setting this environment variable ("D_LOG_SIZE=536870912"). Sizes can also be specified in human-readable form using <code>k</code>, <code>m</code>, <code>g</code>, <code>K</code>, <code>M</code>, and <code>G</code>. The lower-case specifiers are base-10 multipliers and the upper case specifiers are base-2 multipliers.</td>
 </tr>
 <tr>
 <td>DD_SUBSYS</td>
@@ -1129,7 +1114,7 @@ the future.</p>
 </tr>
 <tr>
 <td>D_LOG_MASK</td>
-<td>Used to specify what type/level of logging will be present for either all of the registered subsystems or a select few. Options in decreasing priority level order: FATAL, CRIT, ERR, WARN, NOTE, INFO, DEBUG. DEBUG option is used to enable all logging (debug messages as well as all higher priority level messages). Note that if D_LOG_MASK is not set, it will default to logging all messages excluding debug ("D_LOG_MASK=INFO"). EX: "D_LOG_MASK=DEBUG" This will set the logging level for all facilities to DEBUG, meaning that all debug messages, as well as higher priority messages will be logged (INFO, NOTE, WARN, ERR, CRIT, FATAL) EX: "D_LOG_MASK=DEBUG,MEM=ERR,RPC=ERR" This will set the logging level to DEBUG for all facilities except MEM &amp; RPC (which will now only log ERR and higher priority level messages, skipping all DEBUG, INFO, NOTE &amp; WARN messages)</td>
+<td>Used to specify what type/level of logging will be present for either all of the registered subsystems or a select few. Options in decreasing priority level order: FATAL, CRIT, ERR, WARN, NOTE, INFO, DEBUG. DEBUG option is used to enable all logging (debug messages as well as all higher priority level messages). Note that if D_LOG_MASK is not set, it will default to logging all messages excluding debug ("D_LOG_MASK=INFO"). Example: "D_LOG_MASK=DEBUG". This will set the logging level for all facilities to DEBUG, meaning that all debug messages, as well as higher priority messages will be logged (INFO, NOTE, WARN, ERR, CRIT, FATAL). Example 2: "D_LOG_MASK=DEBUG,MEM=ERR,RPC=ERR". This will set the logging level to DEBUG for all facilities except MEM &amp; RPC (which will now only log ERR and higher priority level messages, skipping all DEBUG, INFO, NOTE &amp; WARN messages)</td>
 </tr>
 <tr>
 <td>DD_MASK</td>
@@ -1209,7 +1194,7 @@ the future.</p>
     
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
       
     
   </body>

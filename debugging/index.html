@@ -38,7 +38,7 @@
         <meta name="lang:search.tokenizer" content="[\s\-]+">
       
       <link rel="shortcut icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.6.3">
+      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-4.6.3">
     
     
       
@@ -640,7 +640,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../user/hpc/" title="HPC I/O Middleware" class="md-nav__link">
+    <a href="../user/hpc.md" title="HPC I/O Middleware" class="md-nav__link">
       HPC I/O Middleware
     </a>
   </li>
@@ -652,8 +652,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../user/spark/" title="Spark" class="md-nav__link">
-      Spark
+    <a href="../user/spark/" title="Spark and Hadoop" class="md-nav__link">
+      Spark and Hadoop
     </a>
   </li>
 
@@ -760,7 +760,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../html/index.html" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../html/" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -888,15 +888,15 @@
                 
                 <h1 id="daos-debugging">DAOS Debugging<a class="headerlink" href="#daos-debugging" title="Permanent link">&para;</a></h1>
 <p>DAOS uses the debug system defined in <a href="https://github.com/daos-stack/cart">CaRT</a>
-but more specifically the GURT library. Default server log is "/tmp/daos.log"
-and client default log is stdout, unless otherwise set by <code>D_LOG_FILE</code>.</p>
+but more specifically the GURT library. The default server log is <code>/tmp/daos.log</code>
+and the default client log is <code>stdout</code>, unless otherwise set by <code>D_LOG_FILE</code>.</p>
 <h2 id="registered-subsystemsfacilities">Registered Subsystems/Facilities<a class="headerlink" href="#registered-subsystemsfacilities" title="Permanent link">&para;</a></h2>
 <p>The debug logging system includes a series of subsystems or facilities which
 define groups for related log messages (defined per source file). There are
 common facilities which are defined in GURT, as well as other facilities that
 can be defined on a per-project basis (such as those for CaRT and DAOS).
 <code>DD_SUBSYS</code> can be used to set which subsystems to enable logging for. By
-default all subsystems are enabled ("DD_SUBSYS=all").
+default all subsystems are enabled (<code>DD_SUBSYS=all</code>).
 - DAOS Facilities: [common, tree, vos, client, server, rdb, pool, container,
             object, placement, rebuild, tier, mgmt, eio, tests]
 - Common Facilities (GURT): [MISC, MEM]
@@ -912,20 +912,20 @@ below.
 - D_INFO(fmt, ...)      INFO
 - D_DEBUG(mask, fmt, ...)   DEBUG</p>
 <p>The priority level that outputs to stderr can be set with <code>DD_STDERR</code>. By
-default in DAOS (specific to project), this is set to CRIT ("DD_STDERR=CRIT")
+default in DAOS (specific to project), this is set to CRIT (<code>DD_STDERR=CRIT</code>)
 meaning that all CRIT and more severe log messages will dump to stderr. This
-however is separate from the priority of logging to "/tmp/daos.log". The
+however is separate from the priority of logging to <code>/tmp/daos.log</code>. The
 priority level of logging can be set with <code>D_LOG_MASK</code>, which by default is set
-to INFO ("D_LOG_MASK=INFO"), which will result in all messages excluding DEBUG
+to INFO (<code>D_LOG_MASK=INFO</code>), which will result in all messages excluding DEBUG
 messages being logged. <code>D_LOG_MASK</code> can also be used to specify the level of
-logging on a per-subsystem basis as well ("D_LOG_MASK=DEBUG,MEM=ERR").</p>
+logging on a per-subsystem basis as well (<code>D_LOG_MASK="DEBUG,MEM=ERR"</code>).</p>
 <h2 id="debug-masksstreams">Debug Masks/Streams:<a class="headerlink" href="#debug-masksstreams" title="Permanent link">&para;</a></h2>
 <p>DEBUG messages account for a majority of the log messages, and finer-granularity
 might be desired. Mask bits are set as the first argument passed in
 D_DEBUG(mask, ...). In order to accomplish this, <code>DD_MASK</code> can be set to enable
 different debug streams. Similar to facilities, there are common debug streams
 defined in GURT, as well as other streams that can defined on a per-project
-basis (CaRT and DAOS). All debug streams are enabled by default ("DD_MASK=all").
+basis (CaRT and DAOS). All debug streams are enabled by default (<code>DD_MASK=all</code>).
 - DAOS Debug Masks:
     - md = metadata operations
     - pl = placement operations
@@ -943,35 +943,43 @@ basis (CaRT and DAOS). All debug streams are enabled by default ("DD_MASK=all").
     - test = test programs</p>
 <h2 id="common-use-cases">Common Use Cases<a class="headerlink" href="#common-use-cases" title="Permanent link">&para;</a></h2>
 <ul>
-<li>
-<p>Generic setup for all messages (default settings)
-    $ D_LOG_MASK=DEBUG
-    $ DD_SUBSYS=all
-    $ DD_MASK=all</p>
-</li>
-<li>
-<p>Disable all logs for performance tuning
-    $ D_LOG_MASK=ERR -&gt; will only log error messages from all facilities
-    $ D_LOG_MASK=FATAL -&gt; will only log system fatal messages</p>
-</li>
-<li>
-<p>Disable a noisy debug logging subsystem
-    $ D_LOG_MASK=DEBUG,MEM=ERR -&gt; disables MEM facility by restricting all
-    logs from that facility to ERROR or higher priority only</p>
-</li>
-<li>
-<p>Enable a subset of facilities of interest
-    $ DD_SUBSYS=rpc,tests
-    $ D_LOG_MASK=DEBUG -&gt; required to see logs for RPC and TESTS less severe
-    than INFO (majority of log messages)</p>
-</li>
-<li>
-<p>Fine-tune the debug messages by setting a debug mask
-    $ D_LOG_MASK=DEBUG
-    $ DD_MASK=mgmt -&gt; only logs DEBUG messages related to pool management</p>
-</li>
+<li>Generic setup for all messages (default settings)</li>
 </ul>
-<p><strong>See <a href="../environ/">DAOS Environment Variables</a> documentation for more info
+<pre><code class="bash">  $ export D_LOG_MASK=DEBUG
+  $ export DD_SUBSYS=all
+  $ export DD_MASK=all
+</code></pre>
+
+<ul>
+<li>Disable all logs for performance tuning</li>
+</ul>
+<pre><code class="bash">  $ export D_LOG_MASK=ERR   # -&gt; will only log error messages from all facilities
+  $ export D_LOG_MASK=FATAL # -&gt; will only log system fatal messages
+</code></pre>
+
+<ul>
+<li>Disable a noisy debug logging subsystem</li>
+</ul>
+<pre><code class="bash">  $ export D_LOG_MASK=DEBUG,MEM=ERR # -&gt; disables MEM facility by restricting all logs
+                                    # from that facility to ERROR or higher priority only
+</code></pre>
+
+<ul>
+<li>Enable a subset of facilities of interest</li>
+</ul>
+<pre><code class="bash">  $ export DD_SUBSYS=rpc,tests
+  $ export D_LOG_MASK=DEBUG    # -&gt; required to see logs for RPC and TESTS less severe
+                               #    than INFO (majority of log messages)
+</code></pre>
+
+<ul>
+<li>Fine-tune the debug messages by setting a debug mask</li>
+</ul>
+<pre><code class="bash">  $ export D_LOG_MASK=DEBUG
+  $ export DD_MASK=mgmt     # -&gt; only logs DEBUG messages related to pool management
+</code></pre>
+
+<p><strong>See the <a href="./environ.md">DAOS Environment Variables</a> documentation for more info
 about debug system environment.</strong></p>
                 
                   
@@ -1010,7 +1018,7 @@ about debug system environment.</strong></p>
     
       <script src="../assets/javascripts/application.c33a9706.js"></script>
       
-      <script>app.initialize({version:"1.0.4",url:{base:".."}})</script>
+      <script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
       
     
   </body>
