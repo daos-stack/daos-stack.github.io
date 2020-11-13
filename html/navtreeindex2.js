@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structdaos__obj__query__class__t.html#a0a0851242238193058e72905887b5666":[1,0,53,1],
 "structdaos__obj__query__class__t.html#a7fe83fe613282d305d3aeacba805f901":[1,0,53,2],
 "structdaos__obj__query__class__t.html#ada9c80821116446255b52e7ca22b01ba":[1,0,53,0],
 "structdaos__obj__query__key__t.html":[1,0,54],
@@ -114,10 +115,10 @@ var NAVTREEINDEX2 =
 "structdaos__pool__query__t.html#ac8da9aadb56674709f5cf11ea3c24507":[1,0,72,0],
 "structdaos__pool__query__t.html#af65e0a5ef9986001524f96e09ae666a3":[1,0,72,1],
 "structdaos__pool__query__target__t.html":[1,0,73],
-"structdaos__pool__query__target__t.html#a4e01f9ed4f764d7c92ecda734176f900":[1,0,73,0],
-"structdaos__pool__query__target__t.html#a84ec469fc6868690bc24977fcab3f7cb":[1,0,73,1],
-"structdaos__pool__query__target__t.html#a9f55acd63b21c61714ce641623f9b2d2":[1,0,73,3],
-"structdaos__pool__query__target__t.html#af65e0a5ef9986001524f96e09ae666a3":[1,0,73,2],
+"structdaos__pool__query__target__t.html#a51366d52415efcb89e1f19cd28974a5d":[1,0,73,0],
+"structdaos__pool__query__target__t.html#a725668728cdf219a18169482d866dbd7":[1,0,73,2],
+"structdaos__pool__query__target__t.html#ac0191a954af3d36b86e402530b70bbc8":[1,0,73,3],
+"structdaos__pool__query__target__t.html#af65e0a5ef9986001524f96e09ae666a3":[1,0,73,1],
 "structdaos__pool__replicas__t.html":[1,0,74],
 "structdaos__pool__replicas__t.html#a4e01f9ed4f764d7c92ecda734176f900":[1,0,74,0],
 "structdaos__pool__replicas__t.html#a7142af3238843b1b28f5f93888d9b931":[1,0,74,1],
