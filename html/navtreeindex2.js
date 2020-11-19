@@ -1,5 +1,6 @@
 var NAVTREEINDEX2 =
 {
+"structdaos__obj__query__class__t.html":[1,0,53],
 "structdaos__obj__query__class__t.html#a0a0851242238193058e72905887b5666":[1,0,53,1],
 "structdaos__obj__query__class__t.html#a7fe83fe613282d305d3aeacba805f901":[1,0,53,2],
 "structdaos__obj__query__class__t.html#ada9c80821116446255b52e7ca22b01ba":[1,0,53,0],

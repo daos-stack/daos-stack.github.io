@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"structdaos__ace.html#a00212696fa07661bd6d55fc2e788c3d7":[1,0,1,0],
 "structdaos__ace.html#a149615817bceb595c503b09f0b4458e4":[1,0,1,3],
 "structdaos__ace.html#a23d2c6dad00ec143499fb1064ee014e9":[1,0,1,8],
 "structdaos__ace.html#a6317b2440af11c14a8c4189cfdcc8125":[1,0,1,1],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "structdaos__obj__punch__t.html#a8df9d41740502f16e867061d9bc0c585":[1,0,52,5],
 "structdaos__obj__punch__t.html#ab089b7883c4c375bdcdd7e4f7fada640":[1,0,52,2],
 "structdaos__obj__punch__t.html#abc3026f5d7aeb0ad4f2f5bbf4996a651":[1,0,52,1],
-"structdaos__obj__punch__t.html#aef20019954d183ed757cd90ac3288242":[1,0,52,4],
-"structdaos__obj__query__class__t.html":[1,0,53]
+"structdaos__obj__punch__t.html#aef20019954d183ed757cd90ac3288242":[1,0,52,4]
 };

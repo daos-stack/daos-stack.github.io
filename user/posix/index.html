@@ -1259,13 +1259,11 @@ library works in conjunction with DFuse and allows the interception of POSIX I/O
 calls and issue the I/O operations directly from the application context through
 <code>libdaos</code> without any application changes.  This provides kernel-bypass for I/O data,
 leading to improved performance.
-To use this, set the <code>LD_PRELOAD</code> to point to the shared library in the DAOS install
+To use this, set <code>LD_PRELOAD</code> to point to the shared library in the DAOS install
 directory:</p>
 <pre><code>LD_PRELOAD=/path/to/daos/install/lib/libioil.so
 LD_PRELOAD=/usr/lib64/libioil.so # when installed from RPMs
 </code></pre>
-
-<p>Support for <code>libioil</code> is currently planned for DAOS v1.2.</p>
                 
                   
                 
