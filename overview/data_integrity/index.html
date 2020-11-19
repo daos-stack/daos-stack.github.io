@@ -1065,7 +1065,7 @@ library is used with appropriate adapters to the actual isa-l implementations.
 </tr>
 <tr>
 <td>daos_test</td>
-<td>daos_obj_update/fetch with checksums enabled. The -z flag can be used for specific checksum tests. Also --csum_type flag can be used to enable checksums with any of the other daos_tests</td>
+<td>daos_obj_update/fetch with checksums enabled. The -z flag can be used for specific checksum tests. Also --csum_type flag can be used to enable  checksums with any of the other daos_tests</td>
 <td>src/tests/suite/daos_checksum.c</td>
 </tr>
 </tbody>
@@ -1122,6 +1122,132 @@ library is used with appropriate adapters to the actual isa-l implementations.
 dedicated to csums.
 - fill_key_csum - Checksum is calcuated for the key and packed into the iov
 - fill_data_csum - pack/serialize the csum_info structure into the iov.</p>
+<hr />
+<h1 id="checksum-scrubbing-in-development">Checksum Scrubbing (In Development)<a class="headerlink" href="#checksum-scrubbing-in-development" title="Permanent link">&para;</a></h1>
+<p>A background task will scan (when the storage server is idle to limit
+performance impact) the Version Object Store (VOS) trees to verify the data
+integrity with the checksums. Corrective actions can be taken when corruption is
+detected. See <a href="#corrective-actions">Corrective Actions</a></p>
+<h2 id="scanner">Scanner<a class="headerlink" href="#scanner" title="Permanent link">&para;</a></h2>
+<h3 id="goalsrequirements">Goals/Requirements<a class="headerlink" href="#goalsrequirements" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Detect Silent Data Corruption Proactively</strong> - The whole point of the
+  scrubber is to detect silent data corruption before it is fetched.</li>
+<li><strong>Minimize CPU and I/O Bandwidth</strong> - Checksum scrubbing scanner will impact
+  CPU and the I/O bandwidth because it must iterate the VOS tree (I/O to SCM)
+  fetch data (I/O to SSD) and calculate checksums (CPU intensive). To minimize
+  both of these impacts, the server scheduler must be able to throttled the
+  scrubber's I/O and CPU usage.</li>
+<li><strong>Minimize Media Wear</strong> - The background task will minimize media wear by
+  preventing objects from being scrubbed too frequently. A container
+  config/tunable will be used by an operator to define the minimum number of
+  days that should pass before an object is scanned again.</li>
+<li><strong>Continuous</strong> - The background task will be a continuous processes instead of
+  running on a schedule. Once complete immediately start over. Throttling
+  approaches should prevent from scrubbing same objects too frequently.</li>
+</ul>
+<h3 id="high-level-design">High Level Design<a class="headerlink" href="#high-level-design" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Per Pool ULT (I/O xstream) that will iterate containers. If checksums and
+  scrubber is enabled then iterate the object tree. If a record value (SV or
+  array) is not marked corrupted then scan.<ul>
+<li>Fetch the data.</li>
+<li>Create new ULTs (helper xstream) to calculate checksum for data</li>
+<li>Compare calculated checksum with stored checksum.</li>
+<li>After every checksum is calculated, determine if need to
+  <a href="#sleep-or-yield">sleep or yield</a>.</li>
+<li>If checksums don't match confirm record is still there (not deleted by
+  aggregation) then update record as corrupted</li>
+</ul>
+</li>
+<li>After each object scanned yield to allow the server scheduler to reschedule
+  the next appropriate I/O.</li>
+</ul>
+<h4 id="sleep-or-yield">Sleep or Yield<a class="headerlink" href="#sleep-or-yield" title="Permanent link">&para;</a></h4>
+<p>Sleep for sufficient amount of time to ensure that scanning completes no sooner
+than configured interval (i.e. once a week or month). For example, if the
+interval is 1 week and there are 70 checksums that need to be calculated, then
+at a maximum 10 checksums are calculated a day, spaced roughly every 2.4 hours.
+If it doesn't need to sleep, then it will yield to allow the server scheduler to
+prioritize other jobs.</p>
+<h2 id="corrective-actions">Corrective Actions<a class="headerlink" href="#corrective-actions" title="Permanent link">&para;</a></h2>
+<p>There are two main options for corrective actions when data corruption is
+discovered, in place data repair and SSD eviction.</p>
+<h3 id="in-place-data-repair">In Place Data Repair<a class="headerlink" href="#in-place-data-repair" title="Permanent link">&para;</a></h3>
+<p>If enabled, when corruption is detected, the value identifier (dkey, akey, recx)
+will be placed in a queue. When there are available cycles, the value identifier
+will be used to request the data from a replica if exists and rewrite the data
+locally. This will continue until the SSD Eviction threshold is reached, in
+which case, the SSD is assumed to be bad enough that it isn't worth fixing
+locally and it will be requested to be evicted.</p>
+<h3 id="ssd-eviction">SSD Eviction<a class="headerlink" href="#ssd-eviction" title="Permanent link">&para;</a></h3>
+<p>If enabled, when the SSD Eviction Threshold is reached the SSD will be evicted.
+Current eviction methods are pool and target based so there will need to be a
+mapping and mechanism in place to evict an SSD. When an SSD is evicted, the
+rebuild protocol will be invoked.</p>
+<p>Also, once the SSD Eviction Threshold is reached, the scanner should quit
+scanning anything on that SSD.</p>
+<h2 id="additional-checksum-properties-docusercontainermd-docuserpoolmd">Additional Checksum Properties &gt; doc/user/container.md / doc/user/pool.md?<a class="headerlink" href="#additional-checksum-properties-docusercontainermd-docuserpoolmd" title="Permanent link">&para;</a></h2>
+<p>These properties are provided when a container or pool is created, but should
+also be able to update them. When updated, they should be active right away.
+- Scanner Interval - Minimum number of days scanning will take. Could take
+  longer, but if only a few records will pad so takes longer. (Pool property)
+- Disable scrubbing - at container level &amp; pool level
+- Threshold for when to evict SSD (number of corruption events)
+- In Place Correction - If the number checksum errors is below the Eviction
+  Threshold, DAOS will attempt to repair the corrupted data using replicas if
+  they exist.</p>
+<h2 id="design-details-implementation">Design Details &amp; Implementation<a class="headerlink" href="#design-details-implementation" title="Permanent link">&para;</a></h2>
+<h3 id="pool-ult">Pool ULT<a class="headerlink" href="#pool-ult" title="Permanent link">&para;</a></h3>
+<p>The code for the pool ULT is found in <code>srv_pool_scrub.c</code>. It can be a bit
+difficult to follow because there are several layers of callback functions due
+to the nature of how ULTs and the vos_iterator work, but the file is organized
+such that functions typically call the function above it (either directly or
+indirectly as a callback). For example (~&gt; is an indirect call, -&gt; is a direct
+call):</p>
+<pre><code>ds_start_scrubbing_ult ~&gt; scrubbing_ult -&gt; scrub_pool ~&gt; cont_iter_scrub_cb -&gt;
+    scrub_cont ~&gt; obj_iter_scrub_cb ...
+</code></pre>
+
+<h4 id="silent-data-corruption-detection-todo">Silent Data Corruption Detection (TODO)<a class="headerlink" href="#silent-data-corruption-detection-todo" title="Permanent link">&para;</a></h4>
+<p>::Still todo::</p>
+<pre><code class="c">obj_iter_scrub(coh, epr, csummer, pool_uuid, event_handlers, entry, type)
+{
+        build_iod
+        vos_obj_fetch(coh, oid, epoch, dkey, iod, sgl);
+        // for single value
+        csum = calc_checksum(type, csummer, iod, sgl)
+        compare(csum, entry.csum)
+        // for recx
+        for each chunk calc csum and compare
+}
+
+</code></pre>
+
+<h3 id="vos-layer">VOS Layer<a class="headerlink" href="#vos-layer" title="Permanent link">&para;</a></h3>
+<ul>
+<li>In order to mark data as corrupted a flag field is added to bio_addr_t which
+  includes a CORRUPTED bit.</li>
+<li>The vos update api already accepts a flag, so a CORRUPTED flag is added and
+  handled during an update so that, if set, the bio address will be updated to
+  be corrupted.</li>
+<li>On fetch, if a value is already marked corrupted, return -DER_CSUM</li>
+</ul>
+<h3 id="object-layer">Object Layer<a class="headerlink" href="#object-layer" title="Permanent link">&para;</a></h3>
+<ul>
+<li>When corruption is detected on the server during a fetch, aggregation, or
+  rebuild the server calls VOS to update value as corrupted.</li>
+<li>(TBD) Add Server Side Verifying on fetch so can know if media or network
+  corruption (note: need something so extents aren't double verified?)</li>
+</ul>
+<h2 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h2>
+<ul>
+<li>In the server.yml configuration file set the following env_vars</li>
+</ul>
+<pre><code>- D_LOG_MASK=DEBUG
+- DD_SUBSYS=pool
+- DD_MASK=csum
+</code></pre>
                 
                   
                 
