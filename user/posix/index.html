@@ -42,7 +42,7 @@
     
     
       
-        <title>POSIX Namespace - DAOS v1.0</title>
+        <title>POSIX Namespace - DAOS</title>
       
     
     
@@ -68,6 +68,8 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
+    
+      <link rel="stylesheet" href="../../css/version-select.css">
     
     
       
@@ -100,9 +102,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
+        <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <img alt="logo" src="../../intel_logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -113,7 +115,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0
+              DAOS
             </span>
             <span class="md-header-nav__topic">
               
@@ -287,12 +289,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
+    <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img alt="logo" src="../../intel_logo.png" width="48" height="48">
       
     </a>
-    DAOS v1.0
+    DAOS
   </label>
   
     <div class="md-nav__source">
@@ -1259,13 +1261,11 @@ library works in conjunction with DFuse and allows the interception of POSIX I/O
 calls and issue the I/O operations directly from the application context through
 <code>libdaos</code> without any application changes.  This provides kernel-bypass for I/O data,
 leading to improved performance.
-To use this, set the <code>LD_PRELOAD</code> to point to the shared library in the DAOS install
+To use this, set <code>LD_PRELOAD</code> to point to the shared library in the DAOS install
 directory:</p>
 <pre><code>LD_PRELOAD=/path/to/daos/install/lib/libioil.so
 LD_PRELOAD=/usr/lib64/libioil.so # when installed from RPMs
 </code></pre>
-
-<p>Support for <code>libioil</code> is currently planned for DAOS v1.2.</p>
                 
                   
                 
@@ -1339,6 +1339,8 @@ LD_PRELOAD=/usr/lib64/libioil.so # when installed from RPMs
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      
+        <script src="../../js/version-select.js"></script>
       
     
   </body>

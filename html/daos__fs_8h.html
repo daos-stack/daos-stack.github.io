@@ -24,7 +24,7 @@
 <table cellspacing="0" cellpadding="0">
  <tbody>
  <tr style="height: 56px;">
-  <td id="projectlogo"><img alt="Logo" src="intel_logo.png"/></td>
+  <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
    &#160;<span id="projectnumber">Version 1.0</span>
@@ -313,7 +313,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to set the access time on an entry </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00683">683</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00684">684</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -330,7 +330,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to set the mode_t on an entry </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00681">681</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00682">682</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -347,7 +347,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to set the modify time on an entry </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00685">685</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00686">686</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -364,7 +364,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to set size of a file </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00687">687</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00688">688</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -382,7 +382,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>User callback defined for dfs_readdir_size. </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00441">441</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00442">442</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -1809,7 +1809,7 @@ Functions</h2></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">parent</td><td>Opened parent directory object. If NULL, use root obj. This is useful in cases where the creator/opener is working in a flat namespace and doesn't need to lookup/release the root object. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Link name of the object to create/open. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>mode_t (permissions + type). </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">flags</td><td>Access flags (O_RDONLY, O_RDWR, O_EXCL, O_CREAT). </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">flags</td><td>Access flags (handles: O_RDONLY, O_RDWR, O_EXCL, O_CREAT, O_TRUNC). </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cid</td><td>DAOS object class id (pass 0 for default MAX_RW). Valid on create only; ignored otherwise. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">chunk_size</td><td>Chunk size of the array object to be created. (pass 0 for default 1 MiB chunk size). Valid on file create only; ignored otherwise. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">value</td><td>Symlink value (NULL if not syml). </td></tr>
