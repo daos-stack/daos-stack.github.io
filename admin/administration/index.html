@@ -42,7 +42,7 @@
     
     
       
-        <title>System Administration - DAOS v1.0</title>
+        <title>System Administration - DAOS</title>
       
     
     
@@ -68,6 +68,8 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
+    
+      <link rel="stylesheet" href="../../css/version-select.css">
     
     
       
@@ -100,9 +102,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
+        <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
-            <i class="md-icon"></i>
+            <img alt="logo" src="../../intel_logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -113,7 +115,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0
+              DAOS
             </span>
             <span class="md-header-nav__topic">
               
@@ -287,12 +289,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
+    <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img alt="logo" src="../../intel_logo.png" width="48" height="48">
       
     </a>
-    DAOS v1.0
+    DAOS
   </label>
   
     <div class="md-nav__source">
@@ -531,6 +533,13 @@
     System Monitoring
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-operations" class="md-nav__link">
+    Storage Operations
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
@@ -544,6 +553,13 @@
           <li class="md-nav__item">
   <a href="#nvme-ssd-health-monitoring" class="md-nav__link">
     NVMe SSD Health Monitoring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nvme-ssd-eviction-and-hotplug" class="md-nav__link">
+    NVMe SSD Eviction and Hotplug
   </a>
   
 </li>
@@ -1041,6 +1057,13 @@
     System Monitoring
   </a>
   
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#storage-operations" class="md-nav__link">
+    Storage Operations
+  </a>
+  
     <nav class="md-nav">
       <ul class="md-nav__list">
         
@@ -1054,6 +1077,13 @@
           <li class="md-nav__item">
   <a href="#nvme-ssd-health-monitoring" class="md-nav__link">
     NVMe SSD Health Monitoring
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nvme-ssd-eviction-and-hotplug" class="md-nav__link">
+    NVMe SSD Eviction and Hotplug
   </a>
   
 </li>
@@ -1209,6 +1239,7 @@
 <h2 id="system-monitoring">System Monitoring<a class="headerlink" href="#system-monitoring" title="Permanent link">&para;</a></h2>
 <p>System monitoring and telemetry data will be provided as part of the
 control plane and will be documented in a future revision.</p>
+<h2 id="storage-operations">Storage Operations<a class="headerlink" href="#storage-operations" title="Permanent link">&para;</a></h2>
 <h3 id="per-storage-server-space-utilization">Per-Storage-Server Space Utilization<a class="headerlink" href="#per-storage-server-space-utilization" title="Permanent link">&para;</a></h3>
 <p>To query SCM and NVMe storage space usage and show how much space is available to
 create new DAOS pools with, run the following command:</p>
@@ -1247,9 +1278,13 @@ overhead).</p>
 </ul>
 <p>Queries persistently stored device and pool metadata tables. The device table maps
 the internal device UUID to attached VOS target IDs. The rank number of the server
-where the device is located is also listed, along with the current persistent
-device state (NORMAL|FAULTY).
-The pool table maps the DAOS pool UUID to attached VOS target IDs, and will list
+where the device is located is also listed, along with the current device state.
+The available device states are the following:
+  - NORMAL: a fully, functional device in-use by DAOS
+  - EVICTED: the device is no longer in-use by DAOS
+  - UNPLUGGED: the device is currently unplugged from the system (may or not be evicted)
+  - NEW: the device is plugged and available, and not currently in-use by DAOS</p>
+<p>The pool table maps the DAOS pool UUID to attached VOS target IDs, and will list
 all of the server ranks that the pool is distributed on. With the additional
 --verbose flag, the mapping of SPDK blob IDs to VOS target IDs is also displayed.</p>
 <pre><code class="bash">$ dmg -l boro-11,boro-13 storage query list-devices
@@ -1257,8 +1292,12 @@ all of the server ranks that the pool is distributed on. With the additional
 boro-11
 -------
   Devices
-    UUID:5bd91603-d3c7-4fb7-9a71-76bc25690c19 Targets:[0 1 2 3] Rank:0 State:NORMAL
-    UUID:80c9f1be-84b9-4318-a1be-c416c96ca48b Targets:[0 1 2 3] Rank:1 State:FAULTY
+    UUID:5bd91603-d3c7-4fb7-9a71-76bc25690c19 Targets:[0 2] Rank:0 State:NORMAL
+    UUID:80c9f1be-84b9-4318-a1be-c416c96ca48b Targets:[1 3] Rank:0 State:FAULTY
+    UUID:051b77e4-1524-4662-9f32-f8e4d2542c2d Targets:[] Rank:0 State:NEW
+    UUID:81905b24-be44-4106-8ff9-03002e9dd86a Targets:[0 2] Rank:1 State:UNPLUGGED
+    UUID:2ccb8afb-5d32-454e-86e3-762ec5dca7be Targets:[1 3] Rank:1 State:NORMAL
+    UUID:3f08da48-d88d-42dc-bca5-d1ab8419a401 Targets:[] Rank:1 State:NEW
 </code></pre>
 
 <pre><code class="bash">$ dmg -l boro-11,boro-13 storage query list-pools
@@ -1321,21 +1360,55 @@ boro-11
         Volatile Memory Backup: OK
 </code></pre>
 
+<h3 id="nvme-ssd-eviction-and-hotplug">NVMe SSD Eviction and Hotplug<a class="headerlink" href="#nvme-ssd-eviction-and-hotplug" title="Permanent link">&para;</a></h3>
 <ul>
-<li>Manually Set Device State to FAULTY: <code>dmg storage set nvme-faulty</code></li>
+<li>Manually Evict an NVMe SSD: <code>dmg storage set nvme-faulty</code></li>
 </ul>
-<p>Allows the admin to manually set the device state of the given device to FAULTY,
-which will trigger faulty device reaction (all targets on the SSD will be
-rebuilt and the SSD will remain in an OUT state until reintegration is
-supported).</p>
+<p>To manually evict an NVMe SSD (auto eviction will be supported in a future release),
+the device state needs to be set to "FAULTY" by running the following command:</p>
 <pre><code class="bash">$ dmg -l boro-11 storage set nvme-faulty --uuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19
 -------
 boro-11
 -------
   Devices
-    UUID:5bd91603-d3c7-4fb7-9a71-76bc25690c19 Targets:[0] Rank:1 State:FAULTY
+    UUID:5bd91603-d3c7-4fb7-9a71-76bc25690c19 Targets:[] Rank:1 State:FAULTY
 </code></pre>
 
+<p>The device state will transition from "NORMAL" to "FAULTY" (shown above), which will
+trigger the faulty device reaction (all targets on the SSD will be rebuilt and the SSD
+will remain evicted until device replacement occurs).</p>
+<ul>
+<li>Replace an Evicted SSD with a New Device: <code>dmg storage replace nvme</code></li>
+</ul>
+<p>To replace an NVMe SSD with an evicted device and reintegrate it into use with
+DAOS, run the following command:</p>
+<pre><code class="bash">$ dmg -l boro-11 storage replace nvme --old-uuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19 --new-uuid=80c9f1be-84b9-4318-a1be-c416c96ca48b
+-------
+boro-11
+-------
+  Devices
+    UUID:80c9f1be-84b9-4318-a1be-c416c96ca48b Targets:[] Rank:1 State:NORMAL
+</code></pre>
+
+<p>The old, now replaced device will remain in an "EVICTED" state until it is unplugged.
+The new device will transition from a "NEW" state to a "NORMAL" state (shown above).</p>
+<ul>
+<li>Reuse a FAULTY Device: <code>dmg storage replace nvme</code></li>
+</ul>
+<p>In order to reuse a device that was previously set as FAULTY and evicted from the DAOS
+system, an admin can run the following command (setting the old device UUID to be the
+new device UUID):</p>
+<pre><code class="bash">$ dmg -l boro-11 storage replace nvme --old-uuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19 --new-uuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19
+-------
+boro-11
+-------
+  Devices
+    UUID:5bd91603-d3c7-4fb7-9a71-76bc25690c19 Targets:[] Rank:1 State:NORMAL
+</code></pre>
+
+<p>The FAULTY device will transition from an "EVICTED" state back to a "NORMAL" state,
+and will again be available for use with DAOS. The use case of this command will mainly
+be for testing, or for accidental device eviction.</p>
 <h2 id="system-operations">System Operations<a class="headerlink" href="#system-operations" title="Permanent link">&para;</a></h2>
 <p>The DAOS Control Server acting as the access point records details of DAOS I/O
 Server instances that join the DAOS system. Once an I/O Server has joined the
@@ -1596,6 +1669,8 @@ functionality will be documented here.</p>
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+      
+        <script src="../../js/version-select.js"></script>
       
     
   </body>
