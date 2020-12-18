@@ -104,7 +104,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../intel_logo.png" width="24" height="24">
+            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -291,7 +291,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../intel_logo.png" width="48" height="48">
+        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
       
     </a>
     DAOS
@@ -688,6 +688,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#building-mpich-with-daos-support" class="md-nav__link">
+    Building MPICH with DAOS Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#intel-mpi" class="md-nav__link">
     Intel MPI
   </a>
@@ -714,8 +721,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-mpi-io-with-daos-support" class="md-nav__link">
-    Building MPI-IO with DAOS Support
+  <a href="#testing-mpi-io-with-daos-support" class="md-nav__link">
+    Testing MPI-IO with DAOS Support
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    Known limitations
   </a>
   
 </li>
@@ -787,6 +801,18 @@
   <li class="md-nav__item">
     <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+      Support Matrix
     </a>
   </li>
 
@@ -952,6 +978,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#building-mpich-with-daos-support" class="md-nav__link">
+    Building MPICH with DAOS Support
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#intel-mpi" class="md-nav__link">
     Intel MPI
   </a>
@@ -978,8 +1011,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-mpi-io-with-daos-support" class="md-nav__link">
-    Building MPI-IO with DAOS Support
+  <a href="#testing-mpi-io-with-daos-support" class="md-nav__link">
+    Testing MPI-IO with DAOS Support
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#known-limitations" class="md-nav__link">
+    Known limitations
   </a>
   
 </li>
@@ -1008,34 +1048,18 @@
 maintained by the <a href="https://www.mpi-forum.org/docs/">MPI Forum</a>,
 includes a chapter on MPI-IO. </p>
 <p><a href="https://www.mcs.anl.gov/projects/romio/">ROMIO</a> is a well-known
-implementation of MPI-IO and is included in many MPI implementations.</p>
-<p>DAOS provides its own MPI-IO ROMIO ADIO driver, located in a MPICH fork on
-the <a href="https://github.com/daos-stack/mpich">DAOS-Stack GitHub</a>. 
-This driver has been merged in the upstream MPICH repository.</p>
+implementation of MPI-IO and is included in many MPI implementations.
+DAOS provides its own MPI-IO ROMIO ADIO driver.
+This driver has been merged in the upstream MPICH repository, see
+https://github.com/pmodels/mpich/tree/main/src/mpi/romio/adio/ad_daos
+for details.</p>
 <h2 id="mpi-implementations-that-support-daos">MPI Implementations that support DAOS<a class="headerlink" href="#mpi-implementations-that-support-daos" title="Permanent link">&para;</a></h2>
 <h3 id="mpich">MPICH<a class="headerlink" href="#mpich" title="Permanent link">&para;</a></h3>
 <p>The DAOS ROMIO ADIO driver has been accepted into <a href="https://www.mpich.org/">MPICH</a>.
 It is included in <a href="https://www.mpich.org/downloads/">mpich-3.4b1 (alpha release)</a>,
 but not in mpich-3.3.2 (stable release).</p>
-<h3 id="intel-mpi">Intel MPI<a class="headerlink" href="#intel-mpi" title="Permanent link">&para;</a></h3>
-<p>The <a href="https://software.intel.com/content/www/us/en/develop/tools/mpi-library.html">Intel MPI Library</a> 
-includes DAOS support since the 
-<a href="https://software.intel.com/content/www/us/en/develop/articles/intel-mpi-library-release-notes-linux.html">2019.8 release</a>.</p>
-<p>Note that Intel MPI uses <code>libfabric</code> (both 2019.8 and 2019.9 use 
-<code>libfabric-1.10.1-impi</code>).  Care must be taken to ensure that the installed 
-version of libfabric works cleanly with both DAOS and Intel MPI
-(DAOS 1.0.1 includes <code>libfabric-1.9.0</code>, and the 
-DAOS 1.1.1 pre-release includes <code>libfabric-1.11.1</code>).</p>
-<h3 id="open-mpi">Open MPI<a class="headerlink" href="#open-mpi" title="Permanent link">&para;</a></h3>
-<p><a href="https://www.open-mpi.org/">Open MPI</a> 4.0.5 does not yet provide DAOS support.
-Since one of its MPI-IO implementations is based on ROMIO, 
-it will likely pick up DAOS support in an upcoming release.</p>
-<h3 id="mvapich2">MVAPICH2<a class="headerlink" href="#mvapich2" title="Permanent link">&para;</a></h3>
-<p><a href="https://mvapich.cse.ohio-state.edu/">MVAPICH2</a> 2.3.4 does not yet provide DAOS support.
-Since its MPI-IO implementation is based on ROMIO, 
-it will likely pick up DAOS support in an upcoming release.</p>
-<h2 id="building-mpi-io-with-daos-support">Building MPI-IO with DAOS Support<a class="headerlink" href="#building-mpi-io-with-daos-support" title="Permanent link">&para;</a></h2>
-<p>To build the MPI-IO driver with DAOS support:</p>
+<h3 id="building-mpich-with-daos-support">Building MPICH with DAOS Support<a class="headerlink" href="#building-mpich-with-daos-support" title="Permanent link">&para;</a></h3>
+<p>To build MPICH, including ROMIO with the DAOS ADIO driver:</p>
 <pre><code class="bash">export MPI_LIB=&quot;&quot;
 
 git clone https://github.com/daos-stack/mpich
@@ -1048,16 +1072,56 @@ mkdir build; cd build
 
 ../configure --prefix=dir --enable-fortran=all --enable-romio \
   --enable-cxx --enable-g=all --enable-debuginfo --with-device=ch3:sock \
-  --with-file-system=ufs+daos --with-daos=dir --with-cart=dir
+  --with-file-system=ufs+daos --with-daos=/usr --with-cart=/usr
 
 make -j8; make install
 </code></pre>
 
+<p>This assumes that DAOS is installed into the <code>/usr</code> tree, 
+which is the case for the DAOS RPM installation.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In DAOS 1.0, CART was packaged separately from DAOS, and the
+<code>--with-cart</code> option was needed to allow separate installation locations. 
+With DAOS 1.1 or higher, CART is included in the main DAOS packages 
+and the <code>--with-cart</code> option is no longer needed. 
+An MPICH pull request is in process to remove the option from the MPICH
+<code>configure</code> step, but currently it is still required to build MPICH.</p>
+</div>
 <p>Set the <code>PATH</code> and <code>LD_LIBRARY_PATH</code> to where you want to build your client
-apps or libs that use MPI to the installed MPICH.</p>
+apps or libs that use MPI to the path of the installed MPICH.</p>
+<h3 id="intel-mpi">Intel MPI<a class="headerlink" href="#intel-mpi" title="Permanent link">&para;</a></h3>
+<p>The <a href="https://software.intel.com/content/www/us/en/develop/tools/mpi-library.html">Intel MPI Library</a> 
+includes DAOS support since the 
+<a href="https://software.intel.com/content/www/us/en/develop/articles/intel-mpi-library-release-notes-linux.html">2019.8 release</a>.</p>
+<p>Note that Intel MPI uses <code>libfabric</code> (both 2019.8 and 2019.9 use 
+<code>libfabric-1.10.1-impi</code>).<br />
+Care must be taken to ensure that the version of libfabric that is used 
+is at a level that includes the patches that are critical for DAOS.
+DAOS 1.0.1 includes <code>libfabric-1.9.0</code>, and the DAOS 1.1.2 pre-release 
+includes <code>libfabric-1.11.1</code>. </p>
+<p>To use DAOS 1.1 with Intel MPI 2019.8 or 2019.9, the <code>libfabric</code> that 
+is supplied by DAOS (and that is installed into <code>/usr/lib64</code> by default) 
+needs to be used by listing it first in the library search path:</p>
+<pre><code class="bash">export LD_LIBRARY_PATH=&quot;/usr/lib64/:$LD_LIBRARY_PATH&quot;
+</code></pre>
+
+<p>The next Intel MPI release is expected to contain a version of <code>libfabric</code>
+that includes all patches to work with DAOS. 
+It will then no longer be necessary to override the <code>libfabric</code> version that is 
+shipped with Intel MPI by the version provided by DAOS.</p>
+<h3 id="open-mpi">Open MPI<a class="headerlink" href="#open-mpi" title="Permanent link">&para;</a></h3>
+<p><a href="https://www.open-mpi.org/">Open MPI</a> 4.0.5 does not yet provide DAOS support.
+Since one of its MPI-IO implementations is based on ROMIO, 
+it will likely pick up DAOS support in an upcoming release.</p>
+<h3 id="mvapich2">MVAPICH2<a class="headerlink" href="#mvapich2" title="Permanent link">&para;</a></h3>
+<p><a href="https://mvapich.cse.ohio-state.edu/">MVAPICH2</a> 2.3.4 does not yet provide DAOS support.
+Since its MPI-IO implementation is based on ROMIO, 
+it will likely pick up DAOS support in an upcoming release.</p>
+<h2 id="testing-mpi-io-with-daos-support">Testing MPI-IO with DAOS Support<a class="headerlink" href="#testing-mpi-io-with-daos-support" title="Permanent link">&para;</a></h2>
 <p>Build any client (HDF5, ior, mpi test suites) normally with the mpicc command
 and mpich library installed above (see child pages).</p>
-<p>To run an example:</p>
+<p>To run an example with MPI-IO:</p>
 <ol>
 <li>Create a DAOS pool on the DAOS server(s).
    This will return a pool uuid "puuid" and service rank list "svcl".</li>
@@ -1067,9 +1131,12 @@ and mpich library installed above (see child pages).</p>
 <li>At the client side, the following environment variables need to be set:
    <code>export DAOS_POOL=puuid; export DAOS_SVCL=svcl; export DAOS_CONT=cuuid</code>.
    Alternatively, the unified namespace mode can be used instead.</li>
-<li>Run the client application or test.</li>
+<li>Run the client application or test. 
+   MPI-IO applications should work seamlessly by just prepending <code>daos:</code> 
+   to the filename/path to use the DAOS ADIO driver.</li>
 </ol>
-<p>Limitations to the current implementation include:</p>
+<h2 id="known-limitations">Known limitations<a class="headerlink" href="#known-limitations" title="Permanent link">&para;</a></h2>
+<p>Limitations of the current implementation include:</p>
 <ul>
 <li>
 <p>Reading Holes does not return 0, but leaves the buffer untouched.</p>

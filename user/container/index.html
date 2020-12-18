@@ -104,7 +104,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../intel_logo.png" width="24" height="24">
+            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -291,7 +291,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../intel_logo.png" width="48" height="48">
+        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
       
     </a>
     DAOS
@@ -894,6 +894,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+      Support Matrix
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1218,11 +1230,9 @@ provided to manage containers.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In DAOS 1.0, in order to use the <code>daos</code> command the following environment
-variables need to be set (this is no longer needed in later versions of DAOS):</p>
-<ul>
-<li><strong>For Omni-Path:</strong> <code>export OFI_INTERFACE="ib0"; export CRT_PHY_ADDR_STR="ofi+psm2"</code></li>
-<li><strong>For InfiniBand:</strong> <code>export OFI_INTERFACE="ib0"; export CRT_PHY_ADDR_STR="ofi+verbs;ofi_rxm"; export OFI_DOMAIN="mlx5_0"</code></li>
-</ul>
+variables need to be set (this is no longer needed in later versions of DAOS):
+ * For Omni-Path: <code>export OFI_INTERFACE="ib0"; export CRT_PHY_ADDR_STR="ofi+psm2"</code>
+ * For InfiniBand: <code>export OFI_INTERFACE="ib0"; export CRT_PHY_ADDR_STR="ofi+verbs;ofi_rxm"; export OFI_DOMAIN="mlx5_0"</code></p>
 </div>
 <p>To create a container:</p>
 <pre><code class="bash">$ daos cont create --pool=a171434a-05a5-4671-8fe2-615aa0d05094 --svc=0
@@ -1307,7 +1317,8 @@ during container create.</p>
   DAOS_PROP_CO_CSUM_CRC64,
   DAOS_PROP_CO_CSUM_SHA1,
   DAOS_PROP_CO_CSUM_SHA256,
-  DAOS_PROP_CO_CSUM_SHA512
+  DAOS_PROP_CO_CSUM_SHA512,
+  DAOS_PROP_CO_CSUM_ADLER32
 </code></pre>
 
 <ul>
@@ -1442,10 +1453,12 @@ permissions on that container.</p>
 <p>If the user does not have Delete permission on the pool, they will only be able
 to delete containers for which they have been explicitly granted Delete
 permission in the container's ACL.</p>
-<p>!!! note:
-    In DAOS version 1.0, permissions are set on the <em>pool</em> level and all containers
-    in the pool inherit the permissions of the pool. Starting with DAOS version 1.2,
-    pool and container permissions are controlled individually.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In DAOS version 1.0, permissions are set on the <em>pool</em> level and all containers
+in the pool inherit the permissions of the pool. Starting with DAOS version 1.2,
+pool and container permissions are controlled individually.</p>
+</div>
 <h3 id="creating-containers-with-custom-acl">Creating Containers with Custom ACL<a class="headerlink" href="#creating-containers-with-custom-acl" title="Permanent link">&para;</a></h3>
 <p>To create a container with a custom ACL:</p>
 <pre><code class="bash">$ daos cont create --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --acl-file=&lt;path&gt;

@@ -104,7 +104,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../intel_logo.png" width="24" height="24">
+            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -291,7 +291,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../intel_logo.png" width="48" height="48">
+        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
       
     </a>
     DAOS
@@ -845,6 +845,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+      Support Matrix
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1112,19 +1124,12 @@
                 
                 
                 <h1 id="software-installation">Software Installation<a class="headerlink" href="#software-installation" title="Permanent link">&para;</a></h1>
-<p>DAOS runs on both Intel x86_64 and ARM64 platforms,
- and has been successfully tested
-on CentOS 7, OpenSUSE Leap 15.1, and Ubuntu 20.04 distributions.</p>
-<p>The majority of testing has been performed on Centos 7.7 and SLES 15,
-with Centos being used in the majority of the test cycles.</p>
+<p>Please check the <a href="https://daos-stack.github.io/release/support_matrix">support matrix</a>
+to select the appropriate software combination.</p>
 <h2 id="software-dependencies">Software Dependencies<a class="headerlink" href="#software-dependencies" title="Permanent link">&para;</a></h2>
 <p>DAOS requires a C99-capable compiler, a Go compiler, and the scons build tool.
 Moreover, the DAOS stack leverages the following open source projects:</p>
 <ul>
-<li>
-<p><a href="https://github.com/daos-stack/cart"><em>CaRT</em></a> for high-performance
-    communication leveraging advanced network capabilities.</p>
-</li>
 <li>
 <p><a href="https://grpc.io/"><em>gRPC</em></a> provides a secured out-of-band channel for
     DAOS administration.</p>
@@ -1137,16 +1142,9 @@ Moreover, the DAOS stack leverages the following open source projects:</p>
 <p><a href="http://spdk.io/"><em>SPDK</em></a> for userspace NVMe device access and management.</p>
 </li>
 <li>
-<p><a href="https://github.com/axboe/fio"><em>FIO</em></a> for flexible testing of Linux I/O
-    subsystems, specifically enabling validation of userspace NVMe device
-    performance through fio-spdk plugin.</p>
-</li>
-<li>
-<p><a href="https://github.com/01org/isa-l"><em>ISA-L</em></a> for checksum and erasure code</p>
-</li>
-<li>
-<p><a href="https://github.com/01org/isa-l_crypto"><em>ISA-L_Crypto</em></a> for checksum
-    computation.</p>
+<p><a href="https://github.com/01org/isa-l"><em>ISA-L</em></a> and
+    <a href="https://github.com/01org/isa-l_crypto"><em>ISA-L_Crypto</em></a> for checksum and
+    erasure code</p>
 </li>
 <li>
 <p><a href="https://github.com/pmodels/argobots"><em>Argobots</em></a> for thread management.</p>
@@ -1163,26 +1161,34 @@ Moreover, the DAOS stack leverages the following open source projects:</p>
 <p>The DAOS build system can be configured to download and build any missing
 dependencies automatically.</p>
 <h2 id="distribution-packages">Distribution Packages<a class="headerlink" href="#distribution-packages" title="Permanent link">&para;</a></h2>
-<p>DAOS RPM packaging is currently available, and DEB packaging is under development and will be available in a future DAOS release. Integration with the <a href="https://spack.io/">Spack</a> package manager is also
+<p>DAOS RPM packaging is currently available, and DEB packaging is under
+development and will be available in a future DAOS release.
+Integration with the <a href="https://spack.io/">Spack</a> package manager is also
 under consideration.</p>
 <h3 id="installing-daos-from-rpms">Installing DAOS from RPMs<a class="headerlink" href="#installing-daos-from-rpms" title="Permanent link">&para;</a></h3>
 <p>DAOS RPMs are available from the Intel&copy; Registration Center.
-Clicking the <a href="https://registrationcenter.intel.com/forms/?productid=3412">Intel&copy; Registration Center</a> link will take you to the registration center, where you will create an account. After creating an account, the following files can be downloaded:</p>
+Clicking the <a href="https://registrationcenter.intel.com/forms/?productid=3412">Intel&copy; Registration Center</a>
+link will take you to the registration center, where you will create an account.
+After creating an account, the following files can be downloaded:</p>
 <ul>
 <li>daos_debug.tar - <em>debuginfo</em> packages</li>
 <li>daos_packages.tar - client and server main packages</li>
 <li>daos_source.tar - source RPMs</li>
 </ul>
-<p><strong>Recommended steps after download:</strong></p>
-<pre><code>sudo tar -C / -xf daos_packages.tar
-sudo cp /opt/intel/daos_rpms/packages/daos_packages.repo /etc/yum.repos.d
-rm /opt/intel/daos_rpms/packages/libabt*
-(cd /opt/intel/daos_rpms/packages/ &amp;&amp; createrepo .)
-sudo yum install epel-release
-sudo yum install daos-server
-sudo yum install daos-client
+<p>Recommended steps after download:</p>
+<pre><code class="bash">$ sudo tar -C / -xf daos_packages.tar
+$ sudo cp /opt/intel/daos_rpms/packages/daos_packages.repo /etc/yum.repos.d
+$ rm /opt/intel/daos_rpms/packages/libabt*
+  (cd /opt/intel/daos_rpms/packages/ &amp;&amp; createrepo .)
+$ sudo yum install epel-release
+$ sudo yum install daos-server
+$ sudo yum install daos-client
 </code></pre>
-<p><strong>Note:</strong> <em>Only daos-client OR daos-server needs to be specified on the yum command line.</em></p>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Only daos-client OR daos-server needs to be specified on the yum command line.</p>
+</div>
 <h2 id="daos-from-scratch">DAOS from Scratch<a class="headerlink" href="#daos-from-scratch" title="Permanent link">&para;</a></h2>
 <p>The following instructions have been verified with CentOS. Installations on other
 Linux distributions might be similar with some variations.
@@ -1195,19 +1201,19 @@ on the system. This includes scons, libuuid, cmocka, ipmctl, and several other
 packages usually available on all the Linux distributions. Moreover, a Go
 version of at least 1.10 is required.</p>
 <p>An exhaustive list of packages for each supported Linux distribution is
-maintained in the Docker files:</p>
+maintained in the Docker files (please click on the link):</p>
 <ul>
-<li><a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.centos.7#L53-L76">CentOS</a></li>
-<li><a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.leap.15#L16-L42">OpenSUSE</a></li>
+<li><a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.centos.7#L53-L79">CentOS</a></li>
+<li><a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.leap.15#L71-L100">OpenSUSE</a></li>
 <li><a href="https://github.com/daos-stack/daos/blob/master/utils/docker/Dockerfile.ubuntu.20.04#L21-L39">Ubuntu</a></li>
 </ul>
 <p>The command lines to install the required packages can be extracted from
 the Docker files by removing the "RUN" command, which is specific to Docker.
 Check the <a href="https://github.com/daos-stack/daos/tree/master/utils/docker">utils/docker</a>
 directory for different Linux distribution versions.</p>
-<p>Some DAOS tests use MPI.   The DAOS build process
-uses the environment modules package to detect the presence of MPI.  If none
-is found, the build will skip building those tests.</p>
+<p>Some DAOS tests use MPI. The DAOS build process uses the environment modules
+package to detect the presence of MPI. If none is found, the build will skip
+building those tests.</p>
 <h3 id="daos-source-code">DAOS Source Code<a class="headerlink" href="#daos-source-code" title="Permanent link">&para;</a></h3>
 <p>To check out the DAOS source code, run the following command:</p>
 <pre><code class="bash">$ git clone https://github.com/daos-stack/daos.git
@@ -1227,7 +1233,8 @@ type the following command in the top source directory to build the DAOS stack:<
 </code></pre>
 
 <p>If you are a developer of DAOS, we recommend following the instructions in the
-<a href="https://daos-stack.github.io/dev/development/#building-daos-for-development">DAOS for Development</a> section.</p>
+<a href="https://daos-stack.github.io/dev/development/#building-daos-for-development">DAOS for Development</a>
+section.</p>
 <p>Otherwise, the missing dependencies can be built automatically by invoking scons
 with the following parameters:</p>
 <pre><code class="bash">$ scons --config=force --build-deps=yes install
@@ -1263,8 +1270,8 @@ On Mac, please make sure that the Docker settings under
 "Preferences/{Disk, Memory}" are configured accordingly.</p>
 <h3 id="building-from-github">Building from GitHub<a class="headerlink" href="#building-from-github" title="Permanent link">&para;</a></h3>
 <p>To build the Docker image directly from GitHub, run the following command:</p>
-<pre><code class="bash">$ curl -L https://raw.githubusercontent.com/daos-stack/daos/master/utils/docker/Dockerfile.centos.7 | \
-        docker build --no-cache -t daos -
+<pre><code class="bash">$ docker build https://github.com/daos-stack/daos.git#master:utils/docker \
+        -f Dockerfile.centos.7 -t daos
 </code></pre>
 
 <p>This creates a CentOS 7 image, fetches the latest DAOS version from GitHub,
@@ -1273,13 +1280,26 @@ For Ubuntu and other Linux distributions, replace Dockerfile.centos.7 with
 Dockerfile.ubuntu.20.04 and the appropriate version of interest.</p>
 <p>Once the image created, one can start a container that will eventually run
 the DAOS service:</p>
-<pre><code class="bash">$ docker run -it -d --privileged --name server \
-        -v /dev/hugepages:/dev/hugepages \
-        daos
+<pre><code class="bash">$ docker run -it -d --privileged --cap-add=ALL --name server -v /dev:/dev daos
 </code></pre>
 
-<p>If Docker is being run on a non-Linux system (e.g., OSX), the export of /dev/hugepages
-should be removed since it is not supported.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please make sure that the uio_pci_generic module is loaded.</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>If you want to be more selective with the devices that are exported to the
+container, individual devices should be listed and exported as volume via
+the -v option. In this case, the hugepages devices should also be added
+to the command line via -v /dev/hugepages:/dev/hugepages and
+-v /dev/hugepages-1G:/dev/hugepages-1G</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>If Docker is being run on a non-Linux system (e.g., OSX), -v /dev:/dev
+should be removed from the command line.</p>
+</div>
 <h3 id="building-from-a-local-tree">Building from a Local Tree<a class="headerlink" href="#building-from-a-local-tree" title="Permanent link">&para;</a></h3>
 <p>To build from a local tree stored on the host, a volume must be created to share
 the source tree with the Docker container. To do so, execute the following
@@ -1288,18 +1308,16 @@ command to create a docker image without checking out the DAOS source tree:</p>
 </code></pre>
 
 <p>Then create a container that can access the local DAOS source tree:</p>
-<pre><code class="bash">$ docker run -it -d --privileged --name server \
-        -v ${daospath}:/home/daos/daos:Z \
-        -v /dev/hugepages:/dev/hugepages \
-        daos
+<pre><code class="bash">$ docker run -it -d --privileged --cap-add=ALL --name server \
+        -v ${daospath}:/home/daos/daos:Z -v /dev:/dev daos
 </code></pre>
 
 <p>${daospath} should be replaced with the full path to your DAOS source tree.
-As mentioned above, the export of /dev/hugepages should be removed if the
-host is not a Linux system.</p>
+Regarding the /dev export as volume, the same comments as in the previous
+section apply.</p>
 <p>Then execute the following command to build and install DAOS in the
 container:</p>
-<pre><code class="bash">$ docker exec server scons --build-deps=yes install PREFIX=/usr
+<pre><code class="bash">$ docker exec server scons --build-deps=yes install PREFIX=/usr/local
 </code></pre>
 
 <h3 id="simple-docker-setup">Simple Docker Setup<a class="headerlink" href="#simple-docker-setup" title="Permanent link">&para;</a></h3>
@@ -1308,8 +1326,7 @@ system with a single server instance running in the container. By default, it
 uses 4GB of DRAM to emulate persistent memory and 16GB of bulk storage under
 /tmp. The storage size can be changed in the yaml file if necessary.</p>
 <p>The DAOS service can be started in the docker container as follows:</p>
-<pre><code class="bash">$ docker exec server mkdir /var/run/daos_server
-$ docker exec server daos_server start \
+<pre><code class="bash">$ docker exec server daos_server start \
         -o /home/daos/daos/utils/config/examples/daos_server_local.yml
 </code></pre>
 
@@ -1320,10 +1337,6 @@ This can be triggered in a different shell, using the following command:</p>
 
 <p>Upon successful completion of the format, the storage engine is started, and pools
 can be created using the daos admin tool (see next section).</p>
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Please make sure that the uio_pci_generic module is loaded.</p>
-</div>
 <p>For more advanced configurations involving SCM, SSD or a real fabric, please
 refer to the next section.</p>
                 
