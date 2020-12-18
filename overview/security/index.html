@@ -104,7 +104,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../intel_logo.png" width="24" height="24">
+            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -291,7 +291,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../intel_logo.png" width="48" height="48">
+        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
       
     </a>
     DAOS
@@ -879,6 +879,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+      Support Matrix
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -1182,10 +1194,16 @@
                 <h1 id="security-model">Security Model<a class="headerlink" href="#security-model" title="Permanent link">&para;</a></h1>
 <p>DAOS uses a flexible security model that separates authentication from
 authorization. It is designed to have a minimal impact on the I/O path.</p>
-<p>There are two areas of DAOS that require access control. At the user level,
-clients must be able to read and modify only <em>pools</em> and <em>containers</em> to which 
-they have been granted access. At the system and administrative levels, only
-authorized components must be able to access the DAOS management network.</p>
+<p>DAOS does not provide any transport security for the fabric network used for I/O
+transfers. When deploying DAOS, the administrator is responsible for secure
+configuration of their specific fabric network. For RDMA over Ethernet, enabling
+IPsec is recommended. See the
+<a href="https://tools.ietf.org/html/rfc5040#section-8.2">RDMA protocol spec (RFC 5040)</a>
+for more information.</p>
+<p>There are two areas where DAOS implements its own layer of security. At the user
+level, clients must be able to read and modify only <em>pools</em> and <em>containers</em> to
+which they have been granted access. At the system and administrative levels,
+only authorized components must be able to access the DAOS management network.</p>
 <h2 id="authentication">Authentication<a class="headerlink" href="#authentication" title="Permanent link">&para;</a></h2>
 <p>There are different means of authentication, depending on whether the caller is
 accessing client resources or the DAOS management network.</p>

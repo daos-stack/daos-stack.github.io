@@ -104,7 +104,7 @@
       <div class="md-flex__cell md-flex__cell--shrink">
         <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../intel_logo.png" width="24" height="24">
+            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
           
         </a>
       </div>
@@ -291,7 +291,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../intel_logo.png" width="48" height="48">
+        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
       
     </a>
     DAOS
@@ -720,6 +720,19 @@
     Agent Startup
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-agent-cache-optional" class="md-nav__link">
+    Disable Agent Cache (Optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -970,6 +983,18 @@
   <li class="md-nav__item">
     <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+      Support Matrix
     </a>
   </li>
 
@@ -1322,6 +1347,19 @@
   <a href="#agent-startup" class="md-nav__link">
     Agent Startup
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#disable-agent-cache-optional" class="md-nav__link">
+    Disable Agent Cache (Optional)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -2203,6 +2241,22 @@ $ sudo systemctl start daos_agent.service
 <pre><code class="bash">$ sudo journalctl --unit daos_agent.service
 </code></pre>
 
+<h4 id="disable-agent-cache-optional">Disable Agent Cache (Optional)<a class="headerlink" href="#disable-agent-cache-optional" title="Permanent link">&para;</a></h4>
+<p>In certain circumstances (e.g. for DAOS development or system evaluation), it
+may be desirable to disable the DAOS Agent's caching mechanism in order to avoid
+stale system information being retained across reformats of a system. The DAOS
+Agent normally caches a map of rank-&gt;fabric URI lookups as well as client network
+configuration data in order to reduce the number of management RPCs required to
+start an application. When this information becomes stale, the Agent must be
+restarted in order to repopulate the cache with new information. Alternatively,
+the caching mechanism may be disabled, with the tradeoff that each application
+launch will invoke management RPCs in order to obtain system connection information.</p>
+<p>To disable the DAOS Agent caching mechanism, set the following environment variable before
+starting the daos_agent process:</p>
+<p><code>DAOS_AGENT_DISABLE_CACHE=true</code></p>
+<p>If running from systemd, add the following to the daos_agent service file in the <code>[Service]</code>
+section before reloading systemd and restarting the daos_agent service:</p>
+<p><code>Environment=DAOS_AGENT_DISABLE_CACHE=true</code></p>
 <h2 id="system-validation">System Validation<a class="headerlink" href="#system-validation" title="Permanent link">&para;</a></h2>
 <p>To validate that the DAOS system is properly installed, the <code>daos_test</code>
 suite can be executed. Ensure the DAOS Agent is configured before running
