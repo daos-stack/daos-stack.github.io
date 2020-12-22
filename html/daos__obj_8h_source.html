@@ -221,7 +221,7 @@ $(document).ready(function(){initNavTree('daos__obj_8h_source.html',''); initRes
 <div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="comment">     * Number of entries in the \a iod_recxs for arrays,</span></div>
 <div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;<span class="comment">     * should be 1 if single value.</span></div>
 <div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span>        iod_nr;</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    uint32_t        iod_nr;</div>
 <div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;    <span class="comment">/*</span></div>
 <div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160;<span class="comment">     * Array of extents, where each extent defines the index of the first</span></div>
 <div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="comment">     * record in the extent and the number of records to access. If the</span></div>
@@ -345,11 +345,22 @@ $(document).ready(function(){initNavTree('daos__obj_8h_source.html',''); initRes
 <div class="line"><a name="l00898"></a><span class="lineno">  898</span>&#160;<span class="keywordtype">int</span></div>
 <div class="line"><a name="l00899"></a><span class="lineno">  899</span>&#160;daos_obj_anchor_set(<a class="code" href="structdaos__handle__t.html">daos_handle_t</a> oh, uint32_t index, <a class="code" href="structdaos__anchor__t.html">daos_anchor_t</a> *anchor);</div>
 <div class="line"><a name="l00900"></a><span class="lineno">  900</span>&#160; </div>
-<div class="line"><a name="l00901"></a><span class="lineno">  901</span>&#160;<span class="preprocessor">#if defined(__cplusplus)</span></div>
-<div class="line"><a name="l00902"></a><span class="lineno">  902</span>&#160;}</div>
-<div class="line"><a name="l00903"></a><span class="lineno">  903</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00904"></a><span class="lineno">  904</span>&#160; </div>
-<div class="line"><a name="l00905"></a><span class="lineno">  905</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __DAOS_OBJ_H__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00916"></a><span class="lineno">  916</span>&#160;<span class="keywordtype">int</span></div>
+<div class="line"><a name="l00917"></a><span class="lineno">  917</span>&#160;daos_oit_open(<a class="code" href="structdaos__handle__t.html">daos_handle_t</a> coh, daos_epoch_t epoch,</div>
+<div class="line"><a name="l00918"></a><span class="lineno">  918</span>&#160;          <a class="code" href="structdaos__handle__t.html">daos_handle_t</a> *oh, <a class="code" href="structdaos__event.html">daos_event_t</a> *ev);</div>
+<div class="line"><a name="l00919"></a><span class="lineno">  919</span>&#160; </div>
+<div class="line"><a name="l00932"></a><span class="lineno">  932</span>&#160;<span class="keywordtype">int</span></div>
+<div class="line"><a name="l00933"></a><span class="lineno">  933</span>&#160;daos_oit_close(<a class="code" href="structdaos__handle__t.html">daos_handle_t</a> oh, <a class="code" href="structdaos__event.html">daos_event_t</a> *ev);</div>
+<div class="line"><a name="l00934"></a><span class="lineno">  934</span>&#160; </div>
+<div class="line"><a name="l00954"></a><span class="lineno">  954</span>&#160;<span class="keywordtype">int</span></div>
+<div class="line"><a name="l00955"></a><span class="lineno">  955</span>&#160;daos_oit_list(<a class="code" href="structdaos__handle__t.html">daos_handle_t</a> oh, <a class="code" href="structdaos__obj__id__t.html">daos_obj_id_t</a> *oids, uint32_t *oids_nr,</div>
+<div class="line"><a name="l00956"></a><span class="lineno">  956</span>&#160;          <a class="code" href="structdaos__anchor__t.html">daos_anchor_t</a> *anchor, <a class="code" href="structdaos__event.html">daos_event_t</a> *ev);</div>
+<div class="line"><a name="l00957"></a><span class="lineno">  957</span>&#160; </div>
+<div class="line"><a name="l00958"></a><span class="lineno">  958</span>&#160;<span class="preprocessor">#if defined(__cplusplus)</span></div>
+<div class="line"><a name="l00959"></a><span class="lineno">  959</span>&#160;}</div>
+<div class="line"><a name="l00960"></a><span class="lineno">  960</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00961"></a><span class="lineno">  961</span>&#160; </div>
+<div class="line"><a name="l00962"></a><span class="lineno">  962</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __DAOS_OBJ_H__ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <div class="ttc" id="astructdaos__anchor__t_html"><div class="ttname"><a href="structdaos__anchor__t.html">daos_anchor_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00075">daos_types.h:75</a></div></div>

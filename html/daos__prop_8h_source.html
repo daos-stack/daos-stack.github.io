@@ -161,109 +161,110 @@ $(document).ready(function(){initNavTree('daos__prop_8h_source.html',''); initRe
 <div class="line"><a name="l00225"></a><span class="lineno">  225</span>&#160;    DAOS_PROP_CO_CSUM_CRC64,</div>
 <div class="line"><a name="l00226"></a><span class="lineno">  226</span>&#160;    DAOS_PROP_CO_CSUM_SHA1,</div>
 <div class="line"><a name="l00227"></a><span class="lineno">  227</span>&#160;    DAOS_PROP_CO_CSUM_SHA256,</div>
-<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    DAOS_PROP_CO_CSUM_SHA512</div>
-<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;};</div>
-<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160; </div>
-<div class="line"><a name="l00232"></a><span class="lineno">  232</span>&#160;<span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;    DAOS_PROP_CO_CSUM_SV_OFF,</div>
-<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    DAOS_PROP_CO_CSUM_SV_ON</div>
-<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;};</div>
-<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160; </div>
-<div class="line"><a name="l00238"></a><span class="lineno">  238</span>&#160;<span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;    DAOS_PROP_CO_DEDUP_OFF,</div>
-<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    DAOS_PROP_CO_DEDUP_MEMCMP,</div>
-<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    DAOS_PROP_CO_DEDUP_HASH</div>
-<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;};</div>
-<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160; </div>
-<div class="line"><a name="l00245"></a><span class="lineno">  245</span>&#160;<span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;    DAOS_PROP_CO_COMPRESS_OFF,</div>
-<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    DAOS_PROP_CO_COMPRESS_LZ4,</div>
-<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    DAOS_PROP_CO_COMPRESS_DEFLATE, </div>
-<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    DAOS_PROP_CO_COMPRESS_DEFLATE1,</div>
-<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    DAOS_PROP_CO_COMPRESS_DEFLATE2,</div>
-<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    DAOS_PROP_CO_COMPRESS_DEFLATE3,</div>
-<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    DAOS_PROP_CO_COMPRESS_DEFLATE4,</div>
-<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;};</div>
-<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160; </div>
-<div class="line"><a name="l00256"></a><span class="lineno">  256</span>&#160;<span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;    DAOS_PROP_CO_ENCRYPT_OFF,</div>
-<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_XTS128,</div>
-<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_XTS256,</div>
-<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_CBC128,</div>
-<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_CBC192,</div>
-<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_CBC256,</div>
-<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_GCM128,</div>
-<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_GCM256</div>
-<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;};</div>
-<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160; </div>
-<div class="line"><a name="l00268"></a><span class="lineno">  268</span>&#160;<span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;    DAOS_PROP_CO_REDUN_RF0,</div>
-<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    DAOS_PROP_CO_REDUN_RF1,</div>
-<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    DAOS_PROP_CO_REDUN_RF2,</div>
-<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    DAOS_PROP_CO_REDUN_RF3,</div>
-<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    DAOS_PROP_CO_REDUN_RF4,</div>
-<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;};</div>
-<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160; </div>
-<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160;<span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;    DAOS_PROP_CO_REDUN_RACK,</div>
-<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    DAOS_PROP_CO_REDUN_NODE,</div>
-<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;};</div>
-<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160; </div>
-<div class="line"><a name="l00281"></a><span class="lineno"><a class="line" href="structdaos__prop__entry.html">  281</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a> {</div>
-<div class="line"><a name="l00283"></a><span class="lineno"><a class="line" href="structdaos__prop__entry.html#afea8f463f4c91154d5bedb4ed072ed12">  283</a></span>&#160;    uint32_t         <a class="code" href="structdaos__prop__entry.html#afea8f463f4c91154d5bedb4ed072ed12">dpe_type</a>;</div>
-<div class="line"><a name="l00285"></a><span class="lineno"><a class="line" href="structdaos__prop__entry.html#a98c2fd18400615b4e04f102eebedbabf">  285</a></span>&#160;    uint32_t         <a class="code" href="structdaos__prop__entry.html#a98c2fd18400615b4e04f102eebedbabf">dpe_reserv</a>;</div>
-<div class="line"><a name="l00290"></a><span class="lineno">  290</span>&#160;    <span class="keyword">union </span>{</div>
-<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;        uint64_t     dpe_val;</div>
-<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        d_string_t   dpe_str;</div>
-<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        <span class="keywordtype">void</span>        *dpe_val_ptr;</div>
-<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;    };</div>
-<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;};</div>
-<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160; </div>
-<div class="line"><a name="l00298"></a><span class="lineno">  298</span>&#160;<span class="preprocessor">#define DAOS_PROP_ENTRIES_MAX_NR    (128)</span></div>
-<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160; </div>
-<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160;<span class="preprocessor">#define DAOS_PROP_LABEL_MAX_LEN     (256)</span></div>
-<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160; </div>
-<div class="line"><a name="l00303"></a><span class="lineno"><a class="line" href="structdaos__prop__t.html">  303</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
-<div class="line"><a name="l00305"></a><span class="lineno"><a class="line" href="structdaos__prop__t.html#abaa88a667aafa85fe5785ba8f409bd0d">  305</a></span>&#160;    uint32_t         <a class="code" href="structdaos__prop__t.html#abaa88a667aafa85fe5785ba8f409bd0d">dpp_nr</a>;</div>
-<div class="line"><a name="l00307"></a><span class="lineno"><a class="line" href="structdaos__prop__t.html#a8f9f2695655a99356e3598844f97d949">  307</a></span>&#160;    uint32_t         <a class="code" href="structdaos__prop__t.html#a8f9f2695655a99356e3598844f97d949">dpp_reserv</a>;</div>
-<div class="line"><a name="l00309"></a><span class="lineno"><a class="line" href="structdaos__prop__t.html#a221f1945559a651dd8acd252863a46eb">  309</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a>  *<a class="code" href="structdaos__prop__t.html#a221f1945559a651dd8acd252863a46eb">dpp_entries</a>;</div>
-<div class="line"><a name="l00310"></a><span class="lineno">  310</span>&#160;} <a class="code" href="structdaos__prop__t.html">daos_prop_t</a>;</div>
-<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160; </div>
-<div class="line"><a name="l00319"></a><span class="lineno">  319</span>&#160;<a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *</div>
-<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;daos_prop_alloc(uint32_t entries_nr);</div>
-<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160; </div>
-<div class="line"><a name="l00327"></a><span class="lineno">  327</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;daos_prop_entries_free(<a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *prop);</div>
-<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160; </div>
+<div class="line"><a name="l00228"></a><span class="lineno">  228</span>&#160;    DAOS_PROP_CO_CSUM_SHA512,</div>
+<div class="line"><a name="l00229"></a><span class="lineno">  229</span>&#160;    DAOS_PROP_CO_CSUM_ADLER32</div>
+<div class="line"><a name="l00230"></a><span class="lineno">  230</span>&#160;};</div>
+<div class="line"><a name="l00231"></a><span class="lineno">  231</span>&#160; </div>
+<div class="line"><a name="l00233"></a><span class="lineno">  233</span>&#160;<span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00234"></a><span class="lineno">  234</span>&#160;    DAOS_PROP_CO_CSUM_SV_OFF,</div>
+<div class="line"><a name="l00235"></a><span class="lineno">  235</span>&#160;    DAOS_PROP_CO_CSUM_SV_ON</div>
+<div class="line"><a name="l00236"></a><span class="lineno">  236</span>&#160;};</div>
+<div class="line"><a name="l00237"></a><span class="lineno">  237</span>&#160; </div>
+<div class="line"><a name="l00239"></a><span class="lineno">  239</span>&#160;<span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00240"></a><span class="lineno">  240</span>&#160;    DAOS_PROP_CO_DEDUP_OFF,</div>
+<div class="line"><a name="l00241"></a><span class="lineno">  241</span>&#160;    DAOS_PROP_CO_DEDUP_MEMCMP,</div>
+<div class="line"><a name="l00242"></a><span class="lineno">  242</span>&#160;    DAOS_PROP_CO_DEDUP_HASH</div>
+<div class="line"><a name="l00243"></a><span class="lineno">  243</span>&#160;};</div>
+<div class="line"><a name="l00244"></a><span class="lineno">  244</span>&#160; </div>
+<div class="line"><a name="l00246"></a><span class="lineno">  246</span>&#160;<span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00247"></a><span class="lineno">  247</span>&#160;    DAOS_PROP_CO_COMPRESS_OFF,</div>
+<div class="line"><a name="l00248"></a><span class="lineno">  248</span>&#160;    DAOS_PROP_CO_COMPRESS_LZ4,</div>
+<div class="line"><a name="l00249"></a><span class="lineno">  249</span>&#160;    DAOS_PROP_CO_COMPRESS_DEFLATE, </div>
+<div class="line"><a name="l00250"></a><span class="lineno">  250</span>&#160;    DAOS_PROP_CO_COMPRESS_DEFLATE1,</div>
+<div class="line"><a name="l00251"></a><span class="lineno">  251</span>&#160;    DAOS_PROP_CO_COMPRESS_DEFLATE2,</div>
+<div class="line"><a name="l00252"></a><span class="lineno">  252</span>&#160;    DAOS_PROP_CO_COMPRESS_DEFLATE3,</div>
+<div class="line"><a name="l00253"></a><span class="lineno">  253</span>&#160;    DAOS_PROP_CO_COMPRESS_DEFLATE4,</div>
+<div class="line"><a name="l00254"></a><span class="lineno">  254</span>&#160;};</div>
+<div class="line"><a name="l00255"></a><span class="lineno">  255</span>&#160; </div>
+<div class="line"><a name="l00257"></a><span class="lineno">  257</span>&#160;<span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00258"></a><span class="lineno">  258</span>&#160;    DAOS_PROP_CO_ENCRYPT_OFF,</div>
+<div class="line"><a name="l00259"></a><span class="lineno">  259</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_XTS128,</div>
+<div class="line"><a name="l00260"></a><span class="lineno">  260</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_XTS256,</div>
+<div class="line"><a name="l00261"></a><span class="lineno">  261</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_CBC128,</div>
+<div class="line"><a name="l00262"></a><span class="lineno">  262</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_CBC192,</div>
+<div class="line"><a name="l00263"></a><span class="lineno">  263</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_CBC256,</div>
+<div class="line"><a name="l00264"></a><span class="lineno">  264</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_GCM128,</div>
+<div class="line"><a name="l00265"></a><span class="lineno">  265</span>&#160;    DAOS_PROP_CO_ENCRYPT_AES_GCM256</div>
+<div class="line"><a name="l00266"></a><span class="lineno">  266</span>&#160;};</div>
+<div class="line"><a name="l00267"></a><span class="lineno">  267</span>&#160; </div>
+<div class="line"><a name="l00269"></a><span class="lineno">  269</span>&#160;<span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00270"></a><span class="lineno">  270</span>&#160;    DAOS_PROP_CO_REDUN_RF0,</div>
+<div class="line"><a name="l00271"></a><span class="lineno">  271</span>&#160;    DAOS_PROP_CO_REDUN_RF1,</div>
+<div class="line"><a name="l00272"></a><span class="lineno">  272</span>&#160;    DAOS_PROP_CO_REDUN_RF2,</div>
+<div class="line"><a name="l00273"></a><span class="lineno">  273</span>&#160;    DAOS_PROP_CO_REDUN_RF3,</div>
+<div class="line"><a name="l00274"></a><span class="lineno">  274</span>&#160;    DAOS_PROP_CO_REDUN_RF4,</div>
+<div class="line"><a name="l00275"></a><span class="lineno">  275</span>&#160;};</div>
+<div class="line"><a name="l00276"></a><span class="lineno">  276</span>&#160; </div>
+<div class="line"><a name="l00277"></a><span class="lineno">  277</span>&#160;<span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00278"></a><span class="lineno">  278</span>&#160;    DAOS_PROP_CO_REDUN_RACK,</div>
+<div class="line"><a name="l00279"></a><span class="lineno">  279</span>&#160;    DAOS_PROP_CO_REDUN_NODE,</div>
+<div class="line"><a name="l00280"></a><span class="lineno">  280</span>&#160;};</div>
+<div class="line"><a name="l00281"></a><span class="lineno">  281</span>&#160; </div>
+<div class="line"><a name="l00282"></a><span class="lineno"><a class="line" href="structdaos__prop__entry.html">  282</a></span>&#160;<span class="keyword">struct </span><a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a> {</div>
+<div class="line"><a name="l00284"></a><span class="lineno"><a class="line" href="structdaos__prop__entry.html#afea8f463f4c91154d5bedb4ed072ed12">  284</a></span>&#160;    uint32_t         <a class="code" href="structdaos__prop__entry.html#afea8f463f4c91154d5bedb4ed072ed12">dpe_type</a>;</div>
+<div class="line"><a name="l00286"></a><span class="lineno"><a class="line" href="structdaos__prop__entry.html#a98c2fd18400615b4e04f102eebedbabf">  286</a></span>&#160;    uint32_t         <a class="code" href="structdaos__prop__entry.html#a98c2fd18400615b4e04f102eebedbabf">dpe_reserv</a>;</div>
+<div class="line"><a name="l00291"></a><span class="lineno">  291</span>&#160;    <span class="keyword">union </span>{</div>
+<div class="line"><a name="l00292"></a><span class="lineno">  292</span>&#160;        uint64_t     dpe_val;</div>
+<div class="line"><a name="l00293"></a><span class="lineno">  293</span>&#160;        d_string_t   dpe_str;</div>
+<div class="line"><a name="l00294"></a><span class="lineno">  294</span>&#160;        <span class="keywordtype">void</span>        *dpe_val_ptr;</div>
+<div class="line"><a name="l00295"></a><span class="lineno">  295</span>&#160;    };</div>
+<div class="line"><a name="l00296"></a><span class="lineno">  296</span>&#160;};</div>
+<div class="line"><a name="l00297"></a><span class="lineno">  297</span>&#160; </div>
+<div class="line"><a name="l00299"></a><span class="lineno">  299</span>&#160;<span class="preprocessor">#define DAOS_PROP_ENTRIES_MAX_NR    (128)</span></div>
+<div class="line"><a name="l00300"></a><span class="lineno">  300</span>&#160; </div>
+<div class="line"><a name="l00301"></a><span class="lineno">  301</span>&#160;<span class="preprocessor">#define DAOS_PROP_LABEL_MAX_LEN     (256)</span></div>
+<div class="line"><a name="l00302"></a><span class="lineno">  302</span>&#160; </div>
+<div class="line"><a name="l00304"></a><span class="lineno"><a class="line" href="structdaos__prop__t.html">  304</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line"><a name="l00306"></a><span class="lineno"><a class="line" href="structdaos__prop__t.html#abaa88a667aafa85fe5785ba8f409bd0d">  306</a></span>&#160;    uint32_t         <a class="code" href="structdaos__prop__t.html#abaa88a667aafa85fe5785ba8f409bd0d">dpp_nr</a>;</div>
+<div class="line"><a name="l00308"></a><span class="lineno"><a class="line" href="structdaos__prop__t.html#a8f9f2695655a99356e3598844f97d949">  308</a></span>&#160;    uint32_t         <a class="code" href="structdaos__prop__t.html#a8f9f2695655a99356e3598844f97d949">dpp_reserv</a>;</div>
+<div class="line"><a name="l00310"></a><span class="lineno"><a class="line" href="structdaos__prop__t.html#a221f1945559a651dd8acd252863a46eb">  310</a></span>&#160;    <span class="keyword">struct </span><a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a>  *<a class="code" href="structdaos__prop__t.html#a221f1945559a651dd8acd252863a46eb">dpp_entries</a>;</div>
+<div class="line"><a name="l00311"></a><span class="lineno">  311</span>&#160;} <a class="code" href="structdaos__prop__t.html">daos_prop_t</a>;</div>
+<div class="line"><a name="l00312"></a><span class="lineno">  312</span>&#160; </div>
+<div class="line"><a name="l00320"></a><span class="lineno">  320</span>&#160;<a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *</div>
+<div class="line"><a name="l00321"></a><span class="lineno">  321</span>&#160;daos_prop_alloc(uint32_t entries_nr);</div>
+<div class="line"><a name="l00322"></a><span class="lineno">  322</span>&#160; </div>
+<div class="line"><a name="l00328"></a><span class="lineno">  328</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00329"></a><span class="lineno">  329</span>&#160;daos_prop_fini(<a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *prop);</div>
 <div class="line"><a name="l00330"></a><span class="lineno">  330</span>&#160; </div>
-<div class="line"><a name="l00336"></a><span class="lineno">  336</span>&#160;<span class="keywordtype">void</span></div>
-<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;daos_prop_free(<a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *prop);</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160; </div>
-<div class="line"><a name="l00347"></a><span class="lineno">  347</span>&#160;<a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *</div>
-<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;daos_prop_merge(<a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *old_prop, <a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *new_prop);</div>
-<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160; </div>
-<div class="line"><a name="l00361"></a><span class="lineno">  361</span>&#160;<span class="keywordtype">int</span></div>
-<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;daos_prop_entry_dup_ptr(<span class="keyword">struct</span> <a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a> *entry_dst,</div>
-<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;            <span class="keyword">struct</span> <a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a> *entry_src, <span class="keywordtype">size_t</span> len);</div>
-<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160; </div>
-<div class="line"><a name="l00374"></a><span class="lineno">  374</span>&#160;<span class="keywordtype">int</span></div>
-<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;daos_prop_entry_cmp_acl(<span class="keyword">struct</span> <a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a> *entry1,</div>
-<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;            <span class="keyword">struct</span> <a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a> *entry2);</div>
-<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160; </div>
-<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160;<span class="preprocessor">#if defined(__cplusplus)</span></div>
-<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;}</div>
-<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160; </div>
-<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __DAOS_PROP_H__ */</span><span class="preprocessor"></span></div>
+<div class="line"><a name="l00331"></a><span class="lineno">  331</span>&#160; </div>
+<div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;<span class="keywordtype">void</span></div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;daos_prop_free(<a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *prop);</div>
+<div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160; </div>
+<div class="line"><a name="l00348"></a><span class="lineno">  348</span>&#160;<a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *</div>
+<div class="line"><a name="l00349"></a><span class="lineno">  349</span>&#160;daos_prop_merge(<a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *old_prop, <a class="code" href="structdaos__prop__t.html">daos_prop_t</a> *new_prop);</div>
+<div class="line"><a name="l00350"></a><span class="lineno">  350</span>&#160; </div>
+<div class="line"><a name="l00362"></a><span class="lineno">  362</span>&#160;<span class="keywordtype">int</span></div>
+<div class="line"><a name="l00363"></a><span class="lineno">  363</span>&#160;daos_prop_entry_dup_ptr(<span class="keyword">struct</span> <a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a> *entry_dst,</div>
+<div class="line"><a name="l00364"></a><span class="lineno">  364</span>&#160;            <span class="keyword">struct</span> <a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a> *entry_src, <span class="keywordtype">size_t</span> len);</div>
+<div class="line"><a name="l00365"></a><span class="lineno">  365</span>&#160; </div>
+<div class="line"><a name="l00375"></a><span class="lineno">  375</span>&#160;<span class="keywordtype">int</span></div>
+<div class="line"><a name="l00376"></a><span class="lineno">  376</span>&#160;daos_prop_entry_cmp_acl(<span class="keyword">struct</span> <a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a> *entry1,</div>
+<div class="line"><a name="l00377"></a><span class="lineno">  377</span>&#160;            <span class="keyword">struct</span> <a class="code" href="structdaos__prop__entry.html">daos_prop_entry</a> *entry2);</div>
+<div class="line"><a name="l00378"></a><span class="lineno">  378</span>&#160; </div>
+<div class="line"><a name="l00379"></a><span class="lineno">  379</span>&#160;<span class="preprocessor">#if defined(__cplusplus)</span></div>
+<div class="line"><a name="l00380"></a><span class="lineno">  380</span>&#160;}</div>
+<div class="line"><a name="l00381"></a><span class="lineno">  381</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00382"></a><span class="lineno">  382</span>&#160; </div>
+<div class="line"><a name="l00383"></a><span class="lineno">  383</span>&#160;<span class="preprocessor">#endif </span><span class="comment">/* __DAOS_PROP_H__ */</span><span class="preprocessor"></span></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astructdaos__prop__entry_html"><div class="ttname"><a href="structdaos__prop__entry.html">daos_prop_entry</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00281">daos_prop.h:281</a></div></div>
-<div class="ttc" id="astructdaos__prop__t_html"><div class="ttname"><a href="structdaos__prop__t.html">daos_prop_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00303">daos_prop.h:303</a></div></div>
-<div class="ttc" id="astructdaos__prop__t_html_a221f1945559a651dd8acd252863a46eb"><div class="ttname"><a href="structdaos__prop__t.html#a221f1945559a651dd8acd252863a46eb">daos_prop_t::dpp_entries</a></div><div class="ttdeci">struct daos_prop_entry * dpp_entries</div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00309">daos_prop.h:309</a></div></div>
-<div class="ttc" id="astructdaos__prop__t_html_a8f9f2695655a99356e3598844f97d949"><div class="ttname"><a href="structdaos__prop__t.html#a8f9f2695655a99356e3598844f97d949">daos_prop_t::dpp_reserv</a></div><div class="ttdeci">uint32_t dpp_reserv</div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00307">daos_prop.h:307</a></div></div>
-<div class="ttc" id="astructdaos__prop__entry_html_a98c2fd18400615b4e04f102eebedbabf"><div class="ttname"><a href="structdaos__prop__entry.html#a98c2fd18400615b4e04f102eebedbabf">daos_prop_entry::dpe_reserv</a></div><div class="ttdeci">uint32_t dpe_reserv</div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00285">daos_prop.h:285</a></div></div>
-<div class="ttc" id="astructdaos__prop__entry_html_afea8f463f4c91154d5bedb4ed072ed12"><div class="ttname"><a href="structdaos__prop__entry.html#afea8f463f4c91154d5bedb4ed072ed12">daos_prop_entry::dpe_type</a></div><div class="ttdeci">uint32_t dpe_type</div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00283">daos_prop.h:283</a></div></div>
-<div class="ttc" id="astructdaos__prop__t_html_abaa88a667aafa85fe5785ba8f409bd0d"><div class="ttname"><a href="structdaos__prop__t.html#abaa88a667aafa85fe5785ba8f409bd0d">daos_prop_t::dpp_nr</a></div><div class="ttdeci">uint32_t dpp_nr</div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00305">daos_prop.h:305</a></div></div>
+<div class="ttc" id="astructdaos__prop__entry_html"><div class="ttname"><a href="structdaos__prop__entry.html">daos_prop_entry</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00282">daos_prop.h:282</a></div></div>
+<div class="ttc" id="astructdaos__prop__t_html"><div class="ttname"><a href="structdaos__prop__t.html">daos_prop_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00304">daos_prop.h:304</a></div></div>
+<div class="ttc" id="astructdaos__prop__t_html_a221f1945559a651dd8acd252863a46eb"><div class="ttname"><a href="structdaos__prop__t.html#a221f1945559a651dd8acd252863a46eb">daos_prop_t::dpp_entries</a></div><div class="ttdeci">struct daos_prop_entry * dpp_entries</div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00310">daos_prop.h:310</a></div></div>
+<div class="ttc" id="astructdaos__prop__t_html_a8f9f2695655a99356e3598844f97d949"><div class="ttname"><a href="structdaos__prop__t.html#a8f9f2695655a99356e3598844f97d949">daos_prop_t::dpp_reserv</a></div><div class="ttdeci">uint32_t dpp_reserv</div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00308">daos_prop.h:308</a></div></div>
+<div class="ttc" id="astructdaos__prop__entry_html_a98c2fd18400615b4e04f102eebedbabf"><div class="ttname"><a href="structdaos__prop__entry.html#a98c2fd18400615b4e04f102eebedbabf">daos_prop_entry::dpe_reserv</a></div><div class="ttdeci">uint32_t dpe_reserv</div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00286">daos_prop.h:286</a></div></div>
+<div class="ttc" id="astructdaos__prop__entry_html_afea8f463f4c91154d5bedb4ed072ed12"><div class="ttname"><a href="structdaos__prop__entry.html#afea8f463f4c91154d5bedb4ed072ed12">daos_prop_entry::dpe_type</a></div><div class="ttdeci">uint32_t dpe_type</div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00284">daos_prop.h:284</a></div></div>
+<div class="ttc" id="astructdaos__prop__t_html_abaa88a667aafa85fe5785ba8f409bd0d"><div class="ttname"><a href="structdaos__prop__t.html#abaa88a667aafa85fe5785ba8f409bd0d">daos_prop_t::dpp_nr</a></div><div class="ttdeci">uint32_t dpp_nr</div><div class="ttdef"><b>Definition:</b> <a href="daos__prop_8h_source.html#l00306">daos_prop.h:306</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

@@ -8,11 +8,16 @@ var daos__cont_8h =
     [ "DAOS_COO_RO", "daos__cont_8h.html#aab23e66f2eb2bac0b001547b3fdf8587", null ],
     [ "DAOS_COO_RW", "daos__cont_8h.html#a11ee11e5a4bb4ec779ee2f6a01ed96cc", null ],
     [ "DAOS_SNAPSHOT_MAX_LEN", "daos__cont_8h.html#afb8acd391dfbeecb6895e66a997781ed", null ],
+    [ "daos_snapshot_opts", "daos__cont_8h.html#aa9db6759d54439124fe8d210d2c0254e", [
+      [ "DAOS_SNAP_OPT_CR", "daos__cont_8h.html#aa9db6759d54439124fe8d210d2c0254ea88a2ff8dbc2299ef17503a12dc26f959", null ],
+      [ "DAOS_SNAP_OPT_OIT", "daos__cont_8h.html#aa9db6759d54439124fe8d210d2c0254ea895cc6c5368a9ea6bc2557546ca7a9e7", null ]
+    ] ],
     [ "daos_cont_aggregate", "daos__cont_8h.html#aa6d5e5ebaf5ae854b97785eabc86419a", null ],
     [ "daos_cont_alloc_oids", "daos__cont_8h.html#aa774a851cf98ae75dc7ed075ac4e814b", null ],
     [ "daos_cont_close", "daos__cont_8h.html#a619e6f50a6272f421a6967d5a54d7686", null ],
     [ "daos_cont_create", "daos__cont_8h.html#a3817d3dcd223893f448a1514eca479a4", null ],
     [ "daos_cont_create_snap", "daos__cont_8h.html#a0aa2756744ae5f6afd756946927126c7", null ],
+    [ "daos_cont_create_snap_opt", "daos__cont_8h.html#a86a37dccb956c087c2b7bdd923944ff0", null ],
     [ "daos_cont_del_attr", "daos__cont_8h.html#a22d9e94cba3233caedef8d46019b6607", null ],
     [ "daos_cont_delete_acl", "daos__cont_8h.html#a1ca2bc0480e7f871cf50f5500daa82ec", null ],
     [ "daos_cont_destroy", "daos__cont_8h.html#a0630e16bf88dc28b6372d5f58dc2e648", null ],
