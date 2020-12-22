@@ -1215,17 +1215,17 @@ directory for different Linux distribution versions.</p>
 package to detect the presence of MPI. If none is found, the build will skip
 building those tests.</p>
 <h3 id="daos-source-code">DAOS Source Code<a class="headerlink" href="#daos-source-code" title="Permanent link">&para;</a></h3>
-<p>To check out the DAOS source code, run the following command:</p>
-<pre><code class="bash">$ git clone https://github.com/daos-stack/daos.git
+<p>The DAOS repository is hosted on <a href="https://github.com/daos-stack/daos">GitHub</a>.</p>
+<p>To checkout the latest stable version, simply run:</p>
+<pre><code class="bash">git clone --recurse-submodules -b v1.0.1 https://github.com/daos-stack/daos.git
+</code></pre>
+
+<p>For the current development version, then run:</p>
+<pre><code class="bash">$ git clone --recurse-submodules https://github.com/daos-stack/daos.git
 </code></pre>
 
 <p>This command clones the DAOS git repository (path referred as ${daospath}
-below). Then initialize the submodules with:</p>
-<pre><code class="bash">$ cd ${daospath}
-$ git submodule init
-$ git submodule update
-</code></pre>
-
+below) and initializes all the submodules automatically.</p>
 <h3 id="building-daos-dependencies">Building DAOS &amp; Dependencies<a class="headerlink" href="#building-daos-dependencies" title="Permanent link">&para;</a></h3>
 <p>If all the software dependencies listed previously are already satisfied, then
 type the following command in the top source directory to build the DAOS stack:</p>
@@ -1277,16 +1277,14 @@ On Mac, please make sure that the Docker settings under
 <p>This creates a CentOS 7 image, fetches the latest DAOS version from GitHub,
 builds it, and installs it in the image.
 For Ubuntu and other Linux distributions, replace Dockerfile.centos.7 with
-Dockerfile.ubuntu.20.04 and the appropriate version of interest.</p>
+Dockerfile.ubuntu.20.04 and the appropriate version of interest.
+<code>master</code> should be replaced by the relevant release tag (e.g. v1.0.1) to
+build a stable version.</p>
 <p>Once the image created, one can start a container that will eventually run
 the DAOS service:</p>
 <pre><code class="bash">$ docker run -it -d --privileged --cap-add=ALL --name server -v /dev:/dev daos
 </code></pre>
 
-<div class="admonition note">
-<p class="admonition-title">Note</p>
-<p>Please make sure that the uio_pci_generic module is loaded.</p>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>If you want to be more selective with the devices that are exported to the
@@ -1317,7 +1315,7 @@ Regarding the /dev export as volume, the same comments as in the previous
 section apply.</p>
 <p>Then execute the following command to build and install DAOS in the
 container:</p>
-<pre><code class="bash">$ docker exec server scons --build-deps=yes install PREFIX=/usr/local
+<pre><code class="bash">$ docker exec server scons --build-deps=yes install PREFIX=/opt/daos
 </code></pre>
 
 <h3 id="simple-docker-setup">Simple Docker Setup<a class="headerlink" href="#simple-docker-setup" title="Permanent link">&para;</a></h3>
@@ -1330,6 +1328,10 @@ uses 4GB of DRAM to emulate persistent memory and 16GB of bulk storage under
         -o /home/daos/daos/utils/config/examples/daos_server_local.yml
 </code></pre>
 
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Please make sure that the uio_pci_generic module is loaded on the host.</p>
+</div>
 <p>Once started, the DAOS server waits for the administrator to format the system.
 This can be triggered in a different shell, using the following command:</p>
 <pre><code class="bash">$ docker exec server dmg -i storage format

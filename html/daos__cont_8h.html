@@ -86,6 +86,7 @@ $(document).ready(function(){initNavTree('daos__cont_8h.html',''); initResizable
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#define-members">Macros</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">daos_cont.h File Reference</div>  </div>
@@ -122,6 +123,13 @@ Macros</h2></td></tr>
 <tr class="memitem:afb8acd391dfbeecb6895e66a997781ed"><td class="memItemLeft" align="right" valign="top"><a id="afb8acd391dfbeecb6895e66a997781ed"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>DAOS_SNAPSHOT_MAX_LEN</b>&#160;&#160;&#160;128</td></tr>
 <tr class="separator:afb8acd391dfbeecb6895e66a997781ed"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:aa9db6759d54439124fe8d210d2c0254e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__cont_8h.html#aa9db6759d54439124fe8d210d2c0254e">daos_snapshot_opts</a> { <a class="el" href="daos__cont_8h.html#aa9db6759d54439124fe8d210d2c0254ea88a2ff8dbc2299ef17503a12dc26f959">DAOS_SNAP_OPT_CR</a> = (1 &lt;&lt; 0), 
+<a class="el" href="daos__cont_8h.html#aa9db6759d54439124fe8d210d2c0254ea895cc6c5368a9ea6bc2557546ca7a9e7">DAOS_SNAP_OPT_OIT</a> = (1 &lt;&lt; 1)
+ }</td></tr>
+<tr class="separator:aa9db6759d54439124fe8d210d2c0254e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -171,6 +179,8 @@ Functions</h2></td></tr>
 <tr class="separator:afab4df174d6e1a48b343d0d5a13e7038"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0aa2756744ae5f6afd756946927126c7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__cont_8h.html#a0aa2756744ae5f6afd756946927126c7">daos_cont_create_snap</a> (<a class="el" href="structdaos__handle__t.html">daos_handle_t</a> coh, daos_epoch_t *epoch, char *name, <a class="el" href="structdaos__event.html">daos_event_t</a> *ev)</td></tr>
 <tr class="separator:a0aa2756744ae5f6afd756946927126c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a86a37dccb956c087c2b7bdd923944ff0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__cont_8h.html#a86a37dccb956c087c2b7bdd923944ff0">daos_cont_create_snap_opt</a> (<a class="el" href="structdaos__handle__t.html">daos_handle_t</a> coh, daos_epoch_t *epoch, char *name, enum <a class="el" href="daos__cont_8h.html#aa9db6759d54439124fe8d210d2c0254e">daos_snapshot_opts</a> opts, <a class="el" href="structdaos__event.html">daos_event_t</a> *ev)</td></tr>
+<tr class="separator:a86a37dccb956c087c2b7bdd923944ff0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7e166976d2bbd06192bcdcd47f4d5462"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__cont_8h.html#a7e166976d2bbd06192bcdcd47f4d5462">daos_cont_list_snap</a> (<a class="el" href="structdaos__handle__t.html">daos_handle_t</a> coh, int *nr, daos_epoch_t *epochs, char **names, <a class="el" href="structdaos__anchor__t.html">daos_anchor_t</a> *anchor, <a class="el" href="structdaos__event.html">daos_event_t</a> *ev)</td></tr>
 <tr class="separator:a7e166976d2bbd06192bcdcd47f4d5462"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a794403da19e79aaed193c0ab187951ed"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__cont_8h.html#a794403da19e79aaed193c0ab187951ed">daos_cont_destroy_snap</a> (<a class="el" href="structdaos__handle__t.html">daos_handle_t</a> coh, <a class="el" href="structdaos__epoch__range__t.html">daos_epoch_range_t</a> epr, <a class="el" href="structdaos__event.html">daos_event_t</a> *ev)</td></tr>
@@ -198,6 +208,29 @@ Functions</h2></td></tr>
 <p>DAOS_COO_FORCE skips the check to see if the pool meets the redundancy factor/level requirements of the container. </p>
 
 <p class="definition">Definition at line <a class="el" href="daos__cont_8h_source.html#l00051">51</a> of file <a class="el" href="daos__cont_8h_source.html">daos_cont.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="aa9db6759d54439124fe8d210d2c0254e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9db6759d54439124fe8d210d2c0254e">&#9670;&nbsp;</a></span>daos_snapshot_opts</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="daos__cont_8h.html#aa9db6759d54439124fe8d210d2c0254e">daos_snapshot_opts</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="aa9db6759d54439124fe8d210d2c0254ea88a2ff8dbc2299ef17503a12dc26f959"></a>DAOS_SNAP_OPT_CR&#160;</td><td class="fielddoc"><p>create snapshot </p>
+</td></tr>
+<tr><td class="fieldname"><a id="aa9db6759d54439124fe8d210d2c0254ea895cc6c5368a9ea6bc2557546ca7a9e7"></a>DAOS_SNAP_OPT_OIT&#160;</td><td class="fielddoc"><p>create OI table for a snapshot </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="daos__cont_8h_source.html#l00564">564</a> of file <a class="el" href="daos__cont_8h_source.html">daos_cont.h</a>.</p>
 
 </div>
 </div>
@@ -427,6 +460,66 @@ Functions</h2></td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">coh</td><td>Container handle </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">epoch</td><td>returned epoch of persistent snapshot taken. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Optional null terminated name for snapshot. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">ev</td><td>Completion event, it is optional and can be NULL. The function will run in blocking mode if <em>ev</em> is NULL. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a86a37dccb956c087c2b7bdd923944ff0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a86a37dccb956c087c2b7bdd923944ff0">&#9670;&nbsp;</a></span>daos_cont_create_snap_opt()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int daos_cont_create_snap_opt </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structdaos__handle__t.html">daos_handle_t</a>&#160;</td>
+          <td class="paramname"><em>coh</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">daos_epoch_t *&#160;</td>
+          <td class="paramname"><em>epoch</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">char *&#160;</td>
+          <td class="paramname"><em>name</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">enum <a class="el" href="daos__cont_8h.html#aa9db6759d54439124fe8d210d2c0254e">daos_snapshot_opts</a>&#160;</td>
+          <td class="paramname"><em>opts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structdaos__event.html">daos_event_t</a> *&#160;</td>
+          <td class="paramname"><em>ev</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Advanced snapshot function, it can do different things based bits set in <em>opts:</em> </p><ul>
+<li>DAOS_SNAP_OPT_CR create a snapshot at the current epoch and return it.</li>
+<li>DAOS_SNAP_OPT_OIT create object ID table (OIT) for the snapshot</li>
+</ul>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">coh</td><td>Container handle </td></tr>
+    <tr><td class="paramdir">[out]</td><td class="paramname">epoch</td><td>returned epoch of persistent snapshot taken. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">name</td><td>Optional null terminated name for snapshot. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">opts</td><td>Bit flags, see daos_snapshot_opts </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">ev</td><td>Completion event, it is optional and can be NULL. The function will run in blocking mode if <em>ev</em> is NULL. </td></tr>
   </table>
   </dd>
