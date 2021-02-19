@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structvea__stat">
+<title>vea_stat Struct Reference</title>
+<indexterm><primary>vea_stat</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structvea__stat_1a321ca3ebe8c04d298e49e8a28e07d6cd"/>uint64_t <emphasis role="strong">vs_free_persistent</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structvea__stat_1afab0faaa66abae129bb3dc0a1ef47846"/>uint64_t <emphasis role="strong">vs_free_transient</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structvea__stat_1a40f01f8b3ff8ccf63f06eea167bf6aea"/>uint64_t <emphasis role="strong">vs_large_frags</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structvea__stat_1a38aec14794934fa0c706ddc4258b3d9a"/>uint64_t <emphasis role="strong">vs_small_frags</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structvea__stat_1a88df8478d430194b90fe8dc1e68aa13f"/>uint64_t <emphasis role="strong">vs_resrv_hint</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structvea__stat_1aa3796071bdc3c62397c36bdbaaf1c418"/>uint64_t <emphasis role="strong">vs_resrv_large</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structvea__stat_1a1f6e0278fa8bc78185865ca074f8d771"/>uint64_t <emphasis role="strong">vs_resrv_small</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structvea__stat_1aa087f859f73c601fc30dd7780e5adabc"/>uint64_t <emphasis role="strong">vs_resrv_vec</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structvea__stat_1a2b30a948a017b63543d485b9c857dea3"/>uint32_t <emphasis role="strong">vs_largest_blks</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 117 of file vea.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/vea.h</section>
+</section>

@@ -1,0 +1,151 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_dlog_8h">
+<title>src/include/gurt/dlog.h File Reference</title>
+<indexterm><primary>src/include/gurt/dlog.h</primary></indexterm>
+<programlisting>#include &lt;inttypes.h&gt;
+#include &lt;stdarg.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;stdlib.h&gt;
+</programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structdlog__fac">dlog_fac</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__log__xstate">d_log_xstate</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__debug__data">d_debug_data</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__debug__priority">d_debug_priority</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__debug__bit">d_debug_bit</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__debug__grp">d_debug_grp</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gafa08f3f9dd164f08ea6ef9efbe21baf4">DLOG_FLV_LOGPID</link>   (1 &lt;&lt; 0)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gadd7948c3de36c11479f61922215dde27">DLOG_FLV_FQDN</link>   (1 &lt;&lt; 1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga0d54ebb1702a171487b1a569b522c2aa">DLOG_FLV_FAC</link>   (1 &lt;&lt; 2)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga7893d122394462db13957db205a8e791">DLOG_FLV_YEAR</link>   (1 &lt;&lt; 3)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gac48a52540b5acc4612d40974429a6272">DLOG_FLV_TAG</link>   (1 &lt;&lt; 4)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga4bf011de77f726037fcf099607e6fc44">DLOG_FLV_STDOUT</link>   (1 &lt;&lt; 5)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga125c6694d33fea29e197d0fac5666c2d">DLOG_FLV_STDERR</link>   (1 &lt;&lt; 6)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gabe86d2d6602089ad775732f11c591045">DLOG_STDERR</link>   0x20000000</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga288f9a3e895fc12f2e56f57d30639804">DLOG_STDOUT</link>   0x10000000</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga7e96105a8991995a94741c02cd2547b4">DLOG_PRIMASK</link>   0x0fffff00</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gabbee7d717fc94436ed6d2c99d7fdfe68">D_FOREACH_PRIO_MASK</link>(ACTION,  arg)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_NOOP</emphasis>(...)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_PRIO_ENUM</emphasis>(name,  id,  longid,  mask,  arg)   name = mask,</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gac28dedd24c22ed4ac8cb7191ff866056">DLOG_PRISHIFT</link>   24</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga3fa3e800babcbc55f418fa5a3561595a">DLOG_DPRISHIFT</link>   8</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gac4bc22283ff8ad5143a051ebc09afbeb">DLOG_PRINDMASK</link>   0x0f000000</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga978e034acfed5c2bd25581cd29974e37">DLOG_FACMASK</link>   0x000000ff</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga2effbffce3ebdaf1893f9a739cf1cc7e">DLOG_UNINIT</link>   0x80000000</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DLOG_PRI</emphasis>(flag)   ((flag &amp; <link linkend="_group___g_u_r_t___l_o_g_1gac4bc22283ff8ad5143a051ebc09afbeb">DLOG_PRINDMASK</link>) &gt;&gt; <link linkend="_group___g_u_r_t___l_o_g_1gac28dedd24c22ed4ac8cb7191ff866056">DLOG_PRISHIFT</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gab471cb90a515d223fe649219234a95da">DD_MASK_ENV</link>   &quot;DD_MASK&quot;</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DD_MASK_DEFAULT</emphasis>   &quot;all&quot;</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DD_SEP</emphasis>   &quot;,&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga5e86b6176dc39e2adbdb1e4e6de75b7b">DD_STDERR_ENV</link>   &quot;DD_STDERR&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga93708acec79ca41af5b28dd4d1687eb8">DD_FAC_ENV</link>   &quot;DD_SUBSYS&quot;</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DD_FAC_ALL</emphasis>   &quot;all&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef uint64_t <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___l_o_g_1gaa57e16cd48de3b9a989056ff8df26f84"/>enum </para>
+</listitem>
+            <listitem><para>enum <link linkend="_group___g_u_r_t___l_o_g_1gac74d3e67fed2b7779fee1a34ca8d10f6">d_log_flag_bits</link> { <link linkend="_group___g_u_r_t___l_o_g_1ggac74d3e67fed2b7779fee1a34ca8d10f6a8259d09d524b2d70f781eae1f0914529">D_LOG_SET_AS_DEFAULT</link> = 1U
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1gae64a212814cc1086fe41579d89b85232">d_log_dbg_bit_dealloc</link> (char *name)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga7466425ac6c6fefd0ca5bc1cdbaa84e2">d_log_dbg_bit_alloc</link> (<link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> *dbgbit, char *name, char *lname)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga97dfde8a24f1d9ff72de077b3d36b28d">d_log_dbg_grp_dealloc</link> (char *grpname)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga2b302217b71db8d07d34bfe8b82a4af2">d_log_dbg_grp_alloc</link> (<link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> dbgmask, char *grpname, uint32_t flags)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1gaa8476841c28160c34a0c137d2eaf1e4b">d_vlog</link> (int flags, const char *fmt, va_list ap)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga1aec57c3801af548c130557145886d40">d_log_allocfacility</link> (const char *aname, const char *lname)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga6318de34bd18a8c5b39b7fd3850e3ab5">d_log_init</link> (void)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1gae5ea7676867b6f4d9eea1717ef1bfa77">d_log_init_adv</link> (char *log_tag, char *log_file, unsigned int flavor, <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> def_mask, <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> err_mask)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1gab5b49bed8eeff4d592836f19aa420a2c">d_log_fini</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1ga70238ebf9d734057db6c412a8798ff93">d_log_close</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1gac89194e4576277e0a975228e8058e81b">d_log_sync_mask</link> (void)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga090a67e345e8ccdf29ee0fb4714529bf">d_log_open</link> (char *tag, int maxfac_hint, int default_mask, int stderr_mask, char *logfile, int flags)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga43adcd9cdcadccbda9f8e94a6c5f88cb">d_log_setlogmask</link> (int facility, int mask)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga95d585effeb9487dd82e24024a69a72b">d_log_setmasks</link> (char *mstr, int mlen)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga1b46eee954a0ddf2ae5c82a5ce9a9cd6">d_log_getmasks</link> (char *buf, int discard, int len, int unterm)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1ga33e2237c90c7efbe8c4a93377325ce3e">d_log_add_cache</link> (int *cache, int nr)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1gaa68fcfd52e9ba0d19d6368bad1ab5c13">d_log_sync</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structd__log__xstate">d_log_xstate</link> <emphasis role="strong">d_log_xst</emphasis></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__debug__data">d_debug_data</link> <emphasis role="strong">d_dbglog_data</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>APIs and defines for message logging system </para>
+</section>
+</section>

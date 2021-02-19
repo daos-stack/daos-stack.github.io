@@ -1,0 +1,81 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structevt__entry__in">
+<title>evt_entry_in Struct Reference</title>
+<indexterm><primary>evt_entry_in</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structevt__rect">evt_rect</link> <link linkend="_structevt__entry__in_1a01ba239ed1301c69c2b671feaa774f80">ei_rect</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structdcs__csum__info">dcs_csum_info</link> <link linkend="_structevt__entry__in_1a507b757ffaec9a3f94dfccc16e2bbc05">ei_csum</link></para>
+</listitem>
+            <listitem><para>daos_epoch_t <link linkend="_structevt__entry__in_1a210358ce6f5018245e2fddbf87b04aa9">ei_bound</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structevt__entry__in_1afc8889941a9878728766c617b04e7ec4">ei_ver</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structevt__entry__in_1a9df28ecf836d946653f891c4b9cad083">ei_inob</link></para>
+</listitem>
+            <listitem><para><link linkend="_structbio__addr__t">bio_addr_t</link> <link linkend="_structevt__entry__in_1ae681f496f85a461ac66b36a7b226046c">ei_addr</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 278 of file evtree.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structevt__entry__in_1ae681f496f85a461ac66b36a7b226046c"/>    <section>
+    <title>ei_addr</title>
+<indexterm><primary>ei_addr</primary><secondary>evt_entry_in</secondary></indexterm>
+<indexterm><primary>evt_entry_in</primary><secondary>ei_addr</secondary></indexterm>
+<para><computeroutput><link linkend="_structbio__addr__t">bio_addr_t</link> ei_addr</computeroutput></para>
+<para>Address of record to insert </para>
+<para>
+Definition at line 290 of file evtree.h.</para>
+    </section><anchor xml:id="_structevt__entry__in_1a210358ce6f5018245e2fddbf87b04aa9"/>    <section>
+    <title>ei_bound</title>
+<indexterm><primary>ei_bound</primary><secondary>evt_entry_in</secondary></indexterm>
+<indexterm><primary>evt_entry_in</primary><secondary>ei_bound</secondary></indexterm>
+<para><computeroutput>daos_epoch_t ei_bound</computeroutput></para>
+<para>epoch uncertainty boundary </para>
+<para>
+Definition at line 284 of file evtree.h.</para>
+    </section><anchor xml:id="_structevt__entry__in_1a507b757ffaec9a3f94dfccc16e2bbc05"/>    <section>
+    <title>ei_csum</title>
+<indexterm><primary>ei_csum</primary><secondary>evt_entry_in</secondary></indexterm>
+<indexterm><primary>evt_entry_in</primary><secondary>ei_csum</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structdcs__csum__info">dcs_csum_info</link> ei_csum</computeroutput></para>
+<para>checksum of entry </para>
+<para>
+Definition at line 282 of file evtree.h.</para>
+    </section><anchor xml:id="_structevt__entry__in_1a9df28ecf836d946653f891c4b9cad083"/>    <section>
+    <title>ei_inob</title>
+<indexterm><primary>ei_inob</primary><secondary>evt_entry_in</secondary></indexterm>
+<indexterm><primary>evt_entry_in</primary><secondary>ei_inob</secondary></indexterm>
+<para><computeroutput>uint32_t ei_inob</computeroutput></para>
+<para>number of bytes per record, zero for punch </para>
+<para>
+Definition at line 288 of file evtree.h.</para>
+    </section><anchor xml:id="_structevt__entry__in_1a01ba239ed1301c69c2b671feaa774f80"/>    <section>
+    <title>ei_rect</title>
+<indexterm><primary>ei_rect</primary><secondary>evt_entry_in</secondary></indexterm>
+<indexterm><primary>evt_entry_in</primary><secondary>ei_rect</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structevt__rect">evt_rect</link> ei_rect</computeroutput></para>
+<para>Extent to insert </para>
+<para>
+Definition at line 280 of file evtree.h.</para>
+    </section><anchor xml:id="_structevt__entry__in_1afc8889941a9878728766c617b04e7ec4"/>    <section>
+    <title>ei_ver</title>
+<indexterm><primary>ei_ver</primary><secondary>evt_entry_in</secondary></indexterm>
+<indexterm><primary>evt_entry_in</primary><secondary>ei_ver</secondary></indexterm>
+<para><computeroutput>uint32_t ei_ver</computeroutput></para>
+<para>pool map version </para>
+<para>
+Definition at line 286 of file evtree.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/evtree.h</section>
+</section>

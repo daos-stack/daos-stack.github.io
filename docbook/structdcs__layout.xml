@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdcs__layout">
+<title>dcs_layout Struct Reference</title>
+<indexterm><primary>dcs_layout</primary></indexterm>
+<para>
+<computeroutput>#include &lt;checksum.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>uint64_t <link linkend="_structdcs__layout_1a46a4c3156cf8d22be1d1a5dc3a30b685">cs_bytes</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdcs__layout_1ade98c7a9ebf99eb5284f5c2b706df881">cs_nr</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdcs__layout_1ae290de75584d47cd27ec63f31393088d">cs_even_dist</link>:1</para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdcs__layout_1ab5853392ba8f8a2cc8b87a47498b1cdf">cs_cell_align</link>:1</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Single value layout info for checksum </para>
+<para>
+Definition at line 51 of file checksum.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdcs__layout_1a46a4c3156cf8d22be1d1a5dc3a30b685"/>    <section>
+    <title>cs_bytes</title>
+<indexterm><primary>cs_bytes</primary><secondary>dcs_layout</secondary></indexterm>
+<indexterm><primary>dcs_layout</primary><secondary>cs_bytes</secondary></indexterm>
+<para><computeroutput>uint64_t cs_bytes</computeroutput></para>
+<para>#bytes on evenly distributed targets </para>
+<para>
+Definition at line 53 of file checksum.h.</para>
+    </section><anchor xml:id="_structdcs__layout_1ab5853392ba8f8a2cc8b87a47498b1cdf"/>    <section>
+    <title>cs_cell_align</title>
+<indexterm><primary>cs_cell_align</primary><secondary>dcs_layout</secondary></indexterm>
+<indexterm><primary>dcs_layout</primary><secondary>cs_cell_align</secondary></indexterm>
+<para><computeroutput>uint32_t cs_cell_align</computeroutput></para>
+<para>Align flag, used only for single value fetch that parity buffer&apos;s location possibly not immediately following data buffer (to align with cell size to avoid data movement in data recovery). For update the data immediately followed by parity (this flag is zero). </para>
+<para>
+Definition at line 64 of file checksum.h.</para>
+    </section><anchor xml:id="_structdcs__layout_1ae290de75584d47cd27ec63f31393088d"/>    <section>
+    <title>cs_even_dist</title>
+<indexterm><primary>cs_even_dist</primary><secondary>dcs_layout</secondary></indexterm>
+<indexterm><primary>dcs_layout</primary><secondary>cs_even_dist</secondary></indexterm>
+<para><computeroutput>uint32_t cs_even_dist</computeroutput></para>
+<para>even distribution flag </para>
+<para>
+Definition at line 57 of file checksum.h.</para>
+    </section><anchor xml:id="_structdcs__layout_1ade98c7a9ebf99eb5284f5c2b706df881"/>    <section>
+    <title>cs_nr</title>
+<indexterm><primary>cs_nr</primary><secondary>dcs_layout</secondary></indexterm>
+<indexterm><primary>dcs_layout</primary><secondary>cs_nr</secondary></indexterm>
+<para><computeroutput>uint32_t cs_nr</computeroutput></para>
+<para>targets number </para>
+<para>
+Definition at line 55 of file checksum.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/checksum.h</section>
+</section>

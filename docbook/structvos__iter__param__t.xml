@@ -1,0 +1,116 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structvos__iter__param__t">
+<title>vos_iter_param_t Struct Reference</title>
+<indexterm><primary>vos_iter_param_t</primary></indexterm>
+<para>
+<computeroutput>#include &lt;vos_types.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_structdaos__handle__t">daos_handle_t</link> <link linkend="_structvos__iter__param__t_1afc64958213e5192c579458f95dbd1ac3">ip_hdl</link></para>
+</listitem>
+            <listitem><para><link linkend="_structdaos__handle__t">daos_handle_t</link> <link linkend="_structvos__iter__param__t_1a5daf165ecc97d2e784d1e7fbd89e6151">ip_ih</link></para>
+</listitem>
+            <listitem><para><link linkend="_structdaos__unit__oid__t">daos_unit_oid_t</link> <link linkend="_structvos__iter__param__t_1a7e2dfe7f4e399455fdaa27f27153bde7">ip_oid</link></para>
+</listitem>
+            <listitem><para><link linkend="_structd__iov__t">daos_key_t</link> <link linkend="_structvos__iter__param__t_1a78d649546713ef6073aa3c34f811ca83">ip_dkey</link></para>
+</listitem>
+            <listitem><para><link linkend="_structd__iov__t">daos_key_t</link> <link linkend="_structvos__iter__param__t_1ab7d9dc7df818ef1d3ff88f0395fdad0b">ip_akey</link></para>
+</listitem>
+            <listitem><para><link linkend="_structdaos__recx__t">daos_recx_t</link> <link linkend="_structvos__iter__param__t_1a4f9ca279677949bac77b1828b5594260">ip_recx</link></para>
+</listitem>
+            <listitem><para><link linkend="_structdaos__epoch__range__t">daos_epoch_range_t</link> <link linkend="_structvos__iter__param__t_1a59be25b2b36c7023b76912b7c6f13562">ip_epr</link></para>
+</listitem>
+            <listitem><para>vos_it_epc_expr_t <link linkend="_structvos__iter__param__t_1ae62d67a0e2bb22ff56789dedf4a94be8">ip_epc_expr</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structvos__iter__param__t_1a7b3205073b9a5cb7f9d498b7608bf209">ip_flags</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Parameters for initializing VOS iterator </para>
+<para>
+Definition at line 310 of file vos_types.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structvos__iter__param__t_1ab7d9dc7df818ef1d3ff88f0395fdad0b"/>    <section>
+    <title>ip_akey</title>
+<indexterm><primary>ip_akey</primary><secondary>vos_iter_param_t</secondary></indexterm>
+<indexterm><primary>vos_iter_param_t</primary><secondary>ip_akey</secondary></indexterm>
+<para><computeroutput><link linkend="_structd__iov__t">daos_key_t</link> ip_akey</computeroutput></para>
+<para>attribute key (VOS_ITER_DKEY/RECX/SINGLE, standalone only) </para>
+<para>
+Definition at line 324 of file vos_types.h.</para>
+    </section><anchor xml:id="_structvos__iter__param__t_1a78d649546713ef6073aa3c34f811ca83"/>    <section>
+    <title>ip_dkey</title>
+<indexterm><primary>ip_dkey</primary><secondary>vos_iter_param_t</secondary></indexterm>
+<indexterm><primary>vos_iter_param_t</primary><secondary>ip_dkey</secondary></indexterm>
+<para><computeroutput><link linkend="_structd__iov__t">daos_key_t</link> ip_dkey</computeroutput></para>
+<para>distribution key (VOS_ITER_AKEY, standalone only) </para>
+<para>
+Definition at line 322 of file vos_types.h.</para>
+    </section><anchor xml:id="_structvos__iter__param__t_1ae62d67a0e2bb22ff56789dedf4a94be8"/>    <section>
+    <title>ip_epc_expr</title>
+<indexterm><primary>ip_epc_expr</primary><secondary>vos_iter_param_t</secondary></indexterm>
+<indexterm><primary>vos_iter_param_t</primary><secondary>ip_epc_expr</secondary></indexterm>
+<para><computeroutput>vos_it_epc_expr_t ip_epc_expr</computeroutput></para>
+<para>epoch logic expression for the iterator. </para>
+<para>
+Definition at line 330 of file vos_types.h.</para>
+    </section><anchor xml:id="_structvos__iter__param__t_1a59be25b2b36c7023b76912b7c6f13562"/>    <section>
+    <title>ip_epr</title>
+<indexterm><primary>ip_epr</primary><secondary>vos_iter_param_t</secondary></indexterm>
+<indexterm><primary>vos_iter_param_t</primary><secondary>ip_epr</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__epoch__range__t">daos_epoch_range_t</link> ip_epr</computeroutput></para>
+<para>epoch validity range for the iterator (standalone only) </para>
+<para>
+Definition at line 328 of file vos_types.h.</para>
+    </section><anchor xml:id="_structvos__iter__param__t_1a7b3205073b9a5cb7f9d498b7608bf209"/>    <section>
+    <title>ip_flags</title>
+<indexterm><primary>ip_flags</primary><secondary>vos_iter_param_t</secondary></indexterm>
+<indexterm><primary>vos_iter_param_t</primary><secondary>ip_flags</secondary></indexterm>
+<para><computeroutput>uint32_t ip_flags</computeroutput></para>
+<para>flags for for iterator </para>
+<para>
+Definition at line 332 of file vos_types.h.</para>
+    </section><anchor xml:id="_structvos__iter__param__t_1afc64958213e5192c579458f95dbd1ac3"/>    <section>
+    <title>ip_hdl</title>
+<indexterm><primary>ip_hdl</primary><secondary>vos_iter_param_t</secondary></indexterm>
+<indexterm><primary>vos_iter_param_t</primary><secondary>ip_hdl</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__handle__t">daos_handle_t</link> ip_hdl</computeroutput></para>
+<para>standalone prepare: pool connection handle or container open handle nested prepare: DAOS_HDL_INVAL </para>
+<para>
+Definition at line 314 of file vos_types.h.</para>
+    </section><anchor xml:id="_structvos__iter__param__t_1a5daf165ecc97d2e784d1e7fbd89e6151"/>    <section>
+    <title>ip_ih</title>
+<indexterm><primary>ip_ih</primary><secondary>vos_iter_param_t</secondary></indexterm>
+<indexterm><primary>vos_iter_param_t</primary><secondary>ip_ih</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__handle__t">daos_handle_t</link> ip_ih</computeroutput></para>
+<para>standalone prepare: DAOS_HDL_INVAL nested prepare: parent iterator handle </para>
+<para>
+Definition at line 318 of file vos_types.h.</para>
+    </section><anchor xml:id="_structvos__iter__param__t_1a7e2dfe7f4e399455fdaa27f27153bde7"/>    <section>
+    <title>ip_oid</title>
+<indexterm><primary>ip_oid</primary><secondary>vos_iter_param_t</secondary></indexterm>
+<indexterm><primary>vos_iter_param_t</primary><secondary>ip_oid</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__unit__oid__t">daos_unit_oid_t</link> ip_oid</computeroutput></para>
+<para>Optional, object ID for VOS_ITER_DKEY </para>
+<para>
+Definition at line 320 of file vos_types.h.</para>
+    </section><anchor xml:id="_structvos__iter__param__t_1a4f9ca279677949bac77b1828b5594260"/>    <section>
+    <title>ip_recx</title>
+<indexterm><primary>ip_recx</primary><secondary>vos_iter_param_t</secondary></indexterm>
+<indexterm><primary>vos_iter_param_t</primary><secondary>ip_recx</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__recx__t">daos_recx_t</link> ip_recx</computeroutput></para>
+<para>address range (RECX); ip_recx.rx_nr == 0 means entire range </para>
+<para>
+Definition at line 326 of file vos_types.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/vos_types.h</section>
+</section>

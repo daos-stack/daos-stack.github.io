@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdfuse__hsd__reply">
+<title>dfuse_hsd_reply Struct Reference</title>
+<indexterm><primary>dfuse_hsd_reply</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdfuse__hsd__reply_1aaec49d6000e2cdaf5e5035be89bd67a5"/>int <emphasis role="strong">fsr_version</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdfuse__hsd__reply_1a3d3c48b36e7a65aa6d91da81ec086015"/>size_t <emphasis role="strong">fsr_dobj_size</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 46 of file dfuse_ioctl.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/dfuse_ioctl.h</section>
+</section>

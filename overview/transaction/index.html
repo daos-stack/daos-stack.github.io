@@ -42,7 +42,7 @@
     
     
       
-        <title>Transaction Model - DAOS</title>
+        <title>Transaction Model - DAOS v1.0</title>
       
     
     
@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-    
-      <link rel="stylesheet" href="../../css/version-select.css">
     
     
       
@@ -102,9 +100,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
+            <i class="md-icon"></i>
           
         </a>
       </div>
@@ -115,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS
+              DAOS v1.0
             </span>
             <span class="md-header-nav__topic">
               
@@ -247,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
+        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -289,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
+        <i class="md-icon"></i>
       
     </a>
-    DAOS
+    DAOS v1.0
   </label>
   
     <div class="md-nav__source">
@@ -472,6 +470,18 @@
   <li class="md-nav__item">
     <a href="../security/" title="Security Model" class="md-nav__link">
       Security Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data_integrity/" title="Data Integrity" class="md-nav__link">
+      Data Integrity
     </a>
   </li>
 
@@ -758,7 +768,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -770,7 +780,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+    <a href="../../release/support_matrix/" title="Support Matrix" class="md-nav__link">
       Support Matrix
     </a>
   </li>
@@ -974,11 +984,11 @@ snapshots which provide point-in-time distributed consistent views of a
 container which can be used to build producer-consumer pipeline.</p>
 <p><a id="4.2.1"></a></p>
 <h2 id="epoch-and-timestamp-ordering">Epoch and Timestamp Ordering<a class="headerlink" href="#epoch-and-timestamp-ordering" title="Permanent link">&para;</a></h2>
-<p>Each DAOS I/O operation is tagged with a timestamp called epoch. An epoch 
+<p>Each DAOS I/O operation is tagged with a timestamp called <em>epoch</em>. An epoch 
 is a 64-bit integer that integrates both logical and physical clocks 
 (see <a href="https://cse.buffalo.edu/tech-reports/2014-04.pdf">HLC paper</a>). 
 The DAOS API provides helper functions to convert an epoch to traditional 
-POSIX time (i.e., struct timespec, see clock_gettime(3)).</p>
+POSIX time (i.e., <code>struct timespec</code>, see <code>clock_gettime(3)</code>).</p>
 <p><a id="4.2.2"></a></p>
 <h2 id="container-snapshot">Container Snapshot<a class="headerlink" href="#container-snapshot" title="Permanent link">&para;</a></h2>
 <p>As shown in the <a href="#f4.4">figure</a> below, the content of a container 
@@ -990,11 +1000,11 @@ with the time when the snapshot was created. Once successfully created,
 a snapshot remains readable until it is explicitly destroyed. The content of 
 a container can be rolled back to a particular snapshot.</p>
 <p>The container snapshot feature allows supporting native producer/consumer 
-pipeline as represented in the diagram below.</p>
+pipelines as represented in the diagram below.</p>
 <p><img alt="../graph/producer_consumer.png" src="../../graph/producer_consumer.png" title="Producer/Consumer Workflow with DAOS Containers" /></p>
 <p>The producer will generate a snapshot once a consistent version of the 
 dataset has been successfully written. The consumer applications may 
-subscribe to container snapshot events so that new updates can be processed 
+subscribe to container snapshot events, so that new updates can be processed 
 as the producer commits them. The immutability of the snapshots guarantees 
 that the consumer sees consistent data, even while the producer continues 
 with new updates. Both the producer and consumer indeed operate on different 
@@ -1014,14 +1024,15 @@ or HDF5 dataset read/write.</p>
 <p>For parts of the data model that require conflict serialization, 
 DAOS provides distributed serializable transaction based on multi-version 
 concurrency control. Transactions are typically needed when different user 
-process can overwrite the value associated with a dkey/akey pair. 
+processes can overwrite the value associated with a dkey/akey pair. 
 Examples are a SQL database over DAOS or a consistent POSIX namespace 
 accessed concurrently by uncoordinated clients. All I/O operations 
-(include reads) submitted in the context of the same operation will use 
+(including reads) submitted in the context of the same operation will use 
 the same epoch. The DAOS transaction mechanism automatically detects the 
 traditional read/write, write/read and write/write conflicts and aborts 
-one of the conflicting transactions that have to be restarted by the user 
-(i.e., transaction fails to commit with -DER_RESTART).</p>
+one of the conflicting transactions (the transaction fails to commit 
+with <code>-DER_RESTART</code>). The failed transaction then has to be restarted 
+by the user/application.</p>
 <p>In the initial implementation, the transaction API has the following 
 limitations that will be addressed in future DAOS versions:</p>
 <ul>
@@ -1103,8 +1114,6 @@ limitations that will be addressed in future DAOS versions:</p>
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
-      
-        <script src="../../js/version-select.js"></script>
       
     
   </body>

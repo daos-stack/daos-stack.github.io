@@ -1,0 +1,95 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdaos__csummer">
+<title>daos_csummer Struct Reference</title>
+<indexterm><primary>daos_csummer</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>uint32_t <link linkend="_structdaos__csummer_1acf8b586eee4b1a7606912fd8b81a4f1a">dcs_csum_buf_size</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdaos__csummer_1af1d3a7a22f71f584a49d5940782489ab">dcs_chunk_size</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structhash__ft">hash_ft</link> * <link linkend="_structdaos__csummer_1a195847f04d734940bf3f368cc72eaefd">dcs_algo</link></para>
+</listitem>
+            <listitem><para>void * <link linkend="_structdaos__csummer_1aa2ac70bd5424768f624c8c6b3b701ca5">dcs_ctx</link></para>
+</listitem>
+            <listitem><para>uint8_t * <link linkend="_structdaos__csummer_1a5b5463478697488ff1876a37d3560eda">dcs_csum_buf</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_structdaos__csummer_1a7d89dd24b83679e5bb3a8fd9ce08d92e">dcs_srv_verify</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_structdaos__csummer_1a3cdec392cfe41d5a7b323344ac5df833">dcs_skip_key_calc</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__csummer_1aecc3edf839cfc738592e103bf8da9a2e"/>bool <emphasis role="strong">dcs_skip_key_verify</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__csummer_1a61dda0dd883fe27267ad41ed2777a2dd"/>bool <emphasis role="strong">dcs_skip_data_verify</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 67 of file checksum.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdaos__csummer_1a195847f04d734940bf3f368cc72eaefd"/>    <section>
+    <title>dcs_algo</title>
+<indexterm><primary>dcs_algo</primary><secondary>daos_csummer</secondary></indexterm>
+<indexterm><primary>daos_csummer</primary><secondary>dcs_algo</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structhash__ft">hash_ft</link>* dcs_algo</computeroutput></para>
+<para>Pointer to the function table to be used for calculating csums </para>
+<para>
+Definition at line 73 of file checksum.h.</para>
+    </section><anchor xml:id="_structdaos__csummer_1af1d3a7a22f71f584a49d5940782489ab"/>    <section>
+    <title>dcs_chunk_size</title>
+<indexterm><primary>dcs_chunk_size</primary><secondary>daos_csummer</secondary></indexterm>
+<indexterm><primary>daos_csummer</primary><secondary>dcs_chunk_size</secondary></indexterm>
+<para><computeroutput>uint32_t dcs_chunk_size</computeroutput></para>
+<para>Cached configuration for chunk size </para>
+<para>
+Definition at line 71 of file checksum.h.</para>
+    </section><anchor xml:id="_structdaos__csummer_1a5b5463478697488ff1876a37d3560eda"/>    <section>
+    <title>dcs_csum_buf</title>
+<indexterm><primary>dcs_csum_buf</primary><secondary>daos_csummer</secondary></indexterm>
+<indexterm><primary>daos_csummer</primary><secondary>dcs_csum_buf</secondary></indexterm>
+<para><computeroutput>uint8_t* dcs_csum_buf</computeroutput></para>
+<para>Points to the buffer where the calculated csum is to be written </para>
+<para>
+Definition at line 77 of file checksum.h.</para>
+    </section><anchor xml:id="_structdaos__csummer_1acf8b586eee4b1a7606912fd8b81a4f1a"/>    <section>
+    <title>dcs_csum_buf_size</title>
+<indexterm><primary>dcs_csum_buf_size</primary><secondary>daos_csummer</secondary></indexterm>
+<indexterm><primary>daos_csummer</primary><secondary>dcs_csum_buf_size</secondary></indexterm>
+<para><computeroutput>uint32_t dcs_csum_buf_size</computeroutput></para>
+<para>Size of csum_buf. </para>
+<para>
+Definition at line 69 of file checksum.h.</para>
+    </section><anchor xml:id="_structdaos__csummer_1aa2ac70bd5424768f624c8c6b3b701ca5"/>    <section>
+    <title>dcs_ctx</title>
+<indexterm><primary>dcs_ctx</primary><secondary>daos_csummer</secondary></indexterm>
+<indexterm><primary>daos_csummer</primary><secondary>dcs_ctx</secondary></indexterm>
+<para><computeroutput>void* dcs_ctx</computeroutput></para>
+<para>Pointer to function table specific contexts </para>
+<para>
+Definition at line 75 of file checksum.h.</para>
+    </section><anchor xml:id="_structdaos__csummer_1a3cdec392cfe41d5a7b323344ac5df833"/>    <section>
+    <title>dcs_skip_key_calc</title>
+<indexterm><primary>dcs_skip_key_calc</primary><secondary>daos_csummer</secondary></indexterm>
+<indexterm><primary>daos_csummer</primary><secondary>dcs_skip_key_calc</secondary></indexterm>
+<para><computeroutput>bool dcs_skip_key_calc</computeroutput></para>
+<para>Disable aspects of the checksum process </para>
+<para>
+Definition at line 81 of file checksum.h.</para>
+    </section><anchor xml:id="_structdaos__csummer_1a7d89dd24b83679e5bb3a8fd9ce08d92e"/>    <section>
+    <title>dcs_srv_verify</title>
+<indexterm><primary>dcs_srv_verify</primary><secondary>daos_csummer</secondary></indexterm>
+<indexterm><primary>daos_csummer</primary><secondary>dcs_srv_verify</secondary></indexterm>
+<para><computeroutput>bool dcs_srv_verify</computeroutput></para>
+<para>Whether or not to verify on the server on an update </para>
+<para>
+Definition at line 79 of file checksum.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/checksum.h</section>
+</section>

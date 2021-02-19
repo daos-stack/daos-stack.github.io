@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdaos__recx__ep__list">
+<title>daos_recx_ep_list Struct Reference</title>
+<indexterm><primary>daos_recx_ep_list</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>uint32_t <link linkend="_structdaos__recx__ep__list_1ada8991d6d3bf886efb582e2d9ef78a0e">re_nr</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdaos__recx__ep__list_1abd1a9fc3e24d3e9b79693d1b09cdaede">re_total</link></para>
+</listitem>
+            <listitem><para>bool <link linkend="_structdaos__recx__ep__list_1a3cb60b7323f1636b8d955b3ead487e0f">re_ep_valid</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__recx__ep__list_1ace3add1a0f32189040f2085e70bf8002"/>struct <link linkend="_structdaos__recx__ep">daos_recx_ep</link> * <emphasis role="strong">re_items</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 475 of file object.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdaos__recx__ep__list_1a3cb60b7323f1636b8d955b3ead487e0f"/>    <section>
+    <title>re_ep_valid</title>
+<indexterm><primary>re_ep_valid</primary><secondary>daos_recx_ep_list</secondary></indexterm>
+<indexterm><primary>daos_recx_ep_list</primary><secondary>re_ep_valid</secondary></indexterm>
+<para><computeroutput>bool re_ep_valid</computeroutput></para>
+<para>epoch valid flag, re_items&apos; re_ep can be ignored when it is false </para>
+<para>
+Definition at line 481 of file object.h.</para>
+    </section><anchor xml:id="_structdaos__recx__ep__list_1ada8991d6d3bf886efb582e2d9ef78a0e"/>    <section>
+    <title>re_nr</title>
+<indexterm><primary>re_nr</primary><secondary>daos_recx_ep_list</secondary></indexterm>
+<indexterm><primary>daos_recx_ep_list</primary><secondary>re_nr</secondary></indexterm>
+<para><computeroutput>uint32_t re_nr</computeroutput></para>
+<para>#valid items in re_items array </para>
+<para>
+Definition at line 477 of file object.h.</para>
+    </section><anchor xml:id="_structdaos__recx__ep__list_1abd1a9fc3e24d3e9b79693d1b09cdaede"/>    <section>
+    <title>re_total</title>
+<indexterm><primary>re_total</primary><secondary>daos_recx_ep_list</secondary></indexterm>
+<indexterm><primary>daos_recx_ep_list</primary><secondary>re_total</secondary></indexterm>
+<para><computeroutput>uint32_t re_total</computeroutput></para>
+<para>#total items (capacity) in re_items array </para>
+<para>
+Definition at line 479 of file object.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/object.h</section>
+</section>

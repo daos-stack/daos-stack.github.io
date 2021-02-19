@@ -1,0 +1,144 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_cart_2types_8h">
+<title>src/include/cart/types.h File Reference</title>
+<indexterm><primary>src/include/cart/types.h</primary></indexterm>
+<programlisting>#include &lt;stdint.h&gt;
+#include &lt;gurt/types.h&gt;
+</programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structcrt__init__options">crt_init_options</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__group">crt_group</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__endpoint__t">crt_endpoint_t</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__rpc">crt_rpc</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__req__format">crt_req_format</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__proto__rpc__format">crt_proto_rpc_format</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__proto__format">crt_proto_format</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__proto__query__cb__info">crt_proto_query_cb_info</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__bulk__desc">crt_bulk_desc</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__cb__info">crt_cb_info</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__bulk__cb__info">crt_bulk_cb_info</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga4f0d622ee315309441d881c7fac0a188">CRT_GROUP_ID_MAX_LEN</link>   (64)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga4ff76a97e1d24453c8f3e2bcab0c35eb">CRT_ADDR_STR_MAX_LEN</link>   (128)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1gad497090d58895d45a905a942ed8854b4">CRT_DEFAULT_GRPID</link>   &quot;crt_default_group&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga234c29e50e26b93e495fb1419044c842">CRT_NO_RANK</link>   0xFFFFFFFF</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">CRT_PHY_ADDR_ENV</emphasis>   &quot;CRT_PHY_ADDR_STR&quot;</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">CRT_OPC_INTERNAL_BASE</emphasis>   0xFF000000UL</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">CRT_BULK_NULL</emphasis>   (NULL)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga40c28d3b7f5c5d01ed3e2d945113c573">CRT_MAX_INPUT_SIZE</link>   (0x4000000)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">CRT_MAX_OUTPUT_SIZE</emphasis>   (0x4000000)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga26c49db195e4a8e8eedb0886a04560d5">CRT_PROTO_OPC</link>(base_opc,  version,  rpc_index)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1gafea9e969d4960a162107c90d47a50879">CRT_RPC_FEAT_NO_REPLY</link>   (1U &lt;&lt; 1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1gadd33883ad9d938ca364507c9d8b0cec7">CRT_RPC_FEAT_NO_TIMEOUT</link>   (1U &lt;&lt; 2)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga219598ee5754f393d883704a48c2041e">CRT_RPC_FEAT_QUEUE_FRONT</link>   (1U &lt;&lt; 3)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef struct <link linkend="_structcrt__init__options">crt_init_options</link> <link linkend="_group___c_a_r_t___t_y_p_e_s_1gab22231966be5442b49fdced962a513df">crt_init_options_t</link></para>
+</listitem>
+            <listitem><para>typedef int <emphasis role="strong">crt_status_t</emphasis></para>
+</listitem>
+            <listitem><para>typedef d_string_t <link linkend="_group___c_a_r_t___t_y_p_e_s_1gade68a0764f3116705808a124b9147ab6">crt_group_id_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_structcrt__group">crt_group</link> <emphasis role="strong">crt_group_t</emphasis></para>
+</listitem>
+            <listitem><para>typedef void * <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</link></para>
+</listitem>
+            <listitem><para>typedef d_string_t <link linkend="_group___c_a_r_t___t_y_p_e_s_1gafd1291a98b1c5510dda481a887578ef1">crt_phy_addr_t</link></para>
+</listitem>
+            <listitem><para>typedef uint32_t <link linkend="_group___c_a_r_t___t_y_p_e_s_1gae3dde8d6f8414e344befaafc0a3b7d3a">crt_opcode_t</link></para>
+</listitem>
+            <listitem><para>typedef void * <link linkend="_group___c_a_r_t___t_y_p_e_s_1gad9b8a5395857cb272c5f19b1c58b05e1">crt_rpc_input_t</link></para>
+</listitem>
+            <listitem><para>typedef void * <emphasis role="strong">crt_rpc_output_t</emphasis></para>
+</listitem>
+            <listitem><para>typedef void * <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</link></para>
+</listitem>
+            <listitem><para>typedef void * <link linkend="_group___c_a_r_t___t_y_p_e_s_1gac7d05321a488b92748008742ab5e54df">crt_bulk_array_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_structcrt__rpc">crt_rpc</link> <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link></para>
+</listitem>
+            <listitem><para>typedef void * <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</link></para>
+</listitem>
+            <listitem><para>typedef int(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga1266fedf6067dbd6400b70730468145a">crt_proc_cb_t</link>) (<link linkend="_group___c_a_r_t___t_y_p_e_s_1ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</link> proc, void *data)</para>
+</listitem>
+            <listitem><para>typedef void(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga163a4cfb0f83c051338adb9a4c326eed">crt_rpc_cb_t</link>) (<link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link> *rpc)</para>
+</listitem>
+            <listitem><para>typedef void(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1gac91077f0afeb8cf8f6dc6933d7e54a6b">crt_proto_query_cb_t</link>) (struct <link linkend="_structcrt__proto__query__cb__info">crt_proto_query_cb_info</link> *cb_info)</para>
+</listitem>
+            <listitem><para>typedef void * <emphasis role="strong">crt_bulk_opid_t</emphasis></para>
+</listitem>
+            <listitem><para>typedef void(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaec5f68d3f953c61fadbd8a3d1a39c919">crt_cb_t</link>) (const struct <link linkend="_structcrt__cb__info">crt_cb_info</link> *cb_info)</para>
+</listitem>
+            <listitem><para>typedef void(* <emphasis role="strong">crt_generic_cb_t</emphasis>) (void *cb_info)</para>
+</listitem>
+            <listitem><para>typedef int(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaf25e76b2c5b895478f2b640af5ef9405">crt_bulk_cb_t</link>) (const struct <link linkend="_structcrt__bulk__cb__info">crt_bulk_cb_info</link> *cb_info)</para>
+</listitem>
+            <listitem><para>typedef int(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1gacef78a24d5f55f2da8a57bb1aceef174">crt_progress_cond_cb_t</link>) (void *arg)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1gac5e13c70990b688489dbb68e6d8a6400">crt_rpc_flags</link> { <link linkend="_group___c_a_r_t___t_y_p_e_s_1ggac5e13c70990b688489dbb68e6d8a6400aa904b6e3b0aabd59a89a5fe1c11f475c">CRT_RPC_FLAG_FILTER_INVERT</link> = (1U &lt;&lt; 1)
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaa2d66daa6ec15b1a33c1622a761e906a">crt_bulk_op_t</link> { <emphasis role="strong">CRT_BULK_PUT</emphasis> = 0x68, 
+<emphasis role="strong">CRT_BULK_GET</emphasis>
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga0baa03079c26075653589c9138e74e0e">crt_bulk_perm_t</link> { <link linkend="_group___c_a_r_t___t_y_p_e_s_1gga0baa03079c26075653589c9138e74e0ead01f536038dea6a23956728b3f46fc53">CRT_BULK_RW</link> = 0x88, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1gga0baa03079c26075653589c9138e74e0eae72b88e6906a87cea00587e0491fce2a">CRT_BULK_RO</link>, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1gga0baa03079c26075653589c9138e74e0ea1c952eed4198ad62fa98485c7c90fca9">CRT_BULK_WO</link>
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaad03f467ebc70e6873998feeaa0a9dae">crt_init_flag_bits</link> { <link linkend="_group___c_a_r_t___t_y_p_e_s_1ggaad03f467ebc70e6873998feeaa0a9daeac99c8c77f9d348c1fa18e51fbd169208">CRT_FLAG_BIT_SERVER</link> = 1U &lt;&lt; 0, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1ggaad03f467ebc70e6873998feeaa0a9daea6a6800e87258512fbac4fa66235b2564">CRT_FLAG_BIT_AUTO_SWIM_DISABLE</link> = 1U &lt;&lt; 1
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga45d6c2aa7ad84115a6398b74d29150e5">crt_group_mod_op_t</link> { <link linkend="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a1d1f8eddcc80afa5cb86cf3e34f7d74b">CRT_GROUP_MOD_OP_REPLACE</link> = 0, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a8f995e086b18921547ea7921fcdb6040">CRT_GROUP_MOD_OP_ADD</link>, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a80b3ba92e9880642094ad3de749183ad">CRT_GROUP_MOD_OP_REMOVE</link>, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a7b6d85a0e52a9d64a1223640517fa897">CRT_GROUP_MOD_OP_COUNT</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>CaRT (Collective and RPC Transport) basic type definitions. </para>
+</section>
+</section>

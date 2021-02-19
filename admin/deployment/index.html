@@ -42,7 +42,7 @@
     
     
       
-        <title>System Deployment - DAOS</title>
+        <title>System Deployment - DAOS v1.0</title>
       
     
     
@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-    
-      <link rel="stylesheet" href="../../css/version-select.css">
     
     
       
@@ -102,9 +100,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
+            <i class="md-icon"></i>
           
         </a>
       </div>
@@ -115,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS
+              DAOS v1.0
             </span>
             <span class="md-header-nav__topic">
               
@@ -247,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
+        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -289,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
+        <i class="md-icon"></i>
       
     </a>
-    DAOS
+    DAOS v1.0
   </label>
   
     <div class="md-nav__source">
@@ -418,6 +416,18 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
+      Data Integrity
     </a>
   </li>
 
@@ -981,7 +991,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -993,7 +1003,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+    <a href="../../release/support_matrix/" title="Support Matrix" class="md-nav__link">
       Support Matrix
     </a>
   </li>
@@ -1656,13 +1666,17 @@ allow the <code>daos_server</code> to run with root privileges on each storage
 nodes (for example when needing to perform privileged tasks relating
 to storage format). See the orterun(1) man page for additional options.</p>
 <h4 id="systemd-integration">Systemd Integration<a class="headerlink" href="#systemd-integration" title="Permanent link">&para;</a></h4>
-<p>DAOS Server can be started as a systemd service. The DAOS Server
+<p>The DAOS Server can be started as a systemd service. The DAOS Server
 unit file is installed in the correct location when installing from RPMs.
 The DAOS Server will be run as <code>daos-server</code> user which will be created
 during RPM install.</p>
 <p>If you wish to use systemd with a development build, you must copy the service
-file from utils/systemd to <code>/usr/lib/systemd/system</code>. Once the file is copied
-modify the ExecStart line to point to your in tree <code>daos_server</code> binary.</p>
+file from utils/systemd to <code>/usr/lib/systemd/system</code>. Once the file is copied,
+modify the ExecStart line to point to your <code>daos_server</code> binary.</p>
+<p>After modifying ExecStart, run the following command:</p>
+<pre><code class="bash">$ sudo systemctl daemon-reload
+</code></pre>
+
 <p>Once the service file is installed you can start <code>daos_server</code>
 with the following commands:</p>
 <pre><code class="bash">$ systemctl enable daos_server.service
@@ -2379,8 +2393,6 @@ each storage node.</p>
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
-      
-        <script src="../../js/version-select.js"></script>
       
     
   </body>

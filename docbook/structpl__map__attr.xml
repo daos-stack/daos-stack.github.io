@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structpl__map__attr">
+<title>pl_map_attr Struct Reference</title>
+<indexterm><primary>pl_map_attr</primary></indexterm>
+<para>
+<computeroutput>#include &lt;placement.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structpl__map__attr_1ad99eaf68f12b2514c9be7dfb1f129bb4"/>int <emphasis role="strong">pa_type</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structpl__map__attr_1a7726ecf70f092694fd87c7fa4ebe036b"/>int <emphasis role="strong">pa_domain</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structpl__map__attr_1a3b21adc7526ea05757d4217c7e36eb40"/>int <emphasis role="strong">pa_domain_nr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structpl__map__attr_1afde81b55ad83475ce9c3f8952b1f077d"/>int <emphasis role="strong">pa_target_nr</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>attributes of the placement map </para>
+<para>
+Definition at line 96 of file placement.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/placement.h</section>
+</section>

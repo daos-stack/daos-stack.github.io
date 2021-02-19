@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structpl__map">
+<title>pl_map Struct Reference</title>
+<indexterm><primary>pl_map</primary></indexterm>
+<para>
+<computeroutput>#include &lt;placement.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>uuid_t <link linkend="_structpl__map_1ae262a5c4ca4308ffb9cdeb8293cf4264">pl_uuid</link></para>
+</listitem>
+            <listitem><para><link linkend="_structd__list__head">d_list_t</link> <link linkend="_structpl__map_1a8e4076e9db2057a45c817a206b9d030c">pl_link</link></para>
+</listitem>
+            <listitem><para>pthread_spinlock_t <link linkend="_structpl__map_1abf39fa94c3cb253d040f568d8fab1e89">pl_lock</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structpl__map_1a1696a5ffa524fdd2e2454003c68b007a">pl_ref</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structpl__map_1ac8f1bcb62eaa0aaf01bbc6ac02ae56d5">pl_connects</link></para>
+</listitem>
+            <listitem><para>pl_map_type_t <link linkend="_structpl__map_1a2a06a4c6b946fcc11028fec1b1b0ca97">pl_type</link></para>
+</listitem>
+            <listitem><para>struct pool_map * <link linkend="_structpl__map_1a2b8c2b6dc2efc44d920b2e027daa3afa">pl_poolmap</link></para>
+</listitem>
+            <listitem><para>struct pl_map_ops * <link linkend="_structpl__map_1a908ea84216e0be6eb73d2e3156a26259">pl_ops</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>common header of all placement map </para>
+<para>
+Definition at line 76 of file placement.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structpl__map_1ac8f1bcb62eaa0aaf01bbc6ac02ae56d5"/>    <section>
+    <title>pl_connects</title>
+<indexterm><primary>pl_connects</primary><secondary>pl_map</secondary></indexterm>
+<indexterm><primary>pl_map</primary><secondary>pl_connects</secondary></indexterm>
+<para><computeroutput>int pl_connects</computeroutput></para>
+<para>pool connections, protected by pl_rwlock </para>
+<para>
+Definition at line 86 of file placement.h.</para>
+    </section><anchor xml:id="_structpl__map_1a8e4076e9db2057a45c817a206b9d030c"/>    <section>
+    <title>pl_link</title>
+<indexterm><primary>pl_link</primary><secondary>pl_map</secondary></indexterm>
+<indexterm><primary>pl_map</primary><secondary>pl_link</secondary></indexterm>
+<para><computeroutput><link linkend="_structd__list__head">d_list_t</link> pl_link</computeroutput></para>
+<para>link chain on hash </para>
+<para>
+Definition at line 80 of file placement.h.</para>
+    </section><anchor xml:id="_structpl__map_1abf39fa94c3cb253d040f568d8fab1e89"/>    <section>
+    <title>pl_lock</title>
+<indexterm><primary>pl_lock</primary><secondary>pl_map</secondary></indexterm>
+<indexterm><primary>pl_map</primary><secondary>pl_lock</secondary></indexterm>
+<para><computeroutput>pthread_spinlock_t pl_lock</computeroutput></para>
+<para>protect refcount </para>
+<para>
+Definition at line 82 of file placement.h.</para>
+    </section><anchor xml:id="_structpl__map_1a908ea84216e0be6eb73d2e3156a26259"/>    <section>
+    <title>pl_ops</title>
+<indexterm><primary>pl_ops</primary><secondary>pl_map</secondary></indexterm>
+<indexterm><primary>pl_map</primary><secondary>pl_ops</secondary></indexterm>
+<para><computeroutput>struct pl_map_ops* pl_ops</computeroutput></para>
+<para>placement map operations </para>
+<para>
+Definition at line 92 of file placement.h.</para>
+    </section><anchor xml:id="_structpl__map_1a2b8c2b6dc2efc44d920b2e027daa3afa"/>    <section>
+    <title>pl_poolmap</title>
+<indexterm><primary>pl_poolmap</primary><secondary>pl_map</secondary></indexterm>
+<indexterm><primary>pl_map</primary><secondary>pl_poolmap</secondary></indexterm>
+<para><computeroutput>struct pool_map* pl_poolmap</computeroutput></para>
+<para>reference to pool map </para>
+<para>
+Definition at line 90 of file placement.h.</para>
+    </section><anchor xml:id="_structpl__map_1a1696a5ffa524fdd2e2454003c68b007a"/>    <section>
+    <title>pl_ref</title>
+<indexterm><primary>pl_ref</primary><secondary>pl_map</secondary></indexterm>
+<indexterm><primary>pl_map</primary><secondary>pl_ref</secondary></indexterm>
+<para><computeroutput>int pl_ref</computeroutput></para>
+<para>refcount </para>
+<para>
+Definition at line 84 of file placement.h.</para>
+    </section><anchor xml:id="_structpl__map_1a2a06a4c6b946fcc11028fec1b1b0ca97"/>    <section>
+    <title>pl_type</title>
+<indexterm><primary>pl_type</primary><secondary>pl_map</secondary></indexterm>
+<indexterm><primary>pl_map</primary><secondary>pl_type</secondary></indexterm>
+<para><computeroutput>pl_map_type_t pl_type</computeroutput></para>
+<para>type of placement map </para>
+<para>
+Definition at line 88 of file placement.h.</para>
+    </section><anchor xml:id="_structpl__map_1ae262a5c4ca4308ffb9cdeb8293cf4264"/>    <section>
+    <title>pl_uuid</title>
+<indexterm><primary>pl_uuid</primary><secondary>pl_map</secondary></indexterm>
+<indexterm><primary>pl_map</primary><secondary>pl_uuid</secondary></indexterm>
+<para><computeroutput>uuid_t pl_uuid</computeroutput></para>
+<para>correpsonding pool uuid </para>
+<para>
+Definition at line 78 of file placement.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/placement.h</section>
+</section>

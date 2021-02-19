@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structbio__blob__hdr">
+<title>bio_blob_hdr Struct Reference</title>
+<indexterm><primary>bio_blob_hdr</primary></indexterm>
+<para>
+<computeroutput>#include &lt;bio.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structbio__blob__hdr_1a8df4033bff369f7bb0636277e2ae75fa"/>uint32_t <emphasis role="strong">bbh_magic</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__blob__hdr_1a838a72e70b73577e89e211e9184b12d8"/>uint32_t <emphasis role="strong">bbh_blk_sz</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__blob__hdr_1a36443a97c73ec788ba7a0cf905e638eb"/>uint32_t <emphasis role="strong">bbh_hdr_sz</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__blob__hdr_1a214ae4b58375c14fd1761175c7477f5e"/>uint32_t <emphasis role="strong">bbh_vos_id</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__blob__hdr_1adead524991c2c6599a46c773e7faf079"/>uint64_t <emphasis role="strong">bbh_blob_id</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__blob__hdr_1a7ffe7d611ab54180df06cc72ec4074d4"/>uuid_t <emphasis role="strong">bbh_blobstore</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__blob__hdr_1a36e1519fc510b2205a36f301db2bd130"/>uuid_t <emphasis role="strong">bbh_pool</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Header for SPDK blob per VOS pool </para>
+<para>
+Definition at line 74 of file bio.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/bio.h</section>
+</section>

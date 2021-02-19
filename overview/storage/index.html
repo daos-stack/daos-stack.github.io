@@ -42,7 +42,7 @@
     
     
       
-        <title>Storage Model - DAOS</title>
+        <title>Storage Model - DAOS v1.0</title>
       
     
     
@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-    
-      <link rel="stylesheet" href="../../css/version-select.css">
     
     
       
@@ -102,9 +100,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
+            <i class="md-icon"></i>
           
         </a>
       </div>
@@ -115,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS
+              DAOS v1.0
             </span>
             <span class="md-header-nav__topic">
               
@@ -247,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
+        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -289,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
+        <i class="md-icon"></i>
       
     </a>
-    DAOS
+    DAOS v1.0
   </label>
   
     <div class="md-nav__source">
@@ -409,6 +407,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#daos-pool" class="md-nav__link">
     DAOS Pool
   </a>
@@ -472,6 +477,18 @@
   <li class="md-nav__item">
     <a href="../security/" title="Security Model" class="md-nav__link">
       Security Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../data_integrity/" title="Data Integrity" class="md-nav__link">
+      Data Integrity
     </a>
   </li>
 
@@ -758,7 +775,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -770,7 +787,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+    <a href="../../release/support_matrix/" title="Support Matrix" class="md-nav__link">
       Support Matrix
     </a>
   </li>
@@ -922,6 +939,13 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#overview" class="md-nav__link">
+    Overview
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#daos-pool" class="md-nav__link">
     DAOS Pool
   </a>
@@ -962,32 +986,33 @@
                 
                 
                 <h1 id="storage-model">Storage Model<a class="headerlink" href="#storage-model" title="Permanent link">&para;</a></h1>
-<p>The <a href="#f4.1">figure </a> below represents the fundamental abstractions 
+<h2 id="overview">Overview<a class="headerlink" href="#overview" title="Permanent link">&para;</a></h2>
+<p>The <a href="#f4.1">figure </a> below represents the fundamental abstractions
 of the DAOS storage model.</p>
 <p><a id="f4.1"></a>
 <img alt="../graph/daos_abstractions.png" src="../../graph/daos_abstractions.png" title="DAOS Storage Abstractions" /></p>
-<p>A DAOS pool is a storage reservation distributed across a collection of targets. 
-The actual space allocated to the pool on each target is called a pool shard. 
-The total space allocated to a pool is decided at creation time and can be 
-expanded over time by resizing all the pool shards (within the limit of the 
-storage capacity dedicated to each target) or by spanning more targets 
-(i.e., adding more pool shards). A pool offers storage virtualization and is 
-the unit of provisioning and isolation. DAOS pools cannot span across multiple 
+<p>A DAOS <em>pool</em> is a storage reservation distributed across a collection of <em>targets</em>.
+The actual space allocated to the pool on each target is called a <em>pool shard</em>.
+The total space allocated to a pool is decided at creation time. It can be
+expanded over time by resizing all the pool shards (within the limit of the
+storage capacity dedicated to each target), or by spanning more targets
+(adding more pool shards). A pool offers storage virtualization and is
+the unit of provisioning and isolation. DAOS pools cannot span across multiple
 systems.</p>
-<p>A pool can host multiple transactional object stores called DAOS containers. 
-Each container is a private object address space, which can be modified 
-transactionally and independently of the other containers stored in the 
-same pool. A container is the unit of snapshot and data management. 
-DAOS objects belonging to a container can be distributed across any target 
-of the pool for both performance and resilience and can be accessed through 
-different APIs to represent structured, semi-structured and unstructured 
+<p>A pool can host multiple transactional object stores called DAOS <em>containers</em>.
+Each container is a private object address space, which can be modified
+transactionally and independently of the other containers stored in the
+same pool. A container is the unit of snapshot and data management.
+DAOS objects belonging to a container can be distributed across any target
+of the pool for both performance and resilience and can be accessed through
+different APIs to represent structured, semi-structured and unstructured
 data efficiently</p>
 <p>The table below shows the targeted level of scalability for each DAOS concept.</p>
 <table>
 <thead>
 <tr>
 <th>DAOS Concept</th>
-<th>Order of Magnitude</th>
+<th>Scalability (Order of Magnitude)</th>
 </tr>
 </thead>
 <tbody>
@@ -1010,90 +1035,90 @@ data efficiently</p>
 </tbody>
 </table>
 <h2 id="daos-pool">DAOS Pool<a class="headerlink" href="#daos-pool" title="Permanent link">&para;</a></h2>
-<p>A pool is identified by a unique UUID and maintains target memberships in a 
-persistent versioned list called the pool map. The membership is definitive 
-and consistent, and membership changes are sequentially numbered. 
-The pool map not only records the list of active targets, it also contains 
-the storage topology under the form of a tree that is used to identify targets 
-sharing common hardware components. For instance, the first level of the tree 
-can represent targets sharing the same motherboard, and then the second level 
-can represent all motherboards sharing the same rack and finally the third 
-level can represent all racks in the same cage. This framework effectively 
-represents hierarchical fault domains, which are then used to avoid placing 
-redundant data on targets subject to correlated failures. At any point in 
-time, new targets can be added to the pool map, and failed ones can be 
-excluded. Moreover, the pool map is fully versioned, which effectively 
-assigns a unique sequence to each modification of the map, more particularly 
+<p>A pool is identified by a unique <em>pool UUID</em> and maintains target memberships
+in a persistent versioned list called the <em>pool map</em>. The membership is definitive
+and consistent, and membership changes are sequentially numbered.
+The pool map not only records the list of active targets, it also contains
+the storage topology in the form of a tree that is used to identify targets
+sharing common hardware components. For instance, the first level of the tree
+can represent targets sharing the same motherboard, and then the second level
+can represent all motherboards sharing the same rack and finally the third
+level can represent all racks in the same cage. This framework effectively
+represents hierarchical fault domains, which are then used to avoid placing
+redundant data on targets subject to correlated failures. At any point in
+time, new targets can be added to the pool map, and failed targets can be
+excluded. Moreover, the pool map is fully versioned, which effectively
+assigns a unique sequence to each modification of the map, particularly
 for failed node removal.</p>
-<p>A pool shard is a reservation of persistent memory optionally combined with 
-a pre-allocated space on NVMe storage on a specific target. It has a fixed 
-capacity and fails operations when full. Current space usage can be queried 
-at any time and reports the total amount of bytes used by any data type 
+<p>A pool shard is a reservation of persistent memory optionally combined with
+a pre-allocated space on NVMe storage on a specific target. It has a fixed
+capacity and fails operations when full. Current space usage can be queried
+at any time and reports the total amount of bytes used by any data type
 stored in the pool shard.</p>
-<p>Upon target failure and exclusion from the pool map, data redundancy inside 
-the pool is automatically restored online. This self-healing process is 
-known as rebuild. Rebuild progress is recorded regularly in special logs 
-in the pool stored in persistent memory to address cascading failures. 
-When new targets are added, data is automatically migrated to the newly 
-added targets to redistribute space usage equally among all the members. 
-This process is known as space rebalancing and uses dedicated persistent 
-logs as well to support interruption and restart. A pool is a set of targets 
-spread across different storage nodes over which data and metadata are 
-distributed to achieve horizontal scalability, and replicated or 
+<p>Upon target failure and exclusion from the pool map, data redundancy inside
+the pool is automatically restored online. This self-healing process is
+known as <em>rebuild</em>. Rebuild progress is recorded regularly in special logs
+in the pool stored in persistent memory to address cascading failures.
+When new targets are added, data is automatically migrated to the newly
+added targets to redistribute space usage equally among all the members.
+This process is known as <em>space rebalancing</em> and uses dedicated persistent
+logs as well to support interruption and restart. A pool is a set of targets
+spread across different storage nodes over which data and metadata are
+distributed to achieve horizontal scalability, and replicated or
 erasure-coded to ensure durability and availability.</p>
-<p>When creating a pool, a set of system properties must be defined to 
-configure the different features supported by the pool. Also, user can 
+<p>When creating a pool, a set of system properties must be defined to
+configure the different features supported by the pool. Also, users can
 define their attributes that will be stored persistently.</p>
-<p>A pool is only accessible to authenticated and authorized applications. 
-Multiple security frameworks could be supported, from NFSv4 access control 
-lists to third party-based authentication (such as Kerberos). Security is 
-enforced when connecting to the pool. Upon successful connection to the pool, 
+<p>A pool is only accessible to authenticated and authorized applications.
+Multiple security frameworks could be supported, from NFSv4 access control
+lists to third party-based authentication (such as Kerberos). Security is
+enforced when connecting to the pool. Upon successful connection to the pool,
 a connection context is returned to the application process.</p>
-<p>As detailed previously, a pool stores many different sorts of persistent 
-metadata, such as the pool map, authentication, and authorization 
-information, user attributes, properties and rebuild logs. Such metadata 
-are critical and require the highest level of resiliency. Therefore, 
-the pool metadata are replicated on a few nodes from distinct high-level 
-fault domains. For very large configurations with hundreds of thousands of 
-storage nodes, only a very small fraction of those nodes (in the order of tens) 
-run the pool metadata service. With a limited number of storage nodes, DAOS can 
-afford to rely on a consensus algorithm to reach agreement and to guarantee 
-consistency in the presence of faults and to avoid split-brain syndrome.</p>
-<p>To access a pool, a user process should connect to this pool and pass the 
-security checks. Once granted, a pool connection can be shared 
-(via local2global() and global2local() operations) with any or all of its 
-peer application processes (similar to the openg() POSIX extension). 
-This collective connect mechanism allows avoiding metadata request storm 
-when a massively distributed job is run on the datacenter. 
-A pool connection is then revoked when the original process that issued 
+<p>As detailed previously, a pool stores many different sorts of persistent
+metadata, such as the pool map, authentication and authorization
+information, user attributes, properties, and rebuild logs. Such metadata
+is critical and requires the highest level of resiliency. Therefore,
+the pool metadata is replicated on a few nodes from distinct high-level
+fault domains. For very large configurations with hundreds of thousands of
+storage nodes, only a very small fraction of those nodes (in the order of tens)
+run the <em>pool metadata service</em>. With a limited number of storage nodes, DAOS can
+afford to rely on a consensus algorithm to reach agreement, to guarantee
+consistency in the presence of faults, and to avoid the split-brain syndrome.</p>
+<p>To access a pool, a user process should connect to this pool and pass the
+security checks. Once granted, a pool connection can be shared
+(via <code>local2global()</code> and <code>global2local()</code> operations) with any or all of its
+peer application processes (similar to the <code>openg()</code> POSIX extension).
+This collective connect mechanism helps to avoid metadata request storm
+when a massively distributed job is run on the datacenter.
+A pool connection is revoked when the original process that issued
 the connection request disconnects from the pool.</p>
 <p><a id="4.1.3"></a></p>
 <h2 id="daos-container">DAOS Container<a class="headerlink" href="#daos-container" title="Permanent link">&para;</a></h2>
-<p>A container represents an object address space inside a pool and is 
-identified by a UUID. The diagram below represents how the user 
-(i.e., I/O middleware, domain-specific data format, big data or AI 
-frameworks ...) could use the container concept to store related datasets.</p>
+<p>A container represents an object address space inside a pool and is
+identified by a <em>container UUID</em>. The diagram below represents how the user
+(I/O middleware, domain-specific data format, big data or AI
+framework, ...) could use the container concept to store related datasets.</p>
 <p><img alt="../graph/containers.png" src="../../graph/containers.png" title="DAOS Container Example" /></p>
-<p>Like pools, containers can store user attributes, and a set of properties 
-must be passed at container creation time to configure different features 
+<p>Like pools, containers can store user attributes. A set of properties
+must be passed at container creation time to configure different features
 like checksums.</p>
-<p>To access a container, an application must first connect to the pool and 
-then open the container. If the application is authorized to access the 
-container, a container handle is returned. This includes capabilities that 
-authorize any process in the application to access the container and its 
-contents. The opening process may share this handle with any or all of 
-its peers. Their capabilities are revoked either on container close.</p>
-<p>Objects in a container may have different schemas for data distribution 
-and redundancy over targets. Dynamic or static striping, replication, 
-or erasure code are some parameters required to define the object schema. 
-The object class defines common schema attributes for a set of objects. 
-Each object class is assigned a unique identifier and is associated with 
-a given schema at the pool level. A new object class can be defined at any 
-time with a configurable schema, which is then immutable after creation, 
-or at least until all objects belonging to the class have been destroyed. 
-For convenience, several object classes expected to be the most commonly 
-used will be predefined by default when the pool is created, as shown the 
-table below <a href="#t4.2">table</a> below.</p>
+<p>To access a container, an application must first connect to the pool and
+then open the container. If the application is authorized to access the
+container, a container handle is returned. This includes capabilities that
+authorize any process in the application to access the container and its
+contents. The opening process may share this handle with any or all of
+its peers. Their capabilities are revoked on container close.</p>
+<p>Objects in a container may have different schemas for data distribution
+and redundancy over targets. Dynamic or static striping, replication,
+or erasure code are some parameters required to define the object schema.
+The object class defines common schema attributes for a set of objects.
+Each object class is assigned a unique identifier and is associated with
+a given schema at the pool level. A new object class can be defined at any
+time with a configurable schema, which is then immutable after creation
+(or at least until all objects belonging to the class have been destroyed).
+For convenience, several object classes that are expected to be the most 
+commonly used will be predefined by default when the pool is created, 
+as shown in the <a href="#t4.2">table</a> below.</p>
 <p><a id="t4.2"></a>
 <strong>Sample of Pre-defined Object Classes</strong></p>
 <table>
@@ -1137,14 +1162,14 @@ table below <a href="#t4.2">table</a> below.</p>
 </tr>
 </tbody>
 </table>
-<p>As shown below, each object is identified in the container by a unique 
-128-bit object address. The high 32 bits of the object address is reserved 
-for DAOS to encode internal metadata such as the object class. 
-The remaining 96 bits are managed by the user and should be unique inside 
-the container. Those bits can be used by upper layers of the stack to encode 
-their metadata as long as unicity is guaranteed. A per-container 64-bit 
-scalable object ID allocator is provided in the DAOS API. The object ID to 
-be stored by the application is the full 128-bit address which is for single 
+<p>As shown below, each object is identified in the container by a unique
+128-bit <em>object address</em>. The high 32 bits of the object address is reserved
+for DAOS to encode internal metadata such as the object class.
+The remaining 96 bits are managed by the user and should be unique inside
+the container. Those bits can be used by upper layers of the stack to encode
+their metadata, as long as unicity is guaranteed. A per-container 64-bit
+scalable object ID allocator is provided in the DAOS API. The object ID to
+be stored by the application is the full 128-bit address, which is for single
 use only and can be associated with only a single object schema.</p>
 <p><strong>DAOS Object ID Structure</strong>
 <pre></p>
@@ -1157,57 +1182,57 @@ use only and can be associated with only a single object schema.</p>
 
 </pre>
 
-<p>A container is the basic unit of transaction and versioning. All object 
-operations are implicitly tagged by the DAOS library with a timestamp called </p>
-<p>an epoch. The DAOS transaction API allows combining multiple object updates 
-into a single atomic transaction with multi-version concurrency control 
-based on epoch ordering. All the versioned updates may periodically be 
-aggregated to reclaim space utilized by overlapping writes and to reduce 
-metadata complexity. A snapshot is a permanent reference that can be placed 
+<p>A container is the basic unit of transaction and versioning. All object
+operations are implicitly tagged by the DAOS library with a timestamp called
+an <em>epoch</em>. The DAOS transaction API allows to combine multiple object updates
+into a single atomic transaction, with multi-version concurrency control
+based on epoch ordering. All the versioned updates may be periodically
+<em>aggregated</em>, to reclaim space utilized by overlapping writes and to reduce
+metadata complexity. A snapshot is a permanent reference that can be placed
 on a specific epoch to prevent aggregation.</p>
-<p>Container metadata (i.e., list of snapshots, container open handles, 
-object class, user attributes, properties, and others) are stored in persistent 
-memory and maintained by a dedicated container metadata service that either 
-uses the same replicated engine as the parent metadata pool service or has 
-its own engine. This is configurable when creating a container.</p>
-<p>Like a pool, access to a container is controlled by the container handle. 
-To acquire a valid handle, an application process must open the container 
-and pass the security checks. This container handle may then be shared with 
-other peer application processes via the container local2global() and 
-global2local() operations.</p>
+<p>Container metadata (list of snapshots, container open handles,
+object class, user attributes, properties, and others) are stored in persistent
+memory and maintained by a dedicated container metadata service that either
+uses the same replicated engine as the parent metadata pool service,
+or has its own engine. This is configurable when creating a container.</p>
+<p>Like a pool, access to a container is controlled by the container handle.
+To acquire a valid handle, an application process must open the container
+and pass the security checks. This container handle may then be shared with
+other peer application processes via the container <code>local2global()</code> and
+<code>global2local()</code> operations.</p>
 <p><a id="4.1.4"></a></p>
 <h2 id="daos-object">DAOS Object<a class="headerlink" href="#daos-object" title="Permanent link">&para;</a></h2>
-<p>To avoid scaling problems and overhead common to a traditional storage system, 
-DAOS objects are intentionally simple. No default object metadata beyond the 
-type and schema are provided. This means that the system does not maintain 
-time, size, owner, permissions or even track openers. 
-To achieve high availability and horizontal scalability, many object schemas 
-(replication/erasure code, static/dynamic striping, and others) are provided. 
-The schema framework is flexible and easily expandable to allow for new custom 
-schema types in the future. The layout is generated algorithmically on object 
-open from the object identifier and the pool map. End-to-end integrity is 
-assured by protecting object data with checksums during network transfer 
+<p>To avoid scaling problems and overhead common to a traditional storage system,
+DAOS objects are intentionally simple. No default object metadata beyond the
+type and schema is provided. This means that the system does not maintain
+time, size, owner, permissions or even track openers.
+To achieve high availability and horizontal scalability, many object schemas
+(replication/erasure code, static/dynamic striping, and others) are provided.
+The schema framework is flexible and easily expandable to allow for new custom
+schema types in the future. The layout is generated algorithmically on object
+open from the object identifier and the pool map. End-to-end integrity is
+assured by protecting object data with checksums during network transfer
 and storage.</p>
 <p>A DAOS object can be accessed through different APIs:</p>
 <ul>
 <li>
-<p><strong>Multi-level key-array</strong> API is the native object interface with locality 
-     feature. The key is split into a distribution (i.e., dkey) and an 
-     attribute (i.e., akey) key. Both the dkey and akey can be of variable 
-     length and type (i.e. a string, an integer or even a complex data 
-     structure). All entries under the same dkey are guaranteed to be 
-     collocated on the same target. The value associated with akey can be 
-     either a single variable-length value that cannot be partially overwritten 
-     or an array of fixed-length values. 
+<p><strong>Multi-level key-array</strong> API is the native object interface with locality
+     feature. The key is split into a distribution (dkey) and an
+     attribute (akey) key. Both the dkey and akey can be of variable
+     length and type (a string, an integer or even a complex data
+     structure). All entries under the same dkey are guaranteed to be
+     collocated on the same target. The value associated with akey can be
+     either a single variable-length value that cannot be partially overwritten,
+     or an array of fixed-length values.
      Both the akeys and dkeys support enumeration.</p>
 </li>
 <li>
-<p><strong>Key-value</strong> API provides a simple key and variable-length value 
+<p><strong>Key-value</strong> API provides a simple key and variable-length value
      interface. It supports the traditional put, get, remove and list operations.</p>
 </li>
 <li>
-<p><strong>Array API</strong> implements a one-dimensional array of fixed-size elements 
-     addressed by a 64-bit offset. A DAOS array supports arbitrary extent read, 
+<p><strong>Array API</strong> implements a one-dimensional array of fixed-size elements
+     addressed by a 64-bit offset. A DAOS array supports arbitrary extent read,
      write and punch operations.</p>
 </li>
 </ul>
@@ -1284,8 +1309,6 @@ and storage.</p>
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
-      
-        <script src="../../js/version-select.js"></script>
       
     
   </body>

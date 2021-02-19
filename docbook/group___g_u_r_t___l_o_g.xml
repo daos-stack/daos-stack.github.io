@@ -1,0 +1,922 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group___g_u_r_t___l_o_g">
+<title>Gurt Log</title>
+<indexterm><primary>Gurt Log</primary></indexterm>
+<simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structdlog__fac">dlog_fac</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__log__xstate">d_log_xstate</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__debug__data">d_debug_data</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__debug__priority">d_debug_priority</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__debug__bit">d_debug_bit</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__debug__grp">d_debug_grp</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gafa08f3f9dd164f08ea6ef9efbe21baf4">DLOG_FLV_LOGPID</link>   (1 &lt;&lt; 0)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gadd7948c3de36c11479f61922215dde27">DLOG_FLV_FQDN</link>   (1 &lt;&lt; 1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga0d54ebb1702a171487b1a569b522c2aa">DLOG_FLV_FAC</link>   (1 &lt;&lt; 2)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga7893d122394462db13957db205a8e791">DLOG_FLV_YEAR</link>   (1 &lt;&lt; 3)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gac48a52540b5acc4612d40974429a6272">DLOG_FLV_TAG</link>   (1 &lt;&lt; 4)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga4bf011de77f726037fcf099607e6fc44">DLOG_FLV_STDOUT</link>   (1 &lt;&lt; 5)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga125c6694d33fea29e197d0fac5666c2d">DLOG_FLV_STDERR</link>   (1 &lt;&lt; 6)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gabe86d2d6602089ad775732f11c591045">DLOG_STDERR</link>   0x20000000</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga288f9a3e895fc12f2e56f57d30639804">DLOG_STDOUT</link>   0x10000000</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga7e96105a8991995a94741c02cd2547b4">DLOG_PRIMASK</link>   0x0fffff00</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gabbee7d717fc94436ed6d2c99d7fdfe68">D_FOREACH_PRIO_MASK</link>(ACTION,  arg)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___l_o_g_1ga37666ec9787849d04b6ae647196ae4d6"/>#define <emphasis role="strong">D_NOOP</emphasis>(...)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___l_o_g_1gade076b2e3604e42e88ede75941c4c31f"/>#define <emphasis role="strong">D_PRIO_ENUM</emphasis>(name,  id,  longid,  mask,  arg)   name = mask,</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gac28dedd24c22ed4ac8cb7191ff866056">DLOG_PRISHIFT</link>   24</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga3fa3e800babcbc55f418fa5a3561595a">DLOG_DPRISHIFT</link>   8</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gac4bc22283ff8ad5143a051ebc09afbeb">DLOG_PRINDMASK</link>   0x0f000000</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga978e034acfed5c2bd25581cd29974e37">DLOG_FACMASK</link>   0x000000ff</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga2effbffce3ebdaf1893f9a739cf1cc7e">DLOG_UNINIT</link>   0x80000000</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___l_o_g_1ga853328ed2fcefcff8c7374e173066f04"/>#define <emphasis role="strong">DLOG_PRI</emphasis>(flag)   ((flag &amp; <link linkend="_group___g_u_r_t___l_o_g_1gac4bc22283ff8ad5143a051ebc09afbeb">DLOG_PRINDMASK</link>) &gt;&gt; <link linkend="_group___g_u_r_t___l_o_g_1gac28dedd24c22ed4ac8cb7191ff866056">DLOG_PRISHIFT</link>)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1gab471cb90a515d223fe649219234a95da">DD_MASK_ENV</link>   &quot;DD_MASK&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___l_o_g_1ga60ed7776fb9d773b3c0c923b322b9a71"/>#define <emphasis role="strong">DD_MASK_DEFAULT</emphasis>   &quot;all&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___l_o_g_1ga2b53c44838b0758311741875f7a17c9c"/>#define <emphasis role="strong">DD_SEP</emphasis>   &quot;,&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga5e86b6176dc39e2adbdb1e4e6de75b7b">DD_STDERR_ENV</link>   &quot;DD_STDERR&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___l_o_g_1ga93708acec79ca41af5b28dd4d1687eb8">DD_FAC_ENV</link>   &quot;DD_SUBSYS&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___l_o_g_1gae56d69dd57e82b39d84cd14bd5aec110"/>#define <emphasis role="strong">DD_FAC_ALL</emphasis>   &quot;all&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef uint64_t <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___l_o_g_1gaa57e16cd48de3b9a989056ff8df26f84"/>enum </para>
+</listitem>
+            <listitem><para>enum <link linkend="_group___g_u_r_t___l_o_g_1gac74d3e67fed2b7779fee1a34ca8d10f6">d_log_flag_bits</link> { <link linkend="_group___g_u_r_t___l_o_g_1ggac74d3e67fed2b7779fee1a34ca8d10f6a8259d09d524b2d70f781eae1f0914529">D_LOG_SET_AS_DEFAULT</link> = 1U
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1gae64a212814cc1086fe41579d89b85232">d_log_dbg_bit_dealloc</link> (char *name)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga7466425ac6c6fefd0ca5bc1cdbaa84e2">d_log_dbg_bit_alloc</link> (<link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> *dbgbit, char *name, char *lname)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga97dfde8a24f1d9ff72de077b3d36b28d">d_log_dbg_grp_dealloc</link> (char *grpname)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga2b302217b71db8d07d34bfe8b82a4af2">d_log_dbg_grp_alloc</link> (<link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> dbgmask, char *grpname, uint32_t flags)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1gaa8476841c28160c34a0c137d2eaf1e4b">d_vlog</link> (int flags, const char *fmt, va_list ap)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga1aec57c3801af548c130557145886d40">d_log_allocfacility</link> (const char *aname, const char *lname)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga6318de34bd18a8c5b39b7fd3850e3ab5">d_log_init</link> (void)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1gae5ea7676867b6f4d9eea1717ef1bfa77">d_log_init_adv</link> (char *log_tag, char *log_file, unsigned int flavor, <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> def_mask, <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> err_mask)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1gab5b49bed8eeff4d592836f19aa420a2c">d_log_fini</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1ga70238ebf9d734057db6c412a8798ff93">d_log_close</link> (void)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1gac89194e4576277e0a975228e8058e81b">d_log_sync_mask</link> (void)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga090a67e345e8ccdf29ee0fb4714529bf">d_log_open</link> (char *tag, int maxfac_hint, int default_mask, int stderr_mask, char *logfile, int flags)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga43adcd9cdcadccbda9f8e94a6c5f88cb">d_log_setlogmask</link> (int facility, int mask)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga95d585effeb9487dd82e24024a69a72b">d_log_setmasks</link> (char *mstr, int mlen)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___l_o_g_1ga1b46eee954a0ddf2ae5c82a5ce9a9cd6">d_log_getmasks</link> (char *buf, int discard, int len, int unterm)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1ga33e2237c90c7efbe8c4a93377325ce3e">d_log_add_cache</link> (int *cache, int nr)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t___l_o_g_1gaa68fcfd52e9ba0d19d6368bad1ab5c13">d_log_sync</link> (void)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___l_o_g_1ga67a48b1b05fae17799d4626ac80c5e24"/>struct <link linkend="_structd__log__xstate">d_log_xstate</link> <emphasis role="strong">d_log_xst</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___l_o_g_1gaf691e5fe40aa170f472d14d17259edec"/>struct <link linkend="_structd__debug__data">d_debug_data</link> <emphasis role="strong">d_dbglog_data</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_group___g_u_r_t___l_o_g_1gabbee7d717fc94436ed6d2c99d7fdfe68"/>    <section>
+    <title>D_FOREACH_PRIO_MASK</title>
+<indexterm><primary>D_FOREACH_PRIO_MASK</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>D_FOREACH_PRIO_MASK</secondary></indexterm>
+<para><computeroutput>#define D_FOREACH_PRIO_MASK( ACTION,  arg)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;ACTION(DLOG_EMIT,&#32;&#32;emit,&#32;&#32;emit,&#32;&#32;0x08000000,&#32;arg)&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DLOG_EMERG,&#32;fatal,&#32;fatal,&#32;0x07000000,&#32;arg)&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DLOG_ALERT,&#32;alert,&#32;alert,&#32;0x06000000,&#32;arg)&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DLOG_CRIT,&#32;&#32;crit,&#32;&#32;crit,&#32;&#32;0x05000000,&#32;arg)&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DLOG_ERR,&#32;&#32;&#32;err,&#32;&#32;&#32;err,&#32;&#32;&#32;0x04000000,&#32;arg)&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DLOG_WARN,&#32;&#32;warn,&#32;&#32;warn,&#32;&#32;0x03000000,&#32;arg)&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DLOG_NOTE,&#32;&#32;note,&#32;&#32;note,&#32;&#32;0x02000000,&#32;arg)&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DLOG_INFO,&#32;&#32;info,&#32;&#32;info,&#32;&#32;0x01000000,&#32;arg)&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DLOG_DBG,&#32;&#32;&#32;debug,&#32;debug,&#32;0x00ffff00,&#32;arg)
+</programlisting>
+<para>debug mask </para>
+<para>
+Definition at line 47 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga93708acec79ca41af5b28dd4d1687eb8"/>    <section>
+    <title>DD_FAC_ENV</title>
+<indexterm><primary>DD_FAC_ENV</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DD_FAC_ENV</secondary></indexterm>
+<para><computeroutput>#define DD_FAC_ENV   &quot;DD_SUBSYS&quot;</computeroutput></para>
+<para>The environment variable for enabled debug facilities (subsystems) </para>
+<para>
+Definition at line 103 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gab471cb90a515d223fe649219234a95da"/>    <section>
+    <title>DD_MASK_ENV</title>
+<indexterm><primary>DD_MASK_ENV</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DD_MASK_ENV</secondary></indexterm>
+<para><computeroutput>#define DD_MASK_ENV   &quot;DD_MASK&quot;</computeroutput></para>
+<para>The environment variable for the default debug bit-mask </para>
+<para>
+Definition at line 91 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga5e86b6176dc39e2adbdb1e4e6de75b7b"/>    <section>
+    <title>DD_STDERR_ENV</title>
+<indexterm><primary>DD_STDERR_ENV</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DD_STDERR_ENV</secondary></indexterm>
+<para><computeroutput>#define DD_STDERR_ENV   &quot;DD_STDERR&quot;</computeroutput></para>
+<para>The environment variable for setting debug level being output to stderr. Options: &quot;info&quot;, &quot;note&quot;, &quot;warn&quot;, &quot;err&quot;, &quot;crit&quot;, &quot;emerg&quot;. Default: &quot;crit&quot;, which is used by D__FATAL, D__ASSERT and D__ASSERTF </para>
+<para>
+Definition at line 100 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga3fa3e800babcbc55f418fa5a3561595a"/>    <section>
+    <title>DLOG_DPRISHIFT</title>
+<indexterm><primary>DLOG_DPRISHIFT</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_DPRISHIFT</secondary></indexterm>
+<para><computeroutput>#define DLOG_DPRISHIFT   8</computeroutput></para>
+<para>to get debug level </para>
+<para>
+Definition at line 83 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga978e034acfed5c2bd25581cd29974e37"/>    <section>
+    <title>DLOG_FACMASK</title>
+<indexterm><primary>DLOG_FACMASK</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_FACMASK</secondary></indexterm>
+<para><computeroutput>#define DLOG_FACMASK   0x000000ff</computeroutput></para>
+<para>facility mask </para>
+<para>
+Definition at line 85 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga0d54ebb1702a171487b1a569b522c2aa"/>    <section>
+    <title>DLOG_FLV_FAC</title>
+<indexterm><primary>DLOG_FLV_FAC</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_FLV_FAC</secondary></indexterm>
+<para><computeroutput>#define DLOG_FLV_FAC   (1 &lt;&lt; 2)</computeroutput></para>
+<para>log facility name </para>
+<para>
+Definition at line 36 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gadd7948c3de36c11479f61922215dde27"/>    <section>
+    <title>DLOG_FLV_FQDN</title>
+<indexterm><primary>DLOG_FLV_FQDN</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_FLV_FQDN</secondary></indexterm>
+<para><computeroutput>#define DLOG_FLV_FQDN   (1 &lt;&lt; 1)</computeroutput></para>
+<para>log fully quallified domain name </para>
+<para>
+Definition at line 35 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gafa08f3f9dd164f08ea6ef9efbe21baf4"/>    <section>
+    <title>DLOG_FLV_LOGPID</title>
+<indexterm><primary>DLOG_FLV_LOGPID</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_FLV_LOGPID</secondary></indexterm>
+<para><computeroutput>#define DLOG_FLV_LOGPID   (1 &lt;&lt; 0)</computeroutput></para>
+<para>include pid in log tag </para>
+<para>
+Definition at line 34 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga125c6694d33fea29e197d0fac5666c2d"/>    <section>
+    <title>DLOG_FLV_STDERR</title>
+<indexterm><primary>DLOG_FLV_STDERR</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_FLV_STDERR</secondary></indexterm>
+<para><computeroutput>#define DLOG_FLV_STDERR   (1 &lt;&lt; 6)</computeroutput></para>
+<para>always log to stderr </para>
+<para>
+Definition at line 40 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga4bf011de77f726037fcf099607e6fc44"/>    <section>
+    <title>DLOG_FLV_STDOUT</title>
+<indexterm><primary>DLOG_FLV_STDOUT</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_FLV_STDOUT</secondary></indexterm>
+<para><computeroutput>#define DLOG_FLV_STDOUT   (1 &lt;&lt; 5)</computeroutput></para>
+<para>always log to stdout </para>
+<para>
+Definition at line 39 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gac48a52540b5acc4612d40974429a6272"/>    <section>
+    <title>DLOG_FLV_TAG</title>
+<indexterm><primary>DLOG_FLV_TAG</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_FLV_TAG</secondary></indexterm>
+<para><computeroutput>#define DLOG_FLV_TAG   (1 &lt;&lt; 4)</computeroutput></para>
+<para>log tag </para>
+<para>
+Definition at line 38 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga7893d122394462db13957db205a8e791"/>    <section>
+    <title>DLOG_FLV_YEAR</title>
+<indexterm><primary>DLOG_FLV_YEAR</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_FLV_YEAR</secondary></indexterm>
+<para><computeroutput>#define DLOG_FLV_YEAR   (1 &lt;&lt; 3)</computeroutput></para>
+<para>log year </para>
+<para>
+Definition at line 37 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga7e96105a8991995a94741c02cd2547b4"/>    <section>
+    <title>DLOG_PRIMASK</title>
+<indexterm><primary>DLOG_PRIMASK</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_PRIMASK</secondary></indexterm>
+<para><computeroutput>#define DLOG_PRIMASK   0x0fffff00</computeroutput></para>
+<para>priority mask </para>
+<para>
+Definition at line 46 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gac4bc22283ff8ad5143a051ebc09afbeb"/>    <section>
+    <title>DLOG_PRINDMASK</title>
+<indexterm><primary>DLOG_PRINDMASK</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_PRINDMASK</secondary></indexterm>
+<para><computeroutput>#define DLOG_PRINDMASK   0x0f000000</computeroutput></para>
+<para>mask for non-debug level bits </para>
+<para>
+Definition at line 84 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gac28dedd24c22ed4ac8cb7191ff866056"/>    <section>
+    <title>DLOG_PRISHIFT</title>
+<indexterm><primary>DLOG_PRISHIFT</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_PRISHIFT</secondary></indexterm>
+<para><computeroutput>#define DLOG_PRISHIFT   24</computeroutput></para>
+<para>to get non-debug level </para>
+<para>
+Definition at line 82 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gabe86d2d6602089ad775732f11c591045"/>    <section>
+    <title>DLOG_STDERR</title>
+<indexterm><primary>DLOG_STDERR</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_STDERR</secondary></indexterm>
+<para><computeroutput>#define DLOG_STDERR   0x20000000</computeroutput></para>
+<para>always log to stderr </para>
+<para>
+Definition at line 43 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga288f9a3e895fc12f2e56f57d30639804"/>    <section>
+    <title>DLOG_STDOUT</title>
+<indexterm><primary>DLOG_STDOUT</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_STDOUT</secondary></indexterm>
+<para><computeroutput>#define DLOG_STDOUT   0x10000000</computeroutput></para>
+<para>always log to stdout </para>
+<para>
+Definition at line 44 of file dlog.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga2effbffce3ebdaf1893f9a739cf1cc7e"/>    <section>
+    <title>DLOG_UNINIT</title>
+<indexterm><primary>DLOG_UNINIT</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>DLOG_UNINIT</secondary></indexterm>
+<para><computeroutput>#define DLOG_UNINIT   0x80000000</computeroutput></para>
+<para>Reserve one bit mask cache </para>
+<para>
+Definition at line 86 of file dlog.h.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42"/>    <section>
+    <title>d_dbug_t</title>
+<indexterm><primary>d_dbug_t</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_dbug_t</secondary></indexterm>
+<para><computeroutput>typedef uint64_t <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link></computeroutput></para>
+<para>Define a typedef for the debug bits. The log mask is only 32-bits but for whatever reason, the debug mask is 64-bits. In order to maintain compatibility, redefine it to a 64-bit type which we can change to 32 once downstream libraries have upgraded. Also, choose a type that is the same length as the original. </para>
+<para>
+Definition at line 31 of file dlog.h.</para>
+</section>
+</section>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_group___g_u_r_t___l_o_g_1gac74d3e67fed2b7779fee1a34ca8d10f6"/>    <section>
+    <title>d_log_flag_bits</title>
+<indexterm><primary>d_log_flag_bits</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_flag_bits</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_group___g_u_r_t___l_o_g_1gac74d3e67fed2b7779fee1a34ca8d10f6">d_log_flag_bits</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>D_LOG_SET_AS_DEFAULT</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>D_LOG_SET_AS_DEFAULT</secondary></indexterm>
+<anchor xml:id="_group___g_u_r_t___l_o_g_1ggac74d3e67fed2b7779fee1a34ca8d10f6a8259d09d524b2d70f781eae1f0914529"/>D_LOG_SET_AS_DEFAULT</entry><entry>
+<para>To be used in <link linkend="_group___g_u_r_t___l_o_g_1ga2b302217b71db8d07d34bfe8b82a4af2">d_log_dbg_grp_alloc()</link>. This bit sets grpname as the global default debug mask. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 74 of file dlog.h.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_group___g_u_r_t___l_o_g_1ga33e2237c90c7efbe8c4a93377325ce3e"/>    <section>
+    <title>d_log_add_cache()</title>
+<indexterm><primary>d_log_add_cache</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_add_cache</secondary></indexterm>
+<para><computeroutput>void d_log_add_cache (int * cache, int nr)</computeroutput></para>
+<para>Add an array of integers to initialize to DLOG_UNINIT on changes</para>
+
+<para>This is intended to be used to initialize a mask cache that is generated by the D_DECLARE_CACHE macro and this function typically should be only called from DD_ADD_CACHE macro.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>cache</entry>
+                                <entry>
+<para>The block of contiguous integers </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>nr</entry>
+                                <entry>
+<para>The number of integers in the block</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                This function can fail to add the cache and will do so silently on memory allocation errors. The assumption is that failure to reset log masks in such rare occasions isn&apos;t a showstopper. </para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga1aec57c3801af548c130557145886d40"/>    <section>
+    <title>d_log_allocfacility()</title>
+<indexterm><primary>d_log_allocfacility</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_allocfacility</secondary></indexterm>
+<para><computeroutput>int d_log_allocfacility (const char * aname, const char * lname)</computeroutput></para>
+<para>allocate a new facility with the given name</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>aname</entry>
+                                <entry>
+<para>the abbr. name for the facility can be null for no name </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>lname</entry>
+                                <entry>
+<para>the long name for the new facility can be null for no name</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>new facility number on success, -1 on error - malloc problem. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga70238ebf9d734057db6c412a8798ff93"/>    <section>
+    <title>d_log_close()</title>
+<indexterm><primary>d_log_close</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_close</secondary></indexterm>
+<para><computeroutput>void d_log_close (void )</computeroutput></para>
+<para>close off an log and release any allocated resources. </para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga7466425ac6c6fefd0ca5bc1cdbaa84e2"/>    <section>
+    <title>d_log_dbg_bit_alloc()</title>
+<indexterm><primary>d_log_dbg_bit_alloc</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_dbg_bit_alloc</secondary></indexterm>
+<para><computeroutput>int d_log_dbg_bit_alloc (<link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> * dbgbit, char * name, char * lname)</computeroutput></para>
+<para>Allocate optional debug bit, register name and return available bit</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>name</entry>
+                                <entry>
+<para>name of bit (determined by sub-project) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>lname</entry>
+                                <entry>
+<para>long name of bit </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>out                                </entry>                                <entry>dbgbit</entry>
+                                <entry>
+<para>alloc&apos;d debug bit</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, -1 on error </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gae64a212814cc1086fe41579d89b85232"/>    <section>
+    <title>d_log_dbg_bit_dealloc()</title>
+<indexterm><primary>d_log_dbg_bit_dealloc</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_dbg_bit_dealloc</secondary></indexterm>
+<para><computeroutput>int d_log_dbg_bit_dealloc (char * name)</computeroutput></para>
+<para>Reset optional debug bit</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>name</entry>
+                                <entry>
+<para>debug mask short name</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, -1 on error </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga2b302217b71db8d07d34bfe8b82a4af2"/>    <section>
+    <title>d_log_dbg_grp_alloc()</title>
+<indexterm><primary>d_log_dbg_grp_alloc</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_dbg_grp_alloc</secondary></indexterm>
+<para><computeroutput>int d_log_dbg_grp_alloc (<link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> dbgmask, char * grpname, uint32_t flags)</computeroutput></para>
+<para>Create an identifier/group name for muliple debug bits</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>dbgmask</entry>
+                                <entry>
+<para>mask of all bits in group </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>grpname</entry>
+                                <entry>
+<para>debug mask group name </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>flags</entry>
+                                <entry>
+<para>bit flags. e.g. D_LOG_SET_AS_DEFAULT sets grpname as the default mask. See <link linkend="_group___g_u_r_t___l_o_g_1gac74d3e67fed2b7779fee1a34ca8d10f6">d_log_flag_bits</link> for supported flags.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, -1 on error </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga97dfde8a24f1d9ff72de077b3d36b28d"/>    <section>
+    <title>d_log_dbg_grp_dealloc()</title>
+<indexterm><primary>d_log_dbg_grp_dealloc</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_dbg_grp_dealloc</secondary></indexterm>
+<para><computeroutput>int d_log_dbg_grp_dealloc (char * grpname)</computeroutput></para>
+<para>Reset optional debug group</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>grpname</entry>
+                                <entry>
+<para>debug mask group name</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, -1 on error </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gab5b49bed8eeff4d592836f19aa420a2c"/>    <section>
+    <title>d_log_fini()</title>
+<indexterm><primary>d_log_fini</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_fini</secondary></indexterm>
+<para><computeroutput>void d_log_fini (void )</computeroutput></para>
+<para>Remove a reference on the default cart log. Calls d_log_close if the reference count is 0. </para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga1b46eee954a0ddf2ae5c82a5ce9a9cd6"/>    <section>
+    <title>d_log_getmasks()</title>
+<indexterm><primary>d_log_getmasks</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_getmasks</secondary></indexterm>
+<para><computeroutput>int d_log_getmasks (char * buf, int discard, int len, int unterm)</computeroutput></para>
+<para>get current mask level as a string (not null terminated). if the buffer is null, we probe for length rather than fill.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>out                                </entry>                                <entry>buf</entry>
+                                <entry>
+<para>the buffer to put the results in (NULL == probe for length) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>discard</entry>
+                                <entry>
+<para>bytes to discard before starting to fill buf </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>len</entry>
+                                <entry>
+<para>length of the buffer </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>unterm</entry>
+                                <entry>
+<para>if non-zero do not include a trailing null</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>bytes returned (may be trunced and non-null terminated if == len) </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga6318de34bd18a8c5b39b7fd3850e3ab5"/>    <section>
+    <title>d_log_init()</title>
+<indexterm><primary>d_log_init</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_init</secondary></indexterm>
+<para><computeroutput>int d_log_init (void )</computeroutput></para>
+<para>Ensure default cart log is initialized. This routine calls d_log_open the first time based on D_LOG_MASK and D_LOG_FILE environment variables. It keeps a reference count so d_log_fini must be called by all callers to release the call <link linkend="_group___g_u_r_t___l_o_g_1ga70238ebf9d734057db6c412a8798ff93">d_log_close()</link></para>
+
+<para>Without this mechanism, it is difficult to use the cart logging mechanism from another library because clog doesn&apos;t allow multiple log files. It&apos;s better for things in the same process to share anyway.</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>0 on success, negative value on error </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gae5ea7676867b6f4d9eea1717ef1bfa77"/>    <section>
+    <title>d_log_init_adv()</title>
+<indexterm><primary>d_log_init_adv</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_init_adv</secondary></indexterm>
+<para><computeroutput>int d_log_init_adv (char * log_tag, char * log_file, unsigned int flavor, <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> def_mask, <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> err_mask)</computeroutput></para>
+<para>Advanced version of log initialing function. User can specify log tag, output log file, the default log mask and the mask for output errors.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>log_tag</entry>
+                                <entry>
+<para>Log tag </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>log_file</entry>
+                                <entry>
+<para>Log file </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>flavor</entry>
+                                <entry>
+<para>Flavor controlling output </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>def_mask</entry>
+                                <entry>
+<para>Default log mask </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>err_mask</entry>
+                                <entry>
+<para>Output errors mask</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, -1 on failure </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga090a67e345e8ccdf29ee0fb4714529bf"/>    <section>
+    <title>d_log_open()</title>
+<indexterm><primary>d_log_open</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_open</secondary></indexterm>
+<para><computeroutput>int d_log_open (char * tag, int maxfac_hint, int default_mask, int stderr_mask, char * logfile, int flags)</computeroutput></para>
+<para>open a dlog.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>tag</entry>
+                                <entry>
+<para>string we tag each line with </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>maxfac_hint</entry>
+                                <entry>
+<para>hint as to largest user fac value will be used </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>default_mask</entry>
+                                <entry>
+<para>the default mask to use for each facility </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>stderr_mask</entry>
+                                <entry>
+<para>messages with a mask above this go to stderr. if pass in 0, then output goes to stderr only if DLOG_STDERR is used (either in d_log_open or in d_log). </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>logfile</entry>
+                                <entry>
+<para>log file name, or null if no log file </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>flags</entry>
+                                <entry>
+<para>STDERR, LOGPID</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, -1 on error. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga43adcd9cdcadccbda9f8e94a6c5f88cb"/>    <section>
+    <title>d_log_setlogmask()</title>
+<indexterm><primary>d_log_setlogmask</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_setlogmask</secondary></indexterm>
+<para><computeroutput>int d_log_setlogmask (int facility, int mask)</computeroutput></para>
+<para>set the logmask for a given facility.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>facility</entry>
+                                <entry>
+<para>Facility number </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>mask</entry>
+                                <entry>
+<para>The new mask for the facility</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, -1 on error. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1ga95d585effeb9487dd82e24024a69a72b"/>    <section>
+    <title>d_log_setmasks()</title>
+<indexterm><primary>d_log_setmasks</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_setmasks</secondary></indexterm>
+<para><computeroutput>int d_log_setmasks (char * mstr, int mlen)</computeroutput></para>
+<para>set log masks for a set of facilities to a given level. the input string should look like: PREFIX1=LEVEL1,PREFIX2=LEVEL2,... where the &quot;PREFIX&quot; is the facility name defined with d_log_namefacility().</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>mstr</entry>
+                                <entry>
+<para>settings to use (doesn&apos;t have to be null term&apos;d if mstr &gt;= 0) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>mlen</entry>
+                                <entry>
+<para>length of mstr (if &lt; 0, assume null terminated, use strlen)</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, -1 on error. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gaa68fcfd52e9ba0d19d6368bad1ab5c13"/>    <section>
+    <title>d_log_sync()</title>
+<indexterm><primary>d_log_sync</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_sync</secondary></indexterm>
+<para><computeroutput>void d_log_sync (void )</computeroutput></para>
+<para>Fsync log files. </para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gac89194e4576277e0a975228e8058e81b"/>    <section>
+    <title>d_log_sync_mask()</title>
+<indexterm><primary>d_log_sync_mask</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_log_sync_mask</secondary></indexterm>
+<para><computeroutput>void d_log_sync_mask (void )</computeroutput></para>
+<para>Reapplies the masks set in D_LOG_MASK. Can be called after adding new log facilities to ensure that the mask is set appropriately for the previously unknown facilities. </para>
+    </section><anchor xml:id="_group___g_u_r_t___l_o_g_1gaa8476841c28160c34a0c137d2eaf1e4b"/>    <section>
+    <title>d_vlog()</title>
+<indexterm><primary>d_vlog</primary><secondary>Gurt Log</secondary></indexterm>
+<indexterm><primary>Gurt Log</primary><secondary>d_vlog</secondary></indexterm>
+<para><computeroutput>void d_vlog (int flags, const char * fmt, va_list ap)</computeroutput></para>
+<para>log a message using stdarg list without checking flags</para>
+
+<para>A log line cannot be larger than DLOG_TBSZ (4096), if it is larger it will be (silently) truncated].</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>flags</entry>
+                                <entry>
+<para>flags returned from d_log_check </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>fmt</entry>
+                                <entry>
+<para>printf-style format string </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ap</entry>
+                                <entry>
+<para>stdarg list </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+</section>

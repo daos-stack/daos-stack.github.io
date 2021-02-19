@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structbio__dev__info">
+<title>bio_dev_info Struct Reference</title>
+<indexterm><primary>bio_dev_info</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structbio__dev__info_1a023ff62663acd7cd6a529281467c3c3b"/><link linkend="_structd__list__head">d_list_t</link> <emphasis role="strong">bdi_link</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__dev__info_1aadfd64c7210d4dd09085f89b4201369c"/>uuid_t <emphasis role="strong">bdi_dev_id</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__dev__info_1ab062c44f17ef4b54e7f0038d8f41210f"/>uint32_t <emphasis role="strong">bdi_flags</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__dev__info_1a70bfd48863ad084095d06b66b4f87409"/>uint32_t <emphasis role="strong">bdi_tgt_cnt</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__dev__info_1a3bf3f0f8834353bae02fd3a485371bf9"/>int * <emphasis role="strong">bdi_tgts</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__dev__info_1a74da0a9d3f0f59526bc9f27aeecf69e8"/>char * <emphasis role="strong">bdi_traddr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__dev__info_1ac89086ecda5ac1ffab94593d5c5ea180"/>uint32_t <emphasis role="strong">bdi_dev_type</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 311 of file bio.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/bio.h</section>
+</section>
