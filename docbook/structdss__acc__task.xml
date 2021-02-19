@@ -1,0 +1,145 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdss__acc__task">
+<title>dss_acc_task Struct Reference</title>
+<indexterm><primary>dss_acc_task</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_structdss__acc__task_1a617a0476cf95a9481be09bae2168c028">at_offload_type</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structdss__acc__task_1a3897a96de1bc2d2223bd2c103751a9e1">at_opcode</link></para>
+</listitem>
+            <listitem><para>void * <link linkend="_structdss__acc__task_1abb1b846a1b7d2609b646c5b12d173cdd">at_params</link></para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structdss__acc__task_1a0f6a18a044034be429ed9aecfae1fb6b">at_cb</link> )(void *cb_args)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 615 of file daos_engine.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdss__acc__task_1a0f6a18a044034be429ed9aecfae1fb6b"/>    <section>
+    <title>at_cb</title>
+<indexterm><primary>at_cb</primary><secondary>dss_acc_task</secondary></indexterm>
+<indexterm><primary>dss_acc_task</primary><secondary>at_cb</secondary></indexterm>
+<para><computeroutput>int(* at_cb(void *cb_args)</computeroutput></para>
+<para>Callback required for offload task 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>cb_args</entry>
+                                <entry>
+<para>[IN] arguments for offload </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 635 of file daos_engine.h.</para>
+    </section><anchor xml:id="_structdss__acc__task_1a617a0476cf95a9481be09bae2168c028"/>    <section>
+    <title>at_offload_type</title>
+<indexterm><primary>at_offload_type</primary><secondary>dss_acc_task</secondary></indexterm>
+<indexterm><primary>dss_acc_task</primary><secondary>at_offload_type</secondary></indexterm>
+<para><computeroutput>int at_offload_type</computeroutput></para>
+<para>Type of offload for this operation 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>at_offload_type</entry>
+                                <entry>
+<para>[IN] type of acceleration </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 620 of file daos_engine.h.</para>
+    </section><anchor xml:id="_structdss__acc__task_1a3897a96de1bc2d2223bd2c103751a9e1"/>    <section>
+    <title>at_opcode</title>
+<indexterm><primary>at_opcode</primary><secondary>dss_acc_task</secondary></indexterm>
+<indexterm><primary>dss_acc_task</primary><secondary>at_opcode</secondary></indexterm>
+<para><computeroutput>int at_opcode</computeroutput></para>
+<para>Opcode for this offload task 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>at_opcode</entry>
+                                <entry>
+<para>[IN] opcode for offload </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 625 of file daos_engine.h.</para>
+    </section><anchor xml:id="_structdss__acc__task_1abb1b846a1b7d2609b646c5b12d173cdd"/>    <section>
+    <title>at_params</title>
+<indexterm><primary>at_params</primary><secondary>dss_acc_task</secondary></indexterm>
+<indexterm><primary>dss_acc_task</primary><secondary>at_params</secondary></indexterm>
+<para><computeroutput>void* at_params</computeroutput></para>
+<para>Buffer arguments for task offload 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>at_params</entry>
+                                <entry>
+<para>[IN] buffer for offload </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 630 of file daos_engine.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/daos_engine.h</section>
+</section>

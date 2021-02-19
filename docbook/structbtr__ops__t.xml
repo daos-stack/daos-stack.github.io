@@ -1,0 +1,674 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structbtr__ops__t">
+<title>btr_ops_t Struct Reference</title>
+<indexterm><primary>btr_ops_t</primary></indexterm>
+<para>
+<computeroutput>#include &lt;btree.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>void(* <link linkend="_structbtr__ops__t_1a1532baf8980ab9a501ecb449d8d2c033">to_hkey_gen</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, <link linkend="_structd__iov__t">d_iov_t</link> *key, void *hkey)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structbtr__ops__t_1ade4a4a8725d0a438f77c973b90bee6fb">to_hkey_size</link> )(void)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structbtr__ops__t_1ae1863b56547256dfc37878f92a2513c6">to_rec_msize</link> )(int alloc_ovheread)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structbtr__ops__t_1ae96649bda5e7e8a2270f303271243f9e">to_hkey_cmp</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, void *hkey)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structbtr__ops__t_1ab6cb7c276afddcbf1dd021d284832936">to_key_cmp</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, <link linkend="_structd__iov__t">d_iov_t</link> *key)</para>
+</listitem>
+            <listitem><para>void(* <link linkend="_structbtr__ops__t_1a238ecf0f99cea12050d6c23c427749ba">to_key_encode</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structdaos__anchor__t">daos_anchor_t</link> *anchor)</para>
+</listitem>
+            <listitem><para>void(* <link linkend="_structbtr__ops__t_1a7e41566e91a9f10fd27ad9e841d170a5">to_key_decode</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structdaos__anchor__t">daos_anchor_t</link> *anchor)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structbtr__ops__t_1a5362908ad6ee9764cc50187d738baac3">to_rec_alloc</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val, struct <link linkend="_structbtr__record">btr_record</link> *rec)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structbtr__ops__t_1ab4fb53b74af8f51d9bfefabbcbc67142">to_rec_free</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, void *args)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structbtr__ops__t_1af916ce65455b6b6a442d3351a894ceb1">to_rec_fetch</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structbtr__ops__t_1ad191f5b590d1e36debb973499ada2469">to_rec_update</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structbtr__ops__t_1ae5e7bc6da0f905a5a75b00c3b71f1355">to_rec_stat</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, struct <link linkend="_structbtr__rec__stat">btr_rec_stat</link> *rstat)</para>
+</listitem>
+            <listitem><para>char *(* <link linkend="_structbtr__ops__t_1a3d94c99ebeb2a97591d2b2c0cbcaf8da">to_rec_string</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, bool leaf, char *buf, int buf_len)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structbtr__ops__t_1a20922140ff88bd2fdf5ec3ddd4da9837">to_check_availability</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, uint32_t intent)</para>
+</listitem>
+            <listitem><para>umem_off_t(* <link linkend="_structbtr__ops__t_1aa2da45f99a08f4a2670c38c775008a65">to_node_alloc</link> )(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, int size)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Customized tree function table. </para>
+<para>
+Definition at line 196 of file btree.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structbtr__ops__t_1a20922140ff88bd2fdf5ec3ddd4da9837"/>    <section>
+    <title>to_check_availability</title>
+<indexterm><primary>to_check_availability</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_check_availability</secondary></indexterm>
+<para><computeroutput>int(* to_check_availability(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, uint32_t intent)</computeroutput></para>
+<para>Optional: Check whether the given record is available to outside or not.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>rec</entry>
+                                <entry>
+<para>[IN] Record to be checked. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>intent</entry>
+                                <entry>
+<para>[IN] The intent for why check the record.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <emphasis>return</emphasis> ALB_AVAILABLE_DIRTY The target is available but with some uncommitted modification or garbage, need cleanup. ALB_AVAILABLE_CLEAN The target is available, no pending modification. ALB_UNAVAILABLE The target is unavailable. -DER_INPROGRESS If the target record is in some uncommitted DTX, the caller needs to retry related operation some time later. Other negative values on error. </para>
+<para>
+Definition at line 394 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1ae96649bda5e7e8a2270f303271243f9e"/>    <section>
+    <title>to_hkey_cmp</title>
+<indexterm><primary>to_hkey_cmp</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_hkey_cmp</secondary></indexterm>
+<para><computeroutput>int(* to_hkey_cmp(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, void *hkey)</computeroutput></para>
+<para>Optional: Comparison of hashed key.</para>
+
+<para>Absent: Calls memcmp.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>rec</entry>
+                                <entry>
+<para>[IN] Record to be compared with <emphasis>key</emphasis>. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>key</entry>
+                                <entry>
+<para>[IN] Key to be compared with key of <emphasis>rec</emphasis>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <emphasis>return</emphasis> BTR_CMP_LT hkey of <emphasis>rec</emphasis> is smaller than <emphasis>hkey</emphasis> BTR_CMP_GT hkey of <emphasis>rec</emphasis> is larger than <emphasis>hkey</emphasis> BTR_CMP_EQ hkey of <emphasis>rec</emphasis> is equal to <emphasis>hkey</emphasis> BTR_CMP_ERR error in the hkey comparison return any other value will cause assertion, segfault or other undefined result. </para>
+<para>
+Definition at line 234 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1a1532baf8980ab9a501ecb449d8d2c033"/>    <section>
+    <title>to_hkey_gen</title>
+<indexterm><primary>to_hkey_gen</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_hkey_gen</secondary></indexterm>
+<para><computeroutput>void(* to_hkey_gen(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, <link linkend="_structd__iov__t">d_iov_t</link> *key, void *hkey)</computeroutput></para>
+<para>Generate a fix-size hashed key from the real key.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>key</entry>
+                                <entry>
+<para>[IN] key buffer </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>hkey</entry>
+                                <entry>
+<para>[OUT] hashed key </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 205 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1ade4a4a8725d0a438f77c973b90bee6fb"/>    <section>
+    <title>to_hkey_size</title>
+<indexterm><primary>to_hkey_size</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_hkey_size</secondary></indexterm>
+<para><computeroutput>int(* to_hkey_size(void)</computeroutput></para>
+<para>Static callback to get size of the hashed key. </para>
+<para>
+Definition at line 208 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1ab6cb7c276afddcbf1dd021d284832936"/>    <section>
+    <title>to_key_cmp</title>
+<indexterm><primary>to_key_cmp</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_key_cmp</secondary></indexterm>
+<para><computeroutput>int(* to_key_cmp(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, <link linkend="_structd__iov__t">d_iov_t</link> *key)</computeroutput></para>
+<para>Optional: Comparison of real key. It can be ignored if there is no hash for the key and key size is fixed. See <emphasis><link linkend="_structbtr__record">btr_record</link></emphasis> for the details.</para>
+
+<para>Absent: Skip the function and only check rec::rec_hkey for the search.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>rec</entry>
+                                <entry>
+<para>[IN] Record to be compared with <emphasis>key</emphasis>. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>key</entry>
+                                <entry>
+<para>[IN] Key to be compared with key of <emphasis>rec</emphasis>.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <emphasis>return</emphasis> BTR_CMP_LT key of <emphasis>rec</emphasis> is smaller than <emphasis>key</emphasis> BTR_CMP_GT key of <emphasis>rec</emphasis> is larger than <emphasis>key</emphasis> BTR_CMP_EQ key of <emphasis>rec</emphasis> is equal to <emphasis>key</emphasis> BTR_CMP_ERR error in the key comparison return any other value will cause assertion, segfault or other undefined result. </para>
+<para>
+Definition at line 256 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1a7e41566e91a9f10fd27ad9e841d170a5"/>    <section>
+    <title>to_key_decode</title>
+<indexterm><primary>to_key_decode</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_key_decode</secondary></indexterm>
+<para><computeroutput>void(* to_key_decode(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structdaos__anchor__t">daos_anchor_t</link> *anchor)</computeroutput></para>
+<para>Required if using direct keys. (Should only be called for direct key)</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>key</entry>
+                                <entry>
+<para>[OUT] The key of iteration. Anchor will be decoded to key. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>anchor</entry>
+                                <entry>
+<para>[IN] Anchor of where iteration process is. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 281 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1a238ecf0f99cea12050d6c23c427749ba"/>    <section>
+    <title>to_key_encode</title>
+<indexterm><primary>to_key_encode</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_key_encode</secondary></indexterm>
+<para><computeroutput>void(* to_key_encode(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structdaos__anchor__t">daos_anchor_t</link> *anchor)</computeroutput></para>
+<para>Required if using direct keys. (Should only be called for direct key) The encoding/decoding of direct keys is required so that the key can be serialized.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>key</entry>
+                                <entry>
+<para>[IN] The current key of iteration. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>anchor</entry>
+                                <entry>
+<para>[OUT] Anchor for the iteration </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 269 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1aa2da45f99a08f4a2670c38c775008a65"/>    <section>
+    <title>to_node_alloc</title>
+<indexterm><primary>to_node_alloc</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_node_alloc</secondary></indexterm>
+<para><computeroutput>umem_off_t(* to_node_alloc(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, int size)</computeroutput></para>
+<para>Allocate a tree node</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>size</entry>
+                                <entry>
+<para>[IN] Node size <emphasis>return</emphasis> Allocated node address (offset within the pool) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 405 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1a5362908ad6ee9764cc50187d738baac3"/>    <section>
+    <title>to_rec_alloc</title>
+<indexterm><primary>to_rec_alloc</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_rec_alloc</secondary></indexterm>
+<para><computeroutput>int(* to_rec_alloc(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val, struct <link linkend="_structbtr__record">btr_record</link> *rec)</computeroutput></para>
+<para>Allocate record body for <emphasis>key</emphasis> and <emphasis>val</emphasis>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>key</entry>
+                                <entry>
+<para>[IN] Key buffer </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>val</entry>
+                                <entry>
+<para>[IN] Value buffer, it could be either data blob, or complex data structure that can be parsed by the tree class. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>rec</entry>
+                                <entry>
+<para>[OUT] Returned record body pointer, See <emphasis><link linkend="_structbtr__record">btr_record</link></emphasis> for the details. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 297 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1af916ce65455b6b6a442d3351a894ceb1"/>    <section>
+    <title>to_rec_fetch</title>
+<indexterm><primary>to_rec_fetch</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_rec_fetch</secondary></indexterm>
+<para><computeroutput>int(* to_rec_fetch(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</computeroutput></para>
+<para>Fetch value or both key &amp; value of a record.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>rec</entry>
+                                <entry>
+<para>[IN] Record to be read from. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>key</entry>
+                                <entry>
+<para>[OUT] Optional, sink buffer for the returned key, or key address. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>val</entry>
+                                <entry>
+<para>[OUT] Sink buffer for the returned value or the value address. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 325 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1ab4fb53b74af8f51d9bfefabbcbc67142"/>    <section>
+    <title>to_rec_free</title>
+<indexterm><primary>to_rec_free</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_rec_free</secondary></indexterm>
+<para><computeroutput>int(* to_rec_free(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, void *args)</computeroutput></para>
+<para>Free the record body stored in <emphasis>rec::rec_off</emphasis> </para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>rec</entry>
+                                <entry>
+<para>[IN] The record to be destroyed. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>args</entry>
+                                <entry>
+<para>[OUT] Optional: opaque buffer for providing arguments to handle special cases for free. for example, allocator/GC address for externally allocated resources. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 312 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1ae1863b56547256dfc37878f92a2513c6"/>    <section>
+    <title>to_rec_msize</title>
+<indexterm><primary>to_rec_msize</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_rec_msize</secondary></indexterm>
+<para><computeroutput>int(* to_rec_msize(int alloc_ovheread)</computeroutput></para>
+<para>Static callback to metadata size of the record</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>alloc_overhead[IN]</entry>
+                                <entry>
+<para>Expected per-allocation overhead </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 214 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1ae5e7bc6da0f905a5a75b00c3b71f1355"/>    <section>
+    <title>to_rec_stat</title>
+<indexterm><primary>to_rec_stat</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_rec_stat</secondary></indexterm>
+<para><computeroutput>int(* to_rec_stat(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, struct <link linkend="_structbtr__rec__stat">btr_rec_stat</link> *rstat)</computeroutput></para>
+<para>Optional: Return key and value size of the record. 
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>rec</entry>
+                                <entry>
+<para>[IN] Record to get size from. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>rstat</entry>
+                                <entry>
+<para>[OUT] Returned key &amp; value size. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 354 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1a3d94c99ebeb2a97591d2b2c0cbcaf8da"/>    <section>
+    <title>to_rec_string</title>
+<indexterm><primary>to_rec_string</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_rec_string</secondary></indexterm>
+<para><computeroutput>char*(* to_rec_string(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, bool leaf, char *buf, int buf_len)</computeroutput></para>
+<para>Convert record into readable string and store it in <emphasis>buf</emphasis>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>rec</entry>
+                                <entry>
+<para>[IN] Record to be converted. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>leaf</entry>
+                                <entry>
+<para>[IN] Both key and value should be converted to string if it is true, otherwise only the hashed key will be converted to string. (record of intermediate node), </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>buf</entry>
+                                <entry>
+<para>[OUT] Buffer to store the returned string. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>buf_len</entry>
+                                <entry>
+<para>[IN] Buffer length. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 370 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__ops__t_1ad191f5b590d1e36debb973499ada2469"/>    <section>
+    <title>to_rec_update</title>
+<indexterm><primary>to_rec_update</primary><secondary>btr_ops_t</secondary></indexterm>
+<indexterm><primary>btr_ops_t</primary><secondary>to_rec_update</secondary></indexterm>
+<para><computeroutput>int(* to_rec_update(struct <link linkend="_structbtr__instance">btr_instance</link> *tins, struct <link linkend="_structbtr__record">btr_record</link> *rec, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</computeroutput></para>
+<para>Update value of a record, the new value should be stored in the current rec::rec_off.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>tins</entry>
+                                <entry>
+<para>[IN] Tree instance which contains the root umem offset and memory class etc. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>rec</entry>
+                                <entry>
+<para>[IN] Record to be updated. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>val</entry>
+                                <entry>
+<para>[IN] New value to be stored for the record. <emphasis>return</emphasis> 0 success. -DER_NO_PERM cannot make inplace change, should call rec_free() to release the original record and rec_alloc() to create a new record. -ve error code </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 343 of file btree.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/btree.h</section>
+</section>

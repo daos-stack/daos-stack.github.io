@@ -1,0 +1,345 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_rdb_8h">
+<title>src/include/daos_srv/rdb.h File Reference</title>
+<indexterm><primary>src/include/daos_srv/rdb.h</primary></indexterm>
+<programlisting>#include &lt;daos/common.h&gt;
+#include &lt;daos_types.h&gt;
+</programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structrdb__cbs">rdb_cbs</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structrdb__kvs__attr">rdb_kvs_attr</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structrdb__tx">rdb_tx</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_rdb_8h_1a4c522ad446c1ed8b59d6d88c6b922ab7">RDB_STRING_KEY</link>(prefix,  name)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_rdb_8h_1adc3f70fcf077ac01e3b4b476af221171">RDB_NIL_TERM</link>   UINT64_MAX</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef <link linkend="_structd__iov__t">d_iov_t</link> <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link></para>
+</listitem>
+            <listitem><para>typedef int(* <link linkend="_rdb_8h_1aa64edc9d76628d27480b37bec0b74880">rdb_iterate_cb_t</link>) (<link linkend="_structdaos__handle__t">daos_handle_t</link> ih, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val, void *arg)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_rdb_8h_1a2cbcd0aeba52bbfdc56949b39d05f35b">rdb_kvs_class</link> { <link linkend="_rdb_8h_1a2cbcd0aeba52bbfdc56949b39d05f35bac2b40f2e27a5ec27c7060d427b35d659">RDB_KVS_GENERIC</link>, 
+<link linkend="_rdb_8h_1a2cbcd0aeba52bbfdc56949b39d05f35ba2f94c1a110361aa31ccc26b2c6170d37">RDB_KVS_INTEGER</link>
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_rdb_8h_1a5f9429458504aabd590760cfda655677">rdb_probe_opc</link> { 
+<link linkend="_rdb_8h_1a5f9429458504aabd590760cfda655677a960bf53339dd207db1a43d5c36a3a2c0">RDB_PROBE_FIRST</link>, 
+<link linkend="_rdb_8h_1a5f9429458504aabd590760cfda655677aa455f6c51efca47ba1a9b127483af631">RDB_PROBE_LAST</link>, 
+<link linkend="_rdb_8h_1a5f9429458504aabd590760cfda655677a9362cce35979b36e3eee846da70ad56a">RDB_PROBE_EQ</link>, 
+<link linkend="_rdb_8h_1a5f9429458504aabd590760cfda655677a07ac6545fa44d21eceb26837c438044b">RDB_PROBE_GE</link>, 
+
+<link linkend="_rdb_8h_1a5f9429458504aabd590760cfda655677a88790011e719e4d3ec576e5a107438e5">RDB_PROBE_LE</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_rdb_8h_1aefc47a147054760479093bde5aefc24e">rdb_create</link> (const char *path, const uuid_t uuid, size_t size, const <link linkend="_structd__rank__list__t">d_rank_list_t</link> *replicas)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a62642990dde3d207354e0bf47f27f9cc"/>int <emphasis role="strong">rdb_destroy</emphasis> (const char *path, const uuid_t uuid)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1aaab128be2db508cbfa55dc004d364b18"/>int <emphasis role="strong">rdb_start</emphasis> (const char *path, const uuid_t uuid, struct <link linkend="_structrdb__cbs">rdb_cbs</link> *cbs, void *arg, struct rdb **dbp)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a25b96cc678bcefeb2696563e9311ffe5"/>void <emphasis role="strong">rdb_stop</emphasis> (struct rdb *db)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a082bf8e89377a250bb3aec4df505a7e5"/>void <emphasis role="strong">rdb_resign</emphasis> (struct rdb *db, uint64_t term)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a563f861381e89a52263b4c48e1b16c49"/>int <emphasis role="strong">rdb_campaign</emphasis> (struct rdb *db)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1acce0574afa2e00fb8174826009271275"/>bool <emphasis role="strong">rdb_is_leader</emphasis> (struct rdb *db, uint64_t *term)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a6d9a7fdcd9bcbcc67290c6235c6394b6"/>int <emphasis role="strong">rdb_get_leader</emphasis> (struct rdb *db, uint64_t *term, <link linkend="_group___g_u_r_t_1gae672185310db8deb2fc706c37b2e68bc">d_rank_t</link> *rank)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a748b0a12535ed5e58e228284d1be5596"/>int <emphasis role="strong">rdb_get_ranks</emphasis> (struct rdb *db, <link linkend="_structd__rank__list__t">d_rank_list_t</link> **ranksp)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1ac22172b6f659d4a516044a7308eef4e1"/>void <emphasis role="strong">rdb_get_uuid</emphasis> (struct rdb *db, uuid_t uuid)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a39cd5ee1b95b134e5a1086ac0e05a20b"/>int <emphasis role="strong">rdb_add_replicas</emphasis> (struct rdb *db, <link linkend="_structd__rank__list__t">d_rank_list_t</link> *replicas)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a1a25c0064e46da01cf672f50499bcfb2"/>int <emphasis role="strong">rdb_remove_replicas</emphasis> (struct rdb *db, <link linkend="_structd__rank__list__t">d_rank_list_t</link> *replicas)</para>
+</listitem>
+            <listitem><para>int <link linkend="_rdb_8h_1a918b07640c1ee4f5300150e2fa91dc6c">rdb_path_init</link> (<link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *path)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1afa2568cc6c9114a76f092280666b5efb"/>void <emphasis role="strong">rdb_path_fini</emphasis> (<link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *path)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1acf284d715852b16826416c70ff5af6cb"/>int <emphasis role="strong">rdb_path_clone</emphasis> (const <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *path, <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *new_path)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1acbe08d567eaa407f6867982ad2512317"/>int <emphasis role="strong">rdb_path_push</emphasis> (<link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *path, const <link linkend="_structd__iov__t">d_iov_t</link> *key)</para>
+</listitem>
+            <listitem><para>int <link linkend="_rdb_8h_1aac15acfef334d15781fd2816f8b3e6dd">rdb_tx_begin</link> (struct rdb *db, uint64_t term, struct <link linkend="_structrdb__tx">rdb_tx</link> *tx)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1acb50fabb159cc6442682bc2637e6cf5b"/>int <emphasis role="strong">rdb_tx_commit</emphasis> (struct <link linkend="_structrdb__tx">rdb_tx</link> *tx)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a0e766e3f83e71e1088647d3a78d5bee5"/>void <emphasis role="strong">rdb_tx_end</emphasis> (struct <link linkend="_structrdb__tx">rdb_tx</link> *tx)</para>
+</listitem>
+            <listitem><para>int <link linkend="_rdb_8h_1a7a424584eff345e62d658c231ae49f5c">rdb_tx_create_root</link> (struct <link linkend="_structrdb__tx">rdb_tx</link> *tx, const struct <link linkend="_structrdb__kvs__attr">rdb_kvs_attr</link> *attr)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1acd3a1ae8c7121503c20a384f448121fa"/>int <emphasis role="strong">rdb_tx_destroy_root</emphasis> (struct <link linkend="_structrdb__tx">rdb_tx</link> *tx)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a019f1708999258e93792dcaa3fcd5aa1"/>int <emphasis role="strong">rdb_tx_create_kvs</emphasis> (struct <link linkend="_structrdb__tx">rdb_tx</link> *tx, const <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *parent, const <link linkend="_structd__iov__t">d_iov_t</link> *key, const struct <link linkend="_structrdb__kvs__attr">rdb_kvs_attr</link> *attr)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a35183f0c728a6c19413ba6b45c026219"/>int <emphasis role="strong">rdb_tx_destroy_kvs</emphasis> (struct <link linkend="_structrdb__tx">rdb_tx</link> *tx, const <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *parent, const <link linkend="_structd__iov__t">d_iov_t</link> *key)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a60fc85837e7285e80d2e3b6d13f8a3cf"/>int <emphasis role="strong">rdb_tx_update</emphasis> (struct <link linkend="_structrdb__tx">rdb_tx</link> *tx, const <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *kvs, const <link linkend="_structd__iov__t">d_iov_t</link> *key, const <link linkend="_structd__iov__t">d_iov_t</link> *value)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1a65a509384738a8f04cfd8d360959278f"/>int <emphasis role="strong">rdb_tx_delete</emphasis> (struct <link linkend="_structrdb__tx">rdb_tx</link> *tx, const <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *kvs, const <link linkend="_structd__iov__t">d_iov_t</link> *key)</para>
+</listitem>
+            <listitem><para>int <link linkend="_rdb_8h_1aa3fb8431c73f6237d2476e9477a1fbc7">rdb_tx_lookup</link> (struct <link linkend="_structrdb__tx">rdb_tx</link> *tx, const <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *kvs, const <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *value)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1ac16b413c00345dcfb6748061aa6941da"/>int <emphasis role="strong">rdb_tx_fetch</emphasis> (struct <link linkend="_structrdb__tx">rdb_tx</link> *tx, const <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *kvs, enum <link linkend="_rdb_8h_1a5f9429458504aabd590760cfda655677">rdb_probe_opc</link> opc, const <link linkend="_structd__iov__t">d_iov_t</link> *key_in, <link linkend="_structd__iov__t">d_iov_t</link> *key_out, <link linkend="_structd__iov__t">d_iov_t</link> *value)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rdb_8h_1adc26d0097196e7bfdf549f83301e8709"/>int <emphasis role="strong">rdb_tx_iterate</emphasis> (struct <link linkend="_structrdb__tx">rdb_tx</link> *tx, const <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> *kvs, bool backward, <link linkend="_rdb_8h_1aa64edc9d76628d27480b37bec0b74880">rdb_iterate_cb_t</link> cb, void *arg)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_structd__iov__t">d_iov_t</link> <link linkend="_rdb_8h_1aab8927b7bbdc0c80b5fe726e08e31bba">rdb_path_root_key</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>rdb: Replicated Database</para>
+
+<para>An RDB database comprises a hierarchy of key-value stores (KVSs), much like how a file system comprises a hierarchy of directories. A key-value pair (KV) in a (parent) KVS may be another (child) KVS. A KVS is therefore identified by a path, which is the list of keys leading from the root KVS to the key whose value is the KVS in question. A newly-created database is empty; to store data, callers must first create the root KVS.</para>
+
+<para>Each KVS belongs to one of the predefined KVS classes (see rdb_kvs_class). Each value is a nonempty byte stream or a child KVS (see above).</para>
+
+<para>The key space of an example database may look like:</para>
+
+<para>rdb_path_root_key { &quot;containers&quot; { 5742bdea-90e2-4765-ad74-b7f19cb6d78f { &quot;ghce&quot; &quot;ghpce&quot; &quot;lhes&quot; { 5 12349875 } &quot;lres&quot; { 0 10 } &quot;snapshots&quot; { } &quot;user.attr_a&quot; &quot;user.attr_b&quot; } } &quot;container_handles&quot; { b0733249-0c9a-471b-86e8-027bcfccc6b1 92ccc99c-c755-45f4-b4ee-78fd081e54ca } }</para>
+
+<para>The RDB API is organized mostly around three types of objects:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>databases</para>
+</listitem><listitem>
+<para>paths</para>
+</listitem><listitem>
+<para>transactions</para>
+</listitem></itemizedlist>
+</para>
+
+<para>And a few distributed helper methods, rdb_dist_*, makes certain distributed tasks easier.</para>
+
+<para>All access to the KVSs in a database employ transactions (TX). Ending a TX without committing it discards all its updates. Ending a query-only TX without committing is fine at the moment.</para>
+
+<para>A query sees all (conflicting) updates committed (successfully) before its <link linkend="_rdb_8h_1aac15acfef334d15781fd2816f8b3e6dd">rdb_tx_begin()</link>. It may or may not see updates committed after its <link linkend="_rdb_8h_1aac15acfef334d15781fd2816f8b3e6dd">rdb_tx_begin()</link>. And, it currently does not see uncommitted updates, even those in the same TX.</para>
+
+<para>Updates in a TX are queued, not revealed to queries, until rdb_tx_commit(). They are applied sequentially. If one update fails to apply, then the TX is aborted (i.e., all applied updates in the TX are rolled back), and rdb_tx_commit() returns the error.</para>
+
+<para>If a TX destroys a KVS, then it must first destroy any child KVSs.</para>
+
+<para>If a TX does not include any updates, then rdb_tx_commit() will be a no-op and is not required.</para>
+
+<para>Currently, a database can be accessed by only one ES. This is to take advantage of Argobots&apos;s non-preemptive scheduling in order to simplify the locking inside rdb.</para>
+
+<para>Caller locking rules:</para>
+
+<para><link linkend="_rdb_8h_1aac15acfef334d15781fd2816f8b3e6dd">rdb_tx_begin()</link> rdlock(rl) rdb_tx_&lt;query&gt;() rdb_tx_&lt;update&gt;() wrlock(wl) // must before commit(); may not cover update()s rdb_tx_commit() unlock(wl) // must after commit() unlock(rl) // must after all {rd,wr}lock()s; may before commit() rdb_tx_end()</para>
+
+<para>These cases must be serialized:</para>
+
+<para><itemizedlist>
+<listitem>
+<para>rdb_tx_destroy_{root,kvs}(kvs0) versus any query or update to kvs0 or any of its child KVSs</para>
+</listitem><listitem>
+<para>rdb_tx_create_{root,kvs}(kvs0) versus any query or update to kvs0 or any of its child KVSs </para>
+</listitem></itemizedlist>
+</para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_rdb_8h_1adc3f70fcf077ac01e3b4b476af221171"/>    <section>
+    <title>RDB_NIL_TERM</title>
+<indexterm><primary>RDB_NIL_TERM</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>RDB_NIL_TERM</secondary></indexterm>
+<para><computeroutput>#define RDB_NIL_TERM   UINT64_MAX</computeroutput></para>
+<para>Nil term </para>
+<para>
+Definition at line 216 of file rdb.h.</para>
+    </section><anchor xml:id="_rdb_8h_1a4c522ad446c1ed8b59d6d88c6b922ab7"/>    <section>
+    <title>RDB_STRING_KEY</title>
+<indexterm><primary>RDB_STRING_KEY</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>RDB_STRING_KEY</secondary></indexterm>
+<para><computeroutput>#define RDB_STRING_KEY( prefix,  name)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting><emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">char</emphasis>&#32;prefix&#32;##&#32;name&#32;##&#32;_buf[]&#32;=&#32;#name;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+d_iov_t&#32;&#32;&#32;&#32;&#32;prefix&#32;##&#32;name&#32;=&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;.iov_buf&#32;&#32;&#32;&#32;=&#32;prefix&#32;##&#32;name&#32;##&#32;_buf,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;.iov_buf_len&#32;&#32;&#32;&#32;=&#32;<emphasis role="keyword">sizeof</emphasis>(prefix&#32;##&#32;name&#32;##&#32;_buf),&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;.iov_len&#32;&#32;&#32;&#32;=&#32;<emphasis role="keyword">sizeof</emphasis>(prefix&#32;##&#32;name&#32;##&#32;_buf)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+}
+</programlisting>
+<para>Define a <link linkend="_structd__iov__t">d_iov_t</link> object, named <emphasis>prefix</emphasis> + <emphasis>name</emphasis>, that represents a constant string key. See rdb_layout.[ch] for an example of the usage of this helper macro. </para>
+<para>
+Definition at line 180 of file rdb.h.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_rdb_8h_1aa64edc9d76628d27480b37bec0b74880"/>    <section>
+    <title>rdb_iterate_cb_t</title>
+<indexterm><primary>rdb_iterate_cb_t</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>rdb_iterate_cb_t</secondary></indexterm>
+<para><computeroutput>typedef int(* rdb_iterate_cb_t) (<link linkend="_structdaos__handle__t">daos_handle_t</link> ih, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val, void *arg)</computeroutput></para>
+<para>Iteration callback</para>
+
+<para>When a callback returns an rc,<itemizedlist>
+<listitem>
+<para>if rc == 0, rdb_tx_iterate() continues;</para>
+</listitem><listitem>
+<para>if rc == 1, rdb_tx_iterate() stops and returns 0;</para>
+</listitem><listitem>
+<para>otherwise, rdb_tx_iterate() stops and returns rc. </para>
+</listitem></itemizedlist>
+</para>
+<para>
+Definition at line 252 of file rdb.h.</para>
+    </section><anchor xml:id="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4"/>    <section>
+    <title>rdb_path_t</title>
+<indexterm><primary>rdb_path_t</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>rdb_path_t</secondary></indexterm>
+<para><computeroutput>typedef <link linkend="_structd__iov__t">d_iov_t</link> <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link></computeroutput></para>
+<para>Path (opaque)</para>
+
+<para>A path is a list of keys. An absolute path begins with a special key (rdb_path_root_key) representing the root KVS. </para>
+<para>
+Definition at line 160 of file rdb.h.</para>
+</section>
+</section>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_rdb_8h_1a2cbcd0aeba52bbfdc56949b39d05f35b"/>    <section>
+    <title>rdb_kvs_class</title>
+<indexterm><primary>rdb_kvs_class</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>rdb_kvs_class</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_rdb_8h_1a2cbcd0aeba52bbfdc56949b39d05f35b">rdb_kvs_class</link></computeroutput></para>
+<para>KVS classes </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>RDB_KVS_GENERIC</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>RDB_KVS_GENERIC</secondary></indexterm>
+<anchor xml:id="_rdb_8h_1a2cbcd0aeba52bbfdc56949b39d05f35bac2b40f2e27a5ec27c7060d427b35d659"/>RDB_KVS_GENERIC</entry><entry>
+<para>hash-ordered byte-stream keys </para>
+</entry></row><row><entry><indexterm><primary>RDB_KVS_INTEGER</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>RDB_KVS_INTEGER</secondary></indexterm>
+<anchor xml:id="_rdb_8h_1a2cbcd0aeba52bbfdc56949b39d05f35ba2f94c1a110361aa31ccc26b2c6170d37"/>RDB_KVS_INTEGER</entry><entry>
+<para>numerically-ordered uint64_t keys </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 189 of file rdb.h.</para>
+    </section><anchor xml:id="_rdb_8h_1a5f9429458504aabd590760cfda655677"/>    <section>
+    <title>rdb_probe_opc</title>
+<indexterm><primary>rdb_probe_opc</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>rdb_probe_opc</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_rdb_8h_1a5f9429458504aabd590760cfda655677">rdb_probe_opc</link></computeroutput></para>
+<para>Probe operation codes </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>RDB_PROBE_FIRST</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>RDB_PROBE_FIRST</secondary></indexterm>
+<anchor xml:id="_rdb_8h_1a5f9429458504aabd590760cfda655677a960bf53339dd207db1a43d5c36a3a2c0"/>RDB_PROBE_FIRST</entry><entry>
+<para>first key </para>
+</entry></row><row><entry><indexterm><primary>RDB_PROBE_LAST</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>RDB_PROBE_LAST</secondary></indexterm>
+<anchor xml:id="_rdb_8h_1a5f9429458504aabd590760cfda655677aa455f6c51efca47ba1a9b127483af631"/>RDB_PROBE_LAST</entry><entry>
+<para>unsupported </para>
+</entry></row><row><entry><indexterm><primary>RDB_PROBE_EQ</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>RDB_PROBE_EQ</secondary></indexterm>
+<anchor xml:id="_rdb_8h_1a5f9429458504aabd590760cfda655677a9362cce35979b36e3eee846da70ad56a"/>RDB_PROBE_EQ</entry><entry>
+<para>unsupported </para>
+</entry></row><row><entry><indexterm><primary>RDB_PROBE_GE</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>RDB_PROBE_GE</secondary></indexterm>
+<anchor xml:id="_rdb_8h_1a5f9429458504aabd590760cfda655677a07ac6545fa44d21eceb26837c438044b"/>RDB_PROBE_GE</entry><entry>
+<para>unsupported </para>
+</entry></row><row><entry><indexterm><primary>RDB_PROBE_LE</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>RDB_PROBE_LE</secondary></indexterm>
+<anchor xml:id="_rdb_8h_1a5f9429458504aabd590760cfda655677a88790011e719e4d3ec576e5a107438e5"/>RDB_PROBE_LE</entry><entry>
+<para>unsupported </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 236 of file rdb.h.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_rdb_8h_1aefc47a147054760479093bde5aefc24e"/>    <section>
+    <title>rdb_create()</title>
+<indexterm><primary>rdb_create</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>rdb_create</secondary></indexterm>
+<para><computeroutput>int rdb_create (const char * path, const uuid_t uuid, size_t size, const <link linkend="_structd__rank__list__t">d_rank_list_t</link> * replicas)</computeroutput></para>
+<para>Database methods </para>
+    </section><anchor xml:id="_rdb_8h_1a918b07640c1ee4f5300150e2fa91dc6c"/>    <section>
+    <title>rdb_path_init()</title>
+<indexterm><primary>rdb_path_init</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>rdb_path_init</secondary></indexterm>
+<para><computeroutput>int rdb_path_init (<link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> * path)</computeroutput></para>
+<para>Path methods </para>
+    </section><anchor xml:id="_rdb_8h_1aac15acfef334d15781fd2816f8b3e6dd"/>    <section>
+    <title>rdb_tx_begin()</title>
+<indexterm><primary>rdb_tx_begin</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>rdb_tx_begin</secondary></indexterm>
+<para><computeroutput>int rdb_tx_begin (struct rdb * db, uint64_t term, struct <link linkend="_structrdb__tx">rdb_tx</link> * tx)</computeroutput></para>
+<para>TX methods </para>
+    </section><anchor xml:id="_rdb_8h_1a7a424584eff345e62d658c231ae49f5c"/>    <section>
+    <title>rdb_tx_create_root()</title>
+<indexterm><primary>rdb_tx_create_root</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>rdb_tx_create_root</secondary></indexterm>
+<para><computeroutput>int rdb_tx_create_root (struct <link linkend="_structrdb__tx">rdb_tx</link> * tx, const struct <link linkend="_structrdb__kvs__attr">rdb_kvs_attr</link> * attr)</computeroutput></para>
+<para>TX update methods </para>
+    </section><anchor xml:id="_rdb_8h_1aa3fb8431c73f6237d2476e9477a1fbc7"/>    <section>
+    <title>rdb_tx_lookup()</title>
+<indexterm><primary>rdb_tx_lookup</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>rdb_tx_lookup</secondary></indexterm>
+<para><computeroutput>int rdb_tx_lookup (struct <link linkend="_structrdb__tx">rdb_tx</link> * tx, const <link linkend="_rdb_8h_1a16fcea80a9953c87e57e0259b641f1b4">rdb_path_t</link> * kvs, const <link linkend="_structd__iov__t">d_iov_t</link> * key, <link linkend="_structd__iov__t">d_iov_t</link> * value)</computeroutput></para>
+<para>TX query methods </para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_rdb_8h_1aab8927b7bbdc0c80b5fe726e08e31bba"/>    <section>
+    <title>rdb_path_root_key</title>
+<indexterm><primary>rdb_path_root_key</primary><secondary>rdb.h</secondary></indexterm>
+<indexterm><primary>rdb.h</primary><secondary>rdb_path_root_key</secondary></indexterm>
+<para><computeroutput><link linkend="_structd__iov__t">d_iov_t</link> rdb_path_root_key</computeroutput></para>
+<para>Root key (opaque)</para>
+
+<para>A special key representing the root KVS in a path. </para>
+</section>
+</section>
+</section>

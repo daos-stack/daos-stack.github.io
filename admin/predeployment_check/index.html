@@ -42,7 +42,7 @@
     
     
       
-        <title>Pre-deployment Checklist - DAOS</title>
+        <title>Pre-deployment Checklist - DAOS v1.0</title>
       
     
     
@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-    
-      <link rel="stylesheet" href="../../css/version-select.css">
     
     
       
@@ -102,9 +100,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
+            <i class="md-icon"></i>
           
         </a>
       </div>
@@ -115,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS
+              DAOS v1.0
             </span>
             <span class="md-header-nav__topic">
               
@@ -247,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
+        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -289,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
+        <i class="md-icon"></i>
       
     </a>
-    DAOS
+    DAOS v1.0
   </label>
   
     <div class="md-nav__source">
@@ -418,6 +416,18 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
+      Data Integrity
     </a>
   </li>
 
@@ -846,7 +856,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -858,7 +868,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+    <a href="../../release/support_matrix/" title="Support Matrix" class="md-nav__link">
       Support Matrix
     </a>
   </li>
@@ -1193,7 +1203,7 @@ interfaces.</p>
 <p>Firstly, the accept_local feature must be enabled on the network interfaces
 to be used by DAOS. This can be done using the following command (<ifaces> must
 be replaced with the interface names):</p>
-<pre><code>$ sysctl -w net.ipv4.conf.&lt;ifaces&gt;.accept_local=1
+<pre><code>$ sudo sysctl -w net.ipv4.conf.all.accept_local=1
 </code></pre>
 
 <p>Secondly, Linux must be configured to only send ARP replies on the interface
@@ -1259,7 +1269,7 @@ $ chown user:user /var/run/daos_agent (where user is the user you
 </code></pre>
 
 <h3 id="default-directory-persistent">Default Directory (persistent)<a class="headerlink" href="#default-directory-persistent" title="Permanent link">&para;</a></h3>
-<p>If the server hosting daos_server or daos_agent will be rebooted often,
+<p>If the server hosting <code>daos_server</code> or <code>daos_agent</code> will be rebooted often,
 systemd provides a persistent mechanism for creating the required
 directories called tmpfiles.d. This mechanism will be required every
 time the system is provisioned and requires a reboot to take effect.</p>
@@ -1283,30 +1293,30 @@ time the system is provisioned and requires a reboot to take effect.</p>
 that require elevated privileges on behalf of <code>daos_server</code>.</p>
 <h3 id="privileged-helper-configuration">Privileged Helper Configuration<a class="headerlink" href="#privileged-helper-configuration" title="Permanent link">&para;</a></h3>
 <p>When DAOS is installed from RPM, the <code>daos_admin</code> helper is automatically installed
-to the correct location with the correct permissions. The RPM creates a "daos_admins"
+to the correct location with the correct permissions. The RPM creates a "daos_server"
 system group and configures permissions such that <code>daos_admin</code> may only be invoked
 from <code>daos_server</code>.</p>
 <p>For non-RPM installations, there are two supported scenarios:</p>
 <ol>
 <li><code>daos_server</code> is run as root, which means that <code>daos_admin</code> is also invoked as root,
-and therefore no additional setup is necessary</li>
+and therefore no additional setup is necessary.</li>
 <li><code>daos_server</code> is run as a non-root user, which means that <code>daos_admin</code> must be
-manually installed and configured</li>
+manually installed and configured.</li>
 </ol>
 <p>The steps to enable the second scenario are as follows (steps are assumed to be
 running out of a DAOS source tree which may be on a NFS share):</p>
-<pre><code class="bash">$ chmod -x $SL_PREFIX/bin/daos_admin # prevent this copy from being executed
-$ sudo cp $SL_PREFIX/bin/daos_admin /usr/bin/daos_admin
+<pre><code class="bash">$ chmod -x $daospath/bin/daos_admin # prevent this copy from being executed
+$ sudo cp $daospath/bin/daos_admin /usr/bin/daos_admin
 $ sudo chmod 4755 /usr/bin/daos_admin # make this copy setuid root
 $ sudo mkdir -p /usr/share/daos/control # create symlinks to SPDK scripts
-$ sudo ln -sf $SL_PREFIX/share/daos/control/setup_spdk.sh \
+$ sudo ln -sf $daospath/share/daos/control/setup_spdk.sh \
            /usr/share/daos/control
 $ sudo mkdir -p /usr/share/spdk/scripts
-$ sudo ln -sf $SL_PREFIX/share/spdk/scripts/setup.sh \
+$ sudo ln -sf $daospath/share/spdk/scripts/setup.sh \
            /usr/share/spdk/scripts
-$ sudo ln -sf $SL_PREFIX/share/spdk/scripts/common.sh \
+$ sudo ln -sf $daospath/share/spdk/scripts/common.sh \
            /usr/share/spdk/scripts
-$ sudo ln -s $SL_PREFIX/include \
+$ sudo ln -s $daospath/include \
            /usr/share/spdk/include
 </code></pre>
 
@@ -1318,7 +1328,7 @@ proof-of-concept scenarios.</p>
 </div>
 <h2 id="memory-lock-limits">Memory Lock Limits<a class="headerlink" href="#memory-lock-limits" title="Permanent link">&para;</a></h2>
 <p>Low ulimit for memlock can cause SPDK to fail and emit the following error:</p>
-<pre><code class="bash">daos_io_server:1 EAL: cannot set up DMA remapping, error 12 (Cannot allocate
+<pre><code class="bash">daos_engine:1 EAL: cannot set up DMA remapping, error 12 (Cannot allocate
     memory)
 </code></pre>
 
@@ -1405,8 +1415,6 @@ https://software.intel.com/content/www/us/en/develop/blogs/best-known-methods-fo
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
-      
-        <script src="../../js/version-select.js"></script>
       
     
   </body>

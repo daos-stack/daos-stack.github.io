@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structcrt__proto__query__cb__info">
+<title>crt_proto_query_cb_info Struct Reference</title>
+<indexterm><primary>crt_proto_query_cb_info</primary></indexterm>
+<para>
+<computeroutput>#include &lt;types.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>void * <link linkend="_structcrt__proto__query__cb__info_1a9711b508f2ae51d877b490e0f5bbea88">pq_arg</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structcrt__proto__query__cb__info_1a45dc9e40a3e069a2d7a139704c8af922">pq_ver</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structcrt__proto__query__cb__info_1af6dd1b11f561298641114e9e5c69abe3">pq_rc</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>argument available to the completion callback in <link linkend="_group___c_a_r_t_1gafe86d4600a2c1c1755c808b2834e7aa4">crt_proto_query()</link>. </para>
+<para>
+Definition at line 215 of file types.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structcrt__proto__query__cb__info_1a9711b508f2ae51d877b490e0f5bbea88"/>    <section>
+    <title>pq_arg</title>
+<indexterm><primary>pq_arg</primary><secondary>crt_proto_query_cb_info</secondary></indexterm>
+<indexterm><primary>crt_proto_query_cb_info</primary><secondary>pq_arg</secondary></indexterm>
+<para><computeroutput>void* pq_arg</computeroutput></para>
+<para>user data passed-in to <link linkend="_group___c_a_r_t_1gafe86d4600a2c1c1755c808b2834e7aa4">crt_proto_query()</link> as arg </para>
+<para>
+Definition at line 217 of file types.h.</para>
+    </section><anchor xml:id="_structcrt__proto__query__cb__info_1af6dd1b11f561298641114e9e5c69abe3"/>    <section>
+    <title>pq_rc</title>
+<indexterm><primary>pq_rc</primary><secondary>crt_proto_query_cb_info</secondary></indexterm>
+<indexterm><primary>crt_proto_query_cb_info</primary><secondary>pq_rc</secondary></indexterm>
+<para><computeroutput>int pq_rc</computeroutput></para>
+<para>return falue </para>
+<para>
+Definition at line 224 of file types.h.</para>
+    </section><anchor xml:id="_structcrt__proto__query__cb__info_1a45dc9e40a3e069a2d7a139704c8af922"/>    <section>
+    <title>pq_ver</title>
+<indexterm><primary>pq_ver</primary><secondary>crt_proto_query_cb_info</secondary></indexterm>
+<indexterm><primary>crt_proto_query_cb_info</primary><secondary>pq_ver</secondary></indexterm>
+<para><computeroutput>int pq_ver</computeroutput></para>
+<para>contains the highest version supported by the target when pq_rc == DER_SUCCESS </para>
+<para>
+Definition at line 222 of file types.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/cart/<link linkend="_cart_2types_8h">types.h</link></section>
+</section>

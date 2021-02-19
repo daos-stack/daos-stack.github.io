@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structvea__ext__vector">
+<title>vea_ext_vector Struct Reference</title>
+<indexterm><primary>vea_ext_vector</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structvea__ext__vector_1acc190fd689c2803896d5d2f55d29349b"/>uint64_t <emphasis role="strong">vev_blk_off</emphasis> [VEA_EXT_VECTOR_MAX]</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structvea__ext__vector_1afbc861fdee4487bc964be3e6c9966ced"/>uint32_t <emphasis role="strong">vev_blk_cnt</emphasis> [VEA_EXT_VECTOR_MAX]</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structvea__ext__vector_1a93877cf214e9e66439e3161c5cd5d651"/>uint32_t <emphasis role="strong">vev_size</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 39 of file vea.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/vea.h</section>
+</section>

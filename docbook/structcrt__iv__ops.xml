@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structcrt__iv__ops">
+<title>crt_iv_ops Struct Reference</title>
+<indexterm><primary>crt_iv_ops</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structcrt__iv__ops_1a058db08ef144eb0c30fd009a880843b0"/><link linkend="_group___c_a_r_t___i_v_1gadfd71e2fd3cf2c964e6e7ffee9591369">crt_iv_pre_fetch_cb_t</link> <emphasis role="strong">ivo_pre_fetch</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__ops_1a377f778029a7b7b46a7916a70a4a97f4"/><link linkend="_group___c_a_r_t___i_v_1ga9fde73042d0475bc2d9b487edf020d41">crt_iv_on_fetch_cb_t</link> <emphasis role="strong">ivo_on_fetch</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__ops_1a12a9488feffc51f4666175240b8bc84a"/><link linkend="_group___c_a_r_t___i_v_1ga0790a619bf723381447cb6be8b83098e">crt_iv_pre_update_cb_t</link> <emphasis role="strong">ivo_pre_update</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__ops_1abcee9060ffcdf7c6aa491c58931f1fe3"/><link linkend="_group___c_a_r_t___i_v_1ga57f36a04c9351a4a8afb9e9be3154beb">crt_iv_on_update_cb_t</link> <emphasis role="strong">ivo_on_update</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__ops_1a545d5993362d443d120797273b8c9154"/><link linkend="_group___c_a_r_t___i_v_1gaf65602f5707d602cd015806f3c1ebb92">crt_iv_pre_refresh_cb_t</link> <emphasis role="strong">ivo_pre_refresh</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__ops_1a9df9395e0187af0bcd06b5f20387107d"/><link linkend="_group___c_a_r_t___i_v_1ga76e641984de9608196762c727b08b501">crt_iv_on_refresh_cb_t</link> <emphasis role="strong">ivo_on_refresh</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__ops_1aa145b14b43c8b4ef4fd195c5f8d753c6"/><link linkend="_group___c_a_r_t___i_v_1ga4ca9d65eb9c6591934066536f783c182">crt_iv_on_hash_cb_t</link> <emphasis role="strong">ivo_on_hash</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__ops_1a51a9ed9bd2c8e6e855d1d9640acc3c6a"/><link linkend="_group___c_a_r_t___i_v_1ga00f8a96aaf07dd08e3eea063f3e7b1e7">crt_iv_on_get_cb_t</link> <emphasis role="strong">ivo_on_get</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__ops_1a8cd0118ffecf432e884d7b8dbf0e9d73"/><link linkend="_group___c_a_r_t___i_v_1ga46f9ac7a874c703936181aefd5e3096c">crt_iv_on_put_cb_t</link> <emphasis role="strong">ivo_on_put</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__ops_1a8907981522cd80562da5fe24e177dc5a"/><link linkend="_group___c_a_r_t___i_v_1gab5634e166e82980309045f6ea95e4b14">crt_iv_keys_match_cb_t</link> <emphasis role="strong">ivo_keys_match</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__ops_1aceb3948837a1000f948694ccab85f069"/><link linkend="_group___c_a_r_t___i_v_1ga01154a729022a76477a9237d1c9d844b">crt_iv_pre_sync_cb_t</link> <emphasis role="strong">ivo_pre_sync</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 331 of file iv.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/cart/<link linkend="_cart_2iv_8h">iv.h</link></section>
+</section>

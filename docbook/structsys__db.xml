@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structsys__db">
+<title>sys_db Struct Reference</title>
+<indexterm><primary>sys_db</primary></indexterm>
+<para>
+<computeroutput>#include &lt;daos_engine.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structsys__db_1a4cd3a84a5e10ed0dee80e367fafcca13"/>char <emphasis role="strong">sd_name</emphasis> [SYS_DB_NAME_SZ]</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structsys__db_1a777322fe2bb45c2b35831999e0ebb83a">sd_fetch</link> )(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structsys__db_1a17c92d6df6555d7ac78cef8cba8e81df">sd_upsert</link> )(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structsys__db_1a3b49025ef8174ca1f1a758057f8f1c33">sd_insert</link> )(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structsys__db_1a1ba8f75fca916c15881f3344f475fef2">sd_update</link> )(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structsys__db_1aaf1efd0f7ec92d5aafe4d2178831354f">sd_delete</link> )(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, <link linkend="_structd__iov__t">d_iov_t</link> *key)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structsys__db_1a5c9a8ea728a5c28bf73fdeacbafbe7fd">sd_traverse</link> )(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, sys_db_trav_cb_t cb, void *args)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structsys__db_1a565327467e5861e3d4b30abe26509a4a"/>int(* <emphasis role="strong">sd_tx_begin</emphasis> )(struct <link linkend="_structsys__db">sys_db</link> *db)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structsys__db_1a1d3fad8eb29a3c71bb22e1eb70b83f64"/>int(* <emphasis role="strong">sd_tx_end</emphasis> )(struct <link linkend="_structsys__db">sys_db</link> *db, int rc)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structsys__db_1a9b1a131a98bf8f6fe7cf7b24874f3d71"/>void(* <emphasis role="strong">sd_lock</emphasis> )(struct <link linkend="_structsys__db">sys_db</link> *db)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structsys__db_1ae90f0c9d8adadcf8c9b2086eac8e90a4"/>void(* <emphasis role="strong">sd_unlock</emphasis> )(struct <link linkend="_structsys__db">sys_db</link> *db)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>system database is a simple local KV store </para>
+<para>
+Definition at line 844 of file daos_engine.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structsys__db_1aaf1efd0f7ec92d5aafe4d2178831354f"/>    <section>
+    <title>sd_delete</title>
+<indexterm><primary>sd_delete</primary><secondary>sys_db</secondary></indexterm>
+<indexterm><primary>sys_db</primary><secondary>sd_delete</secondary></indexterm>
+<para><computeroutput>int(* sd_delete(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, <link linkend="_structd__iov__t">d_iov_t</link> *key)</computeroutput></para>
+<para>delete provided key and its value from the <emphasis>table</emphasis> </para>
+<para>
+Definition at line 859 of file daos_engine.h.</para>
+    </section><anchor xml:id="_structsys__db_1a777322fe2bb45c2b35831999e0ebb83a"/>    <section>
+    <title>sd_fetch</title>
+<indexterm><primary>sd_fetch</primary><secondary>sys_db</secondary></indexterm>
+<indexterm><primary>sys_db</primary><secondary>sd_fetch</secondary></indexterm>
+<para><computeroutput>int(* sd_fetch(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</computeroutput></para>
+<para>look up the provided key in <emphasis>table</emphasis> and return its value </para>
+<para>
+Definition at line 847 of file daos_engine.h.</para>
+    </section><anchor xml:id="_structsys__db_1a3b49025ef8174ca1f1a758057f8f1c33"/>    <section>
+    <title>sd_insert</title>
+<indexterm><primary>sd_insert</primary><secondary>sys_db</secondary></indexterm>
+<indexterm><primary>sys_db</primary><secondary>sd_insert</secondary></indexterm>
+<para><computeroutput>int(* sd_insert(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</computeroutput></para>
+<para>reserved </para>
+<para>
+Definition at line 853 of file daos_engine.h.</para>
+    </section><anchor xml:id="_structsys__db_1a5c9a8ea728a5c28bf73fdeacbafbe7fd"/>    <section>
+    <title>sd_traverse</title>
+<indexterm><primary>sd_traverse</primary><secondary>sys_db</secondary></indexterm>
+<indexterm><primary>sys_db</primary><secondary>sd_traverse</secondary></indexterm>
+<para><computeroutput>int(* sd_traverse(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, sys_db_trav_cb_t cb, void *args)</computeroutput></para>
+<para>traverse all keys in the <emphasis>table</emphasis> </para>
+<para>
+Definition at line 861 of file daos_engine.h.</para>
+    </section><anchor xml:id="_structsys__db_1a1ba8f75fca916c15881f3344f475fef2"/>    <section>
+    <title>sd_update</title>
+<indexterm><primary>sd_update</primary><secondary>sys_db</secondary></indexterm>
+<indexterm><primary>sys_db</primary><secondary>sd_update</secondary></indexterm>
+<para><computeroutput>int(* sd_update(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</computeroutput></para>
+<para>reserved </para>
+<para>
+Definition at line 856 of file daos_engine.h.</para>
+    </section><anchor xml:id="_structsys__db_1a17c92d6df6555d7ac78cef8cba8e81df"/>    <section>
+    <title>sd_upsert</title>
+<indexterm><primary>sd_upsert</primary><secondary>sys_db</secondary></indexterm>
+<indexterm><primary>sys_db</primary><secondary>sd_upsert</secondary></indexterm>
+<para><computeroutput>int(* sd_upsert(struct <link linkend="_structsys__db">sys_db</link> *db, char *table, <link linkend="_structd__iov__t">d_iov_t</link> *key, <link linkend="_structd__iov__t">d_iov_t</link> *val)</computeroutput></para>
+<para>update or insert a KV pair to <emphasis>table</emphasis> </para>
+<para>
+Definition at line 850 of file daos_engine.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/daos_engine.h</section>
+</section>

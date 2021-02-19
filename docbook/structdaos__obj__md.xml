@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdaos__obj__md">
+<title>daos_obj_md Struct Reference</title>
+<indexterm><primary>daos_obj_md</primary></indexterm>
+<para>
+<computeroutput>#include &lt;object.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdaos__obj__md_1ab594799151861df2dcc7f62bec6dff13"/><link linkend="_structdaos__obj__id__t">daos_obj_id_t</link> <emphasis role="strong">omd_id</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__obj__md_1a2e731a2d2199c84d6dd1c01f436f3535"/>uint32_t <emphasis role="strong">omd_ver</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__obj__md_1aeec48aa86f7ad3299bc8bb5ac0a28d74"/>uint32_t <emphasis role="strong">omd_padding</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__obj__md_1a0e4933a5fa2c23c5363bef7372a61064"/>union {</para>
+        <itemizedlist>
+            <listitem><para>   uint32_t <emphasis role="strong">omd_split</emphasis></para>
+</listitem>
+            <listitem><para>   uint64_t <emphasis role="strong">omd_loff</emphasis></para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>}; </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>object metadata stored in the global OI table of container </para>
+<para>
+Definition at line 160 of file object.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/object.h</section>
+</section>

@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdaos__obj__shard__md">
+<title>daos_obj_shard_md Struct Reference</title>
+<indexterm><primary>daos_obj_shard_md</primary></indexterm>
+<para>
+<computeroutput>#include &lt;object.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_structdaos__unit__oid__t">daos_unit_oid_t</link> <link linkend="_structdaos__obj__shard__md_1a4aba110c5cede1a95e93a79b24cc92a1">smd_id</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__obj__shard__md_1a07d99861da4b7170cfbb4456266703d6"/>uint64_t <emphasis role="strong">smd_attr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__obj__shard__md_1a875cd37bcc8ea3b1c9e7c8996e698771"/>uint32_t <emphasis role="strong">smd_po_ver</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__obj__shard__md_1a4f705d98a230ad4cc20bc0eecefe0b57"/>uint32_t <emphasis role="strong">smd_padding</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>object shard metadata stored in each container shard </para>
+<para>
+Definition at line 171 of file object.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdaos__obj__shard__md_1a4aba110c5cede1a95e93a79b24cc92a1"/>    <section>
+    <title>smd_id</title>
+<indexterm><primary>smd_id</primary><secondary>daos_obj_shard_md</secondary></indexterm>
+<indexterm><primary>daos_obj_shard_md</primary><secondary>smd_id</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__unit__oid__t">daos_unit_oid_t</link> smd_id</computeroutput></para>
+<para>ID of the object shard </para>
+<para>
+Definition at line 173 of file object.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/object.h</section>
+</section>

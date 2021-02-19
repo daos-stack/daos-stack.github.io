@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structcrt__req__format">
+<title>crt_req_format Struct Reference</title>
+<indexterm><primary>crt_req_format</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structcrt__req__format_1aa527f20af9ffaf1b9ebb1dd53841d312"/><link linkend="_group___c_a_r_t___t_y_p_e_s_1ga1266fedf6067dbd6400b70730468145a">crt_proc_cb_t</link> <emphasis role="strong">crf_proc_in</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__req__format_1a40d964db1fbaca66837dcb91ff8e1062"/><link linkend="_group___c_a_r_t___t_y_p_e_s_1ga1266fedf6067dbd6400b70730468145a">crt_proc_cb_t</link> <emphasis role="strong">crf_proc_out</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__req__format_1a613ee864a7289665488cc9761273411a"/>const size_t <emphasis role="strong">crf_size_in</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__req__format_1a41879459ba0273280a7dbe8f34ef4ccc"/>const size_t <emphasis role="strong">crf_size_out</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 163 of file types.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/cart/<link linkend="_cart_2types_8h">types.h</link></section>
+</section>

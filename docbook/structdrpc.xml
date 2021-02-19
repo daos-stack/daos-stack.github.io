@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdrpc">
+<title>drpc Struct Reference</title>
+<indexterm><primary>drpc</primary></indexterm>
+<para>
+<computeroutput>#include &lt;drpc.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdrpc_1a6decd3915970c932493e90ec8cb5d472"/>struct <link linkend="_structunixcomm">unixcomm</link> * <emphasis role="strong">comm</emphasis></para>
+</listitem>
+            <listitem><para>int <link linkend="_structdrpc_1acc80722d9dd9349cbba06c72d6fb5972">sequence</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdrpc_1a8bc9ed6f57b3d3eb766eba5b711cfe8f">ref_count</link></para>
+</listitem>
+            <listitem><para>drpc_handler_t <link linkend="_structdrpc_1aef8cdddac3caeb07b29363f1850f2880">handler</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>dRPC connection context. This includes all details needed to communicate on the dRPC channel. </para>
+<para>
+Definition at line 53 of file drpc.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdrpc_1aef8cdddac3caeb07b29363f1850f2880"/>    <section>
+    <title>handler</title>
+<indexterm><primary>handler</primary><secondary>drpc</secondary></indexterm>
+<indexterm><primary>drpc</primary><secondary>handler</secondary></indexterm>
+<para><computeroutput>drpc_handler_t handler</computeroutput></para>
+<para>open refs to this ctx Handler for messages received by a listening drpc context. For client contexts, this is NULL. </para>
+<para>
+Definition at line 62 of file drpc.h.</para>
+    </section><anchor xml:id="_structdrpc_1a8bc9ed6f57b3d3eb766eba5b711cfe8f"/>    <section>
+    <title>ref_count</title>
+<indexterm><primary>ref_count</primary><secondary>drpc</secondary></indexterm>
+<indexterm><primary>drpc</primary><secondary>ref_count</secondary></indexterm>
+<para><computeroutput>uint32_t ref_count</computeroutput></para>
+<para>sequence number of latest message sent </para>
+<para>
+Definition at line 56 of file drpc.h.</para>
+    </section><anchor xml:id="_structdrpc_1acc80722d9dd9349cbba06c72d6fb5972"/>    <section>
+    <title>sequence</title>
+<indexterm><primary>sequence</primary><secondary>drpc</secondary></indexterm>
+<indexterm><primary>drpc</primary><secondary>sequence</secondary></indexterm>
+<para><computeroutput>int sequence</computeroutput></para>
+<para>unix domain socket communication context </para>
+<para>
+Definition at line 55 of file drpc.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/drpc.h</section>
+</section>

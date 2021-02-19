@@ -1,0 +1,221 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdts__context">
+<title>dts_context Struct Reference</title>
+<indexterm><primary>dts_context</primary></indexterm>
+<para>
+<computeroutput>#include &lt;tests_lib.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>char * <link linkend="_structdts__context_1a6775c1f1afa1f9f7b46523bf0bdcecbe">tsc_pmem_file</link></para>
+</listitem>
+            <listitem><para>char * <link linkend="_structdts__context_1ac677c07402c6877ba056370e778cc76a">tsc_dmg_conf</link></para>
+</listitem>
+            <listitem><para><link linkend="_structd__rank__list__t">d_rank_list_t</link> <link linkend="_structdts__context_1ae720287e688e5619f5c4843cf1439490">tsc_svc</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structdts__context_1ae0ce96e28df5d1ec8e00a5d4078da3fe">tsc_mpi_rank</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structdts__context_1a10aa5c9f817a929aefc61eb9f072e03b">tsc_mpi_size</link></para>
+</listitem>
+            <listitem><para>uuid_t <link linkend="_structdts__context_1a26de7d71245ca292cfaad2ba4f1964e8">tsc_pool_uuid</link></para>
+</listitem>
+            <listitem><para>uuid_t <link linkend="_structdts__context_1a9c35767e3616be713170ccf986347db0">tsc_cont_uuid</link></para>
+</listitem>
+            <listitem><para>uint64_t <link linkend="_structdts__context_1a14c6ce8e0ba538e4fc26ca609d8230c6">tsc_scm_size</link></para>
+</listitem>
+            <listitem><para>uint64_t <link linkend="_structdts__context_1a0f64c41cf1a608a61e5dfc27c3437245">tsc_nvme_size</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structdts__context_1a84fb54205ba912f6b5e62b4368ec6b2e">tsc_cred_nr</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structdts__context_1a527914a193e714816d0e1f287ddf780a">tsc_cred_vsize</link></para>
+</listitem>
+            <listitem><para><link linkend="_structdaos__handle__t">daos_handle_t</link> <link linkend="_structdts__context_1a5538984101f29270beaf13d49de861bb">tsc_poh</link></para>
+</listitem>
+            <listitem><para><link linkend="_structdaos__handle__t">daos_handle_t</link> <link linkend="_structdts__context_1af57b8d95d15a3713de38c705e554c07f">tsc_coh</link></para>
+</listitem>
+            <listitem><para><link linkend="_structdaos__handle__t">daos_handle_t</link> <link linkend="_structdts__context_1aceac75f96dd72b2685a723d071b4eaa3">tsc_eqh</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structdts__context_1a66194fa2cc67e291325bae21c03ada4c">tsc_cred_avail</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structdts__context_1a1e5b454bcde0e129f4f817abdcf251b7">tsc_cred_inuse</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structdts__io__credit">dts_io_credit</link> <link linkend="_structdts__context_1af5a6ff02fb08c7c072011678257d6ce7">tsc_cred_buf</link> [DTS_CRED_MAX]</para>
+</listitem>
+            <listitem><para>struct <link linkend="_structdts__io__credit">dts_io_credit</link> * <link linkend="_structdts__context_1a14d470a5e66cf47d1f95b690d7c8bfac">tsc_credits</link> [DTS_CRED_MAX]</para>
+</listitem>
+            <listitem><para>int <link linkend="_structdts__context_1a37177f3f83bdf9da200da283abd26819">tsc_init</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>I/O test context It is input parameter which carries pool and container uuid etc, and output parameter which returns pool and container open handle.</para>
+
+<para>If <emphasis>tsc_pmem_file</emphasis> is set, then it is VOS I/O test context, otherwise it is DAOS I/O test context and <emphasis>ts_svc</emphasis> should be set. </para>
+<para>
+Definition at line 128 of file tests_lib.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdts__context_1af57b8d95d15a3713de38c705e554c07f"/>    <section>
+    <title>tsc_coh</title>
+<indexterm><primary>tsc_coh</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_coh</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__handle__t">daos_handle_t</link> tsc_coh</computeroutput></para>
+<para>container open handle </para>
+<para>
+Definition at line 154 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a9c35767e3616be713170ccf986347db0"/>    <section>
+    <title>tsc_cont_uuid</title>
+<indexterm><primary>tsc_cont_uuid</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_cont_uuid</secondary></indexterm>
+<para><computeroutput>uuid_t tsc_cont_uuid</computeroutput></para>
+<para>container uuid </para>
+<para>
+Definition at line 141 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a66194fa2cc67e291325bae21c03ada4c"/>    <section>
+    <title>tsc_cred_avail</title>
+<indexterm><primary>tsc_cred_avail</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_cred_avail</secondary></indexterm>
+<para><computeroutput>int tsc_cred_avail</computeroutput></para>
+<para><formalpara><title>available I/O credits</title></formalpara>
+</para>
+<para>
+Definition at line 157 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1af5a6ff02fb08c7c072011678257d6ce7"/>    <section>
+    <title>tsc_cred_buf</title>
+<indexterm><primary>tsc_cred_buf</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_cred_buf</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structdts__io__credit">dts_io_credit</link> tsc_cred_buf[DTS_CRED_MAX]</computeroutput></para>
+<para>all pre-allocated I/O credits </para>
+<para>
+Definition at line 161 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a1e5b454bcde0e129f4f817abdcf251b7"/>    <section>
+    <title>tsc_cred_inuse</title>
+<indexterm><primary>tsc_cred_inuse</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_cred_inuse</secondary></indexterm>
+<para><computeroutput>int tsc_cred_inuse</computeroutput></para>
+<para><formalpara><title>inflight I/O credits</title></formalpara>
+</para>
+<para>
+Definition at line 159 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a84fb54205ba912f6b5e62b4368ec6b2e"/>    <section>
+    <title>tsc_cred_nr</title>
+<indexterm><primary>tsc_cred_nr</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_cred_nr</secondary></indexterm>
+<para><computeroutput>int tsc_cred_nr</computeroutput></para>
+<para>number of I/O credits (tsc_credits) </para>
+<para>
+Definition at line 147 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a527914a193e714816d0e1f287ddf780a"/>    <section>
+    <title>tsc_cred_vsize</title>
+<indexterm><primary>tsc_cred_vsize</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_cred_vsize</secondary></indexterm>
+<para><computeroutput>int tsc_cred_vsize</computeroutput></para>
+<para>value size for <emphasis>tsc_credits</emphasis> </para>
+<para>
+Definition at line 149 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a14d470a5e66cf47d1f95b690d7c8bfac"/>    <section>
+    <title>tsc_credits</title>
+<indexterm><primary>tsc_credits</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_credits</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structdts__io__credit">dts_io_credit</link>* tsc_credits[DTS_CRED_MAX]</computeroutput></para>
+<para>pointers of all available I/O credits </para>
+<para>
+Definition at line 163 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1ac677c07402c6877ba056370e778cc76a"/>    <section>
+    <title>tsc_dmg_conf</title>
+<indexterm><primary>tsc_dmg_conf</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_dmg_conf</secondary></indexterm>
+<para><computeroutput>char* tsc_dmg_conf</computeroutput></para>
+<para>DMG config file </para>
+<para>
+Definition at line 133 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1aceac75f96dd72b2685a723d071b4eaa3"/>    <section>
+    <title>tsc_eqh</title>
+<indexterm><primary>tsc_eqh</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_eqh</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__handle__t">daos_handle_t</link> tsc_eqh</computeroutput></para>
+<para>EQ handle </para>
+<para>
+Definition at line 155 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a37177f3f83bdf9da200da283abd26819"/>    <section>
+    <title>tsc_init</title>
+<indexterm><primary>tsc_init</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_init</secondary></indexterm>
+<para><computeroutput>int tsc_init</computeroutput></para>
+<para>initialization steps, internal use only </para>
+<para>
+Definition at line 165 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1ae0ce96e28df5d1ec8e00a5d4078da3fe"/>    <section>
+    <title>tsc_mpi_rank</title>
+<indexterm><primary>tsc_mpi_rank</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_mpi_rank</secondary></indexterm>
+<para><computeroutput>int tsc_mpi_rank</computeroutput></para>
+<para>MPI rank of caller </para>
+<para>
+Definition at line 137 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a10aa5c9f817a929aefc61eb9f072e03b"/>    <section>
+    <title>tsc_mpi_size</title>
+<indexterm><primary>tsc_mpi_size</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_mpi_size</secondary></indexterm>
+<para><computeroutput>int tsc_mpi_size</computeroutput></para>
+<para><formalpara><title>processes in the MPI program</title></formalpara>
+</para>
+<para>
+Definition at line 139 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a0f64c41cf1a608a61e5dfc27c3437245"/>    <section>
+    <title>tsc_nvme_size</title>
+<indexterm><primary>tsc_nvme_size</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_nvme_size</secondary></indexterm>
+<para><computeroutput>uint64_t tsc_nvme_size</computeroutput></para>
+<para>pool NVMe partition size </para>
+<para>
+Definition at line 145 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a6775c1f1afa1f9f7b46523bf0bdcecbe"/>    <section>
+    <title>tsc_pmem_file</title>
+<indexterm><primary>tsc_pmem_file</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_pmem_file</secondary></indexterm>
+<para><computeroutput>char* tsc_pmem_file</computeroutput></para>
+<para>INPUT: should be initialized by caller optional, pmem file name, only for VOS test </para>
+<para>
+Definition at line 131 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a5538984101f29270beaf13d49de861bb"/>    <section>
+    <title>tsc_poh</title>
+<indexterm><primary>tsc_poh</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_poh</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__handle__t">daos_handle_t</link> tsc_poh</computeroutput></para>
+<para>INPUT END OUTPUT: initialized within <emphasis>dts_ctx_init()</emphasis> pool open handle </para>
+<para>
+Definition at line 153 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a26de7d71245ca292cfaad2ba4f1964e8"/>    <section>
+    <title>tsc_pool_uuid</title>
+<indexterm><primary>tsc_pool_uuid</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_pool_uuid</secondary></indexterm>
+<para><computeroutput>uuid_t tsc_pool_uuid</computeroutput></para>
+<para>pool uuid </para>
+<para>
+Definition at line 140 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1a14c6ce8e0ba538e4fc26ca609d8230c6"/>    <section>
+    <title>tsc_scm_size</title>
+<indexterm><primary>tsc_scm_size</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_scm_size</secondary></indexterm>
+<para><computeroutput>uint64_t tsc_scm_size</computeroutput></para>
+<para>pool SCM partition size </para>
+<para>
+Definition at line 143 of file tests_lib.h.</para>
+    </section><anchor xml:id="_structdts__context_1ae720287e688e5619f5c4843cf1439490"/>    <section>
+    <title>tsc_svc</title>
+<indexterm><primary>tsc_svc</primary><secondary>dts_context</secondary></indexterm>
+<indexterm><primary>dts_context</primary><secondary>tsc_svc</secondary></indexterm>
+<para><computeroutput><link linkend="_structd__rank__list__t">d_rank_list_t</link> tsc_svc</computeroutput></para>
+<para>optional, pool service ranks, only for DAOS test </para>
+<para>
+Definition at line 135 of file tests_lib.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/tests_lib.h</section>
+</section>

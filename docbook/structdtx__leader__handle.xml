@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdtx__leader__handle">
+<title>dtx_leader_handle Struct Reference</title>
+<indexterm><primary>dtx_leader_handle</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdtx__leader__handle_1a549fbf4504881d8ef8a72f022dfa83ff"/>struct <link linkend="_structdtx__handle">dtx_handle</link> <emphasis role="strong">dlh_handle</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__leader__handle_1a65a33a1848b7653149f75fe2d9cee35f"/>int <emphasis role="strong">dlh_result</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__leader__handle_1ad545a5b8f46669d9ab700443966e6703"/>uint32_t <emphasis role="strong">dlh_dti_cos_count</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__leader__handle_1ab36f1567b249eaf1ee5c59b0ed8af48e"/>struct <link linkend="_structdtx__id">dtx_id</link> * <emphasis role="strong">dlh_dti_cos</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__leader__handle_1aac731cd751f114470e71b0f6423bfe00"/>ABT_future <emphasis role="strong">dlh_future</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__leader__handle_1a49e99ee5a9ede7037ce983f02597da62"/>uint32_t <emphasis role="strong">dlh_sub_cnt</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__leader__handle_1accd2976f57980a3a4089657d64860019"/>struct <link linkend="_structdtx__sub__status">dtx_sub_status</link> * <emphasis role="strong">dlh_subs</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__leader__handle_1a718a1e9886f08a4a6e6116c3701cbe88"/>dtx_agg_cb_t <emphasis role="strong">dlh_agg_cb</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__leader__handle_1a9f8040bdbd43ad11a25b02eef8e62e05"/>void * <emphasis role="strong">dlh_agg_cb_arg</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 132 of file dtx_srv.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/dtx_srv.h</section>
+</section>

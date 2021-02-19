@@ -42,7 +42,7 @@
     
     
       
-        <title>Introduction - DAOS</title>
+        <title>Data Integrity - DAOS v1.0</title>
       
     
     
@@ -69,8 +69,6 @@
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
     
-      <link rel="stylesheet" href="../../css/version-select.css">
-    
     
       
     
@@ -93,7 +91,7 @@
     <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
     <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
     
-      <a href="#introduction" tabindex="0" class="md-skip">
+      <a href="#data-integrity" tabindex="0" class="md-skip">
         Skip to content
       </a>
     
@@ -102,9 +100,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
+            <i class="md-icon"></i>
           
         </a>
       </div>
@@ -115,11 +113,11 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS
+              DAOS v1.0
             </span>
             <span class="md-header-nav__topic">
               
-                Introduction
+                Data Integrity
               
             </span>
           
@@ -187,14 +185,16 @@
       
         
 
-<nav class="md-tabs" data-md-component="tabs">
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." class="md-tabs__link md-tabs__link--active">
+      <a href="../.." class="md-tabs__link">
         Home
       </a>
     
@@ -206,7 +206,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../terminology/" class="md-tabs__link">
+        <a href="../terminology/" class="md-tabs__link md-tabs__link--active">
           Architecture Overview
         </a>
       
@@ -245,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
+        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -287,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
+        <i class="md-icon"></i>
       
     </a>
-    DAOS
+    DAOS v1.0
   </label>
   
     <div class="md-nav__source">
@@ -333,10 +333,12 @@
       
       
 
+  
 
-  <li class="md-nav__item md-nav__item--nested">
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
     
     <label class="md-nav__link" for="nav-2">
       Architecture Overview
@@ -417,6 +419,76 @@
     <a href="../security/" title="Security Model" class="md-nav__link">
       Security Model
     </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+      
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Data Integrity
+      </label>
+    
+    <a href="./" title="Data Integrity" class="md-nav__link md-nav__link--active">
+      Data Integrity
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#requirements" class="md-nav__link">
+    Requirements
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#key-requirements" class="md-nav__link">
+    Key Requirements
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#supportiveadditional-requirements" class="md-nav__link">
+    Supportive/Additional Requirements
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
   </li>
 
         
@@ -702,7 +774,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -714,7 +786,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+    <a href="../../release/support_matrix/" title="Support Matrix" class="md-nav__link">
       Support Matrix
     </a>
   </li>
@@ -911,7 +983,7 @@
                   <a href="https://github.com/daos-stack/daos/edit/master/docs/overview/data_integrity.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
                 
                 
-                <h1 id="introduction">Introduction<a class="headerlink" href="#introduction" title="Permanent link">&para;</a></h1>
+                <h1 id="data-integrity">Data Integrity<a class="headerlink" href="#data-integrity" title="Permanent link">&para;</a></h1>
 <p>Arguably, one of the worst things a data storage system can do is to return
  incorrect data without the requester knowing. While each component in the
  system (network layer, storage devices) may offer protection against silent
@@ -927,36 +999,46 @@ good checksum with the requested data to the DAOS Client, which will calculate
 checksums on the data received and verify.</p>
 <h2 id="requirements">Requirements<a class="headerlink" href="#requirements" title="Permanent link">&para;</a></h2>
 <h3 id="key-requirements">Key Requirements<a class="headerlink" href="#key-requirements" title="Permanent link">&para;</a></h3>
-<p>There are two key requirements that DAOS will support.
-1. Detect silent data corruption - Corruption will be detected on the
+<p>There are two key requirements that DAOS will support.</p>
+<ol>
+<li>Detect silent data corruption - Corruption will be detected on the
  distribution and attribute keys and records within a DAOS object. At a minimum,
- when corruption is detected, an error will be reported.
-1. Correct data corruption - When data corruption is detected, an attempt will
- be made to recover the data using data redundancy mechanisms.</p>
+ when corruption is detected, an error will be reported.</li>
+<li>Correct data corruption - When data corruption is detected, an attempt will
+ be made to recover the data using data redundancy mechanisms.</li>
+</ol>
 <h3 id="supportiveadditional-requirements">Supportive/Additional Requirements<a class="headerlink" href="#supportiveadditional-requirements" title="Permanent link">&para;</a></h3>
-<p>Additionally, DAOS will support ...
-1. End to End Data Integrity as a Quality of Service Attribute - Container
+<p>Additionally, DAOS will support:</p>
+<ol>
+<li>
+<p>End to End Data Integrity as a Quality of Service Attribute - Container
  properties are used to enable/disable the use of checksums for data integrity
- as well as define specific attributes of data integrity feature.  See
- https://daos-stack.github.io/user/container/#data-integrity for details on
- configuring a container with checksums enabled.
-1. Minimize Performance Impact - When there is no data corruption, the End to
+ as well as define specific attributes of data integrity feature.  Refer to
+<a href="https://daos-stack.github.io/user/container/#data-integrity">Data Integrity Readme</a> 
+for details on configuring a container with checksums enabled.</p>
+</li>
+<li>
+<p>Minimize Performance Impact - When there is no data corruption, the End to
  End Data Integrity feature should have minimal performance impacted. If data
  corruption is detected, performance can be impacted to correct the data.
- Work is ongoing to minimize performance impact.
-1. Inject Errors - The ability to corrupt data within a specific record, key,
+ Work is ongoing to minimize performance impact.</p>
+</li>
+<li>Inject Errors - The ability to corrupt data within a specific record, key,
  or checksum will be necessary for testing purposes. Fault injection is used to
- simulate corruption over the network and on disk. The DAOS_CSUM_CORRUPT_*
- flags used for data corruption are defined in src/include/daos/common.h.
-1. Logging - When data corruption is detected, error logs are captured in
- the client and server logs.</p>
-<p>Up coming features not supported yet
-1. Event Logging - When silent data corruption is discovered, an event should
+ simulate corruption over the network and on disk. The <code>DAOS_CSUM_CORRUPT_*</code>
+ flags used for data corruption are defined in <code>src/include/daos/common.h</code>.</li>
+<li>Logging - When data corruption is detected, error logs are captured in
+ the client and server logs.</li>
+</ol>
+<p>Features not yet supported:</p>
+<ol>
+<li>Event Logging - When silent data corruption is discovered, an event should
  be logged in such a way that it can be retrieved with other system health and
- diagnostic information.
-1. Proactive background service task - A background task on
+ diagnostic information.</li>
+<li>Proactive background service task - A background task on
  the server which scans for and detects (audits checksums) silent data
- corruption and corrects.</p>
+ corruption and corrects.</li>
+</ol>
 <h1 id="keys-and-value-objects">Keys and Value Objects<a class="headerlink" href="#keys-and-value-objects" title="Permanent link">&para;</a></h1>
 <p>Because DAOS is a key/value store, the data for both keys and values is
 protected, however, the approach for both is slightly different. For the two
@@ -973,7 +1055,7 @@ received.</p>
 <p class="admonition-title">Note</p>
 <p>Checksums for keys are not stored on the server. A hash of the key is
 calculated and used to index the key in the server tree of the keys
-(see <a href="../../src/vos/README.md#key-array-stores">VOS Key Array Stores</a>).
+(see <a href="https://github.com/daos-stack/daos/blob/master/src/vos/README.md#key-array-stores">VOS Key Array Stores</a>).
 It is also expected that keys are stored only in Storage Class Memory which
 has reliable data integrity protection.</p>
 </div>
@@ -985,8 +1067,8 @@ received from the client to verify the integrity of the value. If the checksums
 don't match, then data corruption has occurred and an error is returned to the
 client indicating that the client should try the update again. Whether "server
 verify" is enabled or not, the server will store the checksum.
-See <a href="../../src/vos/README.md">VOS</a> for more info about checksum management and
-storage in VOS.</p>
+See <a href="https://github.com/daos-stack/daos/blob/master/src/vos/README.md">VOS</a>
+for more info about checksum management and storage in VOS.</p>
 <p>On a fetch, the server will return the stored checksum to the client with the
 values fetched so the client can verify the values received. If the checksums
 don't match, then the client will fetch from another replica if available in
@@ -995,7 +1077,7 @@ an attempt to get uncorrupted data.</p>
 of values. The following diagram illustrates a basic example.
  (See <a href="../storage/">Storage Model</a> for more details about the single value
  and array value types)</p>
-<p><img alt="" src="../../graph/data_integrity/basic_checksum_flow.png" /></p>
+<p><img alt="Basic Checksum Flow" src="../../graph/data_integrity/basic_checksum_flow.png" /></p>
 <h3 id="single-value">Single Value<a class="headerlink" href="#single-value" title="Permanent link">&para;</a></h3>
 <p>A Single Value is an atomic value, meaning that writes to a single value will
 update the entire value and reads retrieve the entire value. Other DAOS features
@@ -1011,23 +1093,14 @@ application needs many small single values to use an Array Type instead.</p>
 an array. In addition, updates to an array are versioned, so a fetch can include
 parts from multiple versions of the array. Each of these versioned parts of an
 array are called extents. The following diagrams illustrate a couple examples
-(also see <a href="../../src/vos/README.md#key-array-stores">VOS Key Array Stores</a> for
+(also see <a href="https://github.com/daos-stack/daos/blob/master/src/vos/README.md#key-array-stores">VOS Key Array Stores</a> for
 more information):</p>
-<div>
-A single extent update (blue line) from index 2-13. A fetched extent (orange
-line) from index 2-6. The fetch is only part of the original extent written.
-
-![](../graph/data_integrity/array_example_1.png)
-</div>
-
-<div>
-Many extent updates and different epochs. A fetch from index 2-13 requires parts
-from each extent.
-
-![Array Example 2](../graph/data_integrity/array_example_2.png)
-
-</div>
-
+<p>A single extent update (blue line) from index 2-13. A fetched extent (orange
+line) from index 2-6. The fetch is only part of the original extent written.</p>
+<p><img alt="" src="../../graph/data_integrity/array_example_1.png" /></p>
+<p>Many extent updates and different epochs. A fetch from index 2-13 requires parts
+from each extent.</p>
+<p><img alt="Array Example 2" src="../../graph/data_integrity/array_example_2.png" /></p>
 <p>The nature of the array type requires that a more sophisticated approach to
 creating checksums is used. DAOS uses a "chunking" approach where each extent
 will be broken up into "chunks" with a predetermined "chunk size." Checksums
@@ -1036,8 +1109,8 @@ will be derived from these chunks. Chunks are aligned with an absolute offset
 size configured to be 4 (units is arbitrary in this example). Though not all
 chunks have a full size of 4, an  absolute offset alignment is maintained.
 The gray boxes around the extents represent the chunks.</p>
-<p><img src="../graph/data_integrity/array_with_chunks.png" width="700" /></p>
-<p>(See <a href="../../src/object/README.md">Object Layer</a> for more details about the
+<p><img alt="" src="../../graph/data_integrity/array_with_chunks.png" /></p>
+<p>(See <a href="https://github.com/daos-stack/daos/blob/master/src/object/README.md">Object Layer</a> for more details about the
 checksum process on object update and fetch)</p>
 <h1 id="checksum-calculations">Checksum calculations<a class="headerlink" href="#checksum-calculations" title="Permanent link">&para;</a></h1>
 <p>The actual checksum calculations are done by the
@@ -1203,14 +1276,16 @@ rebuild protocol will be invoked.</p>
 scanning anything on that SSD.</p>
 <h2 id="additional-checksum-properties-docusercontainermd-docuserpoolmd">Additional Checksum Properties &gt; doc/user/container.md / doc/user/pool.md?<a class="headerlink" href="#additional-checksum-properties-docusercontainermd-docuserpoolmd" title="Permanent link">&para;</a></h2>
 <p>These properties are provided when a container or pool is created, but should
-also be able to update them. When updated, they should be active right away.
-- Scanner Interval - Minimum number of days scanning will take. Could take
-  longer, but if only a few records will pad so takes longer. (Pool property)
-- Disable scrubbing - at container level &amp; pool level
-- Threshold for when to evict SSD (number of corruption events)
-- In Place Correction - If the number checksum errors is below the Eviction
+also be able to update them. When updated, they should be active right away.</p>
+<ul>
+<li>Scanner Interval - Minimum number of days scanning will take. Could take
+  longer, but if only a few records will pad so takes longer. (Pool property)</li>
+<li>Disable scrubbing - at container level &amp; pool level</li>
+<li>Threshold for when to evict SSD (number of corruption events)</li>
+<li>In Place Correction - If the number checksum errors is below the Eviction
   Threshold, DAOS will attempt to repair the corrupted data using replicas if
-  they exist.</p>
+  they exist.</li>
+</ul>
 <h2 id="design-details-implementation">Design Details &amp; Implementation<a class="headerlink" href="#design-details-implementation" title="Permanent link">&para;</a></h2>
 <h3 id="pool-ult">Pool ULT<a class="headerlink" href="#pool-ult" title="Permanent link">&para;</a></h3>
 <p>The code for the pool ULT is found in <code>srv_pool_scrub.c</code>. It can be a bit
@@ -1280,6 +1355,41 @@ call):</p>
         
 <footer class="md-footer">
   
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../security/" title="Security Model" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Security Model
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../../admin/hardware/" title="Hardware Requirements" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                Hardware Requirements
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">
       <div class="md-footer-copyright">
@@ -1300,8 +1410,6 @@ call):</p>
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
-      
-        <script src="../../js/version-select.js"></script>
       
     
   </body>

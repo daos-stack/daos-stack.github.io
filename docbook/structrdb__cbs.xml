@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structrdb__cbs">
+<title>rdb_cbs Struct Reference</title>
+<indexterm><primary>rdb_cbs</primary></indexterm>
+<para>
+<computeroutput>#include &lt;rdb.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int(* <link linkend="_structrdb__cbs_1a7b34bb4f6a275282b3a3491b4cb1af5d">dc_step_up</link> )(struct rdb *db, uint64_t term, void *arg)</para>
+</listitem>
+            <listitem><para>void(* <link linkend="_structrdb__cbs_1aa93b398fbb81b3c8e411fc58680df0ab">dc_step_down</link> )(struct rdb *db, uint64_t term, void *arg)</para>
+</listitem>
+            <listitem><para>void(* <link linkend="_structrdb__cbs_1afa61841c45c108e87b4505e888a9377b">dc_stop</link> )(struct rdb *db, int err, void *arg)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Database callbacks </para>
+<para>
+Definition at line 111 of file rdb.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structrdb__cbs_1aa93b398fbb81b3c8e411fc58680df0ab"/>    <section>
+    <title>dc_step_down</title>
+<indexterm><primary>dc_step_down</primary><secondary>rdb_cbs</secondary></indexterm>
+<indexterm><primary>rdb_cbs</primary><secondary>dc_step_down</secondary></indexterm>
+<para><computeroutput>void(* dc_step_down(struct rdb *db, uint64_t term, void *arg)</computeroutput></para>
+<para>If not NULL, called after this replica steps down as the leader of <emphasis>term</emphasis>. A replicated service over rdb may want to take the chance to stop itself on this replica. </para>
+<para>
+Definition at line 127 of file rdb.h.</para>
+    </section><anchor xml:id="_structrdb__cbs_1a7b34bb4f6a275282b3a3491b4cb1af5d"/>    <section>
+    <title>dc_step_up</title>
+<indexterm><primary>dc_step_up</primary><secondary>rdb_cbs</secondary></indexterm>
+<indexterm><primary>rdb_cbs</primary><secondary>dc_step_up</secondary></indexterm>
+<para><computeroutput>int(* dc_step_up(struct rdb *db, uint64_t term, void *arg)</computeroutput></para>
+<para>If not NULL, called after this replica becomes the leader of <emphasis>term</emphasis>. A replicated service over rdb may want to take the chance to start itself on this replica. If an error is returned, rdb steps down, but without calling dc_step_down. If the error is -DER_SHUTDOWN, rdb will also call the dc_stop callback to trigger a replica stop. </para>
+<para>
+Definition at line 120 of file rdb.h.</para>
+    </section><anchor xml:id="_structrdb__cbs_1afa61841c45c108e87b4505e888a9377b"/>    <section>
+    <title>dc_stop</title>
+<indexterm><primary>dc_stop</primary><secondary>rdb_cbs</secondary></indexterm>
+<indexterm><primary>rdb_cbs</primary><secondary>dc_stop</secondary></indexterm>
+<para><computeroutput>void(* dc_stop(struct rdb *db, int err, void *arg)</computeroutput></para>
+<para>Called to suggest that this replica shall be stopped due to an error. A replicated service over rdb shall schedule a rdb_stop() call made from a non-rdb context (i.e., not in this or any other rdb callbacks and not inside any rdb TXs) to avoid deadlocks. </para>
+<para>
+Definition at line 135 of file rdb.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/<link linkend="_rdb_8h">rdb.h</link></section>
+</section>

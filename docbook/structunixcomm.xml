@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structunixcomm">
+<title>unixcomm Struct Reference</title>
+<indexterm><primary>unixcomm</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structunixcomm_1a6f8059414f0228f0256115e024eeed4b"/>int <emphasis role="strong">fd</emphasis></para>
+</listitem>
+            <listitem><para>int <link linkend="_structunixcomm_1ac8bf36fe0577cba66bccda3a6f7e80a4">flags</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 23 of file drpc.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structunixcomm_1ac8bf36fe0577cba66bccda3a6f7e80a4"/>    <section>
+    <title>flags</title>
+<indexterm><primary>flags</primary><secondary>unixcomm</secondary></indexterm>
+<indexterm><primary>unixcomm</primary><secondary>flags</secondary></indexterm>
+<para><computeroutput>int flags</computeroutput></para>
+<para>File descriptor of the unix domain socket </para>
+<para>
+Definition at line 25 of file drpc.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/drpc.h</section>
+</section>

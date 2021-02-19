@@ -1,0 +1,86 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structbtr__instance">
+<title>btr_instance Struct Reference</title>
+<indexterm><primary>btr_instance</primary></indexterm>
+<para>
+<computeroutput>#include &lt;btree.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structumem__instance">umem_instance</link> <link linkend="_structbtr__instance_1af5bed5f46ac397d36819101c44713c13">ti_umm</link></para>
+</listitem>
+            <listitem><para>void * <link linkend="_structbtr__instance_1ada52a015f962614538d31151fa564449">ti_priv</link></para>
+</listitem>
+            <listitem><para><link linkend="_structdaos__handle__t">daos_handle_t</link> <link linkend="_structbtr__instance_1aaa8b577f602d3aa66cd410b6f404e8fc">ti_coh</link></para>
+</listitem>
+            <listitem><para>umem_off_t <link linkend="_structbtr__instance_1a6cb1bb6c01bab8ee0b2db7b2e5b27e03">ti_root_off</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structbtr__root">btr_root</link> * <link linkend="_structbtr__instance_1ac7e1332f4d4a793eac75d502be806c4e">ti_root</link></para>
+</listitem>
+            <listitem><para><link linkend="_structbtr__ops__t">btr_ops_t</link> * <link linkend="_structbtr__instance_1afd9c6f93d81c9e824afe16ee655be0c8">ti_ops</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Tree instance, it is instantiated while creating or opening a tree. </para>
+<para>
+Definition at line 412 of file btree.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structbtr__instance_1aaa8b577f602d3aa66cd410b6f404e8fc"/>    <section>
+    <title>ti_coh</title>
+<indexterm><primary>ti_coh</primary><secondary>btr_instance</secondary></indexterm>
+<indexterm><primary>btr_instance</primary><secondary>ti_coh</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__handle__t">daos_handle_t</link> ti_coh</computeroutput></para>
+<para>The container open handle. </para>
+<para>
+Definition at line 420 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__instance_1afd9c6f93d81c9e824afe16ee655be0c8"/>    <section>
+    <title>ti_ops</title>
+<indexterm><primary>ti_ops</primary><secondary>btr_instance</secondary></indexterm>
+<indexterm><primary>btr_instance</primary><secondary>ti_ops</secondary></indexterm>
+<para><computeroutput><link linkend="_structbtr__ops__t">btr_ops_t</link>* ti_ops</computeroutput></para>
+<para>Customized operations for the tree </para>
+<para>
+Definition at line 426 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__instance_1ada52a015f962614538d31151fa564449"/>    <section>
+    <title>ti_priv</title>
+<indexterm><primary>ti_priv</primary><secondary>btr_instance</secondary></indexterm>
+<indexterm><primary>btr_instance</primary><secondary>ti_priv</secondary></indexterm>
+<para><computeroutput>void* ti_priv</computeroutput></para>
+<para>Private data for opener </para>
+<para>
+Definition at line 416 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__instance_1ac7e1332f4d4a793eac75d502be806c4e"/>    <section>
+    <title>ti_root</title>
+<indexterm><primary>ti_root</primary><secondary>btr_instance</secondary></indexterm>
+<indexterm><primary>btr_instance</primary><secondary>ti_root</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structbtr__root">btr_root</link>* ti_root</computeroutput></para>
+<para>root pointer </para>
+<para>
+Definition at line 424 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__instance_1a6cb1bb6c01bab8ee0b2db7b2e5b27e03"/>    <section>
+    <title>ti_root_off</title>
+<indexterm><primary>ti_root_off</primary><secondary>btr_instance</secondary></indexterm>
+<indexterm><primary>btr_instance</primary><secondary>ti_root_off</secondary></indexterm>
+<para><computeroutput>umem_off_t ti_root_off</computeroutput></para>
+<para>root umem offset </para>
+<para>
+Definition at line 422 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__instance_1af5bed5f46ac397d36819101c44713c13"/>    <section>
+    <title>ti_umm</title>
+<indexterm><primary>ti_umm</primary><secondary>btr_instance</secondary></indexterm>
+<indexterm><primary>btr_instance</primary><secondary>ti_umm</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structumem__instance">umem_instance</link> ti_umm</computeroutput></para>
+<para>instance of memory class for the tree </para>
+<para>
+Definition at line 414 of file btree.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/btree.h</section>
+</section>

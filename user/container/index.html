@@ -42,7 +42,7 @@
     
     
       
-        <title>Container Management - DAOS</title>
+        <title>Container Management - DAOS v1.0</title>
       
     
     
@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-    
-      <link rel="stylesheet" href="../../css/version-select.css">
     
     
       
@@ -102,9 +100,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
+            <i class="md-icon"></i>
           
         </a>
       </div>
@@ -115,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS
+              DAOS v1.0
             </span>
             <span class="md-header-nav__topic">
               
@@ -247,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
+        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -289,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
+        <i class="md-icon"></i>
       
     </a>
-    DAOS
+    DAOS v1.0
   </label>
   
     <div class="md-nav__source">
@@ -418,6 +416,18 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
+      Data Integrity
     </a>
   </li>
 
@@ -888,7 +898,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -900,7 +910,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+    <a href="../../release/support_matrix/" title="Support Matrix" class="md-nav__link">
       Support Matrix
     </a>
   </li>
@@ -1235,7 +1245,7 @@ variables need to be set (this is no longer needed in later versions of DAOS):
  * For InfiniBand: <code>export OFI_INTERFACE="ib0"; export CRT_PHY_ADDR_STR="ofi+verbs;ofi_rxm"; export OFI_DOMAIN="mlx5_0"</code></p>
 </div>
 <p>To create a container:</p>
-<pre><code class="bash">$ daos cont create --pool=a171434a-05a5-4671-8fe2-615aa0d05094 --svc=0
+<pre><code class="bash">$ daos cont create --pool=a171434a-05a5-4671-8fe2-615aa0d05094
 Successfully created container 008123fc-6b6c-4768-a88a-a2a5ef34a1a2
 </code></pre>
 
@@ -1245,11 +1255,11 @@ stored in the extended attributes of a POSIX file or directory for convenience.
 Then subsequent invocations of the daos tools need to reference the path
 to the POSIX file or directory.</p>
 <pre><code class="bash">$ daos cont create --pool=a171434a-05a5-4671-8fe2-615aa0d05094 \
-      --svc=0 --path=/tmp/mycontainer --type=POSIX --oclass=large \
+      --path=/tmp/mycontainer --type=POSIX --oclass=large \
       --chunk_size=4K
 Successfully created container 419b7562-5bb8-453f-bd52-917c8f5d80d1 type POSIX
 
-$ daos container query --svc=0 --path=/tmp/mycontainer
+$ daos container query --path=/tmp/mycontainer
 Pool UUID:      a171434a-05a5-4671-8fe2-615aa0d05094
 Container UUID: 419b7562-5bb8-453f-bd52-917c8f5d80d1
 Number of snapshots: 0
@@ -1461,13 +1471,13 @@ pool and container permissions are controlled individually.</p>
 </div>
 <h3 id="creating-containers-with-custom-acl">Creating Containers with Custom ACL<a class="headerlink" href="#creating-containers-with-custom-acl" title="Permanent link">&para;</a></h3>
 <p>To create a container with a custom ACL:</p>
-<pre><code class="bash">$ daos cont create --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --acl-file=&lt;path&gt;
+<pre><code class="bash">$ daos cont create --pool=&lt;UUID&gt; --acl-file=&lt;path&gt;
 </code></pre>
 
 <p>The ACL file format is detailed in the <a href="https://daos-stack.github.io/overview/security/#acl-file">ACL section</a>.</p>
 <h3 id="displaying-a-containers-acl">Displaying a Container's ACL<a class="headerlink" href="#displaying-a-containers-acl" title="Permanent link">&para;</a></h3>
 <p>To view a container's ACL:</p>
-<pre><code class="bash">$ daos cont get-acl --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt;
+<pre><code class="bash">$ daos cont get-acl --pool=&lt;UUID&gt; --cont=&lt;UUID&gt;
 </code></pre>
 
 <p>The output is in the same string format used in the ACL file during creation,
@@ -1477,18 +1487,18 @@ with one ACE per line.</p>
 noted above for container creation.</p>
 <h4 id="overwriting-the-acl">Overwriting the ACL<a class="headerlink" href="#overwriting-the-acl" title="Permanent link">&para;</a></h4>
 <p>To replace a container's ACL with a new ACL:</p>
-<pre><code class="bash">$ daos cont overwrite-acl --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; \
+<pre><code class="bash">$ daos cont overwrite-acl --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; \
       --acl-file=&lt;path&gt;
 </code></pre>
 
 <h4 id="adding-and-updating-aces">Adding and Updating ACEs<a class="headerlink" href="#adding-and-updating-aces" title="Permanent link">&para;</a></h4>
 <p>To add or update multiple entries in an existing container ACL:</p>
-<pre><code class="bash">$ daos cont update-acl --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; \
+<pre><code class="bash">$ daos cont update-acl --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; \
       --acl-file=&lt;path&gt;
 </code></pre>
 
 <p>To add or update a single entry in an existing container ACL:</p>
-<pre><code class="bash">$ daos cont update-acl --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; --entry &lt;ACE&gt;
+<pre><code class="bash">$ daos cont update-acl --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; --entry &lt;ACE&gt;
 </code></pre>
 
 <p>If there is no existing entry for the principal in the ACL, the new entry is
@@ -1496,7 +1506,7 @@ added to the ACL. If there is already an entry for the principal, that entry
 is replaced with the new one.</p>
 <h4 id="removing-an-ace">Removing an ACE<a class="headerlink" href="#removing-an-ace" title="Permanent link">&para;</a></h4>
 <p>To delete an entry for a given principal in an existing container ACL:</p>
-<pre><code class="bash">$ daos cont delete-acl --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; \
+<pre><code class="bash">$ daos cont delete-acl --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; \
       --principal=&lt;principal&gt;
 </code></pre>
 
@@ -1532,7 +1542,7 @@ granted by the ACL.</p>
 <p>The default owner user and group are the effective user and group of the user
 creating the container. However, a specific user and/or group may be specified
 at container creation time.</p>
-<pre><code class="bash">$ daos cont create --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --user=&lt;owner-user&gt; \
+<pre><code class="bash">$ daos cont create --pool=&lt;UUID&gt; --user=&lt;owner-user&gt; \
       --group=&lt;owner-group&gt;
 </code></pre>
 
@@ -1540,12 +1550,12 @@ at container creation time.</p>
 <a href="https://daos-stack.github.io/overview/security/#principal">DAOS ACL user/group principals</a>.</p>
 <h4 id="changing-ownership">Changing Ownership<a class="headerlink" href="#changing-ownership" title="Permanent link">&para;</a></h4>
 <p>To change the owner user:</p>
-<pre><code class="bash">$ daos cont set-owner --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; \
+<pre><code class="bash">$ daos cont set-owner --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; \
       --user=&lt;owner-user&gt;
 </code></pre>
 
 <p>To change the owner group:</p>
-<pre><code class="bash">$ daos cont set-owner --pool=&lt;UUID&gt; --svc=&lt;rank&gt; --cont=&lt;UUID&gt; \
+<pre><code class="bash">$ daos cont set-owner --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; \
       --group=&lt;owner-group&gt;
 </code></pre>
 
@@ -1624,8 +1634,6 @@ at container creation time.</p>
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
-      
-        <script src="../../js/version-select.js"></script>
       
     
   </body>

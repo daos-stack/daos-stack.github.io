@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structd__string__buffer__t">
+<title>d_string_buffer_t Struct Reference</title>
+<indexterm><primary>d_string_buffer_t</primary></indexterm>
+<para>
+<computeroutput>#include &lt;types.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_structd__string__buffer__t_1a6e27f49150e9a14580fb313cc2777e00">status</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_structd__string__buffer__t_1a5e716248be5ef357434eec497c7726c6">str_size</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_structd__string__buffer__t_1ae6563dde7454192031694b48405393d7">buf_size</link></para>
+</listitem>
+            <listitem><para>char * <link linkend="_structd__string__buffer__t_1ab50d783982593ef993ea0b68f7ad8b80">str</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>c string buffer </para>
+<para>
+Definition at line 86 of file types.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structd__string__buffer__t_1ae6563dde7454192031694b48405393d7"/>    <section>
+    <title>buf_size</title>
+<indexterm><primary>buf_size</primary><secondary>d_string_buffer_t</secondary></indexterm>
+<indexterm><primary>d_string_buffer_t</primary><secondary>buf_size</secondary></indexterm>
+<para><computeroutput>size_t buf_size</computeroutput></para>
+<para>buffer size </para>
+<para>
+Definition at line 92 of file types.h.</para>
+    </section><anchor xml:id="_structd__string__buffer__t_1a6e27f49150e9a14580fb313cc2777e00"/>    <section>
+    <title>status</title>
+<indexterm><primary>status</primary><secondary>d_string_buffer_t</secondary></indexterm>
+<indexterm><primary>d_string_buffer_t</primary><secondary>status</secondary></indexterm>
+<para><computeroutput>int status</computeroutput></para>
+<para>c string status </para>
+<para>
+Definition at line 88 of file types.h.</para>
+    </section><anchor xml:id="_structd__string__buffer__t_1ab50d783982593ef993ea0b68f7ad8b80"/>    <section>
+    <title>str</title>
+<indexterm><primary>str</primary><secondary>d_string_buffer_t</secondary></indexterm>
+<indexterm><primary>d_string_buffer_t</primary><secondary>str</secondary></indexterm>
+<para><computeroutput>char* str</computeroutput></para>
+<para>c string buffer address </para>
+<para>
+Definition at line 94 of file types.h.</para>
+    </section><anchor xml:id="_structd__string__buffer__t_1a5e716248be5ef357434eec497c7726c6"/>    <section>
+    <title>str_size</title>
+<indexterm><primary>str_size</primary><secondary>d_string_buffer_t</secondary></indexterm>
+<indexterm><primary>d_string_buffer_t</primary><secondary>str_size</secondary></indexterm>
+<para><computeroutput>size_t str_size</computeroutput></para>
+<para>c string size </para>
+<para>
+Definition at line 90 of file types.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/gurt/<link linkend="_gurt_2types_8h">types.h</link></section>
+</section>

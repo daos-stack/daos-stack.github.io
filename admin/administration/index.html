@@ -42,7 +42,7 @@
     
     
       
-        <title>System Administration - DAOS</title>
+        <title>System Administration - DAOS v1.0</title>
       
     
     
@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-    
-      <link rel="stylesheet" href="../../css/version-select.css">
     
     
       
@@ -102,9 +100,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
+            <i class="md-icon"></i>
           
         </a>
       </div>
@@ -115,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS
+              DAOS v1.0
             </span>
             <span class="md-header-nav__topic">
               
@@ -247,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
+        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -289,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
+        <i class="md-icon"></i>
       
     </a>
-    DAOS
+    DAOS v1.0
   </label>
   
     <div class="md-nav__source">
@@ -418,6 +416,18 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
+      Data Integrity
     </a>
   </li>
 
@@ -560,6 +570,13 @@
           <li class="md-nav__item">
   <a href="#nvme-ssd-eviction-and-hotplug" class="md-nav__link">
     NVMe SSD Eviction and Hotplug
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nvme-ssd-identification" class="md-nav__link">
+    NVMe SSD Identification
   </a>
   
 </li>
@@ -901,7 +918,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -913,7 +930,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+    <a href="../../release/support_matrix/" title="Support Matrix" class="md-nav__link">
       Support Matrix
     </a>
   </li>
@@ -1096,6 +1113,13 @@
           <li class="md-nav__item">
   <a href="#nvme-ssd-eviction-and-hotplug" class="md-nav__link">
     NVMe SSD Eviction and Hotplug
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#nvme-ssd-identification" class="md-nav__link">
+    NVMe SSD Identification
   </a>
   
 </li>
@@ -1288,28 +1312,38 @@ overhead).</p>
 <li><code>dmg storage query (list-devices|list-pools)</code></li>
 <li><code>dmg storage scan --nvme-meta</code> shows mapping of metadata to NVMe controllers</li>
 </ul>
-<p>Queries persistently stored device and pool metadata tables. The device table maps
-the internal device UUID to attached VOS target IDs. The rank number of the server
-where the device is located is also listed, along with the current device state.
-The available device states are the following:
+<p>The NVMe storage query list-devices and list-pools commands query the persistently
+stored SMD device and pool tables respectively. The device table maps the internal
+device UUID to attached VOS target IDs. The rank number of the server where the device
+is located is also listed, along with the current device state. The current device
+states are the following:
   - NORMAL: a fully, functional device in-use by DAOS
   - EVICTED: the device is no longer in-use by DAOS
   - UNPLUGGED: the device is currently unplugged from the system (may or not be evicted)
   - NEW: the device is plugged and available, and not currently in-use by DAOS</p>
-<p>The pool table maps the DAOS pool UUID to attached VOS target IDs, and will list
-all of the server ranks that the pool is distributed on. With the additional
---verbose flag, the mapping of SPDK blob IDs to VOS target IDs is also displayed.</p>
+<p>The transport address is also listed for the device. This is either the PCIe address
+for normal NVMe SSDs, or the BDF format address of the backing NVMe SSDs behind a
+VMD (Volume Management Device) address. In the example below, the last two listed devices
+are both VMD devices with transport addresses in the BDF format behind the VMD address
+0000:5d:05.5.</p>
+<p>The pool table maps the DAOS pool UUID to attached VOS target IDs and will list all
+of the server ranks that the pool is distributed on. With the additional verbose flag,
+the mapping of SPDK blob IDs to VOS target IDs will also be displayed.</p>
 <pre><code class="bash">$ dmg -l boro-11,boro-13 storage query list-devices
 -------
 boro-11
 -------
   Devices
-    UUID:5bd91603-d3c7-4fb7-9a71-76bc25690c19 Targets:[0 2] Rank:0 State:NORMAL
-    UUID:80c9f1be-84b9-4318-a1be-c416c96ca48b Targets:[1 3] Rank:0 State:FAULTY
-    UUID:051b77e4-1524-4662-9f32-f8e4d2542c2d Targets:[] Rank:0 State:NEW
-    UUID:81905b24-be44-4106-8ff9-03002e9dd86a Targets:[0 2] Rank:1 State:UNPLUGGED
-    UUID:2ccb8afb-5d32-454e-86e3-762ec5dca7be Targets:[1 3] Rank:1 State:NORMAL
-    UUID:3f08da48-d88d-42dc-bca5-d1ab8419a401 Targets:[] Rank:1 State:NEW
+    UUID:5bd91603-d3c7-4fb7-9a71-76bc25690c19 [TrAddr:0000:8a:00.0]
+      Targets:[0 2] Rank:0 State:NORMAL
+    UUID:80c9f1be-84b9-4318-a1be-c416c96ca48b [TrAddr:0000:8b:00.0]
+      Targets:[1 3] Rank:0 State:NORMAL
+    UUID:051b77e4-1524-4662-9f32-f8e4d2542c2d [TrAddr:0000:8c:00.0]
+      Targets:[] Rank:0 State:NEW
+    UUID:81905b24-be44-4106-8ff9-03002e9dd86a [TrAddr:5d0505:01:00.0]
+      Targets:[0 2] Rank:1 State:EVICTED
+    UUID:2ccb8afb-5d32-454e-86e3-762ec5dca7be [TrAddr:5d0505:03:00.0]
+      Targets:[1 3] Rank:1 State:NORMAL
 </code></pre>
 
 <pre><code class="bash">$ dmg -l boro-11,boro-13 storage query list-pools
@@ -1337,10 +1371,11 @@ boro-11
 <li><code>dmg storage query (device-health|target-health)</code></li>
 <li><code>dmg storage scan --nvme-health</code> shows NVMe controller health stats</li>
 </ul>
-<p>Queries device health data, including NVMe SSD health stats and in-memory I/O error
-and checksum error counters. The server rank and device state are also listed.
-The device health data can either be queried by device UUID (device-health) or by
-VOS target ID along with server rank (target-health). The same device health info
+<p>The NVMe storage query device-health and target-health commands query the device
+health data, including NVMe SSD health stats and in-memory I/O error and checksum
+error counters. The server rank and device state are also listed. The device health
+data can either be queried by device UUID (device-health command) or by VOS target ID
+along with the server rank (target-health command). The same device health information
 is displayed with both command options.</p>
 <pre><code class="bash">$ dmg -l boro-11 storage query device-health
   --uuid=5bd91603-d3c7-4fb7-9a71-76bc25690c19
@@ -1351,7 +1386,8 @@ $ dmg -l boro-11 storage query target-health
 boro-11
 -------
   Devices
-    UUID:5bd91603-d3c7-4fb7-9a71-76bc25690c19 Targets:[0 1 2 3] Rank:0 State:NORMAL
+    UUID:5bd91603-d3c7-4fb7-9a71-76bc25690c19 [TrAddr:0000:8a:00.0]
+      Targets:[0 1 2 3] Rank:0 State:NORMAL
       Health Stats:
         Temperature:289K(15C)
         Controller Busy Time:0s
@@ -1389,6 +1425,7 @@ boro-11
 <p>The device state will transition from "NORMAL" to "FAULTY" (shown above), which will
 trigger the faulty device reaction (all targets on the SSD will be rebuilt and the SSD
 will remain evicted until device replacement occurs).</p>
+<p><strong>Full NVMe hot plug capability will be available and supported in DAOS 2.0 release. Use is currently intended for testing only and is not supported for production.</strong></p>
 <ul>
 <li>Replace an Evicted SSD with a New Device: <code>dmg storage replace nvme</code></li>
 </ul>
@@ -1421,6 +1458,35 @@ boro-11
 <p>The FAULTY device will transition from an "EVICTED" state back to a "NORMAL" state,
 and will again be available for use with DAOS. The use case of this command will mainly
 be for testing, or for accidental device eviction.</p>
+<h3 id="nvme-ssd-identification">NVMe SSD Identification<a class="headerlink" href="#nvme-ssd-identification" title="Permanent link">&para;</a></h3>
+<p>The SSD identification feature is simply a way to quickly and visually locate a
+device. It requires the use of Intel VMD (Volume Management Device), which needs
+to be physically available on the hardware as well as enabled in the system BIOS.
+The feature supports two LED device events: locating a healthy device and locating
+an evicted device.</p>
+<ul>
+<li>Locate a Healthy SSD: <code>dmg storage identify vmd</code></li>
+</ul>
+<p>To quickly identify an SSD in question, an administrator can run the following
+command:</p>
+<pre><code class="bash">$ dmg -l boro-11 storage identify vmd --uuid=6fccb374-413b-441a-bfbe-860099ac5e8d
+
+If a non-VMD device UUID is used with the command, the following error will occur:
+localhost DAOS error (-1010): DER_NOSYS
+
+</code></pre>
+
+<p>The status LED on the VMD device is now set to an "IDENTIFY" state, represented
+by a quick, 4Hz blinking amber light. The device will quickly blink by default for
+about 60 seconds and then return to the default "OFF" state.</p>
+<ul>
+<li>Locate an Evicted SSD:</li>
+</ul>
+<p>If an NVMe SSD is evicted, the status LED on the VMD device is set to a "FAULT"
+state, represented by a solidly ON amber light. No additional command apart from
+the SSD eviction command would be needed, and this would visually indicate that the
+device needs to be replaced and is no longer in use by DAOS. The LED of the VMD
+device would remain in this state until replaced by a new device.</p>
 <h2 id="system-operations">System Operations<a class="headerlink" href="#system-operations" title="Permanent link">&para;</a></h2>
 <p>The DAOS Control Server acting as the access point records details of DAOS I/O
 Server instances that join the DAOS system. Once an I/O Server has joined the
@@ -1681,8 +1747,6 @@ functionality will be documented here.</p>
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
-      
-        <script src="../../js/version-select.js"></script>
       
     
   </body>

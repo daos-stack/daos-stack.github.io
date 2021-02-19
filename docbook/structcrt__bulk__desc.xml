@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structcrt__bulk__desc">
+<title>crt_bulk_desc Struct Reference</title>
+<indexterm><primary>crt_bulk_desc</primary></indexterm>
+<para>
+<computeroutput>#include &lt;types.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link> * <link linkend="_structcrt__bulk__desc_1a8363f10817ab19d427182b00792a532b">bd_rpc</link></para>
+</listitem>
+            <listitem><para><link linkend="_group___c_a_r_t___t_y_p_e_s_1gaa2d66daa6ec15b1a33c1622a761e906a">crt_bulk_op_t</link> <link linkend="_structcrt__bulk__desc_1af34d6e9bf2600c78e5b715dfffe0af40">bd_bulk_op</link></para>
+</listitem>
+            <listitem><para><link linkend="_group___c_a_r_t___t_y_p_e_s_1ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</link> <link linkend="_structcrt__bulk__desc_1a6b60103eddb5555dda7b344e6489f3d3">bd_remote_hdl</link></para>
+</listitem>
+            <listitem><para>off_t <link linkend="_structcrt__bulk__desc_1ae9be14a19a03e3a3afd4e0f57fbbcbf1">bd_remote_off</link></para>
+</listitem>
+            <listitem><para><link linkend="_group___c_a_r_t___t_y_p_e_s_1ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</link> <link linkend="_structcrt__bulk__desc_1a42dd5c3079b14c902df0e7b469fa51a6">bd_local_hdl</link></para>
+</listitem>
+            <listitem><para>off_t <link linkend="_structcrt__bulk__desc_1a19524d2a959cf8ceaf26374a5e4e6305">bd_local_off</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_structcrt__bulk__desc_1a0136830ee749951efe2c773ff87e5225">bd_len</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>bulk transferring descriptor </para>
+<para>
+Definition at line 284 of file types.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structcrt__bulk__desc_1af34d6e9bf2600c78e5b715dfffe0af40"/>    <section>
+    <title>bd_bulk_op</title>
+<indexterm><primary>bd_bulk_op</primary><secondary>crt_bulk_desc</secondary></indexterm>
+<indexterm><primary>crt_bulk_desc</primary><secondary>bd_bulk_op</secondary></indexterm>
+<para><computeroutput><link linkend="_group___c_a_r_t___t_y_p_e_s_1gaa2d66daa6ec15b1a33c1622a761e906a">crt_bulk_op_t</link> bd_bulk_op</computeroutput></para>
+<para>CRT_BULK_PUT or CRT_BULK_GET </para>
+<para>
+Definition at line 286 of file types.h.</para>
+    </section><anchor xml:id="_structcrt__bulk__desc_1a0136830ee749951efe2c773ff87e5225"/>    <section>
+    <title>bd_len</title>
+<indexterm><primary>bd_len</primary><secondary>crt_bulk_desc</secondary></indexterm>
+<indexterm><primary>crt_bulk_desc</primary><secondary>bd_len</secondary></indexterm>
+<para><computeroutput>size_t bd_len</computeroutput></para>
+<para>length of the bulk transferring </para>
+<para>
+Definition at line 291 of file types.h.</para>
+    </section><anchor xml:id="_structcrt__bulk__desc_1a42dd5c3079b14c902df0e7b469fa51a6"/>    <section>
+    <title>bd_local_hdl</title>
+<indexterm><primary>bd_local_hdl</primary><secondary>crt_bulk_desc</secondary></indexterm>
+<indexterm><primary>crt_bulk_desc</primary><secondary>bd_local_hdl</secondary></indexterm>
+<para><computeroutput><link linkend="_group___c_a_r_t___t_y_p_e_s_1ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</link> bd_local_hdl</computeroutput></para>
+<para>local bulk handle </para>
+<para>
+Definition at line 289 of file types.h.</para>
+    </section><anchor xml:id="_structcrt__bulk__desc_1a19524d2a959cf8ceaf26374a5e4e6305"/>    <section>
+    <title>bd_local_off</title>
+<indexterm><primary>bd_local_off</primary><secondary>crt_bulk_desc</secondary></indexterm>
+<indexterm><primary>crt_bulk_desc</primary><secondary>bd_local_off</secondary></indexterm>
+<para><computeroutput>off_t bd_local_off</computeroutput></para>
+<para>offset within local bulk buffer </para>
+<para>
+Definition at line 290 of file types.h.</para>
+    </section><anchor xml:id="_structcrt__bulk__desc_1a6b60103eddb5555dda7b344e6489f3d3"/>    <section>
+    <title>bd_remote_hdl</title>
+<indexterm><primary>bd_remote_hdl</primary><secondary>crt_bulk_desc</secondary></indexterm>
+<indexterm><primary>crt_bulk_desc</primary><secondary>bd_remote_hdl</secondary></indexterm>
+<para><computeroutput><link linkend="_group___c_a_r_t___t_y_p_e_s_1ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</link> bd_remote_hdl</computeroutput></para>
+<para>remote bulk handle </para>
+<para>
+Definition at line 287 of file types.h.</para>
+    </section><anchor xml:id="_structcrt__bulk__desc_1ae9be14a19a03e3a3afd4e0f57fbbcbf1"/>    <section>
+    <title>bd_remote_off</title>
+<indexterm><primary>bd_remote_off</primary><secondary>crt_bulk_desc</secondary></indexterm>
+<indexterm><primary>crt_bulk_desc</primary><secondary>bd_remote_off</secondary></indexterm>
+<para><computeroutput>off_t bd_remote_off</computeroutput></para>
+<para>offset within remote bulk buffer </para>
+<para>
+Definition at line 288 of file types.h.</para>
+    </section><anchor xml:id="_structcrt__bulk__desc_1a8363f10817ab19d427182b00792a532b"/>    <section>
+    <title>bd_rpc</title>
+<indexterm><primary>bd_rpc</primary><secondary>crt_bulk_desc</secondary></indexterm>
+<indexterm><primary>crt_bulk_desc</primary><secondary>bd_rpc</secondary></indexterm>
+<para><computeroutput><link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link>* bd_rpc</computeroutput></para>
+<para>original RPC request </para>
+<para>
+Definition at line 285 of file types.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/cart/<link linkend="_cart_2types_8h">types.h</link></section>
+</section>

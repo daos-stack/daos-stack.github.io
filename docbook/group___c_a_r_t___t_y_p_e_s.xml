@@ -1,0 +1,629 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group___c_a_r_t___t_y_p_e_s">
+<title>CART Types</title>
+<indexterm><primary>CART Types</primary></indexterm>
+<simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structcrt__init__options">crt_init_options</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__group">crt_group</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__endpoint__t">crt_endpoint_t</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__rpc">crt_rpc</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__req__format">crt_req_format</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__proto__rpc__format">crt_proto_rpc_format</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__proto__format">crt_proto_format</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__proto__query__cb__info">crt_proto_query_cb_info</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__bulk__desc">crt_bulk_desc</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__cb__info">crt_cb_info</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structcrt__bulk__cb__info">crt_bulk_cb_info</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga4f0d622ee315309441d881c7fac0a188">CRT_GROUP_ID_MAX_LEN</link>   (64)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga4ff76a97e1d24453c8f3e2bcab0c35eb">CRT_ADDR_STR_MAX_LEN</link>   (128)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1gad497090d58895d45a905a942ed8854b4">CRT_DEFAULT_GRPID</link>   &quot;crt_default_group&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga234c29e50e26b93e495fb1419044c842">CRT_NO_RANK</link>   0xFFFFFFFF</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga417cd040e89a2bf10f48286420d4a8c7"/>#define <emphasis role="strong">CRT_PHY_ADDR_ENV</emphasis>   &quot;CRT_PHY_ADDR_STR&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gae235059ab473539b1abc4da1d740907c"/>#define <emphasis role="strong">CRT_OPC_INTERNAL_BASE</emphasis>   0xFF000000UL</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga2f41357b45e87dcd5a8ae8fb49be2d89"/>#define <emphasis role="strong">CRT_BULK_NULL</emphasis>   (NULL)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga40c28d3b7f5c5d01ed3e2d945113c573">CRT_MAX_INPUT_SIZE</link>   (0x4000000)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga6d79aed4c838bb678b2f34edfaffe18f"/>#define <emphasis role="strong">CRT_MAX_OUTPUT_SIZE</emphasis>   (0x4000000)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga26c49db195e4a8e8eedb0886a04560d5">CRT_PROTO_OPC</link>(base_opc,  version,  rpc_index)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1gafea9e969d4960a162107c90d47a50879">CRT_RPC_FEAT_NO_REPLY</link>   (1U &lt;&lt; 1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1gadd33883ad9d938ca364507c9d8b0cec7">CRT_RPC_FEAT_NO_TIMEOUT</link>   (1U &lt;&lt; 2)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga219598ee5754f393d883704a48c2041e">CRT_RPC_FEAT_QUEUE_FRONT</link>   (1U &lt;&lt; 3)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef struct <link linkend="_structcrt__init__options">crt_init_options</link> <link linkend="_group___c_a_r_t___t_y_p_e_s_1gab22231966be5442b49fdced962a513df">crt_init_options_t</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga00f748e753f01cfefa1a85a60e81f862"/>typedef int <emphasis role="strong">crt_status_t</emphasis></para>
+</listitem>
+            <listitem><para>typedef d_string_t <link linkend="_group___c_a_r_t___t_y_p_e_s_1gade68a0764f3116705808a124b9147ab6">crt_group_id_t</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gaecfe43968cc21762125a38346b6f1be0"/>typedef struct <link linkend="_structcrt__group">crt_group</link> <emphasis role="strong">crt_group_t</emphasis></para>
+</listitem>
+            <listitem><para>typedef void * <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</link></para>
+</listitem>
+            <listitem><para>typedef d_string_t <link linkend="_group___c_a_r_t___t_y_p_e_s_1gafd1291a98b1c5510dda481a887578ef1">crt_phy_addr_t</link></para>
+</listitem>
+            <listitem><para>typedef uint32_t <link linkend="_group___c_a_r_t___t_y_p_e_s_1gae3dde8d6f8414e344befaafc0a3b7d3a">crt_opcode_t</link></para>
+</listitem>
+            <listitem><para>typedef void * <link linkend="_group___c_a_r_t___t_y_p_e_s_1gad9b8a5395857cb272c5f19b1c58b05e1">crt_rpc_input_t</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga5e3dbba6ff7d1fae3d98008c6444d199"/>typedef void * <emphasis role="strong">crt_rpc_output_t</emphasis></para>
+</listitem>
+            <listitem><para>typedef void * <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</link></para>
+</listitem>
+            <listitem><para>typedef void * <link linkend="_group___c_a_r_t___t_y_p_e_s_1gac7d05321a488b92748008742ab5e54df">crt_bulk_array_t</link></para>
+</listitem>
+            <listitem><para>typedef struct <link linkend="_structcrt__rpc">crt_rpc</link> <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link></para>
+</listitem>
+            <listitem><para>typedef void * <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</link></para>
+</listitem>
+            <listitem><para>typedef int(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga1266fedf6067dbd6400b70730468145a">crt_proc_cb_t</link>) (<link linkend="_group___c_a_r_t___t_y_p_e_s_1ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</link> proc, void *data)</para>
+</listitem>
+            <listitem><para>typedef void(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga163a4cfb0f83c051338adb9a4c326eed">crt_rpc_cb_t</link>) (<link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link> *rpc)</para>
+</listitem>
+            <listitem><para>typedef void(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1gac91077f0afeb8cf8f6dc6933d7e54a6b">crt_proto_query_cb_t</link>) (struct <link linkend="_structcrt__proto__query__cb__info">crt_proto_query_cb_info</link> *cb_info)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gad21bc72dda5995a28c318de4f04babcd"/>typedef void * <emphasis role="strong">crt_bulk_opid_t</emphasis></para>
+</listitem>
+            <listitem><para>typedef void(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaec5f68d3f953c61fadbd8a3d1a39c919">crt_cb_t</link>) (const struct <link linkend="_structcrt__cb__info">crt_cb_info</link> *cb_info)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga7c1374c29210cc4349b748ff27d795c2"/>typedef void(* <emphasis role="strong">crt_generic_cb_t</emphasis>) (void *cb_info)</para>
+</listitem>
+            <listitem><para>typedef int(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaf25e76b2c5b895478f2b640af5ef9405">crt_bulk_cb_t</link>) (const struct <link linkend="_structcrt__bulk__cb__info">crt_bulk_cb_info</link> *cb_info)</para>
+</listitem>
+            <listitem><para>typedef int(* <link linkend="_group___c_a_r_t___t_y_p_e_s_1gacef78a24d5f55f2da8a57bb1aceef174">crt_progress_cond_cb_t</link>) (void *arg)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1gac5e13c70990b688489dbb68e6d8a6400">crt_rpc_flags</link> { <link linkend="_group___c_a_r_t___t_y_p_e_s_1ggac5e13c70990b688489dbb68e6d8a6400aa904b6e3b0aabd59a89a5fe1c11f475c">CRT_RPC_FLAG_FILTER_INVERT</link> = (1U &lt;&lt; 1)
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaa2d66daa6ec15b1a33c1622a761e906a">crt_bulk_op_t</link> { <emphasis role="strong">CRT_BULK_PUT</emphasis> = 0x68, 
+<emphasis role="strong">CRT_BULK_GET</emphasis>
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga0baa03079c26075653589c9138e74e0e">crt_bulk_perm_t</link> { <link linkend="_group___c_a_r_t___t_y_p_e_s_1gga0baa03079c26075653589c9138e74e0ead01f536038dea6a23956728b3f46fc53">CRT_BULK_RW</link> = 0x88, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1gga0baa03079c26075653589c9138e74e0eae72b88e6906a87cea00587e0491fce2a">CRT_BULK_RO</link>, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1gga0baa03079c26075653589c9138e74e0ea1c952eed4198ad62fa98485c7c90fca9">CRT_BULK_WO</link>
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaad03f467ebc70e6873998feeaa0a9dae">crt_init_flag_bits</link> { <link linkend="_group___c_a_r_t___t_y_p_e_s_1ggaad03f467ebc70e6873998feeaa0a9daeac99c8c77f9d348c1fa18e51fbd169208">CRT_FLAG_BIT_SERVER</link> = 1U &lt;&lt; 0, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1ggaad03f467ebc70e6873998feeaa0a9daea6a6800e87258512fbac4fa66235b2564">CRT_FLAG_BIT_AUTO_SWIM_DISABLE</link> = 1U &lt;&lt; 1
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga45d6c2aa7ad84115a6398b74d29150e5">crt_group_mod_op_t</link> { <link linkend="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a1d1f8eddcc80afa5cb86cf3e34f7d74b">CRT_GROUP_MOD_OP_REPLACE</link> = 0, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a8f995e086b18921547ea7921fcdb6040">CRT_GROUP_MOD_OP_ADD</link>, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a80b3ba92e9880642094ad3de749183ad">CRT_GROUP_MOD_OP_REMOVE</link>, 
+<link linkend="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a7b6d85a0e52a9d64a1223640517fa897">CRT_GROUP_MOD_OP_COUNT</link>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga4ff76a97e1d24453c8f3e2bcab0c35eb"/>    <section>
+    <title>CRT_ADDR_STR_MAX_LEN</title>
+<indexterm><primary>CRT_ADDR_STR_MAX_LEN</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_ADDR_STR_MAX_LEN</secondary></indexterm>
+<para><computeroutput>#define CRT_ADDR_STR_MAX_LEN   (128)</computeroutput></para>
+<para>max length of the address string / URI including the trailing &apos;\0&apos; </para>
+<para>
+Definition at line 75 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gad497090d58895d45a905a942ed8854b4"/>    <section>
+    <title>CRT_DEFAULT_GRPID</title>
+<indexterm><primary>CRT_DEFAULT_GRPID</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_DEFAULT_GRPID</secondary></indexterm>
+<para><computeroutput>#define CRT_DEFAULT_GRPID   &quot;crt_default_group&quot;</computeroutput></para>
+<para>default group ID </para>
+<para>
+Definition at line 78 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga4f0d622ee315309441d881c7fac0a188"/>    <section>
+    <title>CRT_GROUP_ID_MAX_LEN</title>
+<indexterm><primary>CRT_GROUP_ID_MAX_LEN</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_GROUP_ID_MAX_LEN</secondary></indexterm>
+<para><computeroutput>#define CRT_GROUP_ID_MAX_LEN   (64)</computeroutput></para>
+<para>max length of the group ID string including the trailing &apos;\0&apos; </para>
+<para>
+Definition at line 72 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga40c28d3b7f5c5d01ed3e2d945113c573"/>    <section>
+    <title>CRT_MAX_INPUT_SIZE</title>
+<indexterm><primary>CRT_MAX_INPUT_SIZE</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_MAX_INPUT_SIZE</secondary></indexterm>
+<para><computeroutput>#define CRT_MAX_INPUT_SIZE   (0x4000000)</computeroutput></para>
+<para>max size of input/output parameters defined as 64M bytes, for larger length the user should transfer by bulk. </para>
+<para>
+Definition at line 134 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga234c29e50e26b93e495fb1419044c842"/>    <section>
+    <title>CRT_NO_RANK</title>
+<indexterm><primary>CRT_NO_RANK</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_NO_RANK</secondary></indexterm>
+<para><computeroutput>#define CRT_NO_RANK   0xFFFFFFFF</computeroutput></para>
+<para>Indicates rank not being set </para>
+<para>
+Definition at line 81 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga26c49db195e4a8e8eedb0886a04560d5"/>    <section>
+    <title>CRT_PROTO_OPC</title>
+<indexterm><primary>CRT_PROTO_OPC</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_PROTO_OPC</secondary></indexterm>
+<para><computeroutput>#define CRT_PROTO_OPC( base_opc,  version,  rpc_index)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;((uint32_t)(base_opc)&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;(uint32_t)(version)&#32;&lt;&lt;&#32;16&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;(uint32_t)(rpc_index))
+</programlisting>
+<para>given the base opcode, version of a protocol, and a member RPC index, compute the RPC opcode of that member RPC </para>
+<para>
+Definition at line 207 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gafea9e969d4960a162107c90d47a50879"/>    <section>
+    <title>CRT_RPC_FEAT_NO_REPLY</title>
+<indexterm><primary>CRT_RPC_FEAT_NO_REPLY</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_RPC_FEAT_NO_REPLY</secondary></indexterm>
+<para><computeroutput>#define CRT_RPC_FEAT_NO_REPLY   (1U &lt;&lt; 1)</computeroutput></para>
+<para>Disable/enable the reply of a RPC. By default one RPC needs to be replied (by calling crt_reply_send within RPC handler at target-side) to complete the RPC request at origin-side. One-way RPC is a special type that the RPC request need not to be replied, the RPC request is treated as completed after being sent out.</para>
+
+<para>Notes for one-way RPC: 1) Need not reply for one-way RPC, calling <link linkend="_group___c_a_r_t_1ga3d7216bc7c9cf01c3ca3ce41a1d52783">crt_reply_send()</link> will fail with -DER_PROTO. 2) For one-way RPC, user needs to disable the reply on both origin and target side, or undefined result is expected. 3) Corpc musted be replied, disabling the reply of corpc will lead to undefined result. </para>
+<para>
+Definition at line 255 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gadd33883ad9d938ca364507c9d8b0cec7"/>    <section>
+    <title>CRT_RPC_FEAT_NO_TIMEOUT</title>
+<indexterm><primary>CRT_RPC_FEAT_NO_TIMEOUT</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_RPC_FEAT_NO_TIMEOUT</secondary></indexterm>
+<para><computeroutput>#define CRT_RPC_FEAT_NO_TIMEOUT   (1U &lt;&lt; 2)</computeroutput></para>
+<para>Do not fail RPC with -CER_TIMEDOUT. Callback is only invoked on errors, completion, or target eviction. This differs from an RPC with an infinite timeout as the internal timer is still used to check for target eviction. </para>
+<para>
+Definition at line 262 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga219598ee5754f393d883704a48c2041e"/>    <section>
+    <title>CRT_RPC_FEAT_QUEUE_FRONT</title>
+<indexterm><primary>CRT_RPC_FEAT_QUEUE_FRONT</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_RPC_FEAT_QUEUE_FRONT</secondary></indexterm>
+<para><computeroutput>#define CRT_RPC_FEAT_QUEUE_FRONT   (1U &lt;&lt; 3)</computeroutput></para>
+<para>If RPC ends up being queued due to exceeding in-flight rpc limit, queue at the front of the queue. If not set, queues at the end </para>
+<para>
+Definition at line 268 of file types.h.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gac7d05321a488b92748008742ab5e54df"/>    <section>
+    <title>crt_bulk_array_t</title>
+<indexterm><primary>crt_bulk_array_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_bulk_array_t</secondary></indexterm>
+<para><computeroutput>typedef void* <link linkend="_group___c_a_r_t___t_y_p_e_s_1gac7d05321a488b92748008742ab5e54df">crt_bulk_array_t</link></computeroutput></para>
+<para>abstract bulk array handle </para>
+<para>
+Definition at line 127 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gaf25e76b2c5b895478f2b640af5ef9405"/>    <section>
+    <title>crt_bulk_cb_t</title>
+<indexterm><primary>crt_bulk_cb_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_bulk_cb_t</secondary></indexterm>
+<para><computeroutput>typedef int(* crt_bulk_cb_t) (const struct <link linkend="_structcrt__bulk__cb__info">crt_bulk_cb_info</link> *cb_info)</computeroutput></para>
+<para>completion callback for bulk transferring, i.e. <link linkend="_group___c_a_r_t_1gaae90d605eafc12f8c90e7aa430b87679">crt_bulk_transfer()</link></para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>cb_info</entry>
+                                <entry>
+<para>Callback info structure </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 347 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga98854df58311faf6d4fcfb3c7554f66c"/>    <section>
+    <title>crt_bulk_t</title>
+<indexterm><primary>crt_bulk_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_bulk_t</secondary></indexterm>
+<para><computeroutput>typedef void* <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</link></computeroutput></para>
+<para>abstract bulk handle </para>
+<para>
+Definition at line 126 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gaec5f68d3f953c61fadbd8a3d1a39c919"/>    <section>
+    <title>crt_cb_t</title>
+<indexterm><primary>crt_cb_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_cb_t</secondary></indexterm>
+<para><computeroutput>typedef void(* crt_cb_t) (const struct <link linkend="_structcrt__cb__info">crt_cb_info</link> *cb_info)</computeroutput></para>
+<para>completion callback for crt_req_send</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>cb_info</entry>
+                                <entry>
+<para>pointer to call back info. If an error occurred on the server outside the user RPC handler, the server will send back a CART level error code. This error code is available in the completion callback as cb_info-&gt;cci_rc. Currently supported CART level error codes are: DER_UNREG The opcode is not registered or registered without an RPC handler on the target. DER_NOREPLY The RPC handler on the server forgot to call <link linkend="_group___c_a_r_t_1ga3d7216bc7c9cf01c3ca3ce41a1d52783">crt_reply_send()</link> DER_DOS There&apos;s not enough resource on the server to service this request. (memory allocation error) DER_MISC All other errors outside the user RPC handler </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 339 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gaf4e3a9a2fe312291fed2125c9971e54d"/>    <section>
+    <title>crt_context_t</title>
+<indexterm><primary>crt_context_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_context_t</secondary></indexterm>
+<para><computeroutput>typedef void* <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</link></computeroutput></para>
+<para>CaRT context handle </para>
+<para>
+Definition at line 99 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gade68a0764f3116705808a124b9147ab6"/>    <section>
+    <title>crt_group_id_t</title>
+<indexterm><primary>crt_group_id_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_group_id_t</secondary></indexterm>
+<para><computeroutput>typedef d_string_t <link linkend="_group___c_a_r_t___t_y_p_e_s_1gade68a0764f3116705808a124b9147ab6">crt_group_id_t</link></computeroutput></para>
+<para>CRT uses a string as the group ID This string can only contain ASCII printable characters between 0x20 and 0x7E Additionally, this string cannot contain quotation characters (&quot;&apos;`), backslashes (), or semicolons (;) </para>
+<para>
+Definition at line 69 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gab22231966be5442b49fdced962a513df"/>    <section>
+    <title>crt_init_options_t</title>
+<indexterm><primary>crt_init_options_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_init_options_t</secondary></indexterm>
+<para><computeroutput>typedef struct <link linkend="_structcrt__init__options">crt_init_options</link> <link linkend="_group___c_a_r_t___t_y_p_e_s_1gab22231966be5442b49fdced962a513df">crt_init_options_t</link></computeroutput></para>
+<para>Initialization options passed during crt_init() call.</para>
+
+<para>If the same value can be set via ENV variable as well as a field, the field takes the precedence. </para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gae3dde8d6f8414e344befaafc0a3b7d3a"/>    <section>
+    <title>crt_opcode_t</title>
+<indexterm><primary>crt_opcode_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_opcode_t</secondary></indexterm>
+<para><computeroutput>typedef uint32_t <link linkend="_group___c_a_r_t___t_y_p_e_s_1gae3dde8d6f8414e344befaafc0a3b7d3a">crt_opcode_t</link></computeroutput></para>
+<para>RPC is identified by opcode. All the opcodes with the highest 16 bits as 1 are reserved for internal usage, such as group maintenance etc. If user defines its RPC using those reserved opcode, then undefined result is expected. </para>
+<para>
+Definition at line 111 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gafd1291a98b1c5510dda481a887578ef1"/>    <section>
+    <title>crt_phy_addr_t</title>
+<indexterm><primary>crt_phy_addr_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_phy_addr_t</secondary></indexterm>
+<para><computeroutput>typedef d_string_t <link linkend="_group___c_a_r_t___t_y_p_e_s_1gafd1291a98b1c5510dda481a887578ef1">crt_phy_addr_t</link></computeroutput></para>
+<para>Physical address string, e.g., &quot;bmi+tcp://localhost:3344&quot;. </para>
+<para>
+Definition at line 102 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga1266fedf6067dbd6400b70730468145a"/>    <section>
+    <title>crt_proc_cb_t</title>
+<indexterm><primary>crt_proc_cb_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_proc_cb_t</secondary></indexterm>
+<para><computeroutput>typedef int(* crt_proc_cb_t) (<link linkend="_group___c_a_r_t___t_y_p_e_s_1ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</link> proc, void *data)</computeroutput></para>
+<para>Proc callback for pack/unpack parameters </para>
+<para>
+Definition at line 161 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga433c0df9cb4242d917d16dd2bc56968a"/>    <section>
+    <title>crt_proc_t</title>
+<indexterm><primary>crt_proc_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_proc_t</secondary></indexterm>
+<para><computeroutput>typedef void* <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</link></computeroutput></para>
+<para>Abstraction pack/unpack processor </para>
+<para>
+Definition at line 159 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gacef78a24d5f55f2da8a57bb1aceef174"/>    <section>
+    <title>crt_progress_cond_cb_t</title>
+<indexterm><primary>crt_progress_cond_cb_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_progress_cond_cb_t</secondary></indexterm>
+<para><computeroutput>typedef int(* crt_progress_cond_cb_t) (void *arg)</computeroutput></para>
+<para>Progress condition callback, see <link linkend="_group___c_a_r_t_1gad8e2ce33333c631754c0ea69846851d8">crt_progress()</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>arg</entry>
+                                <entry>
+<para>argument to cond_cb.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Return values                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>zero</entry>
+                                <entry>
+<para>means continue progressing </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>&gt;0</entry>
+                                <entry>
+<para>means stopping progress and return success </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>&lt;0</entry>
+                                <entry>
+<para>means failure </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 358 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gac91077f0afeb8cf8f6dc6933d7e54a6b"/>    <section>
+    <title>crt_proto_query_cb_t</title>
+<indexterm><primary>crt_proto_query_cb_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_proto_query_cb_t</secondary></indexterm>
+<para><computeroutput>typedef void(* crt_proto_query_cb_t) (struct <link linkend="_structcrt__proto__query__cb__info">crt_proto_query_cb_info</link> *cb_info)</computeroutput></para>
+<para>The completion callback to <link linkend="_group___c_a_r_t_1gafe86d4600a2c1c1755c808b2834e7aa4">crt_proto_query()</link>. </para>
+<para>
+Definition at line 230 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga163a4cfb0f83c051338adb9a4c326eed"/>    <section>
+    <title>crt_rpc_cb_t</title>
+<indexterm><primary>crt_rpc_cb_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_rpc_cb_t</secondary></indexterm>
+<para><computeroutput>typedef void(* crt_rpc_cb_t) (<link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link> *rpc)</computeroutput></para>
+<para>server-side RPC handler </para>
+<para>
+Definition at line 171 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gad9b8a5395857cb272c5f19b1c58b05e1"/>    <section>
+    <title>crt_rpc_input_t</title>
+<indexterm><primary>crt_rpc_input_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_rpc_input_t</secondary></indexterm>
+<para><computeroutput>typedef void* <link linkend="_group___c_a_r_t___t_y_p_e_s_1gad9b8a5395857cb272c5f19b1c58b05e1">crt_rpc_input_t</link></computeroutput></para>
+<para>Check if the opcode is reserved by CRT internally.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>opc</entry>
+                                <entry>
+<para>opcode to be checked.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                
+                <formalpara>
+                    <title>
+Return values                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>zero</entry>
+                                <entry>
+<para>means legal opcode for user </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>non-zero</entry>
+                                <entry>
+<para>means CRT internally reserved opcode. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 123 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004"/>    <section>
+    <title>crt_rpc_t</title>
+<indexterm><primary>crt_rpc_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_rpc_t</secondary></indexterm>
+<para><computeroutput>typedef struct <link linkend="_structcrt__rpc">crt_rpc</link> <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link></computeroutput></para>
+<para>Public RPC request/reply, exports to user </para>
+</section>
+</section>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gaa2d66daa6ec15b1a33c1622a761e906a"/>    <section>
+    <title>crt_bulk_op_t</title>
+<indexterm><primary>crt_bulk_op_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_bulk_op_t</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaa2d66daa6ec15b1a33c1622a761e906a">crt_bulk_op_t</link></computeroutput></para>
+<para>Bulk transfer modes </para>
+<para>
+Definition at line 233 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga0baa03079c26075653589c9138e74e0e"/>    <section>
+    <title>crt_bulk_perm_t</title>
+<indexterm><primary>crt_bulk_perm_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_bulk_perm_t</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga0baa03079c26075653589c9138e74e0e">crt_bulk_perm_t</link></computeroutput></para>
+<para>Bulk transfer permissions </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>CRT_BULK_RW</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_BULK_RW</secondary></indexterm>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gga0baa03079c26075653589c9138e74e0ead01f536038dea6a23956728b3f46fc53"/>CRT_BULK_RW</entry><entry>
+<para>read/write </para>
+</entry></row><row><entry><indexterm><primary>CRT_BULK_RO</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_BULK_RO</secondary></indexterm>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gga0baa03079c26075653589c9138e74e0eae72b88e6906a87cea00587e0491fce2a"/>CRT_BULK_RO</entry><entry>
+<para>read-only </para>
+</entry></row><row><entry><indexterm><primary>CRT_BULK_WO</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_BULK_WO</secondary></indexterm>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gga0baa03079c26075653589c9138e74e0ea1c952eed4198ad62fa98485c7c90fca9"/>CRT_BULK_WO</entry><entry>
+<para>write-only </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 274 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ga45d6c2aa7ad84115a6398b74d29150e5"/>    <section>
+    <title>crt_group_mod_op_t</title>
+<indexterm><primary>crt_group_mod_op_t</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_group_mod_op_t</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1ga45d6c2aa7ad84115a6398b74d29150e5">crt_group_mod_op_t</link></computeroutput></para>
+<para>Operations for <link linkend="_group___c_a_r_t_1gaa18493edb4133011d65bbae0176da16b">crt_group_primary_modify</link> and <link linkend="_group___c_a_r_t_1ga5a8c919b8f0d85264425e45311205b70">crt_group_secondary_modify</link> APIs. See <link linkend="_group___c_a_r_t_1gaa18493edb4133011d65bbae0176da16b">crt_group_primary_modify</link> for description of operation behavior. </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>CRT_GROUP_MOD_OP_REPLACE</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_GROUP_MOD_OP_REPLACE</secondary></indexterm>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a1d1f8eddcc80afa5cb86cf3e34f7d74b"/>CRT_GROUP_MOD_OP_REPLACE</entry><entry>
+<para>Replace operation </para>
+</entry></row><row><entry><indexterm><primary>CRT_GROUP_MOD_OP_ADD</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_GROUP_MOD_OP_ADD</secondary></indexterm>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a8f995e086b18921547ea7921fcdb6040"/>CRT_GROUP_MOD_OP_ADD</entry><entry>
+<para>Addition operation </para>
+</entry></row><row><entry><indexterm><primary>CRT_GROUP_MOD_OP_REMOVE</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_GROUP_MOD_OP_REMOVE</secondary></indexterm>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a80b3ba92e9880642094ad3de749183ad"/>CRT_GROUP_MOD_OP_REMOVE</entry><entry>
+<para>Removal operation </para>
+</entry></row><row><entry><indexterm><primary>CRT_GROUP_MOD_OP_COUNT</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_GROUP_MOD_OP_COUNT</secondary></indexterm>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gga45d6c2aa7ad84115a6398b74d29150e5a7b6d85a0e52a9d64a1223640517fa897"/>CRT_GROUP_MOD_OP_COUNT</entry><entry>
+<para>Total count of supported operations </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 385 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gaad03f467ebc70e6873998feeaa0a9dae"/>    <section>
+    <title>crt_init_flag_bits</title>
+<indexterm><primary>crt_init_flag_bits</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_init_flag_bits</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1gaad03f467ebc70e6873998feeaa0a9dae">crt_init_flag_bits</link></computeroutput></para>
+<para>CRT Initialization flag bits.</para>
+
+<para>Zero or more OR-ed flags could be passed to crt_init(). </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>CRT_FLAG_BIT_SERVER</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_FLAG_BIT_SERVER</secondary></indexterm>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ggaad03f467ebc70e6873998feeaa0a9daeac99c8c77f9d348c1fa18e51fbd169208"/>CRT_FLAG_BIT_SERVER</entry><entry>
+<para>When set enables the server mode which listens for incoming requests. Clients should not set this flag </para>
+</entry></row><row><entry><indexterm><primary>CRT_FLAG_BIT_AUTO_SWIM_DISABLE</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_FLAG_BIT_AUTO_SWIM_DISABLE</secondary></indexterm>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ggaad03f467ebc70e6873998feeaa0a9daea6a6800e87258512fbac4fa66235b2564"/>CRT_FLAG_BIT_AUTO_SWIM_DISABLE</entry><entry>
+<para>When set, disables automatic SWIM start-up at init time. Instead SWIM needs to be enabled via <link linkend="_group___c_a_r_t_1ga3bab597f86d13a32ae1ed335f3eda7bd">crt_swim_init()</link> call. </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 365 of file types.h.</para>
+    </section><anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1gac5e13c70990b688489dbb68e6d8a6400"/>    <section>
+    <title>crt_rpc_flags</title>
+<indexterm><primary>crt_rpc_flags</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>crt_rpc_flags</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_group___c_a_r_t___t_y_p_e_s_1gac5e13c70990b688489dbb68e6d8a6400">crt_rpc_flags</link></computeroutput></para>
+<para>RPC flags enumeration </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>CRT_RPC_FLAG_FILTER_INVERT</primary><secondary>CART Types</secondary></indexterm>
+<indexterm><primary>CART Types</primary><secondary>CRT_RPC_FLAG_FILTER_INVERT</secondary></indexterm>
+<anchor xml:id="_group___c_a_r_t___t_y_p_e_s_1ggac5e13c70990b688489dbb68e6d8a6400aa904b6e3b0aabd59a89a5fe1c11f475c"/>CRT_RPC_FLAG_FILTER_INVERT</entry><entry>
+<para>send CORPC to filter_ranks only </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 138 of file types.h.</para>
+</section>
+</section>
+</section>

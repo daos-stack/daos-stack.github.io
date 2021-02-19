@@ -1,0 +1,146 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structds__rsvc__class">
+<title>ds_rsvc_class Struct Reference</title>
+<indexterm><primary>ds_rsvc_class</primary></indexterm>
+<para>
+<computeroutput>#include &lt;rsvc.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int(* <link linkend="_structds__rsvc__class_1a2ecb0a3c4bbb250d375d47691082af36">sc_name</link> )(<link linkend="_structd__iov__t">d_iov_t</link> *id, char **name)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structds__rsvc__class_1adbf6b81b1dfb4e542ebbcb2be6713bf6">sc_load_uuid</link> )(<link linkend="_structd__iov__t">d_iov_t</link> *id, uuid_t db_uuid)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structds__rsvc__class_1ab73cb5ef4a41ef39da80527f738870c8">sc_store_uuid</link> )(<link linkend="_structd__iov__t">d_iov_t</link> *id, uuid_t db_uuid)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structds__rsvc__class_1a7a2b177ffed960a562c2f28defe4e189">sc_delete_uuid</link> )(<link linkend="_structd__iov__t">d_iov_t</link> *id)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structds__rsvc__class_1a8af4a12094e9e6fd2bde388f005d51d1">sc_locate</link> )(<link linkend="_structd__iov__t">d_iov_t</link> *id, char **path)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structds__rsvc__class_1a42c8928ac9ffb4c4b8e4bbc3bd149eaf">sc_alloc</link> )(<link linkend="_structd__iov__t">d_iov_t</link> *id, struct <link linkend="_structds__rsvc">ds_rsvc</link> **svc)</para>
+</listitem>
+            <listitem><para>void(* <link linkend="_structds__rsvc__class_1a6d3ec22b6ae5403b4350700aeac2d674">sc_free</link> )(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structds__rsvc__class_1a9c3ae3968cb938dc0aaeee5b8a69d8be">sc_bootstrap</link> )(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc, void *arg)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structds__rsvc__class_1a42e68bf8a577ca89c9cf0dcdac098aa8">sc_step_up</link> )(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc)</para>
+</listitem>
+            <listitem><para>void(* <link linkend="_structds__rsvc__class_1a84ea8f00b317345e5ebf4c4db1b71975">sc_step_down</link> )(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc)</para>
+</listitem>
+            <listitem><para>void(* <link linkend="_structds__rsvc__class_1a06f76f3bf47f972478c9fdc90d4b0202">sc_drain</link> )(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structds__rsvc__class_1a273d1edc906daa414ee4c6af155e27f7">sc_map_dist</link> )(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Replicated service class </para>
+<para>
+Definition at line 33 of file rsvc.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structds__rsvc__class_1a42c8928ac9ffb4c4b8e4bbc3bd149eaf"/>    <section>
+    <title>sc_alloc</title>
+<indexterm><primary>sc_alloc</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_alloc</secondary></indexterm>
+<para><computeroutput>int(* sc_alloc(<link linkend="_structd__iov__t">d_iov_t</link> *id, struct <link linkend="_structds__rsvc">ds_rsvc</link> **svc)</computeroutput></para>
+<para>Allocate a <link linkend="_structds__rsvc">ds_rsvc</link> object and initialize its s_id member. </para>
+<para>
+Definition at line 56 of file rsvc.h.</para>
+    </section><anchor xml:id="_structds__rsvc__class_1a9c3ae3968cb938dc0aaeee5b8a69d8be"/>    <section>
+    <title>sc_bootstrap</title>
+<indexterm><primary>sc_bootstrap</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_bootstrap</secondary></indexterm>
+<para><computeroutput>int(* sc_bootstrap(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc, void *arg)</computeroutput></para>
+<para>Bootstrap (i.e., initialize) the DB with the argument passed to ds_rsvc_start. If supplied, this is called on a self-only service. See bootstrap_self. </para>
+<para>
+Definition at line 69 of file rsvc.h.</para>
+    </section><anchor xml:id="_structds__rsvc__class_1a7a2b177ffed960a562c2f28defe4e189"/>    <section>
+    <title>sc_delete_uuid</title>
+<indexterm><primary>sc_delete_uuid</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_delete_uuid</secondary></indexterm>
+<para><computeroutput>int(* sc_delete_uuid(<link linkend="_structd__iov__t">d_iov_t</link> *id)</computeroutput></para>
+<para>Delete the stored UUID of the service database. </para>
+<para>
+Definition at line 47 of file rsvc.h.</para>
+    </section><anchor xml:id="_structds__rsvc__class_1a06f76f3bf47f972478c9fdc90d4b0202"/>    <section>
+    <title>sc_drain</title>
+<indexterm><primary>sc_drain</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_drain</secondary></indexterm>
+<para><computeroutput>void(* sc_drain(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc)</computeroutput></para>
+<para>Drain the leader activities, if any. This is called when stepping down but before sc_step_down. See rsvc_step_down_cb. </para>
+<para>
+Definition at line 84 of file rsvc.h.</para>
+    </section><anchor xml:id="_structds__rsvc__class_1a6d3ec22b6ae5403b4350700aeac2d674"/>    <section>
+    <title>sc_free</title>
+<indexterm><primary>sc_free</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_free</secondary></indexterm>
+<para><computeroutput>void(* sc_free(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc)</computeroutput></para>
+<para>Free the <link linkend="_structds__rsvc">ds_rsvc</link> object, after finalizing its s_id member (if necessary). </para>
+<para>
+Definition at line 62 of file rsvc.h.</para>
+    </section><anchor xml:id="_structds__rsvc__class_1adbf6b81b1dfb4e542ebbcb2be6713bf6"/>    <section>
+    <title>sc_load_uuid</title>
+<indexterm><primary>sc_load_uuid</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_load_uuid</secondary></indexterm>
+<para><computeroutput>int(* sc_load_uuid(<link linkend="_structd__iov__t">d_iov_t</link> *id, uuid_t db_uuid)</computeroutput></para>
+<para>Retrieve the stored UUID of the service database. </para>
+<para>
+Definition at line 41 of file rsvc.h.</para>
+    </section><anchor xml:id="_structds__rsvc__class_1a8af4a12094e9e6fd2bde388f005d51d1"/>    <section>
+    <title>sc_locate</title>
+<indexterm><primary>sc_locate</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_locate</secondary></indexterm>
+<para><computeroutput>int(* sc_locate(<link linkend="_structd__iov__t">d_iov_t</link> *id, char **path)</computeroutput></para>
+<para>Locate the DB of the service identified by <emphasis>id</emphasis>. The returned DB path will later be passed to D_FREE. </para>
+<para>
+Definition at line 53 of file rsvc.h.</para>
+    </section><anchor xml:id="_structds__rsvc__class_1a273d1edc906daa414ee4c6af155e27f7"/>    <section>
+    <title>sc_map_dist</title>
+<indexterm><primary>sc_map_dist</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_map_dist</secondary></indexterm>
+<para><computeroutput>int(* sc_map_dist(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc)</computeroutput></para>
+<para>Distribute the system/pool map in the system/pool. This callback is optional. </para>
+<para>
+Definition at line 90 of file rsvc.h.</para>
+    </section><anchor xml:id="_structds__rsvc__class_1a2ecb0a3c4bbb250d375d47691082af36"/>    <section>
+    <title>sc_name</title>
+<indexterm><primary>sc_name</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_name</secondary></indexterm>
+<para><computeroutput>int(* sc_name(<link linkend="_structd__iov__t">d_iov_t</link> *id, char **name)</computeroutput></para>
+<para>Name the service identified by the generic <emphasis>id</emphasis>. The returned name string will later be passed to D_FREE. </para>
+<para>
+Definition at line 38 of file rsvc.h.</para>
+    </section><anchor xml:id="_structds__rsvc__class_1a84ea8f00b317345e5ebf4c4db1b71975"/>    <section>
+    <title>sc_step_down</title>
+<indexterm><primary>sc_step_down</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_step_down</secondary></indexterm>
+<para><computeroutput>void(* sc_step_down(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc)</computeroutput></para>
+<para>Step down from the current leadership. </para>
+<para>
+Definition at line 78 of file rsvc.h.</para>
+    </section><anchor xml:id="_structds__rsvc__class_1a42e68bf8a577ca89c9cf0dcdac098aa8"/>    <section>
+    <title>sc_step_up</title>
+<indexterm><primary>sc_step_up</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_step_up</secondary></indexterm>
+<para><computeroutput>int(* sc_step_up(struct <link linkend="_structds__rsvc">ds_rsvc</link> *svc)</computeroutput></para>
+<para>Step up to be the new leader. If the DB is new (i.e., has not been bootstrapped), return +DER_UNINIT. </para>
+<para>
+Definition at line 75 of file rsvc.h.</para>
+    </section><anchor xml:id="_structds__rsvc__class_1ab73cb5ef4a41ef39da80527f738870c8"/>    <section>
+    <title>sc_store_uuid</title>
+<indexterm><primary>sc_store_uuid</primary><secondary>ds_rsvc_class</secondary></indexterm>
+<indexterm><primary>ds_rsvc_class</primary><secondary>sc_store_uuid</secondary></indexterm>
+<para><computeroutput>int(* sc_store_uuid(<link linkend="_structd__iov__t">d_iov_t</link> *id, uuid_t db_uuid)</computeroutput></para>
+<para>Store the UUID of the service database. </para>
+<para>
+Definition at line 44 of file rsvc.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/<link linkend="_srv_2rsvc_8h">rsvc.h</link></section>
+</section>

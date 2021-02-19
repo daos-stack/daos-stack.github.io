@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdaos__profile__op">
+<title>daos_profile_op Struct Reference</title>
+<indexterm><primary>daos_profile_op</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdaos__profile__op_1aaa24a88762644bea546e88b0b183859a"/>int <emphasis role="strong">dpo_op</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__profile__op_1a67772de6b89b75a3b8cbb2d815c2e6cc"/>char * <emphasis role="strong">dpo_op_name</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__profile__op_1a9d1bfcf477f733c74804f8714d649cfd"/>int <emphasis role="strong">dpo_acc_cnt</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__profile__op_1a9f48b7c750044d531ffee9456bd3be29"/>int <emphasis role="strong">dpo_acc_val</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__profile__op_1ab7617c2300c3b41b2af73589efb0e6bd"/><link linkend="_structd__list__head">d_list_t</link> <emphasis role="strong">dpo_chunk_list</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__profile__op_1a601047ed37aaafe7ce7047fd56b14bcb"/><link linkend="_structd__list__head">d_list_t</link> <emphasis role="strong">dpo_chunk_idle_list</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__profile__op_1a46a87e7af065ec992f284414c1f22550"/>int <emphasis role="strong">dpo_chunk_total_cnt</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__profile__op_1aeffa5d802ae4c601835ee4e0b98d1d0f"/>int <emphasis role="strong">dpo_chunk_cnt</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__profile__op_1a03f3fe800a88153164c4990fd92c4931"/>struct <link linkend="_structdaos__profile__chunk">daos_profile_chunk</link> * <emphasis role="strong">dpo_current_chunk</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 25 of file profile.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/profile.h</section>
+</section>

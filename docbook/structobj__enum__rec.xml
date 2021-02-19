@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structobj__enum__rec">
+<title>obj_enum_rec Struct Reference</title>
+<indexterm><primary>obj_enum_rec</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structobj__enum__rec_1ab1afb5cc529cacd7f0963e902f98867f"/><link linkend="_structdaos__recx__t">daos_recx_t</link> <emphasis role="strong">rec_recx</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structobj__enum__rec_1a191fc5b425d636f13f35ae1d94d99195"/><link linkend="_structdaos__epoch__range__t">daos_epoch_range_t</link> <emphasis role="strong">rec_epr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structobj__enum__rec_1acb3d232983f7f584ecccb922afe7db50"/>uint64_t <emphasis role="strong">rec_size</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structobj__enum__rec_1a769b6e9aaecbb28db884a919a3fa77db"/>uint32_t <emphasis role="strong">rec_version</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structobj__enum__rec_1a22810817533561d8da1ac35e71c5eacc"/>uint32_t <emphasis role="strong">rec_flags</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 448 of file object.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/object.h</section>
+</section>

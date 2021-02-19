@@ -1,0 +1,23 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structd__debug__grp">
+<title>d_debug_grp Struct Reference</title>
+<indexterm><primary>d_debug_grp</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structd__debug__grp_1a71d580f4d79afbb9b8e64e40488ef054"/>char * <emphasis role="strong">dg_name</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structd__debug__grp_1a45e252a5c618dad930b569e0f30c326b"/>size_t <emphasis role="strong">dg_name_size</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structd__debug__grp_1a64ac966629ff99b3ce8c57cfd0e2119a"/><link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> <emphasis role="strong">dg_mask</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 164 of file dlog.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/gurt/<link linkend="_dlog_8h">dlog.h</link></section>
+</section>
