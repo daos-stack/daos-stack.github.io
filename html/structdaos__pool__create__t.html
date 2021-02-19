@@ -27,7 +27,6 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Version 1.0</span>
    </div>
   </td>
  </tr>
@@ -102,7 +101,7 @@ Data Fields</h2></td></tr>
 <tr class="separator:accbf90b0b518578acff258d328c5575d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aafb4e47bc006722deb58fd5e17531de3"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__pool__create__t.html#aafb4e47bc006722deb58fd5e17531de3">grp</a></td></tr>
 <tr class="separator:aafb4e47bc006722deb58fd5e17531de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aefd4d73110608826585823aef7ef9da8"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__pool__create__t.html#aefd4d73110608826585823aef7ef9da8">tgts</a></td></tr>
+<tr class="memitem:aefd4d73110608826585823aef7ef9da8"><td class="memItemLeft" align="right" valign="top">const d_rank_list_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__pool__create__t.html#aefd4d73110608826585823aef7ef9da8">tgts</a></td></tr>
 <tr class="separator:aefd4d73110608826585823aef7ef9da8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a29ccf79452c9782f194b9b70796b8a60"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__pool__create__t.html#a29ccf79452c9782f194b9b70796b8a60">dev</a></td></tr>
 <tr class="separator:a29ccf79452c9782f194b9b70796b8a60"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -110,9 +109,9 @@ Data Fields</h2></td></tr>
 <tr class="separator:aa4830051d2e2c6f690f0ef3a99daa0b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a348588b79eea8cbfa40a4ed35de84256"><td class="memItemLeft" align="right" valign="top">daos_size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__pool__create__t.html#a348588b79eea8cbfa40a4ed35de84256">nvme_size</a></td></tr>
 <tr class="separator:a348588b79eea8cbfa40a4ed35de84256"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8786d65cd566e6cbdb43d0afeca96a46"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdaos__prop__t.html">daos_prop_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__pool__create__t.html#a8786d65cd566e6cbdb43d0afeca96a46">prop</a></td></tr>
+<tr class="memitem:a8786d65cd566e6cbdb43d0afeca96a46"><td class="memItemLeft" align="right" valign="top">daos_prop_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__pool__create__t.html#a8786d65cd566e6cbdb43d0afeca96a46">prop</a></td></tr>
 <tr class="separator:a8786d65cd566e6cbdb43d0afeca96a46"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afcc363aa1e5e2300d19ecfd1c88f3f44"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__pool__create__t.html#afcc363aa1e5e2300d19ecfd1c88f3f44">svc</a></td></tr>
+<tr class="memitem:afcc363aa1e5e2300d19ecfd1c88f3f44"><td class="memItemLeft" align="right" valign="top">d_rank_list_t *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__pool__create__t.html#afcc363aa1e5e2300d19ecfd1c88f3f44">svc</a></td></tr>
 <tr class="separator:afcc363aa1e5e2300d19ecfd1c88f3f44"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:abd7a1e4c99eca5787f18cea120789eba"><td class="memItemLeft" align="right" valign="top">unsigned char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__pool__create__t.html#abd7a1e4c99eca5787f18cea120789eba">uuid</a></td></tr>
 <tr class="separator:abd7a1e4c99eca5787f18cea120789eba"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -214,7 +213,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structdaos__prop__t.html">daos_prop_t</a>* prop</td>
+          <td class="memname">daos_prop_t* prop</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -248,7 +247,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structd__rank__list__t.html">d_rank_list_t</a>* svc</td>
+          <td class="memname">d_rank_list_t* svc</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -265,7 +264,7 @@ Data Fields</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a>* tgts</td>
+          <td class="memname">const d_rank_list_t* tgts</td>
         </tr>
       </table>
 </div><div class="memdoc">
