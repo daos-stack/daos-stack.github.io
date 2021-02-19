@@ -42,7 +42,7 @@
     
     
       
-        <title>POSIX Namespace - DAOS</title>
+        <title>POSIX Namespace - DAOS v1.0</title>
       
     
     
@@ -68,8 +68,6 @@
     
     <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
     
-    
-      <link rel="stylesheet" href="../../css/version-select.css">
     
     
       
@@ -102,9 +100,9 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io/" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
           
-            <img alt="logo" src="../../daos_logo.png" width="24" height="24">
+            <i class="md-icon"></i>
           
         </a>
       </div>
@@ -115,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS
+              DAOS v1.0
             </span>
             <span class="md-header-nav__topic">
               
@@ -247,7 +245,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/releaseNote_v1_0/" class="md-tabs__link">
+        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -289,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io/" title="DAOS" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
       
-        <img alt="logo" src="../../daos_logo.png" width="48" height="48">
+        <i class="md-icon"></i>
       
     </a>
-    DAOS
+    DAOS v1.0
   </label>
   
     <div class="md-nav__source">
@@ -418,6 +416,18 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
+      Data Integrity
     </a>
   </li>
 
@@ -813,7 +823,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/releaseNote_v1_0/" title="Release Notes" class="md-nav__link">
+    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
       Release Notes
     </a>
   </li>
@@ -825,7 +835,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/matrix/" title="Support Matrix" class="md-nav__link">
+    <a href="../../release/support_matrix/" title="Support Matrix" class="md-nav__link">
       Support Matrix
     </a>
   </li>
@@ -1147,10 +1157,6 @@ be accessing it, and who owns any pools that will be used.</p>
 </thead>
 <tbody>
 <tr>
-<td>--svc=&lt;ranks></td>
-<td>service replicas</td>
-</tr>
-<tr>
 <td>--mountpoint=&lt;path></td>
 <td>path to mount dfuse</td>
 </tr>
@@ -1218,7 +1224,7 @@ within a container resolve not to regular directories, but rather to
 the root of entirely different POSIX containers.</p>
 <p>To create a new container and link it into the namespace of an existing one,
 use the following command.</p>
-<pre><code class="bash">$ daos container create --svc &lt;svc&gt; --type POSIX --pool &lt;pool uuid&gt; --path &lt;path to entry point&gt;
+<pre><code class="bash">$ daos container create --type POSIX --pool &lt;pool uuid&gt; --path &lt;path to entry point&gt;
 </code></pre>
 
 <p>The pool uuid should already exist, and the path should specify a location
@@ -1227,7 +1233,7 @@ Once a link is created, it can be accessed through the new path. Following
 the link is virtually transparent.  No container uuid is required. If one is
 not supplied, it will be created.</p>
 <p>To destroy a container again, the following command should be used.</p>
-<pre><code class="bash">$ daos container destroy --svc --path &lt;path to entry point&gt;
+<pre><code class="bash">$ daos container destroy --path &lt;path to entry point&gt;
 </code></pre>
 
 <p>This will both remove the link between the containers and remove the container
@@ -1237,7 +1243,7 @@ links to containers without also removing the container itself.</p>
 <p>Information about a container, for example, the presence of an entry point between
 containers, or the pool and container uuids of the container linked to can be
 read with the following command.</p>
-<pre><code class="bash">$ daos container info --svc --path &lt;path to entry point&gt;
+<pre><code class="bash">$ daos container info --path &lt;path to entry point&gt;
 </code></pre>
 
 <h3 id="enabling-caching">Enabling Caching<a class="headerlink" href="#enabling-caching" title="Permanent link">&para;</a></h3>
@@ -1351,8 +1357,6 @@ LD_PRELOAD=/usr/lib64/libioil.so # when installed from RPMs
       <script src="../../assets/javascripts/application.c33a9706.js"></script>
       
       <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
-      
-        <script src="../../js/version-select.js"></script>
       
     
   </body>
