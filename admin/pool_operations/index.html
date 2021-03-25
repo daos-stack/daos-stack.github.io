@@ -42,7 +42,7 @@
     
     
       
-        <title>Pool Operations - DAOS v1.0</title>
+        <title>Pool Operations - DAOS</title>
       
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0
+              DAOS
             </span>
             <span class="md-header-nav__topic">
               
@@ -287,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS v1.0
+    DAOS
   </label>
   
     <div class="md-nav__source">
@@ -416,18 +416,6 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
-      Data Integrity
     </a>
   </li>
 
@@ -568,6 +556,13 @@
           <li class="md-nav__item">
   <a href="#modifying-daos_prop_po_reclaim-property" class="md-nav__link">
     Modifying DAOS_PROP_PO_RECLAIM property
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#querying-a-pools-properties" class="md-nav__link">
+    Querying a pool's properties
   </a>
   
 </li>
@@ -937,8 +932,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
-      Release Notes
+    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
+      Release Notes v1.0
     </a>
   </li>
 
@@ -1118,6 +1113,13 @@
           <li class="md-nav__item">
   <a href="#modifying-daos_prop_po_reclaim-property" class="md-nav__link">
     Modifying DAOS_PROP_PO_RECLAIM property
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#querying-a-pools-properties" class="md-nav__link">
+    Querying a pool's properties
   </a>
   
 </li>
@@ -1315,9 +1317,8 @@ is managed by the administrator. The amount of space allocated to a pool
 is decided at creation time and can eventually be expanded through the
 management interface.</p>
 <h2 id="pool-creationdestroy">Pool Creation/Destroy<a class="headerlink" href="#pool-creationdestroy" title="Permanent link">&para;</a></h2>
-<p>A DAOS pool can be created and destroyed through the DAOS management API
-(see daos_mgmt.h). DAOS also provides a utility called dmg to manage
-storage pools from the command line.</p>
+<p>A DAOS pool can be created and destroyed through a utility called dmg to
+manage storage pools from the command line.</p>
 <p><strong>To create a pool:</strong></p>
 <pre><code class="bash">$ dmg pool create --size=NTB
 </code></pre>
@@ -1327,8 +1328,7 @@ target size on each server that is comprised of N TB of NVMe storage
 and N * 0.06 (i.e. 6% of NVMe) of SCM storage. The default SCM:NVMe ratio
 may be adjusted at pool creation time as described below.
 The UUID allocated to the newly created pool is printed to stdout
-(referred to as ${puuid}) as well as the pool service replica ranks
-(referred to as ${svcl}).</p>
+(referred to as ${puuid}) as well as the pool service replica ranks.</p>
 <p>NB: The --scm-size and --nvme-size options still exist, but should be
 considered deprecated and will likely be removed in a future release.</p>
 <pre><code class="bash">$ dmg pool create --help
@@ -1391,8 +1391,6 @@ a106d667-5c5d-4d6f-ac3a-89099196c41a    0
 </code></pre>
 
 <h2 id="pool-properties">Pool Properties<a class="headerlink" href="#pool-properties" title="Permanent link">&para;</a></h2>
-<p>At creation time, a list of pool properties can be specified through the
-API (not supported by the tool yet):</p>
 <table>
 <thead>
 <tr>
@@ -1423,6 +1421,7 @@ API (not supported by the tool yet):</p>
 </tr>
 </tbody>
 </table>
+<p>At creation time, currently only ACL may be specified via dmg pool create.</p>
 <p>While those pool properties are currently stored persistently with pool
 metadata, many of them are still under development. Moreover, the
 ability to modify some of those properties on an existing pool will
@@ -1438,6 +1437,27 @@ be provided in a future release.</p>
 <li>"lazy"     : Trigger aggregation only when there is no IO activities or SCM free space is under pressure (default strategy)</li>
 <li>"time"     : Trigger aggregation regularly despite of IO activities.</li>
 </ul>
+<h3 id="querying-a-pools-properties">Querying a pool's properties<a class="headerlink" href="#querying-a-pools-properties" title="Permanent link">&para;</a></h3>
+<p>The user-level administration <code>daos</code> utility may be used to query a pool's
+properties. Refer to the manual page for full <code>daos</code> usage details.</p>
+<pre><code class="bash">$ daos pool get-prop --pool=b1e9f5c0-ce10-42ab-b19e-081032400611
+Pool properties for b1e9f5c0-ce10-42ab-b19e-081032400611 :
+label:                  pool label not set
+rebuild space ratio:    0%
+self-healing:           auto-exclude,auto-rebuild
+reclaim strategy:       lazy
+owner:                  username@
+owner-group:            username@
+Access Control List:
+#
+# (remainder of output not shown)
+#
+</code></pre>
+
+<p>Additionally, a pool's properties may be retrieved using the libdaos API
+daos_pool_query() function. Refer to the file src/include/daos_pool.h
+Doxygen comments and the online documentation available
+<a href="https://daos-stack.github.io/html/">here</a>.</p>
 <h2 id="access-control-lists">Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permanent link">&para;</a></h2>
 <p>Client user and group access for pools are controlled by
 <a href="https://daos-stack.github.io/overview/security/#access-control-lists">Access Control Lists (ACLs)</a>.
@@ -1469,7 +1489,7 @@ desired privileges of the owner-user (<code>OWNER@</code>) and owner-group (<cod
 be explicitly defined by an administrator in the pool ACL.</p>
 <h3 id="creating-a-pool-with-a-custom-acl">Creating a pool with a custom ACL<a class="headerlink" href="#creating-a-pool-with-a-custom-acl" title="Permanent link">&para;</a></h3>
 <p>To create a pool with a custom ACL:</p>
-<pre><code class="bash">$ dmg pool create --scm-size &lt;size&gt; --acl-file &lt;path&gt;
+<pre><code class="bash">$ dmg pool create --size &lt;size&gt; --acl-file &lt;path&gt;
 </code></pre>
 
 <p>The ACL file format is detailed in the <a href="https://daos-stack.github.io/overview/security/#acl-file">here</a>.</p>
@@ -1541,6 +1561,12 @@ is integrated into the dmg utility.</p>
 <p>The total and free sizes are the sum across all the targets whereas
 min/max/mean gives information about individual targets. A min value
 close to 0 means that one target is running out of space.</p>
+<p>NB: the Versioning Object Store (VOS) may reserve a portion of the
+SCM and NVMe allocations to mitigate fragmentation and for background
+operations (e.g., aggregation, garbage collection). The amount of storage
+set aside depends on the size of the target, and may take up 2+ GB.
+Therefore, out of space conditions may occur even while pool query may not
+reveal min approaching zero.</p>
 <p>The example below shows a rebuild in progress and NVMe space allocated.</p>
 <pre><code class="bash">    pool=95886b8b-7eb8-454d-845c-fc0ae0ba5671
     Pool 95886b8b-7eb8-454d-845c-fc0ae0ba5671, ntarget=64, disabled=8
@@ -1556,7 +1582,7 @@ close to 0 means that one target is running out of space.</p>
 </code></pre>
 
 <p>Additional status and telemetry data are planned to be exported through
-the management API and tool and will be documented here once available.</p>
+management tools and will be documented here once available.</p>
 <h2 id="pool-modifications">Pool Modifications<a class="headerlink" href="#pool-modifications" title="Permanent link">&para;</a></h2>
 <h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing<a class="headerlink" href="#target-exclusion-and-self-healing" title="Permanent link">&para;</a></h3>
 <h2 id="pool-exclude">Pool Exclude<a class="headerlink" href="#pool-exclude" title="Permanent link">&para;</a></h2>
@@ -1622,7 +1648,7 @@ Target (rank 5 idx 1) is down.
 <h3 id="pool-extension">Pool Extension<a class="headerlink" href="#pool-extension" title="Permanent link">&para;</a></h3>
 <h4 id="target-addition-space-rebalancing">Target Addition &amp; Space Rebalancing<a class="headerlink" href="#target-addition-space-rebalancing" title="Permanent link">&para;</a></h4>
 <p>Full Support for online target addition and automatic space rebalancing is
-planned for DAOS v1.4 and will be documented here once available.</p>
+planned for a future release and will be documented here once available.</p>
 <p>Until then the following command(s) are placeholders and offer limited
 functionality related to Online Server Addition/Rebalancing operations.</p>
 <p>An operator can choose to extend a pool to include ranks not currently in the pool.

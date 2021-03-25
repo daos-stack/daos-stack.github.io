@@ -42,7 +42,7 @@
     
     
       
-        <title>Performance Tuning - DAOS v1.0</title>
+        <title>Performance Tuning - DAOS</title>
       
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0
+              DAOS
             </span>
             <span class="md-header-nav__topic">
               
@@ -287,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS v1.0
+    DAOS
   </label>
   
     <div class="md-nav__source">
@@ -416,18 +416,6 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
-      Data Integrity
     </a>
   </li>
 
@@ -822,8 +810,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
-      Release Notes
+    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
+      Release Notes v1.0
     </a>
   </li>
 
@@ -1186,23 +1174,27 @@ benchmarks.</p>
 <p>IOR (<a href="https://github.com/hpc/ior">https://github.com/hpc/ior</a>) with the following backends:</p>
 <ul>
 <li>
-<p>POSIX, MPIIO &amp; HDF5 drivers over dfuse and the interception library.</p>
+<p>The IOR APIs POSIX, MPIIO and HDF5 can be used with DAOS POSIX containers that
+    are accessed over dfuse. This works without or with the I/O interception library
+    (<code>libioil</code>). Performance is significantly better when using <code>libioil</code>.</p>
 </li>
 <li>
-<p>MPI-IO plugin with the ROMIO DAOS ADIO driver to bypass POSIX and dfuse. The
-    MPIIO driver is available in the upstream MPICH repository.</p>
+<p>A custom DFS (DAOS File System) plugin for DAOS can be used by building IOR
+    with DAOS support, and selecting API=DFS. This integrates IOR directly with the
+    DAOS File System (<code>libdfs</code>), without requiring FUSE or an interception library.</p>
 </li>
 <li>
-<p>HDF5 plugin with the HDF5 DAOS connector (under development). This maps the
-    HDF5 data model directly to the DAOS model bypassing POSIX.</p>
+<p>When using the IOR API=MPIIO, the ROMIO ADIO driver for DAOS can be used by
+    providing the <code>daos://</code> prefix to the filename. This ADIO driver bypasses <code>dfuse</code>
+    and directly invkes the <code>libdfs</code> calls to perform I/O to a DAOS POSIX container.
+    The DAOS-enabled MPIIO driver is available in the upstream MPICH repository 
+    (MPICH 3.4.1 or higher).</p>
 </li>
 <li>
-<p>A custom DFS (DAOS File System) plugin, integrating IOR directly with libfs
-    without requiring FUSE or an interception library</p>
-</li>
-<li>
-<p>A custom DAOS plugin, integrating IOR directly with the native DAOS
-    array API.</p>
+<p>An HDF5 VOL connector for DAOS is under development. This maps the HDF5 data model 
+    directly to the DAOS data model, and works in conjunction with DAOS containers of
+    <code>--type=HDF5</code> (in contrast to DAOS container of <code>--type=POSIX</code> that are used for
+    the other IOR APIs).</p>
 </li>
 </ul>
 <h3 id="mdtest">mdtest<a class="headerlink" href="#mdtest" title="Permanent link">&para;</a></h3>

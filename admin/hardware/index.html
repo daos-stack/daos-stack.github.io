@@ -42,7 +42,7 @@
     
     
       
-        <title>Hardware Requirements - DAOS v1.0</title>
+        <title>Hardware Requirements - DAOS</title>
       
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0
+              DAOS
             </span>
             <span class="md-header-nav__topic">
               
@@ -287,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS v1.0
+    DAOS
   </label>
   
     <div class="md-nav__source">
@@ -416,18 +416,6 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
-      Data Integrity
     </a>
   </li>
 
@@ -796,8 +784,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
-      Release Notes
+    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
+      Release Notes v1.0
     </a>
   </li>
 
@@ -1064,8 +1052,8 @@ make the necessary adjustments automatically in their respective build
 systems for ARM platforms.</p>
 <h2 id="network-requirements">Network Requirements<a class="headerlink" href="#network-requirements" title="Permanent link">&para;</a></h2>
 <p>The DAOS network layer relies on libfabrics and supports OFI providers
-for Ethernet/sockets, InfiniBand/verbs, RoCE, and Intel
-Omni-Path Architecture (OPA). An RDMA-capable fabric is preferred for better
+for Ethernet/sockets, InfiniBand/verbs, and RoCE. 
+An RDMA-capable fabric is preferred for better
 performance. DAOS can support multiple rails by binding different
 instances of the DAOS server to individual network cards.</p>
 <p>The DAOS control plane provides methods for administering and managing
@@ -1118,11 +1106,11 @@ performance.</p>
 <p>Therefore, when running in a multi-socket and multi-rail environment,
 the DAOS service must be able to detect the CPU to PCIe device and
 persistent memory affinity and minimize as much as possible non-local
-access. This can be achieved by spawning one instance of the I/O server
+access. This can be achieved by spawning one instance of the I/O Engine
 per CPU, then accessing only the persistent memory and PCI devices
 local to that CPU from that server instance. The DAOS control plane is
 responsible for detecting the storage and network affinity and
-starting the I/O servers accordingly.</p>
+starting the I/O Engines accordingly.</p>
 <p><img alt="" src="../media/Fig_075.png" /></p>
 <h2 id="fault-domains">Fault Domains<a class="headerlink" href="#fault-domains" title="Permanent link">&para;</a></h2>
 <p>DAOS relies on single-ported storage massively distributed across
@@ -1166,7 +1154,7 @@ technical_work/final/NVMProgrammingModel_v1.2.pdf</a>&#160;<a class="footnote-ba
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../overview/data_integrity/" title="Data Integrity" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../../overview/security/" title="Security Model" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1175,7 +1163,7 @@ technical_work/final/NVMProgrammingModel_v1.2.pdf</a>&#160;<a class="footnote-ba
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Data Integrity
+                Security Model
               </span>
             </div>
           </a>

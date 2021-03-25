@@ -1,5 +1,5 @@
 # Project Information
-site_name: DAOS v1.0
+site_name: DAOS
 site_description: Distributed Asynchronous Object Storage
 site_author: DAOS Project
 site_url: http://daos.io
@@ -23,7 +23,7 @@ theme:
     feature:
         tabs: true
 
-docs_dir: ./
+docs_dir: doc
 
 markdown_extensions:
     - admonition

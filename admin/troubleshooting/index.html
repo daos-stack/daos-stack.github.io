@@ -42,7 +42,7 @@
     
     
       
-        <title>Troubleshooting - DAOS v1.0</title>
+        <title>Troubleshooting - DAOS</title>
       
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0
+              DAOS
             </span>
             <span class="md-header-nav__topic">
               
@@ -287,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS v1.0
+    DAOS
   </label>
   
     <div class="md-nav__source">
@@ -416,18 +416,6 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
-      Data Integrity
     </a>
   </li>
 
@@ -680,6 +668,33 @@
     Common DAOS Problems
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incompatible-agent" class="md-nav__link">
+    Incompatible Agent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hlc-sync" class="md-nav__link">
+    HLC Sync
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-memory-errors" class="md-nav__link">
+    Shared Memory Errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -850,8 +865,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
-      Release Notes
+    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
+      Release Notes v1.0
     </a>
   </li>
 
@@ -1106,6 +1121,33 @@
   <a href="#common-daos-problems" class="md-nav__link">
     Common DAOS Problems
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#incompatible-agent" class="md-nav__link">
+    Incompatible Agent
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#hlc-sync" class="md-nav__link">
+    HLC Sync
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#shared-memory-errors" class="md-nav__link">
+    Shared Memory Errors
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1370,10 +1412,10 @@ errors are documented in the table below.</p>
 </tr>
 </tbody>
 </table>
-<p>When an operation fails, DAOS returns a negative DER error. For a full
-list of errors, please check
-<a href="https://github.com/daos-stack/cart/blob/master/src/include/daos_errno.h">https://github.com/daos-stack/cart/blob/master/src/include/daos_errno.h</a>
-(DER_ERR_GURT_BASE is equal to 1000 and DER_ERR_DAOS_BASE is equal
+<p>When an operation fails, DAOS returns a negative DER error.
+For a full list of errors, please check
+<a href="https://github.com/daos-stack/daos/blob/master/src/include/daos_errno.h">https://github.com/daos-stack/daos/blob/master/src/include/daos_errno.h</a>
+(<code>DER_ERR_GURT_BASE</code> is equal to 1000, and <code>DER_ERR_DAOS_BASE</code> is equal
 to 2000).</p>
 <p>The function d_errstr() is provided in the API to convert an error
 number to an error message.</p>
@@ -1392,12 +1434,12 @@ server operations:</p>
 <tr>
 <td>Control Plane</td>
 <td>control_log_file</td>
-<td>/tmp/daos_control.log</td>
+<td>/tmp/daos_server.log</td>
 </tr>
 <tr>
 <td>Data Plane</td>
 <td>log_file</td>
-<td>/tmp/daos_server.log</td>
+<td>/tmp/daos_engine.*.log</td>
 </tr>
 <tr>
 <td><a href="https://daos-stack.github.io/admin/deployment/#elevated-privileges">Privileged Helper</a></td>
@@ -1436,9 +1478,11 @@ DEBUG-level logging will be sent to the specified file.</p>
 DEBUG-level logging will be sent to the specified file.</p>
 <h2 id="debugging-system">Debugging System<a class="headerlink" href="#debugging-system" title="Permanent link">&para;</a></h2>
 <p>DAOS uses the debug system defined in
-<a href="https://github.com/daos-stack/cart">CaRT</a> but more specifically the
-GURT library. Default server log is "/tmp/daos.log" and client default
-log is stdout, unless otherwise set by <code>D_LOG_FILE</code>.</p>
+<a href="https://github.com/daos-stack/daos/tree/master/src/cart">CaRT</a>,
+specifically the GURT library.
+Both server and client default log is <code>stdout</code>, unless
+otherwise set by <code>D_LOG_FILE</code> environment variable (client) or
+<code>log_file</code> config parameter (server).</p>
 <h3 id="registered-subsystemsfacilities">Registered Subsystems/Facilities<a class="headerlink" href="#registered-subsystemsfacilities" title="Permanent link">&para;</a></h3>
 <p>The debug logging system includes a series of subsystems or facilities
 which define groups for related log messages (defined per source file).
@@ -1592,16 +1636,54 @@ management
 <p>Refer to the DAOS Environment Variables document for
 more information about the debug system environment.</p>
 <h2 id="common-daos-problems">Common DAOS Problems<a class="headerlink" href="#common-daos-problems" title="Permanent link">&para;</a></h2>
+<h3 id="incompatible-agent">Incompatible Agent<a class="headerlink" href="#incompatible-agent" title="Permanent link">&para;</a></h3>
 <p>When DER_AGENT_INCOMPAT is received, it means that the client library libdaos.so
 is likely mismatched with the DAOS Agent.  The libdaos.so, DAOS Agent and DAOS
 Server must be built from compatible sources so that the GetAttachInfo protocol
 is the same between each component.  Depending on your situation, you will need
 to either update the DAOS Agent or the libdaos.so to the newer version in order
 to maintain compatibility with each other.</p>
+<h3 id="hlc-sync">HLC Sync<a class="headerlink" href="#hlc-sync" title="Permanent link">&para;</a></h3>
 <p>When DER_HLC_SYNC is received, it means that sender and receiver HLC timestamps
 are off by more than maximum allowed system clock offset (1 second by default).</p>
 <p>In order to correct this situation synchronize all server clocks to the same
 reference time, using services like NTP.</p>
+<h3 id="shared-memory-errors">Shared Memory Errors<a class="headerlink" href="#shared-memory-errors" title="Permanent link">&para;</a></h3>
+<p>When DER_SHMEM_PERMS is received it means that this I/O Engine lacked the
+permissions to access the shared memory megment left behind by a previous run of
+the I/O Engine on the same machine.  This happens when the I/O Engine fails to
+remove the shared memory segment upon shutdown, and, there is a mismatch between
+the user/group used to launch the I/O Engine between these successive runs.  To
+remedy the problem, manually identify the shared memory segment and remove it.</p>
+<p>Issue <code>ipcs</code> to view the Shared Memory Segments.  The output will show a
+list of segments organized by <code>key</code>.</p>
+<pre><code>$ipcs
+
+------ Message Queues --------
+key        msqid      owner      perms      used-bytes   messages
+
+------ Shared Memory Segments --------
+key        shmid      owner      perms      bytes      nattch     status
+0xffffffff 49938432   root       666        40         0
+0x10242048 98598913   jbrosenz   660        1048576    0
+0x10242049 98631682   jbrosenz   660        1048576    0
+
+------ Semaphore Arrays --------
+key        semid      owner      perms      nsems
+</code></pre>
+
+<p>Shared Memory Segments with keys [0x10242048 .. (0x10242048 + number of I/O
+Engines running)] are the segments that must be removed.  Use <code>ipcrm</code> to
+remove the segment.</p>
+<p>For example, to remove the shared memory segment left behind by I/O Engine
+instance 0, issue:</p>
+<pre><code>sudo ipcrm -M 0x10242048
+</code></pre>
+
+<p>To remove the shared memory segment left behind by I/O Engine instance 1, issue:</p>
+<pre><code>sudo ipcrm -M 0x10242049
+</code></pre>
+
 <h2 id="bug-report">Bug Report<a class="headerlink" href="#bug-report" title="Permanent link">&para;</a></h2>
 <p>Bugs should be reported through our issue tracker<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> with a test case
 to reproduce the issue (when applicable) and debug logs.</p>

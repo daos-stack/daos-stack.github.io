@@ -42,7 +42,7 @@
     
     
       
-        <title>Container Management - DAOS v1.0</title>
+        <title>Container Management - DAOS</title>
       
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0
+              DAOS
             </span>
             <span class="md-header-nav__topic">
               
@@ -287,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS v1.0
+    DAOS
   </label>
   
     <div class="md-nav__source">
@@ -416,18 +416,6 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
-      Data Integrity
     </a>
   </li>
 
@@ -657,6 +645,19 @@
   <a href="#container-properties" class="md-nav__link">
     Container Properties
   </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#querying-a-containers-properties" class="md-nav__link">
+    Querying a container's properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -898,8 +899,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
-      Release Notes
+    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
+      Release Notes v1.0
     </a>
   </li>
 
@@ -1073,6 +1074,19 @@
     Container Properties
   </a>
   
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#querying-a-containers-properties" class="md-nav__link">
+    Querying a container's properties
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
       
         <li class="md-nav__item">
@@ -1240,9 +1254,11 @@ provided to manage containers.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In DAOS 1.0, in order to use the <code>daos</code> command the following environment
-variables need to be set (this is no longer needed in later versions of DAOS):
- * For Omni-Path: <code>export OFI_INTERFACE="ib0"; export CRT_PHY_ADDR_STR="ofi+psm2"</code>
- * For InfiniBand: <code>export OFI_INTERFACE="ib0"; export CRT_PHY_ADDR_STR="ofi+verbs;ofi_rxm"; export OFI_DOMAIN="mlx5_0"</code></p>
+variables need to be set (this is no longer needed in later versions of DAOS):</p>
+<ul>
+<li>For Omni-Path: <code>export OFI_INTERFACE="ib0"; export CRT_PHY_ADDR_STR="ofi+psm2"</code></li>
+<li>For InfiniBand: <code>export OFI_INTERFACE="ib0"; export CRT_PHY_ADDR_STR="ofi+verbs;ofi_rxm"; export OFI_DOMAIN="mlx5_0"</code></li>
+</ul>
 </div>
 <p>To create a container:</p>
 <pre><code class="bash">$ daos cont create --pool=a171434a-05a5-4671-8fe2-615aa0d05094
@@ -1255,7 +1271,7 @@ stored in the extended attributes of a POSIX file or directory for convenience.
 Then subsequent invocations of the daos tools need to reference the path
 to the POSIX file or directory.</p>
 <pre><code class="bash">$ daos cont create --pool=a171434a-05a5-4671-8fe2-615aa0d05094 \
-      --path=/tmp/mycontainer --type=POSIX --oclass=large \
+      --path=/tmp/mycontainer --type=POSIX --oclass=SX \
       --chunk_size=4K
 Successfully created container 419b7562-5bb8-453f-bd52-917c8f5d80d1 type POSIX
 
@@ -1286,7 +1302,7 @@ Chunk Size:     4096
 </tr>
 <tr>
 <td><code>DAOS_PROP_CO_LAYOUT_TYPE</code></td>
-<td>The container type (POSIX, MPI-IO, HDF5, ...)</td>
+<td>The container type (POSIX, HDF5, ...)</td>
 </tr>
 <tr>
 <td><code>DAOS_PROP_CO_LAYOUT_VER</code></td>
@@ -1300,12 +1316,79 @@ Chunk Size:     4096
 <td><code>DAOS_PROP_CO_REDUN_LVL</code></td>
 <td>The fault domain level that should be used to place data redundancy information (e.g., storage nodes, racks...). This information will be eventually consumed to determine object placement.</td>
 </tr>
+<tr>
+<td><code>DAOS_PROP_CO_CSUM</code></td>
+<td>Checksum off, or algorithm to use.</td>
+</tr>
+<tr>
+<td><code>DAOS_PROP_CO_CSUM_CHUNK_SIZE</code></td>
+<td>Checksum chunk size.</td>
+</tr>
+<tr>
+<td><code>DAOS_PROP_CO_CSUM_SERVER_VERIFY</code></td>
+<td>Perform additional checksum verification on server (default: off).</td>
+</tr>
+<tr>
+<td><code>DAOS_PROP_CO_SNAPSHOT_MAX</code></td>
+<td>Impose a limit on number of snapshots to retain (default: 0, no limitation).</td>
+</tr>
+<tr>
+<td>`DAOS_PROP_CO_ACL</td>
+<td>Container access control list.</td>
+</tr>
+<tr>
+<td><code>DAOS_PROP_CO_OWNER</code></td>
+<td>User acting as the owner of the container.</td>
+</tr>
+<tr>
+<td><code>DAOS_PROP_CO_OWNER_GROUP</code></td>
+<td>Group acting as the owner of the container.</td>
+</tr>
 </tbody>
 </table>
+<p>Refer to the Data Integrity and Access Control Lists sections for more
+details on the checksum and access-related properties.</p>
+<p>Refer to the Inline Deduplication section for details about additional
+properties for that preview feature that are not listed here.</p>
 <p>While those properties are currently stored persistently with container
 metadata, many of them are still under development. The ability to modify some
 of these properties on an existing container will also be provided in a future
 release.</p>
+<h3 id="querying-a-containers-properties">Querying a container's properties<a class="headerlink" href="#querying-a-containers-properties" title="Permanent link">&para;</a></h3>
+<p>The user-level administration <code>daos</code> utility may be used to query a
+container's properties. Refer to the manual page for full usage details.</p>
+<pre><code class="bash"># daos cont get-prop --pool=&lt;UUID&gt; --cont=&lt;UUID&gt;
+# -OR- --path interface shown below
+
+$ daos cont get-prop --path=/tmp/mycontainer
+Container properties for 419b7562-5bb8-453f-bd52-917c8f5d80d1 :
+label:                  container label not set
+layout type:            POSIX (1)
+layout version:         1
+checksum type:          off
+checksum chunk-size:    32768
+cksum verif. on server: off
+deduplication:          off
+dedup threshold:        4096
+redundancy factor:      rf0
+redundancy level:       rack
+max snapshots:          0
+compression type:       off
+encryption type:        off
+Allocated OID:          0
+owner:                  username@
+owner-group:            groupname@
+status:                 HEALTHY
+acl:
+# Entries:
+A::OWNER@:rwdtTaAo
+A:G:GROUP@:rwtT
+</code></pre>
+
+<p>Additionally, a container's properties may be retrieved using the
+libdaos API daos_cont_query() function. Refer to the file
+src/include/daos_cont.h Doxygen comments and the online documentation
+available <a href="https://daos-stack.github.io/html/">here</a>.</p>
 <h2 id="data-integrity">Data Integrity<a class="headerlink" href="#data-integrity" title="Permanent link">&para;</a></h2>
 <p>DAOS allows to detect and fix (when data protection is enabled) silent data
 corruptions. This is done by calculating checksums for both data and metadata
@@ -1345,12 +1428,12 @@ during container create.</p>
 </ul>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Note that currently, once a container is created, its checksum configuration
+<p>Once a container is created, its checksum configuration
 cannot be changed.</p>
 </div>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>The checksum feature is only supported in DAOS 1.2.</p>
+<p>The checksum feature is only supported in DAOS 1.2 and later.</p>
 </div>
 <h2 id="inline-deduplication-preview">Inline Deduplication (Preview)<a class="headerlink" href="#inline-deduplication-preview" title="Permanent link">&para;</a></h2>
 <p>Data deduplication (dedup) is a process that allows to eliminate duplicated
@@ -1386,7 +1469,7 @@ configure dedup, the following container properties are used:</p>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Dedup is a feature preview in 1.2 (i.e. master) and has some known
+<p>Dedup is a feature preview in 1.2 and has some known
 limitations. Aggregation of deduplicated extents isn't supported and the
 checksum tree isn't persistent yet. This means that aggregation is disabled
 for a container with dedplication enabled and duplicated extents won't be
@@ -1400,11 +1483,15 @@ These features are currently not on the roadmap.</p>
 <p>Similar to container create/destroy, a container can be snapshotted through the
 DAOS API by calling daos_cont_create_snap(). Additional functions are provided
 to destroy and list container snapshots.</p>
-<p>The API also provides the ability to subscribe to container snapshot events and
+<p>The API also provides interfaces to subscribe to container snapshot events and
 to rollback the content of a container to a previous snapshot, but those
 operations are not yet fully implemented.</p>
-<p>This section will be updated once support for container snapshot is supported by
-the <code>daos</code> tool.</p>
+<p>The <code>daos</code> tool provides container {create/destroy}-snap and list-snaps
+commands. It provides access to basic snapshot create/destroy according
+to the constraints of the implementation (e.g., no named snapshots).
+It provides interfaces (commands and arguments) for the broader set of
+snapshot features, for when they are implemented later (e.g., specified
+epoch/epoch range, rollback).</p>
 <p>The <code>DAOS_PROP_CO_SNAPSHOT_MAX</code> property is used to limit the maximum number of
 snapshots to retain. When a new snapshot is taken, and the threshold is reached,
 the oldest snapshot will be automatically deleted.</p>
@@ -1412,7 +1499,8 @@ the oldest snapshot will be automatically deleted.</p>
 versions.</p>
 <h2 id="user-attributes">User Attributes<a class="headerlink" href="#user-attributes" title="Permanent link">&para;</a></h2>
 <p>Similar to POSIX extended attributes, users can attach some metadata to each
-container through the daos_cont_{list/get/set}_attr() API.</p>
+container through the daos_cont_{list/get/set}_attr() API, and through the
+utility commands: daos cont {get/set}-attr and list-attrs.</p>
 <h2 id="access-control-lists">Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permanent link">&para;</a></h2>
 <p>Client user and group access for containers is controlled by
 <a href="https://daos-stack.github.io/overview/security/#access-control-lists">Access Control Lists (ACLs)</a>.</p>

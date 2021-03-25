@@ -40,7 +40,8 @@ var api_8h =
     [ "crt_timeout_cb", "group___c_a_r_t.html#ga98c70ff85a11e6b8bd2aea9b6e9659d8", null ],
     [ "crt_event_source", "group___c_a_r_t.html#ga77aaf444cca8082606259c3cb873f142", [
       [ "CRT_EVS_UNKNOWN", "group___c_a_r_t.html#gga77aaf444cca8082606259c3cb873f142a1d3a451747b0335f4b51113d994196b6", null ],
-      [ "CRT_EVS_SWIM", "group___c_a_r_t.html#gga77aaf444cca8082606259c3cb873f142a665dd87be3339053386d96020e7b3cc9", null ]
+      [ "CRT_EVS_SWIM", "group___c_a_r_t.html#gga77aaf444cca8082606259c3cb873f142a665dd87be3339053386d96020e7b3cc9", null ],
+      [ "CRT_EVS_GRPMOD", "group___c_a_r_t.html#gga77aaf444cca8082606259c3cb873f142a5185f9c3dcd07202950cb8a899c44993", null ]
     ] ],
     [ "crt_event_type", "group___c_a_r_t.html#ga7f63c91e081ffe734b4636ca366c1c41", [
       [ "CRT_EVT_ALIVE", "group___c_a_r_t.html#gga7f63c91e081ffe734b4636ca366c1c41ae60ba2f624e23428e358cf90b61f0be1", null ],
@@ -82,6 +83,7 @@ var api_8h =
     [ "crt_ep_abort", "group___c_a_r_t.html#gab49687fc6b749807872c6c14f6dbf7ab", null ],
     [ "crt_finalize", "group___c_a_r_t.html#gac4586b6542b4c809a737a63e18b6f314", null ],
     [ "crt_group_attach", "group___c_a_r_t.html#ga69f78261760cc22432b6d79f591ef6f6", null ],
+    [ "crt_group_auto_rank_remove", "group___c_a_r_t.html#gadae1ac0327dd9ad5049299bc4f565fb0", null ],
     [ "crt_group_config_path_set", "group___c_a_r_t.html#ga488d62a433d3799355798075a9d2aa25", null ],
     [ "crt_group_config_remove", "group___c_a_r_t.html#ga1fecd36a0cebf97f4a1dd8ad7fc17f70", null ],
     [ "crt_group_config_save", "group___c_a_r_t.html#ga4524b67a753babb8236aa5628e46b273", null ],
@@ -138,6 +140,8 @@ var api_8h =
     [ "crt_progress_cond", "group___c_a_r_t.html#gab7611702682ff56c57d697cb2670d426", null ],
     [ "crt_proto_query", "group___c_a_r_t.html#gafe86d4600a2c1c1755c808b2834e7aa4", null ],
     [ "crt_proto_register", "group___c_a_r_t.html#gadfdd482f95145207f5e591af771037a2", null ],
+    [ "crt_rank_abort", "group___c_a_r_t.html#ga896d0246d32f5e9edc4572fdd90fdf79", null ],
+    [ "crt_rank_abort_all", "group___c_a_r_t.html#ga076fbaa744c9de3126d40e67e32d44c4", null ],
     [ "crt_rank_self_set", "group___c_a_r_t.html#ga57f75b8ebd9c694b07c3aae13b9365ac", null ],
     [ "crt_rank_state_get", "group___c_a_r_t.html#gac627ee6b4355ab3e277453a60ee0174d", null ],
     [ "crt_rank_uri_get", "group___c_a_r_t.html#gac61f182a8231c602267eafc5f1fc544f", null ],

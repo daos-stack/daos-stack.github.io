@@ -7,6 +7,7 @@ var group___c_a_r_t___t_y_p_e_s =
       [ "cio_fault_inject", "structcrt__init__options.html#aab39fe2d4b31186380f98656e1a79d22", null ],
       [ "cio_sep_override", "structcrt__init__options.html#abd59940f94329616963444e1a56ae923", null ],
       [ "cio_use_credits", "structcrt__init__options.html#a417c9361d0bf0fc6bb956e1be2b3f097", null ],
+      [ "cio_use_sensors", "structcrt__init__options.html#a43db5a9861b025d8e5df6ed67bbf0fe4", null ],
       [ "cio_use_sep", "structcrt__init__options.html#a330a6582b21e8d7891042edb8205d767", null ]
     ] ],
     [ "crt_group", "structcrt__group.html", [

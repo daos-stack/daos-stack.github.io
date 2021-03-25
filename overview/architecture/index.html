@@ -42,7 +42,7 @@
     
     
       
-        <title>Architecture - DAOS v1.0</title>
+        <title>Architecture - DAOS</title>
       
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0
+              DAOS
             </span>
             <span class="md-header-nav__topic">
               
@@ -287,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS v1.0
+    DAOS
   </label>
   
     <div class="md-nav__source">
@@ -410,8 +410,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#daos-system-storage-node-server-io-server-and-target" class="md-nav__link">
-    DAOS System, Storage Node, Server, I/O Server, and Target
+  <a href="#daos-system-storage-node-server-io-engine-and-target" class="md-nav__link">
+    DAOS System, Storage Node, Server, I/O Engine, and Target
   </a>
   
 </li>
@@ -490,18 +490,6 @@
   <li class="md-nav__item">
     <a href="../security/" title="Security Model" class="md-nav__link">
       Security Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../data_integrity/" title="Data Integrity" class="md-nav__link">
-      Data Integrity
     </a>
   </li>
 
@@ -788,8 +776,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
-      Release Notes
+    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
+      Release Notes v1.0
     </a>
   </li>
 
@@ -967,8 +955,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#daos-system-storage-node-server-io-server-and-target" class="md-nav__link">
-    DAOS System, Storage Node, Server, I/O Server, and Target
+  <a href="#daos-system-storage-node-server-io-engine-and-target" class="md-nav__link">
+    DAOS System, Storage Node, Server, I/O Engine, and Target
   </a>
   
 </li>
@@ -1117,33 +1105,33 @@ interconnected via a scalable high-performance fabric, where all, or a
 subset of the nodes called storage nodes, have direct access to NVM
 storage. A DAOS installation involves several components that can be
 either collocated or distributed.</p>
-<h3 id="daos-system-storage-node-server-io-server-and-target">DAOS System, Storage Node, Server, I/O Server, and Target<a class="headerlink" href="#daos-system-storage-node-server-io-server-and-target" title="Permanent link">&para;</a></h3>
+<h3 id="daos-system-storage-node-server-io-engine-and-target">DAOS System, Storage Node, Server, I/O Engine, and Target<a class="headerlink" href="#daos-system-storage-node-server-io-engine-and-target" title="Permanent link">&para;</a></h3>
 <p>A DAOS <em>system</em> is identified by a system name, and consists of a set of
 DAOS <em>storage nodes</em> connected to the same fabric. The DAOS storage nodes
 run one DAOS <em>server</em> instance per node, which in turn starts one
-DAOS <em>I/O server</em> process per physical socket. Membership of the DAOS
+DAOS <em>I/O Engine</em> process per physical socket. Membership of the DAOS
 servers is recorded into the system map, that assigns a unique integer
-<em>rank</em> to each <em>I/O server</em> process. Two different DAOS systems comprise
+<em>rank</em> to each <em>I/O Engine</em> process. Two different DAOS systems comprise
 two disjoint sets of DAOS servers, and do not coordinate with each other.</p>
 <p>The DAOS <em>server</em> is a multi-tenant daemon running on a Linux instance
 (either natively on the physical node or in a VM or container) of each
-<em>storage node</em>. Its <em>I/O server</em> sub-processes export the locally-attached
+<em>storage node</em>. Its <em>I/O Engine</em> sub-processes export the locally-attached
 SCM and NVM storage through the network. It listens to a management port
 (addressed by an IP address and a TCP port number), plus one or more fabric
 endpoints (addressed by network URIs).
 The DAOS server is configured through a YAML file in /etc/daos,
-including the configuration of its I/O server sub-processes.
+including the configuration of its I/O Engine sub-processes.
 The DAOS server startup can be integrated with different daemon management or
 orchestration frameworks (for example a systemd script, a Kubernetes service,
 or even via a parallel launcher like pdsh or srun).</p>
-<p>Inside a DAOS I/O server, the storage is statically partitioned across
+<p>Inside a DAOS I/O Engine, the storage is statically partitioned across
 multiple <em>targets</em> to optimize concurrency. To avoid contention, each
 target has its private storage, its own pool of service threads, and its
 dedicated network context that can be directly addressed over the fabric
 independently of the other targets hosted on the same storage node.
 The SCM modules are typically configured in <em>AppDirect interleaved</em> mode.
 They are thus presented to the operating system as a single PMEM namespace
-per socket (in <code>fsdax</code> mode). When <em>N</em> targets per I/O server are configured,
+per socket (in <code>fsdax</code> mode). When <em>N</em> targets per I/O Engine are configured,
 each target is using <em>1/N</em> of the capacity of the <code>fsdax</code> SCM capacity
 of that socket, independently of the other targets.
 Each target is also using a fraction of the NVMe capacity of the NVMe
@@ -1156,12 +1144,12 @@ A dynamic state is associated with each target: Its state can be either
 <p>A target is the unit of performance. Hardware components associated with
 the target, such as the backend storage medium, the CPU core(s), and the
 network, have limited capability and capacity.</p>
-<p>The number of targets exported by a DAOS I/O server instance is
+<p>The number of targets exported by a DAOS I/O Engine instance is
 configurable, and depends on the underlying hardware (in particular,
 the number of SCM modules and the number of NVMe SSDs that are served
-by this I/O server instance). As a best practice, the number of targets
-of an I/O server should be an integer multiple of the number of NVMe drives
-that are served by this I/O servers.</p>
+by this I/O Engine instance). As a best practice, the number of targets
+of an I/O Engine should be an integer multiple of the number of NVMe drives
+that are served by this I/O Engines.</p>
 <h3 id="storage-api-application-interface-and-tools">Storage API, Application Interface and Tools<a class="headerlink" href="#storage-api-application-interface-and-tools" title="Permanent link">&para;</a></h3>
 <p>Applications, users, and administrators can interact with a DAOS system
 through two different client APIs. The management API offers the ability

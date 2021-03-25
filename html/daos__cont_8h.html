@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Version 1.0</span>
+   &#160;<span id="projectnumber">Latest</span>
    </div>
   </td>
  </tr>
@@ -207,7 +207,7 @@ Functions</h2></td></tr>
 <p>DAOS_COO_NOSLIP disables the automatic epoch slip at epoch commit time. See daos_epoch_commit().</p>
 <p>DAOS_COO_FORCE skips the check to see if the pool meets the redundancy factor/level requirements of the container. </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__cont_8h_source.html#l00051">51</a> of file <a class="el" href="daos__cont_8h_source.html">daos_cont.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__cont_8h_source.html#l00034">34</a> of file <a class="el" href="daos__cont_8h_source.html">daos_cont.h</a>.</p>
 
 </div>
 </div>
@@ -230,7 +230,7 @@ Functions</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="daos__cont_8h_source.html#l00564">564</a> of file <a class="el" href="daos__cont_8h_source.html">daos_cont.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__cont_8h_source.html#l00550">550</a> of file <a class="el" href="daos__cont_8h_source.html">daos_cont.h</a>.</p>
 
 </div>
 </div>
@@ -1087,7 +1087,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>These values will be returned by <em>ev::ev_error</em> in non-blocking mode: 0 Success -DER_INVAL Invalid parameter -DER_UNREACH Network is unreachable -DER_NO_PERM Permission denied -DER_NONEXIST Container is nonexistent </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>These values will be returned by <em>ev::ev_error</em> in non-blocking mode: 0 Success -DER_INVAL Invalid parameter -DER_UNREACH Network is unreachable -DER_NO_PERM Permission denied -DER_NONEXIST Container is nonexistent -DER_RF #failures exceed RF, data possibly lost </dd></dl>
 
 </div>
 </div>
