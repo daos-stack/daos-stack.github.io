@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Version 1.0</span>
+   &#160;<span id="projectnumber">Latest</span>
    </div>
   </td>
  </tr>
@@ -204,10 +204,10 @@ typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>crt_progres
 typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>crt_timeout_cb</b>) (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</a> ctx, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</a> *rpc, void *arg)</td></tr>
 <tr class="separator:ga98c70ff85a11e6b8bd2aea9b6e9659d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaee8bbd2c1fc8670b2616b4d302368666"><td class="memItemLeft" align="right" valign="top"><a id="gaee8bbd2c1fc8670b2616b4d302368666"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>crt_eviction_cb</b>) (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> rank, void *arg)</td></tr>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>crt_eviction_cb</b>) (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, d_rank_t rank, void *arg)</td></tr>
 <tr class="separator:gaee8bbd2c1fc8670b2616b4d302368666"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gacd43636e1237f4e99c6425b5fab43564"><td class="memItemLeft" align="right" valign="top"><a id="gacd43636e1237f4e99c6425b5fab43564"></a>
-typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>crt_event_cb</b>) (<a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> rank, enum crt_event_source src, enum crt_event_type type, void *arg)</td></tr>
+typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><b>crt_event_cb</b>) (d_rank_t rank, enum <a class="el" href="group___c_a_r_t.html#ga77aaf444cca8082606259c3cb873f142">crt_event_source</a> src, enum crt_event_type type, void *arg)</td></tr>
 <tr class="separator:gacd43636e1237f4e99c6425b5fab43564"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -228,8 +228,9 @@ Enumerations</h2></td></tr>
 <a class="el" href="group___c_a_r_t.html#ggacfbc8243090b9821fcb4a138a205cb34a476f3ed609dd4936e15f34765bdb69ff">CRT_PROC_FREE</a>
  }</td></tr>
 <tr class="separator:gacfbc8243090b9821fcb4a138a205cb34"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga77aaf444cca8082606259c3cb873f142"><td class="memItemLeft" align="right" valign="top"><a id="ga77aaf444cca8082606259c3cb873f142"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>crt_event_source</b> { <b>CRT_EVS_UNKNOWN</b>, 
-<b>CRT_EVS_SWIM</b>
+<tr class="memitem:ga77aaf444cca8082606259c3cb873f142"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga77aaf444cca8082606259c3cb873f142">crt_event_source</a> { <a class="el" href="group___c_a_r_t.html#gga77aaf444cca8082606259c3cb873f142a1d3a451747b0335f4b51113d994196b6">CRT_EVS_UNKNOWN</a>, 
+<a class="el" href="group___c_a_r_t.html#gga77aaf444cca8082606259c3cb873f142a665dd87be3339053386d96020e7b3cc9">CRT_EVS_SWIM</a>, 
+<b>CRT_EVS_GRPMOD</b>
  }</td></tr>
 <tr class="separator:ga77aaf444cca8082606259c3cb873f142"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7f63c91e081ffe734b4636ca366c1c41"><td class="memItemLeft" align="right" valign="top"><a id="ga7f63c91e081ffe734b4636ca366c1c41"></a>enum &#160;</td><td class="memItemRight" valign="bottom"><b>crt_event_type</b> { <b>CRT_EVT_ALIVE</b>, 
@@ -275,9 +276,9 @@ Functions</h2></td></tr>
 <tr class="separator:gacfddf38953b180f44f8c4b53b9b57973"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3d7216bc7c9cf01c3ca3ce41a1d52783"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga3d7216bc7c9cf01c3ca3ce41a1d52783">crt_reply_send</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</a> *req)</td></tr>
 <tr class="separator:ga3d7216bc7c9cf01c3ca3ce41a1d52783"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9abd7828b2b604fb68c34f5a4cf9568f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga9abd7828b2b604fb68c34f5a4cf9568f">crt_req_src_rank_get</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</a> *req, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> *rank)</td></tr>
+<tr class="memitem:ga9abd7828b2b604fb68c34f5a4cf9568f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga9abd7828b2b604fb68c34f5a4cf9568f">crt_req_src_rank_get</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</a> *req, d_rank_t *rank)</td></tr>
 <tr class="separator:ga9abd7828b2b604fb68c34f5a4cf9568f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga77c47e976ee1a7b340d32c7ad6ee76d3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga77c47e976ee1a7b340d32c7ad6ee76d3">crt_req_dst_rank_get</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</a> *req, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> *rank)</td></tr>
+<tr class="memitem:ga77c47e976ee1a7b340d32c7ad6ee76d3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga77c47e976ee1a7b340d32c7ad6ee76d3">crt_req_dst_rank_get</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</a> *req, d_rank_t *rank)</td></tr>
 <tr class="separator:ga77c47e976ee1a7b340d32c7ad6ee76d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga367a527b8653b020fedfcb6314dd623f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga367a527b8653b020fedfcb6314dd623f">crt_req_dst_tag_get</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</a> *req, uint32_t *tag)</td></tr>
 <tr class="separator:ga367a527b8653b020fedfcb6314dd623f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -301,6 +302,10 @@ Functions</h2></td></tr>
 <tr class="separator:gac6e9725c387d76d22a7f6b7a99d5d601"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3061431302513c2fc6b37b0844eebfb0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga3061431302513c2fc6b37b0844eebfb0">crt_req_abort</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</a> *req)</td></tr>
 <tr class="separator:ga3061431302513c2fc6b37b0844eebfb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga896d0246d32f5e9edc4572fdd90fdf79"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga896d0246d32f5e9edc4572fdd90fdf79">crt_rank_abort</a> (d_rank_t rank)</td></tr>
+<tr class="separator:ga896d0246d32f5e9edc4572fdd90fdf79"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ga076fbaa744c9de3126d40e67e32d44c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga076fbaa744c9de3126d40e67e32d44c4">crt_rank_abort_all</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp)</td></tr>
+<tr class="separator:ga076fbaa744c9de3126d40e67e32d44c4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab49687fc6b749807872c6c14f6dbf7ab"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gab49687fc6b749807872c6c14f6dbf7ab">crt_ep_abort</a> (<a class="el" href="structcrt__endpoint__t.html">crt_endpoint_t</a> *ep)</td></tr>
 <tr class="separator:gab49687fc6b749807872c6c14f6dbf7ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga13f295ad36554f93feee03e6fd76f789"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga13f295ad36554f93feee03e6fd76f789">crt_rpc_register</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gae3dde8d6f8414e344befaafc0a3b7d3a">crt_opcode_t</a> opc, uint32_t flags, struct <a class="el" href="structcrt__req__format.html">crt_req_format</a> *drf)</td></tr>
@@ -309,13 +314,13 @@ Functions</h2></td></tr>
 <tr class="separator:ga383347752c15c431a5eabedafc2d2910"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga836b16ede44ec086c47c6c0da5f3c67c"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga836b16ede44ec086c47c6c0da5f3c67c">crt_rpc_srv_register</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gae3dde8d6f8414e344befaafc0a3b7d3a">crt_opcode_t</a> opc, uint32_t flags, struct <a class="el" href="structcrt__req__format.html">crt_req_format</a> *crf, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga163a4cfb0f83c051338adb9a4c326eed">crt_rpc_cb_t</a> rpc_handler)</td></tr>
 <tr class="separator:ga836b16ede44ec086c47c6c0da5f3c67c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaba8a38409ed5a85ae321b6824dafa2a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gaba8a38409ed5a85ae321b6824dafa2a4">crt_bulk_create</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</a> crt_ctx, <a class="el" href="structd__sg__list__t.html">d_sg_list_t</a> *sgl, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga0baa03079c26075653589c9138e74e0e">crt_bulk_perm_t</a> bulk_perm, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</a> *bulk_hdl)</td></tr>
+<tr class="memitem:gaba8a38409ed5a85ae321b6824dafa2a4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gaba8a38409ed5a85ae321b6824dafa2a4">crt_bulk_create</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</a> crt_ctx, d_sg_list_t *sgl, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga0baa03079c26075653589c9138e74e0e">crt_bulk_perm_t</a> bulk_perm, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</a> *bulk_hdl)</td></tr>
 <tr class="separator:gaba8a38409ed5a85ae321b6824dafa2a4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac66777b15f7a835cf8806ff91199b0fa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gac66777b15f7a835cf8806ff91199b0fa">crt_bulk_bind</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</a> bulk_hdl, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</a> crt_ctx)</td></tr>
 <tr class="separator:gac66777b15f7a835cf8806ff91199b0fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga71778dc6e151ae5cb915e251a94053f0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga71778dc6e151ae5cb915e251a94053f0">crt_bulk_addref</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</a> bulk_hdl)</td></tr>
 <tr class="separator:ga71778dc6e151ae5cb915e251a94053f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga62bfa2cc197157396a2d9a27bd85503a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga62bfa2cc197157396a2d9a27bd85503a">crt_bulk_access</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</a> bulk_hdl, <a class="el" href="structd__sg__list__t.html">d_sg_list_t</a> *sgl)</td></tr>
+<tr class="memitem:ga62bfa2cc197157396a2d9a27bd85503a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga62bfa2cc197157396a2d9a27bd85503a">crt_bulk_access</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</a> bulk_hdl, d_sg_list_t *sgl)</td></tr>
 <tr class="separator:ga62bfa2cc197157396a2d9a27bd85503a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac6dabec2240d728d62bacec3d2a89df7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gac6dabec2240d728d62bacec3d2a89df7">crt_bulk_free</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</a> bulk_hdl)</td></tr>
 <tr class="separator:gac6dabec2240d728d62bacec3d2a89df7"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -344,15 +349,15 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>crt_bulk_abort</b> (<a
 <tr class="separator:ga1fecd36a0cebf97f4a1dd8ad7fc17f70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga25fd9e4aeddc993b950f4f6d1b1cc5e6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga25fd9e4aeddc993b950f4f6d1b1cc5e6">crt_group_detach</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *attached_grp)</td></tr>
 <tr class="separator:ga25fd9e4aeddc993b950f4f6d1b1cc5e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga38f94d125e012d5ee8c7e7e1951977f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga38f94d125e012d5ee8c7e7e1951977f7">crt_group_rank_p2s</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *subgrp, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> rank_in, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> *rank_out)</td></tr>
+<tr class="memitem:ga38f94d125e012d5ee8c7e7e1951977f7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga38f94d125e012d5ee8c7e7e1951977f7">crt_group_rank_p2s</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *subgrp, d_rank_t rank_in, d_rank_t *rank_out)</td></tr>
 <tr class="separator:ga38f94d125e012d5ee8c7e7e1951977f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1ee5768a3251446b9032a2efa9e82956"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga1ee5768a3251446b9032a2efa9e82956">crt_group_rank_s2p</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *subgrp, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> rank_in, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> *rank_out)</td></tr>
+<tr class="memitem:ga1ee5768a3251446b9032a2efa9e82956"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga1ee5768a3251446b9032a2efa9e82956">crt_group_rank_s2p</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *subgrp, d_rank_t rank_in, d_rank_t *rank_out)</td></tr>
 <tr class="separator:ga1ee5768a3251446b9032a2efa9e82956"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga78eb548c0805c201b3ef45a3d0f57265"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga78eb548c0805c201b3ef45a3d0f57265">crt_corpc_req_create</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</a> crt_ctx, <a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *filter_ranks, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gae3dde8d6f8414e344befaafc0a3b7d3a">crt_opcode_t</a> opc, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</a> co_bulk_hdl, void *priv, uint32_t flags, int tree_topo, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</a> **req)</td></tr>
+<tr class="memitem:ga78eb548c0805c201b3ef45a3d0f57265"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga78eb548c0805c201b3ef45a3d0f57265">crt_corpc_req_create</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</a> crt_ctx, <a class="el" href="structcrt__group.html">crt_group_t</a> *grp, d_rank_list_t *filter_ranks, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gae3dde8d6f8414e344befaafc0a3b7d3a">crt_opcode_t</a> opc, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga98854df58311faf6d4fcfb3c7554f66c">crt_bulk_t</a> co_bulk_hdl, void *priv, uint32_t flags, int tree_topo, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</a> **req)</td></tr>
 <tr class="separator:ga78eb548c0805c201b3ef45a3d0f57265"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaba82673fa83307e86afef3fc3fea3961"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gaba82673fa83307e86afef3fc3fea3961">crt_corpc_register</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gae3dde8d6f8414e344befaafc0a3b7d3a">crt_opcode_t</a> opc, struct <a class="el" href="structcrt__req__format.html">crt_req_format</a> *drf, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga163a4cfb0f83c051338adb9a4c326eed">crt_rpc_cb_t</a> rpc_handler, struct <a class="el" href="structcrt__corpc__ops.html">crt_corpc_ops</a> *co_ops)</td></tr>
 <tr class="separator:gaba82673fa83307e86afef3fc3fea3961"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa6195cef16a9b1d8fcd53c6a70f698bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gaa6195cef16a9b1d8fcd53c6a70f698bc">crt_group_rank</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> *rank)</td></tr>
+<tr class="memitem:gaa6195cef16a9b1d8fcd53c6a70f698bc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gaa6195cef16a9b1d8fcd53c6a70f698bc">crt_group_rank</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, d_rank_t *rank)</td></tr>
 <tr class="separator:gaa6195cef16a9b1d8fcd53c6a70f698bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaeb3e7ce396595c4ccc7efd906fe0fc1f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gaeb3e7ce396595c4ccc7efd906fe0fc1f">crt_group_version</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, uint32_t *version)</td></tr>
 <tr class="separator:gaeb3e7ce396595c4ccc7efd906fe0fc1f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -390,9 +395,9 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>crt_bulk_abort</b> (<a
 <tr class="separator:gae16aeb42e71f6607342c8a3d86a65367"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga4703edbf21168a660b18b993917878d8"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga4703edbf21168a660b18b993917878d8">crt_proc_uuid_t</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</a> proc, uuid_t *data)</td></tr>
 <tr class="separator:ga4703edbf21168a660b18b993917878d8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga2ae2e6bf75b5f8b89b996d69ef98dc1d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga2ae2e6bf75b5f8b89b996d69ef98dc1d">crt_proc_d_rank_list_t</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</a> proc, <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> **data)</td></tr>
+<tr class="memitem:ga2ae2e6bf75b5f8b89b996d69ef98dc1d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga2ae2e6bf75b5f8b89b996d69ef98dc1d">crt_proc_d_rank_list_t</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</a> proc, d_rank_list_t **data)</td></tr>
 <tr class="separator:ga2ae2e6bf75b5f8b89b996d69ef98dc1d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab8e5dddce30fb7643832ed05304e3d5a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gab8e5dddce30fb7643832ed05304e3d5a">crt_proc_d_iov_t</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</a> proc, <a class="el" href="structd__iov__t.html">d_iov_t</a> *data)</td></tr>
+<tr class="memitem:gab8e5dddce30fb7643832ed05304e3d5a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gab8e5dddce30fb7643832ed05304e3d5a">crt_proc_d_iov_t</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</a> proc, d_iov_t *data)</td></tr>
 <tr class="separator:gab8e5dddce30fb7643832ed05304e3d5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gabdc6b7a0637bd846543b97a89c3ef080"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gabdc6b7a0637bd846543b97a89c3ef080">crt_register_progress_cb</a> (crt_progress_cb cb, int ctx_idx, void *arg)</td></tr>
 <tr class="separator:gabdc6b7a0637bd846543b97a89c3ef080"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -409,41 +414,43 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>crt_register_timeout_c
 <tr class="separator:gadfdd482f95145207f5e591af771037a2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafe86d4600a2c1c1755c808b2834e7aa4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gafe86d4600a2c1c1755c808b2834e7aa4">crt_proto_query</a> (<a class="el" href="structcrt__endpoint__t.html">crt_endpoint_t</a> *tgt_ep, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gae3dde8d6f8414e344befaafc0a3b7d3a">crt_opcode_t</a> base_opc, uint32_t *ver, int count, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gac91077f0afeb8cf8f6dc6933d7e54a6b">crt_proto_query_cb_t</a> cb, void *arg)</td></tr>
 <tr class="separator:gafe86d4600a2c1c1755c808b2834e7aa4"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga57f75b8ebd9c694b07c3aae13b9365ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga57f75b8ebd9c694b07c3aae13b9365ac">crt_rank_self_set</a> (<a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> rank)</td></tr>
+<tr class="memitem:ga57f75b8ebd9c694b07c3aae13b9365ac"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga57f75b8ebd9c694b07c3aae13b9365ac">crt_rank_self_set</a> (d_rank_t rank)</td></tr>
 <tr class="separator:ga57f75b8ebd9c694b07c3aae13b9365ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac61f182a8231c602267eafc5f1fc544f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gac61f182a8231c602267eafc5f1fc544f">crt_rank_uri_get</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> rank, int tag, char **uri)</td></tr>
+<tr class="memitem:gac61f182a8231c602267eafc5f1fc544f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gac61f182a8231c602267eafc5f1fc544f">crt_rank_uri_get</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, d_rank_t rank, int tag, char **uri)</td></tr>
 <tr class="separator:gac61f182a8231c602267eafc5f1fc544f"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gac627ee6b4355ab3e277453a60ee0174d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gac627ee6b4355ab3e277453a60ee0174d">crt_rank_state_get</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> rank, struct <a class="el" href="structswim__member__state.html">swim_member_state</a> *state)</td></tr>
+<tr class="memitem:gac627ee6b4355ab3e277453a60ee0174d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gac627ee6b4355ab3e277453a60ee0174d">crt_rank_state_get</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, d_rank_t rank, struct <a class="el" href="structswim__member__state.html">swim_member_state</a> *state)</td></tr>
 <tr class="separator:gac627ee6b4355ab3e277453a60ee0174d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4f8f6d935bf918c31003c82cc02bd55b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga4f8f6d935bf918c31003c82cc02bd55b">crt_group_rank_remove</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *group, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> rank)</td></tr>
+<tr class="memitem:ga4f8f6d935bf918c31003c82cc02bd55b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga4f8f6d935bf918c31003c82cc02bd55b">crt_group_rank_remove</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *group, d_rank_t rank)</td></tr>
 <tr class="separator:ga4f8f6d935bf918c31003c82cc02bd55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad6b2b86a7bc35f74afebcbe1dac4ca87"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gad6b2b86a7bc35f74afebcbe1dac4ca87">crt_self_uri_get</a> (int tag, char **uri)</td></tr>
 <tr class="separator:gad6b2b86a7bc35f74afebcbe1dac4ca87"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafcba15a416034cca857d610726be3d7b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gafcba15a416034cca857d610726be3d7b">crt_group_info_get</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *group, <a class="el" href="structd__iov__t.html">d_iov_t</a> *grp_info)</td></tr>
+<tr class="memitem:gafcba15a416034cca857d610726be3d7b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gafcba15a416034cca857d610726be3d7b">crt_group_info_get</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *group, d_iov_t *grp_info)</td></tr>
 <tr class="separator:gafcba15a416034cca857d610726be3d7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad03bd00dfb94ae9df11d9b6d70297821"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gad03bd00dfb94ae9df11d9b6d70297821">crt_group_info_set</a> (<a class="el" href="structd__iov__t.html">d_iov_t</a> *grp_info)</td></tr>
+<tr class="memitem:gad03bd00dfb94ae9df11d9b6d70297821"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gad03bd00dfb94ae9df11d9b6d70297821">crt_group_info_set</a> (d_iov_t *grp_info)</td></tr>
 <tr class="separator:gad03bd00dfb94ae9df11d9b6d70297821"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga404d78b73d711f7de5d997676fea00b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga404d78b73d711f7de5d997676fea00b5">crt_group_ranks_get</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *group, <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> **list)</td></tr>
+<tr class="memitem:ga404d78b73d711f7de5d997676fea00b5"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga404d78b73d711f7de5d997676fea00b5">crt_group_ranks_get</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *group, d_rank_list_t **list)</td></tr>
 <tr class="separator:ga404d78b73d711f7de5d997676fea00b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga276c01c89aa5db8c3cdd1fd12fa6cde0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga276c01c89aa5db8c3cdd1fd12fa6cde0">crt_group_view_create</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gade68a0764f3116705808a124b9147ab6">crt_group_id_t</a> grpid, <a class="el" href="structcrt__group.html">crt_group_t</a> **ret_grp)</td></tr>
 <tr class="separator:ga276c01c89aa5db8c3cdd1fd12fa6cde0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga9d2535be2fa010039ae73222af0c603b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga9d2535be2fa010039ae73222af0c603b">crt_group_view_destroy</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp)</td></tr>
 <tr class="separator:ga9d2535be2fa010039ae73222af0c603b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga18ffa8213adb6c0df49fb917b32087a7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga18ffa8213adb6c0df49fb917b32087a7">crt_group_psr_set</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> rank)</td></tr>
+<tr class="memitem:ga18ffa8213adb6c0df49fb917b32087a7"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga18ffa8213adb6c0df49fb917b32087a7">crt_group_psr_set</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, d_rank_t rank)</td></tr>
 <tr class="separator:ga18ffa8213adb6c0df49fb917b32087a7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9f31926b084149cfbe4ba581075a23e3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga9f31926b084149cfbe4ba581075a23e3">crt_group_psrs_set</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *rank_list)</td></tr>
+<tr class="memitem:ga9f31926b084149cfbe4ba581075a23e3"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga9f31926b084149cfbe4ba581075a23e3">crt_group_psrs_set</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, d_rank_list_t *rank_list)</td></tr>
 <tr class="separator:ga9f31926b084149cfbe4ba581075a23e3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5849954786bca2e5668a51f10641851a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga5849954786bca2e5668a51f10641851a">crt_group_primary_rank_add</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</a> ctx, <a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> primary_rank, char *uri)</td></tr>
+<tr class="memitem:ga5849954786bca2e5668a51f10641851a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga5849954786bca2e5668a51f10641851a">crt_group_primary_rank_add</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</a> ctx, <a class="el" href="structcrt__group.html">crt_group_t</a> *grp, d_rank_t primary_rank, char *uri)</td></tr>
 <tr class="separator:ga5849954786bca2e5668a51f10641851a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6763a139366b59f7181c797fc40cd9d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga6763a139366b59f7181c797fc40cd9d6">crt_group_secondary_rank_add</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> secondary_rank, <a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> primary_rank)</td></tr>
+<tr class="memitem:ga6763a139366b59f7181c797fc40cd9d6"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga6763a139366b59f7181c797fc40cd9d6">crt_group_secondary_rank_add</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, d_rank_t secondary_rank, d_rank_t primary_rank)</td></tr>
 <tr class="separator:ga6763a139366b59f7181c797fc40cd9d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafd785115d57a80cb730db77abb373b16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gafd785115d57a80cb730db77abb373b16">crt_group_secondary_create</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gade68a0764f3116705808a124b9147ab6">crt_group_id_t</a> grp_name, <a class="el" href="structcrt__group.html">crt_group_t</a> *primary_grp, <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *ranks, <a class="el" href="structcrt__group.html">crt_group_t</a> **ret_grp)</td></tr>
+<tr class="memitem:gafd785115d57a80cb730db77abb373b16"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gafd785115d57a80cb730db77abb373b16">crt_group_secondary_create</a> (<a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gade68a0764f3116705808a124b9147ab6">crt_group_id_t</a> grp_name, <a class="el" href="structcrt__group.html">crt_group_t</a> *primary_grp, d_rank_list_t *ranks, <a class="el" href="structcrt__group.html">crt_group_t</a> **ret_grp)</td></tr>
 <tr class="separator:gafd785115d57a80cb730db77abb373b16"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:gadae1ac0327dd9ad5049299bc4f565fb0"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gadae1ac0327dd9ad5049299bc4f565fb0">crt_group_auto_rank_remove</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, bool enable)</td></tr>
+<tr class="separator:gadae1ac0327dd9ad5049299bc4f565fb0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga1f780239bb28215e64aa3edb7e36021a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga1f780239bb28215e64aa3edb7e36021a">crt_group_secondary_destroy</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp)</td></tr>
 <tr class="separator:ga1f780239bb28215e64aa3edb7e36021a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaa18493edb4133011d65bbae0176da16b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gaa18493edb4133011d65bbae0176da16b">crt_group_primary_modify</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</a> *ctxs, int num_ctxs, <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *ranks, char **uris, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga45d6c2aa7ad84115a6398b74d29150e5">crt_group_mod_op_t</a> op, uint32_t version)</td></tr>
+<tr class="memitem:gaa18493edb4133011d65bbae0176da16b"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#gaa18493edb4133011d65bbae0176da16b">crt_group_primary_modify</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#gaf4e3a9a2fe312291fed2125c9971e54d">crt_context_t</a> *ctxs, int num_ctxs, d_rank_list_t *ranks, char **uris, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga45d6c2aa7ad84115a6398b74d29150e5">crt_group_mod_op_t</a> op, uint32_t version)</td></tr>
 <tr class="separator:gaa18493edb4133011d65bbae0176da16b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga5a8c919b8f0d85264425e45311205b70"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga5a8c919b8f0d85264425e45311205b70">crt_group_secondary_modify</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *sec_ranks, <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *prim_ranks, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga45d6c2aa7ad84115a6398b74d29150e5">crt_group_mod_op_t</a> op, uint32_t version)</td></tr>
+<tr class="memitem:ga5a8c919b8f0d85264425e45311205b70"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga5a8c919b8f0d85264425e45311205b70">crt_group_secondary_modify</a> (<a class="el" href="structcrt__group.html">crt_group_t</a> *grp, d_rank_list_t *sec_ranks, d_rank_list_t *prim_ranks, <a class="el" href="group___c_a_r_t___t_y_p_e_s.html#ga45d6c2aa7ad84115a6398b74d29150e5">crt_group_mod_op_t</a> op, uint32_t version)</td></tr>
 <tr class="separator:ga5a8c919b8f0d85264425e45311205b70"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3bab597f86d13a32ae1ed335f3eda7bd"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group___c_a_r_t.html#ga3bab597f86d13a32ae1ed335f3eda7bd">crt_swim_init</a> (int crt_ctx_idx)</td></tr>
 <tr class="separator:ga3bab597f86d13a32ae1ed335f3eda7bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -469,7 +476,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>crt_register_timeout_c
 </div><div class="memdoc">
 <p>Decrease reference of the bulk handle. </p>
 
-<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00966">966</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00991">991</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
 
 </div>
 </div>
@@ -508,7 +515,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>crt_register_timeout_c
 <div class="line">        return rc;                      \</div>
 <div class="line">    }</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00745">745</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00770">770</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
 
 </div>
 </div>
@@ -541,7 +548,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>crt_register_timeout_c
 <div class="line">        BOOST_PP_SEQ_FOR_EACH(CRT_GEN_STRUCT_FIELD, , seq)  \</div>
 <div class="line">    };</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00685">685</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00707">707</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
 
 </div>
 </div>
@@ -585,7 +592,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>crt_register_timeout_c
 <div class="line">    BOOST_PP_IF(BOOST_PP_EQUAL(CRT_PTR, CRT_GEN_GET_KIND(seq)), \</div>
 <div class="line">        *CRT_GEN_GET_NAME(seq), CRT_GEN_GET_NAME(seq));</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00675">675</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00697">697</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
 
 </div>
 </div>
@@ -603,7 +610,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>crt_register_timeout_c
 <b>Value:</b><div class="fragment"><div class="line">    BOOST_PP_RPAREN() BOOST_PP_CAT BOOST_PP_LPAREN() \</div>
 <div class="line">    crt_proc_struct_,</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00691">691</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00713">713</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
 
 </div>
 </div>
@@ -644,7 +651,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>crt_register_timeout_c
 <div class="line">        CRT_GEN_STRUCT(rpc_name##_out, fields_out), )       \</div>
 <div class="line">    extern <span class="keyword">struct </span><a class="code" href="structcrt__req__format.html">crt_req_format</a> CQF_##rpc_name;</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00756">756</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00781">781</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
 
 </div>
 </div>
@@ -701,7 +708,7 @@ int&#160;</td><td class="memItemRight" valign="bottom"><b>crt_register_timeout_c
 <div class="line">    };                              \</div>
 <div class="line">    _Pragma(<span class="stringliteral">&quot;GCC diagnostic pop&quot;</span>)</div>
 </div><!-- fragment -->
-<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00771">771</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00796">796</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
 
 </div>
 </div>
@@ -725,20 +732,20 @@ registration:
     - CRT_RPC_REGISTER()
     - CRT_RPC_SRV_REGISTER()
 </pre><p>To register an RPC using macros: CRT_RPC_DECLARE(my_rpc_name, input_fields, output_fields) CRT_RPC_DEFINE(my_rpc_name, input_fields, output_fields) CRT_RPC_REGISTER(opcode, flags, my_rpc_name);</p>
-<p>The input/output structs can be accessed using the following pointers: struct my_rpc_name_in *rpc_in; struct my_rpc_name_out *rpc_out; Prepare struct types and format description for the input/output of an RPC. Supported types in the fields_in/fields_out list can be found in <a class="el" href="cart_2types_8h.html">include/cart/types.h</a></p>
+<p>The input/output structs can be accessed using the following pointers: struct my_rpc_name_in *rpc_in; struct my_rpc_name_out *rpc_out; Prepare struct types and format description for the input/output of an RPC. Supported types in the fields_in/fields_out list can be found in <a class="el" href="types_8h.html">include/cart/types.h</a></p>
 <p>Example usage:</p>
-<p>#define CRT_ISEQ_MY_RPC ((int32_t) (mr_arg_1) CRT_VAR) ((uint32_t) (mr_arg_2) CRT_VAR) ((d_rank_t) (mr_rank) CRT_VAR) ((<a class="el" href="structd__rank__list__t.html">d_rank_list_t</a>) (mr_rank_list) CRT_PTR) ((uuid_t) (mr_array) CRT_ARRAY) ((d_string_t) (mr_name) CRT_VAR)</p>
+<p>#define CRT_ISEQ_MY_RPC ((int32_t) (mr_arg_1) CRT_VAR) ((uint32_t) (mr_arg_2) CRT_VAR) ((d_rank_t) (mr_rank) CRT_VAR) ((d_rank_list_t) (mr_rank_list) CRT_PTR) ((uuid_t) (mr_array) CRT_ARRAY) ((d_string_t) (mr_name) CRT_VAR)</p>
 <p>#define CRT_OSEQ_MY_RPC ((int32_t) (mr_ret) CRT_VAR)</p>
 <p>CRT_RPC_DECLARE(my_rpc, CRT_ISEQ_MY_RPC, CRT_OSEQ_MY_RPC) CRT_RPC_REGISTER(opcode, flags, my_rpc);</p>
 <p>these two macros above expands into:</p>
-<p>struct my_rpc_in { int32_t mr_arg_1; uint32_t mr_arg_2; d_rank_t mr_rank; <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *mr_rank_list; struct crt_array mr_array; d_string_t mr_name; };</p>
+<p>struct my_rpc_in { int32_t mr_arg_1; uint32_t mr_arg_2; d_rank_t mr_rank; d_rank_list_t *mr_rank_list; struct crt_array mr_array; d_string_t mr_name; };</p>
 <p>struct my_rpc_out { int32_t mr_ret; };</p>
 <p>crt_register(opcode, flags, &amp;CQF_my_rpc);</p>
 <p>the macros CRT_RPC_DEFINE(my_rpc, CRT_ISEQ_MY_RPC, CRT_OSEQ_MY_RPC) expands into internal RPC definition which will be used in RPC registration. The content of this macro expansion will be changed in the future.</p>
 <p>To use array types it's possible to define types as above, and then use the same macros to declare types and proc structs for types, and then reference the type directly in the RPC definition.</p>
 <p>CRT_GEN_STRUCT(struct, CRT_SEQ_MY_TYPE) </p><h1>CRT_GEN_PROC_FUNC(struct, CRT_SEQ_MY_TYPE)</h1>
 
-<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00666">666</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00688">688</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
 
 </div>
 </div>
@@ -766,11 +773,33 @@ registration:
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>0 for success, negative value if failed. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00835">835</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l00860">860</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="ga77aaf444cca8082606259c3cb873f142"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga77aaf444cca8082606259c3cb873f142">&#9670;&nbsp;</a></span>crt_event_source</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">enum <a class="el" href="group___c_a_r_t.html#ga77aaf444cca8082606259c3cb873f142">crt_event_source</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<table class="fieldtable">
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="gga77aaf444cca8082606259c3cb873f142a1d3a451747b0335f4b51113d994196b6"></a>CRT_EVS_UNKNOWN&#160;</td><td class="fielddoc"><p>Event triggered by SWIM &gt; </p>
+</td></tr>
+<tr><td class="fieldname"><a id="gga77aaf444cca8082606259c3cb873f142a665dd87be3339053386d96020e7b3cc9"></a>CRT_EVS_SWIM&#160;</td><td class="fielddoc"><p>Event triggered by Group changes &gt; </p>
+</td></tr>
+</table>
+
+<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l01652">1652</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
+
+</div>
+</div>
 <a id="gacfbc8243090b9821fcb4a138a205cb34"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gacfbc8243090b9821fcb4a138a205cb34">&#9670;&nbsp;</a></span>crt_proc_op_t</h2>
 
@@ -791,7 +820,7 @@ registration:
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l01396">1396</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="api_8h_source.html#l01421">1421</a> of file <a class="el" href="api_8h_source.html">api.h</a>.</p>
 
 </div>
 </div>
@@ -811,7 +840,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__sg__list__t.html">d_sg_list_t</a> *&#160;</td>
+          <td class="paramtype">d_sg_list_t *&#160;</td>
           <td class="paramname"><em>sgl</em>&#160;</td>
         </tr>
         <tr>
@@ -964,7 +993,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__sg__list__t.html">d_sg_list_t</a> *&#160;</td>
+          <td class="paramtype">d_sg_list_t *&#160;</td>
           <td class="paramname"><em>sgl</em>, </td>
         </tr>
         <tr>
@@ -1508,7 +1537,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *&#160;</td>
+          <td class="paramtype">d_rank_list_t *&#160;</td>
           <td class="paramname"><em>filter_ranks</em>, </td>
         </tr>
         <tr>
@@ -1588,6 +1617,7 @@ registration:
         </tr>
       </table>
 </div><div class="memdoc">
+<p>DEPRECATED:</p>
 <p>Abort all in-flight RPC requests targeting to an endpoint.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -1656,6 +1686,43 @@ registration:
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>DER_SUCCESS on success, negative value if error</dd></dl>
 <dl class="section note"><dt>Note</dt><dd>Make sure cart context 0 exists when calling this function. cart context 0 is created by the first call to <a class="el" href="group___c_a_r_t.html#ga07eb1757b968c01796e32a5b9350cb8f">crt_context_create()</a>. </dd></dl>
+
+</div>
+</div>
+<a id="gadae1ac0327dd9ad5049299bc4f565fb0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#gadae1ac0327dd9ad5049299bc4f565fb0">&#9670;&nbsp;</a></span>crt_group_auto_rank_remove()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int crt_group_auto_rank_remove </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcrt__group.html">crt_group_t</a> *&#160;</td>
+          <td class="paramname"><em>grp</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">bool&#160;</td>
+          <td class="paramname"><em>enable</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Enable auto-rank removal on secondary group. Only applicable for primary groups.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">grp</td><td>Group handle</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">enable</td><td>Flag to enable or disable the option</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>DER_SUCCESS on success, negative value on failure. </dd></dl>
 
 </div>
 </div>
@@ -1834,7 +1901,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__iov__t.html">d_iov_t</a> *&#160;</td>
+          <td class="paramtype">d_iov_t *&#160;</td>
           <td class="paramname"><em>grp_info</em>&#160;</td>
         </tr>
         <tr>
@@ -1867,7 +1934,7 @@ registration:
         <tr>
           <td class="memname">int crt_group_info_set </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structd__iov__t.html">d_iov_t</a> *&#160;</td>
+          <td class="paramtype">d_iov_t *&#160;</td>
           <td class="paramname"><em>grp_info</em></td><td>)</td>
           <td></td>
         </tr>
@@ -1939,7 +2006,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *&#160;</td>
+          <td class="paramtype">d_rank_list_t *&#160;</td>
           <td class="paramname"><em>ranks</em>, </td>
         </tr>
         <tr>
@@ -2009,7 +2076,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a>&#160;</td>
+          <td class="paramtype">d_rank_t&#160;</td>
           <td class="paramname"><em>primary_rank</em>, </td>
         </tr>
         <tr>
@@ -2056,7 +2123,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a>&#160;</td>
+          <td class="paramtype">d_rank_t&#160;</td>
           <td class="paramname"><em>rank</em>&#160;</td>
         </tr>
         <tr>
@@ -2093,7 +2160,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *&#160;</td>
+          <td class="paramtype">d_rank_list_t *&#160;</td>
           <td class="paramname"><em>rank_list</em>&#160;</td>
         </tr>
         <tr>
@@ -2130,7 +2197,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> *&#160;</td>
+          <td class="paramtype">d_rank_t *&#160;</td>
           <td class="paramname"><em>rank</em>&#160;</td>
         </tr>
         <tr>
@@ -2167,13 +2234,13 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a>&#160;</td>
+          <td class="paramtype">d_rank_t&#160;</td>
           <td class="paramname"><em>rank_in</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> *&#160;</td>
+          <td class="paramtype">d_rank_t *&#160;</td>
           <td class="paramname"><em>rank_out</em>&#160;</td>
         </tr>
         <tr>
@@ -2210,7 +2277,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a>&#160;</td>
+          <td class="paramtype">d_rank_t&#160;</td>
           <td class="paramname"><em>rank</em>&#160;</td>
         </tr>
         <tr>
@@ -2247,13 +2314,13 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a>&#160;</td>
+          <td class="paramtype">d_rank_t&#160;</td>
           <td class="paramname"><em>rank_in</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> *&#160;</td>
+          <td class="paramtype">d_rank_t *&#160;</td>
           <td class="paramname"><em>rank_out</em>&#160;</td>
         </tr>
         <tr>
@@ -2290,7 +2357,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> **&#160;</td>
+          <td class="paramtype">d_rank_list_t **&#160;</td>
           <td class="paramname"><em>list</em>&#160;</td>
         </tr>
         <tr>
@@ -2333,7 +2400,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *&#160;</td>
+          <td class="paramtype">d_rank_list_t *&#160;</td>
           <td class="paramname"><em>ranks</em>, </td>
         </tr>
         <tr>
@@ -2404,13 +2471,13 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *&#160;</td>
+          <td class="paramtype">d_rank_list_t *&#160;</td>
           <td class="paramname"><em>sec_ranks</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> *&#160;</td>
+          <td class="paramtype">d_rank_list_t *&#160;</td>
           <td class="paramname"><em>prim_ranks</em>, </td>
         </tr>
         <tr>
@@ -2462,13 +2529,13 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a>&#160;</td>
+          <td class="paramtype">d_rank_t&#160;</td>
           <td class="paramname"><em>secondary_rank</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a>&#160;</td>
+          <td class="paramtype">d_rank_t&#160;</td>
           <td class="paramname"><em>primary_rank</em>&#160;</td>
         </tr>
         <tr>
@@ -3056,7 +3123,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__iov__t.html">d_iov_t</a> *&#160;</td>
+          <td class="paramtype">d_iov_t *&#160;</td>
           <td class="paramname"><em>data</em>&#160;</td>
         </tr>
         <tr>
@@ -3093,7 +3160,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structd__rank__list__t.html">d_rank_list_t</a> **&#160;</td>
+          <td class="paramtype">d_rank_list_t **&#160;</td>
           <td class="paramname"><em>data</em>&#160;</td>
         </tr>
         <tr>
@@ -3112,7 +3179,7 @@ registration:
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>DER_SUCCESS on success, negative value if error</dd></dl>
-<dl class="section note"><dt>Note</dt><dd>1) here pass in the 2nd level pointer of <a class="el" href="structd__rank__list__t.html">d_rank_list_t</a>, to make it possible to set it to NULL when decoding. 2) if the rank_list is non-NULL, caller should firstly duplicate it and pass the duplicated rank list's 2nd level pointer as parameter, because this function will internally free the memory when freeing the input or output. </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>1) here pass in the 2nd level pointer of d_rank_list_t, to make it possible to set it to NULL when decoding. 2) if the rank_list is non-NULL, caller should firstly duplicate it and pass the duplicated rank list's 2nd level pointer as parameter, because this function will internally free the memory when freeing the input or output. </dd></dl>
 
 </div>
 </div>
@@ -3758,6 +3825,58 @@ registration:
 
 </div>
 </div>
+<a id="ga896d0246d32f5e9edc4572fdd90fdf79"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga896d0246d32f5e9edc4572fdd90fdf79">&#9670;&nbsp;</a></span>crt_rank_abort()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int crt_rank_abort </td>
+          <td>(</td>
+          <td class="paramtype">d_rank_t&#160;</td>
+          <td class="paramname"><em>rank</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Abort all in-flight RPC requests targeting rank</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">rank</td><td>rank to cancel</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>DER_SUCCESS on success, negative value if error </dd></dl>
+
+</div>
+</div>
+<a id="ga076fbaa744c9de3126d40e67e32d44c4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ga076fbaa744c9de3126d40e67e32d44c4">&#9670;&nbsp;</a></span>crt_rank_abort_all()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int crt_rank_abort_all </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structcrt__group.html">crt_group_t</a> *&#160;</td>
+          <td class="paramname"><em>grp</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Abort all in-flight RPCs to all ranks in the group.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramdir">[in]</td><td class="paramname">grp</td><td>group to cancel in. NULL for default group.</td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>DER_SUCCESS on success, negative value if error </dd></dl>
+
+</div>
+</div>
 <a id="ga57f75b8ebd9c694b07c3aae13b9365ac"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga57f75b8ebd9c694b07c3aae13b9365ac">&#9670;&nbsp;</a></span>crt_rank_self_set()</h2>
 
@@ -3767,7 +3886,7 @@ registration:
         <tr>
           <td class="memname">int crt_rank_self_set </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a>&#160;</td>
+          <td class="paramtype">d_rank_t&#160;</td>
           <td class="paramname"><em>rank</em></td><td>)</td>
           <td></td>
         </tr>
@@ -3799,7 +3918,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a>&#160;</td>
+          <td class="paramtype">d_rank_t&#160;</td>
           <td class="paramname"><em>rank</em>, </td>
         </tr>
         <tr>
@@ -3843,7 +3962,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a>&#160;</td>
+          <td class="paramtype">d_rank_t&#160;</td>
           <td class="paramname"><em>rank</em>, </td>
         </tr>
         <tr>
@@ -4126,7 +4245,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> *&#160;</td>
+          <td class="paramtype">d_rank_t *&#160;</td>
           <td class="paramname"><em>rank</em>&#160;</td>
         </tr>
         <tr>
@@ -4321,7 +4440,7 @@ registration:
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="group___g_u_r_t.html#gae672185310db8deb2fc706c37b2e68bc">d_rank_t</a> *&#160;</td>
+          <td class="paramtype">d_rank_t *&#160;</td>
           <td class="paramname"><em>rank</em>&#160;</td>
         </tr>
         <tr>
@@ -4620,9 +4739,9 @@ registration:
 </div>
 </div><!-- contents -->
 </div><!-- doc-content -->
-<div class="ttc" id="astructcrt__req__format_html"><div class="ttname"><a href="structcrt__req__format.html">crt_req_format</a></div><div class="ttdef"><b>Definition:</b> <a href="cart_2types_8h_source.html#l00163">types.h:163</a></div></div>
-<div class="ttc" id="agroup___c_a_r_t___t_y_p_e_s_html_ga1266fedf6067dbd6400b70730468145a"><div class="ttname"><a href="group___c_a_r_t___t_y_p_e_s.html#ga1266fedf6067dbd6400b70730468145a">crt_proc_cb_t</a></div><div class="ttdeci">int(* crt_proc_cb_t)(crt_proc_t proc, void *data)</div><div class="ttdef"><b>Definition:</b> <a href="cart_2types_8h_source.html#l00161">types.h:161</a></div></div>
-<div class="ttc" id="agroup___c_a_r_t___t_y_p_e_s_html_ga433c0df9cb4242d917d16dd2bc56968a"><div class="ttname"><a href="group___c_a_r_t___t_y_p_e_s.html#ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</a></div><div class="ttdeci">void * crt_proc_t</div><div class="ttdef"><b>Definition:</b> <a href="cart_2types_8h_source.html#l00159">types.h:159</a></div></div>
+<div class="ttc" id="astructcrt__req__format_html"><div class="ttname"><a href="structcrt__req__format.html">crt_req_format</a></div><div class="ttdef"><b>Definition:</b> <a href="types_8h_source.html#l00165">types.h:165</a></div></div>
+<div class="ttc" id="agroup___c_a_r_t___t_y_p_e_s_html_ga1266fedf6067dbd6400b70730468145a"><div class="ttname"><a href="group___c_a_r_t___t_y_p_e_s.html#ga1266fedf6067dbd6400b70730468145a">crt_proc_cb_t</a></div><div class="ttdeci">int(* crt_proc_cb_t)(crt_proc_t proc, void *data)</div><div class="ttdef"><b>Definition:</b> <a href="types_8h_source.html#l00163">types.h:163</a></div></div>
+<div class="ttc" id="agroup___c_a_r_t___t_y_p_e_s_html_ga433c0df9cb4242d917d16dd2bc56968a"><div class="ttname"><a href="group___c_a_r_t___t_y_p_e_s.html#ga433c0df9cb4242d917d16dd2bc56968a">crt_proc_t</a></div><div class="ttdeci">void * crt_proc_t</div><div class="ttdef"><b>Definition:</b> <a href="types_8h_source.html#l00161">types.h:161</a></div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>

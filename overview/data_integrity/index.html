@@ -42,7 +42,7 @@
     
     
       
-        <title>Data Integrity - DAOS v1.0</title>
+        <title>Data Integrity - DAOS</title>
       
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,7 +113,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0
+              DAOS
             </span>
             <span class="md-header-nav__topic">
               
@@ -185,16 +185,14 @@
       
         
 
-  
-
-<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+<nav class="md-tabs" data-md-component="tabs">
   <div class="md-tabs__inner md-grid">
     <ul class="md-tabs__list">
       
         
   <li class="md-tabs__item">
     
-      <a href="../.." class="md-tabs__link">
+      <a href="../.." class="md-tabs__link md-tabs__link--active">
         Home
       </a>
     
@@ -206,7 +204,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../terminology/" class="md-tabs__link md-tabs__link--active">
+        <a href="../terminology/" class="md-tabs__link">
           Architecture Overview
         </a>
       
@@ -287,12 +285,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS v1.0
+    DAOS
   </label>
   
     <div class="md-nav__source">
@@ -333,12 +331,10 @@
       
       
 
-  
 
-
-  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+  <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
     
     <label class="md-nav__link" for="nav-2">
       Architecture Overview
@@ -419,76 +415,6 @@
     <a href="../security/" title="Security Model" class="md-nav__link">
       Security Model
     </a>
-  </li>
-
-        
-          
-          
-          
-
-  
-
-
-  <li class="md-nav__item md-nav__item--active">
-    
-    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-    
-      
-    
-    
-      <label class="md-nav__link md-nav__link--active" for="__toc">
-        Data Integrity
-      </label>
-    
-    <a href="./" title="Data Integrity" class="md-nav__link md-nav__link--active">
-      Data Integrity
-    </a>
-    
-      
-<nav class="md-nav md-nav--secondary">
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">Table of contents</label>
-    <ul class="md-nav__list" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#requirements" class="md-nav__link">
-    Requirements
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#key-requirements" class="md-nav__link">
-    Key Requirements
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#supportiveadditional-requirements" class="md-nav__link">
-    Supportive/Additional Requirements
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-      
-      
-      
-      
-    </ul>
-  
-</nav>
-    
   </li>
 
         
@@ -774,8 +700,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes" class="md-nav__link">
-      Release Notes
+    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
+      Release Notes v1.0
     </a>
   </li>
 
@@ -1014,7 +940,7 @@ checksums on the data received and verify.</p>
 <p>End to End Data Integrity as a Quality of Service Attribute - Container
  properties are used to enable/disable the use of checksums for data integrity
  as well as define specific attributes of data integrity feature.  Refer to
-<a href="https://daos-stack.github.io/user/container/#data-integrity">Data Integrity Readme</a> 
+<a href="https://daos-stack.github.io/user/container/#data-integrity">Data Integrity Readme</a>
 for details on configuring a container with checksums enabled.</p>
 </li>
 <li>
@@ -1172,11 +1098,53 @@ library is used with appropriate adapters to the actual isa-l implementations.
 
 <h1 id="life-of-a-checksum-wip">Life of a checksum (WIP)<a class="headerlink" href="#life-of-a-checksum-wip" title="Permanent link">&para;</a></h1>
 <h2 id="rebuild">Rebuild<a class="headerlink" href="#rebuild" title="Permanent link">&para;</a></h2>
+<p>In order for rebuild/migrate process to get checksums so it doesn't have to
+recalculate them, the object list and object fetch task api's provide a checksum
+iov parameter. If memory is allocated for the iov, then the daos client will
+pack the checksums into the it. If insufficient memory is allocated in the
+buffer, the iov_len will be set to the required capacity and the checksums
+packed into the buffer is truncated.</p>
+<h3 id="client-task-api-touch-points">Client Task API Touch Points<a class="headerlink" href="#client-task-api-touch-points" title="Permanent link">&para;</a></h3>
 <ul>
-<li>migrate_one_insert - mrone.iods_csums is allocated, iods_csums copied from
-  dss_enum_unpack_io. Memory reference removed from iods_csums.data. It will be
-  freed in migrate_one_destory</li>
-<li>migrate_fetch_update_inline - mrone.iods_csums sent to vos_obj_update</li>
+<li><strong>dc_obj_fetch_task_create</strong>: sets csum iov to daos_obj_fetch_t args. These
+  args are set to the rw_cb_args.shard_args.api_args and accessed through an
+  accessor function (rw_args2csum_iov) in cli_shard.c so that rw_args_store_csum
+  can easily access it. This function, called from dc_rw_cb_csum_verify, will
+  pack the data checksums received from the server into the iov.</li>
+<li><strong>dc_obj_list_obj_task_create</strong>: sets csum iov to daos_obj_list_obj_t args.
+  args.csum is then copied to obj_enum_args.csum in dc_obj_shard_list(). On enum
+  callback (dc_enumerate_cb()) the packed csum buffer is copied from the rpc
+  args to obj_enum_args.csum (which points to the same buffer as the caller's)</li>
+</ul>
+<h3 id="rebuild-touch-points">Rebuild Touch Points<a class="headerlink" href="#rebuild-touch-points" title="Permanent link">&para;</a></h3>
+<ul>
+<li>migrate_fetch_update_(inline|single|bulk) - the rebuild/migrate functions that
+  write to vos locally must ensure that the checksum is also written. These must
+  use the csum iov param for fetch to get the checksum, then unpack the csums
+  into iod_csum.</li>
+<li>obj_enum.c is relied on for enumerating the objects to be rebuilt. Because the
+  fetch_update functions will unpack the csums from fetch, it will also unpack
+  the csums for enum, so the unpacking process in obj_enum.c will simply copy
+  the csum_iov to the io (dss_enum_unpack_io) structure in
+  <strong>enum_unpack_recxs()</strong> and then deep copy to the mrone (migrate_one)
+  structure in <strong>migrate_one_insert()</strong>.</li>
+</ul>
+<h3 id="packingunpacking-checksums">Packing/unpacking checksums<a class="headerlink" href="#packingunpacking-checksums" title="Permanent link">&para;</a></h3>
+<p>When checksums are packed (either for fetch or object list) only the data
+checksums are included. For object list, only checksums for data that is inlined
+is included. During a rebuild, if the data is not inlined, then the rebuild
+process will fetch the rest of the data and also get the checksums.</p>
+<ul>
+<li>ci_serialize() - "packs" checksums by appending the struct to an iov and then
+  appending the checksum info buffer to the iov. This puts the actual checksum
+  just after the checksum structure that describes the checksum.</li>
+<li>ci_cast() - "unpacks" the checksum and describing structure. It does this by
+  casting an iov's buffer to a dcs_csum_info struct and setting the csum_info's
+  checksum pointer to point to the memory just after the structure. It does not
+  copy anything, but really just "casts". To get all dcs_csum_infos, a caller
+  would cast the iov, copy the csum_info to a destination, then move to the next
+  csum_info(ci_move_next_iov) in the iov. Because this process modifies the iov
+  structure it is best to use a copy of the iov as a temp structure.</li>
 </ul>
 <h2 id="vos">VOS<a class="headerlink" href="#vos" title="Permanent link">&para;</a></h2>
 <ul>
@@ -1187,11 +1155,11 @@ library is used with appropriate adapters to the actual isa-l implementations.
 <ul>
 <li>evt_root_activate - evtree root is activated. If has a csum them the root csum
   properties are set (csum_len, csum_type, csum_chunk_size)</li>
-<li>evt_desc_csum_fill - if root was activated with a punched record then it won't
-  have had the csum fields set correctly so set them here. Main purpose is to
-  copy the csum to the end of persistent evt record (evt_desc). Enough SCM
+<li><em>evt_desc_csum_fill</em> - if root was activated with a punched record then it
+  won't have had the csum fields set correctly so set them here. Main purpose is
+  to copy the csum to the end of persistent evt record (evt_desc). Enough SCM
   should have been reserved in akey_update_begin.</li>
-<li>evt_entry_csum_fill - Copy the csum from the persistent memory to the
+<li><em>evt_entry_csum_fill</em> - Copy the csum from the persistent memory to the
   evt_entry returned. Also copy the csum fields from the evtree root to complete
   the csum_info structure in the evt_entry.</li>
 <li>akey_fetch_recx - checksums are saved to the ioc for each found extent. Will
@@ -1209,6 +1177,10 @@ library is used with appropriate adapters to the actual isa-l implementations.
 dedicated to csums.
 - fill_key_csum - Checksum is calcuated for the key and packed into the iov
 - fill_data_csum - pack/serialize the csum_info structure into the iov.</p>
+<h2 id="aggregation">Aggregation<a class="headerlink" href="#aggregation" title="Permanent link">&para;</a></h2>
+<ul>
+<li>srv_csum_recalc.c - the checksum verification and calculations occur here</li>
+</ul>
 <hr />
 <h1 id="checksum-scrubbing-in-development">Checksum Scrubbing (In Development)<a class="headerlink" href="#checksum-scrubbing-in-development" title="Permanent link">&para;</a></h1>
 <p>A background task will scan (when the storage server is idle to limit
@@ -1354,41 +1326,6 @@ call):</p>
       
         
 <footer class="md-footer">
-  
-    <div class="md-footer-nav">
-      <nav class="md-footer-nav__inner md-grid">
-        
-          <a href="../security/" title="Security Model" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
-            </div>
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Previous
-                </span>
-                Security Model
-              </span>
-            </div>
-          </a>
-        
-        
-          <a href="../../admin/hardware/" title="Hardware Requirements" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
-            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
-              <span class="md-flex__ellipsis">
-                <span class="md-footer-nav__direction">
-                  Next
-                </span>
-                Hardware Requirements
-              </span>
-            </div>
-            <div class="md-flex__cell md-flex__cell--shrink">
-              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
-            </div>
-          </a>
-        
-      </nav>
-    </div>
   
   <div class="md-footer-meta md-typeset">
     <div class="md-footer-meta__inner md-grid">

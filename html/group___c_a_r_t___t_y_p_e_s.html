@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Version 1.0</span>
+   &#160;<span id="projectnumber">Latest</span>
    </div>
   </td>
  </tr>
@@ -131,9 +131,6 @@ Macros</h2></td></tr>
 <tr class="memitem:ga417cd040e89a2bf10f48286420d4a8c7"><td class="memItemLeft" align="right" valign="top"><a id="ga417cd040e89a2bf10f48286420d4a8c7"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>CRT_PHY_ADDR_ENV</b>&#160;&#160;&#160;&quot;CRT_PHY_ADDR_STR&quot;</td></tr>
 <tr class="separator:ga417cd040e89a2bf10f48286420d4a8c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae235059ab473539b1abc4da1d740907c"><td class="memItemLeft" align="right" valign="top"><a id="gae235059ab473539b1abc4da1d740907c"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>CRT_OPC_INTERNAL_BASE</b>&#160;&#160;&#160;0xFF000000UL</td></tr>
-<tr class="separator:gae235059ab473539b1abc4da1d740907c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2f41357b45e87dcd5a8ae8fb49be2d89"><td class="memItemLeft" align="right" valign="top"><a id="ga2f41357b45e87dcd5a8ae8fb49be2d89"></a>
 #define&#160;</td><td class="memItemRight" valign="bottom"><b>CRT_BULK_NULL</b>&#160;&#160;&#160;(NULL)</td></tr>
 <tr class="separator:ga2f41357b45e87dcd5a8ae8fb49be2d89"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -241,7 +238,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>max length of the address string / URI including the trailing '\0' </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00075">75</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00078">78</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -258,7 +255,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>default group ID </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00078">78</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00081">81</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -275,7 +272,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>max length of the group ID string including the trailing '\0' </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00072">72</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00075">75</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -292,7 +289,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>max size of input/output parameters defined as 64M bytes, for larger length the user should transfer by bulk. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00134">134</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00136">136</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -309,7 +306,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>Indicates rank not being set </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00081">81</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00084">84</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -349,7 +346,7 @@ Enumerations</h2></td></tr>
 <div class="line">    (uint32_t)(rpc_index))</div>
 </div><!-- fragment --><p>given the base opcode, version of a protocol, and a member RPC index, compute the RPC opcode of that member RPC </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00207">207</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00209">209</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -367,7 +364,7 @@ Enumerations</h2></td></tr>
 <p>Disable/enable the reply of a RPC. By default one RPC needs to be replied (by calling crt_reply_send within RPC handler at target-side) to complete the RPC request at origin-side. One-way RPC is a special type that the RPC request need not to be replied, the RPC request is treated as completed after being sent out.</p>
 <p>Notes for one-way RPC: 1) Need not reply for one-way RPC, calling <a class="el" href="group___c_a_r_t.html#ga3d7216bc7c9cf01c3ca3ce41a1d52783">crt_reply_send()</a> will fail with -DER_PROTO. 2) For one-way RPC, user needs to disable the reply on both origin and target side, or undefined result is expected. 3) Corpc musted be replied, disabling the reply of corpc will lead to undefined result. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00255">255</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00257">257</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -384,7 +381,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>Do not fail RPC with -CER_TIMEDOUT. Callback is only invoked on errors, completion, or target eviction. This differs from an RPC with an infinite timeout as the internal timer is still used to check for target eviction. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00262">262</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00264">264</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -401,7 +398,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>If RPC ends up being queued due to exceeding in-flight rpc limit, queue at the front of the queue. If not set, queues at the end </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00268">268</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00270">270</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -419,7 +416,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>abstract bulk array handle </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00127">127</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00129">129</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -442,7 +439,7 @@ Enumerations</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00347">347</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00348">348</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -459,7 +456,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>abstract bulk handle </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00126">126</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00128">128</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -482,7 +479,7 @@ Enumerations</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00339">339</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00340">340</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -499,7 +496,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>CaRT context handle </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00099">99</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00102">102</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -516,7 +513,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>CRT uses a string as the group ID This string can only contain ASCII printable characters between 0x20 and 0x7E Additionally, this string cannot contain quotation characters ("'`), backslashes (), or semicolons (;) </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00069">69</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00072">72</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -549,7 +546,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>RPC is identified by opcode. All the opcodes with the highest 16 bits as 1 are reserved for internal usage, such as group maintenance etc. If user defines its RPC using those reserved opcode, then undefined result is expected. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00111">111</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00114">114</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -566,7 +563,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>Physical address string, e.g., "bmi+tcp://localhost:3344". </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00102">102</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00105">105</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -583,7 +580,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>Proc callback for pack/unpack parameters </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00161">161</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00163">163</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -600,7 +597,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>Abstraction pack/unpack processor </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00159">159</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00161">161</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -631,7 +628,7 @@ Enumerations</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00358">358</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00359">359</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -648,7 +645,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>The completion callback to <a class="el" href="group___c_a_r_t.html#gafe86d4600a2c1c1755c808b2834e7aa4">crt_proto_query()</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00230">230</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00232">232</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -665,7 +662,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>server-side RPC handler </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00171">171</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00173">173</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -695,7 +692,7 @@ Enumerations</h2></td></tr>
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00123">123</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00125">125</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -728,7 +725,7 @@ Enumerations</h2></td></tr>
 </div><div class="memdoc">
 <p>Bulk transfer modes </p>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00233">233</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00235">235</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -753,7 +750,7 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00274">274</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00275">275</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -780,7 +777,7 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00385">385</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00386">386</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -804,7 +801,7 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00365">365</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00366">366</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>
@@ -825,7 +822,7 @@ Enumerations</h2></td></tr>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="cart_2types_8h_source.html#l00138">138</a> of file <a class="el" href="cart_2types_8h_source.html">types.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="types_8h_source.html#l00140">140</a> of file <a class="el" href="types_8h_source.html">types.h</a>.</p>
 
 </div>
 </div>

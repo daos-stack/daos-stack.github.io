@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Version 1.0</span>
+   &#160;<span id="projectnumber">Latest</span>
    </div>
   </td>
  </tr>
@@ -128,8 +128,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:a51617a5017d3365ee5faf1452daed4b2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afc65ec05277f052daed166445bf3c828"><td class="memItemLeft" align="right" valign="top">typedef struct dfs&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__fs_8h.html#afc65ec05277f052daed166445bf3c828">dfs_t</a></td></tr>
 <tr class="separator:afc65ec05277f052daed166445bf3c828"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa5f09199712d2f96b642dd98e991f03a"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__fs_8h.html#aa5f09199712d2f96b642dd98e991f03a">dfs_filler_cb_t</a>) (<a class="el" href="daos__fs_8h.html#afc65ec05277f052daed166445bf3c828">dfs_t</a> *dfs, <a class="el" href="daos__fs_8h.html#a51617a5017d3365ee5faf1452daed4b2">dfs_obj_t</a> *obj, const char name[], void *_udata)</td></tr>
-<tr class="separator:aa5f09199712d2f96b642dd98e991f03a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb7a47ee95057b7a41b3f8f0fd0c43e0"><td class="memItemLeft" align="right" valign="top">typedef int(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__fs_8h.html#abb7a47ee95057b7a41b3f8f0fd0c43e0">dfs_filler_cb_t</a>) (<a class="el" href="daos__fs_8h.html#afc65ec05277f052daed166445bf3c828">dfs_t</a> *dfs, <a class="el" href="daos__fs_8h.html#a51617a5017d3365ee5faf1452daed4b2">dfs_obj_t</a> *obj, const char name[], void *arg)</td></tr>
+<tr class="separator:abb7a47ee95057b7a41b3f8f0fd0c43e0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -177,8 +177,8 @@ Functions</h2></td></tr>
 <tr class="separator:aae348e42a1fca083a53f884c0a725a54"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:adb4ba70e262cfc93051ce23a1b31ce84"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__fs_8h.html#adb4ba70e262cfc93051ce23a1b31ce84">dfs_readdir</a> (<a class="el" href="daos__fs_8h.html#afc65ec05277f052daed166445bf3c828">dfs_t</a> *dfs, <a class="el" href="daos__fs_8h.html#a51617a5017d3365ee5faf1452daed4b2">dfs_obj_t</a> *obj, <a class="el" href="structdaos__anchor__t.html">daos_anchor_t</a> *anchor, uint32_t *nr, struct dirent *dirs)</td></tr>
 <tr class="separator:adb4ba70e262cfc93051ce23a1b31ce84"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa3aed9b74d478f6cdfa79209d6c66a6f"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__fs_8h.html#aa3aed9b74d478f6cdfa79209d6c66a6f">dfs_iterate</a> (<a class="el" href="daos__fs_8h.html#afc65ec05277f052daed166445bf3c828">dfs_t</a> *dfs, <a class="el" href="daos__fs_8h.html#a51617a5017d3365ee5faf1452daed4b2">dfs_obj_t</a> *obj, <a class="el" href="structdaos__anchor__t.html">daos_anchor_t</a> *anchor, uint32_t *nr, size_t size, <a class="el" href="daos__fs_8h.html#aa5f09199712d2f96b642dd98e991f03a">dfs_filler_cb_t</a> op, void *udata)</td></tr>
-<tr class="separator:aa3aed9b74d478f6cdfa79209d6c66a6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad1e9e057b7be0af8abde9751de6a5d4a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__fs_8h.html#ad1e9e057b7be0af8abde9751de6a5d4a">dfs_iterate</a> (<a class="el" href="daos__fs_8h.html#afc65ec05277f052daed166445bf3c828">dfs_t</a> *dfs, <a class="el" href="daos__fs_8h.html#a51617a5017d3365ee5faf1452daed4b2">dfs_obj_t</a> *obj, <a class="el" href="structdaos__anchor__t.html">daos_anchor_t</a> *anchor, uint32_t *nr, size_t size, <a class="el" href="daos__fs_8h.html#abb7a47ee95057b7a41b3f8f0fd0c43e0">dfs_filler_cb_t</a> op, void *arg)</td></tr>
+<tr class="separator:ad1e9e057b7be0af8abde9751de6a5d4a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af77af4a335a88dc8fc4fb9b608ff248d"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__fs_8h.html#af77af4a335a88dc8fc4fb9b608ff248d">dfs_obj_anchor_split</a> (<a class="el" href="daos__fs_8h.html#a51617a5017d3365ee5faf1452daed4b2">dfs_obj_t</a> *obj, uint32_t *nr, <a class="el" href="structdaos__anchor__t.html">daos_anchor_t</a> *anchors)</td></tr>
 <tr class="separator:af77af4a335a88dc8fc4fb9b608ff248d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a158200a32fbb8f23766f4eed69ccc4c4"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__fs_8h.html#a158200a32fbb8f23766f4eed69ccc4c4">dfs_obj_anchor_set</a> (<a class="el" href="daos__fs_8h.html#a51617a5017d3365ee5faf1452daed4b2">dfs_obj_t</a> *obj, uint32_t index, <a class="el" href="structdaos__anchor__t.html">daos_anchor_t</a> *anchor)</td></tr>
@@ -245,7 +245,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Maximum file size </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00045">45</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00028">28</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -262,7 +262,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Maximum Path length </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00043">43</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00026">26</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -279,7 +279,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Maximum xattr value </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00050">50</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00033">33</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -296,7 +296,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Maximum xattr name </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00048">48</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00031">31</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -313,7 +313,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to set the access time on an entry </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00684">684</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00667">667</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -330,7 +330,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to set the mode_t on an entry </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00682">682</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00665">665</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -347,7 +347,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to set the modify time on an entry </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00686">686</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00669">669</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -364,25 +364,25 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>Option to set size of a file </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00688">688</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00671">671</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Typedef Documentation</h2>
-<a id="aa5f09199712d2f96b642dd98e991f03a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa5f09199712d2f96b642dd98e991f03a">&#9670;&nbsp;</a></span>dfs_filler_cb_t</h2>
+<a id="abb7a47ee95057b7a41b3f8f0fd0c43e0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb7a47ee95057b7a41b3f8f0fd0c43e0">&#9670;&nbsp;</a></span>dfs_filler_cb_t</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef int(* dfs_filler_cb_t) (<a class="el" href="daos__fs_8h.html#afc65ec05277f052daed166445bf3c828">dfs_t</a> *dfs, <a class="el" href="daos__fs_8h.html#a51617a5017d3365ee5faf1452daed4b2">dfs_obj_t</a> *obj, const char name[], void *_udata)</td>
+          <td class="memname">typedef int(* dfs_filler_cb_t) (<a class="el" href="daos__fs_8h.html#afc65ec05277f052daed166445bf3c828">dfs_t</a> *dfs, <a class="el" href="daos__fs_8h.html#a51617a5017d3365ee5faf1452daed4b2">dfs_obj_t</a> *obj, const char name[], void *arg)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <p>User callback defined for dfs_readdir_size. </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00442">442</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00425">425</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -399,7 +399,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>File/Directory/Symlink object handle struct </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00053">53</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00036">36</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -416,7 +416,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 <p>DFS mount handle struct </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00055">55</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__fs_8h_source.html#l00038">38</a> of file <a class="el" href="daos__fs_8h_source.html">daos_fs.h</a>.</p>
 
 </div>
 </div>
@@ -566,7 +566,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Create a DFS container with the the POSIX property layout set. Optionally set attributes for hints on the container.</p>
+<p>Create a DFS container with the POSIX property layout set. Optionally set attributes for hints on the container.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">poh</td><td>Pool open handle. </td></tr>
@@ -1005,8 +1005,8 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aa3aed9b74d478f6cdfa79209d6c66a6f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aa3aed9b74d478f6cdfa79209d6c66a6f">&#9670;&nbsp;</a></span>dfs_iterate()</h2>
+<a id="ad1e9e057b7be0af8abde9751de6a5d4a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad1e9e057b7be0af8abde9751de6a5d4a">&#9670;&nbsp;</a></span>dfs_iterate()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -1044,14 +1044,14 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="daos__fs_8h.html#aa5f09199712d2f96b642dd98e991f03a">dfs_filler_cb_t</a>&#160;</td>
+          <td class="paramtype"><a class="el" href="daos__fs_8h.html#abb7a47ee95057b7a41b3f8f0fd0c43e0">dfs_filler_cb_t</a>&#160;</td>
           <td class="paramname"><em>op</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">void *&#160;</td>
-          <td class="paramname"><em>udata</em>&#160;</td>
+          <td class="paramname"><em>arg</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -1060,7 +1060,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Same as dfs_readdir, but this also adds a buffer size limitation when enumerating. On every entry, it issues a user defined callback. If size limitation is reached, function returns -DER_KEY2BIG.</p>
+<p>Same as dfs_readdir, but this also adds a buffer size limitation when enumerating. On every entry, it issues a user defined callback. If size limitation is reached, function returns E2BIG</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dfs</td><td>Pointer to the mounted file system. </td></tr>
@@ -1069,7 +1069,7 @@ Functions</h2></td></tr>
     <tr><td class="paramdir">[in,out]</td><td class="paramname">nr</td><td>[in]: MAX number of entries to enumerate. [out]: Actual number of entries enumerated. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">size</td><td>Max buffer size to be used internally before breaking. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">op</td><td>Optional callback to be issued on every entry. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">udata</td><td>Pointer to user data to be passed to <em>op</em>.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">arg</td><td>Pointer to user data to be passed to <em>op</em>.</td></tr>
   </table>
   </dd>
 </dl>
@@ -1631,7 +1631,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">obj</td><td>Dir object to split anchor for. </td></tr>
-    <tr><td class="paramdir"></td><td class="paramname">[in/out]</td><td>nr [in]: Number of anchors requested and allocated in <em>anchors</em>. Pass 0 for DAOS to recommend split num. [out]: Number of anchors recommended if 0 is passed in. </td></tr>
+    <tr><td class="paramdir">[in,out]</td><td class="paramname">nr</td><td>[in]: Number of anchors requested and allocated in <em>anchors</em>. Pass 0 for DAOS to recommend split num. [out]: Number of anchors recommended if 0 is passed in. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">anchors</td><td>Optional array of anchors that are split.</td></tr>
   </table>
   </dd>
@@ -2345,7 +2345,7 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Optionally set a prefix on the dfs mount where all paths passed to dfs_lookup are trimmed of that prefix. This is helpful when using DFS API with a dfuse mount and the user would like to reference files in the dfuse mount instead of the absolute path from the root of the DFS container.</p>
+<p>Optionally set a prefix on the dfs mount where all paths passed to dfs_lookup are trimmed off that prefix. This is helpful when using DFS API with a dfuse mount and the user would like to reference files in the dfuse mount instead of the absolute path from the root of the DFS container.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">dfs</td><td>Pointer to the mounted file system. </td></tr>

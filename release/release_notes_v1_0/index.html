@@ -42,7 +42,7 @@
     
     
       
-        <title>Release Notes - DAOS v1.0</title>
+        <title>Release Notes v1.0 - DAOS</title>
       
     
     
@@ -100,7 +100,7 @@
   <nav class="md-header-nav md-grid">
     <div class="md-flex">
       <div class="md-flex__cell md-flex__cell--shrink">
-        <a href="http://daos.io" title="DAOS v1.0" aria-label="DAOS v1.0" class="md-header-nav__button md-logo">
+        <a href="http://daos.io" title="DAOS" aria-label="DAOS" class="md-header-nav__button md-logo">
           
             <i class="md-icon"></i>
           
@@ -113,11 +113,11 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS v1.0
+              DAOS
             </span>
             <span class="md-header-nav__topic">
               
-                Release Notes
+                Release Notes v1.0
               
             </span>
           
@@ -287,12 +287,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS v1.0" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS v1.0
+    DAOS
   </label>
   
     <div class="md-nav__source">
@@ -416,18 +416,6 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
-      Data Integrity
     </a>
   </li>
 
@@ -725,11 +713,11 @@
     
     
       <label class="md-nav__link md-nav__link--active" for="__toc">
-        Release Notes
+        Release Notes v1.0
       </label>
     
-    <a href="./" title="Release Notes" class="md-nav__link md-nav__link--active">
-      Release Notes
+    <a href="./" title="Release Notes v1.0" class="md-nav__link md-nav__link--active">
+      Release Notes v1.0
     </a>
     
       
@@ -1566,7 +1554,10 @@ that has been resolved in CentOS 8. Some DAOS nodes may not report the correct
 NUMA socket ID when running a "dmg storage scan." This appears to be a
 regression in the CentOS7.7 kernel rather than an ndctl issue. This is due to
 different versions of ndctl provisioning different JSON namespace details
-(storage scan command reads the "numa_node" field).</p>
+(storage scan command reads the "numa_node" field). The regression also affects
+the operation of the "dmg config generate" command which isn't able to detect
+correct NUMA affinity for the PMem namespaces required for the config.
+The regression has been fixed in the CentOS7.9 kernel.</p>
 <h3 id="psm-over-opa-is-not-fully-functional">PSM over OPA is not fully functional<a class="headerlink" href="#psm-over-opa-is-not-fully-functional" title="Permanent link">&para;</a></h3>
 <p>If you must evaluate DAOS on an OPA fabric, we recommend using IP over
 fabric/sockets for evaluation.  For benchmarking, PSM2 over OPA offers a
