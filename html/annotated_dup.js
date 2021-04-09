@@ -1,20 +1,5 @@
 var annotated_dup =
 [
-    [ "crt_bulk_cb_info", "structcrt__bulk__cb__info.html", "structcrt__bulk__cb__info" ],
-    [ "crt_bulk_desc", "structcrt__bulk__desc.html", "structcrt__bulk__desc" ],
-    [ "crt_cb_info", "structcrt__cb__info.html", "structcrt__cb__info" ],
-    [ "crt_corpc_ops", "structcrt__corpc__ops.html", "structcrt__corpc__ops" ],
-    [ "crt_endpoint_t", "structcrt__endpoint__t.html", "structcrt__endpoint__t" ],
-    [ "crt_group", "structcrt__group.html", "structcrt__group" ],
-    [ "crt_init_options", "structcrt__init__options.html", "structcrt__init__options" ],
-    [ "crt_iv_class", "structcrt__iv__class.html", "structcrt__iv__class" ],
-    [ "crt_iv_ops", "structcrt__iv__ops.html", "structcrt__iv__ops" ],
-    [ "crt_iv_sync_t", "structcrt__iv__sync__t.html", "structcrt__iv__sync__t" ],
-    [ "crt_proto_format", "structcrt__proto__format.html", "structcrt__proto__format" ],
-    [ "crt_proto_query_cb_info", "structcrt__proto__query__cb__info.html", "structcrt__proto__query__cb__info" ],
-    [ "crt_proto_rpc_format", "structcrt__proto__rpc__format.html", "structcrt__proto__rpc__format" ],
-    [ "crt_req_format", "structcrt__req__format.html", "structcrt__req__format" ],
-    [ "crt_rpc", "structcrt__rpc.html", "structcrt__rpc" ],
     [ "d_tgt_list", "structd__tgt__list.html", "structd__tgt__list" ],
     [ "daos_ace", "structdaos__ace.html", "structdaos__ace" ],
     [ "daos_acl", "structdaos__acl.html", "structdaos__acl" ],
@@ -118,8 +103,5 @@ var annotated_dup =
     [ "dfuse_hs_reply", "structdfuse__hs__reply.html", "structdfuse__hs__reply" ],
     [ "dfuse_hsd_reply", "structdfuse__hsd__reply.html", "structdfuse__hsd__reply" ],
     [ "dfuse_il_reply", "structdfuse__il__reply.html", "structdfuse__il__reply" ],
-    [ "duns_attr_t", "structduns__attr__t.html", "structduns__attr__t" ],
-    [ "swim_member_state", "structswim__member__state.html", "structswim__member__state" ],
-    [ "swim_member_update", "structswim__member__update.html", "structswim__member__update" ],
-    [ "swim_ops", "structswim__ops.html", "structswim__ops" ]
+    [ "duns_attr_t", "structduns__attr__t.html", "structduns__attr__t" ]
 ];
