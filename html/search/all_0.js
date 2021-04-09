@@ -6,7 +6,6 @@ var searchData=
   ['akey_5fnr_3',['akey_nr',['../structdaos__obj__punch__t.html#a0df4720076d1674bb7e55ec5c4dcc6ed',1,'daos_obj_punch_t']]],
   ['akeys_4',['akeys',['../structdaos__obj__punch__t.html#abc3026f5d7aeb0ad4f2f5bbf4996a651',1,'daos_obj_punch_t']]],
   ['anchor_5',['anchor',['../structdaos__cont__list__snap__t.html#ac376c63cd592209e79c0b58caa5f105f',1,'daos_cont_list_snap_t::anchor()'],['../structdaos__obj__list__class__t.html#ac376c63cd592209e79c0b58caa5f105f',1,'daos_obj_list_class_t::anchor()'],['../structdaos__kv__list__t.html#ac376c63cd592209e79c0b58caa5f105f',1,'daos_kv_list_t::anchor()']]],
-  ['api_2eh_6',['api.h',['../api_8h.html',1,'']]],
-  ['arr_5fnr_7',['arr_nr',['../structdaos__array__iod__t.html#a2b9be7050a799f9975ba4c10baf150ee',1,'daos_array_iod_t']]],
-  ['arr_5frgs_8',['arr_rgs',['../structdaos__array__iod__t.html#a028f318baa33edeb89b00ac8e0980454',1,'daos_array_iod_t']]]
+  ['arr_5fnr_6',['arr_nr',['../structdaos__array__iod__t.html#a2b9be7050a799f9975ba4c10baf150ee',1,'daos_array_iod_t']]],
+  ['arr_5frgs_7',['arr_rgs',['../structdaos__array__iod__t.html#a028f318baa33edeb89b00ac8e0980454',1,'daos_array_iod_t']]]
 ];
