@@ -108,13 +108,10 @@ code, kbd, pre {
       </ul>
     </div>
   </nav>
-	<section>
-	   <div class="dropdown show"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Select Version </a>
-		   <div class="dropdown-menu">
-		    
-		     <a class="dropdown-item disabled" href="#" >Master</a> <a class="dropdown-item" href="../../1.2_site/index.html">1.2</a><a class="dropdown-item" href="../../1.0_site/index.html">1.0</a>
-	     </div>
-		    </div>
+  <section>
+    <div class="dropdown show"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> Select Version </a>
+      <div class="dropdown-menu"> <a class="dropdown-item disabled" href="#" >Master</a> <a class="dropdown-item" href="../../1.2_site/index.html">1.2</a><a class="dropdown-item" href="../../1.0_site/index.html">1.0</a> </div>
+    </div>
   </section>
   <main class="md-main" role="main">
     <div class="md-main__inner md-grid" data-md-component="container">
@@ -258,63 +255,29 @@ code, kbd, pre {
         <article class="md-content__inner md-typeset"> <a href="https://github.com/daos-stack/daos/edit/master/docs/admin/tiering_uns.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
           <h1 id="tiering-and-unified-namespace">Tiering and Unified Namespace<a class="headerlink" href="#tiering-and-unified-namespace" title="Permanent link">&para;</a></h1>
           <h2 id="unified-namespace">Unified Namespace<a class="headerlink" href="#unified-namespace" title="Permanent link">&para;</a></h2>
-          <p>The DAOS tier can be tightly integrated with the Lustre parallel filesystem,
-            in which DAOS containers will be represented through the Lustre namespace.
-            This capability is under development and is scheduled for DAOS v1.2.</p>
-          <p>The current state of work can be summarized as follow :</p>
+          <p>The DAOS tier can be tightly integrated with the Lustre parallel filesystem, in which DAOS containers will be represented through the Lustre namespace. This capability is under development and is scheduled for DAOS v1.2.</p>
+          <p>The current state of work can be summarized as follows :</p>
           <ul>
-            <li>
-              <p>DAOS integration with Lustre uses the Lustre foreign file/dir feature
-                (from LU-11376 and associated patches).</p>
-            </li>
-            <li>
-              <p>Each time a DAOS POSIX container is created, using the <code>daos</code> utility and its
-                '--path' UNS option, a Lustre foreign file/dir of 'daos' type is being
-                created with a specific LOV/LMV EA content that will allow to store the
-                DAOS pool and containers UUIDs.</p>
-            </li>
-            <li>
-              <p>Lustre Client patch for LU-12682, adds DAOS specific support to the Lustre
-                foreign file/dir feature. It allows for foreign file/dir of <code>daos</code> type
-                to be presented and act as an <code>&lt;absolute-prefix&gt;/&lt;pool-uuid&gt;/&lt;container-uuid&gt;</code> symlink to the Linux Kernel/VFS.</p>
-            </li>
-            <li>
-              <p>The
-                <absolute-prefix>
-                can be specified as the new <code>daos=&lt;absolute-prefix&gt;</code> Lustre Client mount option, or also through the new <code>llite.*.daos_prefix</code> Lustre dynamic tuneable. Both
-                <pool-uuid>
-                and
-                <container-uuid>
-                are
-                extracted from foreign file/dir LOV/LMV EA.</p>
-            </li>
-            <li>
-              <p>To allow for symlink resolution and transparent access to DAOS
-                container content, it is expected that a DFuse/DFS instance/mount, of
-                DAOS Server root, exists on
-                <absolute-prefix>
-                presenting all served
-                pools/containers as <code>&lt;pool-uuid&gt;/&lt;container-uuid&gt;</code> relative paths.</p>
-            </li>
-            <li>
-              <p><code>daos</code> foreign support is enabled at mount time with the <code>daos=</code> option
-                present, or dynamically through <code>llite.*.daos_enable</code> setting.</p>
-            </li>
+            <li>DAOS integration with Lustre uses the Lustre foreign file/dir feature (from LU-11376 and associated patches).</li>
+            <li>Each time a DAOS POSIX container is created using the <code>daos</code> utility and its '--path' UNS option, a Lustre foreign file/dir of 'symlink' type is created with a specific LOV/LMV EA content that will allow the DAOS pool and containers UUIDs to be stored.</li>
+            <li>The Lustre Client patch for LU-12682 adds DAOS specific support to the Lustre foreign file/dir feature. It allows for the foreign file/dir of symlink type to be presented and act as an <code>absolute-prefix/pool-uuid/container-uuid</code> symlink to the Linux Kernel/VFS.</li>
+            <li>The <code>absolute-prefix</code> can be specified as the new <code>foreign_symlink=absolute-prefix</code> Lustre Client mount option, or also through the new <code>llite.*.foreign_symlink_prefix</code> Lustre dynamic tuneable. Both <code>pool-uuid</code> and <code>container-uuid</code> are extracted from the foreign file/dir LOV/LMV EA.</li>
+            <li>To allow for symlink resolution and transparent access to the DAOS container content, it is expected that a DFuse/DFS instance/mount of DAOS Server root exists on <code>absolute-prefix</code>, presenting all served pools/containers as <code>pool-uuid/container-uuid</code> relative paths.</li>
+            <li>daos foreign support is enabled at mount time with the symlink= option present or dynamically, through the llite.*.daos_enable setting.</li>
           </ul>
-          <h2 id="data-migration">Data Migration<a class="headerlink" href="#data-migration" title="Permanent link">&para;</a></h2>
-          <h3 id="migration-tofrom-a-posix-filesystem">Migration to/from a POSIX filesystem<a class="headerlink" href="#migration-tofrom-a-posix-filesystem" title="Permanent link">&para;</a></h3>
-          <p>A dataset mover tool is under development to move a snapshot of a DAOS POSIX
-            container or DAOS HDF5 container to a POSIX filesystem and vice versa. 
-            The copy will be performed at the POSIX or HDF5 level. 
-            (The MPI-IO ROMIO ADIO driver for DAOS also uses DAOS POSIX containers.)
-            For DAOS HDF5 containers, the resulting HDF5 file in the POSIX filesystem 
-            will be accessible through the native HDF5 connector with the POSIX VFD.</p>
+          <h2>Building and using a DAOS-aware Lustre version</h2>
+          <p>As indicated before, a Lustre Client patch (for LU-12682) has been developed to allow for the application's transparent access to the DAOS container's data from a Lustre foreign file/dir.</p>
+          <p>This patch can be found at https://review.whamcloud.com/35856 and has been landed onto master but is still not integrated with an official Lustre version. This patch must be applied on top of the selected Lustre version's source tree.</p>
+          <p>After any conflicts are resolved, Lustre must be built and the generated RPMs installed on client nodes by following the instructions at <a href="https://wiki.whamcloud.com/display/PUB/Building+Lustre+from+Source">https://wiki.whamcloud.com/display/PUB/Building+Lustre+from+Source.</a>
+          <p>The Lustre client mount command must use the new <code>foreign_symlink=absolute_path</code> option to set the prefix to be used in front of the <code>pool-UUID/cont-UUID</code> relative path, based on pool/container information being extracted from the LOV/LMV foreign symlink EAs. This can be configured by dynamically modifying both foreign_symlink_[enable,prefix] parameters for each Lustre client mount, using the lctl set_param <code>llite/*/foreign_symlink_[enable,prefix]=[0|1,path]</code> command. The Dfuse instance will then use this prefix to mount/expose all DAOS pools, or use <code>prefix/pool-UUID[/cont-UUID]</code> to mount a single pool/container.</p>
+          <p>To allow non-root/admin users to use the <code>llapi_set_dirstripe()</code> API (like the daos cont create command with --path option), or the lfs <code>setdirstripe</code> command, the Lustre MDS server's configuration must be modified accordingly by running the <code>lctl set_param mdt/*/enable_remote_dir_gid=-1</code> command.</p>
+          <p>Additionally, there is a feature available to provide a customized format of LOV/LMV EAs, apart from the default <code>pool-UUID/cont-UUID</code>, through the <code>llite/*/foreign_symlink_upcall</code> tunable. This provides the path of a user-land upcall, that will indicate where to extract <code>pool-UUID</code> and <code>cont-UUID</code> in the LOV/LMV EAs, using a series of [pos, len] tuples and constant strings. <code>lustre/utils/l_foreign_symlink.c</code> is a helper example in the Lustre source code.</p>
+          <h2>Data Migration</h2>
+          <h3>Migration to/from a POSIX filesystem</h3>
+          <p>A dataset mover tool is under development to move a snapshot of a DAOS POSIX container or DAOS HDF5 container to a POSIX filesystem and vice versa. The copy will be performed at the POSIX or HDF5 level. (The MPI-IO ROMIO ADIO driver for DAOS also uses DAOS POSIX containers.) For DAOS HDF5 containers, the resulting HDF5 file in the POSIX filesystem will be accessible through the native HDF5 connector with the POSIX VFD.</p>
           <p>The first version of the data mover tool is currently scheduled for DAOS v1.4.</p>
-          <h3 id="container-parking">Container Parking<a class="headerlink" href="#container-parking" title="Permanent link">&para;</a></h3>
-          <p>The mover tool will also eventually support the ability to serialize and
-            deserialize a DAOS container to a set of POSIX files that can be stored or
-            "parked" in an external POSIX filesystem. This transformation is agnostic to the
-            data model and container type, and will retain all DAOS internal metadata.</p>
+          <h3>Container Parking</h3>
+          <p>The mover tool will also eventually support the ability to serialize and deserialize a DAOS container to a set of POSIX files that can be stored or "parked" in an external POSIX filesystem. This transformation is agnostic to the data model and container type and will retain all DAOS internal metadata.</p>
         </article>
       </div>
     </div>
@@ -336,10 +299,10 @@ code, kbd, pre {
     </div>
   </footer>
 </div>
-<script src="../../assets/javascripts/application.c33a9706.js"></script>
-<script src="../../js/jquery-3.4.1.min.js"></script>
-<script src="../../js/popper.min.js"></script>
-<script src="../../js/bootstrap-4.4.1.js"></script>
+<script src="../../assets/javascripts/application.c33a9706.js"></script> 
+<script src="../../js/jquery-3.4.1.min.js"></script> 
+<script src="../../js/popper.min.js"></script> 
+<script src="../../js/bootstrap-4.4.1.js"></script> 
 <script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
 </body>
 </html>
