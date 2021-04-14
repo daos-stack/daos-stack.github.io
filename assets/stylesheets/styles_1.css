@@ -103,3 +103,7 @@ aside .dropdown.show .dropdown.show.col-xl-12 {
     clear: left;
 
 }
+code {
+    background-color: rgba(196,196,196,1.00);
+    font-family: Consolas, "Andale Mono", "Lucida Console", "Lucida Sans Typewriter", Monaco, "Courier New", monospace;
+}
