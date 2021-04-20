@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structswim__member__state">
+<title>swim_member_state Struct Reference</title>
+<indexterm><primary>swim_member_state</primary></indexterm>
+<para>
+<computeroutput>#include &lt;swim.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>uint64_t <link linkend="_structswim__member__state_1aa0eca1c738c7d93b17b46e11694dde4c">sms_incarnation</link></para>
+</listitem>
+            <listitem><para>enum swim_member_status <link linkend="_structswim__member__state_1a522465a2d6e510bc15e71b53e5781c7d">sms_status</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structswim__member__state_1a08d77901e9982493a88437af55dbd015">sms_delay</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>SWIM state associated with each group member </para>
+<para>
+Definition at line 38 of file swim.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structswim__member__state_1a08d77901e9982493a88437af55dbd015"/>    <section>
+    <title>sms_delay</title>
+<indexterm><primary>sms_delay</primary><secondary>swim_member_state</secondary></indexterm>
+<indexterm><primary>swim_member_state</primary><secondary>sms_delay</secondary></indexterm>
+<para><computeroutput>uint32_t sms_delay</computeroutput></para>
+<para>SWIM message transfer network duration </para>
+<para>
+Definition at line 41 of file swim.h.</para>
+    </section><anchor xml:id="_structswim__member__state_1aa0eca1c738c7d93b17b46e11694dde4c"/>    <section>
+    <title>sms_incarnation</title>
+<indexterm><primary>sms_incarnation</primary><secondary>swim_member_state</secondary></indexterm>
+<indexterm><primary>swim_member_state</primary><secondary>sms_incarnation</secondary></indexterm>
+<para><computeroutput>uint64_t sms_incarnation</computeroutput></para>
+<para>incarnation number </para>
+<para>
+Definition at line 39 of file swim.h.</para>
+    </section><anchor xml:id="_structswim__member__state_1a522465a2d6e510bc15e71b53e5781c7d"/>    <section>
+    <title>sms_status</title>
+<indexterm><primary>sms_status</primary><secondary>swim_member_state</secondary></indexterm>
+<indexterm><primary>swim_member_state</primary><secondary>sms_status</secondary></indexterm>
+<para><computeroutput>enum swim_member_status sms_status</computeroutput></para>
+<para>status of member </para>
+<para>
+Definition at line 40 of file swim.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/cart/<link linkend="_swim_8h">swim.h</link></section>
+</section>

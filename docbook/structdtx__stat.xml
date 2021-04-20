@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdtx__stat">
+<title>dtx_stat Struct Reference</title>
+<indexterm><primary>dtx_stat</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdtx__stat_1a10ccf4783c793b2199882ad9019f52a3"/>uint64_t <emphasis role="strong">dtx_committable_count</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__stat_1a01fa76c57e60785c46d56d2df77ccffe"/>uint64_t <emphasis role="strong">dtx_oldest_committable_time</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__stat_1a3bc98d271650cc5790d3e18e2ecdea0a"/>uint64_t <emphasis role="strong">dtx_committed_count</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__stat_1a502214f66da78215468a2e4c51f41b8b"/>uint64_t <emphasis role="strong">dtx_oldest_committed_time</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 153 of file dtx_srv.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/dtx_srv.h</section>
+</section>

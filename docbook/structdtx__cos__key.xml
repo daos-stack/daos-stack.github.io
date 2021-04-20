@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdtx__cos__key">
+<title>dtx_cos_key Struct Reference</title>
+<indexterm><primary>dtx_cos_key</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdtx__cos__key_1ab78a951b1a4ad2bb9500a465eecec55f"/><link linkend="_structdaos__unit__oid__t">daos_unit_oid_t</link> <emphasis role="strong">oid</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__cos__key_1ac3c3a39a03e126041cd83efbae7bb51c"/>uint64_t <emphasis role="strong">dkey_hash</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 32 of file vos_types.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/vos_types.h</section>
+</section>

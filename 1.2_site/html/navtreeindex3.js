@@ -1,5 +1,6 @@
 var NAVTREEINDEX3 =
 {
+"structdaos__target__info__t.html#a94bb364a68a0f72e10d887cd87cefb2c":[1,0,90,2],
 "structdaos__target__info__t.html#acb16b4eba38943d2a0464cf5ea6c5544":[1,0,90,1],
 "structdaos__target__perf__t.html":[1,0,91],
 "structdaos__target__perf__t.html#a819b717d29c6c488a332fefeeb3815ba":[1,0,91,0],

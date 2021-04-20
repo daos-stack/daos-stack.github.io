@@ -1,0 +1,974 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_tse_8h">
+<title>src/include/daos/tse.h File Reference</title>
+<indexterm><primary>src/include/daos/tse.h</primary></indexterm>
+<programlisting>#include &lt;gurt/list.h&gt;
+</programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structtse__task">tse_task</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structtse__sched__t">tse_sched_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_tse_8h_1ad09dcf1f8e513e70314a88e8d7d93d50">TSE_TASK_SIZE</link>   1024</para>
+</listitem>
+            <listitem><para><anchor xml:id="_tse_8h_1a3e4932743aa184884fbd8197963d51d3"/>#define <emphasis role="strong">TSE_PRIV_SIZE</emphasis>   1016</para>
+</listitem>
+            <listitem><para><anchor xml:id="_tse_8h_1a1bafaf96896e7e21e6f2938fd61e6e2e"/>#define <emphasis role="strong">TSE_TASK_ARG_LEN</emphasis>   880</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_tse_8h_1a3eb33e4ec7b9a8cd3a6ce5f0f381aa13"/>typedef struct <link linkend="_structtse__task">tse_task</link> <emphasis role="strong">tse_task_t</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_tse_8h_1a0da1d2a89be06408624a3713e49bfa71"/>typedef int(* <emphasis role="strong">tse_sched_comp_cb_t</emphasis>) (void *args, int rc)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_tse_8h_1a3f0f331329005a5c6b4142c11f497eee"/>typedef int(* <emphasis role="strong">tse_task_func_t</emphasis>) (<link linkend="_structtse__task">tse_task_t</link> *)</para>
+</listitem>
+            <listitem><para>typedef int(* <link linkend="_tse_8h_1a027cdfc2f6599850a7dda73741c09824">tse_task_cb_t</link>) (<link linkend="_structtse__task">tse_task_t</link> *, void *arg)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_tse_8h_1a32445fa220ea7a67f15d59b4dd7fbd3d"/>void * <emphasis role="strong">tse_task2arg</emphasis> (<link linkend="_structtse__task">tse_task_t</link> *task)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_tse_8h_1a2fa33e7a06356afcc30f0ab4b7dba379"/><link linkend="_structtse__sched__t">tse_sched_t</link> * <emphasis role="strong">tse_task2sched</emphasis> (<link linkend="_structtse__task">tse_task_t</link> *task)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1abf1e94121077afb1df0eb2f2e65b7106">tse_sched_init</link> (<link linkend="_structtse__sched__t">tse_sched_t</link> *sched, tse_sched_comp_cb_t comp_cb, void *udata)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tse_8h_1afcf06fa0a52340be85ebd0003b0496df">tse_sched_fini</link> (<link linkend="_structtse__sched__t">tse_sched_t</link> *sched)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tse_8h_1a58c1fae9cf9ea086303fad10f4bd9c58">tse_sched_addref</link> (<link linkend="_structtse__sched__t">tse_sched_t</link> *sched)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tse_8h_1a758902a4f8742d96ba5f801b82565444">tse_sched_decref</link> (<link linkend="_structtse__sched__t">tse_sched_t</link> *sched)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tse_8h_1a519923fee266bede9cb18a00d544ebe5">tse_sched_complete</link> (<link linkend="_structtse__sched__t">tse_sched_t</link> *sched, int ret, bool cancel)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1ab67c5d4a693fb13c416cb0d293fabb3a">tse_sched_register_comp_cb</link> (<link linkend="_structtse__sched__t">tse_sched_t</link> *sched, tse_sched_comp_cb_t comp_cb, void *arg)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tse_8h_1a9c1a97452a147d9303d69811738a480d">tse_sched_progress</link> (<link linkend="_structtse__sched__t">tse_sched_t</link> *sched)</para>
+</listitem>
+            <listitem><para>bool <link linkend="_tse_8h_1ac822320d8f95348cb1d8a4638bb80550">tse_sched_check_complete</link> (<link linkend="_structtse__sched__t">tse_sched_t</link> *sched)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1ada225e10a1a876400ef00541fab1e6ec">tse_task_create</link> (tse_task_func_t task_func, <link linkend="_structtse__sched__t">tse_sched_t</link> *sched, void *priv, <link linkend="_structtse__task">tse_task_t</link> **taskp)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1aa7e6ba30a7b67b5aa93ab93f58e3a97a">tse_task_schedule</link> (<link linkend="_structtse__task">tse_task_t</link> *task, bool instant)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1a81df92cbb9227e421421f410775bbf06">tse_task_schedule_with_delay</link> (<link linkend="_structtse__task">tse_task_t</link> *task, bool instant, uint64_t delay)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1a79b17aca23f86839416256fced3210e0">tse_task_register_comp_cb</link> (<link linkend="_structtse__task">tse_task_t</link> *task, <link linkend="_tse_8h_1a027cdfc2f6599850a7dda73741c09824">tse_task_cb_t</link> comp_cb, void *arg, size_t arg_size)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tse_8h_1a901fbd0c134a1ff3e0e1f96de1fdf7f7">tse_task_complete</link> (<link linkend="_structtse__task">tse_task_t</link> *task, int ret)</para>
+</listitem>
+            <listitem><para>void * <link linkend="_tse_8h_1a7f56097dae8b9ce0fa2b37c8da63da65">tse_task_buf_embedded</link> (<link linkend="_structtse__task">tse_task_t</link> *task, int size)</para>
+</listitem>
+            <listitem><para>void * <link linkend="_tse_8h_1a87c76c7556a68e10e845193aa8d8e76d">tse_task_get_priv</link> (<link linkend="_structtse__task">tse_task_t</link> *task)</para>
+</listitem>
+            <listitem><para>void * <link linkend="_tse_8h_1a09326419a295648ecc7cfa7c5fc1d93b">tse_task_set_priv</link> (<link linkend="_structtse__task">tse_task_t</link> *task, void *priv)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1a2fe33e8b1fb99276ac318e0db853d722">tse_task_register_deps</link> (<link linkend="_structtse__task">tse_task_t</link> *task, int num_deps, <link linkend="_structtse__task">tse_task_t</link> *dep_tasks[])</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1a710c000fd63cc9fbc9b8ed005a074034">tse_task_register_cbs</link> (<link linkend="_structtse__task">tse_task_t</link> *task, <link linkend="_tse_8h_1a027cdfc2f6599850a7dda73741c09824">tse_task_cb_t</link> prep_cb, void *prep_data, size_t prep_data_size, <link linkend="_tse_8h_1a027cdfc2f6599850a7dda73741c09824">tse_task_cb_t</link> comp_cb, void *comp_data, size_t comp_data_size)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1a68be15a09dbf96c2aaf22535d0cd870f">tse_task_reinit</link> (<link linkend="_structtse__task">tse_task_t</link> *task)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1aae117a676ae91b8d7141cca8adbb224d">tse_task_reinit_with_delay</link> (<link linkend="_structtse__task">tse_task_t</link> *task, uint64_t delay)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1af6513c8c70ccd370201b5fef5af6782e">tse_task_reset</link> (<link linkend="_structtse__task">tse_task_t</link> *task, tse_task_func_t task_func, void *priv)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_tse_8h_1a63894937024f942250e2644d80e7cbb5"/>void <emphasis role="strong">tse_task_addref</emphasis> (<link linkend="_structtse__task">tse_task_t</link> *task)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_tse_8h_1ac2dce09cb6d3621ccdf5eca076c3d8df"/>void <emphasis role="strong">tse_task_decref</emphasis> (<link linkend="_structtse__task">tse_task_t</link> *task)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1adaa14f95cff6cf15a4ce4da17643cfe4">tse_task_list_add</link> (<link linkend="_structtse__task">tse_task_t</link> *task, <link linkend="_structd__list__head">d_list_t</link> *head)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tse_8h_1aff4f40f2eb881ed22da6443fae9088b2">tse_task_list_del</link> (<link linkend="_structtse__task">tse_task_t</link> *task)</para>
+</listitem>
+            <listitem><para><link linkend="_structtse__task">tse_task_t</link> * <link linkend="_tse_8h_1a4c30cf8726a7f06d416233e9c6f4daba">tse_task_list_first</link> (<link linkend="_structd__list__head">d_list_t</link> *head)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tse_8h_1a522e4179cdd48b61266312a96e2e4793">tse_task_list_sched</link> (<link linkend="_structd__list__head">d_list_t</link> *head, bool instant)</para>
+</listitem>
+            <listitem><para>void <link linkend="_tse_8h_1a8f854ddeaf421090d6b54e3310d62fb4">tse_task_list_abort</link> (<link linkend="_structd__list__head">d_list_t</link> *head, int rc)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1a57b09d31b2128df27dbe2c0c8519738d">tse_task_list_depend</link> (<link linkend="_structd__list__head">d_list_t</link> *head, <link linkend="_structtse__task">tse_task_t</link> *task)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1aaed9f7096b5ec86be8cdb57c64b7220b">tse_task_depend_list</link> (<link linkend="_structtse__task">tse_task_t</link> *task, <link linkend="_structd__list__head">d_list_t</link> *head)</para>
+</listitem>
+            <listitem><para>int <link linkend="_tse_8h_1af48c745b4876946b1b097441d46503d8">tse_task_list_traverse</link> (<link linkend="_structd__list__head">d_list_t</link> *head, <link linkend="_tse_8h_1a027cdfc2f6599850a7dda73741c09824">tse_task_cb_t</link> cb, void *arg)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Task Execution Engine: Generic scheduler for creating tasks and dependencies between them. </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_tse_8h_1ad09dcf1f8e513e70314a88e8d7d93d50"/>    <section>
+    <title>TSE_TASK_SIZE</title>
+<indexterm><primary>TSE_TASK_SIZE</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>TSE_TASK_SIZE</secondary></indexterm>
+<para><computeroutput>#define TSE_TASK_SIZE   1024</computeroutput></para>
+<para><link linkend="_structtse__task">tse_task</link> is used to track single asynchronous operation. 1K bytes all together. </para>
+<para>
+Definition at line 21 of file tse.h.</para>
+</section>
+</section>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_tse_8h_1a027cdfc2f6599850a7dda73741c09824"/>    <section>
+    <title>tse_task_cb_t</title>
+<indexterm><primary>tse_task_cb_t</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_cb_t</secondary></indexterm>
+<para><computeroutput>typedef int(* tse_task_cb_t) (<link linkend="_structtse__task">tse_task_t</link> *, void *arg)</computeroutput></para>
+<para>CB type for prepare, completion, and result processing </para>
+<para>
+Definition at line 56 of file tse.h.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_tse_8h_1a58c1fae9cf9ea086303fad10f4bd9c58"/>    <section>
+    <title>tse_sched_addref()</title>
+<indexterm><primary>tse_sched_addref</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_sched_addref</secondary></indexterm>
+<para><computeroutput>void tse_sched_addref (<link linkend="_structtse__sched__t">tse_sched_t</link> * sched)</computeroutput></para>
+<para>Take reference of the scheduler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>sched</entry>
+                                <entry>
+<para>[input] the scheduler pointer. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_tse_8h_1ac822320d8f95348cb1d8a4638bb80550"/>    <section>
+    <title>tse_sched_check_complete()</title>
+<indexterm><primary>tse_sched_check_complete</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_sched_check_complete</secondary></indexterm>
+<para><computeroutput>bool tse_sched_check_complete (<link linkend="_structtse__sched__t">tse_sched_t</link> * sched)</computeroutput></para>
+<para>Check completion on all tasks in the scheduler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>sched</entry>
+                                <entry>
+<para>[IN] Schedule to check.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>true if scheduler is empty, false otherwise. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1a519923fee266bede9cb18a00d544ebe5"/>    <section>
+    <title>tse_sched_complete()</title>
+<indexterm><primary>tse_sched_complete</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_sched_complete</secondary></indexterm>
+<para><computeroutput>void tse_sched_complete (<link linkend="_structtse__sched__t">tse_sched_t</link> * sched, int ret, bool cancel)</computeroutput></para>
+<para>Wait for all tasks in the scheduler to complete and finalize it. If another thread is completing the scheduler, this returns immediately.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>sched</entry>
+                                <entry>
+<para>[input] scheduler to be completed. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>ret</entry>
+                                <entry>
+<para>[input] result for scheduler completion. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>cancel</entry>
+                                <entry>
+<para>[input] cancel all tasks in scheduler if true. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_tse_8h_1a758902a4f8742d96ba5f801b82565444"/>    <section>
+    <title>tse_sched_decref()</title>
+<indexterm><primary>tse_sched_decref</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_sched_decref</secondary></indexterm>
+<para><computeroutput>void tse_sched_decref (<link linkend="_structtse__sched__t">tse_sched_t</link> * sched)</computeroutput></para>
+<para>Release reference of the scheduler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>sched</entry>
+                                <entry>
+<para>[input] the scheduler pointer. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_tse_8h_1afcf06fa0a52340be85ebd0003b0496df"/>    <section>
+    <title>tse_sched_fini()</title>
+<indexterm><primary>tse_sched_fini</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_sched_fini</secondary></indexterm>
+<para><computeroutput>void tse_sched_fini (<link linkend="_structtse__sched__t">tse_sched_t</link> * sched)</computeroutput></para>
+<para>Finish the scheduler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>sched</entry>
+                                <entry>
+<para>[input] the scheduler to be finished. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_tse_8h_1abf1e94121077afb1df0eb2f2e65b7106"/>    <section>
+    <title>tse_sched_init()</title>
+<indexterm><primary>tse_sched_init</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_sched_init</secondary></indexterm>
+<para><computeroutput>int tse_sched_init (<link linkend="_structtse__sched__t">tse_sched_t</link> * sched, tse_sched_comp_cb_t comp_cb, void * udata)</computeroutput></para>
+<para>Initialize the scheduler with an optional completion callback and pointer to user data. Caller is responsible to complete or cancel the scheduler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>sched</entry>
+                                <entry>
+<para>[input] scheduler to be initialized. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>comp_cb</entry>
+                                <entry>
+<para>[input] Optional callback to be called when scheduler is done. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>udata</entry>
+                                <entry>
+<para>[input] Optional pointer to user data to associate with the scheduler. This is stored in ds_udata in the scheduler struct and passed in to comp_cb as the argument when the callback is invoked.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if initialization succeeds. </para>
+
+<para>negative errno if initialization fails. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1a9c1a97452a147d9303d69811738a480d"/>    <section>
+    <title>tse_sched_progress()</title>
+<indexterm><primary>tse_sched_progress</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_sched_progress</secondary></indexterm>
+<para><computeroutput>void tse_sched_progress (<link linkend="_structtse__sched__t">tse_sched_t</link> * sched)</computeroutput></para>
+<para>Make progress on scheduler. Runs tasks that are ready to be executed after the tasks they depend on were completed. Note that task completion using <link linkend="_tse_8h_1a901fbd0c134a1ff3e0e1f96de1fdf7f7">tse_task_complete()</link> must be done by the engine user to push progress on the engine. In DAOS tse_task_complete is called by the completion CB of the RPC request that is sent to the server.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>sched</entry>
+                                <entry>
+<para>[IN] Scheduler to make progress on. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_tse_8h_1ab67c5d4a693fb13c416cb0d293fabb3a"/>    <section>
+    <title>tse_sched_register_comp_cb()</title>
+<indexterm><primary>tse_sched_register_comp_cb</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_sched_register_comp_cb</secondary></indexterm>
+<para><computeroutput>int tse_sched_register_comp_cb (<link linkend="_structtse__sched__t">tse_sched_t</link> * sched, tse_sched_comp_cb_t comp_cb, void * arg)</computeroutput></para>
+<para>register complete callback for scheduler.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>sched</entry>
+                                <entry>
+<para>[input] scheduler where to register the completion callback. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>comp_cb</entry>
+                                <entry>
+<para>[input] completion callback to be registered. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>arg</entry>
+                                <entry>
+<para>[input] argument of the completion callback.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if registration succeeds. </para>
+
+<para>errno if registration fails. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1a7f56097dae8b9ce0fa2b37c8da63da65"/>    <section>
+    <title>tse_task_buf_embedded()</title>
+<indexterm><primary>tse_task_buf_embedded</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_buf_embedded</secondary></indexterm>
+<para><computeroutput>void* tse_task_buf_embedded (<link linkend="_structtse__task">tse_task_t</link> * task, int size)</computeroutput></para>
+<para>Get embedded buffer of a task, user can use it to carry function parameters. Embedded buffer of task has size limit, this function will return NULL if <emphasis>buf_size</emphasis> is larger than the limit.</para>
+
+<para>User should use private data by <link linkend="_tse_8h_1a09326419a295648ecc7cfa7c5fc1d93b">tse_task_set_priv()</link> to pass large parameter.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>task</entry>
+                                <entry>
+<para>[in] task to get the buffer. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>size</entry>
+                                <entry>
+<para>[in] task buffer size.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>pointer to the buffer. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1a901fbd0c134a1ff3e0e1f96de1fdf7f7"/>    <section>
+    <title>tse_task_complete()</title>
+<indexterm><primary>tse_task_complete</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_complete</secondary></indexterm>
+<para><computeroutput>void tse_task_complete (<link linkend="_structtse__task">tse_task_t</link> * task, int ret)</computeroutput></para>
+<para>Mark task as completed.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>task</entry>
+                                <entry>
+<para>[input] task to be completed. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>ret</entry>
+                                <entry>
+<para>[input] ret result of the task. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_tse_8h_1ada225e10a1a876400ef00541fab1e6ec"/>    <section>
+    <title>tse_task_create()</title>
+<indexterm><primary>tse_task_create</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_create</secondary></indexterm>
+<para><computeroutput>int tse_task_create (tse_task_func_t task_func, <link linkend="_structtse__sched__t">tse_sched_t</link> * sched, void * priv, <link linkend="_structtse__task">tse_task_t</link> ** taskp)</computeroutput></para>
+<para>Initialize the <link linkend="_structtse__task">tse_task</link>.</para>
+
+<para>The task will be added to the scheduler task list, and being scheduled later, if dependent task is provided, then the task will be added to the dep list of the dependent task, once the dependent task is done, then the task will be added to the scheduler list.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>task_func</entry>
+                                <entry>
+<para>[input] the function to be executed when the task is executed. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>sched</entry>
+                                <entry>
+<para>[input] daos scheduler where the daos task will be attached to. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>priv</entry>
+                                <entry>
+<para>[input] private data passed into the task, user can get it by calling <emphasis>tse_task_get_priv</emphasis>, or rewrite by calling <emphasis>tse_task_set_priv</emphasis>. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>taskp</entry>
+                                <entry>
+<para>[output] pointer to <link linkend="_structtse__task">tse_task</link> to be allocated and initialized. The task is freed internally when complete is called.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if initialization succeeds. </para>
+
+<para>negative errno if it fails. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1aaed9f7096b5ec86be8cdb57c64b7220b"/>    <section>
+    <title>tse_task_depend_list()</title>
+<indexterm><primary>tse_task_depend_list</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_depend_list</secondary></indexterm>
+<para><computeroutput>int tse_task_depend_list (<link linkend="_structtse__task">tse_task_t</link> * task, <link linkend="_structd__list__head">d_list_t</link> * head)</computeroutput></para>
+<para><emphasis>task</emphasis> depends on all tasks attached on list <emphasis>head</emphasis> </para>
+    </section><anchor xml:id="_tse_8h_1a87c76c7556a68e10e845193aa8d8e76d"/>    <section>
+    <title>tse_task_get_priv()</title>
+<indexterm><primary>tse_task_get_priv</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_get_priv</secondary></indexterm>
+<para><computeroutput>void* tse_task_get_priv (<link linkend="_structtse__task">tse_task_t</link> * task)</computeroutput></para>
+<para>Return the private data of the task. Private data can be set while creating task, or by calling tse_task_set_priv. </para>
+    </section><anchor xml:id="_tse_8h_1a8f854ddeaf421090d6b54e3310d62fb4"/>    <section>
+    <title>tse_task_list_abort()</title>
+<indexterm><primary>tse_task_list_abort</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_list_abort</secondary></indexterm>
+<para><computeroutput>void tse_task_list_abort (<link linkend="_structd__list__head">d_list_t</link> * head, int rc)</computeroutput></para>
+<para>Abort all tasks attached on list <emphasis>head</emphasis>. </para>
+    </section><anchor xml:id="_tse_8h_1adaa14f95cff6cf15a4ce4da17643cfe4"/>    <section>
+    <title>tse_task_list_add()</title>
+<indexterm><primary>tse_task_list_add</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_list_add</secondary></indexterm>
+<para><computeroutput>int tse_task_list_add (<link linkend="_structtse__task">tse_task_t</link> * task, <link linkend="_structd__list__head">d_list_t</link> * head)</computeroutput></para>
+<para>Add a newly created task to a list. It returns error if the task is already running or completed. </para>
+    </section><anchor xml:id="_tse_8h_1aff4f40f2eb881ed22da6443fae9088b2"/>    <section>
+    <title>tse_task_list_del()</title>
+<indexterm><primary>tse_task_list_del</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_list_del</secondary></indexterm>
+<para><computeroutput>void tse_task_list_del (<link linkend="_structtse__task">tse_task_t</link> * task)</computeroutput></para>
+<para>Remove the task from list head. </para>
+    </section><anchor xml:id="_tse_8h_1a57b09d31b2128df27dbe2c0c8519738d"/>    <section>
+    <title>tse_task_list_depend()</title>
+<indexterm><primary>tse_task_list_depend</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_list_depend</secondary></indexterm>
+<para><computeroutput>int tse_task_list_depend (<link linkend="_structd__list__head">d_list_t</link> * head, <link linkend="_structtse__task">tse_task_t</link> * task)</computeroutput></para>
+<para>All tasks attached on <emphasis>head</emphasis> depend on list <emphasis>task</emphasis>. </para>
+    </section><anchor xml:id="_tse_8h_1a4c30cf8726a7f06d416233e9c6f4daba"/>    <section>
+    <title>tse_task_list_first()</title>
+<indexterm><primary>tse_task_list_first</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_list_first</secondary></indexterm>
+<para><computeroutput><link linkend="_structtse__task">tse_task_t</link>* tse_task_list_first (<link linkend="_structd__list__head">d_list_t</link> * head)</computeroutput></para>
+<para>The first task linked on list <emphasis>head</emphasis>, it returns NULL if the list is empty. </para>
+    </section><anchor xml:id="_tse_8h_1a522e4179cdd48b61266312a96e2e4793"/>    <section>
+    <title>tse_task_list_sched()</title>
+<indexterm><primary>tse_task_list_sched</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_list_sched</secondary></indexterm>
+<para><computeroutput>void tse_task_list_sched (<link linkend="_structd__list__head">d_list_t</link> * head, bool instant)</computeroutput></para>
+<para>Schedule all tasks attached on list <emphasis>head</emphasis>. </para>
+    </section><anchor xml:id="_tse_8h_1af48c745b4876946b1b097441d46503d8"/>    <section>
+    <title>tse_task_list_traverse()</title>
+<indexterm><primary>tse_task_list_traverse</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_list_traverse</secondary></indexterm>
+<para><computeroutput>int tse_task_list_traverse (<link linkend="_structd__list__head">d_list_t</link> * head, <link linkend="_tse_8h_1a027cdfc2f6599850a7dda73741c09824">tse_task_cb_t</link> cb, void * arg)</computeroutput></para>
+<para>Traverse all tasks on list <emphasis>head</emphasis>, invoke the <emphasis>cb</emphasis> with parameter of <emphasis>arg</emphasis> on each task. User is free to remove the task from the list <emphasis>head</emphasis> within the <emphasis>cb&apos;s</emphasis> executing. </para>
+    </section><anchor xml:id="_tse_8h_1a710c000fd63cc9fbc9b8ed005a074034"/>    <section>
+    <title>tse_task_register_cbs()</title>
+<indexterm><primary>tse_task_register_cbs</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_register_cbs</secondary></indexterm>
+<para><computeroutput>int tse_task_register_cbs (<link linkend="_structtse__task">tse_task_t</link> * task, <link linkend="_tse_8h_1a027cdfc2f6599850a7dda73741c09824">tse_task_cb_t</link> prep_cb, void * prep_data, size_t prep_data_size, <link linkend="_tse_8h_1a027cdfc2f6599850a7dda73741c09824">tse_task_cb_t</link> comp_cb, void * comp_data, size_t comp_data_size)</computeroutput></para>
+<para>Register prepare and completion callbacks that will be executed right before the task is scheduled and after it completes respectively.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>task</entry>
+                                <entry>
+<para>[IN] Task to add CBs on. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>prep_cb</entry>
+                                <entry>
+<para>[IN] Prepare callback. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>prep_data_size</entry>
+                                <entry>
+<para>[IN] Size of the user provided prep data to be copied internally. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>prep_data</entry>
+                                <entry>
+<para>[IN] User data passed to the prepare callback. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>comp_cb</entry>
+                                <entry>
+<para>[IN] Completion callback </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>comp_data_size</entry>
+                                <entry>
+<para>[IN] Size of the user provided comp data to be copied internally. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>comp_data</entry>
+                                <entry>
+<para>[IN] User data passed to the completion callback.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if success. negative errno if it fails. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1a79b17aca23f86839416256fced3210e0"/>    <section>
+    <title>tse_task_register_comp_cb()</title>
+<indexterm><primary>tse_task_register_comp_cb</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_register_comp_cb</secondary></indexterm>
+<para><computeroutput>int tse_task_register_comp_cb (<link linkend="_structtse__task">tse_task_t</link> * task, <link linkend="_tse_8h_1a027cdfc2f6599850a7dda73741c09824">tse_task_cb_t</link> comp_cb, void * arg, size_t arg_size)</computeroutput></para>
+<para>register complete callback for the task.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>task</entry>
+                                <entry>
+<para>[input] task to be registered complete callback. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>comp_cb</entry>
+                                <entry>
+<para>[input] complete callback. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>arg</entry>
+                                <entry>
+<para>[input] callback argument. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>top</entry>
+                                <entry>
+<para>[input] indicate whether cb to be inserted at top of cb stack (true) or bottom (false).</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if register succeeds. </para>
+
+<para>negative errno if it fails. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1a2fe33e8b1fb99276ac318e0db853d722"/>    <section>
+    <title>tse_task_register_deps()</title>
+<indexterm><primary>tse_task_register_deps</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_register_deps</secondary></indexterm>
+<para><computeroutput>int tse_task_register_deps (<link linkend="_structtse__task">tse_task_t</link> * task, int num_deps, <link linkend="_structtse__task">tse_task_t</link> * dep_tasks[])</computeroutput></para>
+<para>Register dependency tasks that will be required to be completed before the the task can be scheduled. The dependency tasks cannot be in progress.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>task</entry>
+                                <entry>
+<para>[IN] Task to add dependencies for. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>num_deps</entry>
+                                <entry>
+<para>[IN] Number of tasks in the task array. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>dep_tasks</entry>
+                                <entry>
+<para>[IN] Task array for all the tasks that are required to complete before the task can scheduled.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if success. negative errno if it fails. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1a68be15a09dbf96c2aaf22535d0cd870f"/>    <section>
+    <title>tse_task_reinit()</title>
+<indexterm><primary>tse_task_reinit</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_reinit</secondary></indexterm>
+<para><computeroutput>int tse_task_reinit (<link linkend="_structtse__task">tse_task_t</link> * task)</computeroutput></para>
+<para>Reinitialize a task and move it into the scheduler&apos;s initialize list. The task must have a body function to be reinserted into the scheduler. If the task is reintialzed in one of its completion CBs, that callback and the ones that have already executed will have been removed from the cb list and will need to be re-registered by the user after re-insertion.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>task</entry>
+                                <entry>
+<para>[IN] Task to reinitialize</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if success. negative errno if it fails. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1aae117a676ae91b8d7141cca8adbb224d"/>    <section>
+    <title>tse_task_reinit_with_delay()</title>
+<indexterm><primary>tse_task_reinit_with_delay</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_reinit_with_delay</secondary></indexterm>
+<para><computeroutput>int tse_task_reinit_with_delay (<link linkend="_structtse__task">tse_task_t</link> * task, uint64_t delay)</computeroutput></para>
+<para>Same as tse_task_reinit, except that <emphasis>task</emphasis> will not be re-executed within <emphasis>delay</emphasis> microseconds.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>task</entry>
+                                <entry>
+<para>[IN] Task to reinitialize </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>delay</entry>
+                                <entry>
+<para>[IN] Scheduling delay in microseconds</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if success. negative errno if it fails. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1af6513c8c70ccd370201b5fef5af6782e"/>    <section>
+    <title>tse_task_reset()</title>
+<indexterm><primary>tse_task_reset</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_reset</secondary></indexterm>
+<para><computeroutput>int tse_task_reset (<link linkend="_structtse__task">tse_task_t</link> * task, tse_task_func_t task_func, void * priv)</computeroutput></para>
+<para>Reset a task with a new body function. The task must have already completed or not started yet, and must have a &gt; 0 valid ref count (not freed). This allows a user to reuse a task with a different body function and not have to recreate a task for a different operation.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>task</entry>
+                                <entry>
+<para>[IN] Task to reset</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if success. negative errno if it fails. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1aa7e6ba30a7b67b5aa93ab93f58e3a97a"/>    <section>
+    <title>tse_task_schedule()</title>
+<indexterm><primary>tse_task_schedule</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_schedule</secondary></indexterm>
+<para><computeroutput>int tse_task_schedule (<link linkend="_structtse__task">tse_task_t</link> * task, bool instant)</computeroutput></para>
+<para>Add task to scheduler it was initialized with. If task body function should be called immediately as part of this function, <emphasis>instant</emphasis> should be set to true; otherwise if false task would be in the scheduler init list and progressed when the scheduler is progressed.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>task</entry>
+                                <entry>
+<para>[input] task to be scheduled. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>instant</entry>
+                                <entry>
+<para>[input] flag to indicate whether task should be executed immediately.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if success negative errno if fail. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1a81df92cbb9227e421421f410775bbf06"/>    <section>
+    <title>tse_task_schedule_with_delay()</title>
+<indexterm><primary>tse_task_schedule_with_delay</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_schedule_with_delay</secondary></indexterm>
+<para><computeroutput>int tse_task_schedule_with_delay (<link linkend="_structtse__task">tse_task_t</link> * task, bool instant, uint64_t delay)</computeroutput></para>
+<para>Same as tse_task_schedule, expect that <emphasis>task</emphasis> will not be executed within <emphasis>delay</emphasis> microseconds if <emphasis>instant</emphasis> is false.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>task</entry>
+                                <entry>
+<para>[input] task to be scheduled. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>instant</entry>
+                                <entry>
+<para>[input] flag to indicate whether task should be executed immediately. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>delay</entry>
+                                <entry>
+<para>[input] scheduling delay in microseconds.</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 if success negative errno if fail. </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_tse_8h_1a09326419a295648ecc7cfa7c5fc1d93b"/>    <section>
+    <title>tse_task_set_priv()</title>
+<indexterm><primary>tse_task_set_priv</primary><secondary>tse.h</secondary></indexterm>
+<indexterm><primary>tse.h</primary><secondary>tse_task_set_priv</secondary></indexterm>
+<para><computeroutput>void* tse_task_set_priv (<link linkend="_structtse__task">tse_task_t</link> * task, void * priv)</computeroutput></para>
+<para>Set or change the private data of the task. The original private data will be returned. </para>
+</section>
+</section>
+</section>

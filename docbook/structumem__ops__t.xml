@@ -1,0 +1,318 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structumem__ops__t">
+<title>umem_ops_t Struct Reference</title>
+<indexterm><primary>umem_ops_t</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int(* <link linkend="_structumem__ops__t_1ac160e799062285590fb03367898447bb">mo_tx_free</link> )(struct <link linkend="_structumem__instance">umem_instance</link> *umm, umem_off_t umoff)</para>
+</listitem>
+            <listitem><para>umem_off_t(* <link linkend="_structumem__ops__t_1a558d78da8cf37e38ef7cbcbd04b6c195">mo_tx_alloc</link> )(struct <link linkend="_structumem__instance">umem_instance</link> *umm, size_t size, uint64_t flags, unsigned int type_num)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structumem__ops__t_1a28a12a6bc8592318d316b64d23fd7429">mo_tx_add</link> )(struct <link linkend="_structumem__instance">umem_instance</link> *umm, umem_off_t umoff, uint64_t offset, size_t size)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structumem__ops__t_1a91ff002a789cb0f3295bbdf4bba6c8bf">mo_tx_xadd</link> )(struct <link linkend="_structumem__instance">umem_instance</link> *umm, umem_off_t umoff, uint64_t offset, size_t size, uint64_t flags)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structumem__ops__t_1ab55968d8d17907be014c4a729a1a1026">mo_tx_add_ptr</link> )(struct <link linkend="_structumem__instance">umem_instance</link> *umm, void *ptr, size_t size)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structumem__ops__t_1a3b90cfd604f891bc5341636197555def">mo_tx_abort</link> )(struct <link linkend="_structumem__instance">umem_instance</link> *umm, int error)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structumem__ops__t_1ae764081bb7385b7692d1087d2a08c5b3">mo_tx_begin</link> )(struct <link linkend="_structumem__instance">umem_instance</link> *umm, struct <link linkend="_structumem__tx__stage__data">umem_tx_stage_data</link> *txd)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structumem__ops__t_1adea1cd601a1787bde0e6a4c60428f727">mo_tx_commit</link> )(struct <link linkend="_structumem__instance">umem_instance</link> *umm)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structumem__ops__t_1a1ebba98fdef00f2ed5a7bdfc99dae87c">mo_tx_add_callback</link> )(struct <link linkend="_structumem__instance">umem_instance</link> *umm, struct <link linkend="_structumem__tx__stage__data">umem_tx_stage_data</link> *txd, int stage, umem_tx_cb_t cb, void *data)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 163 of file mem.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structumem__ops__t_1a3b90cfd604f891bc5341636197555def"/>    <section>
+    <title>mo_tx_abort</title>
+<indexterm><primary>mo_tx_abort</primary><secondary>umem_ops_t</secondary></indexterm>
+<indexterm><primary>umem_ops_t</primary><secondary>mo_tx_abort</secondary></indexterm>
+<para><computeroutput>int(* mo_tx_abort(struct <link linkend="_structumem__instance">umem_instance</link> *umm, int error)</computeroutput></para>
+<para>abort memory transaction </para>
+<para>
+Definition at line 214 of file mem.h.</para>
+    </section><anchor xml:id="_structumem__ops__t_1a28a12a6bc8592318d316b64d23fd7429"/>    <section>
+    <title>mo_tx_add</title>
+<indexterm><primary>mo_tx_add</primary><secondary>umem_ops_t</secondary></indexterm>
+<indexterm><primary>umem_ops_t</primary><secondary>mo_tx_add</secondary></indexterm>
+<para><computeroutput>int(* mo_tx_add(struct <link linkend="_structumem__instance">umem_instance</link> *umm, umem_off_t umoff, uint64_t offset, size_t size)</computeroutput></para>
+<para>Add the specified range of umoff to current memory transaction.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>umm</entry>
+                                <entry>
+<para>[IN] umem class instance. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>umoff</entry>
+                                <entry>
+<para>[IN] memory offset to be added to transaction. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>offset</entry>
+                                <entry>
+<para>[IN] start offset of <emphasis>umoff</emphasis> tracked by the transaction. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>size</entry>
+                                <entry>
+<para>[IN] size of <emphasis>umoff</emphasis> tracked by the transaction. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 186 of file mem.h.</para>
+    </section><anchor xml:id="_structumem__ops__t_1a1ebba98fdef00f2ed5a7bdfc99dae87c"/>    <section>
+    <title>mo_tx_add_callback</title>
+<indexterm><primary>mo_tx_add_callback</primary><secondary>umem_ops_t</secondary></indexterm>
+<indexterm><primary>umem_ops_t</primary><secondary>mo_tx_add_callback</secondary></indexterm>
+<para><computeroutput>int(* mo_tx_add_callback(struct <link linkend="_structumem__instance">umem_instance</link> *umm, struct <link linkend="_structumem__tx__stage__data">umem_tx_stage_data</link> *txd, int stage, umem_tx_cb_t cb, void *data)</computeroutput></para>
+<para>Add one commit or abort callback to current transaction.</para>
+
+<para>PMDK doesn&apos;t provide public API to get stage_callback_arg, so we have to make @txd as an input parameter.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>umm</entry>
+                                <entry>
+<para>[IN] umem class instance. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>txd</entry>
+                                <entry>
+<para>[IN] transaction stage data. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>cb</entry>
+                                <entry>
+<para>[IN] commit or abort callback. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>data</entry>
+                                <entry>
+<para>[IN] callback data. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 279 of file mem.h.</para>
+    </section><anchor xml:id="_structumem__ops__t_1ab55968d8d17907be014c4a729a1a1026"/>    <section>
+    <title>mo_tx_add_ptr</title>
+<indexterm><primary>mo_tx_add_ptr</primary><secondary>umem_ops_t</secondary></indexterm>
+<indexterm><primary>umem_ops_t</primary><secondary>mo_tx_add_ptr</secondary></indexterm>
+<para><computeroutput>int(* mo_tx_add_ptr(struct <link linkend="_structumem__instance">umem_instance</link> *umm, void *ptr, size_t size)</computeroutput></para>
+<para>Add the directly accessible pointer to current memory transaction.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>umm</entry>
+                                <entry>
+<para>[IN] umem class instance. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>ptr</entry>
+                                <entry>
+<para>[IN] Directly accessible memory pointer. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>size</entry>
+                                <entry>
+<para>[IN] size to be tracked by the transaction. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 211 of file mem.h.</para>
+    </section><anchor xml:id="_structumem__ops__t_1a558d78da8cf37e38ef7cbcbd04b6c195"/>    <section>
+    <title>mo_tx_alloc</title>
+<indexterm><primary>mo_tx_alloc</primary><secondary>umem_ops_t</secondary></indexterm>
+<indexterm><primary>umem_ops_t</primary><secondary>mo_tx_alloc</secondary></indexterm>
+<para><computeroutput>umem_off_t(* mo_tx_alloc(struct <link linkend="_structumem__instance">umem_instance</link> *umm, size_t size, uint64_t flags, unsigned int type_num)</computeroutput></para>
+<para>allocate umoff with the specified size &amp; flags</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>umm</entry>
+                                <entry>
+<para>[IN] umem class instance. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>size</entry>
+                                <entry>
+<para>[IN] size to allocate. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>flags</entry>
+                                <entry>
+<para>[IN] flags like zeroing, noflush (for PMDK) </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>type_num</entry>
+                                <entry>
+<para>[IN] struct type (for PMDK) </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 175 of file mem.h.</para>
+    </section><anchor xml:id="_structumem__ops__t_1ae764081bb7385b7692d1087d2a08c5b3"/>    <section>
+    <title>mo_tx_begin</title>
+<indexterm><primary>mo_tx_begin</primary><secondary>umem_ops_t</secondary></indexterm>
+<indexterm><primary>umem_ops_t</primary><secondary>mo_tx_begin</secondary></indexterm>
+<para><computeroutput>int(* mo_tx_begin(struct <link linkend="_structumem__instance">umem_instance</link> *umm, struct <link linkend="_structumem__tx__stage__data">umem_tx_stage_data</link> *txd)</computeroutput></para>
+<para>start memory transaction </para>
+<para>
+Definition at line 216 of file mem.h.</para>
+    </section><anchor xml:id="_structumem__ops__t_1adea1cd601a1787bde0e6a4c60428f727"/>    <section>
+    <title>mo_tx_commit</title>
+<indexterm><primary>mo_tx_commit</primary><secondary>umem_ops_t</secondary></indexterm>
+<indexterm><primary>umem_ops_t</primary><secondary>mo_tx_commit</secondary></indexterm>
+<para><computeroutput>int(* mo_tx_commit(struct <link linkend="_structumem__instance">umem_instance</link> *umm)</computeroutput></para>
+<para>commit memory transaction </para>
+<para>
+Definition at line 219 of file mem.h.</para>
+    </section><anchor xml:id="_structumem__ops__t_1ac160e799062285590fb03367898447bb"/>    <section>
+    <title>mo_tx_free</title>
+<indexterm><primary>mo_tx_free</primary><secondary>umem_ops_t</secondary></indexterm>
+<indexterm><primary>umem_ops_t</primary><secondary>mo_tx_free</secondary></indexterm>
+<para><computeroutput>int(* mo_tx_free(struct <link linkend="_structumem__instance">umem_instance</link> *umm, umem_off_t umoff)</computeroutput></para>
+<para>free umoff </para>
+<para>
+Definition at line 165 of file mem.h.</para>
+    </section><anchor xml:id="_structumem__ops__t_1a91ff002a789cb0f3295bbdf4bba6c8bf"/>    <section>
+    <title>mo_tx_xadd</title>
+<indexterm><primary>mo_tx_xadd</primary><secondary>umem_ops_t</secondary></indexterm>
+<indexterm><primary>umem_ops_t</primary><secondary>mo_tx_xadd</secondary></indexterm>
+<para><computeroutput>int(* mo_tx_xadd(struct <link linkend="_structumem__instance">umem_instance</link> *umm, umem_off_t umoff, uint64_t offset, size_t size, uint64_t flags)</computeroutput></para>
+<para>Add the specified range of umoff to current memory transaction but with flags.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>umm</entry>
+                                <entry>
+<para>[IN] umem class instance. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>umoff</entry>
+                                <entry>
+<para>[IN] memory offset to be added to transaction. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>offset</entry>
+                                <entry>
+<para>[IN] start offset of <emphasis>umoff</emphasis> tracked by the transaction. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>size</entry>
+                                <entry>
+<para>[IN] size of <emphasis>umoff</emphasis> tracked by the transaction. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>flags</entry>
+                                <entry>
+<para>[IN] PMDK flags </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 201 of file mem.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/mem.h</section>
+</section>

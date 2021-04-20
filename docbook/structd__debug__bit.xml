@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structd__debug__bit">
+<title>d_debug_bit Struct Reference</title>
+<indexterm><primary>d_debug_bit</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structd__debug__bit_1a61182602b627a5311b1994547a985d26"/><link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> * <emphasis role="strong">db_bit</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structd__debug__bit_1a7e927d8bca0d692869afd4918badeaac"/>char * <emphasis role="strong">db_name</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structd__debug__bit_1a5859429e2c3de75f4f34e3490b9c5ce7"/>char * <emphasis role="strong">db_lname</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structd__debug__bit_1a8026da8a562473fbde8a3747bbf4737e"/>size_t <emphasis role="strong">db_name_size</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structd__debug__bit_1aa7a7d0dc28dbd0e9f4a27549cf0859f1"/>size_t <emphasis role="strong">db_lname_size</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 152 of file dlog.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/gurt/<link linkend="_dlog_8h">dlog.h</link></section>
+</section>

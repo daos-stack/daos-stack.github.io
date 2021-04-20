@@ -1,0 +1,252 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdtx__handle">
+<title>dtx_handle Struct Reference</title>
+<indexterm><primary>dtx_handle</primary></indexterm>
+<para>
+<computeroutput>#include &lt;dtx_srv.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdtx__handle_1af4b9a2387c59027ccdbf5cd332f4e48a"/>union {</para>
+        <itemizedlist>
+            <listitem><para>   struct <link linkend="_structdtx__entry">dtx_entry</link> <emphasis role="strong">dth_dte</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_uniondtx__handle_1_1_0d57_1a57ee541ffb936e591506698de6e8dcec"/>   struct {</para>
+        <itemizedlist>
+            <listitem><para>      struct <link linkend="_structdtx__id">dtx_id</link> <link linkend="_structdtx__handle_1a0d2332954e59124929a41c56268daeff">dth_xid</link></para>
+</listitem>
+            <listitem><para>      uint32_t <link linkend="_structdtx__handle_1ac5e5247a18b50da62dd13de5aa1ede62">dth_ver</link></para>
+</listitem>
+            <listitem><para>      uint32_t <link linkend="_structdtx__handle_1a6a27f28668c84fd1946502a9ab478740">dth_refs</link></para>
+</listitem>
+            <listitem><para>      struct <link linkend="_structdtx__memberships">dtx_memberships</link> * <link linkend="_structdtx__handle_1af78071cb544a116321f79bea1872078d">dth_mbs</link></para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>   } </para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>}; </para>
+</listitem>
+            <listitem><para><link linkend="_structdaos__handle__t">daos_handle_t</link> <link linkend="_structdtx__handle_1aaee715d04deef12bc87011013e89d825">dth_coh</link></para>
+</listitem>
+            <listitem><para>daos_epoch_t <link linkend="_structdtx__handle_1a719c00ce9ff46ce676648f3e6e73c3a6">dth_epoch</link></para>
+</listitem>
+            <listitem><para>daos_epoch_t <link linkend="_structdtx__handle_1ab8f2cab61c34de840ed18d062f7b45e1">dth_epoch_bound</link></para>
+</listitem>
+            <listitem><para><link linkend="_structdaos__unit__oid__t">daos_unit_oid_t</link> <link linkend="_structdtx__handle_1a5a164d3f2108b87c73387449a59d7fdb">dth_leader_oid</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a26e8c3bc7ea130749b5d26d476e41801"/>uint32_t <emphasis role="strong">dth_sync</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1af9ac0a7d9264c09c7fa58222caed1d62"/>uint32_t <emphasis role="strong">dth_cos_done</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a99ee28628d45feb450f1b86865af584a"/>uint32_t <emphasis role="strong">dth_resent</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1ac6f223c9544a3bf6f23e98d7183ade67"/>uint32_t <emphasis role="strong">dth_solo</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1af3208b63fe4f8974c8ed59c3e2a39003"/>uint32_t <emphasis role="strong">dth_modify_shared</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1afaa12892a25b47430b7964e043cd899c"/>uint32_t <emphasis role="strong">dth_active</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1aef808e26d7cc26dbf1282a4c1e835a84"/>uint32_t <emphasis role="strong">dth_touched_leader_oid</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a835988f3f02a0be9c844486454145f1c"/>uint32_t <emphasis role="strong">dth_local_tx_started</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1af144ba6ceed3d5c225011f65906d481a"/>uint32_t <emphasis role="strong">dth_local_retry</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1ae53feac082fa8003ce0931d02a62defa"/>uint32_t <emphasis role="strong">dth_shares_inited</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a2f0a760f9b53a933aceed2be3f029e37"/>uint32_t <emphasis role="strong">dth_dist</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a5e1d6e9b004c0609aff1736765511211"/>uint32_t <emphasis role="strong">dth_for_migration</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1af4c2253bb636d7688b180065cd9620b2"/>uint32_t <emphasis role="strong">dth_force_refresh</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a494be4be5f08c946e3647ee7a2d2f4e4"/>uint32_t <emphasis role="strong">dth_ignore_uncommitted</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a20a7dfe8e4f8ad16c7d9da9cd3132855"/>uint32_t <emphasis role="strong">dth_dti_cos_count</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a33f6cb02c3492e4ea77871486e259b4a"/>struct <link linkend="_structdtx__id">dtx_id</link> * <emphasis role="strong">dth_dti_cos</emphasis></para>
+</listitem>
+            <listitem><para>void * <link linkend="_structdtx__handle_1ad0462cf0d93bcc9288d994b5a3957eb1">dth_ent</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdtx__handle_1a8fc5c1bee153072a0180943b6ba86366">dth_flags</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_structdtx__handle_1a708d35bd8a1bf5933ef3b0aa90bc73bc">dth_rsrvd_cnt</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a79151aa4c3562a24d4d6ff2fd78c3014"/>uint16_t <emphasis role="strong">dth_deferred_cnt</emphasis></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_structdtx__handle_1a8266ba9075a7449b4a445c8c81dbfe78">dth_modification_cnt</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_structdtx__handle_1a3b44c65e9aa1394a713daa6c16734f24">dth_op_seq</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_structdtx__handle_1a451f2e848973a37679d54126949749b2">dth_oid_cnt</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_structdtx__handle_1a875603162899ac8ef8ca92842a7b02b8">dth_oid_cap</link></para>
+</listitem>
+            <listitem><para><link linkend="_structdaos__unit__oid__t">daos_unit_oid_t</link> * <link linkend="_structdtx__handle_1abb3c25d05bb975ff2c95373948b0c385">dth_oid_array</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a74ffb30792052e051830b478fc4f73ab"/>uint64_t <emphasis role="strong">dth_dkey_hash</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a1e9e8e47c829c5ec0706c22fc1305ada"/>struct <link linkend="_structdtx__rsrvd__uint">dtx_rsrvd_uint</link> <emphasis role="strong">dth_rsrvd_inline</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1ad4853b5d39b09d3013d6a53319fa8677"/>struct <link linkend="_structdtx__rsrvd__uint">dtx_rsrvd_uint</link> * <emphasis role="strong">dth_rsrvds</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a4cc1d14f0e6528a3d03f3110065dfa3c"/>void ** <emphasis role="strong">dth_deferred</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1aa526123fb50997eb65d659ce46766912"/><link linkend="_structd__list__head">d_list_t</link> <emphasis role="strong">dth_deferred_nvme</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a19d3f869512987923500aaacc4b8f8b0"/><link linkend="_structd__list__head">d_list_t</link> <emphasis role="strong">dth_share_cmt_list</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1a87ed9410fa8955f6feee6a7657458bdb"/><link linkend="_structd__list__head">d_list_t</link> <emphasis role="strong">dth_share_act_list</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1ac9283c5b628cc1cd5bbe50e7de5508b7"/><link linkend="_structd__list__head">d_list_t</link> <emphasis role="strong">dth_share_tbd_list</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__handle_1afcf2d47afc95fc99bfa930c3335790ac"/>int <emphasis role="strong">dth_share_tbd_count</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>DAOS two-phase commit transaction handle in DRAM. </para>
+<para>
+Definition at line 30 of file dtx_srv.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdtx__handle_1aaee715d04deef12bc87011013e89d825"/>    <section>
+    <title>dth_coh</title>
+<indexterm><primary>dth_coh</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_coh</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__handle__t">daos_handle_t</link> dth_coh</computeroutput></para>
+<para>The container handle </para>
+<para>
+Definition at line 45 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1ad0462cf0d93bcc9288d994b5a3957eb1"/>    <section>
+    <title>dth_ent</title>
+<indexterm><primary>dth_ent</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_ent</secondary></indexterm>
+<para><computeroutput>void* dth_ent</computeroutput></para>
+<para>Pointer to the DTX entry in DRAM. </para>
+<para>
+Definition at line 91 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1a719c00ce9ff46ce676648f3e6e73c3a6"/>    <section>
+    <title>dth_epoch</title>
+<indexterm><primary>dth_epoch</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_epoch</secondary></indexterm>
+<para><computeroutput>daos_epoch_t dth_epoch</computeroutput></para>
+<para>The epoch# for the DTX. </para>
+<para>
+Definition at line 47 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1ab8f2cab61c34de840ed18d062f7b45e1"/>    <section>
+    <title>dth_epoch_bound</title>
+<indexterm><primary>dth_epoch_bound</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_epoch_bound</secondary></indexterm>
+<para><computeroutput>daos_epoch_t dth_epoch_bound</computeroutput></para>
+<para>The upper bound of the epoch uncertainty. dth_epoch_bound == dth_epoch means that dth_epoch has no uncertainty. </para>
+<para>
+Definition at line 52 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1a8fc5c1bee153072a0180943b6ba86366"/>    <section>
+    <title>dth_flags</title>
+<indexterm><primary>dth_flags</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_flags</secondary></indexterm>
+<para><computeroutput>uint32_t dth_flags</computeroutput></para>
+<para>The flags, see dtx_entry_flags. </para>
+<para>
+Definition at line 93 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1a5a164d3f2108b87c73387449a59d7fdb"/>    <section>
+    <title>dth_leader_oid</title>
+<indexterm><primary>dth_leader_oid</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_leader_oid</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__unit__oid__t">daos_unit_oid_t</link> dth_leader_oid</computeroutput></para>
+<para>The object ID is used to elect the DTX leader, mainly used for CoS (for single RDG case) and DTX recovery. </para>
+<para>
+Definition at line 57 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1af78071cb544a116321f79bea1872078d"/>    <section>
+    <title>dth_mbs</title>
+<indexterm><primary>dth_mbs</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_mbs</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structdtx__memberships">dtx_memberships</link>* dth_mbs</computeroutput></para>
+<para>The DTX participants information. </para>
+<para>
+Definition at line 41 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1a8266ba9075a7449b4a445c8c81dbfe78"/>    <section>
+    <title>dth_modification_cnt</title>
+<indexterm><primary>dth_modification_cnt</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_modification_cnt</secondary></indexterm>
+<para><computeroutput>uint16_t dth_modification_cnt</computeroutput></para>
+<para>The total sub modifications count. </para>
+<para>
+Definition at line 98 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1abb3c25d05bb975ff2c95373948b0c385"/>    <section>
+    <title>dth_oid_array</title>
+<indexterm><primary>dth_oid_array</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_oid_array</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__unit__oid__t">daos_unit_oid_t</link>* dth_oid_array</computeroutput></para>
+<para>If more than one objects are modified, the IDs are reocrded here. </para>
+<para>
+Definition at line 107 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1a875603162899ac8ef8ca92842a7b02b8"/>    <section>
+    <title>dth_oid_cap</title>
+<indexterm><primary>dth_oid_cap</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_oid_cap</secondary></indexterm>
+<para><computeroutput>uint16_t dth_oid_cap</computeroutput></para>
+<para>The total slots in the dth_oid_array. </para>
+<para>
+Definition at line 105 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1a451f2e848973a37679d54126949749b2"/>    <section>
+    <title>dth_oid_cnt</title>
+<indexterm><primary>dth_oid_cnt</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_oid_cnt</secondary></indexterm>
+<para><computeroutput>uint16_t dth_oid_cnt</computeroutput></para>
+<para>The count of objects that are modified by this DTX. </para>
+<para>
+Definition at line 103 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1a3b44c65e9aa1394a713daa6c16734f24"/>    <section>
+    <title>dth_op_seq</title>
+<indexterm><primary>dth_op_seq</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_op_seq</secondary></indexterm>
+<para><computeroutput>uint16_t dth_op_seq</computeroutput></para>
+<para>Modification sequence in the distributed transaction. </para>
+<para>
+Definition at line 100 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1a6a27f28668c84fd1946502a9ab478740"/>    <section>
+    <title>dth_refs</title>
+<indexterm><primary>dth_refs</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_refs</secondary></indexterm>
+<para><computeroutput>uint32_t dth_refs</computeroutput></para>
+<para>Match <link linkend="_structdtx__entry_1ab26ad86c19aa5a1427e15274bf2ed9b7">dtx_entry::dte_refs</link>. </para>
+<para>
+Definition at line 39 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1a708d35bd8a1bf5933ef3b0aa90bc73bc"/>    <section>
+    <title>dth_rsrvd_cnt</title>
+<indexterm><primary>dth_rsrvd_cnt</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_rsrvd_cnt</secondary></indexterm>
+<para><computeroutput>uint16_t dth_rsrvd_cnt</computeroutput></para>
+<para>The count of reserved items in the dth_rsrvds array. </para>
+<para>
+Definition at line 95 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1ac5e5247a18b50da62dd13de5aa1ede62"/>    <section>
+    <title>dth_ver</title>
+<indexterm><primary>dth_ver</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_ver</secondary></indexterm>
+<para><computeroutput>uint32_t dth_ver</computeroutput></para>
+<para>Pool map version. </para>
+<para>
+Definition at line 37 of file dtx_srv.h.</para>
+    </section><anchor xml:id="_structdtx__handle_1a0d2332954e59124929a41c56268daeff"/>    <section>
+    <title>dth_xid</title>
+<indexterm><primary>dth_xid</primary><secondary>dtx_handle</secondary></indexterm>
+<indexterm><primary>dtx_handle</primary><secondary>dth_xid</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structdtx__id">dtx_id</link> dth_xid</computeroutput></para>
+<para>The identifier of the DTX. </para>
+<para>
+Definition at line 35 of file dtx_srv.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/dtx_srv.h</section>
+</section>

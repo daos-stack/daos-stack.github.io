@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structcrt__iv__sync__t">
+<title>crt_iv_sync_t Struct Reference</title>
+<indexterm><primary>crt_iv_sync_t</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structcrt__iv__sync__t_1a9e8672d90a98d86a32705c726e840a40"/><link linkend="_group___c_a_r_t___i_v_1ga874cbc2487afde54f59cdfd1fa835d0a">crt_iv_sync_mode_t</link> <emphasis role="strong">ivs_mode</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__sync__t_1a8880b6947e241f4a0d672d22e7c35f54"/><link linkend="_group___c_a_r_t___i_v_1ga516a13818f6625a6e755cb6c2e81d96c">crt_iv_sync_event_t</link> <emphasis role="strong">ivs_event</emphasis></para>
+</listitem>
+            <listitem><para>crt_iv_sync_done_cb_t <link linkend="_structcrt__iv__sync__t_1a4dacabf982f1f63043e55be3b0e0125e">ivs_comp_cb</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__sync__t_1ab6b678dc810710377fb30242536ae79b"/>void * <emphasis role="strong">ivs_comp_cb_arg</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcrt__iv__sync__t_1a48008d59610de6f13d94b1689467e5f9"/>uint32_t <emphasis role="strong">ivs_flags</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 601 of file iv.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structcrt__iv__sync__t_1a4dacabf982f1f63043e55be3b0e0125e"/>    <section>
+    <title>ivs_comp_cb</title>
+<indexterm><primary>ivs_comp_cb</primary><secondary>crt_iv_sync_t</secondary></indexterm>
+<indexterm><primary>crt_iv_sync_t</primary><secondary>ivs_comp_cb</secondary></indexterm>
+<para><computeroutput>crt_iv_sync_done_cb_t ivs_comp_cb</computeroutput></para>
+<para>This callback will be called once the current IV sync is done for the local node. </para>
+<para>
+Definition at line 607 of file iv.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/cart/<link linkend="_cart_2iv_8h">iv.h</link></section>
+</section>

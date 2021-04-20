@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdfuse__il__reply">
+<title>dfuse_il_reply Struct Reference</title>
+<indexterm><primary>dfuse_il_reply</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdfuse__il__reply_1a3a52c78081608cb043871c6412c16c28"/>int <emphasis role="strong">fir_version</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdfuse__il__reply_1a153d6256d11ce4dcf6e12a1829e35e2f"/><link linkend="_structdaos__obj__id__t">daos_obj_id_t</link> <emphasis role="strong">fir_oid</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdfuse__il__reply_1ae2d00394b680eaf70ffacf0e6fc371b0"/>uuid_t <emphasis role="strong">fir_pool</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdfuse__il__reply_1ae52a25fe8cd180ea290735ac73b27fae"/>uuid_t <emphasis role="strong">fir_cont</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 30 of file dfuse_ioctl.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/dfuse_ioctl.h</section>
+</section>

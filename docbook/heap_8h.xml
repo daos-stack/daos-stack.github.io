@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_heap_8h">
+<title>src/include/gurt/heap.h File Reference</title>
+<indexterm><primary>src/include/gurt/heap.h</primary></indexterm>
+<programlisting>#include &lt;pthread.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;string.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;gurt/common.h&gt;
+</programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structd__binheap__node">d_binheap_node</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__binheap__ops">d_binheap_ops</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__binheap">d_binheap</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <emphasis role="strong">DBH_SHIFT</emphasis>   (9)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DBH_SIZE</emphasis>   (1U &lt;&lt; DBH_SHIFT)	/* #ptrs per level */</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DBH_MASK</emphasis>   (DBH_SIZE - 1)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DBH_NOB</emphasis>   (DBH_SIZE * sizeof(struct <link linkend="_structd__binheap__node">d_binheap_node</link> *))</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DBH_POISON</emphasis>   (0xdeadbeef)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_group___g_u_r_t_1ga44dfc3e2c963c9c358005b5a27f6db41">d_bh_feats</link> { <link linkend="_group___g_u_r_t_1gga44dfc3e2c963c9c358005b5a27f6db41a37c860f2a37721a96e21c519cdd4d096">DBH_FT_NOLOCK</link> = (1 &lt;&lt; 0), 
+<link linkend="_group___g_u_r_t_1gga44dfc3e2c963c9c358005b5a27f6db41a90c97176989861cc120721fae3b623f6">DBH_FT_RWLOCK</link> = (1 &lt;&lt; 1)
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_group___g_u_r_t_1ga7b9b92235b46b8786395734f11c1fdfa">d_binheap_create</link> (uint32_t feats, uint32_t count, void *priv, struct <link linkend="_structd__binheap__ops">d_binheap_ops</link> *ops, struct <link linkend="_structd__binheap">d_binheap</link> **h)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t_1ga16fb53692ceff69041038017490c365d">d_binheap_create_inplace</link> (uint32_t feats, uint32_t count, void *priv, struct <link linkend="_structd__binheap__ops">d_binheap_ops</link> *ops, struct <link linkend="_structd__binheap">d_binheap</link> *h)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t_1ga337c37f9fe87959ea0ee36a67eb11384">d_binheap_destroy</link> (struct <link linkend="_structd__binheap">d_binheap</link> *h)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t_1ga8150ca3bb2e11d36d700844fa37c1a49">d_binheap_destroy_inplace</link> (struct <link linkend="_structd__binheap">d_binheap</link> *h)</para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__binheap__node">d_binheap_node</link> * <link linkend="_group___g_u_r_t_1ga7bf269d3634eac922deefca3dc475986">d_binheap_find</link> (struct <link linkend="_structd__binheap">d_binheap</link> *h, uint32_t idx)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t_1ga2171b8903087946d8e90145f96f239f5">d_binheap_insert</link> (struct <link linkend="_structd__binheap">d_binheap</link> *h, struct <link linkend="_structd__binheap__node">d_binheap_node</link> *e)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___g_u_r_t_1gab21ef7fd2768c9bede6a63979823e6a0">d_binheap_remove</link> (struct <link linkend="_structd__binheap">d_binheap</link> *h, struct <link linkend="_structd__binheap__node">d_binheap_node</link> *e)</para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__binheap__node">d_binheap_node</link> * <link linkend="_group___g_u_r_t_1gab16f1d3e8211bfa26fe185054ebac89f">d_binheap_remove_root</link> (struct <link linkend="_structd__binheap">d_binheap</link> *h)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Binary heap</para>
+
+<para>The binary heap is a scalable data structure created using a binary tree. It is capable of maintaining large sets of objects sorted usually by one or more object properties. User is required to register a comparison callback to determine the relevant ordering of any two objects belong to the set.</para>
+
+<para>There is no traverse operation, rather the intention is for the object of the lowest priority which will always be at the root of the tree (as this is an implementation of a min-heap) to be removed by users for consumption.</para>
+
+<para>Users of the heap should embed a d_binheap_node_t object instance on every object of the set that they wish the binary heap instance to handle, and required to provide a <link linkend="_structd__binheap__ops_1ae85da870159288880dc5d0a3046a6419">d_binheap_ops::hop_compare()</link> implementation which is used by the heap as the binary predicate during its internal sorting.</para>
+
+<para>The implementation provides an optional internal lock supporting, user can select to use its own external lock mechanism as well. </para>
+</section>
+</section>

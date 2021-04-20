@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_gurt_2types_8h">
+<title>src/include/gurt/types.h File Reference</title>
+<indexterm><primary>src/include/gurt/types.h</primary></indexterm>
+<programlisting>#include &lt;uuid/uuid.h&gt;
+#include &lt;unistd.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;string.h&gt;
+#include &lt;errno.h&gt;
+#include &lt;inttypes.h&gt;
+#include &lt;time.h&gt;
+#include &lt;limits.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdio.h&gt;
+#include &lt;pthread.h&gt;
+#include &lt;byteswap.h&gt;
+</programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structd__uuid">d_uuid</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__iov__t">d_iov_t</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__rank__list__t">d_rank_list_t</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__sg__list__t">d_sg_list_t</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__string__buffer__t">d_string_buffer_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <emphasis role="strong">D_HAS_WARNING</emphasis>(gcc_version,  warning)   ((gcc_version) &lt;= __GNUC__)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef uint32_t <link linkend="_group___g_u_r_t_1gae672185310db8deb2fc706c37b2e68bc">d_rank_t</link></para>
+</listitem>
+            <listitem><para>typedef <link linkend="_structd__rank__list__t">d_rank_list_t</link> * <emphasis role="strong">d_rank_list_ptr_t</emphasis></para>
+</listitem>
+            <listitem><para>typedef char * <emphasis role="strong">d_string_t</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>const typedef char * <emphasis role="strong">d_const_string_t</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>GURT types. </para>
+</section>
+</section>

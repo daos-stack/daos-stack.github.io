@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdtx__entry">
+<title>dtx_entry Struct Reference</title>
+<indexterm><primary>dtx_entry</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structdtx__id">dtx_id</link> <link linkend="_structdtx__entry_1a85b94fff50e08f27b6e2ed3f16bb0bf4">dte_xid</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdtx__entry_1a740d2f3c5f3e9772955ded069d603b58">dte_ver</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdtx__entry_1ab26ad86c19aa5a1427e15274bf2ed9b7">dte_refs</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structdtx__memberships">dtx_memberships</link> * <link linkend="_structdtx__entry_1ad5ff366d0ebf1d70ae98a1a4786295cc">dte_mbs</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 53 of file vos_types.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdtx__entry_1ad5ff366d0ebf1d70ae98a1a4786295cc"/>    <section>
+    <title>dte_mbs</title>
+<indexterm><primary>dte_mbs</primary><secondary>dtx_entry</secondary></indexterm>
+<indexterm><primary>dtx_entry</primary><secondary>dte_mbs</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structdtx__memberships">dtx_memberships</link>* dte_mbs</computeroutput></para>
+<para>The DAOS targets participating in the DTX. </para>
+<para>
+Definition at line 61 of file vos_types.h.</para>
+    </section><anchor xml:id="_structdtx__entry_1ab26ad86c19aa5a1427e15274bf2ed9b7"/>    <section>
+    <title>dte_refs</title>
+<indexterm><primary>dte_refs</primary><secondary>dtx_entry</secondary></indexterm>
+<indexterm><primary>dtx_entry</primary><secondary>dte_refs</secondary></indexterm>
+<para><computeroutput>uint32_t dte_refs</computeroutput></para>
+<para>The reference count. </para>
+<para>
+Definition at line 59 of file vos_types.h.</para>
+    </section><anchor xml:id="_structdtx__entry_1a740d2f3c5f3e9772955ded069d603b58"/>    <section>
+    <title>dte_ver</title>
+<indexterm><primary>dte_ver</primary><secondary>dtx_entry</secondary></indexterm>
+<indexterm><primary>dtx_entry</primary><secondary>dte_ver</secondary></indexterm>
+<para><computeroutput>uint32_t dte_ver</computeroutput></para>
+<para>The pool map version when the DTX happened. </para>
+<para>
+Definition at line 57 of file vos_types.h.</para>
+    </section><anchor xml:id="_structdtx__entry_1a85b94fff50e08f27b6e2ed3f16bb0bf4"/>    <section>
+    <title>dte_xid</title>
+<indexterm><primary>dte_xid</primary><secondary>dtx_entry</secondary></indexterm>
+<indexterm><primary>dtx_entry</primary><secondary>dte_xid</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structdtx__id">dtx_id</link> dte_xid</computeroutput></para>
+<para>The identifier of the DTX. </para>
+<para>
+Definition at line 55 of file vos_types.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/vos_types.h</section>
+</section>

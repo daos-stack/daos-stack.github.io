@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structcont__props">
+<title>cont_props Struct Reference</title>
+<indexterm><primary>cont_props</primary></indexterm>
+<para>
+<computeroutput>#include &lt;cont_props.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structcont__props_1a53967bb0a2184e1545a5fae37d3305ec"/>uint32_t <emphasis role="strong">dcp_chunksize</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcont__props_1ad5411401ecd0f651d716aab811f34fd7"/>uint32_t <emphasis role="strong">dcp_dedup_size</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcont__props_1a916aed6ebb51552bd663193ebd9d137c"/>uint64_t <emphasis role="strong">dcp_alloced_oid</emphasis></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structcont__props_1a94e35f19ff1811f5b5d86123039989fe">dcp_compress_type</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcont__props_1a4624b2b513fd9fee2fb0d7774e24f6dd"/>uint16_t <emphasis role="strong">dcp_csum_type</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcont__props_1a352970cdb768fca43163884397ce4db1"/>uint16_t <emphasis role="strong">dcp_encrypt_type</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcont__props_1a771b5da9934b5f61cb6d6e47ff5acc63"/>uint32_t <emphasis role="strong">dcp_redun_fac</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcont__props_1a0c9d860673c87af81efaeb6f0b10c06a"/>uint32_t <emphasis role="strong">dcp_csum_enabled</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcont__props_1afd9ea159824af4cf2ea82ca0503ee8f7"/>uint32_t <emphasis role="strong">dcp_srv_verify</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcont__props_1a1e6a79a323321c2a55c9db75ae82f49c"/>uint32_t <emphasis role="strong">dcp_dedup_enabled</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcont__props_1a530e98f47a2607a43a76aec3ceb35294"/>uint32_t <emphasis role="strong">dcp_dedup_verify</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcont__props_1a85840f436773c37d0117dd0cc332f006"/>uint32_t <emphasis role="strong">dcp_compress_enabled</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcont__props_1aa971a064f44693fc7b2117a6a0d8cdb7"/>uint32_t <emphasis role="strong">dcp_encrypt_enabled</emphasis>:1</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>(C) Copyright 2020-2021 Intel Corporation.</para>
+
+<para>SPDX-License-Identifier: BSD-2-Clause-Patent </para>
+<para>
+Definition at line 12 of file cont_props.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structcont__props_1a94e35f19ff1811f5b5d86123039989fe"/>    <section>
+    <title>dcp_compress_type</title>
+<indexterm><primary>dcp_compress_type</primary><secondary>cont_props</secondary></indexterm>
+<indexterm><primary>cont_props</primary><secondary>dcp_compress_type</secondary></indexterm>
+<para><computeroutput>uint32_t dcp_compress_type</computeroutput></para>
+<para>Use more bits for compression type since compression level is encoded in there. </para>
+<para>
+Definition at line 20 of file cont_props.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/cont_props.h</section>
+</section>

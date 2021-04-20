@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_uniond__tm__stats__t_1_1minval">
+<title>d_tm_stats_t::minval Union Reference</title>
+<indexterm><primary>d_tm_stats_t::minval</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_uniond__tm__stats__t_1_1minval_1afe352618a8ef1b923271ae6a49854e5f"/>uint64_t <emphasis role="strong">min_int</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_uniond__tm__stats__t_1_1minval_1a8e65fc18d7bed838c25db7a4d42c384c"/>double <emphasis role="strong">min_float</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 61 of file telemetry_common.h.</para>
+<para>
+The documentation for this union was generated from the following file:</para>
+src/include/gurt/telemetry_common.h</section>
+</section>

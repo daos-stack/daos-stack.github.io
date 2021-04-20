@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structvos__pool__space">
+<title>vos_pool_space Struct Reference</title>
+<indexterm><primary>vos_pool_space</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structdaos__space">daos_space</link> <link linkend="_structvos__pool__space_1abe6c73c60c9169148cdc66637cc24d67">vps_space</link></para>
+</listitem>
+            <listitem><para>daos_size_t <link linkend="_structvos__pool__space_1a6b6ea2b6c5c3a2fa83e4e7ce6b6262dc">vps_space_sys</link> [DAOS_MEDIA_MAX]</para>
+</listitem>
+            <listitem><para>struct <link linkend="_structvea__attr">vea_attr</link> <link linkend="_structvos__pool__space_1a25b1a9523d05621797faaa8c27e61083">vps_vea_attr</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structvea__stat">vea_stat</link> <link linkend="_structvos__pool__space_1a8fce4f033e41c95c59d1471329f108e3">vps_vea_stat</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 91 of file vos_types.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structvos__pool__space_1abe6c73c60c9169148cdc66637cc24d67"/>    <section>
+    <title>vps_space</title>
+<indexterm><primary>vps_space</primary><secondary>vos_pool_space</secondary></indexterm>
+<indexterm><primary>vos_pool_space</primary><secondary>vps_space</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structdaos__space">daos_space</link> vps_space</computeroutput></para>
+<para>Total &amp; free space </para>
+<para>
+Definition at line 93 of file vos_types.h.</para>
+    </section><anchor xml:id="_structvos__pool__space_1a6b6ea2b6c5c3a2fa83e4e7ce6b6262dc"/>    <section>
+    <title>vps_space_sys</title>
+<indexterm><primary>vps_space_sys</primary><secondary>vos_pool_space</secondary></indexterm>
+<indexterm><primary>vos_pool_space</primary><secondary>vps_space_sys</secondary></indexterm>
+<para><computeroutput>daos_size_t vps_space_sys[DAOS_MEDIA_MAX]</computeroutput></para>
+<para>Reserved sys space (for space reclaim, rebuild, etc.) in bytes </para>
+<para>
+Definition at line 95 of file vos_types.h.</para>
+    </section><anchor xml:id="_structvos__pool__space_1a25b1a9523d05621797faaa8c27e61083"/>    <section>
+    <title>vps_vea_attr</title>
+<indexterm><primary>vps_vea_attr</primary><secondary>vos_pool_space</secondary></indexterm>
+<indexterm><primary>vos_pool_space</primary><secondary>vps_vea_attr</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structvea__attr">vea_attr</link> vps_vea_attr</computeroutput></para>
+<para>NVMe block allocator attributes </para>
+<para>
+Definition at line 97 of file vos_types.h.</para>
+    </section><anchor xml:id="_structvos__pool__space_1a8fce4f033e41c95c59d1471329f108e3"/>    <section>
+    <title>vps_vea_stat</title>
+<indexterm><primary>vps_vea_stat</primary><secondary>vos_pool_space</secondary></indexterm>
+<indexterm><primary>vos_pool_space</primary><secondary>vps_vea_stat</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structvea__stat">vea_stat</link> vps_vea_stat</computeroutput></para>
+<para>NVMe block allocator statistics </para>
+<para>
+Definition at line 99 of file vos_types.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/vos_types.h</section>
+</section>

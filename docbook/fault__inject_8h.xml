@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_fault__inject_8h">
+<title>src/include/gurt/fault_inject.h File Reference</title>
+<indexterm><primary>src/include/gurt/fault_inject.h</primary></indexterm>
+<programlisting>#include &lt;stdbool.h&gt;
+#include &lt;stdint.h&gt;
+#include &lt;gurt/debug.h&gt;
+</programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structd__fault__attr__t">d_fault_attr_t</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <link linkend="_group___g_u_r_t_1gafaa13d0918b6000ee7e6e9af82f2bca4">D_FAULT_CONFIG_ENV</link>   &quot;D_FI_CONFIG&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t_1ga12db854c9b239803dd9707a95e5a6cbe">D_SHOULD_FAIL</link>(fault_attr)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_group___g_u_r_t_1ga182aed02a7b0a3ce0b752e7237919e42">d_fault_inject_init</link> (void)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t_1gaa65aa5bb0746de8777f2cdf605ca7330">d_fault_inject_fini</link> (void)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t_1ga5bfcd26b6523d5970e921f6676f49d81">d_fault_inject_enable</link> (void)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t_1ga4eb70d3a70f45f9207092fa1fe668f2f">d_fault_inject_disable</link> (void)</para>
+</listitem>
+            <listitem><para>bool <emphasis role="strong">d_fault_inject_is_enabled</emphasis> (void)</para>
+</listitem>
+            <listitem><para>bool <emphasis role="strong">d_should_fail</emphasis> (struct <link linkend="_structd__fault__attr__t">d_fault_attr_t</link> *fault_attr_ptr)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t_1ga2c63ca0901524f8f8c5e515d8eee27d4">d_fault_attr_set</link> (uint32_t fault_id, struct <link linkend="_structd__fault__attr__t">d_fault_attr_t</link> fa_in)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t_1gae6c8d695425df2cadf5c7c93f0911430">d_fault_attr_err_code</link> (uint32_t fault_id)</para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__fault__attr__t">d_fault_attr_t</link> * <link linkend="_group___g_u_r_t_1ga5145e98702e1fa62160d8f19ff01a06b">d_fault_attr_lookup</link> (uint32_t fault_id)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>unsigned int <link linkend="_group___g_u_r_t_1ga1943703feab4688ad9aceb23187f0d89">d_fault_inject</link></para>
+</listitem>
+            <listitem><para>unsigned int <emphasis role="strong">d_fault_config_file</emphasis></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__fault__attr__t">d_fault_attr_t</link> * <emphasis role="strong">d_fault_attr_mem</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>This file is part of gurt, it contains variables and functions for the fault injection feature. </para>
+</section>
+</section>

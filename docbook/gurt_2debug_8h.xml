@@ -1,0 +1,122 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_gurt_2debug_8h">
+<title>src/include/gurt/debug.h File Reference</title>
+<indexterm><primary>src/include/gurt/debug.h</primary></indexterm>
+<programlisting>#include &lt;stdio.h&gt;
+#include &lt;stddef.h&gt;
+#include &lt;assert.h&gt;
+#include &lt;gurt/debug_setup.h&gt;
+#include &lt;daos_errno.h&gt;
+</programlisting><simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <emphasis role="strong">D_FOREACH_GURT_FAC</emphasis>(ACTION,  arg)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DB_ALL_BITS</emphasis>   &quot;all&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gaa927bd651c82b5aa0be4ad146af55b00">D_LOG_FILE_ENV</link>   &quot;D_LOG_FILE&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga78c69d29b0174fd1f0279ed04a1e6453">D_LOG_SIZE_ENV</link>   &quot;D_LOG_SIZE&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gae955086fa11207bb434e9ccf15708b5d">D_LOG_MASK_ENV</link>   &quot;D_LOG_MASK&quot;</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_LOG_FILE_APPEND_PID_ENV</emphasis>   &quot;D_LOG_FILE_APPEND_PID&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gaf25488753d57c59c40e897377bc50bd5">D_LOG_TRUNCATE_ENV</link>   &quot;D_LOG_TRUNCATE&quot;</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_LOG_STDERR_IN_LOG_ENV</emphasis>   &quot;D_LOG_STDERR_IN_LOG&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gadd1ec480905a14dcfcbe3fbe7c5bce0a">_D_LOG_NOCHECK</link>(mask,  fmt, ...)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gaf5ca712dd30a81c8d2afb2506a4a1845">_D_TRACE_NOCHECK</link>(mask,  ptr,  fmt, ...)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gaf86151f3ff3ab2f24b652f4f59fc46fc">_D_LOG_CHECK</link>(func,  saved_mask,  mask, ...)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga4d6546a8a1a13622b619eb3b83f9241a">_D_LOG</link>(func,  mask, ...)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">_D_DEBUG</emphasis>(func,  flag, ...)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_LOG_ENABLED</emphasis>(flag)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_DEBUG</emphasis>(flag,  fmt, ...)   _D_DEBUG(<link linkend="_group___g_u_r_t___d_e_b_u_g_1gadd1ec480905a14dcfcbe3fbe7c5bce0a">_D_LOG_NOCHECK</link>, flag, fmt, ##__VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_DEBUG</emphasis>(flag,  ptr,  fmt, ...)   _D_DEBUG(<link linkend="_group___g_u_r_t___d_e_b_u_g_1gaf5ca712dd30a81c8d2afb2506a4a1845">_D_TRACE_NOCHECK</link>, flag, ptr, fmt, ##__VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gadd05bfd37bdff1e47fa6604d441edee1">D_CDEBUG</link>(cond,  flag_true,  flag_false, ...)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_UP</emphasis>(flag,  ptr,  parent,  type)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_DOWN</emphasis>(flag,  ptr)   D_TRACE_DEBUG(flag, ptr, &quot;Deregistered\n&quot;)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gac562f9b6c3975d504799005351a517e0">D_TRACE_ROOT</link>(flag,  ptr,  type)   D_TRACE_DEBUG(flag, ptr, &quot;Registered new &apos;%s&apos; as root\n&quot;, type)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga3de1e19de6f3366e84e6958ba93f548d">D_INFO</link>(fmt, ...)   D_DEBUG(DLOG_INFO, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_NOTE</emphasis>(fmt, ...)   D_DEBUG(DLOG_NOTE, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_WARN</emphasis>(fmt, ...)   D_DEBUG(DLOG_WARN, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_ERROR</emphasis>(fmt, ...)   D_DEBUG(DLOG_ERR, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_ALERT</emphasis>(fmt, ...)   D_DEBUG(DLOG_ALERT, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_CRIT</emphasis>(fmt, ...)   D_DEBUG(DLOG_CRIT, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_FATAL</emphasis>(fmt, ...)   D_DEBUG(DLOG_EMERG, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_EMIT</emphasis>(fmt, ...)   D_DEBUG(DLOG_EMIT, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_INFO</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_INFO, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_NOTE</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_NOTE, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_WARN</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_WARN, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_ERROR</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_ERR, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_ALERT</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_ALERT, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_CRIT</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_CRIT, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_FATAL</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_EMERG, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_EMIT</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_EMIT, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gad3156ab43480ad5cc83b1b7caaa0a77c">D_PRINT_ERR</link>(fmt, ...)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gafa255bfc99d5f4edefd4d70ff8234308">D_PRINT</link>(fmt, ...)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_ASSERT</emphasis>(e)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_ASSERTF</emphasis>(cond,  fmt, ...)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_CASSERT</emphasis>(cond, ...)   _Static_assert(cond, #cond &quot;: &quot; __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DF_U64</emphasis>   &quot;%&quot; PRIu64</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DF_X64</emphasis>   &quot;%&quot; PRIx64</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga270b23297cede1b573472122d9f65610">d_log_getdbgbit</link> (<link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> *dbgbit, char *bitname)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga58863a33533091bd43eff9126d1a965d">d_register_alt_assert</link> (void(*alt_assert)(const int, const char *, const char *, const int))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>void(* <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga5ca1b7baf150f674530f3d9996eb66fc">d_alt_assert</link> )(const int, const char *, const char *, const int)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Debug macros and functions </para>
+</section>
+</section>

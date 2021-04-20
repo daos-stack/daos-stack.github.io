@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structd__hlist__node">
+<title>d_hlist_node Struct Reference</title>
+<indexterm><primary>d_hlist_node</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structd__hlist__node_1a545d218b2819f98f602ca7a3998574aa"/>struct <link linkend="_structd__hlist__node">d_hlist_node</link> * <emphasis role="strong">next</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structd__hlist__node_1a83f211fc1f7c35c28164e29e49df028b"/>struct <link linkend="_structd__hlist__node">d_hlist_node</link> ** <emphasis role="strong">pprev</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 297 of file list.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/gurt/<link linkend="_list_8h">list.h</link></section>
+</section>

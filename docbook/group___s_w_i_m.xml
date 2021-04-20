@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group___s_w_i_m">
+<title>SWIM API</title>
+<indexterm><primary>SWIM API</primary></indexterm>
+<simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structswim__ops">swim_ops</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>struct swim_context * <link linkend="_group___s_w_i_m_1gadbd2f19ebf20be2d30e196c279fe680b">swim_init</link> (swim_id_t self_id, struct <link linkend="_structswim__ops">swim_ops</link> *<link linkend="_structswim__ops">swim_ops</link>, void *data)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___s_w_i_m_1gaa6293be0161b6a18763e2fe55ecbde2f">swim_fini</link> (struct swim_context *ctx)</para>
+</listitem>
+            <listitem><para>void * <link linkend="_group___s_w_i_m_1gac7e83503d67fcd2866d10b94d19eb298">swim_data</link> (struct swim_context *ctx)</para>
+</listitem>
+            <listitem><para>swim_id_t <link linkend="_group___s_w_i_m_1ga5712100375ef010bae5864ac64060f3a">swim_self_get</link> (struct swim_context *ctx)</para>
+</listitem>
+            <listitem><para>void <link linkend="_group___s_w_i_m_1ga2fbf5c6244e3bbc0de4b4480182d3b68">swim_self_set</link> (struct swim_context *ctx, swim_id_t self_id)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___s_w_i_m_1gaa7ce05d0b9797ae2f055f62352cc6ae3">swim_parse_message</link> (struct swim_context *ctx, swim_id_t from, struct <link linkend="_structswim__member__update">swim_member_update</link> *upds, size_t nupds)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___s_w_i_m_1ga0fbbd0b1e00211222e8c77e62dc9e504">swim_progress</link> (struct swim_context *ctx, int64_t timeout)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___s_w_i_m_1gafd3d050e0420d8f7fefd18efe1bbf604">swim_net_glitch_update</link> (struct swim_context *ctx, swim_id_t id, uint64_t delay)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_group___s_w_i_m_1gac7e83503d67fcd2866d10b94d19eb298"/>    <section>
+    <title>swim_data()</title>
+<indexterm><primary>swim_data</primary><secondary>SWIM API</secondary></indexterm>
+<indexterm><primary>SWIM API</primary><secondary>swim_data</secondary></indexterm>
+<para><computeroutput>void* swim_data (struct swim_context * ctx)</computeroutput></para>
+<para>Get private data which associated with group members. Originally it&apos;s passed to <link linkend="_group___s_w_i_m_1gadbd2f19ebf20be2d30e196c279fe680b">swim_init()</link>.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ctx</entry>
+                                <entry>
+<para>SWIM context pointer from <link linkend="_group___s_w_i_m_1gadbd2f19ebf20be2d30e196c279fe680b">swim_init()</link> </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Private data which associated with group members, NULL if not set </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___s_w_i_m_1gaa6293be0161b6a18763e2fe55ecbde2f"/>    <section>
+    <title>swim_fini()</title>
+<indexterm><primary>swim_fini</primary><secondary>SWIM API</secondary></indexterm>
+<indexterm><primary>SWIM API</primary><secondary>swim_fini</secondary></indexterm>
+<para><computeroutput>void swim_fini (struct swim_context * ctx)</computeroutput></para>
+<para>Finalize the SWIM protocol.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ctx</entry>
+                                <entry>
+<para>SWIM context pointer from <link linkend="_group___s_w_i_m_1gadbd2f19ebf20be2d30e196c279fe680b">swim_init()</link> </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+    </section><anchor xml:id="_group___s_w_i_m_1gadbd2f19ebf20be2d30e196c279fe680b"/>    <section>
+    <title>swim_init()</title>
+<indexterm><primary>swim_init</primary><secondary>SWIM API</secondary></indexterm>
+<indexterm><primary>SWIM API</primary><secondary>swim_init</secondary></indexterm>
+<para><computeroutput>struct swim_context* swim_init (swim_id_t self_id, struct <link linkend="_structswim__ops">swim_ops</link> * swim_ops, void * data)</computeroutput></para>
+<para>Initialize the SWIM protocol.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>self_id</entry>
+                                <entry>
+<para>Self member ID </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry><link linkend="_structswim__ops">swim_ops</link></entry>
+                                <entry>
+<para>SWIM callbacks to group management layer </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>data</entry>
+                                <entry>
+<para>Private data which associated with group members </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>SWIM context pointer on success, NULL otherwise </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___s_w_i_m_1gafd3d050e0420d8f7fefd18efe1bbf604"/>    <section>
+    <title>swim_net_glitch_update()</title>
+<indexterm><primary>swim_net_glitch_update</primary><secondary>SWIM API</secondary></indexterm>
+<indexterm><primary>SWIM API</primary><secondary>swim_net_glitch_update</secondary></indexterm>
+<para><computeroutput>int swim_net_glitch_update (struct swim_context * ctx, swim_id_t id, uint64_t delay)</computeroutput></para>
+<para>Update the state machine of SWIM protocol with unexpected network glitch.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ctx</entry>
+                                <entry>
+<para>SWIM context pointer from <link linkend="_group___s_w_i_m_1gadbd2f19ebf20be2d30e196c279fe680b">swim_init()</link> </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>id</entry>
+                                <entry>
+<para>The SWIM member to whom shift timeouts </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>delay</entry>
+                                <entry>
+<para>The amount of time in milliseconds by which ALL timeouts will be shifted. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, negative error ID otherwise </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___s_w_i_m_1gaa7ce05d0b9797ae2f055f62352cc6ae3"/>    <section>
+    <title>swim_parse_message()</title>
+<indexterm><primary>swim_parse_message</primary><secondary>SWIM API</secondary></indexterm>
+<indexterm><primary>SWIM API</primary><secondary>swim_parse_message</secondary></indexterm>
+<para><computeroutput>int swim_parse_message (struct swim_context * ctx, swim_id_t from, struct <link linkend="_structswim__member__update">swim_member_update</link> * upds, size_t nupds)</computeroutput></para>
+<para>Parse a SWIM message from other group member.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ctx</entry>
+                                <entry>
+<para>SWIM context pointer from <link linkend="_group___s_w_i_m_1gadbd2f19ebf20be2d30e196c279fe680b">swim_init()</link> </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>from</entry>
+                                <entry>
+<para>IDs of selected target for message </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>upds</entry>
+                                <entry>
+<para>SWIM updates from other group member </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>nupds</entry>
+                                <entry>
+<para>the count of SWIM updates </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, negative error ID otherwise </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___s_w_i_m_1ga0fbbd0b1e00211222e8c77e62dc9e504"/>    <section>
+    <title>swim_progress()</title>
+<indexterm><primary>swim_progress</primary><secondary>SWIM API</secondary></indexterm>
+<indexterm><primary>SWIM API</primary><secondary>swim_progress</secondary></indexterm>
+<para><computeroutput>int swim_progress (struct swim_context * ctx, int64_t timeout)</computeroutput></para>
+<para>Progress the state machine of SWIM protocol.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ctx</entry>
+                                <entry>
+<para>SWIM context pointer from <link linkend="_group___s_w_i_m_1gadbd2f19ebf20be2d30e196c279fe680b">swim_init()</link> </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>timeout</entry>
+                                <entry>
+<para>The amount of time in milliseconds available for processing. If timeout &lt;= 0 then returns immediately or after the state change (progress minimal required changes). </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, negative error ID otherwise </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___s_w_i_m_1ga5712100375ef010bae5864ac64060f3a"/>    <section>
+    <title>swim_self_get()</title>
+<indexterm><primary>swim_self_get</primary><secondary>SWIM API</secondary></indexterm>
+<indexterm><primary>SWIM API</primary><secondary>swim_self_get</secondary></indexterm>
+<para><computeroutput>swim_id_t swim_self_get (struct swim_context * ctx)</computeroutput></para>
+<para>Get self member ID.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ctx</entry>
+                                <entry>
+<para>SWIM context pointer from <link linkend="_group___s_w_i_m_1gadbd2f19ebf20be2d30e196c279fe680b">swim_init()</link> </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>self ID, SWIM_ID_INVALID if not set </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___s_w_i_m_1ga2fbf5c6244e3bbc0de4b4480182d3b68"/>    <section>
+    <title>swim_self_set()</title>
+<indexterm><primary>swim_self_set</primary><secondary>SWIM API</secondary></indexterm>
+<indexterm><primary>SWIM API</primary><secondary>swim_self_set</secondary></indexterm>
+<para><computeroutput>void swim_self_set (struct swim_context * ctx, swim_id_t self_id)</computeroutput></para>
+<para>Set self member ID.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>ctx</entry>
+                                <entry>
+<para>SWIM context pointer from <link linkend="_group___s_w_i_m_1gadbd2f19ebf20be2d30e196c279fe680b">swim_init()</link> </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>self_id</entry>
+                                <entry>
+<para>Self member ID </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+</section>

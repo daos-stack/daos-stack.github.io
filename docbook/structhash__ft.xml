@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structhash__ft">
+<title>hash_ft Struct Reference</title>
+<indexterm><primary>hash_ft</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structhash__ft_1aeae48a2c9a700c60b26ca86ef893a225"/>int(* <emphasis role="strong">cf_init</emphasis> )(void **daos_mhash_ctx)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structhash__ft_1ac63845530e57b70923bef9905640166a"/>void(* <emphasis role="strong">cf_destroy</emphasis> )(void *daos_mhash_ctx)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structhash__ft_1adf4ddb8b265ae1711784a114e703188a"/>int(* <emphasis role="strong">cf_finish</emphasis> )(void *daos_mhash_ctx, uint8_t *buf, size_t buf_len)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structhash__ft_1a1dec98b06b9c53d72d7b38faf7924882"/>int(* <emphasis role="strong">cf_update</emphasis> )(void *daos_mhash_ctx, uint8_t *buf, size_t buf_len)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structhash__ft_1a1411686bfb6589d865f3e2950817587f"/>int(* <emphasis role="strong">cf_reset</emphasis> )(void *daos_mhash_ctx)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structhash__ft_1ab2b66996ab24f8199e76deb5d1dd19de"/>void(* <emphasis role="strong">cf_get</emphasis> )(void *daos_mhash_ctx)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structhash__ft_1ad863853d276b6ecd5c25e6f5dec7bec2"/>uint16_t(* <emphasis role="strong">cf_get_size</emphasis> )(void *daos_mhash_ctx)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structhash__ft_1a8298da4edbeb4776e5a3f99a894bc5ee"/>bool(* <emphasis role="strong">cf_compare</emphasis> )(void *daos_mhash_ctx, uint8_t *buf1, uint8_t *buf2, size_t buf_len)</para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_structhash__ft_1a251b1147f52258d68644e6f66e605457">cf_hash_len</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structhash__ft_1a9eb5f9c3fb67a919b8c20fad33487ff9"/>char * <emphasis role="strong">cf_name</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structhash__ft_1ad22d0cc0d3967724b67534746b42e93e"/>enum DAOS_HASH_TYPE <emphasis role="strong">cf_type</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 38 of file multihash.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structhash__ft_1a251b1147f52258d68644e6f66e605457"/>    <section>
+    <title>cf_hash_len</title>
+<indexterm><primary>cf_hash_len</primary><secondary>hash_ft</secondary></indexterm>
+<indexterm><primary>hash_ft</primary><secondary>cf_hash_len</secondary></indexterm>
+<para><computeroutput>uint16_t cf_hash_len</computeroutput></para>
+<para>Len in bytes. Ft can either statically set csum_len or provide a get_len function </para>
+<para>
+Definition at line 55 of file multihash.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/multihash.h</section>
+</section>

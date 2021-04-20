@@ -1,0 +1,68 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdss__rpc__cntr">
+<title>dss_rpc_cntr Struct Reference</title>
+<indexterm><primary>dss_rpc_cntr</primary></indexterm>
+<para>
+<computeroutput>#include &lt;daos_engine.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>uint64_t <link linkend="_structdss__rpc__cntr_1ad5123ef949d44832ca2024fbb17f0fef">rc_stime</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__rpc__cntr_1a4e735fb1064280948efabb6894ffd6ca"/>uint64_t <emphasis role="strong">rc_active_time</emphasis></para>
+</listitem>
+            <listitem><para>uint64_t <link linkend="_structdss__rpc__cntr_1acccecd923cc2fd88974b8991c4561bee">rc_active</link></para>
+</listitem>
+            <listitem><para>uint64_t <link linkend="_structdss__rpc__cntr_1a7b6f0708c6560e58398733d267fb52ab">rc_total</link></para>
+</listitem>
+            <listitem><para>uint64_t <link linkend="_structdss__rpc__cntr_1a3cfcb8a411e0fb4ce1a565a11587d13f">rc_errors</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>RPC counter </para>
+<para>
+Definition at line 581 of file daos_engine.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdss__rpc__cntr_1acccecd923cc2fd88974b8991c4561bee"/>    <section>
+    <title>rc_active</title>
+<indexterm><primary>rc_active</primary><secondary>dss_rpc_cntr</secondary></indexterm>
+<indexterm><primary>dss_rpc_cntr</primary><secondary>rc_active</secondary></indexterm>
+<para><computeroutput>uint64_t rc_active</computeroutput></para>
+<para>number of active RPCs </para>
+<para>
+Definition at line 590 of file daos_engine.h.</para>
+    </section><anchor xml:id="_structdss__rpc__cntr_1a3cfcb8a411e0fb4ce1a565a11587d13f"/>    <section>
+    <title>rc_errors</title>
+<indexterm><primary>rc_errors</primary><secondary>dss_rpc_cntr</secondary></indexterm>
+<indexterm><primary>dss_rpc_cntr</primary><secondary>rc_errors</secondary></indexterm>
+<para><computeroutput>uint64_t rc_errors</computeroutput></para>
+<para>total number of failed RPCs since <emphasis>rc_stime</emphasis> </para>
+<para>
+Definition at line 594 of file daos_engine.h.</para>
+    </section><anchor xml:id="_structdss__rpc__cntr_1ad5123ef949d44832ca2024fbb17f0fef"/>    <section>
+    <title>rc_stime</title>
+<indexterm><primary>rc_stime</primary><secondary>dss_rpc_cntr</secondary></indexterm>
+<indexterm><primary>dss_rpc_cntr</primary><secondary>rc_stime</secondary></indexterm>
+<para><computeroutput>uint64_t rc_stime</computeroutput></para>
+<para>starting wall-clock time, it can be used to calculate average workload. </para>
+<para>
+Definition at line 586 of file daos_engine.h.</para>
+    </section><anchor xml:id="_structdss__rpc__cntr_1a7b6f0708c6560e58398733d267fb52ab"/>    <section>
+    <title>rc_total</title>
+<indexterm><primary>rc_total</primary><secondary>dss_rpc_cntr</secondary></indexterm>
+<indexterm><primary>dss_rpc_cntr</primary><secondary>rc_total</secondary></indexterm>
+<para><computeroutput>uint64_t rc_total</computeroutput></para>
+<para>total number of processed RPCs since <emphasis>rc_stime</emphasis> </para>
+<para>
+Definition at line 592 of file daos_engine.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/daos_engine.h</section>
+</section>

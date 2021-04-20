@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structd__debug__data">
+<title>d_debug_data Struct Reference</title>
+<indexterm><primary>d_debug_data</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> <link linkend="_structd__debug__data_1a6d19c5a2c81e53fc288679593c98309a">dd_mask</link></para>
+</listitem>
+            <listitem><para><link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> <link linkend="_structd__debug__data_1a6f140c28ac4525fe2287977f61110e16">dd_prio_err</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structd__debug__data_1a2267b4480917d6772e780caf9eb6abd8">dbg_bit_cnt</link></para>
+</listitem>
+            <listitem><para>int <link linkend="_structd__debug__data_1a8862bb987a1c5f92289308cd6de88202">dbg_grp_cnt</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 123 of file dlog.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structd__debug__data_1a2267b4480917d6772e780caf9eb6abd8"/>    <section>
+    <title>dbg_bit_cnt</title>
+<indexterm><primary>dbg_bit_cnt</primary><secondary>d_debug_data</secondary></indexterm>
+<indexterm><primary>d_debug_data</primary><secondary>dbg_bit_cnt</secondary></indexterm>
+<para><computeroutput>int dbg_bit_cnt</computeroutput></para>
+<para>alloc&apos;d debug bit count </para>
+<para>
+Definition at line 129 of file dlog.h.</para>
+    </section><anchor xml:id="_structd__debug__data_1a8862bb987a1c5f92289308cd6de88202"/>    <section>
+    <title>dbg_grp_cnt</title>
+<indexterm><primary>dbg_grp_cnt</primary><secondary>d_debug_data</secondary></indexterm>
+<indexterm><primary>d_debug_data</primary><secondary>dbg_grp_cnt</secondary></indexterm>
+<para><computeroutput>int dbg_grp_cnt</computeroutput></para>
+<para>alloc&apos;d debug group count </para>
+<para>
+Definition at line 131 of file dlog.h.</para>
+    </section><anchor xml:id="_structd__debug__data_1a6d19c5a2c81e53fc288679593c98309a"/>    <section>
+    <title>dd_mask</title>
+<indexterm><primary>dd_mask</primary><secondary>d_debug_data</secondary></indexterm>
+<indexterm><primary>d_debug_data</primary><secondary>dd_mask</secondary></indexterm>
+<para><computeroutput><link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> dd_mask</computeroutput></para>
+<para>debug bitmask, e.g. DB_IO </para>
+<para>
+Definition at line 125 of file dlog.h.</para>
+    </section><anchor xml:id="_structd__debug__data_1a6f140c28ac4525fe2287977f61110e16"/>    <section>
+    <title>dd_prio_err</title>
+<indexterm><primary>dd_prio_err</primary><secondary>d_debug_data</secondary></indexterm>
+<indexterm><primary>d_debug_data</primary><secondary>dd_prio_err</secondary></indexterm>
+<para><computeroutput><link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> dd_prio_err</computeroutput></para>
+<para>priority level that should be output to stderr </para>
+<para>
+Definition at line 127 of file dlog.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/gurt/<link linkend="_dlog_8h">dlog.h</link></section>
+</section>

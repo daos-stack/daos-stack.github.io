@@ -1,0 +1,79 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdss__enum__arg">
+<title>dss_enum_arg Struct Reference</title>
+<indexterm><primary>dss_enum_arg</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1a9d9aa3f88f657c6eb9340b8fcefaed0a"/>bool <emphasis role="strong">fill_recxs</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1a8c1b5b3a26af02562593144ebeb7d8f7"/>bool <emphasis role="strong">chk_key2big</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1a1589719675e96eebd82ab4bfbb6f30f0"/>bool <emphasis role="strong">need_punch</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1ab2a02b83b2477243a616d05ac4938705"/><link linkend="_structdaos__epoch__range__t">daos_epoch_range_t</link> * <emphasis role="strong">eprs</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1aa2e740a010877f1f7569d45da1347f44"/>struct <link linkend="_structdaos__csummer">daos_csummer</link> * <emphasis role="strong">csummer</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1a1e19d657ef2e68a60553f7d50df3e33f"/>int <emphasis role="strong">eprs_cap</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1a29bb8053bf6d013935a2704cd5f12a50"/>int <emphasis role="strong">eprs_len</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1a9c71ce59b061dffacc4b5371637144e6"/>int <emphasis role="strong">last_type</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1a419babff88aff2020727245baa7d2ce2"/>iter_copy_data_cb_t <emphasis role="strong">copy_data_cb</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1aa6ef9adf67208bcbb8c1a965cc3ca6c1"/>union {</para>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_uniondss__enum__arg_1_1_0d51_1a241536c9f32270757aef8eac6b88a0ea"/>   struct {</para>
+        <itemizedlist>
+            <listitem><para>      <link linkend="_structdaos__key__desc__t">daos_key_desc_t</link> * <emphasis role="strong">kds</emphasis></para>
+</listitem>
+            <listitem><para>      int <emphasis role="strong">kds_cap</emphasis></para>
+</listitem>
+            <listitem><para>      int <emphasis role="strong">kds_len</emphasis></para>
+</listitem>
+            <listitem><para>      <link linkend="_structd__sg__list__t">d_sg_list_t</link> * <emphasis role="strong">sgl</emphasis></para>
+</listitem>
+            <listitem><para>      <link linkend="_structd__iov__t">d_iov_t</link> <emphasis role="strong">csum_iov</emphasis></para>
+</listitem>
+            <listitem><para>      int <emphasis role="strong">sgl_idx</emphasis></para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>   } </para>
+</listitem>
+            <listitem><para><anchor xml:id="_uniondss__enum__arg_1_1_0d51_1a63bc78a1409b2b02f8ae0b9d22fa0784"/>   struct {</para>
+        <itemizedlist>
+            <listitem><para>      <link linkend="_structdaos__recx__t">daos_recx_t</link> * <emphasis role="strong">recxs</emphasis></para>
+</listitem>
+            <listitem><para>      int <emphasis role="strong">recxs_cap</emphasis></para>
+</listitem>
+            <listitem><para>      int <emphasis role="strong">recxs_len</emphasis></para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>   } </para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>}; </para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1a6d1d7edc072521b58b0dc7d17bee61c3"/>daos_size_t <emphasis role="strong">inline_thres</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1aaa6c6c189deb9de47911992e45df24aa"/>int <emphasis role="strong">rnum</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1aa760aede0cbc2050f5929bd330ec387c"/>daos_size_t <emphasis role="strong">rsize</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__enum__arg_1ab78a951b1a4ad2bb9500a465eecec55f"/><link linkend="_structdaos__unit__oid__t">daos_unit_oid_t</link> <emphasis role="strong">oid</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 680 of file daos_engine.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/daos_engine.h</section>
+</section>

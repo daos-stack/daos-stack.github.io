@@ -1,0 +1,47 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structbio__iov">
+<title>bio_iov Struct Reference</title>
+<indexterm><primary>bio_iov</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structbio__iov_1a76e8fd01ffe1325fe79267c2dd127506"/>void * <emphasis role="strong">bi_buf</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__iov_1a99efb2920ed134f05ccf40575ec13146"/>size_t <emphasis role="strong">bi_data_len</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbio__iov_1aea7c69bee46663e34104a29a4257d3f8"/><link linkend="_structbio__addr__t">bio_addr_t</link> <emphasis role="strong">bi_addr</emphasis></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_structbio__iov_1a85c6f1456730fe729aeef6d5c463afe3">bi_prefix_len</link></para>
+</listitem>
+            <listitem><para>size_t <link linkend="_structbio__iov_1a924128cf75478996f9e88aa1868e477a">bi_suffix_len</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 39 of file bio.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structbio__iov_1a85c6f1456730fe729aeef6d5c463afe3"/>    <section>
+    <title>bi_prefix_len</title>
+<indexterm><primary>bi_prefix_len</primary><secondary>bio_iov</secondary></indexterm>
+<indexterm><primary>bio_iov</primary><secondary>bi_prefix_len</secondary></indexterm>
+<para><computeroutput>size_t bi_prefix_len</computeroutput></para>
+<para>can be used to fetch more than actual address. Useful if more data is needed for processing (like checksums) than requested. Prefix and suffix are needed because &apos;extra&apos; needed data might be before or after actual requested data. </para>
+<para>
+Definition at line 54 of file bio.h.</para>
+    </section><anchor xml:id="_structbio__iov_1a924128cf75478996f9e88aa1868e477a"/>    <section>
+    <title>bi_suffix_len</title>
+<indexterm><primary>bi_suffix_len</primary><secondary>bio_iov</secondary></indexterm>
+<indexterm><primary>bio_iov</primary><secondary>bi_suffix_len</secondary></indexterm>
+<para><computeroutput>size_t bi_suffix_len</computeroutput></para>
+<para>bytes before </para>
+<para>
+Definition at line 55 of file bio.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/bio.h</section>
+</section>

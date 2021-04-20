@@ -1,0 +1,19 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structd__hlist__head">
+<title>d_hlist_head Struct Reference</title>
+<indexterm><primary>d_hlist_head</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structd__hlist__head_1ac8798362f281315f9f572234c101db13"/><link linkend="_structd__hlist__node">d_hlist_node_t</link> * <emphasis role="strong">first</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 301 of file list.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/gurt/<link linkend="_list_8h">list.h</link></section>
+</section>

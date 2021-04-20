@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdtx__redundancy__group">
+<title>dtx_redundancy_group Struct Reference</title>
+<indexterm><primary>dtx_redundancy_group</primary></indexterm>
+<para>
+<computeroutput>#include &lt;dtx.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdtx__redundancy__group_1abe823d82c10abe2b1ae4fa214d0e4862"/>uint32_t <emphasis role="strong">drg_tgt_cnt</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__redundancy__group_1a2450945bfadc9fead95671aa9c718fb6"/>uint16_t <emphasis role="strong">drg_redundancy</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__redundancy__group_1a7579181a4c707b1ceb60d3329b5de7f5"/>uint16_t <emphasis role="strong">drg_flags</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdtx__redundancy__group_1aab81a69b32f8d22023f78ae6ffcefa24"/>uint32_t <emphasis role="strong">drg_ids</emphasis> [0]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>The items (replica or EC shard) belong to the same redundancy group make up a modification group that is subset of related DAOS redundancy group.</para>
+
+<para>These information will be used for DTX recovery as following:</para>
+
+<para>During DTX recovery, for a non-committed DTX, its new leader queries with other alive participants for such DTX status. If all alive ones reply the new leader with &apos;prepared&apos;, then before making the decision to commit the DTX, we need to handle some corner cases:</para>
+
+<para>Some corrupted DTX participant may have ever refused (because of conflict with other DTX that may be committed or may be not) related modification. But it did not reply to the old leader before its corruption, or did but the old leader crashed before abort such DTX. If the case happened on all members in some modification group, then when DTX recovery, nobody knows there have ever been DTX conflict. Under such case, the new leader should NOT commit such DTX, otherwise, it will break DAOS transaction semantics for other conflict DTXs. On the other hand, abort such DTX is also NOT a safe solution, because it is possible that the corrupted DTX participant may have committed such DTX before its (and the old leader) corruption.</para>
+
+<para>So once we detect some group corruption or lost during the DTX recovery, we can neither commit nor abort related DTX to avoid further damage the system. Instead, we can mark it with some flags and introduce more human knowledge to recover it sometime later. </para>
+<para>
+Definition at line 82 of file dtx.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/dtx.h</section>
+</section>
