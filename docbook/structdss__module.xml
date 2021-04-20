@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdss__module">
+<title>dss_module Struct Reference</title>
+<indexterm><primary>dss_module</primary></indexterm>
+<para>
+<computeroutput>#include &lt;daos_engine.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdss__module_1af0d2d41680fad3daf4adfe0c3e1725d6"/>const char * <emphasis role="strong">sm_name</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1abf018a8e877ec924a28439cc78105efb"/>int <emphasis role="strong">sm_mod_id</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1a8fd7d38ccc34ee9199d71a829cab3904"/>int <emphasis role="strong">sm_ver</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1a8c661e4b901a9ac4b94156b704bff351"/>uint64_t <emphasis role="strong">sm_facs</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1a3bfdf765f0b961bf2bac9a8e90a59e5a"/>struct <link linkend="_structdss__module__key">dss_module_key</link> * <emphasis role="strong">sm_key</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1a21ab9fbb860b695eb04e42719fd74425"/>int(* <emphasis role="strong">sm_init</emphasis> )(void)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1ad7630b260da498a269c132ada08c117f"/>int(* <emphasis role="strong">sm_fini</emphasis> )(void)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1a81bb8615bdb15deef72f607ff06f0146"/>int(* <emphasis role="strong">sm_setup</emphasis> )(void)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1a65e78b667a22dbd9d58120eff91430a0"/>int(* <emphasis role="strong">sm_cleanup</emphasis> )(void)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1a8cf57b55dc778d9e9e73dc3a9713ea60"/>struct <link linkend="_structcrt__proto__format">crt_proto_format</link> * <emphasis role="strong">sm_proto_fmt</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1afe0847f47c11c712a1076108aaa1d547"/>uint32_t <emphasis role="strong">sm_cli_count</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1a543a68a51070baeb14fac429b4cfdcc7"/>struct <link linkend="_structdaos__rpc__handler">daos_rpc_handler</link> * <emphasis role="strong">sm_handlers</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1aa9c67251f372596f0038f38bf7c54299"/>struct <link linkend="_structdss__drpc__handler">dss_drpc_handler</link> * <emphasis role="strong">sm_drpc_handlers</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__module_1aa11bafff7c601d96743ffebe2c9050b6"/>struct <link linkend="_structdss__module__ops">dss_module_ops</link> * <emphasis role="strong">sm_mod_ops</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Each module should provide a <link linkend="_structdss__module">dss_module</link> structure which defines the module interface. The name of the allocated structure must be the library name (without the &quot;.so&quot; extension) suffixed by &quot;module&quot;. This symbol will be looked up automatically when the module library is loaded and failed if not found.</para>
+
+<para>For instance, the dmg module reports a &quot;sm_name&quot; of &quot;daos_mgmt_srv&quot;, the actual library filename is libdaos_mgmt_srv.so and it defines a <link linkend="_structdss__module">dss_module</link> structure called daos_mgmt_srv_module. </para>
+<para>
+Definition at line 404 of file daos_engine.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/daos_engine.h</section>
+</section>

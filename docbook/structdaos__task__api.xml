@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdaos__task__api">
+<title>daos_task_api Struct Reference</title>
+<indexterm><primary>daos_task_api</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdaos__task__api_1a811e698741a42704211ebf38e07fbc50"/>tse_task_func_t <emphasis role="strong">task_func</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdaos__task__api_1a54c555d5101e982499bb7d91ef7f28c6"/>daos_size_t <emphasis role="strong">arg_size</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 163 of file task.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/task.h</section>
+</section>

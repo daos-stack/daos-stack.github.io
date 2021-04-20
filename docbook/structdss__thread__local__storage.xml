@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdss__thread__local__storage">
+<title>dss_thread_local_storage Struct Reference</title>
+<indexterm><primary>dss_thread_local_storage</primary></indexterm>
+<para>
+<computeroutput>#include &lt;daos_engine.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdss__thread__local__storage_1a621602fb1960d83b94ae8bc6f7029f76"/>uint32_t <emphasis role="strong">dtls_tag</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdss__thread__local__storage_1a43385f52bbb2589d4fc2237602336ad2"/>void ** <emphasis role="strong">dtls_values</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Stackable Module API Provides a modular interface to load and register server-side code on demand. A module is composed of:<itemizedlist>
+<listitem>
+<para>a set of request handlers which are registered when the module is loaded.</para>
+</listitem><listitem>
+<para>a server-side API (see header files suffixed by &quot;_srv&quot;) used for inter-module direct calls.</para>
+</listitem></itemizedlist>
+</para>
+
+<para>For now, all loaded modules are assumed to be trustful, but sandboxes can be implemented in the future. </para>
+<para>
+Definition at line 64 of file daos_engine.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/daos_engine.h</section>
+</section>

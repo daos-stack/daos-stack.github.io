@@ -1,0 +1,258 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_rpc_8h">
+<title>src/include/daos/rpc.h File Reference</title>
+<indexterm><primary>src/include/daos/rpc.h</primary></indexterm>
+<programlisting>#include &lt;daos/common.h&gt;
+#include &lt;daos/tse.h&gt;
+#include &lt;cart/api.h&gt;
+</programlisting><simplesect>
+    <title>Data Structures    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structdaos__rpc__handler">daos_rpc_handler</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_rpc_8h_1afcbb85f3e8105d43a29a6d88ef55ca10"/>#define <emphasis role="strong">OPCODE_MASK</emphasis>   0xffff</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rpc_8h_1ab181adc694ee26bcc73279a331c8fca7"/>#define <emphasis role="strong">OPCODE_OFFSET</emphasis>   0</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rpc_8h_1ab052aec6acbe0e6b4a12f008f300c858"/>#define <emphasis role="strong">RPC_VERSION_MASK</emphasis>   0xff</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rpc_8h_1a13d2a09b9ed3357a2bb649426fbc0355"/>#define <emphasis role="strong">RPC_VERSION_OFFSET</emphasis>   16</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rpc_8h_1a80345ff766da3c3f14d8f6fdd115178a"/>#define <emphasis role="strong">MODID_MASK</emphasis>   0xff</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rpc_8h_1a5451f9b165f12d0f63d8384f17b71cc1"/>#define <emphasis role="strong">MODID_OFFSET</emphasis>   24</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rpc_8h_1adc8156b8a8ab98e9ecba3480c1e33540"/>#define <emphasis role="strong">MOD_ID_BITS</emphasis>   7</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rpc_8h_1a7e500fffad111352881675e4dd4ab46f"/>#define <emphasis role="strong">opc_get_mod_id</emphasis>(opcode)   ((opcode &gt;&gt; MODID_OFFSET) &amp; MODID_MASK)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rpc_8h_1ad4bd95edacc5f68513f01f264e39a87d"/>#define <emphasis role="strong">opc_get</emphasis>(opcode)   (opcode &amp; OPCODE_MASK)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">DAOS_RPC_OPCODE</emphasis>(opc,  mod_id,  rpc_ver)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_rpc_8h_1aa9f4eed209c210f3bb5e8df423a122a7">DAOS_TGT0_OFFSET</link>   (1)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_rpc_8h_1aa69f11c8672447d54fc2e74e4d8f5015">DAOS_IO_CTX_ID</link>(tgt_idx)   ((tgt_idx) + <link linkend="_rpc_8h_1aa9f4eed209c210f3bb5e8df423a122a7">DAOS_TGT0_OFFSET</link>)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rpc_8h_1a713760f4224b712c2f089fed96f1dc42"/>#define <emphasis role="strong">DAOS_DEFAULT_SYS_NAME</emphasis>   &quot;daos_server&quot;</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Enumerations    </title>
+        <itemizedlist>
+            <listitem><para>enum <link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acec">daos_module_id</link> { 
+<emphasis role="strong">DAOS_VOS_MODULE</emphasis> = 0, 
+<link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca0447bfb1c938ee993a5de50151469a31">DAOS_MGMT_MODULE</link> = 1, 
+<link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acecae9b2738d64f1110d2b8713dfe8291f86">DAOS_POOL_MODULE</link> = 2, 
+<link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acecadc0355dbab655e4addf16211afb5e909">DAOS_CONT_MODULE</link> = 3, 
+
+<link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acecaebded1011c7034cd030e96a26d088433">DAOS_OBJ_MODULE</link> = 4, 
+<link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acecaf5b86e44ddf3a7dd6506850b7afdf36c">DAOS_REBUILD_MODULE</link> = 5, 
+<link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca57974c3349a5ae873a85b6805efd68a7">DAOS_RSVC_MODULE</link> = 6, 
+<link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca97e6593ecc394c029a591089651024b4">DAOS_RDB_MODULE</link> = 7, 
+
+<link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca7875296364fcdfb642c8538e7f20cc3b">DAOS_RDBT_MODULE</link> = 8, 
+<link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca6b517d2c61af87aa40902ec5918f7260">DAOS_SEC_MODULE</link> = 9, 
+<link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca9fdaa748b856976107b7c1ad73175e0b">DAOS_DTX_MODULE</link> = 10, 
+<link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acecad773ef5e5990342e2f751fe0224d2e7a">DAOS_MAX_MODULE</link> = 64
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_rpc_8h_1abebf1ba7ce60e0e7c12f8ba75eb47cf6">daos_rpc_flags</link> { <link linkend="_rpc_8h_1abebf1ba7ce60e0e7c12f8ba75eb47cf6a9fb77ff157a747e5c9f6b736a3584cd8">DAOS_RPC_NO_REPLY</link> = CRT_RPC_FEAT_NO_REPLY
+ }</para>
+</listitem>
+            <listitem><para>enum <link linkend="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15">daos_rpc_type</link> { 
+<link linkend="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15aae7148cd186ff331a5babcea745283da">DAOS_REQ_IO</link>, 
+<link linkend="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15ac56f25347db34c7edbd502bc631f22a0">DAOS_REQ_MGMT</link>, 
+<link linkend="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15a179591e55e6a5b0cf11e593c41936d0b">DAOS_REQ_POOL</link>, 
+<link linkend="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15abcc30964cf4db65c7f75ffa931b85cce">DAOS_REQ_RDB</link>, 
+
+<link linkend="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15a51cb0fd9c15652c546404d508141c3cb">DAOS_REQ_CONT</link>, 
+<link linkend="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15ae124fee613d5b0b319e6307660e61e9b">DAOS_REQ_REBUILD</link>, 
+<link linkend="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15ab56dd4bff610ea2273848aca9e961b55">DAOS_REQ_IV</link>, 
+<emphasis role="strong">DAOS_REQ_BCAST</emphasis>, 
+
+<emphasis role="strong">DAOS_REQ_SWIM</emphasis>, 
+<emphasis role="strong">DAOS_REQ_DTX</emphasis>
+ }</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_rpc_8h_1ae77b7427b9b34ed7b40d0e7cb6d994a9"/>int <emphasis role="strong">daos_rpc_send</emphasis> (<link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link> *rpc, <link linkend="_structtse__task">tse_task_t</link> *task)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rpc_8h_1a55edf64ef4c855b0785daa076ef00ad9"/>int <emphasis role="strong">daos_rpc_complete</emphasis> (<link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link> *rpc, <link linkend="_structtse__task">tse_task_t</link> *task)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_rpc_8h_1ab8e81720bb44be721f28a122b2f193c8"/>int <emphasis role="strong">daos_rpc_send_wait</emphasis> (<link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link> *rpc)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>DAOS common code for RPC management. Infrastructure for registering the protocol between the client library and the server module as well as between the server modules. </para>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_rpc_8h_1aa69f11c8672447d54fc2e74e4d8f5015"/>    <section>
+    <title>DAOS_IO_CTX_ID</title>
+<indexterm><primary>DAOS_IO_CTX_ID</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_IO_CTX_ID</secondary></indexterm>
+<para><computeroutput>#define DAOS_IO_CTX_ID( tgt_idx)   ((tgt_idx) + <link linkend="_rpc_8h_1aa9f4eed209c210f3bb5e8df423a122a7">DAOS_TGT0_OFFSET</link>)</computeroutput></para>
+<para>The cart context index of target index </para>
+<para>
+Definition at line 95 of file rpc.h.</para>
+    </section><anchor xml:id="_rpc_8h_1a5ea60979f4f0cf6a67d8e99cd3f3517b"/>    <section>
+    <title>DAOS_RPC_OPCODE</title>
+<indexterm><primary>DAOS_RPC_OPCODE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_RPC_OPCODE</secondary></indexterm>
+<para><computeroutput>#define DAOS_RPC_OPCODE( opc,  mod_id,  rpc_ver)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;((opc&#32;&amp;&#32;OPCODE_MASK)&#32;&lt;&lt;&#32;OPCODE_OFFSET&#32;|&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;(rpc_ver&#32;&amp;&#32;RPC_VERSION_MASK)&#32;&lt;&lt;&#32;RPC_VERSION_OFFSET&#32;|&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;(mod_id&#32;&amp;&#32;MODID_MASK)&#32;&lt;&lt;&#32;MODID_OFFSET)
+</programlisting><para>
+Definition at line 37 of file rpc.h.</para>
+    </section><anchor xml:id="_rpc_8h_1aa9f4eed209c210f3bb5e8df423a122a7"/>    <section>
+    <title>DAOS_TGT0_OFFSET</title>
+<indexterm><primary>DAOS_TGT0_OFFSET</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_TGT0_OFFSET</secondary></indexterm>
+<para><computeroutput>#define DAOS_TGT0_OFFSET   (1)</computeroutput></para>
+<para>DAOS_TGT0_OFFSET is target 0&apos;s cart context offset </para>
+<para>
+Definition at line 93 of file rpc.h.</para>
+</section>
+</section>
+<section>
+<title>Enumeration Type Documentation</title>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acec"/>    <section>
+    <title>daos_module_id</title>
+<indexterm><primary>daos_module_id</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>daos_module_id</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acec">daos_module_id</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>DAOS_MGMT_MODULE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_MGMT_MODULE</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca0447bfb1c938ee993a5de50151469a31"/>DAOS_MGMT_MODULE</entry><entry>
+<para>version object store </para>
+</entry></row><row><entry><indexterm><primary>DAOS_POOL_MODULE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_POOL_MODULE</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acecae9b2738d64f1110d2b8713dfe8291f86"/>DAOS_POOL_MODULE</entry><entry>
+<para>storage management </para>
+</entry></row><row><entry><indexterm><primary>DAOS_CONT_MODULE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_CONT_MODULE</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acecadc0355dbab655e4addf16211afb5e909"/>DAOS_CONT_MODULE</entry><entry>
+<para>pool service </para>
+</entry></row><row><entry><indexterm><primary>DAOS_OBJ_MODULE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_OBJ_MODULE</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acecaebded1011c7034cd030e96a26d088433"/>DAOS_OBJ_MODULE</entry><entry>
+<para>container service </para>
+</entry></row><row><entry><indexterm><primary>DAOS_REBUILD_MODULE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_REBUILD_MODULE</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acecaf5b86e44ddf3a7dd6506850b7afdf36c"/>DAOS_REBUILD_MODULE</entry><entry>
+<para>object service </para>
+</entry></row><row><entry><indexterm><primary>DAOS_RSVC_MODULE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_RSVC_MODULE</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca57974c3349a5ae873a85b6805efd68a7"/>DAOS_RSVC_MODULE</entry><entry>
+<para>rebuild </para>
+</entry></row><row><entry><indexterm><primary>DAOS_RDB_MODULE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_RDB_MODULE</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca97e6593ecc394c029a591089651024b4"/>DAOS_RDB_MODULE</entry><entry>
+<para>replicated service server </para>
+</entry></row><row><entry><indexterm><primary>DAOS_RDBT_MODULE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_RDBT_MODULE</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca7875296364fcdfb642c8538e7f20cc3b"/>DAOS_RDBT_MODULE</entry><entry>
+<para>rdb </para>
+</entry></row><row><entry><indexterm><primary>DAOS_SEC_MODULE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_SEC_MODULE</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca6b517d2c61af87aa40902ec5918f7260"/>DAOS_SEC_MODULE</entry><entry>
+<para>rdb test </para>
+</entry></row><row><entry><indexterm><primary>DAOS_DTX_MODULE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_DTX_MODULE</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5aceca9fdaa748b856976107b7c1ad73175e0b"/>DAOS_DTX_MODULE</entry><entry>
+<para>security framework </para>
+</entry></row><row><entry><indexterm><primary>DAOS_MAX_MODULE</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_MAX_MODULE</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1ad716cbea714d54bd98f5679d2bf5acecad773ef5e5990342e2f751fe0224d2e7a"/>DAOS_MAX_MODULE</entry><entry>
+<para>DTX </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 42 of file rpc.h.</para>
+    </section><anchor xml:id="_rpc_8h_1abebf1ba7ce60e0e7c12f8ba75eb47cf6"/>    <section>
+    <title>daos_rpc_flags</title>
+<indexterm><primary>daos_rpc_flags</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>daos_rpc_flags</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_rpc_8h_1abebf1ba7ce60e0e7c12f8ba75eb47cf6">daos_rpc_flags</link></computeroutput></para><informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>DAOS_RPC_NO_REPLY</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_RPC_NO_REPLY</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1abebf1ba7ce60e0e7c12f8ba75eb47cf6a9fb77ff157a747e5c9f6b736a3584cd8"/>DAOS_RPC_NO_REPLY</entry><entry>
+<para>flag of reply disabled </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 57 of file rpc.h.</para>
+    </section><anchor xml:id="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15"/>    <section>
+    <title>daos_rpc_type</title>
+<indexterm><primary>daos_rpc_type</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>daos_rpc_type</secondary></indexterm>
+<para><computeroutput>enum <link linkend="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15">daos_rpc_type</link></computeroutput></para>
+<para>DAOS RPC request type (to determine the target processing tag/context) </para>
+<informaltable frame="all">
+<title>Enumerator</title>
+    <tgroup cols="2" align="left" colsep="1" rowsep="1">
+      <colspec colname='c1'/>
+      <colspec colname='c2'/>
+<tbody>
+<row><entry><indexterm><primary>DAOS_REQ_IO</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_REQ_IO</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15aae7148cd186ff331a5babcea745283da"/>DAOS_REQ_IO</entry><entry>
+<para>common IO request </para>
+</entry></row><row><entry><indexterm><primary>DAOS_REQ_MGMT</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_REQ_MGMT</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15ac56f25347db34c7edbd502bc631f22a0"/>DAOS_REQ_MGMT</entry><entry>
+<para>management request defined/used by mgmt module </para>
+</entry></row><row><entry><indexterm><primary>DAOS_REQ_POOL</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_REQ_POOL</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15a179591e55e6a5b0cf11e593c41936d0b"/>DAOS_REQ_POOL</entry><entry>
+<para>pool request defined/used by pool module </para>
+</entry></row><row><entry><indexterm><primary>DAOS_REQ_RDB</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_REQ_RDB</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15abcc30964cf4db65c7f75ffa931b85cce"/>DAOS_REQ_RDB</entry><entry>
+<para>RDB/meta-data request </para>
+</entry></row><row><entry><indexterm><primary>DAOS_REQ_CONT</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_REQ_CONT</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15a51cb0fd9c15652c546404d508141c3cb"/>DAOS_REQ_CONT</entry><entry>
+<para>container request (including the OID allocate) </para>
+</entry></row><row><entry><indexterm><primary>DAOS_REQ_REBUILD</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_REQ_REBUILD</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15ae124fee613d5b0b319e6307660e61e9b"/>DAOS_REQ_REBUILD</entry><entry>
+<para>rebuild request such as REBUILD_OBJECTS_SCAN/REBUILD_OBJECTS </para>
+</entry></row><row><entry><indexterm><primary>DAOS_REQ_IV</primary><secondary>rpc.h</secondary></indexterm>
+<indexterm><primary>rpc.h</primary><secondary>DAOS_REQ_IV</secondary></indexterm>
+<anchor xml:id="_rpc_8h_1adafdcd0bb759d701d64b79602f06df15ab56dd4bff610ea2273848aca9e961b55"/>DAOS_REQ_IV</entry><entry>
+<para>the IV/BCAST/SWIM request handled by cart, send/recv by tag 0 </para>
+</entry></row>    </tbody>
+    </tgroup>
+</informaltable>
+<para>
+Definition at line 72 of file rpc.h.</para>
+</section>
+</section>
+</section>

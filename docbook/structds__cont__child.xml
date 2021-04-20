@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structds__cont__child">
+<title>ds_cont_child Struct Reference</title>
+<indexterm><primary>ds_cont_child</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a2fa0c600648613d24d7419319b87f3c6"/>struct <link linkend="_structdaos__llink">daos_llink</link> <emphasis role="strong">sc_list</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1accf8a4d40953a13307778f2ff5ee9b71"/><link linkend="_structdaos__handle__t">daos_handle_t</link> <emphasis role="strong">sc_hdl</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a18f83df8b60bca4a08415bcdbb0d2d7e"/>uuid_t <emphasis role="strong">sc_uuid</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a05b740afd57ce15ec99875b470b46540"/>struct <link linkend="_structds__pool__child">ds_pool_child</link> * <emphasis role="strong">sc_pool</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1aa372243042b7ba4c43d8899aa08c6a0a"/><link linkend="_structd__list__head">d_list_t</link> <emphasis role="strong">sc_link</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a2e08ba446cd8603a889b55412aaf2dfc"/>struct <link linkend="_structdaos__csummer">daos_csummer</link> * <emphasis role="strong">sc_csummer</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a341d5c0ae6a38bec2da2110476786309"/>struct <link linkend="_structcont__props">cont_props</link> <emphasis role="strong">sc_props</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1aa772fafdcfa8f82080abe22336c4c523"/>ABT_mutex <emphasis role="strong">sc_mutex</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a52dd01e70db03a402e752aaca2d29e90"/>ABT_cond <emphasis role="strong">sc_dtx_resync_cond</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1ad64fe162fdb574f8ab680e7162790165"/>uint32_t <emphasis role="strong">sc_dtx_resyncing</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1ac1eea7e55ca6f08218bb7d4436aa77fc"/>uint32_t <emphasis role="strong">sc_dtx_aggregating</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a113762adb2aa49830cbc8de713bf1591"/>uint32_t <emphasis role="strong">sc_dtx_reindex</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a248c754b4b62d0ca2beaa8442949855f"/>uint32_t <emphasis role="strong">sc_dtx_reindex_abort</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1ae91ba3b9a59d38e21852b755f61a0f28"/>uint32_t <emphasis role="strong">sc_dtx_cos_shutdown</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1ad2103ea54580d00704cf8226c9b91030"/>uint32_t <emphasis role="strong">sc_closing</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1adca6121a1ef16333e1f31a5e431ad20e"/>uint32_t <emphasis role="strong">sc_vos_aggregating</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a73edceef768b1869b149124a7de3d038"/>uint32_t <emphasis role="strong">sc_abort_vos_aggregating</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1ac94f31c22d48af933a0998f85019b7a3"/>uint32_t <emphasis role="strong">sc_props_fetched</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a6b1d6d79aa5eaf837f625d43663d20b4"/>uint32_t <emphasis role="strong">sc_stopping</emphasis>:1</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a3c18105ba3dfc5aeab79c7782876bb53"/>uint32_t <emphasis role="strong">sc_dtx_batched_gen</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a49e200f2db02fbdd3e871c9c69335f21"/>struct sched_request * <emphasis role="strong">sc_agg_req</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a90d3e2476893703506e33d3bf8da3204"/>uint64_t <emphasis role="strong">sc_snapshot_delete_hlc</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a033f2c9ba3e56c001b9e7f56ab352b2a"/>uint64_t <emphasis role="strong">sc_aggregation_full_scan_hlc</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1adc5512e8eb0d616475b96dc67c62215b"/>uint64_t <emphasis role="strong">sc_aggregation_max</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1af343e50c532887da6247ab472c4ee28b"/>uint64_t * <emphasis role="strong">sc_snapshots</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1acd2fffb3e7fda14ceba4942046389908"/>uint32_t <emphasis role="strong">sc_snapshots_nr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a34989a1d17159165e6e83bb210b6929b"/>uint32_t <emphasis role="strong">sc_open</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a61f7d46af0b806ccf1e771bc064753b1"/>uint64_t <emphasis role="strong">sc_dtx_committable_count</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1afdcdbb74afc5d70c09c2f9b822063fcb"/>uint64_t <emphasis role="strong">sc_ec_agg_eph_boundry</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a9451a3ccef240ecbbcb6b06bec56e102"/>uint64_t <emphasis role="strong">sc_ec_agg_eph</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1ac61cda89b67f8dbc26584413c0f930e6"/><link linkend="_structdaos__handle__t">daos_handle_t</link> <emphasis role="strong">sc_dtx_cos_hdl</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1ac3f27225e78ea1b76ed1ed519b8fd161"/>struct <link linkend="_structbtr__root">btr_root</link> <emphasis role="strong">sc_dtx_cos_btr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1a45e3021a407971065f1d226111294bd0"/><link linkend="_structd__list__head">d_list_t</link> <emphasis role="strong">sc_dtx_cos_list</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structds__cont__child_1ad5320c5982a68db0ff4440ad01f8accd"/>uint32_t <emphasis role="strong">sc_dtx_resync_ver</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 51 of file container.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/<link linkend="_srv_2container_8h">container.h</link></section>
+</section>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdss__drpc__handler">
+<title>dss_drpc_handler Struct Reference</title>
+<indexterm><primary>dss_drpc_handler</primary></indexterm>
+<para>
+<computeroutput>#include &lt;daos_engine.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdss__drpc__handler_1a0bc5f91a15f045d84b9cc9c2cfe03ca0"/>int <emphasis role="strong">module_id</emphasis></para>
+</listitem>
+            <listitem><para>drpc_handler_t <link linkend="_structdss__drpc__handler_1aef8cdddac3caeb07b29363f1850f2880">handler</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Any <link linkend="_structdss__module">dss_module</link> that accepts dRPC communications over the Unix Domain Socket must provide one or more dRPC handler functions. The handler is used by the I/O server to multiplex incoming dRPC messages for processing.</para>
+
+<para>The dRPC messaging module ID is different from the <link linkend="_structdss__module">dss_module</link>&apos;s ID. A <link linkend="_structdss__module">dss_module</link> may handle more than one dRPC module ID. </para>
+<para>
+Definition at line 233 of file daos_engine.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdss__drpc__handler_1aef8cdddac3caeb07b29363f1850f2880"/>    <section>
+    <title>handler</title>
+<indexterm><primary>handler</primary><secondary>dss_drpc_handler</secondary></indexterm>
+<indexterm><primary>dss_drpc_handler</primary><secondary>handler</secondary></indexterm>
+<para><computeroutput>drpc_handler_t handler</computeroutput></para>
+<para>dRPC messaging module ID </para>
+<para>
+Definition at line 235 of file daos_engine.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/daos_engine.h</section>
+</section>

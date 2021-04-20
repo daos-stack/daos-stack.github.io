@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structevt__weight">
+<title>evt_weight Struct Reference</title>
+<indexterm><primary>evt_weight</primary></indexterm>
+<para>
+<computeroutput>#include &lt;evtree.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int64_t <link linkend="_structevt__weight_1a83e9330b0d3ab3f5d723b5ecf62db7e8">wt_major</link></para>
+</listitem>
+            <listitem><para>int64_t <link linkend="_structevt__weight_1a8c3b5c71c228e60a1591ab25d54b13cd">wt_minor</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Weight of a versioned extent, different tree policy could use different algorithm to calculate the weight. The generic code should honor &quot;major&quot; more than &quot;minor&quot;.</para>
+
+<para>NB: structure members can be negative while computing &quot;difference&quot; between weights.</para>
+
+<para>See <emphasis>evt_weight_cmp</emphasis> for the details. </para>
+<para>
+Definition at line 186 of file evtree.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structevt__weight_1a83e9330b0d3ab3f5d723b5ecf62db7e8"/>    <section>
+    <title>wt_major</title>
+<indexterm><primary>wt_major</primary><secondary>evt_weight</secondary></indexterm>
+<indexterm><primary>evt_weight</primary><secondary>wt_major</secondary></indexterm>
+<para><computeroutput>int64_t wt_major</computeroutput></para>
+<para>major weight value </para>
+<para>
+Definition at line 187 of file evtree.h.</para>
+    </section><anchor xml:id="_structevt__weight_1a8c3b5c71c228e60a1591ab25d54b13cd"/>    <section>
+    <title>wt_minor</title>
+<indexterm><primary>wt_minor</primary><secondary>evt_weight</secondary></indexterm>
+<indexterm><primary>evt_weight</primary><secondary>wt_minor</secondary></indexterm>
+<para><computeroutput>int64_t wt_minor</computeroutput></para>
+<para>minor weight value </para>
+<para>
+Definition at line 188 of file evtree.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/evtree.h</section>
+</section>

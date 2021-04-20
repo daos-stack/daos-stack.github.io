@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structevt__list__entry">
+<title>evt_list_entry Struct Reference</title>
+<indexterm><primary>evt_list_entry</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structevt__entry">evt_entry</link> * <link linkend="_structevt__list__entry_1aa9d710c110cb3db6d537204e053fa96a">le_prev</link></para>
+</listitem>
+            <listitem><para><link linkend="_structd__list__head">d_list_t</link> <link linkend="_structevt__list__entry_1abde8bf4fec2e07f31b4784979a96c585">le_link</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structevt__entry">evt_entry</link> <link linkend="_structevt__list__entry_1ae03f8755a91d95f26f32cae468e6b760">le_ent</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 330 of file evtree.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structevt__list__entry_1ae03f8755a91d95f26f32cae468e6b760"/>    <section>
+    <title>le_ent</title>
+<indexterm><primary>le_ent</primary><secondary>evt_list_entry</secondary></indexterm>
+<indexterm><primary>evt_list_entry</primary><secondary>le_ent</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structevt__entry">evt_entry</link> le_ent</computeroutput></para>
+<para>The metadata associated with the entry </para>
+<para>
+Definition at line 336 of file evtree.h.</para>
+    </section><anchor xml:id="_structevt__list__entry_1abde8bf4fec2e07f31b4784979a96c585"/>    <section>
+    <title>le_link</title>
+<indexterm><primary>le_link</primary><secondary>evt_list_entry</secondary></indexterm>
+<indexterm><primary>evt_list_entry</primary><secondary>le_link</secondary></indexterm>
+<para><computeroutput><link linkend="_structd__list__head">d_list_t</link> le_link</computeroutput></para>
+<para>List link for the entry </para>
+<para>
+Definition at line 334 of file evtree.h.</para>
+    </section><anchor xml:id="_structevt__list__entry_1aa9d710c110cb3db6d537204e053fa96a"/>    <section>
+    <title>le_prev</title>
+<indexterm><primary>le_prev</primary><secondary>evt_list_entry</secondary></indexterm>
+<indexterm><primary>evt_list_entry</primary><secondary>le_prev</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structevt__entry">evt_entry</link>* le_prev</computeroutput></para>
+<para>A back pointer to the previous split entry, if applicable </para>
+<para>
+Definition at line 332 of file evtree.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/evtree.h</section>
+</section>

@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structsmd__pool__info">
+<title>smd_pool_info Struct Reference</title>
+<indexterm><primary>smd_pool_info</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structsmd__pool__info_1a5bbb99c1fa94de31aceacf648588aae2"/><link linkend="_structd__list__head">d_list_t</link> <emphasis role="strong">spi_link</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structsmd__pool__info_1ac566dd8e988ed79dfb30df5eec8cac37"/>uuid_t <emphasis role="strong">spi_id</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structsmd__pool__info_1a0a8f267502a7779fd4e7aa5a09731dad"/>uint64_t <emphasis role="strong">spi_blob_sz</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structsmd__pool__info_1a345a434cf478f086532e41a3f5f4122b"/>uint32_t <emphasis role="strong">spi_tgt_cnt</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structsmd__pool__info_1a455292ffb9d7d418a94859737e0664fb"/>int * <emphasis role="strong">spi_tgts</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structsmd__pool__info_1aecc2d4cb20691d6f9ee0ed444d5a451d"/>uint64_t * <emphasis role="strong">spi_blobs</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 33 of file smd.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos_srv/smd.h</section>
+</section>

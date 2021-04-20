@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdevice__list">
+<title>device_list Struct Reference</title>
+<indexterm><primary>device_list</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdevice__list_1a1dd9cb8f685a3cc029749b2f2eec015e"/>uuid_t <emphasis role="strong">device_id</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdevice__list_1a682c698e318cca0f795b36666a98a48e"/>char <emphasis role="strong">state</emphasis> [10]</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdevice__list_1a6cfd95afd0afebd625b889fb6e58371c"/>int <emphasis role="strong">rank</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdevice__list_1ab13d05fe53c221ae1628b6d150d25f24"/>char <emphasis role="strong">host</emphasis> [50]</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdevice__list_1a48309c04ba846a7ab51350a3edbc8ad8"/>int <emphasis role="strong">tgtidx</emphasis> [MAX_TEST_TARGETS_PER_DEVICE]</para>
+</listitem>
+            <listitem><para><anchor xml:id="_structdevice__list_1ad88a6128bebed38a2c258777c2780aec"/>int <emphasis role="strong">n_tgtidx</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 172 of file tests_lib.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/tests_lib.h</section>
+</section>

@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structbtr__attr">
+<title>btr_attr Struct Reference</title>
+<indexterm><primary>btr_attr</primary></indexterm>
+<para>
+<computeroutput>#include &lt;btree.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_structbtr__attr_1a670949fa1849b36f0e99626555a19bef">ba_count</link></para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_structbtr__attr_1aa89218f6994713c0e7bb41c1a46a5444">ba_order</link></para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_structbtr__attr_1a33c09cb2c1004b5accb2e9b89856dda9">ba_depth</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbtr__attr_1ac126fc0a9bb67e6d88089096af4b3769"/>unsigned int <emphasis role="strong">ba_class</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structbtr__attr_1ae8303fa695668c1a4735344353fb30b7"/>uint64_t <emphasis role="strong">ba_feats</emphasis></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structumem__attr">umem_attr</link> <link linkend="_structbtr__attr_1aec9a08727a67c02e2b6bb0ba6ab0b828">ba_uma</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>btree attributes returned by query function. </para>
+<para>
+Definition at line 106 of file btree.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structbtr__attr_1a670949fa1849b36f0e99626555a19bef"/>    <section>
+    <title>ba_count</title>
+<indexterm><primary>ba_count</primary><secondary>btr_attr</secondary></indexterm>
+<indexterm><primary>btr_attr</primary><secondary>ba_count</secondary></indexterm>
+<para><computeroutput>int ba_count</computeroutput></para>
+<para>Estimate of entries in tree. Exact for tree depth &lt;= 1 </para>
+<para>
+Definition at line 108 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__attr_1a33c09cb2c1004b5accb2e9b89856dda9"/>    <section>
+    <title>ba_depth</title>
+<indexterm><primary>ba_depth</primary><secondary>btr_attr</secondary></indexterm>
+<indexterm><primary>btr_attr</primary><secondary>ba_depth</secondary></indexterm>
+<para><computeroutput>unsigned int ba_depth</computeroutput></para>
+<para>tree depth </para>
+<para>
+Definition at line 112 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__attr_1aa89218f6994713c0e7bb41c1a46a5444"/>    <section>
+    <title>ba_order</title>
+<indexterm><primary>ba_order</primary><secondary>btr_attr</secondary></indexterm>
+<indexterm><primary>btr_attr</primary><secondary>ba_order</secondary></indexterm>
+<para><computeroutput>unsigned int ba_order</computeroutput></para>
+<para>tree order </para>
+<para>
+Definition at line 110 of file btree.h.</para>
+    </section><anchor xml:id="_structbtr__attr_1aec9a08727a67c02e2b6bb0ba6ab0b828"/>    <section>
+    <title>ba_uma</title>
+<indexterm><primary>ba_uma</primary><secondary>btr_attr</secondary></indexterm>
+<indexterm><primary>btr_attr</primary><secondary>ba_uma</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structumem__attr">umem_attr</link> ba_uma</computeroutput></para>
+<para>memory class, pmem pool etc </para>
+<para>
+Definition at line 116 of file btree.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/btree.h</section>
+</section>

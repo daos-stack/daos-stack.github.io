@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdaos__unit__oid__t">
+<title>daos_unit_oid_t Struct Reference</title>
+<indexterm><primary>daos_unit_oid_t</primary></indexterm>
+<para>
+<computeroutput>#include &lt;object.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_structdaos__obj__id__t">daos_obj_id_t</link> <link linkend="_structdaos__unit__oid__t_1a6e64786e6540e6580f098543e934ce78">id_pub</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdaos__unit__oid__t_1a91aefa6e928559b0430dc62693bdc643">id_shard</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdaos__unit__oid__t_1afa466dce650577253d64b80d4fba2f96">id_pad_32</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>192-bit object ID, it can identify a unique bottom level object. (a shard of upper level object). </para>
+<para>
+Definition at line 150 of file object.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdaos__unit__oid__t_1afa466dce650577253d64b80d4fba2f96"/>    <section>
+    <title>id_pad_32</title>
+<indexterm><primary>id_pad_32</primary><secondary>daos_unit_oid_t</secondary></indexterm>
+<indexterm><primary>daos_unit_oid_t</primary><secondary>id_pad_32</secondary></indexterm>
+<para><computeroutput>uint32_t id_pad_32</computeroutput></para>
+<para>Padding </para>
+<para>
+Definition at line 156 of file object.h.</para>
+    </section><anchor xml:id="_structdaos__unit__oid__t_1a6e64786e6540e6580f098543e934ce78"/>    <section>
+    <title>id_pub</title>
+<indexterm><primary>id_pub</primary><secondary>daos_unit_oid_t</secondary></indexterm>
+<indexterm><primary>daos_unit_oid_t</primary><secondary>id_pub</secondary></indexterm>
+<para><computeroutput><link linkend="_structdaos__obj__id__t">daos_obj_id_t</link> id_pub</computeroutput></para>
+<para>Public section, high level object ID </para>
+<para>
+Definition at line 152 of file object.h.</para>
+    </section><anchor xml:id="_structdaos__unit__oid__t_1a91aefa6e928559b0430dc62693bdc643"/>    <section>
+    <title>id_shard</title>
+<indexterm><primary>id_shard</primary><secondary>daos_unit_oid_t</secondary></indexterm>
+<indexterm><primary>daos_unit_oid_t</primary><secondary>id_shard</secondary></indexterm>
+<para><computeroutput>uint32_t id_shard</computeroutput></para>
+<para>Private section, object shard index </para>
+<para>
+Definition at line 154 of file object.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/object.h</section>
+</section>

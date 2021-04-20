@@ -1,0 +1,91 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structd__hash__table">
+<title>d_hash_table Struct Reference</title>
+<indexterm><primary>d_hash_table</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>union <link linkend="_uniond__hash__lock">d_hash_lock</link> <link linkend="_structd__hash__table_1abbd93ff3feef842f1fe64ae312be7f12">ht_lock</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structd__hash__table_1a29c301df429f2363aea8c00963d982c7">ht_bits</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structd__hash__table_1adb3b0a2c833e2175bffbc1aa448e5b56">ht_feats</link></para>
+</listitem>
+            <listitem><para>void * <link linkend="_structd__hash__table_1a6332f4388ee226f34d93a351fb4bc507">ht_priv</link></para>
+</listitem>
+            <listitem><para><link linkend="_structd__hash__table__ops__t">d_hash_table_ops_t</link> * <link linkend="_structd__hash__table_1ac66f2f06d0658aae8ba2793b53e2e3a6">ht_ops</link></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structd__hash__bucket">d_hash_bucket</link> * <link linkend="_structd__hash__table_1a555c072d7b482ba4bfae20d41cc45b72">ht_buckets</link></para>
+</listitem>
+            <listitem><para>union <link linkend="_uniond__hash__lock">d_hash_lock</link> * <link linkend="_structd__hash__table_1a97bb941198945e2d10e4ed6899475d69">ht_locks</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 221 of file hash.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structd__hash__table_1a29c301df429f2363aea8c00963d982c7"/>    <section>
+    <title>ht_bits</title>
+<indexterm><primary>ht_bits</primary><secondary>d_hash_table</secondary></indexterm>
+<indexterm><primary>d_hash_table</primary><secondary>ht_bits</secondary></indexterm>
+<para><computeroutput>uint32_t ht_bits</computeroutput></para>
+<para>bits to generate number of buckets </para>
+<para>
+Definition at line 225 of file hash.h.</para>
+    </section><anchor xml:id="_structd__hash__table_1a555c072d7b482ba4bfae20d41cc45b72"/>    <section>
+    <title>ht_buckets</title>
+<indexterm><primary>ht_buckets</primary><secondary>d_hash_table</secondary></indexterm>
+<indexterm><primary>d_hash_table</primary><secondary>ht_buckets</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structd__hash__bucket">d_hash_bucket</link>* ht_buckets</computeroutput></para>
+<para>array of buckets </para>
+<para>
+Definition at line 241 of file hash.h.</para>
+    </section><anchor xml:id="_structd__hash__table_1adb3b0a2c833e2175bffbc1aa448e5b56"/>    <section>
+    <title>ht_feats</title>
+<indexterm><primary>ht_feats</primary><secondary>d_hash_table</secondary></indexterm>
+<indexterm><primary>d_hash_table</primary><secondary>ht_feats</secondary></indexterm>
+<para><computeroutput>uint32_t ht_feats</computeroutput></para>
+<para>feature bits </para>
+<para>
+Definition at line 227 of file hash.h.</para>
+    </section><anchor xml:id="_structd__hash__table_1abbd93ff3feef842f1fe64ae312be7f12"/>    <section>
+    <title>ht_lock</title>
+<indexterm><primary>ht_lock</primary><secondary>d_hash_table</secondary></indexterm>
+<indexterm><primary>d_hash_table</primary><secondary>ht_lock</secondary></indexterm>
+<para><computeroutput>union <link linkend="_uniond__hash__lock">d_hash_lock</link> ht_lock</computeroutput></para>
+<para>different type of locks based on ht_feats </para>
+<para>
+Definition at line 223 of file hash.h.</para>
+    </section><anchor xml:id="_structd__hash__table_1a97bb941198945e2d10e4ed6899475d69"/>    <section>
+    <title>ht_locks</title>
+<indexterm><primary>ht_locks</primary><secondary>d_hash_table</secondary></indexterm>
+<indexterm><primary>d_hash_table</primary><secondary>ht_locks</secondary></indexterm>
+<para><computeroutput>union <link linkend="_uniond__hash__lock">d_hash_lock</link>* ht_locks</computeroutput></para>
+<para>different type of locks based on ht_feats </para>
+<para>
+Definition at line 243 of file hash.h.</para>
+    </section><anchor xml:id="_structd__hash__table_1ac66f2f06d0658aae8ba2793b53e2e3a6"/>    <section>
+    <title>ht_ops</title>
+<indexterm><primary>ht_ops</primary><secondary>d_hash_table</secondary></indexterm>
+<indexterm><primary>d_hash_table</primary><secondary>ht_ops</secondary></indexterm>
+<para><computeroutput><link linkend="_structd__hash__table__ops__t">d_hash_table_ops_t</link>* ht_ops</computeroutput></para>
+<para>customized member functions </para>
+<para>
+Definition at line 239 of file hash.h.</para>
+    </section><anchor xml:id="_structd__hash__table_1a6332f4388ee226f34d93a351fb4bc507"/>    <section>
+    <title>ht_priv</title>
+<indexterm><primary>ht_priv</primary><secondary>d_hash_table</secondary></indexterm>
+<indexterm><primary>d_hash_table</primary><secondary>ht_priv</secondary></indexterm>
+<para><computeroutput>void* ht_priv</computeroutput></para>
+<para>private data to pass into customized functions </para>
+<para>
+Definition at line 237 of file hash.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/gurt/<link linkend="_hash_8h">hash.h</link></section>
+</section>

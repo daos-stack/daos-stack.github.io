@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdaos__sort__ops__t">
+<title>daos_sort_ops_t Struct Reference</title>
+<indexterm><primary>daos_sort_ops_t</primary></indexterm>
+<para>
+<computeroutput>#include &lt;common.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structdaos__sort__ops__t_1a7b774a7fb1f6aa423c0c4dc7d548b456"/>void(* <emphasis role="strong">so_swap</emphasis> )(void *array, int a, int b)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structdaos__sort__ops__t_1aef7ff138b42eee99b44354331559df7d">so_cmp</link> )(void *array, int a, int b)</para>
+</listitem>
+            <listitem><para>int(* <link linkend="_structdaos__sort__ops__t_1a14f415c3d49e27d37d90b2612e45bda7">so_cmp_key</link> )(void *array, int i, uint64_t key)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Function table for combsort and binary search </para>
+<para>
+Definition at line 210 of file common.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdaos__sort__ops__t_1aef7ff138b42eee99b44354331559df7d"/>    <section>
+    <title>so_cmp</title>
+<indexterm><primary>so_cmp</primary><secondary>daos_sort_ops_t</secondary></indexterm>
+<indexterm><primary>daos_sort_ops_t</primary><secondary>so_cmp</secondary></indexterm>
+<para><computeroutput>int(* so_cmp(void *array, int a, int b)</computeroutput></para>
+<para>For ascending order: 0 array[a] == array[b] 1 array[a] &gt; array[b] -1 array[a] &lt; array[b] </para>
+<para>
+Definition at line 218 of file common.h.</para>
+    </section><anchor xml:id="_structdaos__sort__ops__t_1a14f415c3d49e27d37d90b2612e45bda7"/>    <section>
+    <title>so_cmp_key</title>
+<indexterm><primary>so_cmp_key</primary><secondary>daos_sort_ops_t</secondary></indexterm>
+<indexterm><primary>daos_sort_ops_t</primary><secondary>so_cmp_key</secondary></indexterm>
+<para><computeroutput>int(* so_cmp_key(void *array, int i, uint64_t key)</computeroutput></para>
+<para>for binary search, returned value is the same as <link linkend="_structdaos__sort__ops__t_1aef7ff138b42eee99b44354331559df7d">so_cmp()</link> </para>
+<para>
+Definition at line 220 of file common.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/common.h</section>
+</section>

@@ -1,0 +1,89 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdcs__csum__info">
+<title>dcs_csum_info Struct Reference</title>
+<indexterm><primary>dcs_csum_info</primary></indexterm>
+<para>
+<computeroutput>#include &lt;checksum.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>uint8_t * <link linkend="_structdcs__csum__info_1a4b8288b59c1c01c9455960c92e2ebf8b">cs_csum</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdcs__csum__info_1ade98c7a9ebf99eb5284f5c2b706df881">cs_nr</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_structdcs__csum__info_1adc30c8e45333576e1b8cecab77a74b9e">cs_type</link></para>
+</listitem>
+            <listitem><para>uint16_t <link linkend="_structdcs__csum__info_1afff2518693560f8d2c57252714e54927">cs_len</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdcs__csum__info_1a7ba0eeb3dcb725d54784eca227bda8c3">cs_buf_len</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structdcs__csum__info_1a9d020374cd9e1e24d7eb5caa2e4626d5">cs_chunksize</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para><informaltable frame='bottom'><tgroup cols='1'><colspec align='center'/><tbody><row><entry align='center'>
+</entry></row></tbody></tgroup></informaltable>
+ <formalpara><title>DAOS Checksummer </title></formalpara>
+</para>
+<para>
+Definition at line 24 of file checksum.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdcs__csum__info_1a7ba0eeb3dcb725d54784eca227bda8c3"/>    <section>
+    <title>cs_buf_len</title>
+<indexterm><primary>cs_buf_len</primary><secondary>dcs_csum_info</secondary></indexterm>
+<indexterm><primary>dcs_csum_info</primary><secondary>cs_buf_len</secondary></indexterm>
+<para><computeroutput>uint32_t cs_buf_len</computeroutput></para>
+<para>length of entire buffer (cs_csum). buf_len can be larger than nr * len, but never smaller </para>
+<para>
+Definition at line 36 of file checksum.h.</para>
+    </section><anchor xml:id="_structdcs__csum__info_1a9d020374cd9e1e24d7eb5caa2e4626d5"/>    <section>
+    <title>cs_chunksize</title>
+<indexterm><primary>cs_chunksize</primary><secondary>dcs_csum_info</secondary></indexterm>
+<indexterm><primary>dcs_csum_info</primary><secondary>cs_chunksize</secondary></indexterm>
+<para><computeroutput>uint32_t cs_chunksize</computeroutput></para>
+<para>bytes of data each checksum verifies (if value type is array) </para>
+<para>
+Definition at line 38 of file checksum.h.</para>
+    </section><anchor xml:id="_structdcs__csum__info_1a4b8288b59c1c01c9455960c92e2ebf8b"/>    <section>
+    <title>cs_csum</title>
+<indexterm><primary>cs_csum</primary><secondary>dcs_csum_info</secondary></indexterm>
+<indexterm><primary>dcs_csum_info</primary><secondary>cs_csum</secondary></indexterm>
+<para><computeroutput>uint8_t* cs_csum</computeroutput></para>
+<para>buffer to store the checksums </para>
+<para>
+Definition at line 26 of file checksum.h.</para>
+    </section><anchor xml:id="_structdcs__csum__info_1afff2518693560f8d2c57252714e54927"/>    <section>
+    <title>cs_len</title>
+<indexterm><primary>cs_len</primary><secondary>dcs_csum_info</secondary></indexterm>
+<indexterm><primary>dcs_csum_info</primary><secondary>cs_len</secondary></indexterm>
+<para><computeroutput>uint16_t cs_len</computeroutput></para>
+<para>length of each checksum in bytes </para>
+<para>
+Definition at line 32 of file checksum.h.</para>
+    </section><anchor xml:id="_structdcs__csum__info_1ade98c7a9ebf99eb5284f5c2b706df881"/>    <section>
+    <title>cs_nr</title>
+<indexterm><primary>cs_nr</primary><secondary>dcs_csum_info</secondary></indexterm>
+<indexterm><primary>dcs_csum_info</primary><secondary>cs_nr</secondary></indexterm>
+<para><computeroutput>uint32_t cs_nr</computeroutput></para>
+<para>number of checksums stored in buffer </para>
+<para>
+Definition at line 28 of file checksum.h.</para>
+    </section><anchor xml:id="_structdcs__csum__info_1adc30c8e45333576e1b8cecab77a74b9e"/>    <section>
+    <title>cs_type</title>
+<indexterm><primary>cs_type</primary><secondary>dcs_csum_info</secondary></indexterm>
+<indexterm><primary>dcs_csum_info</primary><secondary>cs_type</secondary></indexterm>
+<para><computeroutput>uint16_t cs_type</computeroutput></para>
+<para>type of checksum </para>
+<para>
+Definition at line 30 of file checksum.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/checksum.h</section>
+</section>

@@ -1,0 +1,84 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structpool__buf">
+<title>pool_buf Struct Reference</title>
+<indexterm><primary>pool_buf</primary></indexterm>
+<para>
+<computeroutput>#include &lt;pool_map.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>uint32_t <link linkend="_structpool__buf_1a4a7ae7a6e94fe363ea8374504a5f7b39">pb_version</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structpool__buf_1ae50caf473ca2e11955e3735ebf049309">pb_reserved</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structpool__buf_1accfd5b7e9f727ef2ff5d142f26bee240">pb_csum</link></para>
+</listitem>
+            <listitem><para>uint32_t <link linkend="_structpool__buf_1a036d66f2e9b12e60c4db8da616056a8f">pb_nr</link></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structpool__buf_1adcf300fb1076e5dbd1fd2dfc138f96c1"/>uint32_t <emphasis role="strong">pb_domain_nr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structpool__buf_1a7c501d49b1cde8a5a3b0081478cd5577"/>uint32_t <emphasis role="strong">pb_node_nr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structpool__buf_1ab1d6c152f37752395d78caccae21cb3a"/>uint32_t <emphasis role="strong">pb_target_nr</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structpool__buf_1a45149a0b2fb763f324ac65fc5d468dce"/>uint32_t <emphasis role="strong">pb_padding</emphasis></para>
+</listitem>
+            <listitem><para>struct <link linkend="_structpool__component">pool_component</link> <link linkend="_structpool__buf_1ac84a1149bd1373e0511a55123ab7a6e9">pb_comps</link> [0]</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>pool component buffer, it&apos;s a contiguous buffer which includes portion of or all components of a pool map. </para>
+<para>
+Definition at line 149 of file pool_map.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structpool__buf_1ac84a1149bd1373e0511a55123ab7a6e9"/>    <section>
+    <title>pb_comps</title>
+<indexterm><primary>pb_comps</primary><secondary>pool_buf</secondary></indexterm>
+<indexterm><primary>pool_buf</primary><secondary>pb_comps</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structpool__component">pool_component</link> pb_comps[0]</computeroutput></para>
+<para>buffer body </para>
+<para>
+Definition at line 163 of file pool_map.h.</para>
+    </section><anchor xml:id="_structpool__buf_1accfd5b7e9f727ef2ff5d142f26bee240"/>    <section>
+    <title>pb_csum</title>
+<indexterm><primary>pb_csum</primary><secondary>pool_buf</secondary></indexterm>
+<indexterm><primary>pool_buf</primary><secondary>pb_csum</secondary></indexterm>
+<para><computeroutput>uint32_t pb_csum</computeroutput></para>
+<para>checksum of components </para>
+<para>
+Definition at line 155 of file pool_map.h.</para>
+    </section><anchor xml:id="_structpool__buf_1a036d66f2e9b12e60c4db8da616056a8f"/>    <section>
+    <title>pb_nr</title>
+<indexterm><primary>pb_nr</primary><secondary>pool_buf</secondary></indexterm>
+<indexterm><primary>pool_buf</primary><secondary>pb_nr</secondary></indexterm>
+<para><computeroutput>uint32_t pb_nr</computeroutput></para>
+<para>summary of domain_nr, node_nr, target_nr, buffer size </para>
+<para>
+Definition at line 157 of file pool_map.h.</para>
+    </section><anchor xml:id="_structpool__buf_1ae50caf473ca2e11955e3735ebf049309"/>    <section>
+    <title>pb_reserved</title>
+<indexterm><primary>pb_reserved</primary><secondary>pool_buf</secondary></indexterm>
+<indexterm><primary>pool_buf</primary><secondary>pb_reserved</secondary></indexterm>
+<para><computeroutput>uint32_t pb_reserved</computeroutput></para>
+<para>reserved, for alignment now </para>
+<para>
+Definition at line 153 of file pool_map.h.</para>
+    </section><anchor xml:id="_structpool__buf_1a4a7ae7a6e94fe363ea8374504a5f7b39"/>    <section>
+    <title>pb_version</title>
+<indexterm><primary>pb_version</primary><secondary>pool_buf</secondary></indexterm>
+<indexterm><primary>pool_buf</primary><secondary>pb_version</secondary></indexterm>
+<para><computeroutput>uint32_t pb_version</computeroutput></para>
+<para>format version </para>
+<para>
+Definition at line 151 of file pool_map.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/pool_map.h</section>
+</section>

@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structcp__arg">
+<title>cp_arg Struct Reference</title>
+<indexterm><primary>cp_arg</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structcp__arg_1a1a2537c55140d4255c9dbc8b53455c19"/>struct <link linkend="_structdc__mgmt__sys">dc_mgmt_sys</link> * <emphasis role="strong">sys</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structcp__arg_1a2cc0aeb95752a9faa7272959251bf080"/><link linkend="_group___c_a_r_t___t_y_p_e_s_1ga22c4380156baf0663b9d7eee1ae65004">crt_rpc_t</link> * <emphasis role="strong">rpc</emphasis></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 22 of file mgmt.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/mgmt.h</section>
+</section>

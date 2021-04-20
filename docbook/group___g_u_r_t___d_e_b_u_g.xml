@@ -1,0 +1,1023 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_group___g_u_r_t___d_e_b_u_g">
+<title>Gurt Debug</title>
+<indexterm><primary>Gurt Debug</primary></indexterm>
+<simplesect>
+    <title>Macros    </title>
+        <itemizedlist>
+            <listitem><para>#define <emphasis role="strong">D_FOREACH_GURT_FAC</emphasis>(ACTION,  arg)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga778d8627aea9be36edb5205652f47c73"/>#define <emphasis role="strong">DB_ALL_BITS</emphasis>   &quot;all&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gaa927bd651c82b5aa0be4ad146af55b00">D_LOG_FILE_ENV</link>   &quot;D_LOG_FILE&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga78c69d29b0174fd1f0279ed04a1e6453">D_LOG_SIZE_ENV</link>   &quot;D_LOG_SIZE&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gae955086fa11207bb434e9ccf15708b5d">D_LOG_MASK_ENV</link>   &quot;D_LOG_MASK&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gaeeec5af616362a13ffa714611f0a4e64"/>#define <emphasis role="strong">D_LOG_FILE_APPEND_PID_ENV</emphasis>   &quot;D_LOG_FILE_APPEND_PID&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gaf25488753d57c59c40e897377bc50bd5">D_LOG_TRUNCATE_ENV</link>   &quot;D_LOG_TRUNCATE&quot;</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga686a1b4538ab2647a06932ea782fb08f"/>#define <emphasis role="strong">D_LOG_STDERR_IN_LOG_ENV</emphasis>   &quot;D_LOG_STDERR_IN_LOG&quot;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gadd1ec480905a14dcfcbe3fbe7c5bce0a">_D_LOG_NOCHECK</link>(mask,  fmt, ...)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gaf5ca712dd30a81c8d2afb2506a4a1845">_D_TRACE_NOCHECK</link>(mask,  ptr,  fmt, ...)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gaf86151f3ff3ab2f24b652f4f59fc46fc">_D_LOG_CHECK</link>(func,  saved_mask,  mask, ...)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga4d6546a8a1a13622b619eb3b83f9241a">_D_LOG</link>(func,  mask, ...)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">_D_DEBUG</emphasis>(func,  flag, ...)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_LOG_ENABLED</emphasis>(flag)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gabe88704b87a4b9df318dbed17907272a"/>#define <emphasis role="strong">D_DEBUG</emphasis>(flag,  fmt, ...)   _D_DEBUG(<link linkend="_group___g_u_r_t___d_e_b_u_g_1gadd1ec480905a14dcfcbe3fbe7c5bce0a">_D_LOG_NOCHECK</link>, flag, fmt, ##__VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga98f485c84f63f95e70d33f517164d461"/>#define <emphasis role="strong">D_TRACE_DEBUG</emphasis>(flag,  ptr,  fmt, ...)   _D_DEBUG(<link linkend="_group___g_u_r_t___d_e_b_u_g_1gaf5ca712dd30a81c8d2afb2506a4a1845">_D_TRACE_NOCHECK</link>, flag, ptr, fmt, ##__VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gadd05bfd37bdff1e47fa6604d441edee1">D_CDEBUG</link>(cond,  flag_true,  flag_false, ...)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_TRACE_UP</emphasis>(flag,  ptr,  parent,  type)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gac77add726c80f2023c8244526ba34c58"/>#define <emphasis role="strong">D_TRACE_DOWN</emphasis>(flag,  ptr)   D_TRACE_DEBUG(flag, ptr, &quot;Deregistered\n&quot;)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gac562f9b6c3975d504799005351a517e0">D_TRACE_ROOT</link>(flag,  ptr,  type)   D_TRACE_DEBUG(flag, ptr, &quot;Registered new &apos;%s&apos; as root\n&quot;, type)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga3de1e19de6f3366e84e6958ba93f548d">D_INFO</link>(fmt, ...)   D_DEBUG(DLOG_INFO, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gab6abf2e3f67a854878d3ea6870b099dd"/>#define <emphasis role="strong">D_NOTE</emphasis>(fmt, ...)   D_DEBUG(DLOG_NOTE, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gaf4a1810499e4a51792c98ff48d737357"/>#define <emphasis role="strong">D_WARN</emphasis>(fmt, ...)   D_DEBUG(DLOG_WARN, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gafd8e441b55b39e404a8e952ef4b88442"/>#define <emphasis role="strong">D_ERROR</emphasis>(fmt, ...)   D_DEBUG(DLOG_ERR, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga23c51536b66b06a4236d8daa36a7c8f6"/>#define <emphasis role="strong">D_ALERT</emphasis>(fmt, ...)   D_DEBUG(DLOG_ALERT, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga448605b52700df8264f0ba1ac1b5cfb8"/>#define <emphasis role="strong">D_CRIT</emphasis>(fmt, ...)   D_DEBUG(DLOG_CRIT, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gab2322c740ff62060cb1a46830086eb97"/>#define <emphasis role="strong">D_FATAL</emphasis>(fmt, ...)   D_DEBUG(DLOG_EMERG, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gadfafb180aeb8ee3a99e8a4fb6c40556a"/>#define <emphasis role="strong">D_EMIT</emphasis>(fmt, ...)   D_DEBUG(DLOG_EMIT, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gae395b071e1e009114f2dfa3e165e657e"/>#define <emphasis role="strong">D_TRACE_INFO</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_INFO, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga96d3f7b7f8871b60fbdae046d19660dc"/>#define <emphasis role="strong">D_TRACE_NOTE</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_NOTE, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gabfbc62165e11e9fb608db0122d172e36"/>#define <emphasis role="strong">D_TRACE_WARN</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_WARN, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gae492a6065f49edf60901829660c6ce65"/>#define <emphasis role="strong">D_TRACE_ERROR</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_ERR, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gad590532cfd845101f3c60f7c4f644737"/>#define <emphasis role="strong">D_TRACE_ALERT</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_ALERT, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga5467a8e9c5b6855331845fa3797fa2b3"/>#define <emphasis role="strong">D_TRACE_CRIT</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_CRIT, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga876bac8dbf36c6bdc6264d48f8282d23"/>#define <emphasis role="strong">D_TRACE_FATAL</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_EMERG, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga7fcd961c1e05f240c8668ca37aa465ec"/>#define <emphasis role="strong">D_TRACE_EMIT</emphasis>(ptr,  fmt, ...)   D_TRACE_DEBUG(DLOG_EMIT, ptr, fmt, ## __VA_ARGS__)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gad3156ab43480ad5cc83b1b7caaa0a77c">D_PRINT_ERR</link>(fmt, ...)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gafa255bfc99d5f4edefd4d70ff8234308">D_PRINT</link>(fmt, ...)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_ASSERT</emphasis>(e)</para>
+</listitem>
+            <listitem><para>#define <emphasis role="strong">D_ASSERTF</emphasis>(cond,  fmt, ...)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga101c02373e06538ffdb1b7fbc577b6ab"/>#define <emphasis role="strong">D_CASSERT</emphasis>(cond, ...)   _Static_assert(cond, #cond &quot;: &quot; __VA_ARGS__)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gacd57560f657ad215fef2dff0cd80a5a8"/>#define <emphasis role="strong">DF_U64</emphasis>   &quot;%&quot; PRIu64</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga0d0260213f2e2388db9b2a86048125ea"/>#define <emphasis role="strong">DF_X64</emphasis>   &quot;%&quot; PRIx64</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga67f455e8982905adbfe0d59a33ab0d91"/>#define <emphasis role="strong">DD_GURT_FAC</emphasis>(name)   d_##name##_logfac</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga14da18229749c4a361e005d91596bcf2">DD_FAC</link>   DD_GURT_FAC</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga91f7f622dec10a1066a86195d04437c4"/>#define <emphasis role="strong">D_USE_GURT_FAC</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gae339502cd3577fc37aa99d4f13e0210f"/>#define <emphasis role="strong">DD_FAC_DECL</emphasis>(name)   <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga14da18229749c4a361e005d91596bcf2">DD_FAC</link>(name)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gaddca8b448ac8b1c3cd941bd6157f54ee"/>#define <emphasis role="strong">D_LOGFAC</emphasis>   DD_GURT_FAC(misc)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga869e59b6e4ae1fce54090624dd414b4a">D_FOREACH_GURT_DB</link>(ACTION,  arg)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga8c400f007ba79c70c4a52bf7f4fe5f08">DD_CONCAT_CACHE</link>(x,  y)   x ##_cache</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gadf8f8e2dff9fa8eed3ff6dc474d6b23c"/>#define <emphasis role="strong">DD_CONCAT_FLAG</emphasis>(x,  y)   DD_FLAG_## x ##_## y</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga2d7c86a9a41a3b422a9fc8ab34d09d4b"/>#define <emphasis role="strong">DD_CONCAT</emphasis>(x,  y,  op)   op(x, y)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga48c51b65f29ecc4fa341204db14b6fa2"/>#define <emphasis role="strong">DD_CACHE</emphasis>(fac)   DD_CONCAT(fac, D_NOOP, <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga8c400f007ba79c70c4a52bf7f4fe5f08">DD_CONCAT_CACHE</link>)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gab1a6a4ecc7c29522a6c4d9c14f4c6e9a"/>#define <emphasis role="strong">DD_FLAG_NAME</emphasis>(mask,  fac)   DD_CONCAT(mask, fac, DD_CONCAT_FLAG)</para>
+</listitem>
+            <listitem><para><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gad4ed0ae5d20ea966732b659e657b9d5d"/>#define <emphasis role="strong">DD_FLAG</emphasis>(mask,  fac)   DD_CACHE(fac)[DD_FLAG_NAME(mask, fac) - 1]</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga67fa2da7706bd999dd29a67e3cfcd342">D_LOG_DECLARE_DB</link>(flag,  s_name,  l_name,  mask,  arg)   extern <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link>	flag;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga00080c56e5be8aa03fdf75221062c79a">D_LOG_INSTANTIATE_DB</link>(flag,  s_name,  l_name,  mask,  arg)   <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link>	flag;</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga86b7e19fbea4c8ab4433342f23762cbd">_D_LOG_ALLOCATE_DBG_BIT</link>(dbgbit,  s_name,  l_name,  mask,  rc)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gab549e77c27363fa61626cf6135cac79a">_D_LOG_DEALLOCATE_DBG_BIT</link>(dbgbit,  s_name,  l_name,  mask,  rc)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga772710ffa0b7a2b90b66129297183583">D_LOG_REGISTER_DB</link>(db_foreach)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gac277ff0808c7a86a9e71b9b0286182ad">D_LOG_DEREGISTER_DB</link>(db_foreach)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga48f74ea9785cc0b93e5fd5a0d0714079">_D_LOG_DECLARE_ENUM</link>(flag,  s_name,  l_name,  mask,  fac)   DD_FLAG_NAME(flag, fac),</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga820bd4319d68e456e7e8e1519cc1683f">_D_LOG_INITIALIZE_FIELD</link>(flag,  s_name,  l_name,  mask,  fac)   <link linkend="_group___g_u_r_t___l_o_g_1ga2effbffce3ebdaf1893f9a739cf1cc7e">DLOG_UNINIT</link>,</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga8b0d18c54ccf2bc378f0c87f10ce9497">_D_LOG_DECLARE_CACHE</link>(s_name,  user_dbg_bits)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga26005ff46215f6b8a748abe0c8068b2b">_D_LOG_INSTANTIATE_CACHE</link>(s_name,  user_dbg_bits)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga5d673e9cf7ee82649b722e8966bdc605">_D_ADD_CACHE</link>(s_name)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga0f3676a71d77491bb50368fa74bc4b78">D_LOG_DECLARE_FAC</link>(s_name,  l_name,  user_dbg_bits)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gae08f205c2732d8d497ab542698faa63f">D_LOG_INSTANTIATE_FAC</link>(s_name,  l_name,  user_dbg_bits)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gaa03605abc5766a6f99b1a2815cd0df83">_D_LOG_ALLOCATE_LOG_FACILITY</link>(s_name,  l_name,  rc)</para>
+</listitem>
+            <listitem><para>#define <link linkend="_group___g_u_r_t___d_e_b_u_g_1gac27c735e53245cdfea75e688e52b7720">D_LOG_REGISTER_FAC</link>(fac_foreach)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga270b23297cede1b573472122d9f65610">d_log_getdbgbit</link> (<link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> *dbgbit, char *bitname)</para>
+</listitem>
+            <listitem><para>int <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga58863a33533091bd43eff9126d1a965d">d_register_alt_assert</link> (void(*alt_assert)(const int, const char *, const char *, const int))</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Variables    </title>
+        <itemizedlist>
+            <listitem><para>void(* <link linkend="_group___g_u_r_t___d_e_b_u_g_1ga5ca1b7baf150f674530f3d9996eb66fc">d_alt_assert</link> )(const int, const char *, const char *, const int)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+</section>
+<section>
+<title>Macro Definition Documentation</title>
+<anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga5d673e9cf7ee82649b722e8966bdc605"/>    <section>
+    <title>_D_ADD_CACHE</title>
+<indexterm><primary>_D_ADD_CACHE</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_ADD_CACHE</secondary></indexterm>
+<para><computeroutput>#define _D_ADD_CACHE( s_name)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<link linkend="_group___g_u_r_t___l_o_g_1ga33e2237c90c7efbe8c4a93377325ce3e">d_log_add_cache</link>(DD_CACHE(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga14da18229749c4a361e005d91596bcf2">DD_FAC</link>(s_name)),&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;ARRAY_SIZE(DD_CACHE(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga14da18229749c4a361e005d91596bcf2">DD_FAC</link>(s_name))));
+</programlisting>
+<para>Internal macro to register a facility cache. Used by ALLOCATE_LOG_FACILITY </para>
+<para>
+Definition at line 204 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gaacad822f4c49d31e0cb4ee28be358efe"/>    <section>
+    <title>_D_DEBUG</title>
+<indexterm><primary>_D_DEBUG</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_DEBUG</secondary></indexterm>
+<para><computeroutput>#define _D_DEBUG( func,  flag,  ...)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(__builtin_expect(DD_FLAG(flag,&#32;D_LOGFAC),&#32;0))&#32;{&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(DD_FLAG(flag,&#32;D_LOGFAC)&#32;==&#32;(<emphasis role="keywordtype">int</emphasis>)<link linkend="_group___g_u_r_t___l_o_g_1ga2effbffce3ebdaf1893f9a739cf1cc7e">DLOG_UNINIT</link>)&#32;{&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_D_LOG_CHECK(func,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;DD_FLAG(flag,&#32;D_LOGFAC),&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(flag)&#32;|&#32;D_LOGFAC,&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;##__VA_ARGS__);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;break;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;func(DD_FLAG(flag,&#32;D_LOGFAC),&#32;##__VA_ARGS__);&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0)
+</programlisting><para>
+Definition at line 97 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga4d6546a8a1a13622b619eb3b83f9241a"/>    <section>
+    <title>_D_LOG</title>
+<indexterm><primary>_D_LOG</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_LOG</secondary></indexterm>
+<para><computeroutput>#define _D_LOG( func,  mask,  ...)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int&#32;__tmp_mask;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_group___g_u_r_t___d_e_b_u_g_1gaf86151f3ff3ab2f24b652f4f59fc46fc">\</link>
+<link linkend="_group___g_u_r_t___d_e_b_u_g_1gaf86151f3ff3ab2f24b652f4f59fc46fc">									\</link>
+<link linkend="_group___g_u_r_t___d_e_b_u_g_1gaf86151f3ff3ab2f24b652f4f59fc46fc">		_D_LOG_CHECK</link>(func,&#32;__tmp_mask,&#32;mask,&#32;##__VA_ARGS__);&#32;&#32;\
+&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0)
+</programlisting>
+<para>The _D_LOG internal macro checks the specified mask and, if enabled, it logs the message, prependng the file, line, and function name. This function can be used directly by users or by user defined macros if the provided log level macros are not flexible enough. </para>
+<para>
+Definition at line 90 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga86b7e19fbea4c8ab4433342f23762cbd"/>    <section>
+    <title>_D_LOG_ALLOCATE_DBG_BIT</title>
+<indexterm><primary>_D_LOG_ALLOCATE_DBG_BIT</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_LOG_ALLOCATE_DBG_BIT</secondary></indexterm>
+<para><computeroutput>#define _D_LOG_ALLOCATE_DBG_BIT( dbgbit,  s_name,  l_name,  mask,  rc)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;rc&#32;=&#32;<link linkend="_group___g_u_r_t___l_o_g_1ga7466425ac6c6fefd0ca5bc1cdbaa84e2">d_log_dbg_bit_alloc</link>(&amp;dbgbit,&#32;#s_name,&#32;#l_name);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;if&#32;(rc&#32;&lt;&#32;0)&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;rc&#32;=&#32;-DER_UNINIT;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;D_PRINT_ERR(<emphasis role="stringliteral">&quot;Could&#32;not&#32;get&#32;debug&#32;bit&#32;&quot;</emphasis>&#32;#s_name&#32;<emphasis role="stringliteral">&quot;\n&quot;</emphasis>);&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;break;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;}
+</programlisting>
+<para>Internal use macro as part of D_LOG_REGISTER_DB. It&apos;s multiline on purpose so we can break from the foreach loop. Checkpatch will complain but don&apos;t see a better way. </para>
+<para>
+Definition at line 107 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gaa03605abc5766a6f99b1a2815cd0df83"/>    <section>
+    <title>_D_LOG_ALLOCATE_LOG_FACILITY</title>
+<indexterm><primary>_D_LOG_ALLOCATE_LOG_FACILITY</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_LOG_ALLOCATE_LOG_FACILITY</secondary></indexterm>
+<para><computeroutput>#define _D_LOG_ALLOCATE_LOG_FACILITY( s_name,  l_name,  rc)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;rc&#32;=&#32;d_init_log_facility(&amp;<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga14da18229749c4a361e005d91596bcf2">DD_FAC</link>(s_name),&#32;#s_name,&#32;#l_name);&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;if&#32;(rc&#32;!=&#32;0)&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;rc&#32;=&#32;-DER_UNINIT;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;D_PRINT_ERR(<emphasis role="stringliteral">&quot;Could&#32;not&#32;allocate&#32;&quot;</emphasis>&#32;#s_name&#32;<emphasis role="stringliteral">&quot;\n&quot;</emphasis>);&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;break;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;_D_ADD_CACHE(s_name);
+</programlisting>
+<para>Internal use macro as part of DD_REGISTER_FAC. It&apos;s multiline on purpose so we can break from the foreach loop. Checkpatch will complain but don&apos;t see a better way. </para>
+<para>
+Definition at line 232 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gaf86151f3ff3ab2f24b652f4f59fc46fc"/>    <section>
+    <title>_D_LOG_CHECK</title>
+<indexterm><primary>_D_LOG_CHECK</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_LOG_CHECK</secondary></indexterm>
+<para><computeroutput>#define _D_LOG_CHECK( func,  saved_mask,  mask,  ...)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(saved_mask)&#32;=&#32;d_log_check(mask);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(saved_mask)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;func(saved_mask,&#32;##__VA_ARGS__);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0)
+</programlisting>
+<para>Internal macro for saving the log, checking it, and printing, if enabled </para>
+<para>
+Definition at line 76 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gab549e77c27363fa61626cf6135cac79a"/>    <section>
+    <title>_D_LOG_DEALLOCATE_DBG_BIT</title>
+<indexterm><primary>_D_LOG_DEALLOCATE_DBG_BIT</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_LOG_DEALLOCATE_DBG_BIT</secondary></indexterm>
+<para><computeroutput>#define _D_LOG_DEALLOCATE_DBG_BIT( dbgbit,  s_name,  l_name,  mask,  rc)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;rc&#32;=&#32;<link linkend="_group___g_u_r_t___l_o_g_1gae64a212814cc1086fe41579d89b85232">d_log_dbg_bit_dealloc</link>(#s_name);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;if&#32;(rc&#32;&lt;&#32;0)&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;rc&#32;=&#32;-DER_UNINIT;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;D_PRINT_ERR(<emphasis role="stringliteral">&quot;Could&#32;not&#32;free&#32;debug&#32;bit&#32;&quot;</emphasis>&#32;#s_name&#32;<emphasis role="stringliteral">&quot;\n&quot;</emphasis>);&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;break;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;}
+</programlisting>
+<para>Internal use macro as part of D_LOG_DEREGISTER_DB. It&apos;s multiline on purpose so we can break from the foreach loop. Checkpatch will complain but don&apos;t see a better way. </para>
+<para>
+Definition at line 119 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga8b0d18c54ccf2bc378f0c87f10ce9497"/>    <section>
+    <title>_D_LOG_DECLARE_CACHE</title>
+<indexterm><primary>_D_LOG_DECLARE_CACHE</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_LOG_DECLARE_CACHE</secondary></indexterm>
+<para><computeroutput>#define _D_LOG_DECLARE_CACHE( s_name,  user_dbg_bits)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keyword">enum</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;DD_FLAG_NAME(s_name,&#32;START),&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;D_FOREACH_PRIO_MASK(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga48f74ea9785cc0b93e5fd5a0d0714079">_D_LOG_DECLARE_ENUM</link>,&#32;<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga14da18229749c4a361e005d91596bcf2">DD_FAC</link>(s_name))\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;D_FOREACH_GURT_DB(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga48f74ea9785cc0b93e5fd5a0d0714079">_D_LOG_DECLARE_ENUM</link>,&#32;<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga14da18229749c4a361e005d91596bcf2">DD_FAC</link>(s_name))&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;user_dbg_bits(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga48f74ea9785cc0b93e5fd5a0d0714079">_D_LOG_DECLARE_ENUM</link>,&#32;<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga14da18229749c4a361e005d91596bcf2">DD_FAC</link>(s_name))&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;DD_FLAG_NAME(s_name,&#32;END),&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;};&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;extern&#32;<emphasis role="keywordtype">int</emphasis>&#32;DD_CACHE(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga14da18229749c4a361e005d91596bcf2">DD_FAC</link>(s_name))[DD_FLAG_NAME(s_name,&#32;END)&#32;-&#32;1];
+</programlisting>
+<para>These macros are intended to be used with FOREACH macros that define log facilities in your library. It will utilize internal FOREACH macros to define debug bits as well as user defined macros. See D_FOREACH_GURT_FAC for an example.</para>
+
+<para>These macros can also be used standalone but are not quite as convenient due to required but unused arguments Internal macro to declare a facility cache. Used by DD_DECLARE_FAC </para>
+<para>
+Definition at line 183 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga48f74ea9785cc0b93e5fd5a0d0714079"/>    <section>
+    <title>_D_LOG_DECLARE_ENUM</title>
+<indexterm><primary>_D_LOG_DECLARE_ENUM</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_LOG_DECLARE_ENUM</secondary></indexterm>
+<para><computeroutput>#define _D_LOG_DECLARE_ENUM( flag,  s_name,  l_name,  mask,  fac)   DD_FLAG_NAME(flag, fac),</computeroutput></para>
+<para>Declare an enumeration to identify a debug flag, facility combination</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>flag</entry>
+                                <entry>
+<para>The name of the variable used to store the value of the debug bit. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>s_name</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>l_name</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>mask</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>fac</entry>
+                                <entry>
+<para>The log facility </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 166 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga820bd4319d68e456e7e8e1519cc1683f"/>    <section>
+    <title>_D_LOG_INITIALIZE_FIELD</title>
+<indexterm><primary>_D_LOG_INITIALIZE_FIELD</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_LOG_INITIALIZE_FIELD</secondary></indexterm>
+<para><computeroutput>#define _D_LOG_INITIALIZE_FIELD( flag,  s_name,  l_name,  mask,  fac)   <link linkend="_group___g_u_r_t___l_o_g_1ga2effbffce3ebdaf1893f9a739cf1cc7e">DLOG_UNINIT</link>,</computeroutput></para>
+<para>Internal macro for initializing facility cache defined by DD_*_CACHE </para>
+<para>
+Definition at line 170 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga26005ff46215f6b8a748abe0c8068b2b"/>    <section>
+    <title>_D_LOG_INSTANTIATE_CACHE</title>
+<indexterm><primary>_D_LOG_INSTANTIATE_CACHE</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_LOG_INSTANTIATE_CACHE</secondary></indexterm>
+<para><computeroutput>#define _D_LOG_INSTANTIATE_CACHE( s_name,  user_dbg_bits)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;DD_CACHE(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga14da18229749c4a361e005d91596bcf2">DD_FAC</link>(s_name))[DD_FLAG_NAME(s_name,&#32;END)&#32;-&#32;1]&#32;=&#32;{&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;D_FOREACH_PRIO_MASK(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga820bd4319d68e456e7e8e1519cc1683f">_D_LOG_INITIALIZE_FIELD</link>,&#32;D_NOOP)&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;D_FOREACH_GURT_DB(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga820bd4319d68e456e7e8e1519cc1683f">_D_LOG_INITIALIZE_FIELD</link>,&#32;D_NOOP)&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;user_dbg_bits(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga820bd4319d68e456e7e8e1519cc1683f">_D_LOG_INITIALIZE_FIELD</link>,&#32;D_NOOP)&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;};
+</programlisting>
+<para>Internal macro to create a facility cache. Used by DD_INSTANTIATE_FAC </para>
+<para>
+Definition at line 194 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gadd1ec480905a14dcfcbe3fbe7c5bce0a"/>    <section>
+    <title>_D_LOG_NOCHECK</title>
+<indexterm><primary>_D_LOG_NOCHECK</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_LOG_NOCHECK</secondary></indexterm>
+<para><computeroutput>#define _D_LOG_NOCHECK( mask,  fmt,  ...)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;d_log(mask,&#32;<emphasis role="stringliteral">&quot;%s:%d&#32;%s()&#32;&quot;</emphasis>&#32;fmt,&#32;__FILE__,&#32;__LINE__,&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__func__,&#32;##__VA_ARGS__)
+</programlisting>
+<para>Internal macro for printing the message using resolved mask </para>
+<para>
+Definition at line 66 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gaf5ca712dd30a81c8d2afb2506a4a1845"/>    <section>
+    <title>_D_TRACE_NOCHECK</title>
+<indexterm><primary>_D_TRACE_NOCHECK</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>_D_TRACE_NOCHECK</secondary></indexterm>
+<para><computeroutput>#define _D_TRACE_NOCHECK( mask,  ptr,  fmt,  ...)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;d_log(mask,&#32;<emphasis role="stringliteral">&quot;%s:%d&#32;%s(%p)&#32;&quot;</emphasis>&#32;fmt,&#32;__FILE__,&#32;__LINE__,&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__func__,&#32;ptr,&#32;##__VA_ARGS__)
+</programlisting>
+<para>Internal macro for printing trace message with resolved mask </para>
+<para>
+Definition at line 71 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gadf855317e8628b3b6792292671f20ff9"/>    <section>
+    <title>D_ASSERT</title>
+<indexterm><primary>D_ASSERT</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_ASSERT</secondary></indexterm>
+<para><computeroutput>#define D_ASSERT( e)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(!(e))&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;D_FATAL(<emphasis role="stringliteral">&quot;Assertion&#32;&apos;%s&apos;&#32;failed\n&quot;</emphasis>,&#32;#e);&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;d_log_sync();&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga5ca1b7baf150f674530f3d9996eb66fc">d_alt_assert</link>&#32;!=&#32;NULL)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;d_alt_assert((int64_t)(e),&#32;#e,&#32;__FILE__,&#32;__LINE__);\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;assert(e);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0)
+</programlisting><para>
+Definition at line 284 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gadcaa7d2d0dd995942e5a13feac082439"/>    <section>
+    <title>D_ASSERTF</title>
+<indexterm><primary>D_ASSERTF</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_ASSERTF</secondary></indexterm>
+<para><computeroutput>#define D_ASSERTF( cond,  fmt,  ...)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting><emphasis role="keywordflow">do</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;if&#32;(!(cond))&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;D_FATAL(<emphasis role="stringliteral">&quot;Assertion&#32;&apos;%s&apos;&#32;failed:&#32;&quot;</emphasis>&#32;fmt,&#32;#cond,&#32;##&#32;__VA_ARGS__);&#32;\
+&#32;&#32;&#32;&#32;if&#32;(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga5ca1b7baf150f674530f3d9996eb66fc">d_alt_assert</link>&#32;!=&#32;NULL)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;d_alt_assert((int64_t)(cond),&#32;#cond,&#32;__FILE__,&#32;__LINE__);\
+&#32;&#32;&#32;&#32;assert(cond);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0)
+</programlisting><para>
+Definition at line 295 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gadd05bfd37bdff1e47fa6604d441edee1"/>    <section>
+    <title>D_CDEBUG</title>
+<indexterm><primary>D_CDEBUG</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_CDEBUG</secondary></indexterm>
+<para><computeroutput>#define D_CDEBUG( cond,  flag_true,  flag_false,  ...)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;if&#32;(cond)&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;D_DEBUG(flag_true,&#32;__VA_ARGS__);&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;else&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;D_DEBUG(flag_false,&#32;__VA_ARGS__);&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0)
+</programlisting>
+<para>Special conditional debug so we can pass different flags to base routine based on a condition. With V2, things like cond ? flag1 : flag2 don&apos;t work natively. </para>
+<para>
+Definition at line 148 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga869e59b6e4ae1fce54090624dd414b4a"/>    <section>
+    <title>D_FOREACH_GURT_DB</title>
+<indexterm><primary>D_FOREACH_GURT_DB</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_FOREACH_GURT_DB</secondary></indexterm>
+<para><computeroutput>#define D_FOREACH_GURT_DB( ACTION,  arg)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DB_ALL,&#32;&#32;&#32;all,&#32;&#32;&#32;all,&#32;&#32;&#32;0,&#32;arg)&#32;&#32;\\
+&#32;&#32;&#32;&#32;ACTION(DB_ANY,&#32;&#32;&#32;any,&#32;&#32;&#32;any,&#32;&#32;&#32;0,&#32;arg)&#32;&#32;\&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DB_TRACE,&#32;trace,&#32;trace,&#32;0,&#32;arg)&#32;&#32;\&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DB_MEM,&#32;&#32;&#32;mem,&#32;&#32;&#32;mem,&#32;&#32;&#32;0,&#32;arg)&#32;&#32;\&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DB_NET,&#32;&#32;&#32;net,&#32;&#32;&#32;net,&#32;&#32;&#32;0,&#32;arg)&#32;&#32;\&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DB_IO,&#32;&#32;&#32;&#32;io,&#32;&#32;&#32;&#32;io,&#32;&#32;&#32;&#32;0,&#32;arg)&#32;&#32;\&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(DB_TEST,&#32;&#32;test,&#32;&#32;test,&#32;&#32;0,&#32;arg)
+</programlisting>
+<para>Arguments to priority bit macros are flag Variable name of the priority bit flag s_name Short name of the flag l_name Long name of the flag default_mask Should always be 0 for debug bits arg Argument passed along. Use D_NOOP when not required</para>
+
+<para><note><title>Note</title>
+
+<para>DB_ALL is special in that it sets all bits in the bitfield. If one wants to always log, when any debug is enabled, use DB_ALL instead of DB_ANY. </para>
+</note>
+</para>
+<para>
+Definition at line 44 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga155cd20e6aabb6568660e478bc4f0951"/>    <section>
+    <title>D_FOREACH_GURT_FAC</title>
+<indexterm><primary>D_FOREACH_GURT_FAC</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_FOREACH_GURT_FAC</secondary></indexterm>
+<para><computeroutput>#define D_FOREACH_GURT_FAC( ACTION,  arg)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;ACTION(misc,&#32;misc,&#32;arg)&#32;&#32;<emphasis role="comment">/*&#32;misc&#32;debug&#32;messages&#32;*/</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(mem,&#32;&#32;mem,&#32;&#32;arg)&#32;&#32;<emphasis role="comment">/*&#32;memory&#32;debug&#32;messages&#32;*/</emphasis>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(swim,&#32;swim,&#32;arg)&#32;&#32;<emphasis role="comment">/*&#32;swim&#32;debug&#32;messages&#32;(move&#32;?)&#32;*/</emphasis>&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(fi,&#32;&#32;&#32;fi,&#32;&#32;&#32;arg)&#32;&#32;<emphasis role="comment">/*&#32;fault&#32;injection&#32;debug&#32;messages&#32;*/</emphasis>&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;ACTION(telem,&#32;telem,&#32;arg)&#32;&#32;<emphasis role="comment">/*&#32;telemetry&#32;debug&#32;messages&#32;*/</emphasis>
+</programlisting><para>
+Definition at line 26 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga3de1e19de6f3366e84e6958ba93f548d"/>    <section>
+    <title>D_INFO</title>
+<indexterm><primary>D_INFO</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_INFO</secondary></indexterm>
+<para><computeroutput>#define D_INFO( fmt,  ...)   D_DEBUG(DLOG_INFO, fmt, ## __VA_ARGS__)</computeroutput></para>
+<para>Helper macros to conditionally output logs conditionally based on the message priority and the current log level. See D_DEBUG and D_TRACE_DEBUG </para>
+<para>
+Definition at line 173 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga67fa2da7706bd999dd29a67e3cfcd342"/>    <section>
+    <title>D_LOG_DECLARE_DB</title>
+<indexterm><primary>D_LOG_DECLARE_DB</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_DECLARE_DB</secondary></indexterm>
+<para><computeroutput>#define D_LOG_DECLARE_DB( flag,  s_name,  l_name,  mask,  arg)   extern <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link>	flag;</computeroutput></para>
+<para>Declare an extern for a debug flag variable</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>flag</entry>
+                                <entry>
+<para>The name of the variable used to store the value of the debug bit. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>s_name</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>l_name</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>mask</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>arg</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 88 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga0f3676a71d77491bb50368fa74bc4b78"/>    <section>
+    <title>D_LOG_DECLARE_FAC</title>
+<indexterm><primary>D_LOG_DECLARE_FAC</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_DECLARE_FAC</secondary></indexterm>
+<para><computeroutput>#define D_LOG_DECLARE_FAC( s_name,  l_name,  user_dbg_bits)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keyword">extern</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;DD_FAC_DECL(s_name);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;_D_LOG_DECLARE_CACHE(s_name,&#32;user_dbg_bits)
+</programlisting>
+<para>Declare an extern to global facility variable</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>s_name</entry>
+                                <entry>
+<para>Short name for the facility </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>l_name</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>user_dbg_bits</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 214 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gac277ff0808c7a86a9e71b9b0286182ad"/>    <section>
+    <title>D_LOG_DEREGISTER_DB</title>
+<indexterm><primary>D_LOG_DEREGISTER_DB</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_DEREGISTER_DB</secondary></indexterm>
+<para><computeroutput>#define D_LOG_DEREGISTER_DB( db_foreach)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;({&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int&#32;__rc&#32;=&#32;0;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;do&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;db_foreach(<link linkend="_group___g_u_r_t___d_e_b_u_g_1gab549e77c27363fa61626cf6135cac79a">_D_LOG_DEALLOCATE_DBG_BIT</link>,&#32;__rc)&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__rc;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;})
+</programlisting>
+<para>Deregister log facilities at runtime</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>db_foreach</entry>
+                                <entry>
+<para>Optional debug bit foreach</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, error otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line 148 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gae294b2c3a7708ffe721ebd91863a1fe2"/>    <section>
+    <title>D_LOG_ENABLED</title>
+<indexterm><primary>D_LOG_ENABLED</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_ENABLED</secondary></indexterm>
+<para><computeroutput>#define D_LOG_ENABLED( flag)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;({&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;_D_DEBUG(D_NOOP,&#32;flag);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__builtin_expect(DD_FLAG(flag,&#32;D_LOGFAC),&#32;0);&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;})
+</programlisting><para>
+Definition at line 111 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gaa927bd651c82b5aa0be4ad146af55b00"/>    <section>
+    <title>D_LOG_FILE_ENV</title>
+<indexterm><primary>D_LOG_FILE_ENV</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_FILE_ENV</secondary></indexterm>
+<para><computeroutput>#define D_LOG_FILE_ENV   &quot;D_LOG_FILE&quot;</computeroutput></para>
+<para>Env to specify log file </para>
+<para>
+Definition at line 47 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga00080c56e5be8aa03fdf75221062c79a"/>    <section>
+    <title>D_LOG_INSTANTIATE_DB</title>
+<indexterm><primary>D_LOG_INSTANTIATE_DB</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_INSTANTIATE_DB</secondary></indexterm>
+<para><computeroutput>#define D_LOG_INSTANTIATE_DB( flag,  s_name,  l_name,  mask,  arg)   <link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link>	flag;</computeroutput></para>
+<para>Instantiate a debug flag variable</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>flag</entry>
+                                <entry>
+<para>The name of the variable used to store the value of the debug bit. </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>s_name</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>l_name</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>mask</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>arg</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 100 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gae08f205c2732d8d497ab542698faa63f"/>    <section>
+    <title>D_LOG_INSTANTIATE_FAC</title>
+<indexterm><primary>D_LOG_INSTANTIATE_FAC</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_INSTANTIATE_FAC</secondary></indexterm>
+<para><computeroutput>#define D_LOG_INSTANTIATE_FAC( s_name,  l_name,  user_dbg_bits)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;DD_FAC_DECL(s_name);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;_D_LOG_INSTANTIATE_CACHE(s_name,&#32;user_dbg_bits)
+</programlisting>
+<para>Declare a global facility variable</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>s_name</entry>
+                                <entry>
+<para>Short name for the facility </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>l_name</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>user_dbg_bits</entry>
+                                <entry>
+<para>Unused </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+<para>
+Definition at line 224 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gae955086fa11207bb434e9ccf15708b5d"/>    <section>
+    <title>D_LOG_MASK_ENV</title>
+<indexterm><primary>D_LOG_MASK_ENV</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_MASK_ENV</secondary></indexterm>
+<para><computeroutput>#define D_LOG_MASK_ENV   &quot;D_LOG_MASK&quot;</computeroutput></para>
+<para>Env to specify log mask Env to specify log file pid append to filename </para>
+<para>
+Definition at line 49 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga772710ffa0b7a2b90b66129297183583"/>    <section>
+    <title>D_LOG_REGISTER_DB</title>
+<indexterm><primary>D_LOG_REGISTER_DB</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_REGISTER_DB</secondary></indexterm>
+<para><computeroutput>#define D_LOG_REGISTER_DB( db_foreach)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;({&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int&#32;__rc&#32;=&#32;0;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;do&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;db_foreach(<link linkend="_group___g_u_r_t___d_e_b_u_g_1ga86b7e19fbea4c8ab4433342f23762cbd">_D_LOG_ALLOCATE_DBG_BIT</link>,&#32;__rc)&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__rc;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;})
+</programlisting>
+<para>Register log facilities at runtime</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>db_foreach</entry>
+                                <entry>
+<para>Optional debug bit foreach</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, error otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line 133 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gac27c735e53245cdfea75e688e52b7720"/>    <section>
+    <title>D_LOG_REGISTER_FAC</title>
+<indexterm><primary>D_LOG_REGISTER_FAC</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_REGISTER_FAC</secondary></indexterm>
+<para><computeroutput>#define D_LOG_REGISTER_FAC( fac_foreach)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;({&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;int&#32;__rc&#32;=&#32;0;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;do&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fac_foreach(<link linkend="_group___g_u_r_t___d_e_b_u_g_1gaa03605abc5766a6f99b1a2815cd0df83">_D_LOG_ALLOCATE_LOG_FACILITY</link>,&#32;__rc)&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__rc;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;})
+</programlisting>
+<para>Register log facilities at runtime</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>fac_foreach</entry>
+                                <entry>
+<para>The foreach to declare log facilities</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, error otherwise </para>
+</formalpara>
+</para>
+<para>
+Definition at line 247 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga78c69d29b0174fd1f0279ed04a1e6453"/>    <section>
+    <title>D_LOG_SIZE_ENV</title>
+<indexterm><primary>D_LOG_SIZE_ENV</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_SIZE_ENV</secondary></indexterm>
+<para><computeroutput>#define D_LOG_SIZE_ENV   &quot;D_LOG_SIZE&quot;</computeroutput></para>
+<para>Env to specify log max file size </para>
+<para>
+Definition at line 48 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gaf25488753d57c59c40e897377bc50bd5"/>    <section>
+    <title>D_LOG_TRUNCATE_ENV</title>
+<indexterm><primary>D_LOG_TRUNCATE_ENV</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_LOG_TRUNCATE_ENV</secondary></indexterm>
+<para><computeroutput>#define D_LOG_TRUNCATE_ENV   &quot;D_LOG_TRUNCATE&quot;</computeroutput></para>
+<para>Env to specify stderr merge with logfile </para>
+<para>
+Definition at line 54 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gafa255bfc99d5f4edefd4d70ff8234308"/>    <section>
+    <title>D_PRINT</title>
+<indexterm><primary>D_PRINT</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_PRINT</secondary></indexterm>
+<para><computeroutput>#define D_PRINT( fmt,  ...)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fprintf(stdout,&#32;fmt,&#32;##&#32;__VA_ARGS__);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stdout);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0)
+</programlisting>
+<para>D_PRINT can be used for output to stdout with or without clog being enabled </para>
+<para>
+Definition at line 278 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gad3156ab43480ad5cc83b1b7caaa0a77c"/>    <section>
+    <title>D_PRINT_ERR</title>
+<indexterm><primary>D_PRINT_ERR</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_PRINT_ERR</secondary></indexterm>
+<para><computeroutput>#define D_PRINT_ERR( fmt,  ...)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;<emphasis role="keywordflow">do</emphasis>&#32;{&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fprintf(stderr,&#32;<emphasis role="stringliteral">&quot;%s:%d:%s()&#32;&quot;</emphasis>&#32;fmt,&#32;__FILE__,&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;__LINE__,&#32;__func__,&#32;##&#32;__VA_ARGS__);&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;fflush(stderr);&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;}&#32;<emphasis role="keywordflow">while</emphasis>&#32;(0)
+</programlisting>
+<para>D_PRINT_ERR must be used for any error logging before clog is enabled or after it is disabled </para>
+<para>
+Definition at line 209 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1gac562f9b6c3975d504799005351a517e0"/>    <section>
+    <title>D_TRACE_ROOT</title>
+<indexterm><primary>D_TRACE_ROOT</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_TRACE_ROOT</secondary></indexterm>
+<para><computeroutput>#define D_TRACE_ROOT( flag,  ptr,  type)   D_TRACE_DEBUG(flag, ptr, &quot;Registered new &apos;%s&apos; as root\n&quot;, type)</computeroutput></para>
+<para>Register a root with type </para>
+<para>
+Definition at line 166 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga9b5e7dc3d9cec9c76cdcfa89a36cebaa"/>    <section>
+    <title>D_TRACE_UP</title>
+<indexterm><primary>D_TRACE_UP</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>D_TRACE_UP</secondary></indexterm>
+<para><computeroutput>#define D_TRACE_UP( flag,  ptr,  parent,  type)</computeroutput></para><emphasis role="strong">Value:</emphasis><programlisting>&#32;&#32;&#32;&#32;D_TRACE_DEBUG(flag,&#32;ptr,&#32;<emphasis role="stringliteral">&quot;Registered&#32;new&#32;&apos;%s&apos;&#32;from&#32;%p\n&quot;</emphasis>,&#32;&#32;&#32;\
+&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;type,&#32;parent)
+</programlisting><para>
+Definition at line 157 of file debug.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga8c400f007ba79c70c4a52bf7f4fe5f08"/>    <section>
+    <title>DD_CONCAT_CACHE</title>
+<indexterm><primary>DD_CONCAT_CACHE</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>DD_CONCAT_CACHE</secondary></indexterm>
+<para><computeroutput>#define DD_CONCAT_CACHE( x,  y)   x ##_cache</computeroutput></para>
+<para>A few internal macros for argument manipulation </para>
+<para>
+Definition at line 61 of file debug_setup.h.</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga14da18229749c4a361e005d91596bcf2"/>    <section>
+    <title>DD_FAC</title>
+<indexterm><primary>DD_FAC</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>DD_FAC</secondary></indexterm>
+<para><computeroutput>#define DD_FAC   DD_GURT_FAC</computeroutput></para>
+<para>User definable facility name to variable name macro </para>
+<para>
+Definition at line 22 of file debug_setup.h.</para>
+</section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga270b23297cede1b573472122d9f65610"/>    <section>
+    <title>d_log_getdbgbit()</title>
+<indexterm><primary>d_log_getdbgbit</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>d_log_getdbgbit</secondary></indexterm>
+<para><computeroutput>int d_log_getdbgbit (<link linkend="_group___g_u_r_t___l_o_g_1ga7215793a4424633a9d70dcd46d642c42">d_dbug_t</link> * dbgbit, char * bitname)</computeroutput></para>
+<para>Get allocated debug bit for the given debug bit name.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>bitname</entry>
+                                <entry>
+<para>short name for given bit </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>out                                </entry>                                <entry>dbgbit</entry>
+                                <entry>
+<para>allocated bit mask</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, -1 on error </para>
+</formalpara>
+</para>
+    </section><anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga58863a33533091bd43eff9126d1a965d"/>    <section>
+    <title>d_register_alt_assert()</title>
+<indexterm><primary>d_register_alt_assert</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>d_register_alt_assert</secondary></indexterm>
+<para><computeroutput>int d_register_alt_assert (void(*)(const int, const char *, const char *, const int) alt_assert)</computeroutput></para>
+<para>Set an alternative assert function. This is useful in unit testing when you may want to replace assert() with cmocka&apos;s mock_assert() so that you can test if a function throws an assertion with cmocka&apos;s expect_assert_failure().</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>*alt_assert</entry>
+                                <entry>
+<para>Function pointer to the alternative assert</para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>0 on success, -DER_INVAL on error </para>
+</formalpara>
+</para>
+</section>
+</section>
+<section>
+<title>Variable Documentation</title>
+<anchor xml:id="_group___g_u_r_t___d_e_b_u_g_1ga5ca1b7baf150f674530f3d9996eb66fc"/>    <section>
+    <title>d_alt_assert</title>
+<indexterm><primary>d_alt_assert</primary><secondary>Gurt Debug</secondary></indexterm>
+<indexterm><primary>Gurt Debug</primary><secondary>d_alt_assert</secondary></indexterm>
+<para><computeroutput>void(* d_alt_assert) (const int, const char *, const char *, const int)</computeroutput></para>
+<para>d_alt_assert is a pointer to an alternative assert function, meaning an alternative to the C library assert(). It is declared in gurt/debug.c. See the example in D_ASSERT for how this is called from a macro.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters                    </title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="3" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+                                <entry>in                                </entry>                                <entry>result</entry>
+                                <entry>
+<para>The expression to assert </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>expression</entry>
+                                <entry>
+<para>The expression as string </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>file</entry>
+                                <entry>
+<para>The file which calls the alternative assert </para>
+</entry>
+                            </row>
+                            <row>
+                                <entry>in                                </entry>                                <entry>line</entry>
+                                <entry>
+<para>The line which calls the alternative assert </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+</section>

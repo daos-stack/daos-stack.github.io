@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structdaos__compressor">
+<title>daos_compressor Struct Reference</title>
+<indexterm><primary>daos_compressor</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_structcompress__ft">compress_ft</link> * <link linkend="_structdaos__compressor_1a382c7524a6f6add7a979b15a33d09219">dc_algo</link></para>
+</listitem>
+            <listitem><para>void * <link linkend="_structdaos__compressor_1a8b9fa6ae3f86d48e81c9f13a3bc32f52">dc_ctx</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 55 of file compression.h.</para>
+</section>
+<section>
+<title>Field Documentation</title>
+<anchor xml:id="_structdaos__compressor_1a382c7524a6f6add7a979b15a33d09219"/>    <section>
+    <title>dc_algo</title>
+<indexterm><primary>dc_algo</primary><secondary>daos_compressor</secondary></indexterm>
+<indexterm><primary>daos_compressor</primary><secondary>dc_algo</secondary></indexterm>
+<para><computeroutput>struct <link linkend="_structcompress__ft">compress_ft</link>* dc_algo</computeroutput></para>
+<para>Pointer to the function table to be used for compression </para>
+<para>
+Definition at line 57 of file compression.h.</para>
+    </section><anchor xml:id="_structdaos__compressor_1a8b9fa6ae3f86d48e81c9f13a3bc32f52"/>    <section>
+    <title>dc_ctx</title>
+<indexterm><primary>dc_ctx</primary><secondary>daos_compressor</secondary></indexterm>
+<indexterm><primary>daos_compressor</primary><secondary>dc_ctx</secondary></indexterm>
+<para><computeroutput>void* dc_ctx</computeroutput></para>
+<para>Pointer to function table specific contexts </para>
+<para>
+Definition at line 59 of file compression.h.</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/compression.h</section>
+</section>

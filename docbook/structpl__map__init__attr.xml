@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_structpl__map__init__attr">
+<title>pl_map_init_attr Struct Reference</title>
+<indexterm><primary>pl_map_init_attr</primary></indexterm>
+<simplesect>
+    <title>Data Fields    </title>
+        <itemizedlist>
+            <listitem><para><anchor xml:id="_structpl__map__init__attr_1a4eaedb20a3e3b3e25735e8f3d3e7e22a"/>pl_map_type_t <emphasis role="strong">ia_type</emphasis></para>
+</listitem>
+            <listitem><para><anchor xml:id="_structpl__map__init__attr_1ae7275fdc244bc4b6865b177ffccf656d"/>union {</para>
+        <itemizedlist>
+            <listitem><para>   struct <emphasis role="strong">pl_ring_init_attr</emphasis> {</para>
+        <itemizedlist>
+            <listitem><para>      pool_comp_type_t <emphasis role="strong">domain</emphasis></para>
+</listitem>
+            <listitem><para>      unsigned int <emphasis role="strong">ring_nr</emphasis></para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>   } <emphasis role="strong">ia_ring</emphasis></para>
+</listitem>
+            <listitem><para>   struct <emphasis role="strong">pl_jump_map_init_attr</emphasis> {</para>
+        <itemizedlist>
+            <listitem><para>      pool_comp_type_t <emphasis role="strong">domain</emphasis></para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>   } <emphasis role="strong">ia_jump_map</emphasis></para>
+</listitem>
+        </itemizedlist>
+</listitem>
+            <listitem><para>}; </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+<para>
+Definition at line 33 of file placement.h.</para>
+<para>
+The documentation for this struct was generated from the following file:</para>
+src/include/daos/placement.h</section>
+</section>
