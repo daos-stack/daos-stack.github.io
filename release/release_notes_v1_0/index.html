@@ -377,7 +377,7 @@ code, kbd, pre {
             <li>HDF5 with Async</li>
             <li>POSIX I/O with Conditional Update Support</li>
             <li>POSIX Data Mover</li>
-            <li>SPARK</li>
+            <li>SPARK Integration</li>
           </ul>
           <p>Visit the <a href="https://daos-stack.github.io/">DAOS github.io</a> page for more
             information. All DAOS project source code is maintained in the <a href="https://github.com/daos-stack/daos">https://github.com/daos-stack/daos</a> repository.
@@ -403,10 +403,10 @@ code, kbd, pre {
             (e.g., ISA-L, SPDK, PMDK, and DPDK) can take advantage of Intel SSE and AVX
             extensions.</p>
           <h3 id="network-requirements">Network Requirements<a class="headerlink" href="#network-requirements" title="Permanent link">&para;</a></h3>
-          <p>The DAOS network layer relies on libfabrics and supports OFI providers for
+          <p>The DAOS network layer relies on libfabric and supports OFI providers for
             Ethernet/sockets, InfiniBand/verbs. An RDMA-capable fabric is preferred for
             better performance. DAOS can support multiple rails by binding different
-            instances of the DAOS server to individual network cards.</p>
+          instances of the DAOS server to individual network cards.</p>
           <p>The DAOS control plane provides methods for administering and managing the
             DAOS servers using a secure socket layer interface. An additional out-of-band
             network connecting the nodes in the DAOS service cluster is required for DAOS
@@ -424,9 +424,9 @@ code, kbd, pre {
             supported by DAOS. Both NVMe 3D-NAND and Optane SSDs are supported.
             NVMe-oF devices should theoretically work with the user-space storage stack
             but have not been tested.</p>
-          <p>A recommended  ratio of 6% SCM to SSD capacity will guarantee that DAOS has
+          <p>A recommended  ratio of 6% SCM to SSD capacity will generally insure that DAOS has
             enough space in SCM to store its internal metadata (e.g., pool metadata,
-            SSD block allocation tracking).</p>
+          SSD block allocation tracking).</p>
           <p>For testing purposes, SCM can be emulated with DRAM by mounting a tmpfs
             filesystem, and NVMe SSDs can be also emulated with DRAM or a loopback
             file. Any data written using a tmpfs will not be persistent across a reboot.</p>
@@ -442,10 +442,9 @@ code, kbd, pre {
               socket and TCP providers.  Network testing is on-going and none of
               the above providers should be considered fully tested at this time.</li>
             <li>All DAOS 1.2 supported functionality has been tested with an emphasis on use
-              cases with positive outcomes error cases (e.g., DAOS server failure) have
-              limited test cycles at this time.</li>
-            <li>Maximum scale-out of DAOS servers during test runs was 128.
-              Maximum scale-out of DAOS clients was 2048.</li>
+              cases with positive outcomes. Error cases (e.g., DAOS server failure) have
+            limited test cycles at this time.</li>
+
             <li>Soak testing with an emphasis on I/O jobs in combination with basic
               administrative actions has been run and found to be error free for periods up
               to 48 hours. As with functional testing the focus has been on positive path
@@ -453,7 +452,7 @@ code, kbd, pre {
           </ul>
           <h2 id="version-12-major-features">Version 1.2 major features<a class="headerlink" href="#version-12-major-features" title="Permanent link">&para;</a></h2>
           <h3 id="end-to-end-data-integrity">End-to-end Data Integrity<a class="headerlink" href="#end-to-end-data-integrity" title="Permanent link">&para;</a></h3>
-          <p>For DAOS, end-to-end means that the client will calculate and verify checksums, providing protection for data through the entire I/O stack. During a write or update, the DAOS Client library (libdaos.so) calculates a checksum and appends it to the RPC message before transferred over the network. Depending on the configuration, the DAOS Server may or may not calculate checksums to verify the data on receipt. On a fetch, the DAOS Server will send a known good checksum with the requested data to the DAOS Client, which will calculate checksums on the data received and verify.</p>
+          <p>For DAOS, end-to-end means that the client will calculate and verify checksums, providing protection for data through the entire I/O stack. During a write or update, the DAOS Client library (libdaos.so) calculates a checksum and appends it to the RPC message before being transferred over the network. Depending on the configuration, the DAOS Server may or may not calculate checksums to verify the data on receipt. On a fetch, the DAOS Server will send a known good checksum with the requested data to the DAOS Client, which will calculate checksums on the data received and verify.</p>
           <p><a href="https://daos-stack.github.io/overview/data_integrity/">More information</a></p>
           <h3 id="per-container-acl">Per Container ACL<a class="headerlink" href="#per-container-acl" title="Permanent link">&para;</a></h3>
           <p>Client user and group access for containers is controlled by Access Control Lists (ACLs). Access-controlled container accesses include:</p>
@@ -491,12 +490,12 @@ code, kbd, pre {
           </ul>
           <p><a href="https://daos-stack.github.io/admin/administration/#nvme-ssd-eviction-and-hotplug">More information</a></p>
           <h3 id="replication-and-self-healing">Replication and Self Healing<a class="headerlink" href="#replication-and-self-healing" title="Permanent link">&para;</a></h3>
-          <p>In DAOS, if the data is replicated with multiple copies on different targets, once one of the targets fail, the data on it will be rebuilt on the other targets. This reduces the data redundancy that would be impacted by the target failure. </p>
+          <p>In DAOS, if the data is replicated with multiple copies on different targets, and one of the targets fail, the data on it will be rebuilt on the other targets. This reduces the data redundancy that would be impacted by the target failure. </p>
           <p><a href="https://daos-stack.github.io/admin/pool_operations/#target-exclusion-and-self-healing">More information</a></p>
           <h3 id="erasure-code-preview">Erasure Code (Preview)<a class="headerlink" href="#erasure-code-preview" title="Permanent link">&para;</a></h3>
           <p>This release implements Reed Solomon based EC for data protection of DAOS, it supports EC data recovery for storage target failure, and data migration while extending the storage pool. Main features of DAOS EC include:</p>
           <ul>
-            <li>Reed-Solomon based EC support for I/O. DAOS has two value types: array value for large streaming I/O; single value for Key-value store. DAOS EC supports both array value and single value. An array value always has fixed stripe size and cell size, whereas a single value has dynamic stripe size to provide storage efficiency of application data with arbitrary size. This feature also provides a set of predefined EC object classes as its user interface. The user can choose the appropriate object class for their data based on their requirements and restrictions. For example, capacity and bandwidth overhead, fault tolerance level, etc.</li>
+            <li>Reed-Solomon based EC support for I/O. DAOS has two value types: array value for large streaming I/O; single value for Key-value store. DAOS EC supports both array value and single value. An array value always has fixed stripe size and cell size, whereas a single value has dynamic stripe size to provide storage efficiency of application data with arbitrary size. The EC feature is activated by utilizing one of the predefined EC object classes. The user can choose the appropriate object class for their data based on their requirements and restrictions. For example, capacity and bandwidth overhead, fault tolerance level, etc.</li>
             <li>Versioned data aggregation for EC protected object. The data model of DAOS is multi-versioned: a write operation is non-destructive, and it is stored as a new version if a write overlaps with old data. The DAOS EC aggregation service can merge versioned data protected by EC, re-encode aggregated data, and reclaim space by removing old data versions.</li>
             <li>Data recovery for EC protected object.  DAOS server failure may result in loss of access to part of the EC protected data. If number of failures is equal or less than the EC redundancy factor, DAOS client can retrieve a quorum of surviving cells and reconstruct the inaccessible data for application that is trying to read, whereas DAOS server can reconstruct lost data in the background and recover data redundancy to the original level. </li>
           </ul>
