@@ -51,14 +51,14 @@ code, kbd, pre {
 <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
 <a href="#daos-version-12-release-notes" tabindex="0" class="md-skip"> Skip to content </a>
 <header class="md-header" data-md-component="header">
-<div class="md-flex">
-  <div><img src="../../assets/images/daos_logo_wh.png" width="86" height="61" alt=""/></div>
-  <div class="md-flex__cell md-flex__cell--shrink">
-    <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
-  </div>
-  <div class="md-flex__cell md-flex__cell--stretch">
-    <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title"> <span class="md-header-nav__topic"> DAOS v1.2 </span> <span class="md-header-nav__topic"> Support Matrix </span> </div>
-  </div>
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex"><img src="../../v1.0/assets/images/daos_logo_wh.png" width="80" height="61" alt=""/>
+      <div class="md-flex__cell md-flex__cell--shrink"> <a href="http://daos.io" title="DAOS v1.2" aria-label="DAOS v1.2" class="md-header-nav__button md-logo"> </a> </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title"> <span class="md-header-nav__topic"> DAOS v1.2 </span> <span class="md-header-nav__topic"> DAOS Version 1.2 Release Notes </span> </div>
       </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
@@ -103,7 +103,7 @@ code, kbd, pre {
         <li class="md-tabs__item"> <a href="../../overview/terminology/" class="md-tabs__link"> Architecture Overview </a> </li>
         <li class="md-tabs__item"> <a href="../../admin/hardware/" class="md-tabs__link"> Administration Guide </a> </li>
         <li class="md-tabs__item"> <a href="../../user/container/" class="md-tabs__link"> User Guide </a> </li>
-        <li class="md-tabs__item"> <a href="../releaseNote_v1_0.md" class="md-tabs__link"> Releases </a> </li>
+        <li class="md-tabs__item"> <a href="../releaseNote_v1_2.md" class="md-tabs__link"> Releases </a> </li>
         <li class="md-tabs__item"> <a href="../../dev/development/" class="md-tabs__link"> Developer Zone </a> </li>
       </ul>
     </div>
@@ -187,7 +187,8 @@ code, kbd, pre {
                   <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
                     <label class="md-nav__title" for="nav-5"> Releases </label>
                     <ul class="md-nav__list" data-md-scrollfix>
-                      <li class="md-nav__item"> <a href="../releaseNote_v1_0.md" title="Release Notes" class="md-nav__link"> Release Notes </a> </li>
+                      <li class="md-nav__item"> <a href="../releaseNote_v1_2.md" title="Release Notes" class="md-nav__link"> Release Notes </a> </li>
+                      <li class="md-nav__item"> <a href="../support_matrix/" title="Support Matrix" class="md-nav__link"> Support Matrix </a> </li>
                     </ul>
                   </nav>
                 </li>
@@ -530,6 +531,9 @@ code, kbd, pre {
   </footer>
 </div>
 <script src="../../assets/javascripts/application.c33a9706.js"></script> 
-<script>app.initialize({version:"1.1.2",url:{base:"../.."}})</script>
+<script src="../../js/jquery-3.4.1.min.js"></script> 
+<script src="../../js/popper.min.js"></script> 
+<script src="../../js/bootstrap-4.4.1.js"></script> 
+<script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
 </body>
 </html>
