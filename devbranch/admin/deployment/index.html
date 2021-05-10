@@ -42,7 +42,7 @@
     
     
       
-        <title>System Deployment - DAOS Development Branch</title>
+        <title>System Deployment - DAOS v2.0 - dev</title>
       
     
     
@@ -68,10 +68,7 @@
 <link href="../../css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
 <link href="../../assets/stylesheets/styles_1.css" rel="stylesheet" type="text/css">
 </head>
-  
-    
-    
-    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+<body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -91,16 +88,16 @@
     
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-       <div class="md-flex"><img src="../../assets/images/daos_logo_wh.png" width="80" height="61" alt=""/> 
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+  <nav class="md-header-nav md-grid"><div class="md-flex">
+  <div><img src="../../assets/images/daos_logo_wh.png" width="86" height="61" alt=""/></div>
+  <div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS Development Branch
+              DAOS v2.0 - dev
             </span>
             <span class="md-header-nav__topic">
               
@@ -232,7 +229,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
+        <a href="../../release/release_notes_v2_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -262,18 +259,15 @@
         
       
     </ul>
-  </div>
-</nav>
+  </div></nav>
    <section>
-      <div class="dropdown show">
-  <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-    <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
-  </div>
+    <div class="dropdown show">
+      <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
       </div>
-
+    </div>
   </section>
-  <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+  <main class="md-main" role="main"><div class="md-main__inner md-grid" data-md-component="container">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
@@ -281,12 +275,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS Development Branch" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v2.0 - dev" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS Development Branch
+    DAOS v2.0 - dev
   </label>
   
     <div class="md-nav__source">
@@ -992,8 +986,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
-      Release Notes v1.0
+    <a href="../../release/release_notes_v2_0/" title="Release Notes v2.0" class="md-nav__link">
+      Release Notes v2.0
     </a>
   </li>
 
@@ -1651,8 +1645,10 @@ be set to prevent unauthorized access to the keys and certificates.</p>
 - All valid agent certs in the DAOS system (in the client cert directory, see
   config file below)</p>
 <p>After the certificates have been securely distributed, the DAOS configuration files must be
-updated in order to enable authentication and secure communications. These examples assume
-that the configuration and certificate files have been installed under <code>/etc/daos</code>:</p>
+updated in order to enable authentication and secure communications. that the configuration files have been installed under <code>/etc/daos</code> and certificate files under
+<code>/etc/daos/certs</code> and <code>/etc/daos/certs/clients</code>. The <code>certs</code> directory should have <code>root</code> ownership
+and <code>755</code> permissions and the <code>clients</code> directory should have <code>daos_server</code> ownernship and <code>700</code>
+permissions:
 <pre><code class="yaml"># /etc/daos/daos_server.yml (servers)
 
 transport_config:
@@ -2001,43 +1997,31 @@ populated as follows:</p>
 port: 10001
 access_points: [&quot;wolf-71&quot;] # &lt;----- updated
 &lt;snip&gt;
-servers:
+engines:
 -
-  targets: 8                # number of I/O service threads per-engine
-  first_core: 0             # offset of the first core for service threads
-  nr_xs_helpers: 2          # count of I/O offload threads per target
-  fabric_iface: eth0        # map to OFI_INTERFACE=eth0
-  fabric_iface_port: 31416  # map to OFI_PORT=31416
-  log_mask: ERR             # map to D_LOG_MASK=ERR
-  log_file: /tmp/server.log # map to D_LOG_FILE=/tmp/server.log
-  env_vars:                 # influence DAOS I/O Engine behavior by setting env variables
-  - DAOS_MD_CAP=1024
-  - CRT_CTX_SHARE_ADDR=0
-  - CRT_TIMEOUT=30
-  - FI_SOCKETS_MAX_CONN_RETRY=1
-  - FI_SOCKETS_CONN_TIMEOUT=2000
-  scm_mount: /mnt/daos  # map to -s /mnt/daos
-  scm_class: dcpm
-  scm_list: [/dev/pmem0] # &lt;----- updated
-  bdev_class: nvme
-  bdev_list: [&quot;0000:87:00.0&quot;, &quot;0000:81:00.0&quot;]  # &lt;----- updated
+  targets: 16                 # number of I/O service threads per-engine
+  first_core: 0               # offset of the first core to bind service threads
+  nr_xs_helpers: 0            # count of I/O offload threads
+  fabric_iface: eth0          # network interface to use for this engine
+  fabric_iface_port: 31416    # network port
+  log_mask: ERR               # debug level to start with the engine with
+  log_file: /tmp/server1.log  # where to store engine logs
+  scm_mount: /mnt/daos        # where to mount SCM
+  scm_class: dcpm             # type of SCM
+  scm_list: [/dev/pmem0]      # &lt;----- updated
+  bdev_class: nvme            # type of block device
+  bdev_list: [&quot;0000:87:00.0&quot;] # &lt;----- updated
 -
-  targets: 8                # number of I/O service threads per-engine
-  first_core: 0             # offset of the first core for service threads
-  nr_xs_helpers: 2          # count of I/O offload threads per target
-  fabric_iface: eth0        # map to OFI_INTERFACE=eth0
-  fabric_iface_port: 31416  # map to OFI_PORT=31416
-  log_mask: ERR             # map to D_LOG_MASK=ERR
-  log_file: /tmp/server.log # map to D_LOG_FILE=/tmp/server.log
-  env_vars:                 # influence DAOS I/O Engine behavior by setting env variables
-  - DAOS_MD_CAP=1024
-  - CRT_CTX_SHARE_ADDR=0
-  - CRT_TIMEOUT=30
-  - FI_SOCKETS_MAX_CONN_RETRY=1
-  - FI_SOCKETS_CONN_TIMEOUT=2000
-  scm_mount: /mnt/daos  # map to -s /mnt/daos
+  targets: 16
+  first_core: 0
+  nr_xs_helpers: 0
+  fabric_iface: eth0
+  fabric_iface_port: 32416
+  log_mask: ERR
+  log_file: /tmp/server2.log
+  scm_mount: /mnt/daos
   scm_class: dcpm
-  scm_list: [/dev/pmem1] # &lt;----- updated
+  scm_list: [/dev/pmem1]       # &lt;----- updated
   bdev_class: nvme
   bdev_list: [&quot;0000:da:00.0&quot;]  # &lt;----- updated
 &lt;end&gt;
@@ -2458,11 +2442,12 @@ each storage node.</p>
   </div>
 </footer>
       
-    </div>
-<script src="../../assets/javascripts/application.c33a9706.js"></script> 
-<script src="../../js/jquery-3.4.1.min.js"></script> 
-<script src="../../js/popper.min.js"></script> 
-<script src="../../js/bootstrap-4.4.1.js"></script> 
-<script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
+</div>
+<script src="../../assets/javascripts/application.c33a9706.js"></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/popper.min.js"></script>
+<script src="../../js/bootstrap-4.4.1.js"></script>
+<script>app.initialize({version:"1.1.2",url:{base:"."}})</script>
 </body>
+
 </html>

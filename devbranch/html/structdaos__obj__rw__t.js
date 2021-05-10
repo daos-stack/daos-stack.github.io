@@ -1,6 +1,5 @@
 var structdaos__obj__rw__t =
 [
-    [ "csum_iov", "structdaos__obj__rw__t.html#a4262a8cfb8380358cc8af00d85101b90", null ],
     [ "dkey", "structdaos__obj__rw__t.html#ab089b7883c4c375bdcdd7e4f7fada640", null ],
     [ "extra_arg", "structdaos__obj__rw__t.html#a6dea042256fcdbf3fd6e52be995678bd", null ],
     [ "extra_flags", "structdaos__obj__rw__t.html#aed6f76317adc329b4113cbaf41dd679f", null ],

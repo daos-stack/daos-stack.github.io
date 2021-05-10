@@ -42,7 +42,7 @@
     
     
       
-        <title>Performance Tuning - DAOS Development Branch</title>
+        <title>Performance Tuning - DAOS v2.0 - dev</title>
       
     
     
@@ -68,10 +68,7 @@
 <link href="../../css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
 <link href="../../assets/stylesheets/styles_1.css" rel="stylesheet" type="text/css">
 </head>
-  
-    
-    
-    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+<body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -91,17 +88,16 @@
     
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid">
-          <div class="md-flex"><img src="../../assets/images/daos_logo_wh.png" width="80" height="61" alt=""/> 
-
-      <div class="md-flex__cell md-flex__cell--shrink">
-        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+  <nav class="md-header-nav md-grid"><div class="md-flex">
+  <div><img src="../../assets/images/daos_logo_wh.png" width="86" height="61" alt=""/></div>
+  <div class="md-flex__cell md-flex__cell--shrink">
+<label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS Development Branch
+              DAOS v2.0 - dev
             </span>
             <span class="md-header-nav__topic">
               
@@ -233,7 +229,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
+        <a href="../../release/release_notes_v2_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -263,18 +259,15 @@
         
       
     </ul>
-  </div>
-</nav>
-  <section>
-      <div class="dropdown show">
-  <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-    <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
-  </div>
+  </div></nav>
+   <section>
+    <div class="dropdown show">
+      <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
       </div>
-
+    </div>
   </section>
-  <main class="md-main" role="main">
-        <div class="md-main__inner md-grid" data-md-component="container">
+  <main class="md-main" role="main"><div class="md-main__inner md-grid" data-md-component="container">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
@@ -282,12 +275,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS Development Branch" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v2.0 - dev" class="md-nav__button md-logo">
       
         <i class="md-icon"></i>
       
     </a>
-    DAOS Development Branch
+    DAOS v2.0 - dev
   </label>
   
     <div class="md-nav__source">
@@ -566,8 +559,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#getting-daos-cart-self_test" class="md-nav__link">
-    Getting DAOS CaRT self_test
+  <a href="#building-cart-self_test" class="md-nav__link">
+    Building CaRT self_test
   </a>
   
 </li>
@@ -817,8 +810,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
-      Release Notes v1.0
+    <a href="../../release/release_notes_v2_0/" title="Release Notes v2.0" class="md-nav__link">
+      Release Notes v2.0
     </a>
   </li>
 
@@ -989,8 +982,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#getting-daos-cart-self_test" class="md-nav__link">
-    Getting DAOS CaRT self_test
+  <a href="#building-cart-self_test" class="md-nav__link">
+    Building CaRT self_test
   </a>
   
 </li>
@@ -1094,7 +1087,7 @@ bulk transfers, multiple targets, and the following test scenarios:</p>
     many to many communication model.</p>
 </li>
 </ul>
-<h3 id="getting-daos-cart-self_test">Getting DAOS CaRT self_test<a class="headerlink" href="#getting-daos-cart-self_test" title="Permanent link">&para;</a></h3>
+<h3 id="building-cart-self_test">Building CaRT self_test<a class="headerlink" href="#building-cart-self_test" title="Permanent link">&para;</a></h3>
 <p>The CaRT <code>self_test</code> and its tests are delivered as part of the daos_client
 and daos_tests <a href="https://github.com/daos-stack/daos/blob/master/doc/admin/installation.md#distribution-packages" title="DAOS distribution packages">distribution packages</a>. It can also be built from scratch.</p>
 <pre><code class="bash">$ git clone --recurse-submodules https://github.com/daos-stack/daos.git
@@ -1194,11 +1187,11 @@ benchmarks.</p>
 <p>When using the IOR API=MPIIO, the ROMIO ADIO driver for DAOS can be used by
     providing the <code>daos://</code> prefix to the filename. This ADIO driver bypasses <code>dfuse</code>
     and directly invkes the <code>libdfs</code> calls to perform I/O to a DAOS POSIX container.
-    The DAOS-enabled MPIIO driver is available in the upstream MPICH repository 
+    The DAOS-enabled MPIIO driver is available in the upstream MPICH repository
     (MPICH 3.4.1 or higher).</p>
 </li>
 <li>
-<p>An HDF5 VOL connector for DAOS is under development. This maps the HDF5 data model 
+<p>An HDF5 VOL connector for DAOS is under development. This maps the HDF5 data model
     directly to the DAOS data model, and works in conjunction with DAOS containers of
     <code>--type=HDF5</code> (in contrast to DAOS container of <code>--type=POSIX</code> that are used for
     the other IOR APIs).</p>
@@ -1209,10 +1202,32 @@ benchmarks.</p>
 listed above support mdtest, except for the MPI-IO and HDF5 backends that were
 only designed to support IOR.</p>
 <h3 id="fio">FIO<a class="headerlink" href="#fio" title="Permanent link">&para;</a></h3>
+<p>A DAOS engine is integrated into FIO and available upstream.
+To build it, just run:</p>
+<pre><code class="bash">$ git clone http://git.kernel.dk/fio.git
+$ cd fio
+$ ./configure
+$ make install
+</code></pre>
+
+<p>If DAOS is installed via packages, it should be automatically detected.
+If not, please specific the path to the DAOS library and headers to configure
+as follows:</p>
+<pre><code>$ CFLAGS=&quot;-I/path/to/daos/install/include&quot; LDFLAGS=&quot;-L/path/to/daos/install/lib64&quot; ./configure
+</code></pre>
+
+<p>Once successfully build, once can run the default example:</p>
+<pre><code class="bash">$ export POOL= # your pool UUID
+$ export CONT= # your container UUID
+$ fio ./examples/dfs.fio
+</code></pre>
+
+<p>Please note that DAOS does not transfer data (i.e. zeros) over the network
+when reading a hole in a sparse POSIX file. Very high read bandwidth can
+thus be reported if fio reads unallocated extents in a file. It is thus
+a good practice to start fio with a first write phase.</p>
 <p>FIO can also be used to benchmark DAOS performance using dfuse and the
-interception library with all the POSIX based engines like sync and libaio. We
-do, however, provide a native DFS engine for FIO similar to what we do for
-IOR. That engine is available on GitHub: <a href="https://github.com/daos-stack/dfio">https://github.com/daos-stack/dfio</a></p>
+interception library with all the POSIX based engines like sync and libaio.</p>
 <h3 id="daos_perf">daos_perf<a class="headerlink" href="#daos_perf" title="Permanent link">&para;</a></h3>
 <p>Finally, DAOS provides a tool called <code>daos_perf</code> which allows benchmarking to the
 DAOS object API directly or to the internal VOS API, which bypasses the client
@@ -1343,12 +1358,12 @@ section.</p>
     </div>
   </div>
 </footer>
-      
-    </div>
-<script src="../../assets/javascripts/application.c33a9706.js"></script> 
-<script src="../../js/jquery-3.4.1.min.js"></script> 
-<script src="../../js/popper.min.js"></script> 
-<script src="../../js/bootstrap-4.4.1.js"></script> 
-<script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
+      </div>
+<script src="../../assets/javascripts/application.c33a9706.js"></script>
+<script src="../../js/jquery-3.4.1.min.js"></script>
+<script src="../../js/popper.min.js"></script>
+<script src="../../js/bootstrap-4.4.1.js"></script>
+<script>app.initialize({version:"1.1.2",url:{base:"."}})</script>
 </body>
+
 </html>
