@@ -65,7 +65,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
         <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
 <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
-<link href="../../css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+<link href="../../v1.0/css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
 <link href="../../assets/stylesheets/styles_1.css" rel="stylesheet" type="text/css">
 </head>
   
@@ -92,9 +92,9 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex">  <div><img src="../../assets/images/daos_logo_wh.png" width="86" height="61" alt=""/></div>
-<div class="md-flex__cell md-flex__cell--shrink">
+     <div class="md-flex"><img src="../../assets/images/daos_logo_wh.png" width="80" height="61" alt=""/>
+      <div class="md-flex__cell md-flex__cell--shrink"> <a href="http://daos.io" title="DAOS v.1.0" aria-label="DAOS v.1.0" class="md-header-nav__button md-logo"> </a> </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
@@ -233,7 +233,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/release_notes_v1_2/index.html" class="md-tabs__link">
+        <a href="../../release/release_notes_v1_2/" class="md-tabs__link">
           Releases
         </a>
       
@@ -263,14 +263,13 @@
         
       
     </ul>
-  </div>
-</nav> <section>
-      <div class="dropdown show">
-  <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-    <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item disabled" href="#">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
-  </div>
+  </div></nav>
+	 <section>
+    <div class="dropdown show">
+      <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item disabled" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
       </div>
-
+    </div>
   </section>
   <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -410,6 +409,18 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
+      Data Integrity
     </a>
   </li>
 
@@ -761,18 +772,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../datamover/" title="Data Mover" class="md-nav__link">
-      Data Mover
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -803,8 +802,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_2/index.html" title="Release Notes v1.0" class="md-nav__link">
-      Release Notes v1.0
+    <a href="../../release/release_notes_v1_2/" title="Release Notes v1.2" class="md-nav__link">
+      Release Notes v1.2
     </a>
   </li>
 
@@ -1048,9 +1047,9 @@
                 
                 
                 <h1 id="mpi-io-support">MPI-IO Support<a class="headerlink" href="#mpi-io-support" title="Permanent link">&para;</a></h1>
-<p>The Message Passing Interface (MPI) Standard, 
+<p>The Message Passing Interface (MPI) Standard,
 maintained by the <a href="https://www.mpi-forum.org/docs/">MPI Forum</a>,
-includes a chapter on MPI-IO. </p>
+includes a chapter on MPI-IO.</p>
 <p><a href="https://www.mcs.anl.gov/projects/romio/">ROMIO</a> is a well-known
 implementation of MPI-IO and is included in many MPI implementations.
 DAOS provides its own MPI-IO ROMIO ADIO driver.
@@ -1059,11 +1058,11 @@ https://github.com/pmodels/mpich/tree/main/src/mpi/romio/adio/ad_daos
 for details.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Starting with DAOS 1.1.3, the <code>--svc</code> parameter (number of service replicas) 
-is no longer needed, and the DAOS API has been changed accordingly.
+<p>Starting with DAOS 1.2, the <code>--svc</code> parameter (number of service replicas)
+is no longer needed, and the DAOS API has been changed accordingly
 Patches have been contributed to MPICH that detect the DAOS API version
 to gracefully handle this change, but those patches have not yet been
-picked up in the MPI releases below. For details check the latest commits 
+picked up in the MPI releases below. For details check the latest commits
 <a href="https://github.com/pmodels/mpich/commits/main?author=mchaarawi">here</a>.</p>
 </div>
 <h2 id="mpi-implementations-that-support-daos">MPI Implementations that support DAOS<a class="headerlink" href="#mpi-implementations-that-support-daos" title="Permanent link">&para;</a></h2>
@@ -1103,32 +1102,32 @@ An MPICH pull request is in process to remove the option from the MPICH
 <p>Set the <code>PATH</code> and <code>LD_LIBRARY_PATH</code> to where you want to build your client
 apps or libs that use MPI to the path of the installed MPICH.</p>
 <h3 id="intel-mpi">Intel MPI<a class="headerlink" href="#intel-mpi" title="Permanent link">&para;</a></h3>
-<p>The <a href="https://software.intel.com/content/www/us/en/develop/tools/mpi-library.html">Intel MPI Library</a> 
-includes DAOS support since the 
+<p>The <a href="https://software.intel.com/content/www/us/en/develop/tools/mpi-library.html">Intel MPI Library</a>
+includes DAOS support since the
 <a href="https://software.intel.com/content/www/us/en/develop/articles/intel-mpi-library-release-notes-linux.html">2019.8 release</a>.</p>
-<p>Note that Intel MPI uses <code>libfabric</code> (both 2019.8 and 2019.9 use 
-<code>libfabric-1.10.1-impi</code>).<br />
-Care must be taken to ensure that the version of libfabric that is used 
+<p>Note that Intel MPI uses <code>libfabric</code> (both 2019.8 and 2019.9 use
+<code>libfabric-1.10.1-impi</code>).
+Care must be taken to ensure that the version of libfabric that is used
 is at a level that includes the patches that are critical for DAOS.
-DAOS 1.0.1 includes <code>libfabric-1.9.0</code>, and the DAOS 1.1.2 pre-release 
-includes <code>libfabric-1.11.1</code>. </p>
-<p>To use DAOS 1.1 with Intel MPI 2019.8 or 2019.9, the <code>libfabric</code> that 
-is supplied by DAOS (and that is installed into <code>/usr/lib64</code> by default) 
+DAOS 1.0.1 includes <code>libfabric-1.9.0</code>, and the DAOS 1.2 releases
+includes <code>libfabric-1.12</code>.</p>
+<p>To use DAOS 1.1 with Intel MPI 2019.8 or 2019.9, the <code>libfabric</code> that
+is supplied by DAOS (and that is installed into <code>/usr/lib64</code> by default)
 needs to be used by listing it first in the library search path:</p>
 <pre><code class="bash">export LD_LIBRARY_PATH=&quot;/usr/lib64/:$LD_LIBRARY_PATH&quot;
 </code></pre>
 
 <p>The next Intel MPI release is expected to contain a version of <code>libfabric</code>
-that includes all patches to work with DAOS. 
-It will then no longer be necessary to override the <code>libfabric</code> version that is 
+that includes all patches to work with DAOS.
+It will then no longer be necessary to override the <code>libfabric</code> version that is
 shipped with Intel MPI by the version provided by DAOS.</p>
 <h3 id="open-mpi">Open MPI<a class="headerlink" href="#open-mpi" title="Permanent link">&para;</a></h3>
 <p><a href="https://www.open-mpi.org/">Open MPI</a> 4.0.5 does not yet provide DAOS support.
-Since one of its MPI-IO implementations is based on ROMIO, 
+Since one of its MPI-IO implementations is based on ROMIO,
 it will likely pick up DAOS support in an upcoming release.</p>
 <h3 id="mvapich2">MVAPICH2<a class="headerlink" href="#mvapich2" title="Permanent link">&para;</a></h3>
 <p><a href="https://mvapich.cse.ohio-state.edu/">MVAPICH2</a> 2.3.4 does not yet provide DAOS support.
-Since its MPI-IO implementation is based on ROMIO, 
+Since its MPI-IO implementation is based on ROMIO,
 it will likely pick up DAOS support in an upcoming release.</p>
 <h2 id="testing-mpi-io-with-daos-support">Testing MPI-IO with DAOS Support<a class="headerlink" href="#testing-mpi-io-with-daos-support" title="Permanent link">&para;</a></h2>
 <p>Build any client (HDF5, ior, mpi test suites) normally with the mpicc command
@@ -1136,26 +1135,21 @@ and mpich library installed above (see child pages).</p>
 <p>To run an example with MPI-IO:</p>
 <ol>
 <li>Create a DAOS pool on the DAOS server(s).
-   This will return a pool uuid "puuid" and service rank list "svcl".</li>
+   This will return a pool uuid "puuid".</li>
 <li>Create a POSIX type container:
    <code>daos cont create --pool=puuid --type=POSIX</code>
    This will return a container uuid "cuuid".</li>
 <li>At the client side, the following environment variables need to be set:
-   <code>export DAOS_POOL=puuid; export DAOS_SVCL=svcl; export DAOS_CONT=cuuid</code>.
+   <code>export DAOS_POOL=puuid; export DAOS_CONT=cuuid</code>.
    Alternatively, the unified namespace mode can be used instead.</li>
-<li>Run the client application or test. 
-   MPI-IO applications should work seamlessly by just prepending <code>daos:</code> 
+<li>Run the client application or test.
+   MPI-IO applications should work seamlessly by just prepending <code>daos:</code>
    to the filename/path to use the DAOS ADIO driver.</li>
 </ol>
 <h2 id="known-limitations">Known limitations<a class="headerlink" href="#known-limitations" title="Permanent link">&para;</a></h2>
 <p>Limitations of the current implementation include:</p>
 <ul>
-<li>
-<p>Reading Holes does not return 0, but leaves the buffer untouched.</p>
-</li>
-<li>
-<p>No support for MPI file atomicity, preallocate, or shared file pointers.</p>
-</li>
+<li>No support for MPI file atomicity, preallocate, or shared file pointers.</li>
 </ul>
                 
                   
@@ -1225,7 +1219,7 @@ and mpich library installed above (see child pages).</p>
   </div>
 </footer>
       
-    </div>
+   </div>
 <script src="../../assets/javascripts/application.c33a9706.js"></script> 
 <script src="../../js/jquery-3.4.1.min.js"></script> 
 <script src="../../js/popper.min.js"></script> 

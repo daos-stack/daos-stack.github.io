@@ -65,7 +65,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
         <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
 <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
-<link href="../../css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+<link href="../../v1.0/css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
 <link href="../../assets/stylesheets/styles_1.css" rel="stylesheet" type="text/css">
 </head>
   
@@ -92,9 +92,9 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex">  <div><img src="../../assets/images/daos_logo_wh.png" width="86" height="61" alt=""/></div>
-<div class="md-flex__cell md-flex__cell--shrink">
+     <div class="md-flex"><img src="../../assets/images/daos_logo_wh.png" width="80" height="61" alt=""/>
+      <div class="md-flex__cell md-flex__cell--shrink"> <a href="http://daos.io" title="DAOS v.1.0" aria-label="DAOS v.1.0" class="md-header-nav__button md-logo"> </a> </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
@@ -233,7 +233,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/release_notes_v1_2/index.html" class="md-tabs__link">
+        <a href="../../release/release_notes_v1_2/" class="md-tabs__link">
           Releases
         </a>
       
@@ -263,14 +263,13 @@
         
       
     </ul>
-  </div>
-</nav> <section>
-      <div class="dropdown show">
-  <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-    <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item disabled" href="#">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
-  </div>
+  </div></nav>
+	 <section>
+    <div class="dropdown show">
+      <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item disabled" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
       </div>
-
+    </div>
   </section>
   <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -410,6 +409,18 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
+      Data Integrity
     </a>
   </li>
 
@@ -781,18 +792,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../datamover/" title="Data Mover" class="md-nav__link">
-      Data Mover
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -823,8 +822,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_2/index.html" title="Release Notes v1.0" class="md-nav__link">
-      Release Notes v1.0
+    <a href="../../release/release_notes_v1_2/" title="Release Notes v1.2" class="md-nav__link">
+      Release Notes v1.2
     </a>
   </li>
 
@@ -1089,12 +1088,12 @@
                 
                 <h1 id="native-programming-interface">Native Programming Interface<a class="headerlink" href="#native-programming-interface" title="Permanent link">&para;</a></h1>
 <h2 id="building-against-the-daos-library">Building against the DAOS library<a class="headerlink" href="#building-against-the-daos-library" title="Permanent link">&para;</a></h2>
-<p>To build an application or I/O middleware against the native DAOS API, include
+<p>To build application or I/O middleware against the native DAOS API, include
 the <code>daos.h</code> header file in your program and link with <code>-Ldaos</code>. Examples are
 available under <code>src/tests</code>.</p>
 <h2 id="daos-api-reference">DAOS API Reference<a class="headerlink" href="#daos-api-reference" title="Permanent link">&para;</a></h2>
 <p><code>libdaos</code> is written in C and uses Doxygen comments that are added to C header
-files. The Doxygen documentation is available 
+files. The Doxygen documentation is available
 <a href="https://daos-stack.github.io/html/">here</a>.</p>
 <h2 id="python-bindings">Python Bindings<a class="headerlink" href="#python-bindings" title="Permanent link">&para;</a></h2>
 <p>A python module called <a href="https://github.com/daos-stack/daos/blob/master/src/client/pydaos">PyDAOS</a>
@@ -1105,13 +1104,13 @@ provides a native DAOS python interface exported by a C module. It integrates
 the DAOS key-value store API with python dictionaries. Only strings are
 supported for both the key and value for now.</p>
 <p>Key-value pairs can be inserted/looked up one at a time (see put/get) or
-in bulk (see bput/bget), taking a python dict as an input. The bulk
+in bulk (see bput/bget) taking a python dict as an input. The bulk
 operations are issued in parallel (up to 16 operations in flight) to
 maximize the operation rate.</p>
 <p>Key-value pairs are deleted via the put/bput operations by setting the value
 to either None or the empty string. Once deleted, the key won't be reported
 during iteration. It also supports the del operation via 'del dkv.key'.
-The DAOS KV objects behave like a python dictionary and support:</p>
+The DAOS KV objects behave like a python dictionary and supports:</p>
 <ul>
 <li>
 <p>'dkv[key]' which invokes 'dkv.get(key)'</p>
@@ -1120,18 +1119,18 @@ The DAOS KV objects behave like a python dictionary and support:</p>
 <p>'dkv[key] = val' which invokes 'dkv.put(key, val)'</p>
 </li>
 <li>
-<p>'for key in dkv:' allows for walking through the key space via the support of
+<p>'for key in dkv:' allows to walk through the key space via the support of
   python iterators</p>
 </li>
 <li>
-<p>'if key is in dkv:' allows testing whether a given key is present in the
+<p>'if key is in dkv:' allows to test whether a give key is present in the
   DAOS KV store.</p>
 </li>
 <li>
 <p>'len(dkv)' returns the number of key-value pairs.</p>
 </li>
 <li>
-<p>'bool(dkv)' reports 'False' if there are no key-value pairs in the DAOS KV
+<p>'bool(dkv)' reports 'False' if there is no key-value pairs in the DAOS KV
   and 'True' otherwise.</p>
 </li>
 </ul>
@@ -1139,7 +1138,7 @@ The DAOS KV objects behave like a python dictionary and support:</p>
 allow you to walk through the key space.
 For each method, a PyDError exception is raised with a proper DAOS error code
 (in string format) if the operation cannot be completed.</p>
-<p>Both Python 2.7 and 3.x is supported.</p>
+<p>Both python 2.7 and 3.x are supported.</p>
 <h3 id="pydaosraw">pydaos.raw<a class="headerlink" href="#pydaosraw" title="Permanent link">&para;</a></h3>
 <p>The pydaos.raw submodule provides access to DAOS API functionality via Ctypes
 and was developed with an emphasis on test use cases. While the majority of unit
@@ -1191,7 +1190,7 @@ asynchronous execution, and the Python API exposes this same functionality.
 Each API takes an input event. <code>DaosEvent</code> is the Python representation of this
 event. If the input event is <code>NULL</code>, the call is synchronous. If an event is
 supplied, the function will return immediately after submitting API requests to
-the underlying stack, and the user can poll and query the event for completion.</p>
+the underlying stack and the user can poll and query the event for completion.</p>
 <h4 id="ctypes">Ctypes<a class="headerlink" href="#ctypes" title="Permanent link">&para;</a></h4>
 <p>Ctypes is a built-in Python module for interfacing Python with existing
 libraries written in C/C++. The Python API is built as an object-oriented
@@ -1206,8 +1205,7 @@ C function being cast via ctypes. This also demonstrates struct representation v
 
 int
 daos_pool_tgt_exclude_out(const uuid_t uuid, const char *grp,
-                          const d_rank_list_t *svc, struct d_tgt_list *tgts,
-                          daos_event_t *ev);
+                          struct d_tgt_list *tgts, daos_event_t *ev);
 </code></pre>
 
 <p>All input parameters must be represented via ctypes. If a struct is required as
@@ -1241,14 +1239,13 @@ p_ranks = DaosPool.__pylist_to_array([2])
 # cast python variables via ctypes as necessary
 c_uuid = str_to_c_uuid(p_uuid)
 c_grp = ctypes.create_string_buffer(b&quot;daos_group_name&quot;)
-c_svc = ctypes.POINTER(2) # ensure pointers are cast/passed as such
 c_tgt_list = ctypes.POINTER(DTgtList(p_ranks, p_tgts, 2))) # again, DTgtList must be passed as pointer
 
 # load the shared object
 my_lib = ctypes.CDLL('/full/path/to/daos_exclude.so')
 
 # now call it
-my_lib.daos_pool_tgt_exclude_out(c_uuid, c_grp, c_svc, c_tgt_list, None)
+my_lib.daos_pool_tgt_exclude_out(c_uuid, c_grp, c_tgt_list, None)
 </code></pre>
 
 <h4 id="error-handling">Error Handling<a class="headerlink" href="#error-handling" title="Permanent link">&para;</a></h4>
@@ -1358,7 +1355,7 @@ self.d_log.ERROR(&quot;Something went very wrong&quot;)
   </div>
 </footer>
       
-    </div>
+   </div>
 <script src="../../assets/javascripts/application.c33a9706.js"></script> 
 <script src="../../js/jquery-3.4.1.min.js"></script> 
 <script src="../../js/popper.min.js"></script> 

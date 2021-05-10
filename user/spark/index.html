@@ -65,7 +65,7 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Ubuntu:300,400,400i,700%7CUbuntu+Mono&display=fallback">
         <style>body,input{font-family:"Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Ubuntu Mono","Courier New",Courier,monospace}</style>
 <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
-<link href="../../css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
+<link href="../../v1.0/css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
 <link href="../../assets/stylesheets/styles_1.css" rel="stylesheet" type="text/css">
 </head>
   
@@ -92,9 +92,9 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex">
-      <div class="md-flex">  <div><img src="../../assets/images/daos_logo_wh.png" width="86" height="61" alt=""/></div>
-<div class="md-flex__cell md-flex__cell--shrink">
+     <div class="md-flex"><img src="../../assets/images/daos_logo_wh.png" width="80" height="61" alt=""/>
+      <div class="md-flex__cell md-flex__cell--shrink"> <a href="http://daos.io" title="DAOS v.1.0" aria-label="DAOS v.1.0" class="md-header-nav__button md-logo"> </a> </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
@@ -233,7 +233,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/release_notes_v1_2/index.html" class="md-tabs__link">
+        <a href="../../release/release_notes_v1_2/" class="md-tabs__link">
           Releases
         </a>
       
@@ -263,14 +263,13 @@
         
       
     </ul>
-  </div>
-</nav> <section>
-      <div class="dropdown show">
-  <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-    <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item disabled" href="#">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
-  </div>
+  </div></nav>
+	 <section>
+    <div class="dropdown show">
+      <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item disabled" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
       </div>
-
+    </div>
   </section>
   <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -410,6 +409,18 @@
   <li class="md-nav__item">
     <a href="../../overview/security/" title="Security Model" class="md-nav__link">
       Security Model
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../overview/data_integrity/" title="Data Integrity" class="md-nav__link">
+      Data Integrity
     </a>
   </li>
 
@@ -882,18 +893,6 @@
   </li>
 
         
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../datamover/" title="Data Mover" class="md-nav__link">
-      Data Mover
-    </a>
-  </li>
-
-        
       </ul>
     </nav>
   </li>
@@ -924,8 +923,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_2/index.html" title="Release Notes v1.0" class="md-nav__link">
-      Release Notes v1.0
+    <a href="../../release/release_notes_v1_2/" title="Release Notes v1.2" class="md-nav__link">
+      Release Notes v1.2
     </a>
   </li>
 
@@ -1311,8 +1310,6 @@ We assume that the DAOS servers and agents have already been deployed in the
 environment. Otherwise, they can be deployed by following the
 <a href="https://daos-stack.github.io/admin/installation/">DAOS Installation Guide</a>.</li>
 </ol>
-<p>!!! note DAOS support for Spark and Hadoop is not available in DAOS 1.0. 
-         It is targeted for the DAOS 1.2 release.</p>
 <h2 id="download-daos-hadoop-filesystem">Download DAOS Hadoop Filesystem<a class="headerlink" href="#download-daos-hadoop-filesystem" title="Permanent link">&para;</a></h2>
 <p>There are two artifacts to download, daos-java and hadoop-daos, from maven.
 Here are maven dependencies.</p>
@@ -1374,7 +1371,7 @@ $ daos cont create --pool &lt;pool UUID&gt; --type POSIX
 <p>Please put <code>daos-site.xml</code> in right place, e.g., Java classpath, and
 loadable by Hadoop DAOS FileSystem.</p>
 <h3 id="validate-hadoop-access">Validate Hadoop Access<a class="headerlink" href="#validate-hadoop-access" title="Permanent link">&para;</a></h3>
-<p>If everything goes well, you should see “/user” directory being listed after
+<p>If everything goes well, you should see <code>/user</code> directory being listed after
 issuing below command.</p>
 <pre><code class="bash">$ hadoop fs -ls /
 </code></pre>
@@ -1559,13 +1556,13 @@ handlers are invoked.</p>
           </a>
         
         
-          <a href="../datamover/" title="Data Mover" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../../release/release_notes_v1_2/" title="Release Notes v1.2" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Data Mover
+                Release Notes v1.2
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1591,7 +1588,7 @@ handlers are invoked.</p>
   </div>
 </footer>
       
-    </div>
+   </div>
 <script src="../../assets/javascripts/application.c33a9706.js"></script> 
 <script src="../../js/jquery-3.4.1.min.js"></script> 
 <script src="../../js/popper.min.js"></script> 
