@@ -1371,7 +1371,7 @@ Intel 64 architecture. The DAOS software and the libraries it depends on
 extensions.</p>
 <h3 id="network-requirements">Network Requirements<a class="headerlink" href="#network-requirements" title="Permanent link">&para;</a></h3>
 <p>The DAOS network layer relies on libfabrics and supports OFI providers for
-Ethernet/sockets, InfiniBand/verbs. An RDMA-capable fabric is preferred for
+Ethernet::sockets, Infiniband::verbs  from Ethernet/sockets, Infiniband/verbs. An RDMA-capable fabric is preferred for
 better performance. DAOS can support multiple rails by binding different
 instances of the DAOS server to individual network cards.</p>
 <p>The DAOS control plane provides methods for administering and managing the
@@ -1545,7 +1545,7 @@ crt_bulk_create() fails with verbs level fi_mr_regv() failing with -95 error: Op
 <p>If PMEM backed memory is replaced by tmpfs, then bulk creation succeeds.</p>
 <p>If FI_VERBS_USE_ODP is set, pmem-backed memory registration succeeds, however the ior test slows by 90%.</p>
 <p>This only appears to happen on Leap15.2 and not centos 7.9.</p>
-<p>This will be fixed in a future kernel update.</p>
+<p>An alternative approach for pmem data transfer is being investigated.</p>
 <h3 id="daos_engine-crashes-when-querying-200-pools-daos-6505">daos_engine crashes when querying 200 pools (<a href="https://jira.hpdd.intel.com/browse/DAOS-6505">DAOS-6505</a>)<a class="headerlink" href="#daos_engine-crashes-when-querying-200-pools-daos-6505" title="Permanent link">&para;</a></h3>
 <p>This will be fixed in a future release.</p>
 <h3 id="soak-ior-a-mpiio-reports-der_inval-with-oclass-rp_2gx-daos-6308">Soak: ior -a MPIIO reports DER_INVAL with oclass RP_2GX (<a href="https://jira.hpdd.intel.com/browse/DAOS-6308">DAOS-6308</a>)<a class="headerlink" href="#soak-ior-a-mpiio-reports-der_inval-with-oclass-rp_2gx-daos-6308" title="Permanent link">&para;</a></h3>
