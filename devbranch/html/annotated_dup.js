@@ -88,5 +88,6 @@ var annotated_dup =
     [ "daos_tx_restart_t", "structdaos__tx__restart__t.html", "structdaos__tx__restart__t" ],
     [ "dfs_attr_t", "structdfs__attr__t.html", "structdfs__attr__t" ],
     [ "dfs_iod_t", "structdfs__iod__t.html", "structdfs__iod__t" ],
+    [ "dfs_obj_info_t", "structdfs__obj__info__t.html", "structdfs__obj__info__t" ],
     [ "duns_attr_t", "structduns__attr__t.html", "structduns__attr__t" ]
 ];

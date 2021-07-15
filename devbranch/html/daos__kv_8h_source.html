@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Development Branch</span>
+   &#160;<span id="projectnumber">DAOS v2.0 - dev</span>
    </div>
   </td>
  </tr>
@@ -99,14 +99,13 @@ $(document).ready(function(){initNavTree('daos__kv_8h_source.html',''); initResi
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment">/* Conditional Op: Insert key if it doesn&#39;t exist, fail otherwise */</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#define DAOS_COND_KEY_INSERT    DAOS_COND_DKEY_INSERT</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment">/* Conditional Op: Update key if it exists, fail otherwise */</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#define DAOS_COND_KEY_UPDATE    DAOS_COND_DKEY_UPDATE</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment">/* Conditional Op: Get key if it exists, fail otherwise */</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#define DAOS_COND_KEY_GET   DAOS_COND_DKEY_FETCH</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment">/* Conditional Op: Remove key if it exists, fail otherwise */</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#define DAOS_COND_KEY_REMOVE    DAOS_COND_PUNCH</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno"><a class="line" href="daos__kv_8h.html#a0c3739abb79f2f6d630010c72b1769ca">   23</a></span>&#160;<span class="preprocessor">#define DAOS_COND_KEY_INSERT    DAOS_COND_DKEY_INSERT</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="daos__kv_8h.html#a28790aa071e2f975324089c87b077d94">   25</a></span>&#160;<span class="preprocessor">#define DAOS_COND_KEY_UPDATE    DAOS_COND_DKEY_UPDATE</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160; </div>
+<div class="line"><a name="l00027"></a><span class="lineno"><a class="line" href="daos__kv_8h.html#acb714e87cf7b9fcea1f294c0750bdb26">   27</a></span>&#160;<span class="preprocessor">#define DAOS_COND_KEY_GET   DAOS_COND_DKEY_FETCH</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160; </div>
+<div class="line"><a name="l00029"></a><span class="lineno"><a class="line" href="daos__kv_8h.html#a80ab508926fb5ab4c10f8aca275316a6">   29</a></span>&#160;<span class="preprocessor">#define DAOS_COND_KEY_REMOVE    DAOS_COND_PUNCH</span></div>
 <div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
 <div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;<span class="keywordtype">int</span></div>
 <div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<a class="code" href="daos__kv_8h.html#ad05d00c41c670cd91e2e3fc8ca69f7bd">daos_kv_open</a>(<a class="code" href="structdaos__handle__t.html">daos_handle_t</a> coh, <a class="code" href="structdaos__obj__id__t.html">daos_obj_id_t</a> oid, <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> mode,</div>
@@ -144,15 +143,15 @@ $(document).ready(function(){initNavTree('daos__kv_8h_source.html',''); initResi
 </div><!-- doc-content -->
 <div class="ttc" id="astructdaos__anchor__t_html"><div class="ttname"><a href="structdaos__anchor__t.html">daos_anchor_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00058">daos_types.h:58</a></div></div>
 <div class="ttc" id="adaos__kv_8h_html_a6fe2aa213fc2aab3840f20436cc9a6ae"><div class="ttname"><a href="daos__kv_8h.html#a6fe2aa213fc2aab3840f20436cc9a6ae">daos_kv_list</a></div><div class="ttdeci">int daos_kv_list(daos_handle_t oh, daos_handle_t th, uint32_t *nr, daos_key_desc_t *kds, d_sg_list_t *sgl, daos_anchor_t *anchor, daos_event_t *ev)</div></div>
-<div class="ttc" id="astructdaos__key__desc__t_html"><div class="ttname"><a href="structdaos__key__desc__t.html">daos_key_desc_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__obj_8h_source.html#l00304">daos_obj.h:304</a></div></div>
-<div class="ttc" id="astructdaos__obj__id__t_html"><div class="ttname"><a href="structdaos__obj__id__t.html">daos_obj_id_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00199">daos_types.h:199</a></div></div>
+<div class="ttc" id="astructdaos__key__desc__t_html"><div class="ttname"><a href="structdaos__key__desc__t.html">daos_key_desc_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__obj_8h_source.html#l00313">daos_obj.h:313</a></div></div>
+<div class="ttc" id="astructdaos__obj__id__t_html"><div class="ttname"><a href="structdaos__obj__id__t.html">daos_obj_id_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00204">daos_types.h:204</a></div></div>
 <div class="ttc" id="adaos__kv_8h_html_ada5a9ad798e7b54fcf6b8bbe674bbf36"><div class="ttname"><a href="daos__kv_8h.html#ada5a9ad798e7b54fcf6b8bbe674bbf36">daos_kv_destroy</a></div><div class="ttdeci">int daos_kv_destroy(daos_handle_t oh, daos_handle_t th, daos_event_t *ev)</div></div>
 <div class="ttc" id="adaos__kv_8h_html_ad05d00c41c670cd91e2e3fc8ca69f7bd"><div class="ttname"><a href="daos__kv_8h.html#ad05d00c41c670cd91e2e3fc8ca69f7bd">daos_kv_open</a></div><div class="ttdeci">int daos_kv_open(daos_handle_t coh, daos_obj_id_t oid, unsigned int mode, daos_handle_t *oh, daos_event_t *ev)</div></div>
 <div class="ttc" id="adaos__kv_8h_html_afc6948a98b48daa2129054f4c47e55b1"><div class="ttname"><a href="daos__kv_8h.html#afc6948a98b48daa2129054f4c47e55b1">daos_kv_remove</a></div><div class="ttdeci">int daos_kv_remove(daos_handle_t oh, daos_handle_t th, uint64_t flags, const char *key, daos_event_t *ev)</div></div>
 <div class="ttc" id="adaos__kv_8h_html_af0bebe7eb7bf3c618b4fb71e8a39c71d"><div class="ttname"><a href="daos__kv_8h.html#af0bebe7eb7bf3c618b4fb71e8a39c71d">daos_kv_close</a></div><div class="ttdeci">int daos_kv_close(daos_handle_t oh, daos_event_t *ev)</div></div>
-<div class="ttc" id="astructdaos__handle__t_html"><div class="ttname"><a href="structdaos__handle__t.html">daos_handle_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00070">daos_types.h:70</a></div></div>
+<div class="ttc" id="astructdaos__handle__t_html"><div class="ttname"><a href="structdaos__handle__t.html">daos_handle_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00075">daos_types.h:75</a></div></div>
 <div class="ttc" id="adaos__kv_8h_html_a3f3cd19cee87b92e19b860b42458f848"><div class="ttname"><a href="daos__kv_8h.html#a3f3cd19cee87b92e19b860b42458f848">daos_kv_put</a></div><div class="ttdeci">int daos_kv_put(daos_handle_t oh, daos_handle_t th, uint64_t flags, const char *key, daos_size_t size, const void *buf, daos_event_t *ev)</div></div>
-<div class="ttc" id="astructdaos__event_html"><div class="ttname"><a href="structdaos__event.html">daos_event</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00128">daos_types.h:128</a></div></div>
+<div class="ttc" id="astructdaos__event_html"><div class="ttname"><a href="structdaos__event.html">daos_event</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00133">daos_types.h:133</a></div></div>
 <div class="ttc" id="adaos__kv_8h_html_a23cae3d831736069a32833f64f5f5cc7"><div class="ttname"><a href="daos__kv_8h.html#a23cae3d831736069a32833f64f5f5cc7">daos_kv_get</a></div><div class="ttdeci">int daos_kv_get(daos_handle_t oh, daos_handle_t th, uint64_t flags, const char *key, daos_size_t *size, void *buf, daos_event_t *ev)</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

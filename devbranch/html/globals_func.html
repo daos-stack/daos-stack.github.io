@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Development Branch</span>
+   &#160;<span id="projectnumber">DAOS v2.0 - dev</span>
    </div>
   </td>
  </tr>
@@ -266,6 +266,9 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>daos_cont_open()
 : <a class="el" href="daos__cont_8h.html#a98252d902cb099c98ebb66e81f0e34de">daos_cont.h</a>
 </li>
+<li>daos_cont_open_by_label()
+: <a class="el" href="daos__cont_8h.html#adf8be773ab576ac3d1b02694bcdca397">daos_cont.h</a>
+</li>
 <li>daos_cont_overwrite_acl()
 : <a class="el" href="daos__cont_8h.html#a36c2f6d5365282a3eb64395d376d9e89">daos_cont.h</a>
 </li>
@@ -283,6 +286,9 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 </li>
 <li>daos_cont_set_prop()
 : <a class="el" href="daos__cont_8h.html#af276a397e5990736e5f243937e983d71">daos_cont.h</a>
+</li>
+<li>daos_cont_status_clear()
+: <a class="el" href="daos__cont_8h.html#aeab1776ae06542dbac5d2c5f0868bf81">daos_cont.h</a>
 </li>
 <li>daos_cont_subscribe()
 : <a class="el" href="daos__cont_8h.html#afab4df174d6e1a48b343d0d5a13e7038">daos_cont.h</a>
@@ -408,11 +414,20 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>dfs_obj_anchor_split()
 : <a class="el" href="daos__fs_8h.html#af77af4a335a88dc8fc4fb9b608ff248d">daos_fs.h</a>
 </li>
+<li>dfs_obj_get_info()
+: <a class="el" href="daos__fs_8h.html#a09283ee716eef2188bbf42ed63b1673e">daos_fs.h</a>
+</li>
 <li>dfs_obj_global2local()
 : <a class="el" href="daos__fs_8h.html#aaef818c617008ecfc074c8fa4d3d187b">daos_fs.h</a>
 </li>
 <li>dfs_obj_local2global()
 : <a class="el" href="daos__fs_8h.html#a9c525bd5a23582a8ead2d446362444c7">daos_fs.h</a>
+</li>
+<li>dfs_obj_set_chunk_size()
+: <a class="el" href="daos__fs_8h.html#aab3c7f029fea34fbc2b040d6447ae346">daos_fs.h</a>
+</li>
+<li>dfs_obj_set_oclass()
+: <a class="el" href="daos__fs_8h.html#ab34f8d825c3fa3bbb35244dabfede778">daos_fs.h</a>
 </li>
 <li>dfs_open()
 : <a class="el" href="daos__fs_8h.html#a43eee0ce15ae1ab80a4b83a06d494bd5">daos_fs.h</a>
@@ -459,6 +474,90 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 <li>dfs_sync()
 : <a class="el" href="daos__fs_8h.html#af895c18266b07bed6e71654e7a302888">daos_fs.h</a>
 </li>
+<li>dfs_sys2base()
+: <a class="el" href="daos__fs__sys_8h.html#a55700f92fe0af5458af843e0e5f828e2">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_access()
+: <a class="el" href="daos__fs__sys_8h.html#a821528212d0ade018e43ce68c93ff425">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_chmod()
+: <a class="el" href="daos__fs__sys_8h.html#a3d77734aaa37862e4a7aa6eba99bdedf">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_close()
+: <a class="el" href="daos__fs__sys_8h.html#a4a0f7bcac0468d647920af6a7d737bbc">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_closedir()
+: <a class="el" href="daos__fs__sys_8h.html#a96af25c135edcea67877c748e8529b95">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_getxattr()
+: <a class="el" href="daos__fs__sys_8h.html#a235bc71c01ad4acdd7434018f36cc63f">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_global2local()
+: <a class="el" href="daos__fs__sys_8h.html#a70c1910e7375c989758d7c62fb3c6636">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_listxattr()
+: <a class="el" href="daos__fs__sys_8h.html#ae66a3eb29fe2aec32a8e2321b9f5c305">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_local2global()
+: <a class="el" href="daos__fs__sys_8h.html#acd0941409a44ecc831baceaa64da04ae">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_mkdir()
+: <a class="el" href="daos__fs__sys_8h.html#a407bac4d155b04591490d6a67f743baf">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_mknod()
+: <a class="el" href="daos__fs__sys_8h.html#a4b7e92840dbed47865c7d6353a59943a">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_mount()
+: <a class="el" href="daos__fs__sys_8h.html#aa4310faf0b81eb691dfe58803a6e59f3">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_open()
+: <a class="el" href="daos__fs__sys_8h.html#a36e34a03096ab25e088aed43be4abafb">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_opendir()
+: <a class="el" href="daos__fs__sys_8h.html#a596764235e708b078539d39893e39853">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_punch()
+: <a class="el" href="daos__fs__sys_8h.html#a18b52b035cb2f0275f5d1921545480f3">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_read()
+: <a class="el" href="daos__fs__sys_8h.html#a0f63c60fbaa68948b6e547539a70ec4c">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_readdir()
+: <a class="el" href="daos__fs__sys_8h.html#a0725233d7d2ab701f83231968b26d63c">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_readlink()
+: <a class="el" href="daos__fs__sys_8h.html#a4bc1c2c98f3b0b3925c91271077467f2">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_remove()
+: <a class="el" href="daos__fs__sys_8h.html#ad28b5347d4a4a226335580baec031ae9">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_remove_type()
+: <a class="el" href="daos__fs__sys_8h.html#a3e9ddefd2aebf07acbbcdb5d12073380">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_removexattr()
+: <a class="el" href="daos__fs__sys_8h.html#aa945c6fcd1203d38881b4ed48af8d15d">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_setattr()
+: <a class="el" href="daos__fs__sys_8h.html#adc7fe0314eae59805607c7cf7c196dc9">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_setxattr()
+: <a class="el" href="daos__fs__sys_8h.html#abbbcbdf9413593c201447ec664ef9ee5">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_stat()
+: <a class="el" href="daos__fs__sys_8h.html#a06d9c1cd0015cccc4aec3a6c94874562">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_symlink()
+: <a class="el" href="daos__fs__sys_8h.html#a94676aa5564f92f615f8a8c44a32453f">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_umount()
+: <a class="el" href="daos__fs__sys_8h.html#a8b61b29527f80c1dac4cbd99da19b68b">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_utimens()
+: <a class="el" href="daos__fs__sys_8h.html#ace808c585382babaa2f3984f9604aa6c">daos_fs_sys.h</a>
+</li>
+<li>dfs_sys_write()
+: <a class="el" href="daos__fs__sys_8h.html#a21b1fc9f0d51e54c566f62be95097c84">daos_fs_sys.h</a>
+</li>
 <li>dfs_umount()
 : <a class="el" href="daos__fs_8h.html#adae8b520eca7d1a4f020c5505d1acc79">daos_fs.h</a>
 </li>
@@ -466,7 +565,7 @@ $(document).ready(function(){initNavTree('globals_func.html',''); initResizable(
 : <a class="el" href="daos__fs_8h.html#a5fdf3ad9e4772868ad4c18d866e8a4d5">daos_fs.h</a>
 </li>
 <li>dfs_update_parent()
-: <a class="el" href="daos__fs_8h.html#adb8518f1604e3c9ecab8f6db53af7b1f">daos_fs.h</a>
+: <a class="el" href="daos__fs_8h.html#a883c4df60bcaf52273e2f096c4e0ddc8">daos_fs.h</a>
 </li>
 <li>dfs_write()
 : <a class="el" href="daos__fs_8h.html#aca8d8aa052bd7b7cae79a4e4e634889f">daos_fs.h</a>

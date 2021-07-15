@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Development Branch</span>
+   &#160;<span id="projectnumber">DAOS v2.0 - dev</span>
    </div>
   </td>
  </tr>
@@ -95,17 +95,13 @@ $(document).ready(function(){initNavTree('daos__kv_8h.html',''); initResizable()
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a0c3739abb79f2f6d630010c72b1769ca"><td class="memItemLeft" align="right" valign="top"><a id="a0c3739abb79f2f6d630010c72b1769ca"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DAOS_COND_KEY_INSERT</b>&#160;&#160;&#160;DAOS_COND_DKEY_INSERT</td></tr>
+<tr class="memitem:a0c3739abb79f2f6d630010c72b1769ca"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__kv_8h.html#a0c3739abb79f2f6d630010c72b1769ca">DAOS_COND_KEY_INSERT</a>&#160;&#160;&#160;DAOS_COND_DKEY_INSERT</td></tr>
 <tr class="separator:a0c3739abb79f2f6d630010c72b1769ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a28790aa071e2f975324089c87b077d94"><td class="memItemLeft" align="right" valign="top"><a id="a28790aa071e2f975324089c87b077d94"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DAOS_COND_KEY_UPDATE</b>&#160;&#160;&#160;DAOS_COND_DKEY_UPDATE</td></tr>
+<tr class="memitem:a28790aa071e2f975324089c87b077d94"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__kv_8h.html#a28790aa071e2f975324089c87b077d94">DAOS_COND_KEY_UPDATE</a>&#160;&#160;&#160;DAOS_COND_DKEY_UPDATE</td></tr>
 <tr class="separator:a28790aa071e2f975324089c87b077d94"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:acb714e87cf7b9fcea1f294c0750bdb26"><td class="memItemLeft" align="right" valign="top"><a id="acb714e87cf7b9fcea1f294c0750bdb26"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DAOS_COND_KEY_GET</b>&#160;&#160;&#160;DAOS_COND_DKEY_FETCH</td></tr>
+<tr class="memitem:acb714e87cf7b9fcea1f294c0750bdb26"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__kv_8h.html#acb714e87cf7b9fcea1f294c0750bdb26">DAOS_COND_KEY_GET</a>&#160;&#160;&#160;DAOS_COND_DKEY_FETCH</td></tr>
 <tr class="separator:acb714e87cf7b9fcea1f294c0750bdb26"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a80ab508926fb5ab4c10f8aca275316a6"><td class="memItemLeft" align="right" valign="top"><a id="a80ab508926fb5ab4c10f8aca275316a6"></a>
-#define&#160;</td><td class="memItemRight" valign="bottom"><b>DAOS_COND_KEY_REMOVE</b>&#160;&#160;&#160;DAOS_COND_PUNCH</td></tr>
+<tr class="memitem:a80ab508926fb5ab4c10f8aca275316a6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="daos__kv_8h.html#a80ab508926fb5ab4c10f8aca275316a6">DAOS_COND_KEY_REMOVE</a>&#160;&#160;&#160;DAOS_COND_PUNCH</td></tr>
 <tr class="separator:a80ab508926fb5ab4c10f8aca275316a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
@@ -130,7 +126,76 @@ Functions</h2></td></tr>
 <p>The KV API simplify the DAOS 2 key-level object into a simple KV interface for users who are just interested in a traditional KV store API. </p>
 
 <p class="definition">Definition in file <a class="el" href="daos__kv_8h_source.html">daos_kv.h</a>.</p>
-</div><h2 class="groupheader">Function Documentation</h2>
+</div><h2 class="groupheader">Macro Definition Documentation</h2>
+<a id="acb714e87cf7b9fcea1f294c0750bdb26"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acb714e87cf7b9fcea1f294c0750bdb26">&#9670;&nbsp;</a></span>DAOS_COND_KEY_GET</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DAOS_COND_KEY_GET&#160;&#160;&#160;DAOS_COND_DKEY_FETCH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Conditional Op: Get key if it exists, fail otherwise </p>
+
+<p class="definition">Definition at line <a class="el" href="daos__kv_8h_source.html#l00027">27</a> of file <a class="el" href="daos__kv_8h_source.html">daos_kv.h</a>.</p>
+
+</div>
+</div>
+<a id="a0c3739abb79f2f6d630010c72b1769ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0c3739abb79f2f6d630010c72b1769ca">&#9670;&nbsp;</a></span>DAOS_COND_KEY_INSERT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DAOS_COND_KEY_INSERT&#160;&#160;&#160;DAOS_COND_DKEY_INSERT</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Conditional Op: Insert key if it doesn't exist, fail otherwise </p>
+
+<p class="definition">Definition at line <a class="el" href="daos__kv_8h_source.html#l00023">23</a> of file <a class="el" href="daos__kv_8h_source.html">daos_kv.h</a>.</p>
+
+</div>
+</div>
+<a id="a80ab508926fb5ab4c10f8aca275316a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a80ab508926fb5ab4c10f8aca275316a6">&#9670;&nbsp;</a></span>DAOS_COND_KEY_REMOVE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DAOS_COND_KEY_REMOVE&#160;&#160;&#160;DAOS_COND_PUNCH</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Conditional Op: Remove key if it exists, fail otherwise </p>
+
+<p class="definition">Definition at line <a class="el" href="daos__kv_8h_source.html#l00029">29</a> of file <a class="el" href="daos__kv_8h_source.html">daos_kv.h</a>.</p>
+
+</div>
+</div>
+<a id="a28790aa071e2f975324089c87b077d94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a28790aa071e2f975324089c87b077d94">&#9670;&nbsp;</a></span>DAOS_COND_KEY_UPDATE</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DAOS_COND_KEY_UPDATE&#160;&#160;&#160;DAOS_COND_DKEY_UPDATE</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Conditional Op: Update key if it exists, fail otherwise </p>
+
+<p class="definition">Definition at line <a class="el" href="daos__kv_8h_source.html#l00025">25</a> of file <a class="el" href="daos__kv_8h_source.html">daos_kv.h</a>.</p>
+
+</div>
+</div>
+<h2 class="groupheader">Function Documentation</h2>
 <a id="af0bebe7eb7bf3c618b4fb71e8a39c71d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#af0bebe7eb7bf3c618b4fb71e8a39c71d">&#9670;&nbsp;</a></span>daos_kv_close()</h2>
 

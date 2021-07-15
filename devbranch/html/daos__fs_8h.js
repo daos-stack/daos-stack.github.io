@@ -2,6 +2,7 @@ var daos__fs_8h =
 [
     [ "dfs_attr_t", "structdfs__attr__t.html", "structdfs__attr__t" ],
     [ "dfs_iod_t", "structdfs__iod__t.html", "structdfs__iod__t" ],
+    [ "dfs_obj_info_t", "structdfs__obj__info__t.html", "structdfs__obj__info__t" ],
     [ "DFS_MAX_FSIZE", "daos__fs_8h.html#a00f036421a8ac257185d0718ddeaece4", null ],
     [ "DFS_MAX_NAME", "daos__fs_8h.html#af385ad5434afb0770e2090c374a31295", null ],
     [ "DFS_MAX_PATH", "daos__fs_8h.html#a62a51da77a8bf6bd2173c9f6664abf36", null ],
@@ -38,8 +39,11 @@ var daos__fs_8h =
     [ "dfs_obj2id", "daos__fs_8h.html#a9bc7cbbf60d1e47964d1423cfed31151", null ],
     [ "dfs_obj_anchor_set", "daos__fs_8h.html#a158200a32fbb8f23766f4eed69ccc4c4", null ],
     [ "dfs_obj_anchor_split", "daos__fs_8h.html#af77af4a335a88dc8fc4fb9b608ff248d", null ],
+    [ "dfs_obj_get_info", "daos__fs_8h.html#a09283ee716eef2188bbf42ed63b1673e", null ],
     [ "dfs_obj_global2local", "daos__fs_8h.html#aaef818c617008ecfc074c8fa4d3d187b", null ],
     [ "dfs_obj_local2global", "daos__fs_8h.html#a9c525bd5a23582a8ead2d446362444c7", null ],
+    [ "dfs_obj_set_chunk_size", "daos__fs_8h.html#aab3c7f029fea34fbc2b040d6447ae346", null ],
+    [ "dfs_obj_set_oclass", "daos__fs_8h.html#ab34f8d825c3fa3bbb35244dabfede778", null ],
     [ "dfs_open", "daos__fs_8h.html#a43eee0ce15ae1ab80a4b83a06d494bd5", null ],
     [ "dfs_osetattr", "daos__fs_8h.html#a7649bef0218dbc40c9dc69a4a114ea72", null ],
     [ "dfs_ostat", "daos__fs_8h.html#af34c0ae9ff73c65d4472feb20015e640", null ],
@@ -57,7 +61,7 @@ var daos__fs_8h =
     [ "dfs_sync", "daos__fs_8h.html#af895c18266b07bed6e71654e7a302888", null ],
     [ "dfs_umount", "daos__fs_8h.html#adae8b520eca7d1a4f020c5505d1acc79", null ],
     [ "dfs_umount_root_cont", "daos__fs_8h.html#a5fdf3ad9e4772868ad4c18d866e8a4d5", null ],
-    [ "dfs_update_parent", "daos__fs_8h.html#adb8518f1604e3c9ecab8f6db53af7b1f", null ],
+    [ "dfs_update_parent", "daos__fs_8h.html#a883c4df60bcaf52273e2f096c4e0ddc8", null ],
     [ "dfs_write", "daos__fs_8h.html#aca8d8aa052bd7b7cae79a4e4e634889f", null ],
     [ "dfs_writex", "daos__fs_8h.html#a057440757b2e420b362f646f32505091", null ]
 ];
