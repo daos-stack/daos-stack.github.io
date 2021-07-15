@@ -42,7 +42,7 @@
     
     
       
-        <title>Pre-deployment Checklist - DAOS Development Branch</title>
+        <title>Pre-deployment Checklist - DAOS v2.0 - dev</title>
       
     
     
@@ -92,8 +92,11 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-           <div class="md-flex"><img src="../../assets/images/daos_logo_wh.png" width="80" height="61" alt=""/> 
-
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://daos.io" title="DAOS v2.0 - dev" aria-label="DAOS v2.0 - dev" class="md-header-nav__button md-logo"><img src="../../assets/images/daos_logo_wh.png" width="50"/>
+</a>
+      </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
@@ -101,7 +104,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS Development Branch
+              DAOS v2.0 - dev
             </span>
             <span class="md-header-nav__topic">
               
@@ -207,6 +210,19 @@
   
     <li class="md-tabs__item">
       
+        <a href="../../QSG/setup/" class="md-tabs__link">
+          Installation and Setup
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
         <a href="../hardware/" class="md-tabs__link md-tabs__link--active">
           Administration Guide
         </a>
@@ -220,7 +236,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../user/container/" class="md-tabs__link">
+        <a href="../../user/workflow/" class="md-tabs__link">
           User Guide
         </a>
       
@@ -233,7 +249,20 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
+        <a href="../../QSG/autotest/" class="md-tabs__link">
+          DAOS Test and Benchmarking
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../release/release_notes_v2_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -263,15 +292,13 @@
         
       
     </ul>
-  </div>
-</nav>
-  <section>
-      <div class="dropdown show">
-  <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-    <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
-  </div>
+  </div></nav>
+	 <section>
+    <div class="dropdown show">
+      <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
       </div>
-
+    </div>
   </section>
   <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -282,12 +309,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS Development Branch" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v2.0 - dev" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img alt="logo" src="../../graph/logo.png" width="48" height="48">
       
     </a>
-    DAOS Development Branch
+    DAOS v2.0 - dev
   </label>
   
     <div class="md-nav__source">
@@ -424,18 +451,102 @@
       
       
 
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Installation and Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Installation and Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/setup/" title="DAOS CentOS Setup" class="md-nav__link">
+      DAOS CentOS Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/suse_setup/" title="DAOS openSUSE Setup" class="md-nav__link">
+      DAOS openSUSE Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/tour/" title="DAOS Admin/Client Tools" class="md-nav__link">
+      DAOS Admin/Client Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/test_index/" title="DAOS Test and Benchmarking" class="md-nav__link">
+      DAOS Test and Benchmarking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://wiki.hpdd.intel.com/display/DC/DAOS+IO-500+Instructions" title="IO500 Setup" class="md-nav__link">
+      IO500 Setup
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Administration Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Administration Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -498,8 +609,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enable-iommu-optional" class="md-nav__link">
-    Enable IOMMU (Optional)
+  <a href="#enable-iommu" class="md-nav__link">
+    Enable IOMMU
   </a>
   
 </li>
@@ -529,13 +640,6 @@
           <li class="md-nav__item">
   <a href="#subnet" class="md-nav__link">
     Subnet
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#infinibandroce" class="md-nav__link">
-    Infiniband/RoCE
   </a>
   
 </li>
@@ -725,17 +829,29 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       User Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         User Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/workflow/" title="Workflow" class="md-nav__link">
+      Workflow
+    </a>
+  </li>
+
         
           
           
@@ -755,20 +871,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
-      Native Programming Interface
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../user/posix/" title="POSIX Namespace" class="md-nav__link">
-      POSIX Namespace
+    <a href="../../user/filesystem/" title="File System" class="md-nav__link">
+      File System
     </a>
   </li>
 
@@ -821,6 +925,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
+      Native Programming Interface
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -833,13 +949,109 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
+      DAOS Test and Benchmarking
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        DAOS Test and Benchmarking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/autotest/" title="Run DAOS Autotest" class="md-nav__link">
+      Run DAOS Autotest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/cartselftest/" title="Run CaRT Self_test" class="md-nav__link">
+      Run CaRT Self_test
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/runior/" title="Run IOR" class="md-nav__link">
+      Run IOR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/mdtest/" title="Run mdtest" class="md-nav__link">
+      Run mdtest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/dbench/" title="Run dbench" class="md-nav__link">
+      Run dbench
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/datamover/" title="Datamover test" class="md-nav__link">
+      Datamover test
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
       Releases
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-7">
         Releases
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -851,8 +1063,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
-      Release Notes v1.0
+    <a href="../../release/release_notes_v2_0/" title="Release Notes v2.0" class="md-nav__link">
+      Release Notes v2.0
     </a>
   </li>
 
@@ -881,13 +1093,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-8">
       Developer Zone
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-8">
         Developer Zone
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -935,7 +1147,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1015,8 +1227,8 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#enable-iommu-optional" class="md-nav__link">
-    Enable IOMMU (Optional)
+  <a href="#enable-iommu" class="md-nav__link">
+    Enable IOMMU
   </a>
   
 </li>
@@ -1046,13 +1258,6 @@
           <li class="md-nav__item">
   <a href="#subnet" class="md-nav__link">
     Subnet
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#infinibandroce" class="md-nav__link">
-    Infiniband/RoCE
   </a>
   
 </li>
@@ -1145,7 +1350,7 @@
                 <h1 id="pre-deployment-checklist">Pre-deployment Checklist<a class="headerlink" href="#pre-deployment-checklist" title="Permanent link">&para;</a></h1>
 <p>This section covers the preliminary setup required on the compute and
 storage nodes before deploying DAOS.</p>
-<h2 id="enable-iommu-optional">Enable IOMMU (Optional)<a class="headerlink" href="#enable-iommu-optional" title="Permanent link">&para;</a></h2>
+<h2 id="enable-iommu">Enable IOMMU<a class="headerlink" href="#enable-iommu" title="Permanent link">&para;</a></h2>
 <p>In order to run the DAOS server as a non-root user with NVMe devices, the hardware
 must support virtualized device access, and it must be enabled in the system BIOS.
 On Intel® systems, this capability is named Intel® Virtualization Technology for
@@ -1167,14 +1372,12 @@ $ sudo grub2-mkconfig --output=/boot/grub2/grub.cfg
 $ sudo reboot
 </code></pre>
 
-<div class="admonition warning">
-<p class="admonition-title">Warning</p>
-<p>VFIO support is a new feature for DAOS 1.2 and has been tested on CentOS 7.7</p>
-</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
 <p>To force SPDK to use UIO rather than VFIO at daos_server runtime, set
-'disable_vfio' in the
-<a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml#L109">server config file</a>,
+'disable_vfio' in the <a href="https://github.com/daos-stack/daos/blob/master/utils/config/daos_server.yml#L109">server config file</a>,
 but note that this will require running daos_server as root.</p>
+</div>
 <h2 id="time-synchronization">Time Synchronization<a class="headerlink" href="#time-synchronization" title="Permanent link">&para;</a></h2>
 <p>The DAOS transaction model relies on timestamps and requires time to be
 synchronized across all the storage and client nodes. This can be done
@@ -1188,20 +1391,15 @@ the DAOS storage nodes.</p>
 <h2 id="multi-railnic-setup">Multi-rail/NIC Setup<a class="headerlink" href="#multi-railnic-setup" title="Permanent link">&para;</a></h2>
 <p>Storage nodes can be configured with multiple network interfaces to run
 multiple engine instances.</p>
-<h3 id="subnet">Subnet<a class="headerlink" href="#subnet" title="Permanent link">&para;</a></h3>
-<p>Since all DAOS engines need to be able to communicate, the different network
-interfaces need to be on the same subnet or routing capabilities across the
-different subnet might be configured.</p>
-<h3 id="infinibandroce">Infiniband/RoCE<a class="headerlink" href="#infinibandroce" title="Permanent link">&para;</a></h3>
 <p>Some special configuration is required to use librdmacm with multiple
 interfaces.</p>
-<p>Firstly, the accept_local feature must be enabled on the network interfaces
+<p>First, the accept_local feature must be enabled on the network interfaces
 to be used by DAOS. This can be done using the following command (<ifaces> must
 be replaced with the interface names):</p>
 <pre><code>$ sudo sysctl -w net.ipv4.conf.all.accept_local=1
 </code></pre>
 
-<p>Secondly, Linux must be configured to only send ARP replies on the interface
+<p>Second, Linux must be configured to only send ARP replies on the interface
 targeted in the ARP request. This is configured via the arp_ignore parameter.
 This should be set to 2 if all the IPoIB interfaces on the client and storage
 nodes are in the same logical subnet (e.g. ib0 == 10.0.0.27, ib1 == 10.0.1.27,
@@ -1224,6 +1422,10 @@ true even if the configuration uses a single logical subnet.</p>
 sysctl file under /etc/sysctl.d (e.g. /etc/sysctl.d/95-daos-net.conf) with all
 the relevant settings.</p>
 <p>For more information, please refer to the <a href="https://github.com/linux-rdma/rdma-core/blob/master/Documentation/librdmacm.md">librdmacm documentation</a></p>
+<h3 id="subnet">Subnet<a class="headerlink" href="#subnet" title="Permanent link">&para;</a></h3>
+<p>Since all engines need to be able to communicate, the different network
+interfaces need to be on the same subnet or routing capabilities across the
+different subnet must be configured.</p>
 <h2 id="runtime-directory-setup">Runtime Directory Setup<a class="headerlink" href="#runtime-directory-setup" title="Permanent link">&para;</a></h2>
 <p>DAOS uses a series of Unix Domain Sockets to communicate between its
 various components. On modern Linux systems, Unix Domain Sockets are
@@ -1242,11 +1444,12 @@ Unable to create socket directory: /var/run/daos_server
 the default location that daos_server uses for its runtime directory,
 either uncomment and set the socket_dir configuration value in
 install/etc/daos_server.yml, or pass the location to daos_server on
-the command line using the -d flag. For the daos_agent, an alternate
-location can be passed on the command line using the --runtime_dir flag.</p>
+the command line using the -d flag (<code>daos_server start -d /tmp/daos_server</code>). For the daos_agent, an alternate
+location can be passed on the command line using the --runtime_dir flag (<code>daos_agent -d /tmp/daos_agent</code>).</p>
 <h3 id="default-directory-non-persistent">Default Directory (non-persistent)<a class="headerlink" href="#default-directory-non-persistent" title="Permanent link">&para;</a></h3>
 <p>Files and directories created in /run and /var/run only survive until
-the next reboot. However, if reboots are infrequent, an easy solution
+the next reboot. These directories are required for subsequent runs;
+therefore, if reboots are infrequent, an easy solution
 while still utilizing the default locations is to create the
 required directories manually. To do this execute the following commands.</p>
 <p>daos_server:</p>

@@ -42,7 +42,7 @@
     
     
       
-        <title>System Administration - DAOS Development Branch</title>
+        <title>System Administration - DAOS v2.0 - dev</title>
       
     
     
@@ -92,7 +92,11 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-    <div class="md-flex"><img src="../../assets/images/daos_logo_wh.png" width="80" height="61" alt=""/> 
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://daos.io" title="DAOS v2.0 - dev" aria-label="DAOS v2.0 - dev" class="md-header-nav__button md-logo"><img src="../../assets/images/daos_logo_wh.png" width="50"/>
+</a>
+      </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
@@ -100,7 +104,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS Development Branch
+              DAOS v2.0 - dev
             </span>
             <span class="md-header-nav__topic">
               
@@ -206,6 +210,19 @@
   
     <li class="md-tabs__item">
       
+        <a href="../../QSG/setup/" class="md-tabs__link">
+          Installation and Setup
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
         <a href="../hardware/" class="md-tabs__link md-tabs__link--active">
           Administration Guide
         </a>
@@ -219,7 +236,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../user/container/" class="md-tabs__link">
+        <a href="../../user/workflow/" class="md-tabs__link">
           User Guide
         </a>
       
@@ -232,7 +249,20 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
+        <a href="../../QSG/autotest/" class="md-tabs__link">
+          DAOS Test and Benchmarking
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../release/release_notes_v2_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -262,15 +292,13 @@
         
       
     </ul>
-  </div>
-</nav>
-  <section>
-      <div class="dropdown show">
-  <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-    <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
-  </div>
+  </div></nav>
+	 <section>
+    <div class="dropdown show">
+      <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
       </div>
-
+    </div>
   </section>
   <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -281,12 +309,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS Development Branch" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v2.0 - dev" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img alt="logo" src="../../graph/logo.png" width="48" height="48">
       
     </a>
-    DAOS Development Branch
+    DAOS v2.0 - dev
   </label>
   
     <div class="md-nav__source">
@@ -423,18 +451,102 @@
       
       
 
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Installation and Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Installation and Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/setup/" title="DAOS CentOS Setup" class="md-nav__link">
+      DAOS CentOS Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/suse_setup/" title="DAOS openSUSE Setup" class="md-nav__link">
+      DAOS openSUSE Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/tour/" title="DAOS Admin/Client Tools" class="md-nav__link">
+      DAOS Admin/Client Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/test_index/" title="DAOS Test and Benchmarking" class="md-nav__link">
+      DAOS Test and Benchmarking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://wiki.hpdd.intel.com/display/DC/DAOS+IO-500+Instructions" title="IO500 Setup" class="md-nav__link">
+      IO500 Setup
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Administration Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Administration Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -521,6 +633,33 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-ras-events" class="md-nav__link">
+    System RAS Events
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ras-event-structure" class="md-nav__link">
+    RAS Event Structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ras-event-ids" class="md-nav__link">
+    RAS Event IDs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#system-monitoring" class="md-nav__link">
     System Monitoring
   </a>
@@ -536,30 +675,50 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#per-storage-server-space-utilization" class="md-nav__link">
-    Per-Storage-Server Space Utilization
+  <a href="#space-utilization" class="md-nav__link">
+    Space Utilization
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#nvme-ssd-health-monitoring" class="md-nav__link">
-    NVMe SSD Health Monitoring
+  <a href="#storage-scrubbing" class="md-nav__link">
+    Storage Scrubbing
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#nvme-ssd-eviction-and-hotplug" class="md-nav__link">
-    NVMe SSD Eviction and Hotplug
+  <a href="#ssd-management" class="md-nav__link">
+    SSD Management
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#health-monitoring" class="md-nav__link">
+    Health Monitoring
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#nvme-ssd-identification" class="md-nav__link">
-    NVMe SSD Identification
+  <a href="#eviction-and-hotplug" class="md-nav__link">
+    Eviction and Hotplug
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identification" class="md-nav__link">
+    Identification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -577,8 +736,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#query" class="md-nav__link">
-    Query
+  <a href="#membership" class="md-nav__link">
+    Membership
   </a>
   
 </li>
@@ -612,15 +771,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fault-domain-maintenance-and-reintegration" class="md-nav__link">
-    Fault Domain Maintenance and Reintegration
+  <a href="#fault-domain" class="md-nav__link">
+    Fault Domain
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#daos-system-extension" class="md-nav__link">
-    DAOS System Extension
+  <a href="#system-extension" class="md-nav__link">
+    System Extension
   </a>
   
 </li>
@@ -673,21 +832,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#persistent-schema-compatibility-and-update" class="md-nav__link">
-    Persistent Schema Compatibility and Update
+  <a href="#persistent-layout" class="md-nav__link">
+    Persistent Layout
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#storage-scrubbing" class="md-nav__link">
-    Storage Scrubbing
-  </a>
   
 </li>
       
@@ -786,17 +938,29 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       User Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         User Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/workflow/" title="Workflow" class="md-nav__link">
+      Workflow
+    </a>
+  </li>
+
         
           
           
@@ -816,20 +980,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
-      Native Programming Interface
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../user/posix/" title="POSIX Namespace" class="md-nav__link">
-      POSIX Namespace
+    <a href="../../user/filesystem/" title="File System" class="md-nav__link">
+      File System
     </a>
   </li>
 
@@ -882,6 +1034,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
+      Native Programming Interface
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -894,13 +1058,109 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
+      DAOS Test and Benchmarking
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        DAOS Test and Benchmarking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/autotest/" title="Run DAOS Autotest" class="md-nav__link">
+      Run DAOS Autotest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/cartselftest/" title="Run CaRT Self_test" class="md-nav__link">
+      Run CaRT Self_test
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/runior/" title="Run IOR" class="md-nav__link">
+      Run IOR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/mdtest/" title="Run mdtest" class="md-nav__link">
+      Run mdtest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/dbench/" title="Run dbench" class="md-nav__link">
+      Run dbench
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/datamover/" title="Datamover test" class="md-nav__link">
+      Datamover test
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
       Releases
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-7">
         Releases
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -912,8 +1172,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
-      Release Notes v1.0
+    <a href="../../release/release_notes_v2_0/" title="Release Notes v2.0" class="md-nav__link">
+      Release Notes v2.0
     </a>
   </li>
 
@@ -942,13 +1202,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-8">
       Developer Zone
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-8">
         Developer Zone
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -996,7 +1256,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1076,6 +1336,33 @@
     <ul class="md-nav__list" data-md-scrollfix>
       
         <li class="md-nav__item">
+  <a href="#system-ras-events" class="md-nav__link">
+    System RAS Events
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ras-event-structure" class="md-nav__link">
+    RAS Event Structure
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ras-event-ids" class="md-nav__link">
+    RAS Event IDs
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#system-monitoring" class="md-nav__link">
     System Monitoring
   </a>
@@ -1091,30 +1378,50 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#per-storage-server-space-utilization" class="md-nav__link">
-    Per-Storage-Server Space Utilization
+  <a href="#space-utilization" class="md-nav__link">
+    Space Utilization
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#nvme-ssd-health-monitoring" class="md-nav__link">
-    NVMe SSD Health Monitoring
+  <a href="#storage-scrubbing" class="md-nav__link">
+    Storage Scrubbing
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#nvme-ssd-eviction-and-hotplug" class="md-nav__link">
-    NVMe SSD Eviction and Hotplug
+  <a href="#ssd-management" class="md-nav__link">
+    SSD Management
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#health-monitoring" class="md-nav__link">
+    Health Monitoring
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#nvme-ssd-identification" class="md-nav__link">
-    NVMe SSD Identification
+  <a href="#eviction-and-hotplug" class="md-nav__link">
+    Eviction and Hotplug
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#identification" class="md-nav__link">
+    Identification
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1132,8 +1439,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#query" class="md-nav__link">
-    Query
+  <a href="#membership" class="md-nav__link">
+    Membership
   </a>
   
 </li>
@@ -1167,15 +1474,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#fault-domain-maintenance-and-reintegration" class="md-nav__link">
-    Fault Domain Maintenance and Reintegration
+  <a href="#fault-domain" class="md-nav__link">
+    Fault Domain
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#daos-system-extension" class="md-nav__link">
-    DAOS System Extension
+  <a href="#system-extension" class="md-nav__link">
+    System Extension
   </a>
   
 </li>
@@ -1228,21 +1535,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#persistent-schema-compatibility-and-update" class="md-nav__link">
-    Persistent Schema Compatibility and Update
+  <a href="#persistent-layout" class="md-nav__link">
+    Persistent Layout
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#storage-scrubbing" class="md-nav__link">
-    Storage Scrubbing
-  </a>
   
 </li>
       
@@ -1266,11 +1566,245 @@
                 
                 
                 <h1 id="daos-system-administration">DAOS System Administration<a class="headerlink" href="#daos-system-administration" title="Permanent link">&para;</a></h1>
+<h2 id="system-ras-events">System RAS Events<a class="headerlink" href="#system-ras-events" title="Permanent link">&para;</a></h2>
+<p>Reliability, Availability and Serviceability (RAS) related events are
+communicated and logged within DAOS.</p>
+<h3 id="ras-event-structure">RAS Event Structure<a class="headerlink" href="#ras-event-structure" title="Permanent link">&para;</a></h3>
+<p>The following table describes the structure of a DAOS RAS event including
+descriptions of mandatory and optional fields.</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Optional/Mandatory</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID</td>
+<td>Mandatory</td>
+<td>Unique event identifier referenced in the manual.</td>
+</tr>
+<tr>
+<td>Type</td>
+<td>Mandatory</td>
+<td>Event type of STATE_CHANGE causes an update to the Management Service (MS) database in addition to event being written to SYSLOG. INFO_ONLY type events are only written to SYSLOG.</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>Mandatory</td>
+<td>Resolution at the microseconds and include the timezone offset to avoid locality issues.</td>
+</tr>
+<tr>
+<td>Severity</td>
+<td>Mandatory</td>
+<td>Indicates event severity, Error/Warning/Notice.</td>
+</tr>
+<tr>
+<td>Msg</td>
+<td>Mandatory</td>
+<td>Human readable message.</td>
+</tr>
+<tr>
+<td>HID</td>
+<td>Optional</td>
+<td>Identify hardware component involved in the event. E.g. PCI address for SSD, network interface</td>
+</tr>
+<tr>
+<td>Rank</td>
+<td>Optional</td>
+<td>DAOS rank involved in the event.</td>
+</tr>
+<tr>
+<td>PID</td>
+<td>Optional</td>
+<td>Identifier of the process involved in the RAS event</td>
+</tr>
+<tr>
+<td>TID</td>
+<td>Optional</td>
+<td>Identifier of the thread involved in the RAS event.</td>
+</tr>
+<tr>
+<td>JOBID</td>
+<td>Optional</td>
+<td>Identifier of the job involved in the RAS event.</td>
+</tr>
+<tr>
+<td>Hostname</td>
+<td>Optional</td>
+<td>Hostname of the node involved in the event.</td>
+</tr>
+<tr>
+<td>PUUID</td>
+<td>Optional</td>
+<td>Pool UUID involved in the event, if any.</td>
+</tr>
+<tr>
+<td>CUUID</td>
+<td>Optional</td>
+<td>Container UUID involved in the event, if relevant.</td>
+</tr>
+<tr>
+<td>OID</td>
+<td>Optional</td>
+<td>Object identifier involved in the event, if relevant.</td>
+</tr>
+<tr>
+<td>Control Operation</td>
+<td>Optional</td>
+<td>Recommended automatic action, if any.</td>
+</tr>
+<tr>
+<td>Data</td>
+<td>Optional</td>
+<td>Specific instance data treated as a blob.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ras-event-ids">RAS Event IDs<a class="headerlink" href="#ras-event-ids" title="Permanent link">&para;</a></h3>
+<p>The following table lists supported DAOS RAS events including IDs, type,
+severity, message, description and cause.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Event</th>
+<th align="left">Event type</th>
+<th align="left">Severity</th>
+<th align="left">Message</th>
+<th align="left">Description</th>
+<th align="left">Cause</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">engine_format required</td>
+<td align="left">INFO_ONLY</td>
+<td align="left">NOTICE</td>
+<td align="left">DAOS engine &lt;idx> requires a &lt;type> format</td>
+<td align="left">Indicates engine is waiting for allocated storage to be formatted on formatted on instance &lt;idx> with dmg tool. &lt;type> can be either SCM or Metadata.</td>
+<td align="left">DAOS server attempts to bring-up an engine which has unformatted storage.</td>
+</tr>
+<tr>
+<td align="left">engine_died</td>
+<td align="left">STATE_CHANGE</td>
+<td align="left">ERROR</td>
+<td align="left">DAOS engine &lt;idx> exited exited unexpectedly: &lt;error></td>
+<td align="left">Indicates engine instance &lt;idx> unexpectedly. <error> describes the exit state returned from exited daos_engine process.</td>
+<td align="left">N/A</td>
+</tr>
+<tr>
+<td align="left">engine_asserted</td>
+<td align="left">STATE_CHANGE</td>
+<td align="left">ERROR</td>
+<td align="left">TBD</td>
+<td align="left">Indicates engine instance <idx> threw a runtime assertion, causing a crash.</td>
+<td align="left">An unexpected internal state resulted in assert failure.</td>
+</tr>
+<tr>
+<td align="left">engine_clock_drift</td>
+<td align="left">INFO_ONLY</td>
+<td align="left">ERROR</td>
+<td align="left">clock drift detected</td>
+<td align="left">Indicates CART comms layer has detected clock skew between engines.</td>
+<td align="left">NTP may not be syncing clocks across DAOS system.</td>
+</tr>
+<tr>
+<td align="left">pool_rebuild_started</td>
+<td align="left">INFO_ONLY</td>
+<td align="left">NOTICE</td>
+<td align="left">Pool rebuild started.</td>
+<td align="left">Indicates a pool rebuild has started. Event data field contains pool map version and pool operation identifier.</td>
+<td align="left">When a pool rank becomes unavailable a rebuild will be triggered.</td>
+</tr>
+<tr>
+<td align="left">pool_rebuild_finished</td>
+<td align="left">INFO_ONLY</td>
+<td align="left">NOTICE</td>
+<td align="left">Pool rebuild finished.</td>
+<td align="left">Indicates a pool rebuild has finished successfully. Event data field includes the pool map version and pool operation identifier.</td>
+<td align="left">N/A</td>
+</tr>
+<tr>
+<td align="left">pool_rebuild_failed</td>
+<td align="left">INFO_ONLY</td>
+<td align="left">ERROR</td>
+<td align="left">Pool rebuild failed: &lt;rc>.</td>
+<td align="left">Indicates a pool rebuild has failed. Event data field includes the pool map version and pool operation identifier. &lt;rc> provides a string representation of DER code.</td>
+<td align="left">N/A</td>
+</tr>
+<tr>
+<td align="left">pool_replicas_updated</td>
+<td align="left">STATE_CHANGE</td>
+<td align="left">NOTICE</td>
+<td align="left">List of pool service replica ranks has been updated.</td>
+<td align="left">Indicates a pool service replica list has changed. The event contains the new service replica list in a custom payload.</td>
+<td align="left">When a pool service replica rank becomes unavailable a new rank is selected to replace it (if available).</td>
+</tr>
+<tr>
+<td align="left">pool_durable_format_incompat</td>
+<td align="left">INFO_ONLY</td>
+<td align="left">ERROR</td>
+<td align="left">incompatible layout version: &lt;current> not in [&lt;min>, &lt;max>]</td>
+<td align="left">Indicates the given pool's layout version does not match any of the versions supported by the currently running DAOS software.</td>
+<td align="left">DAOS engine is started with pool data in local storage that has an incompatible layout version.</td>
+</tr>
+<tr>
+<td align="left">container_durable_format_incompat</td>
+<td align="left">INFO_ONLY</td>
+<td align="left">ERROR</td>
+<td align="left">incompatible layout version[: &lt;current> not in [&lt;min>, &lt;max>]</td>
+<td align="left">Indicates the given container's layout version does not match any of the versions supported by the currently running DAOS software.</td>
+<td align="left">DAOS engine is started with container data in local storage that has an incompatible layout version.</td>
+</tr>
+<tr>
+<td align="left">rdb_durable_format_incompatible</td>
+<td align="left">INFO_ONLY</td>
+<td align="left">ERROR</td>
+<td align="left">incompatible layout version[: &lt;current> not in [&lt;min>, &lt;max>]]</td>
+<td align="left">Indicates the given rdb's layout version does not match any of the versions supported by the currently running DAOS software.</td>
+<td align="left">DAOS engine is started with rdb data in local storage that has an incompatible layout version.</td>
+</tr>
+<tr>
+<td align="left">swim_rank_alive</td>
+<td align="left">STATE_CHANGE</td>
+<td align="left">NOTICE</td>
+<td align="left">TBD</td>
+<td align="left">The SWIM protocol has detected the specified rank is responsive.</td>
+<td align="left">A remote DAOS engine has become responsive.</td>
+</tr>
+<tr>
+<td align="left">swim_rank_dead</td>
+<td align="left">STATE_CHANGE</td>
+<td align="left">NOTICE</td>
+<td align="left">SWIM rank marked as dead.</td>
+<td align="left">The SWIM protocol has detected the specified rank is unresponsive.</td>
+<td align="left">A remote DAOS engine has become unresponsive.</td>
+</tr>
+<tr>
+<td align="left">system_start_failed</td>
+<td align="left">INFO_ONLY</td>
+<td align="left">ERROR</td>
+<td align="left">System startup failed, &lt;errors></td>
+<td align="left">Indicates that a user initiated controlled startup failed. &lt;errors> shows which ranks failed.</td>
+<td align="left">Ranks failed to start.</td>
+</tr>
+<tr>
+<td align="left">system_stop_failed</td>
+<td align="left">INFO_ONLY</td>
+<td align="left">ERROR</td>
+<td align="left">System shutdown failed during &lt;action> action, &lt;errors></td>
+<td align="left">Indicates that a user initiated controlled shutdown failed. &lt;action> identifies the failing shutdown action and &lt;errors> shows which ranks failed.</td>
+<td align="left">Ranks failed to stop.</td>
+</tr>
+</tbody>
+</table>
 <h2 id="system-monitoring">System Monitoring<a class="headerlink" href="#system-monitoring" title="Permanent link">&para;</a></h2>
 <p>System monitoring and telemetry data will be provided as part of the
 control plane and will be documented in a future revision.</p>
 <h2 id="storage-operations">Storage Operations<a class="headerlink" href="#storage-operations" title="Permanent link">&para;</a></h2>
-<h3 id="per-storage-server-space-utilization">Per-Storage-Server Space Utilization<a class="headerlink" href="#per-storage-server-space-utilization" title="Permanent link">&para;</a></h3>
+<h3 id="space-utilization">Space Utilization<a class="headerlink" href="#space-utilization" title="Permanent link">&para;</a></h3>
 <p>To query SCM and NVMe storage space usage and show how much space is available to
 create new DAOS pools with, run the following command:</p>
 <pre><code class="bash">bash-4.2$ dmg storage query usage
@@ -1299,7 +1833,12 @@ system specifies 2 I/O processes (2 "server" sections), the maximum pool size
 that can be specified is approximately <code>dmg pool create -s 1T -n 5T</code> (may need to
 specify slightly below the maximum to take account of negligible metadata
 overhead).</p>
-<h3 id="nvme-ssd-health-monitoring">NVMe SSD Health Monitoring<a class="headerlink" href="#nvme-ssd-health-monitoring" title="Permanent link">&para;</a></h3>
+<h3 id="storage-scrubbing">Storage Scrubbing<a class="headerlink" href="#storage-scrubbing" title="Permanent link">&para;</a></h3>
+<p>Support for end-to-end data integrity is planned for DAOS v1.2 and
+background checksum scrubbing for v2.2. Once available, that
+functionality will be documented here.</p>
+<h3 id="ssd-management">SSD Management<a class="headerlink" href="#ssd-management" title="Permanent link">&para;</a></h3>
+<h4 id="health-monitoring">Health Monitoring<a class="headerlink" href="#health-monitoring" title="Permanent link">&para;</a></h4>
 <p>Useful admin dmg commands to query NVMe SSD health:</p>
 <ul>
 <li>Query Per-Server Metadata:</li>
@@ -1402,7 +1941,7 @@ boro-11
         Volatile Memory Backup: OK
 </code></pre>
 
-<h3 id="nvme-ssd-eviction-and-hotplug">NVMe SSD Eviction and Hotplug<a class="headerlink" href="#nvme-ssd-eviction-and-hotplug" title="Permanent link">&para;</a></h3>
+<h4 id="eviction-and-hotplug">Eviction and Hotplug<a class="headerlink" href="#eviction-and-hotplug" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Manually Evict an NVMe SSD: <code>dmg storage set nvme-faulty</code></li>
 </ul>
@@ -1419,7 +1958,11 @@ boro-11
 <p>The device state will transition from "NORMAL" to "FAULTY" (shown above), which will
 trigger the faulty device reaction (all targets on the SSD will be rebuilt and the SSD
 will remain evicted until device replacement occurs).</p>
-<p><strong>Full NVMe hot plug capability will be available and supported in DAOS 2.0 release. Use is currently intended for testing only and is not supported for production.</strong></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Full NVMe hot plug capability will be available and supported in DAOS 2.2 release.
+Use is currently intended for testing only and is not supported for production.</p>
+</div>
 <ul>
 <li>Replace an Evicted SSD with a New Device: <code>dmg storage replace nvme</code></li>
 </ul>
@@ -1452,7 +1995,7 @@ boro-11
 <p>The FAULTY device will transition from an "EVICTED" state back to a "NORMAL" state,
 and will again be available for use with DAOS. The use case of this command will mainly
 be for testing, or for accidental device eviction.</p>
-<h3 id="nvme-ssd-identification">NVMe SSD Identification<a class="headerlink" href="#nvme-ssd-identification" title="Permanent link">&para;</a></h3>
+<h4 id="identification">Identification<a class="headerlink" href="#identification" title="Permanent link">&para;</a></h4>
 <p>The SSD identification feature is simply a way to quickly and visually locate a
 device. It requires the use of Intel VMD (Volume Management Device), which needs
 to be physically available on the hardware as well as enabled in the system BIOS.
@@ -1508,7 +2051,7 @@ specified when starting <code>daos_server</code> instances.</p>
 Whilst individual system instances can be stopped, if a subset is restarted,
 existing pools will not be automatically integrated with restarted instances.</p>
 </div>
-<h3 id="query">Query<a class="headerlink" href="#query" title="Permanent link">&para;</a></h3>
+<h3 id="membership">Membership<a class="headerlink" href="#membership" title="Permanent link">&para;</a></h3>
 <p>The system membership can be queried using the command:</p>
 <p><code>$ dmg system query [--verbose] [--ranks &lt;rankset&gt;|--host-ranks &lt;hostset&gt;]</code></p>
 <ul>
@@ -1576,11 +2119,11 @@ stopped, then for each SCM mount specified in the config file
 <p>Then restart DAOS Servers and format.</p>
 </li>
 </ul>
-<h3 id="fault-domain-maintenance-and-reintegration">Fault Domain Maintenance and Reintegration<a class="headerlink" href="#fault-domain-maintenance-and-reintegration" title="Permanent link">&para;</a></h3>
+<h3 id="fault-domain">Fault Domain<a class="headerlink" href="#fault-domain" title="Permanent link">&para;</a></h3>
 <p>Details on how to drain an individual storage node or fault domain (e.g.
 rack) in preparation for maintenance activity and how to reintegrate it
 will be provided in a future revision.</p>
-<h3 id="daos-system-extension">DAOS System Extension<a class="headerlink" href="#daos-system-extension" title="Permanent link">&para;</a></h3>
+<h3 id="system-extension">System Extension<a class="headerlink" href="#system-extension" title="Permanent link">&para;</a></h3>
 <p>Ability to add new DAOS server instances to a pre-existing DAOS system
 will be documented in a future revision.</p>
 <h2 id="fault-management">Fault Management<a class="headerlink" href="#fault-management" title="Permanent link">&para;</a></h2>
@@ -1642,7 +2185,7 @@ same pool, the entire DAOS system will fail to start up and will report
 failure to the control API. Similarly, the connection from clients
 running a protocol version incompatible with the targets will return an
 error.</p>
-<h3 id="persistent-schema-compatibility-and-update">Persistent Schema Compatibility and Update<a class="headerlink" href="#persistent-schema-compatibility-and-update" title="Permanent link">&para;</a></h3>
+<h3 id="persistent-layout">Persistent Layout<a class="headerlink" href="#persistent-layout" title="Permanent link">&para;</a></h3>
 <p>The schema of persistent data structures may evolve from time to time to
 fix bugs, add new optimizations, or support new features. To that end,
 the persistent data structures support schema versioning.</p>
@@ -1658,10 +2201,6 @@ of the supported schema versions. New pool shards will always be
 formatted with the latest version. This versioning schema only applies
 to a data structure stored in persistent memory and not to block storage
 that only stores user data with no metadata.</p>
-<h2 id="storage-scrubbing">Storage Scrubbing<a class="headerlink" href="#storage-scrubbing" title="Permanent link">&para;</a></h2>
-<p>Support for end-to-end data integrity is planned for DAOS v1.2 and
-background checksum scrubbing for v2.2. Once available, that
-functionality will be documented here.</p>
 <div class="footnote">
 <hr />
 <ol>

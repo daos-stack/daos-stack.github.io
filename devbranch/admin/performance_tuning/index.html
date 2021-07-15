@@ -42,7 +42,7 @@
     
     
       
-        <title>Performance Tuning - DAOS Development Branch</title>
+        <title>Performance Tuning - DAOS v2.0 - dev</title>
       
     
     
@@ -92,8 +92,11 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-          <div class="md-flex"><img src="../../assets/images/daos_logo_wh.png" width="80" height="61" alt=""/> 
-
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://daos.io" title="DAOS v2.0 - dev" aria-label="DAOS v2.0 - dev" class="md-header-nav__button md-logo"><img src="../../assets/images/daos_logo_wh.png" width="50"/>
+</a>
+      </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
@@ -101,7 +104,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS Development Branch
+              DAOS v2.0 - dev
             </span>
             <span class="md-header-nav__topic">
               
@@ -207,6 +210,19 @@
   
     <li class="md-tabs__item">
       
+        <a href="../../QSG/setup/" class="md-tabs__link">
+          Installation and Setup
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
         <a href="../hardware/" class="md-tabs__link md-tabs__link--active">
           Administration Guide
         </a>
@@ -220,7 +236,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../user/container/" class="md-tabs__link">
+        <a href="../../user/workflow/" class="md-tabs__link">
           User Guide
         </a>
       
@@ -233,7 +249,20 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
+        <a href="../../QSG/autotest/" class="md-tabs__link">
+          DAOS Test and Benchmarking
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../release/release_notes_v2_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -263,15 +292,13 @@
         
       
     </ul>
-  </div>
-</nav>
-  <section>
-      <div class="dropdown show">
-  <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-    <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
-  </div>
+  </div></nav>
+	 <section>
+    <div class="dropdown show">
+      <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
       </div>
-
+    </div>
   </section>
   <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -282,12 +309,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS Development Branch" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v2.0 - dev" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img alt="logo" src="../../graph/logo.png" width="48" height="48">
       
     </a>
-    DAOS Development Branch
+    DAOS v2.0 - dev
   </label>
   
     <div class="md-nav__source">
@@ -424,18 +451,102 @@
       
       
 
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Installation and Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Installation and Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/setup/" title="DAOS CentOS Setup" class="md-nav__link">
+      DAOS CentOS Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/suse_setup/" title="DAOS openSUSE Setup" class="md-nav__link">
+      DAOS openSUSE Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/tour/" title="DAOS Admin/Client Tools" class="md-nav__link">
+      DAOS Admin/Client Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/test_index/" title="DAOS Test and Benchmarking" class="md-nav__link">
+      DAOS Test and Benchmarking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://wiki.hpdd.intel.com/display/DC/DAOS+IO-500+Instructions" title="IO500 Setup" class="md-nav__link">
+      IO500 Setup
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Administration Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Administration Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -566,8 +677,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#getting-daos-cart-self_test" class="md-nav__link">
-    Getting DAOS CaRT self_test
+  <a href="#building-cart-self_test" class="md-nav__link">
+    Building CaRT self_test
   </a>
   
 </li>
@@ -691,17 +802,29 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       User Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         User Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/workflow/" title="Workflow" class="md-nav__link">
+      Workflow
+    </a>
+  </li>
+
         
           
           
@@ -721,20 +844,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
-      Native Programming Interface
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../user/posix/" title="POSIX Namespace" class="md-nav__link">
-      POSIX Namespace
+    <a href="../../user/filesystem/" title="File System" class="md-nav__link">
+      File System
     </a>
   </li>
 
@@ -787,6 +898,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
+      Native Programming Interface
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -799,13 +922,109 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
+      DAOS Test and Benchmarking
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        DAOS Test and Benchmarking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/autotest/" title="Run DAOS Autotest" class="md-nav__link">
+      Run DAOS Autotest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/cartselftest/" title="Run CaRT Self_test" class="md-nav__link">
+      Run CaRT Self_test
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/runior/" title="Run IOR" class="md-nav__link">
+      Run IOR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/mdtest/" title="Run mdtest" class="md-nav__link">
+      Run mdtest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/dbench/" title="Run dbench" class="md-nav__link">
+      Run dbench
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/datamover/" title="Datamover test" class="md-nav__link">
+      Datamover test
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
       Releases
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-7">
         Releases
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -817,8 +1036,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
-      Release Notes v1.0
+    <a href="../../release/release_notes_v2_0/" title="Release Notes v2.0" class="md-nav__link">
+      Release Notes v2.0
     </a>
   </li>
 
@@ -847,13 +1066,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-8">
       Developer Zone
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-8">
         Developer Zone
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -901,7 +1120,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -989,8 +1208,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#getting-daos-cart-self_test" class="md-nav__link">
-    Getting DAOS CaRT self_test
+  <a href="#building-cart-self_test" class="md-nav__link">
+    Building CaRT self_test
   </a>
   
 </li>
@@ -1075,7 +1294,6 @@
                 
                 
                 <h1 id="daos-performance-tuning">DAOS Performance Tuning<a class="headerlink" href="#daos-performance-tuning" title="Permanent link">&para;</a></h1>
-<p>This section will be expanded in a future revision.</p>
 <h2 id="network-performance">Network Performance<a class="headerlink" href="#network-performance" title="Permanent link">&para;</a></h2>
 <p>The DAOS <a href="https://github.com/daos-stack/daos/tree/master/src/cart" title="Collective and RPC Transport">CaRT</a> layer can validate and benchmark network communications in
 the same context as an application and using the same networks/tuning options
@@ -1094,7 +1312,7 @@ bulk transfers, multiple targets, and the following test scenarios:</p>
     many to many communication model.</p>
 </li>
 </ul>
-<h3 id="getting-daos-cart-self_test">Getting DAOS CaRT self_test<a class="headerlink" href="#getting-daos-cart-self_test" title="Permanent link">&para;</a></h3>
+<h3 id="building-cart-self_test">Building CaRT self_test<a class="headerlink" href="#building-cart-self_test" title="Permanent link">&para;</a></h3>
 <p>The CaRT <code>self_test</code> and its tests are delivered as part of the daos_client
 and daos_tests <a href="https://github.com/daos-stack/daos/blob/master/doc/admin/installation.md#distribution-packages" title="DAOS distribution packages">distribution packages</a>. It can also be built from scratch.</p>
 <pre><code class="bash">$ git clone --recurse-submodules https://github.com/daos-stack/daos.git
@@ -1150,29 +1368,40 @@ i2048 0      2Kb iovec Input only
 <pre><code class="bash">$ ./bin/self_test --help
 </code></pre>
 
-<p><strong>To run self_test in client-to-servers mode:</strong></p>
-<pre><code class="bash">$ /usr/lib64/openmpi3/bin/orterun --mca btl self,tcp -N 1 \
-  --hostfile ${hostfile} --output-filename testLogs/ \
-  -x D_LOG_FILE=testLogs/self_test.log -x D_LOG_FILE_APPEND_PID=1 \
-  -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 \
-  -x CRT_CTX_SHARE_ADDR=0 -x CRT_CTX_NUM=16 \
-  ./bin/self_test --group-name daos_server --endpoint 0-&lt;MAX_SERVER-1&gt;:0 \
+<p><strong>To run self_test in client-to-servers mode:</strong>
+(Assuming sockets provider over eth0)</p>
+<pre><code class="bash">
+# Specify provider
+export CRT_PHY_ADDR_STR='ofi+sockets'
+
+# Specify interface
+export OFI_INTERFACE=eth0
+
+# Specify domain; usually only required when running over ofi+verbs;ofi_rxm
+# For example in such configuration OFI_DOMAIN might be set to mlx5_0
+# run fi_info --provider='verbs;ofi_rxm' in order to find an appropriate domain
+export OFI_DOMAIN=eth0
+
+# Export additional CART-level environment variables as described in README.env
+# if needed. For example export D_LOG_FILE=/path/to/log will allow dumping of the
+# log into the file instead of stdout/stderr
+
+$ ./bin/self_test --group-name daos_server --endpoint 0-&lt;MAX_SERVER-1&gt;:0 \
   --message-sizes &quot;b1048576,b1048576 0,0 b1048576,i2048,i2048 0,0 i2048&quot; \
-  --max-inflight-rpcs 16 --repetitions 100 -t -n -p .
+  --max-inflight-rpcs 16 --repetitions 100 -p /path/to/attach_info
 </code></pre>
 
 <p><strong>To run self_test in cross-servers mode:</strong></p>
-<pre><code class="bash">$ /usr/lib64/openmpi3/bin/orterun --mca btl self,tcp -N 1 \
-  --hostfile ${hostfile} --output-filename testLogs/ \
-  -x D_LOG_FILE=testLogs/self_test.log -x D_LOG_FILE_APPEND_PID=1 \
-  -x D_LOG_MASK=WARN -x CRT_PHY_ADDR_STR=ofi+sockets -x OFI_INTERFACE=eth0 \
-  -x CRT_CTX_SHARE_ADDR=0 -x CRT_CTX_NUM=16  \
-  ./bin/self_test --group-name daos_server --endpoint 0-&lt;MAX_SERVER-1&gt;:0 \
+<pre><code class="bash">
+$ ./bin/self_test --group-name daos_server --endpoint 0-&lt;MAX_SERVER-1&gt;:0 \
   --master-endpoint 0-&lt;MAX_SERVER-1&gt;:0 \
   --message-sizes &quot;b1048576,b1048576 0,0 b1048576,i2048,i2048 0,0 i2048&quot; \
-  --max-inflight-rpcs 16 --repetitions 100 -t -n -p .
+  --max-inflight-rpcs 16 --repetitions 100 -p /path/to/attach_info
 </code></pre>
 
+<p>Note:
+Number of repetitions, max inflight rpcs, message sizes can be adjusted based on the
+particular test/experiment.</p>
 <h2 id="benchmarking-daos">Benchmarking DAOS<a class="headerlink" href="#benchmarking-daos" title="Permanent link">&para;</a></h2>
 <p>DAOS can be benchmarked using several widely used IO benchmarks like IOR,
 mdtest, and FIO. There are several backends that can be used with those
@@ -1181,38 +1410,74 @@ benchmarks.</p>
 <p>IOR (<a href="https://github.com/hpc/ior">https://github.com/hpc/ior</a>) with the following backends:</p>
 <ul>
 <li>
-<p>The IOR APIs POSIX, MPIIO and HDF5 can be used with DAOS POSIX containers that
-    are accessed over dfuse. This works without or with the I/O interception library
-    (<code>libioil</code>). Performance is significantly better when using <code>libioil</code>.</p>
+<p>The IOR APIs POSIX, MPIIO and HDF5 can be used with DAOS POSIX containers
+    that are accessed over dfuse. This works without or with the I/O
+    interception library (<code>libioil</code>). Performance is significantly better when
+    using <code>libioil</code>. For detailed information on dfuse usage with the IO
+    interception library, please refer to the <a href="https://daos-stack.github.io/user/posix/#dfuse">POSIX DFUSE section</a>.</p>
 </li>
 <li>
 <p>A custom DFS (DAOS File System) plugin for DAOS can be used by building IOR
     with DAOS support, and selecting API=DFS. This integrates IOR directly with the
-    DAOS File System (<code>libdfs</code>), without requiring FUSE or an interception library.</p>
+    DAOS File System (<code>libdfs</code>), without requiring FUSE or an interception library.
+    Please refer to the <a href="https://github.com/hpc/ior/blob/main/README_DAOS">DAOS README</a> in the hpc/ior repository for some basic
+    instructions on how to use the DFS driver.</p>
 </li>
 <li>
 <p>When using the IOR API=MPIIO, the ROMIO ADIO driver for DAOS can be used by
     providing the <code>daos://</code> prefix to the filename. This ADIO driver bypasses <code>dfuse</code>
     and directly invkes the <code>libdfs</code> calls to perform I/O to a DAOS POSIX container.
-    The DAOS-enabled MPIIO driver is available in the upstream MPICH repository 
-    (MPICH 3.4.1 or higher).</p>
+    The DAOS-enabled MPIIO driver is available in the upstream MPICH repository and
+    included with Intel MPI. Please refer to the <a href="https://github.com/daos-stack/daos/blob/master/doc/user/mpi-io.md">MPI-IO documentation</a>.</p>
 </li>
 <li>
-<p>An HDF5 VOL connector for DAOS is under development. This maps the HDF5 data model 
+<p>An HDF5 VOL connector for DAOS is under development. This maps the HDF5 data model
     directly to the DAOS data model, and works in conjunction with DAOS containers of
     <code>--type=HDF5</code> (in contrast to DAOS container of <code>--type=POSIX</code> that are used for
-    the other IOR APIs).</p>
+    the other IOR APIs). Please refer the the <a href="https://github.com/daos-stack/daos/blob/master/doc/user/hdf5.md">HDF5 with DAOS documentation</a>.</p>
 </li>
 </ul>
+<p>IOR has several parameters to characterize performance. The main parameters to
+work with include:
+- transfer size (-t)
+- block size (-b)
+- segment size (-s)</p>
+<p>For more use cases, the IO-500 workloads are a good starting point to measure
+performance on a system: https://github.com/IO500/io500</p>
 <h3 id="mdtest">mdtest<a class="headerlink" href="#mdtest" title="Permanent link">&para;</a></h3>
-<p>mdtest is released in the same repository as IOR. The corresponding backends that are
-listed above support mdtest, except for the MPI-IO and HDF5 backends that were
-only designed to support IOR.</p>
+<p>mdtest is released in the same repository as IOR. The corresponding backends
+that are listed above support mdtest, except for the MPI-IO and HDF5 backends
+that were only designed to support IOR. The <a href="https://github.com/hpc/ior/blob/main/README_DAOS">DAOS README</a> in the hpc/ior
+repository includes some examples to run mdtest with DAOS.</p>
+<p>The IO-500 workloads for mdtest provide some good criteria for performance
+measurements.</p>
 <h3 id="fio">FIO<a class="headerlink" href="#fio" title="Permanent link">&para;</a></h3>
+<p>A DAOS engine is integrated into FIO and available upstream.
+To build it, just run:</p>
+<pre><code class="bash">$ git clone http://git.kernel.dk/fio.git
+$ cd fio
+$ ./configure
+$ make install
+</code></pre>
+
+<p>If DAOS is installed via packages, it should be automatically detected.
+If not, please specific the path to the DAOS library and headers to configure
+as follows:</p>
+<pre><code>$ CFLAGS=&quot;-I/path/to/daos/install/include&quot; LDFLAGS=&quot;-L/path/to/daos/install/lib64&quot; ./configure
+</code></pre>
+
+<p>Once successfully build, once can run the default example:</p>
+<pre><code class="bash">$ export POOL= # your pool UUID
+$ export CONT= # your container UUID
+$ fio ./examples/dfs.fio
+</code></pre>
+
+<p>Please note that DAOS does not transfer data (i.e. zeros) over the network
+when reading a hole in a sparse POSIX file. Very high read bandwidth can
+thus be reported if fio reads unallocated extents in a file. It is thus
+a good practice to start fio with a first write phase.</p>
 <p>FIO can also be used to benchmark DAOS performance using dfuse and the
-interception library with all the POSIX based engines like sync and libaio. We
-do, however, provide a native DFS engine for FIO similar to what we do for
-IOR. That engine is available on GitHub: <a href="https://github.com/daos-stack/dfio">https://github.com/daos-stack/dfio</a></p>
+interception library with all the POSIX based engines like sync and libaio.</p>
 <h3 id="daos_perf">daos_perf<a class="headerlink" href="#daos_perf" title="Permanent link">&para;</a></h3>
 <p>Finally, DAOS provides a tool called <code>daos_perf</code> which allows benchmarking to the
 DAOS object API directly or to the internal VOS API, which bypasses the client

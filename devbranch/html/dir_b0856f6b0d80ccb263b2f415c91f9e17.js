@@ -6,6 +6,7 @@ var dir_b0856f6b0d80ccb263b2f415c91f9e17 =
     [ "daos_errno.h", "daos__errno_8h_source.html", null ],
     [ "daos_event.h", "daos__event_8h_source.html", null ],
     [ "daos_fs.h", "daos__fs_8h.html", "daos__fs_8h" ],
+    [ "daos_fs_sys.h", "daos__fs__sys_8h.html", "daos__fs__sys_8h" ],
     [ "daos_kv.h", "daos__kv_8h.html", "daos__kv_8h" ],
     [ "daos_obj.h", "daos__obj_8h_source.html", null ],
     [ "daos_obj_class.h", "daos__obj__class_8h_source.html", null ],

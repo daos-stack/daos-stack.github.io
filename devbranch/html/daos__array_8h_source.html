@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Development Branch</span>
+   &#160;<span id="projectnumber">DAOS v2.0 - dev</span>
    </div>
   </td>
  </tr>
@@ -107,14 +107,7 @@ $(document).ready(function(){initNavTree('daos__array_8h_source.html',''); initR
 <div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="structdaos__array__iod__t.html">   31</a></span>&#160;<span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
 <div class="line"><a name="l00033"></a><span class="lineno"><a class="line" href="structdaos__array__iod__t.html#a2b9be7050a799f9975ba4c10baf150ee">   33</a></span>&#160;    daos_size_t     <a class="code" href="structdaos__array__iod__t.html#a2b9be7050a799f9975ba4c10baf150ee">arr_nr</a>;</div>
 <div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="structdaos__array__iod__t.html#a028f318baa33edeb89b00ac8e0980454">   35</a></span>&#160;    <a class="code" href="structdaos__range__t.html">daos_range_t</a>           *<a class="code" href="structdaos__array__iod__t.html#a028f318baa33edeb89b00ac8e0980454">arr_rgs</a>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="comment">/*</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="comment">     * On read only: return the number of records that are short fetched</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="comment">     * from the largest dkey(s). This helps for checking for short reads. If</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="comment">     * this values is not zero, then a short read is possible and should be</span></div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;<span class="comment">     * checked with daos_array_get_size() compared with the indexes being</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;<span class="comment">     * read.</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;    daos_size_t     arr_nr_short_read;</div>
+<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="structdaos__array__iod__t.html#a561a6eebfef4bba81f150ff4403da844">   43</a></span>&#160;    daos_size_t     <a class="code" href="structdaos__array__iod__t.html#a561a6eebfef4bba81f150ff4403da844">arr_nr_short_read</a>;</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    daos_size_t     arr_nr_read;</div>
 <div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;} <a class="code" href="structdaos__array__iod__t.html">daos_array_iod_t</a>;</div>
 <div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160; </div>
@@ -133,11 +126,11 @@ $(document).ready(function(){initNavTree('daos__array_8h_source.html',''); initR
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <span class="comment">/* TODO: add check at here, it should return error if user specified</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="comment">     * bits reserved by DAOS</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;<span class="comment">     */</span></div>
-<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    oid-&gt;hi &amp;= (1ULL &lt;&lt; OID_FMT_INTR_BITS) - 1;</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;    oid-&gt;<a class="code" href="structdaos__obj__id__t.html#a459bcbd0cf45328ef2754c4dab8b8b32">hi</a> &amp;= (1ULL &lt;&lt; OID_FMT_INTR_BITS) - 1;</div>
 <div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    hdr  = ((uint64_t)OID_FMT_VER &lt;&lt; OID_FMT_VER_SHIFT);</div>
 <div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    hdr |= ((uint64_t)feat &lt;&lt; OID_FMT_FEAT_SHIFT);</div>
 <div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    hdr |= ((uint64_t)cid &lt;&lt; OID_FMT_CLASS_SHIFT);</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    oid-&gt;hi |= hdr;</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    oid-&gt;<a class="code" href="structdaos__obj__id__t.html#a459bcbd0cf45328ef2754c4dab8b8b32">hi</a> |= hdr;</div>
 <div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160; </div>
 <div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;    <span class="keywordflow">return</span> 0;</div>
 <div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;}</div>
@@ -208,7 +201,7 @@ $(document).ready(function(){initNavTree('daos__array_8h_source.html',''); initR
 <div class="ttc" id="adaos__array_8h_html_a036a9c34cb863dba486097576cc45400"><div class="ttname"><a href="daos__array_8h.html#a036a9c34cb863dba486097576cc45400">daos_array_read</a></div><div class="ttdeci">int daos_array_read(daos_handle_t oh, daos_handle_t th, daos_array_iod_t *iod, d_sg_list_t *sgl, daos_event_t *ev)</div></div>
 <div class="ttc" id="adaos__array_8h_html_a309d54604a2e97fddd1b9396ed61cb3d"><div class="ttname"><a href="daos__array_8h.html#a309d54604a2e97fddd1b9396ed61cb3d">daos_array_open</a></div><div class="ttdeci">int daos_array_open(daos_handle_t coh, daos_obj_id_t oid, daos_handle_t th, unsigned int mode, daos_size_t *cell_size, daos_size_t *chunk_size, daos_handle_t *oh, daos_event_t *ev)</div></div>
 <div class="ttc" id="astructdaos__range__t_html_a7dea11ba34bc55aa970313cb70702fed"><div class="ttname"><a href="structdaos__range__t.html#a7dea11ba34bc55aa970313cb70702fed">daos_range_t::rg_idx</a></div><div class="ttdeci">daos_off_t rg_idx</div><div class="ttdef"><b>Definition:</b> <a href="daos__array_8h_source.html#l00025">daos_array.h:25</a></div></div>
-<div class="ttc" id="astructdaos__obj__id__t_html"><div class="ttname"><a href="structdaos__obj__id__t.html">daos_obj_id_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00199">daos_types.h:199</a></div></div>
+<div class="ttc" id="astructdaos__obj__id__t_html"><div class="ttname"><a href="structdaos__obj__id__t.html">daos_obj_id_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00204">daos_types.h:204</a></div></div>
 <div class="ttc" id="adaos__array_8h_html_aeed8064a0c8949b7547660a09404ac8f"><div class="ttname"><a href="daos__array_8h.html#aeed8064a0c8949b7547660a09404ac8f">daos_array_create</a></div><div class="ttdeci">int daos_array_create(daos_handle_t coh, daos_obj_id_t oid, daos_handle_t th, daos_size_t cell_size, daos_size_t chunk_size, daos_handle_t *oh, daos_event_t *ev)</div></div>
 <div class="ttc" id="adaos__array_8h_html_a8129cd2cc09b3e6f7fcf6dd9d792a635"><div class="ttname"><a href="daos__array_8h.html#a8129cd2cc09b3e6f7fcf6dd9d792a635">daos_array_get_size</a></div><div class="ttdeci">int daos_array_get_size(daos_handle_t oh, daos_handle_t th, daos_size_t *size, daos_event_t *ev)</div></div>
 <div class="ttc" id="adaos__array_8h_html_ad922154fcc6593928cf36005c203d1ec"><div class="ttname"><a href="daos__array_8h.html#ad922154fcc6593928cf36005c203d1ec">daos_array_destroy</a></div><div class="ttdeci">int daos_array_destroy(daos_handle_t oh, daos_handle_t th, daos_event_t *ev)</div></div>
@@ -216,13 +209,15 @@ $(document).ready(function(){initNavTree('daos__array_8h_source.html',''); initR
 <div class="ttc" id="adaos__array_8h_html_a98d549b722a6164b6c500b9811e2b52d"><div class="ttname"><a href="daos__array_8h.html#a98d549b722a6164b6c500b9811e2b52d">daos_array_global2local</a></div><div class="ttdeci">int daos_array_global2local(daos_handle_t coh, d_iov_t glob, unsigned int mode, daos_handle_t *oh)</div></div>
 <div class="ttc" id="astructdaos__range__t_html"><div class="ttname"><a href="structdaos__range__t.html">daos_range_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__array_8h_source.html#l00023">daos_array.h:23</a></div></div>
 <div class="ttc" id="astructdaos__array__iod__t_html"><div class="ttname"><a href="structdaos__array__iod__t.html">daos_array_iod_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__array_8h_source.html#l00031">daos_array.h:31</a></div></div>
+<div class="ttc" id="astructdaos__array__iod__t_html_a561a6eebfef4bba81f150ff4403da844"><div class="ttname"><a href="structdaos__array__iod__t.html#a561a6eebfef4bba81f150ff4403da844">daos_array_iod_t::arr_nr_short_read</a></div><div class="ttdeci">daos_size_t arr_nr_short_read</div><div class="ttdef"><b>Definition:</b> <a href="daos__array_8h_source.html#l00043">daos_array.h:43</a></div></div>
+<div class="ttc" id="astructdaos__obj__id__t_html_a459bcbd0cf45328ef2754c4dab8b8b32"><div class="ttname"><a href="structdaos__obj__id__t.html#a459bcbd0cf45328ef2754c4dab8b8b32">daos_obj_id_t::hi</a></div><div class="ttdeci">uint64_t hi</div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00208">daos_types.h:208</a></div></div>
 <div class="ttc" id="adaos__array_8h_html_a17971d649a2052cb44cfb4a3ddd36e18"><div class="ttname"><a href="daos__array_8h.html#a17971d649a2052cb44cfb4a3ddd36e18">daos_array_local2global</a></div><div class="ttdeci">int daos_array_local2global(daos_handle_t oh, d_iov_t *glob)</div></div>
-<div class="ttc" id="astructdaos__handle__t_html"><div class="ttname"><a href="structdaos__handle__t.html">daos_handle_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00070">daos_types.h:70</a></div></div>
+<div class="ttc" id="astructdaos__handle__t_html"><div class="ttname"><a href="structdaos__handle__t.html">daos_handle_t</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00075">daos_types.h:75</a></div></div>
 <div class="ttc" id="adaos__array_8h_html_a4b5b648c935a34d9f3e5d0de1e1641d8"><div class="ttname"><a href="daos__array_8h.html#a4b5b648c935a34d9f3e5d0de1e1641d8">daos_array_set_size</a></div><div class="ttdeci">int daos_array_set_size(daos_handle_t oh, daos_handle_t th, daos_size_t size, daos_event_t *ev)</div></div>
 <div class="ttc" id="astructdaos__array__iod__t_html_a028f318baa33edeb89b00ac8e0980454"><div class="ttname"><a href="structdaos__array__iod__t.html#a028f318baa33edeb89b00ac8e0980454">daos_array_iod_t::arr_rgs</a></div><div class="ttdeci">daos_range_t * arr_rgs</div><div class="ttdef"><b>Definition:</b> <a href="daos__array_8h_source.html#l00035">daos_array.h:35</a></div></div>
 <div class="ttc" id="adaos__array_8h_html_aa2e69755706bafcf5670a5e55c1900c9"><div class="ttname"><a href="daos__array_8h.html#aa2e69755706bafcf5670a5e55c1900c9">daos_array_punch</a></div><div class="ttdeci">int daos_array_punch(daos_handle_t oh, daos_handle_t th, daos_array_iod_t *iod, daos_event_t *ev)</div></div>
 <div class="ttc" id="astructdaos__range__t_html_a040bb23c8c89cc44c12fcf2af2f5123f"><div class="ttname"><a href="structdaos__range__t.html#a040bb23c8c89cc44c12fcf2af2f5123f">daos_range_t::rg_len</a></div><div class="ttdeci">daos_size_t rg_len</div><div class="ttdef"><b>Definition:</b> <a href="daos__array_8h_source.html#l00027">daos_array.h:27</a></div></div>
-<div class="ttc" id="astructdaos__event_html"><div class="ttname"><a href="structdaos__event.html">daos_event</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00128">daos_types.h:128</a></div></div>
+<div class="ttc" id="astructdaos__event_html"><div class="ttname"><a href="structdaos__event.html">daos_event</a></div><div class="ttdef"><b>Definition:</b> <a href="daos__types_8h_source.html#l00133">daos_types.h:133</a></div></div>
 <div class="ttc" id="adaos__array_8h_html_ab011b04b0f1cce149f677b07e7295c58"><div class="ttname"><a href="daos__array_8h.html#ab011b04b0f1cce149f677b07e7295c58">daos_array_write</a></div><div class="ttdeci">int daos_array_write(daos_handle_t oh, daos_handle_t th, daos_array_iod_t *iod, d_sg_list_t *sgl, daos_event_t *ev)</div></div>
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

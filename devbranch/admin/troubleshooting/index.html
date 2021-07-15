@@ -42,7 +42,7 @@
     
     
       
-        <title>Troubleshooting - DAOS Development Branch</title>
+        <title>Troubleshooting - DAOS v2.0 - dev</title>
       
     
     
@@ -92,8 +92,11 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header-nav md-grid">
-          <div class="md-flex"><img src="../../assets/images/daos_logo_wh.png" width="80" height="61" alt=""/> 
-
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://daos.io" title="DAOS v2.0 - dev" aria-label="DAOS v2.0 - dev" class="md-header-nav__button md-logo"><img src="../../assets/images/daos_logo_wh.png" width="50"/>
+</a>
+      </div>
       <div class="md-flex__cell md-flex__cell--shrink">
         <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
@@ -101,7 +104,7 @@
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
           
             <span class="md-header-nav__topic">
-              DAOS Development Branch
+              DAOS v2.0 - dev
             </span>
             <span class="md-header-nav__topic">
               
@@ -207,6 +210,19 @@
   
     <li class="md-tabs__item">
       
+        <a href="../../QSG/setup/" class="md-tabs__link">
+          Installation and Setup
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
         <a href="../hardware/" class="md-tabs__link md-tabs__link--active">
           Administration Guide
         </a>
@@ -220,7 +236,7 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../user/container/" class="md-tabs__link">
+        <a href="../../user/workflow/" class="md-tabs__link">
           User Guide
         </a>
       
@@ -233,7 +249,20 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../release/release_notes_v1_0/" class="md-tabs__link">
+        <a href="../../QSG/autotest/" class="md-tabs__link">
+          DAOS Test and Benchmarking
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../release/release_notes_v2_0/" class="md-tabs__link">
           Releases
         </a>
       
@@ -263,15 +292,13 @@
         
       
     </ul>
-  </div>
-</nav>
-  <section>
-      <div class="dropdown show">
-  <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-    <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
-  </div>
+  </div></nav>
+	 <section>
+    <div class="dropdown show">
+      <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
       </div>
-
+    </div>
   </section>
   <main class="md-main" role="main">
         <div class="md-main__inner md-grid" data-md-component="container">
@@ -282,12 +309,12 @@
                   <div class="md-sidebar__inner">
                     <nav class="md-nav md-nav--primary" data-md-level="0">
   <label class="md-nav__title md-nav__title--site" for="__drawer">
-    <a href="http://daos.io" title="DAOS Development Branch" class="md-nav__button md-logo">
+    <a href="http://daos.io" title="DAOS v2.0 - dev" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img alt="logo" src="../../graph/logo.png" width="48" height="48">
       
     </a>
-    DAOS Development Branch
+    DAOS v2.0 - dev
   </label>
   
     <div class="md-nav__source">
@@ -424,18 +451,102 @@
       
       
 
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Installation and Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Installation and Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/setup/" title="DAOS CentOS Setup" class="md-nav__link">
+      DAOS CentOS Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/suse_setup/" title="DAOS openSUSE Setup" class="md-nav__link">
+      DAOS openSUSE Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/tour/" title="DAOS Admin/Client Tools" class="md-nav__link">
+      DAOS Admin/Client Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/test_index/" title="DAOS Test and Benchmarking" class="md-nav__link">
+      DAOS Test and Benchmarking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://wiki.hpdd.intel.com/display/DC/DAOS+IO-500+Instructions" title="IO500 Setup" class="md-nav__link">
+      IO500 Setup
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Administration Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Administration Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -687,6 +798,34 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#server-start-issues" class="md-nav__link">
+    Server Start Issues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errors-creating-a-pool" class="md-nav__link">
+    Errors creating a Pool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problems-creating-a-container" class="md-nav__link">
+    Problems creating a container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-run-slow" class="md-nav__link">
+    Applications run slow
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
@@ -746,17 +885,29 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       User Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         User Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/workflow/" title="Workflow" class="md-nav__link">
+      Workflow
+    </a>
+  </li>
+
         
           
           
@@ -776,20 +927,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
-      Native Programming Interface
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../user/posix/" title="POSIX Namespace" class="md-nav__link">
-      POSIX Namespace
+    <a href="../../user/filesystem/" title="File System" class="md-nav__link">
+      File System
     </a>
   </li>
 
@@ -842,6 +981,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
+      Native Programming Interface
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -854,13 +1005,109 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
+      DAOS Test and Benchmarking
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        DAOS Test and Benchmarking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/autotest/" title="Run DAOS Autotest" class="md-nav__link">
+      Run DAOS Autotest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/cartselftest/" title="Run CaRT Self_test" class="md-nav__link">
+      Run CaRT Self_test
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/runior/" title="Run IOR" class="md-nav__link">
+      Run IOR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/mdtest/" title="Run mdtest" class="md-nav__link">
+      Run mdtest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/dbench/" title="Run dbench" class="md-nav__link">
+      Run dbench
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/datamover/" title="Datamover test" class="md-nav__link">
+      Datamover test
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
       Releases
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-7">
         Releases
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -872,8 +1119,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../release/release_notes_v1_0/" title="Release Notes v1.0" class="md-nav__link">
-      Release Notes v1.0
+    <a href="../../release/release_notes_v2_0/" title="Release Notes v2.0" class="md-nav__link">
+      Release Notes v2.0
     </a>
   </li>
 
@@ -902,13 +1149,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-8">
       Developer Zone
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-8">
         Developer Zone
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -956,7 +1203,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1149,6 +1396,34 @@
           <li class="md-nav__item">
   <a href="#shared-memory-errors" class="md-nav__link">
     Shared Memory Errors
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#server-start-issues" class="md-nav__link">
+    Server Start Issues
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#errors-creating-a-pool" class="md-nav__link">
+    Errors creating a Pool
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#problems-creating-a-container" class="md-nav__link">
+    Problems creating a container
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#applications-run-slow" class="md-nav__link">
+    Applications run slow
   </a>
   
 </li>
@@ -1513,31 +1788,6 @@ logging. By default all subsystems are enabled ("DD_SUBSYS=all").</p>
 </li>
 </ul>
 <h3 id="priority-logging">Priority Logging<a class="headerlink" href="#priority-logging" title="Permanent link">&para;</a></h3>
-<p>All macros that output logs have a priority level, shown in descending
-order below.</p>
-<ul>
-<li>
-<p>D_FATAL(fmt, ...) FATAL</p>
-</li>
-<li>
-<p>D_CRIT(fmt, ...) CRIT</p>
-</li>
-<li>
-<p>D_ERROR(fmt, ...) ERR</p>
-</li>
-<li>
-<p>D_WARN(fmt, ...) WARN</p>
-</li>
-<li>
-<p>D_NOTE(fmt, ...) NOTE</p>
-</li>
-<li>
-<p>D_INFO(fmt, ...) INFO</p>
-</li>
-<li>
-<p>D_DEBUG(mask, fmt, ...) DEBUG</p>
-</li>
-</ul>
 <p>The priority level that outputs to stderr is set with DD_STDERR. By
 default in DAOS (specific to the project), this is set to CRIT
 ("DD_STDERR=CRIT") meaning that all CRIT and more severe log messages
@@ -1608,34 +1858,34 @@ are enabled by default ("DD_MASK=all").</p>
 <ul>
 <li>
 <p>Generic setup for all messages (default settings)</p>
-<pre><code>$ D_LOG_MASK=DEBUG
-$ DD_SUBSYS=all
-$ DD_MASK=all
+<pre><code>D_LOG_MASK=DEBUG
+DD_SUBSYS=all
+DD_MASK=all
 </code></pre>
 </li>
 <li>
 <p>Disable all logs for performance tuning</p>
-<pre><code>$ D_LOG_MASK=ERR -&gt; will only log error messages from all facilities
-$ D_LOG_MASK=FATAL -&gt; will only log system fatal messages
+<pre><code>D_LOG_MASK=ERR -&gt; will only log error messages from all facilities
+D_LOG_MASK=FATAL -&gt; will only log system fatal messages
 </code></pre>
 </li>
 <li>
 <p>Disable a noisy debug logging subsystem</p>
-<pre><code>$ D_LOG_MASK=DEBUG,MEM=ERR -&gt; disables MEM facility by
+<pre><code>D_LOG_MASK=DEBUG,MEM=ERR -&gt; disables MEM facility by
 restricting all logs from that facility to ERROR or higher priority only
 </code></pre>
 </li>
 <li>
 <p>Enable a subset of facilities of interest</p>
-<pre><code>$ DD_SUBSYS=rpc,tests
-$ D_LOG_MASK=DEBUG -&gt; required to see logs for RPC and TESTS
+<pre><code>DD_SUBSYS=rpc,tests
+D_LOG_MASK=DEBUG -&gt; required to see logs for RPC and TESTS
 less severe than INFO (the majority of log messages)
 </code></pre>
 </li>
 <li>
 <p>Fine-tune the debug messages by setting a debug mask</p>
-<pre><code>$ D_LOG_MASK=DEBUG
-$ DD_MASK=mgmt -&gt; only logs DEBUG messages related to pool
+<pre><code>D_LOG_MASK=DEBUG
+DD_MASK=mgmt -&gt; only logs DEBUG messages related to pool
 management
 </code></pre>
 </li>
@@ -1664,7 +1914,7 @@ the user/group used to launch the I/O Engine between these successive runs.  To
 remedy the problem, manually identify the shared memory segment and remove it.</p>
 <p>Issue <code>ipcs</code> to view the Shared Memory Segments.  The output will show a
 list of segments organized by <code>key</code>.</p>
-<pre><code>$ipcs
+<pre><code>ipcs
 
 ------ Message Queues --------
 key        msqid      owner      perms      used-bytes   messages
@@ -1691,6 +1941,45 @@ instance 0, issue:</p>
 <pre><code>sudo ipcrm -M 0x10242049
 </code></pre>
 
+<h3 id="server-start-issues">Server Start Issues<a class="headerlink" href="#server-start-issues" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Read the log located in the <code>control_log_file</code>.</li>
+<li>Verify that the <code>daos_server</code> process is not currently running.</li>
+<li>Check the SCM device path in /dev.</li>
+<li>
+<p>Verify the PCI addresses using <code>dmg storage scan</code>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A server must be started with minimum setup.
+You can also obtain the addresses with <code>daos_server storage scan</code>.</p>
+</div>
+</li>
+<li>
+<p>Format the SCMs defined in the config file.</p>
+</li>
+<li>Generate the config file using <code>dmg config generate</code>. The various requirements will be populated without a syntax error.</li>
+<li>Try starting with <code>allow_insecure: true</code>. This will rule out the credential certificate issue.</li>
+<li>Verify that the <code>access_points</code> host is accessible and the port is not used.</li>
+<li>Check the <code>provider</code> entry. See the "Network Scan and Configuration" section of the admin guide for determining the right provider to use.</li>
+<li>Check <code>fabric_iface</code> in <code>engines</code>. They should be available and enabled.</li>
+<li>Check that <code>socket_dir</code> is writeable by the daos_server.</li>
+</ol>
+<h3 id="errors-creating-a-pool">Errors creating a Pool<a class="headerlink" href="#errors-creating-a-pool" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Check which engine rank you want to create a pool in with <code>dmg system query --verbose</code> and verify their State is Joined.</li>
+<li><code>DER_NOSPACE(-1007)</code> appears: Check the size of the NVMe and PMEM. Next, check the size of the existing pool. Then check that this new pool being created will fit into the remaining disk space.</li>
+</ol>
+<h3 id="problems-creating-a-container">Problems creating a container<a class="headerlink" href="#problems-creating-a-container" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Check that the path to daos is your intended binary. It's usually <code>/usr/bin/daos</code>.</li>
+<li>When the server configuration is changed, it's necessary to restart the agent.</li>
+<li><code>DER_UNREACH(-1006)</code>: Check the socket ID consistency between PMEM and NVMe. First, determine which socket you're using with <code>daos_server network scan -p all</code>. e.g., if the interface you're using in the engine section is eth0, find which NUMA Socket it belongs to. Next, determine the disks you can use with this socket by calling <code>daos_server storage scan</code> or <code>dmg storage scan</code>. e.g., if eth0 belongs to NUMA Socket 0, use only the disks with 0 in the Socket ID column.</li>
+<li>Check the interface used in the server config (<code>fabric_iface</code>) also exists in the client and can communicate with the server.</li>
+<li>Check the access_points of the agent config points to the correct server host.</li>
+<li>Call <code>daos pool query</code> and check that the pool exists and has free space.</li>
+</ol>
+<h3 id="applications-run-slow">Applications run slow<a class="headerlink" href="#applications-run-slow" title="Permanent link">&para;</a></h3>
+<p>Verify if you're using Infiniband for <code>fabric_iface</code>: in the server config. The IO will be significantly slower with Ethernet.</p>
 <h2 id="bug-report">Bug Report<a class="headerlink" href="#bug-report" title="Permanent link">&para;</a></h2>
 <p>Bugs should be reported through our issue tracker<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> with a test case
 to reproduce the issue (when applicable) and debug logs.</p>
