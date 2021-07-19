@@ -68,7 +68,10 @@
 <link href="../../css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
 <link href="../../assets/stylesheets/styles_1.css" rel="stylesheet" type="text/css">
 </head>
-<body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -88,10 +91,14 @@
     
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid"><div class="md-flex">
-  <div><img src="../../assets/images/daos_logo_wh.png" width="86" height="61" alt=""/></div>
-  <div class="md-flex__cell md-flex__cell--shrink">
-<label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://daos.io" title="DAOS v2.0 - dev" aria-label="DAOS v2.0 - dev" class="md-header-nav__button md-logo"><img src="../../assets/images/daos_logo_wh.png" width="50"/>
+</a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
@@ -203,6 +210,19 @@
   
     <li class="md-tabs__item">
       
+        <a href="../../QSG/setup/" class="md-tabs__link">
+          Installation and Setup
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
         <a href="../hardware/" class="md-tabs__link md-tabs__link--active">
           Administration Guide
         </a>
@@ -216,8 +236,21 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../user/container/" class="md-tabs__link">
+        <a href="../../user/workflow/" class="md-tabs__link">
           User Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../QSG/autotest/" class="md-tabs__link">
+          DAOS Test and Benchmarking
         </a>
       
     </li>
@@ -260,14 +293,15 @@
       
     </ul>
   </div></nav>
-   <section>
+	 <section>
     <div class="dropdown show">
       <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
       </div>
     </div>
   </section>
-  <main class="md-main" role="main"><div class="md-main__inner md-grid" data-md-component="container">
+  <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
@@ -277,7 +311,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="http://daos.io" title="DAOS v2.0 - dev" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img alt="logo" src="../../graph/logo.png" width="48" height="48">
       
     </a>
     DAOS v2.0 - dev
@@ -417,18 +451,102 @@
       
       
 
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Installation and Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Installation and Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/setup/" title="DAOS CentOS Setup" class="md-nav__link">
+      DAOS CentOS Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/suse_setup/" title="DAOS openSUSE Setup" class="md-nav__link">
+      DAOS openSUSE Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/tour/" title="DAOS Admin/Client Tools" class="md-nav__link">
+      DAOS Admin/Client Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/test_index/" title="DAOS Test and Benchmarking" class="md-nav__link">
+      DAOS Test and Benchmarking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://wiki.hpdd.intel.com/display/DC/DAOS+IO-500+Instructions" title="IO500 Setup" class="md-nav__link">
+      IO500 Setup
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Administration Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Administration Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -542,184 +660,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#modifying-daos_prop_po_reclaim-property" class="md-nav__link">
-    Modifying DAOS_PROP_PO_RECLAIM property
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#querying-a-pools-properties" class="md-nav__link">
-    Querying a pool's properties
+  <a href="#properties-management" class="md-nav__link">
+    Properties Management
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#access-control-lists" class="md-nav__link">
-    Access Control Lists
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ownership" class="md-nav__link">
-    Ownership
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-pool-with-a-custom-acl" class="md-nav__link">
-    Creating a pool with a custom ACL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#displaying-a-pools-acl" class="md-nav__link">
-    Displaying a Pool's ACL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modifying-a-pools-acl" class="md-nav__link">
-    Modifying a Pool's ACL
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overwriting-the-acl" class="md-nav__link">
-    Overwriting the ACL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-and-updating-aces" class="md-nav__link">
-    Adding and Updating ACEs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#removing-an-ace" class="md-nav__link">
-    Removing an ACE
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-query" class="md-nav__link">
-    Pool Query
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-modifications" class="md-nav__link">
-    Pool Modifications
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#target-exclusion-and-self-healing" class="md-nav__link">
-    Target Exclusion and Self-Healing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-exclude" class="md-nav__link">
-    Pool Exclude
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-drain" class="md-nav__link">
-    Pool Drain
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#target-reintegration" class="md-nav__link">
-    Target Reintegration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pool-extension" class="md-nav__link">
-    Pool Extension
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#target-addition-space-rebalancing" class="md-nav__link">
-    Target Addition &amp; Space Rebalancing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pool-shard-resize" class="md-nav__link">
-    Pool Shard Resize
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-catastrophic-recovery" class="md-nav__link">
-    Pool Catastrophic Recovery
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recovering-ownership-of-a-pools-container" class="md-nav__link">
-    Recovering Ownership of a Pool's Container
-  </a>
   
 </li>
       
@@ -806,17 +754,29 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       User Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         User Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/workflow/" title="Workflow" class="md-nav__link">
+      Workflow
+    </a>
+  </li>
+
         
           
           
@@ -836,20 +796,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
-      Native Programming Interface
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../user/posix/" title="POSIX Namespace" class="md-nav__link">
-      POSIX Namespace
+    <a href="../../user/filesystem/" title="File System" class="md-nav__link">
+      File System
     </a>
   </li>
 
@@ -902,6 +850,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
+      Native Programming Interface
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -914,13 +874,109 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
+      DAOS Test and Benchmarking
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        DAOS Test and Benchmarking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/autotest/" title="Run DAOS Autotest" class="md-nav__link">
+      Run DAOS Autotest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/cartselftest/" title="Run CaRT Self_test" class="md-nav__link">
+      Run CaRT Self_test
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/runior/" title="Run IOR" class="md-nav__link">
+      Run IOR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/mdtest/" title="Run mdtest" class="md-nav__link">
+      Run mdtest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/dbench/" title="Run dbench" class="md-nav__link">
+      Run dbench
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/datamover/" title="Datamover test" class="md-nav__link">
+      Datamover test
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
       Releases
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-7">
         Releases
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -962,13 +1018,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-8">
       Developer Zone
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-8">
         Developer Zone
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1016,7 +1072,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1111,184 +1167,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#modifying-daos_prop_po_reclaim-property" class="md-nav__link">
-    Modifying DAOS_PROP_PO_RECLAIM property
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#querying-a-pools-properties" class="md-nav__link">
-    Querying a pool's properties
+  <a href="#properties-management" class="md-nav__link">
+    Properties Management
   </a>
   
 </li>
         
       </ul>
     </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#access-control-lists" class="md-nav__link">
-    Access Control Lists
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#ownership" class="md-nav__link">
-    Ownership
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#creating-a-pool-with-a-custom-acl" class="md-nav__link">
-    Creating a pool with a custom ACL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#displaying-a-pools-acl" class="md-nav__link">
-    Displaying a Pool's ACL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#modifying-a-pools-acl" class="md-nav__link">
-    Modifying a Pool's ACL
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#overwriting-the-acl" class="md-nav__link">
-    Overwriting the ACL
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#adding-and-updating-aces" class="md-nav__link">
-    Adding and Updating ACEs
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#removing-an-ace" class="md-nav__link">
-    Removing an ACE
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-query" class="md-nav__link">
-    Pool Query
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-modifications" class="md-nav__link">
-    Pool Modifications
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#target-exclusion-and-self-healing" class="md-nav__link">
-    Target Exclusion and Self-Healing
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-exclude" class="md-nav__link">
-    Pool Exclude
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-drain" class="md-nav__link">
-    Pool Drain
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#target-reintegration" class="md-nav__link">
-    Target Reintegration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pool-extension" class="md-nav__link">
-    Pool Extension
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#target-addition-space-rebalancing" class="md-nav__link">
-    Target Addition &amp; Space Rebalancing
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#pool-shard-resize" class="md-nav__link">
-    Pool Shard Resize
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#pool-catastrophic-recovery" class="md-nav__link">
-    Pool Catastrophic Recovery
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#recovering-ownership-of-a-pools-container" class="md-nav__link">
-    Recovering Ownership of a Pool's Container
-  </a>
   
 </li>
       
@@ -1315,41 +1201,46 @@
 <p>A DAOS pool is a storage reservation that can span any storage nodes and
 is managed by the administrator. The amount of space allocated to a pool
 is decided at creation time and can eventually be expanded through the
-management interface.</p>
+management interface or the <code>dmg</code> utility.</p>
 <h2 id="pool-creationdestroy">Pool Creation/Destroy<a class="headerlink" href="#pool-creationdestroy" title="Permanent link">&para;</a></h2>
-<p>A DAOS pool can be created and destroyed through a utility called dmg to
-manage storage pools from the command line.</p>
-<p><strong>To create a pool:</strong></p>
-<pre><code class="bash">$ dmg pool create --size=NTB
+<p>A DAOS pool can be created and destroyed through the <code>dmg</code> utility.</p>
+<p><strong>To create a pool labeled <code>tank</code>:</strong></p>
+<pre><code class="bash">$ dmg pool create --size=NTB tank
 </code></pre>
 
-<p>This command creates a pool distributed across the DAOS servers with a
-target size on each server that is comprised of N TB of NVMe storage
+<p>This command creates a pool labeled <code>tank</code> distributed across the DAOS servers
+with a target size on each server that is comprised of N TB of NVMe storage
 and N * 0.06 (i.e. 6% of NVMe) of SCM storage. The default SCM:NVMe ratio
-may be adjusted at pool creation time as described below.
-The UUID allocated to the newly created pool is printed to stdout
-(referred to as ${puuid}) as well as the pool service replica ranks.</p>
-<p>NB: The --scm-size and --nvme-size options still exist, but should be
+may be adjusted at pool creation time as described below.</p>
+<p>The UUID allocated to the newly created pool is printed to stdout
+as well as the pool service replica ranks.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The --scm-size and --nvme-size options still exist, but should be
 considered deprecated and will likely be removed in a future release.</p>
+</div>
+<p>The label must consist of alphanumeric characters, colon (':'), period ('.')
+or underscore ('_'). The maximum length is set to 127 characters.</p>
 <pre><code class="bash">$ dmg pool create --help
 ...
+
 [create command options]
       -g, --group=     DAOS pool to be owned by given group, format name@domain
       -u, --user=      DAOS pool to be owned by given user, format name@domain
-      -p, --name=      Unique name for pool (set as label)
+      -p, --label=     Unique label for pool
+      -P, --properties= Pool properties to be set
       -a, --acl-file=  Access Control List file path for DAOS pool
       -z, --size=      Total size of DAOS pool (auto)
       -t, --scm-ratio= Percentage of SCM:NVMe for pool storage (auto) (default: 6)
-      -k, --nranks=    Number of ranks to use (auto) (default: all)
-      -v, --nsvc=      Number of pool service replicas (default: 3)
+      -k, --nranks=    Number of ranks to use (auto)
+      -v, --nsvc=      Number of pool service replicas
       -s, --scm-size=  Per-server SCM allocation for DAOS pool (manual)
       -n, --nvme-size= Per-server NVMe allocation for DAOS pool (manual)
       -r, --ranks=     Storage server unique identifiers (ranks) for DAOS pool
-      -S, --sys=       DAOS system that pool is to be a part of (default: daos_server)
 </code></pre>
 
 <p>The typical output of this command is as follows:</p>
-<pre><code class="bash">$ dmg pool create --size 50GB
+<pre><code class="bash">$ dmg pool create --size 50GB --label tank
 Creating DAOS pool with automatic storage allocation: 50 GB NVMe + 6.00% SCM
 Pool created with 6.00% SCM/NVMe ratio
 -----------------------------------------
@@ -1365,99 +1256,102 @@ Pool created with 6.00% SCM/NVMe ratio
 with redundancy enabled by default (pool service replicas on ranks 1-3).</p>
 <p>If no redundancy is desired, use --nsvc=1 in order to specify that only
 a single pool service replica should be created.</p>
-<p><strong>To destroy a pool:</strong></p>
-<pre><code class="bash">$ dmg pool destroy --pool=${puuid}
-</code></pre>
-
 <p><strong>To evict handles/connections to a pool:</strong></p>
-<pre><code class="bash">$ dmg pool evict --pool=${puuid}
-`
-
-**To see a list of the pools in your DAOS system:**
-
-```bash
-$ dmg system list-pools
+<pre><code class="bash">$ dmg pool evict tank
+Pool-evict command succeeded
 </code></pre>
 
-<p>This will return a table of pool UUIDs and the ranks of their pool service
-replicas. For example:</p>
-<pre><code class="bash">$ dmg system list-pools
-localhost:10001: connected
-Pool UUID               Svc Replicas
----------               ------------
-2a8ec3b2-729b-4617-bf51-77f37f764194    0,1
-a106d667-5c5d-4d6f-ac3a-89099196c41a    0
-85141a07-e3ba-42a6-81c2-3f18253c5e47    0
+<p><strong>To see a list of the pools in your DAOS system:</strong></p>
+<pre><code class="bash">$ dmg pool list
+UUID                                 Label Svc Replicas
+----                                 ----- ------------
+a0d17ecc-50d4-4bef-9908-01911e56827e test  0
+93f63cea-98ca-4f8e-bdcf-2a9dde11c602 test1 0
+8a05bf3a-a088-4a77-bb9f-df989fce7cc8 tank  1-3
+</code></pre>
+
+<p>This returns a table of pool UUIDs, labels and the ranks of their pool service
+replicas.</p>
+<p><strong>To destroy a pool:</strong></p>
+<pre><code class="bash">$ dmg pool destroy tank
+Pool-destroy command succeeded
 </code></pre>
 
 <h2 id="pool-properties">Pool Properties<a class="headerlink" href="#pool-properties" title="Permanent link">&para;</a></h2>
-<table>
-<thead>
-<tr>
-<th><strong>Pool Property</strong></th>
-<th><strong>Description</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>DAOS_PROP_PO_LABEL</code><img width=80/></td>
-<td>A string that the administrator can associate with a pool.  e.g., project A, project B, IO500 test pool</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_PO_ACL</code></td>
-<td>Access control list (ACL) associated with the pool</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_PO_SPACE_RB</code></td>
-<td>Space reserved on each target for rebuild purpose</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_PO_SELF_HEAL</code></td>
-<td>Define whether the pool wants automatically-trigger or manually-triggered self-healing</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_PO_RECLAIM</code></td>
-<td>Tune space reclaim strategy based on time interval, io activities</td>
-</tr>
-</tbody>
-</table>
-<p>At creation time, currently only ACL may be specified via dmg pool create.</p>
-<p>While those pool properties are currently stored persistently with pool
-metadata, many of them are still under development. Moreover, the
-ability to modify some of those properties on an existing pool will
-be provided in a future release.</p>
-<h3 id="modifying-daos_prop_po_reclaim-property">Modifying DAOS_PROP_PO_RECLAIM property<a class="headerlink" href="#modifying-daos_prop_po_reclaim-property" title="Permanent link">&para;</a></h3>
-<p>To modify a pool's DAOS_PO_RECLAIM property:</p>
-<pre><code class="bash">$ dmg pool set-prop --pool=&lt;UUID&gt; --name=reclaim --value=${strategy}
+<p>Properties are predefined parameters that the administrator can tune to control
+the behavior of a pool.</p>
+<h3 id="properties-management">Properties Management<a class="headerlink" href="#properties-management" title="Permanent link">&para;</a></h3>
+<p>Current properties of an existing pool can be retrieved via the <code>dmg pool
+get-prop</code> command line.</p>
+<pre><code class="bash">$ dmg pool get-prop tank
+Pool 8a05bf3a-a088-4a77-bb9f-df989fce7cc8 properties:
+Name                            Value
+----                            -----
+EC cell size (ec_cell_sz)       1.0 MiB
+Pool label (label)              tank
+Reclaim strategy (reclaim)      lazy
+Self-healing policy (self_heal) exclude
+Rebuild space ratio (space_rb)  0%
 </code></pre>
 
-<p>Three reclaim strategies are supported:</p>
+<p>All properties can be specified when creating the pool.</p>
+<pre><code class="bash">$ dmg pool create --size 50GB --label tank2 --properties reclaim:disabled
+Creating DAOS pool with automatic storage allocation: 50 GB NVMe + 6.00% SCM
+Pool created with 100.00% SCM/NVMe ratio
+-----------------------------------------
+  UUID          : 1f265216-5877-4302-ad29-aa0f90df3f86
+  Service Ranks : 0
+  Storage Ranks : [0-1]
+  Total Size    : 50 GB
+  SCM           : 50 GB (25 GB / rank)
+  NVMe          : 0 B (0 B / rank)
+
+$ dmg pool get-prop tank2
+Pool 1f265216-5877-4302-ad29-aa0f90df3f86 properties:
+Name                            Value
+----                            -----
+EC cell size (ec_cell_sz)       1.0 MiB
+Pool label (label)              tank2
+Reclaim strategy (reclaim)      disabled
+Self-healing policy (self_heal) exclude
+Rebuild space ratio (space_rb)  0%
+</code></pre>
+
+<p>Some properties can be modified after pool creation via the <code>set-prop</code> option.</p>
+<pre><code class="bash">$ dmg pool set-prop tank2 reclaim:lazy
+pool set-prop succeeded
+
+$ dmg pool get-prop tank2 reclaim
+Pool 1f265216-5877-4302-ad29-aa0f90df3f86 properties:
+Name                       Value
+----                       -----
+Reclaim strategy (reclaim) lazy
+</code></pre>
+
+<h1 id="reclaim-strategy-reclaim">Reclaim Strategy (reclaim)<a class="headerlink" href="#reclaim-strategy-reclaim" title="Permanent link">&para;</a></h1>
+<p>DAOS is a versioned object store that tags every I/O with an epoch number.
+This versioning mechanism is the baseline for multi-version concurrency control and
+snapshot support. Over time, unused versions need to be reclaimed in order to
+release storage space and also simplify the metadata index. This process is
+called aggregation.</p>
+<p>The reclaim property defines what strategy to use to reclaimed unused version.
+Three options are supported:</p>
 <ul>
-<li>"disabled" : Never trigger aggregation.</li>
 <li>"lazy"     : Trigger aggregation only when there is no IO activities or SCM free space is under pressure (default strategy)</li>
 <li>"time"     : Trigger aggregation regularly despite of IO activities.</li>
+<li>"disabled" : Never trigger aggregation. The system will eventually run out of space even if data is being deleted.</li>
 </ul>
-<h3 id="querying-a-pools-properties">Querying a pool's properties<a class="headerlink" href="#querying-a-pools-properties" title="Permanent link">&para;</a></h3>
-<p>The user-level administration <code>daos</code> utility may be used to query a pool's
-properties. Refer to the manual page for full <code>daos</code> usage details.</p>
-<pre><code class="bash">$ daos pool get-prop --pool=b1e9f5c0-ce10-42ab-b19e-081032400611
-Pool properties for b1e9f5c0-ce10-42ab-b19e-081032400611 :
-label:                  pool label not set
-rebuild space ratio:    0%
-self-healing:           auto-exclude,auto-rebuild
-reclaim strategy:       lazy
-owner:                  username@
-owner-group:            username@
-Access Control List:
-#
-# (remainder of output not shown)
-#
-</code></pre>
-
-<p>Additionally, a pool's properties may be retrieved using the libdaos API
-daos_pool_query() function. Refer to the file src/include/daos_pool.h
-Doxygen comments and the online documentation available
-<a href="https://daos-stack.github.io/html/">here</a>.</p>
+<h1 id="self-healing-policy-self_heal">Self-healing Policy (self_heal)<a class="headerlink" href="#self-healing-policy-self_heal" title="Permanent link">&para;</a></h1>
+<p>This property defines whether a failing node is automatically evicted from the
+pool. Once excluded, the self-healing mechasnism will be triggered to restore
+the pool data redundancy on the surviving storage nodes.</p>
+<h1 id="reserve-space-space_rb">Reserve Space (space_rb)<a class="headerlink" href="#reserve-space-space_rb" title="Permanent link">&para;</a></h1>
+<p>This property defines the percentage of total space reserved on each storage
+node for self-healing purpose. The reserved space cannot be consumed by the
+applications.</p>
+<h1 id="ec-cell-size-ec_cell_sz">EC Cell Size (ec_cell_sz)<a class="headerlink" href="#ec-cell-size-ec_cell_sz" title="Permanent link">&para;</a></h1>
+<p>This property defines the default erasure code cell size inherited to DAOS
+containers. The value is typically between 32K and 1MB.</p>
 <h2 id="access-control-lists">Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permanent link">&para;</a></h2>
 <p>Client user and group access for pools are controlled by
 <a href="https://daos-stack.github.io/overview/security/#access-control-lists">Access Control Lists (ACLs)</a>.
@@ -1487,42 +1381,64 @@ inside, regardless of their permissions on those containers.</p>
 <p>Pool ownership conveys no special privileges for access control decisions. All
 desired privileges of the owner-user (<code>OWNER@</code>) and owner-group (<code>GROUP@</code>) must
 be explicitly defined by an administrator in the pool ACL.</p>
-<h3 id="creating-a-pool-with-a-custom-acl">Creating a pool with a custom ACL<a class="headerlink" href="#creating-a-pool-with-a-custom-acl" title="Permanent link">&para;</a></h3>
+<h3 id="acl-at-pool-creation">ACL at Pool Creation<a class="headerlink" href="#acl-at-pool-creation" title="Permanent link">&para;</a></h3>
 <p>To create a pool with a custom ACL:</p>
-<pre><code class="bash">$ dmg pool create --size &lt;size&gt; --acl-file &lt;path&gt;
+<pre><code class="bash">$ dmg pool create --size &lt;size&gt; --acl-file &lt;path&gt; &lt;pool_label&gt;
 </code></pre>
 
-<p>The ACL file format is detailed in the <a href="https://daos-stack.github.io/overview/security/#acl-file">here</a>.</p>
-<h3 id="displaying-a-pools-acl">Displaying a Pool's ACL<a class="headerlink" href="#displaying-a-pools-acl" title="Permanent link">&para;</a></h3>
+<p>The ACL file format is detailed in <a href="https://daos-stack.github.io/overview/security/#acl-file">here</a>.</p>
+<h3 id="displaying-acl">Displaying ACL<a class="headerlink" href="#displaying-acl" title="Permanent link">&para;</a></h3>
 <p>To view a pool's ACL:</p>
-<pre><code class="bash">$ dmg pool get-acl --pool &lt;UUID&gt;
+<pre><code class="bash">$ dmg pool get-acl --acl-file &lt;path&gt; &lt;pool_label&gt;
 </code></pre>
 
 <p>The output is in the same string format used in the ACL file during creation,
 with one Access Control Entry (i.e., ACE) per line.</p>
-<h3 id="modifying-a-pools-acl">Modifying a Pool's ACL<a class="headerlink" href="#modifying-a-pools-acl" title="Permanent link">&para;</a></h3>
+<p>An example output is presented below:</p>
+<pre><code class="bash">$ dmg pool get-acl tank
+# Owner: jlombard@
+# Owner Group: jlombard@
+# Entries:
+A::OWNER@:rw
+A::bob@:r
+A:G:GROUP@:rw
+</code></pre>
+
+<h3 id="modifying-acl">Modifying ACL<a class="headerlink" href="#modifying-acl" title="Permanent link">&para;</a></h3>
 <p>For all of these commands using an ACL file, the ACL file must be in the format
-noted above for pool creation.</p>
-<h4 id="overwriting-the-acl">Overwriting the ACL<a class="headerlink" href="#overwriting-the-acl" title="Permanent link">&para;</a></h4>
+noted above for container creation.</p>
+<h4 id="overwriting-acl">Overwriting ACL<a class="headerlink" href="#overwriting-acl" title="Permanent link">&para;</a></h4>
 <p>To replace a pool's ACL with a new ACL:</p>
 <pre><code class="bash">$ dmg pool overwrite-acl --pool &lt;UUID&gt; --acl-file &lt;path&gt;
 </code></pre>
 
 <h4 id="adding-and-updating-aces">Adding and Updating ACEs<a class="headerlink" href="#adding-and-updating-aces" title="Permanent link">&para;</a></h4>
 <p>To add or update multiple entries in an existing pool ACL:</p>
-<pre><code class="bash">$ dmg pool update-acl --pool &lt;UUID&gt; --acl-file &lt;path&gt;
+<pre><code class="bash">$ dmg pool update-acl --acl-file &lt;path&gt; &lt;pool_label&gt;
 </code></pre>
 
 <p>To add or update a single entry in an existing pool ACL:</p>
-<pre><code class="bash">$ dmg pool update-acl --pool &lt;UUID&gt; --entry &lt;ACE&gt;
+<pre><code class="bash">$ dmg pool update-acl --entry &lt;ACE&gt; &lt;pool_label&gt;
 </code></pre>
 
 <p>If there is no existing entry for the principal in the ACL, the new entry is
 added to the ACL. If there is already an entry for the principal, that entry
 is replaced with the new one.</p>
+<p>For instance:</p>
+<pre><code class="bash">$ dmg pool update-acl -e A::kelsey@:r tank
+Pool-update-ACL command succeeded, UUID: 8a05bf3a-a088-4a77-bb9f-df989fce7cc8
+# Owner: jlombard@
+# Owner Group: jlombard@
+# Entries:
+A::OWNER@:rw
+A::bob@:r
+A::kelsey@:r
+A:G:GROUP@:rw
+</code></pre>
+
 <h4 id="removing-an-ace">Removing an ACE<a class="headerlink" href="#removing-an-ace" title="Permanent link">&para;</a></h4>
 <p>To delete an entry for a given principal in an existing pool ACL:</p>
-<pre><code class="bash">$ dmg pool delete-acl --pool &lt;UUID&gt; --principal &lt;principal&gt;
+<pre><code class="bash">$ dmg pool delete-acl --principal &lt;principal&gt; &lt;pool_label&gt;
 </code></pre>
 
 <p>The principal corresponds to the principal portion of an ACE that was
@@ -1541,7 +1457,7 @@ will be decided based on the remaining ACL rules.</p>
 space usage, rebuild status, property list, and more) about a created pool. It
 is integrated into the dmg utility.</p>
 <p><strong>To query a pool:</strong></p>
-<pre><code class="bash">$ dmg pool query --pool &lt;UUID&gt;
+<pre><code class="bash">$ dmg pool query tank
 </code></pre>
 
 <p>Below is the output for a pool created with SCM space only.</p>
@@ -1584,23 +1500,21 @@ reveal min approaching zero.</p>
 <p>Additional status and telemetry data are planned to be exported through
 management tools and will be documented here once available.</p>
 <h2 id="pool-modifications">Pool Modifications<a class="headerlink" href="#pool-modifications" title="Permanent link">&para;</a></h2>
-<h3 id="target-exclusion-and-self-healing">Target Exclusion and Self-Healing<a class="headerlink" href="#target-exclusion-and-self-healing" title="Permanent link">&para;</a></h3>
-<h2 id="pool-exclude">Pool Exclude<a class="headerlink" href="#pool-exclude" title="Permanent link">&para;</a></h2>
+<h3 id="exclusion-self-healing">Exclusion &amp; Self-healing<a class="headerlink" href="#exclusion-self-healing" title="Permanent link">&para;</a></h3>
 <p>An operator can exclude one or more targets from a specific DAOS pool using the rank
 the target resides on as well as the target idx on that rank. If a target idx list is
 not provided then all targets on the rank will be excluded. Excluding a target will
 automatically start the rebuild process.</p>
 <p><strong>To exclude a target from a pool:</strong></p>
-<pre><code class="bash">$ dmg pool exclude --pool=${puuid} --rank=${rank} --target-idx=${idx1},${idx2},${idx3}
+<pre><code class="bash">$ dmg pool exclude --rank=${rank} --target-idx=${idx1},${idx2},${idx3} &lt;pool_label&gt;
 </code></pre>
 
-<p>The pool target exclude command accepts 3 parameters:</p>
+<p>The pool target exclude command accepts 2 parameters:</p>
 <ul>
-<li>The pool UUID of the pool that the targets will be excluded from.</li>
 <li>The rank of the target(s) to be excluded.</li>
 <li>The target Indices of the targets to be excluded from that rank (optional).</li>
 </ul>
-<h2 id="pool-drain">Pool Drain<a class="headerlink" href="#pool-drain" title="Permanent link">&para;</a></h2>
+<h3 id="drain">Drain<a class="headerlink" href="#drain" title="Permanent link">&para;</a></h3>
 <p>Alternatively when an operator would like to remove one or more pool targets
 without the system operating in degraded mode Drain can be used. A pool drain operation will
 initiate rebuild without excluding the designated target until after the rebuild is complete.
@@ -1609,16 +1523,15 @@ operation is ongoing. Drain additionally enables non-replicated data to be
 rebuilt onto another target whereas in a conventional failure scenario non-replicated
 data would not be integrated into a rebuild and would be lost.</p>
 <p><strong>To drain a target from a pool:</strong></p>
-<pre><code class="bash">$ dmg pool drain --pool=${puuid} --rank=${rank} --target-idx=${idx1},${idx2},${idx3}
+<pre><code class="bash">$ dmg pool drain --rank=${rank} --target-idx=${idx1},${idx2},${idx3} &lt;pool_label&gt;
 </code></pre>
 
-<p>The pool target drain command accepts 3 parameters:</p>
+<p>The pool target drain command accepts 2 parameters:</p>
 <ul>
-<li>The pool UUID of the pool that the targets will be drained from.</li>
 <li>The rank of the target(s) to be drained.</li>
 <li>The target Indices of the targets to be drained from that rank (optional).</li>
 </ul>
-<h3 id="target-reintegration">Target Reintegration<a class="headerlink" href="#target-reintegration" title="Permanent link">&para;</a></h3>
+<h3 id="reintegration">Reintegration<a class="headerlink" href="#reintegration" title="Permanent link">&para;</a></h3>
 <p>After a target failure an operator can fix the underlying issue and reintegrate the
 affected targets to restore the pool to its original state. The operator can either
 reintegrate specific targets for a rank by supplying a target idx list, or reintegrate
@@ -1642,31 +1555,30 @@ Target (rank 5 idx 1) is down.
 </code></pre>
 
 <p>These should be the same values used when reintegrating the targets.</p>
-<pre><code>$ dmg pool reintegrate --pool=${puuid} --rank=5 --target-idx=0,1
+<pre><code>$ dmg pool reintegrate --rank=5 --target-idx=0,1 &lt;pool_label&gt;
 </code></pre>
 
-<h3 id="pool-extension">Pool Extension<a class="headerlink" href="#pool-extension" title="Permanent link">&para;</a></h3>
-<h4 id="target-addition-space-rebalancing">Target Addition &amp; Space Rebalancing<a class="headerlink" href="#target-addition-space-rebalancing" title="Permanent link">&para;</a></h4>
+<h2 id="pool-extension">Pool Extension<a class="headerlink" href="#pool-extension" title="Permanent link">&para;</a></h2>
+<h3 id="addition-space-rebalancing">Addition &amp; Space Rebalancing<a class="headerlink" href="#addition-space-rebalancing" title="Permanent link">&para;</a></h3>
 <p>Full Support for online target addition and automatic space rebalancing is
 planned for a future release and will be documented here once available.</p>
 <p>Until then the following command(s) are placeholders and offer limited
 functionality related to Online Server Addition/Rebalancing operations.</p>
-<p>An operator can choose to extend a pool to include ranks not currently in the pool.
-This will automatically trigger a server rebalance operation where objects within the extended
-pool will be rebalanced across the new storage.</p>
-<pre><code>$ dmg pool extend --pool=${puuid} --ranks=${rank1},${rank2}...
+<p>An operator can choose to extend a pool to include ranks not currently in the
+pool.
+This will automatically trigger a server rebalance operation where objects
+within the extended pool will be rebalanced across the new storage.</p>
+<pre><code>$ dmg pool extend --pool=${puuid} --ranks=${rank1},${rank2}... &lt;pool_label&gt;
 </code></pre>
 
-<p>The pool extend command accepts 2 required parameters:</p>
-<ul>
-<li>The pool UUID of the pool to be extended.</li>
-<li>A comma separated list of server ranks to include in the pool.</li>
-</ul>
-<p>The pool rebalance operation will work most efficiently when the pool is extended to its desired
-size in a single operation, as opposed to multiple, small extensions.</p>
-<h4 id="pool-shard-resize">Pool Shard Resize<a class="headerlink" href="#pool-shard-resize" title="Permanent link">&para;</a></h4>
-<p>Support for quiescent pool shard resize is currently not supported and
-is under consideration.</p>
+<p>The pool extend command accepts one required parameter which is a comma
+separated list of server ranks to include in the pool.</p>
+<p>The pool rebalance operation will work most efficiently when the pool is
+extended to its desired size in a single operation, as opposed to multiple,
+small extensions.</p>
+<h3 id="resize">Resize<a class="headerlink" href="#resize" title="Permanent link">&para;</a></h3>
+<p>Support for quiescent pool resize (changing capacity used on each storage node
+without adding new ones) is currently not supported and is under consideration.</p>
 <h2 id="pool-catastrophic-recovery">Pool Catastrophic Recovery<a class="headerlink" href="#pool-catastrophic-recovery" title="Permanent link">&para;</a></h2>
 <p>A DAOS pool is instantiated on each target by a set of pmemobj files
 managed by PMDK and SPDK blobs on SSDs. Tools to verify and repair this
@@ -1676,7 +1588,7 @@ once available.</p>
 and possibly repair a pmemobj file. As discussed in the previous section, the
 rebuild status can be consulted via the pool query and will be expanded
 with more information.</p>
-<h2 id="recovering-ownership-of-a-pools-container">Recovering Ownership of a Pool's Container<a class="headerlink" href="#recovering-ownership-of-a-pools-container" title="Permanent link">&para;</a></h2>
+<h2 id="recovering-container-ownership">Recovering Container Ownership<a class="headerlink" href="#recovering-container-ownership" title="Permanent link">&para;</a></h2>
 <p>Typically users are expected to manage their containers. However, in the event
 that a container is orphaned and no users have the privileges to change the
 ownership, an administrator can transfer ownership of the container to a new
@@ -1760,12 +1672,12 @@ to have any privileges assigned in the container ACL.</p>
     </div>
   </div>
 </footer>
-      </div>
-<script src="../../assets/javascripts/application.c33a9706.js"></script>
-<script src="../../js/jquery-3.4.1.min.js"></script>
-<script src="../../js/popper.min.js"></script>
-<script src="../../js/bootstrap-4.4.1.js"></script>
-<script>app.initialize({version:"1.1.2",url:{base:"."}})</script>
+      
+    </div>
+<script src="../../assets/javascripts/application.c33a9706.js"></script> 
+<script src="../../js/jquery-3.4.1.min.js"></script> 
+<script src="../../js/popper.min.js"></script> 
+<script src="../../js/bootstrap-4.4.1.js"></script> 
+<script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
 </body>
-
 </html>

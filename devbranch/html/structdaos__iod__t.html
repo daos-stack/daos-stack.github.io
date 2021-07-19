@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Version 1.0</span>
+   &#160;<span id="projectnumber">DAOS v2.0 - dev</span>
    </div>
   </td>
  </tr>
@@ -96,23 +96,39 @@ $(document).ready(function(){initNavTree('structdaos__iod__t.html',''); initResi
 Data Fields</h2></td></tr>
 <tr class="memitem:a6340f19f00fce3a8f9fb7a17ba4bf19d"><td class="memItemLeft" align="right" valign="top">daos_key_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__iod__t.html#a6340f19f00fce3a8f9fb7a17ba4bf19d">iod_name</a></td></tr>
 <tr class="separator:a6340f19f00fce3a8f9fb7a17ba4bf19d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aebabb6389b53be0d18e053f01e04c33b"><td class="memItemLeft" align="right" valign="top"><a id="aebabb6389b53be0d18e053f01e04c33b"></a>
-daos_iod_type_t&#160;</td><td class="memItemRight" valign="bottom"><b>iod_type</b></td></tr>
+<tr class="memitem:aebabb6389b53be0d18e053f01e04c33b"><td class="memItemLeft" align="right" valign="top">daos_iod_type_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__iod__t.html#aebabb6389b53be0d18e053f01e04c33b">iod_type</a></td></tr>
 <tr class="separator:aebabb6389b53be0d18e053f01e04c33b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3fc1824baeb4c40877357dd0ff0b12a"><td class="memItemLeft" align="right" valign="top">daos_size_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__iod__t.html#ae3fc1824baeb4c40877357dd0ff0b12a">iod_size</a></td></tr>
 <tr class="separator:ae3fc1824baeb4c40877357dd0ff0b12a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae43d152005a44d56e3ecb61bf5f69fdc"><td class="memItemLeft" align="right" valign="top"><a id="ae43d152005a44d56e3ecb61bf5f69fdc"></a>
-unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iod_nr</b></td></tr>
-<tr class="separator:ae43d152005a44d56e3ecb61bf5f69fdc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ae15eb1a8c6bbe2db55271734d4e400a6"><td class="memItemLeft" align="right" valign="top"><a id="ae15eb1a8c6bbe2db55271734d4e400a6"></a>
-<a class="el" href="structdaos__recx__t.html">daos_recx_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><b>iod_recxs</b></td></tr>
+<tr class="memitem:a1b2ba7548e5b5f9eceb3c5eb4dc047b7"><td class="memItemLeft" align="right" valign="top">uint64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__iod__t.html#a1b2ba7548e5b5f9eceb3c5eb4dc047b7">iod_flags</a></td></tr>
+<tr class="separator:a1b2ba7548e5b5f9eceb3c5eb4dc047b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad59ad386392971bace24ac8419e73350"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__iod__t.html#ad59ad386392971bace24ac8419e73350">iod_nr</a></td></tr>
+<tr class="separator:ad59ad386392971bace24ac8419e73350"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae15eb1a8c6bbe2db55271734d4e400a6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structdaos__recx__t.html">daos_recx_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structdaos__iod__t.html#ae15eb1a8c6bbe2db55271734d4e400a6">iod_recxs</a></td></tr>
 <tr class="separator:ae15eb1a8c6bbe2db55271734d4e400a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>An I/O descriptor is a list of extents (effectively records associated with contiguous array indices) to update/fetch in a particular array identified by its akey. </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__obj_8h_source.html#l00212">212</a> of file <a class="el" href="daos__obj_8h_source.html">daos_obj.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__obj_8h_source.html#l00195">195</a> of file <a class="el" href="daos__obj_8h_source.html">daos_obj.h</a>.</p>
 </div><h2 class="groupheader">Field Documentation</h2>
+<a id="a1b2ba7548e5b5f9eceb3c5eb4dc047b7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a1b2ba7548e5b5f9eceb3c5eb4dc047b7">&#9670;&nbsp;</a></span>iod_flags</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint64_t iod_flags</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Per akey conditional. If DAOS_COND_PER_AKEY not set, this is ignored. </p>
+
+<p class="definition">Definition at line <a class="el" href="daos__obj_8h_source.html#l00215">215</a> of file <a class="el" href="daos__obj_8h_source.html">daos_obj.h</a>.</p>
+
+</div>
+</div>
 <a id="a6340f19f00fce3a8f9fb7a17ba4bf19d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6340f19f00fce3a8f9fb7a17ba4bf19d">&#9670;&nbsp;</a></span>iod_name</h2>
 
@@ -126,7 +142,41 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iod_nr</b></t
 </div><div class="memdoc">
 <p>akey for this iod </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__obj_8h_source.html#l00214">214</a> of file <a class="el" href="daos__obj_8h_source.html">daos_obj.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__obj_8h_source.html#l00197">197</a> of file <a class="el" href="daos__obj_8h_source.html">daos_obj.h</a>.</p>
+
+</div>
+</div>
+<a id="ad59ad386392971bace24ac8419e73350"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad59ad386392971bace24ac8419e73350">&#9670;&nbsp;</a></span>iod_nr</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t iod_nr</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Number of entries in the <em>iod_recxs</em> for arrays, should be 1 if single value. </p>
+
+<p class="definition">Definition at line <a class="el" href="daos__obj_8h_source.html#l00220">220</a> of file <a class="el" href="daos__obj_8h_source.html">daos_obj.h</a>.</p>
+
+</div>
+</div>
+<a id="ae15eb1a8c6bbe2db55271734d4e400a6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae15eb1a8c6bbe2db55271734d4e400a6">&#9670;&nbsp;</a></span>iod_recxs</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structdaos__recx__t.html">daos_recx_t</a>* iod_recxs</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Array of extents, where each extent defines the index of the first record in the extent and the number of records to access. If the type of the iod is single, this is ignored. </p>
+
+<p class="definition">Definition at line <a class="el" href="daos__obj_8h_source.html#l00226">226</a> of file <a class="el" href="daos__obj_8h_source.html">daos_obj.h</a>.</p>
 
 </div>
 </div>
@@ -143,7 +193,24 @@ unsigned int&#160;</td><td class="memItemRight" valign="bottom"><b>iod_nr</b></t
 </div><div class="memdoc">
 <p>Size of the single value or the record size of the array </p>
 
-<p class="definition">Definition at line <a class="el" href="daos__obj_8h_source.html#l00228">228</a> of file <a class="el" href="daos__obj_8h_source.html">daos_obj.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="daos__obj_8h_source.html#l00211">211</a> of file <a class="el" href="daos__obj_8h_source.html">daos_obj.h</a>.</p>
+
+</div>
+</div>
+<a id="aebabb6389b53be0d18e053f01e04c33b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aebabb6389b53be0d18e053f01e04c33b">&#9670;&nbsp;</a></span>iod_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">daos_iod_type_t iod_type</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Type of the value in an iod can be either a single type that is always overwritten when updated, or it can be an array of EQUAL sized records where the record is updated atomically. Note that an akey can only support one type of value which is set on the first update. If user attempts to mix types in the same akey, the behavior is undefined, even after the object, key, or value is punched. If <em>iod_type</em> == DAOS_IOD_SINGLE, then iod_nr has to be 1, and <em>iod_size</em> would be the size of the single atomic value. The idx is ignored and the rx_nr is also required to be 1. </p>
+
+<p class="definition">Definition at line <a class="el" href="daos__obj_8h_source.html#l00209">209</a> of file <a class="el" href="daos__obj_8h_source.html">daos_obj.h</a>.</p>
 
 </div>
 </div>

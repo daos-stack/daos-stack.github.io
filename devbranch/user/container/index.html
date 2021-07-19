@@ -68,7 +68,10 @@
 <link href="../../css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
 <link href="../../assets/stylesheets/styles_1.css" rel="stylesheet" type="text/css">
 </head>
-<body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -88,10 +91,14 @@
     
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid"><div class="md-flex">
-  <div><img src="../../assets/images/daos_logo_wh.png" width="86" height="61" alt=""/></div>
-  <div class="md-flex__cell md-flex__cell--shrink">
-<label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://daos.io" title="DAOS v2.0 - dev" aria-label="DAOS v2.0 - dev" class="md-header-nav__button md-logo"><img src="../../assets/images/daos_logo_wh.png" width="50"/>
+</a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
@@ -203,6 +210,19 @@
   
     <li class="md-tabs__item">
       
+        <a href="../../QSG/setup/" class="md-tabs__link">
+          Installation and Setup
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
         <a href="../../admin/hardware/" class="md-tabs__link">
           Administration Guide
         </a>
@@ -216,8 +236,21 @@
   
     <li class="md-tabs__item">
       
-        <a href="./" class="md-tabs__link md-tabs__link--active">
+        <a href="../workflow/" class="md-tabs__link md-tabs__link--active">
           User Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../QSG/autotest/" class="md-tabs__link">
+          DAOS Test and Benchmarking
         </a>
       
     </li>
@@ -260,14 +293,15 @@
       
     </ul>
   </div></nav>
-   <section>
+	 <section>
     <div class="dropdown show">
       <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
       </div>
     </div>
   </section>
-  <main class="md-main" role="main"><div class="md-main__inner md-grid" data-md-component="container">
+  <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
@@ -277,7 +311,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="http://daos.io" title="DAOS v2.0 - dev" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img alt="logo" src="../../graph/logo.png" width="48" height="48">
       
     </a>
     DAOS v2.0 - dev
@@ -423,10 +457,94 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      Administration Guide
+      Installation and Setup
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        Installation and Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/setup/" title="DAOS CentOS Setup" class="md-nav__link">
+      DAOS CentOS Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/suse_setup/" title="DAOS openSUSE Setup" class="md-nav__link">
+      DAOS openSUSE Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/tour/" title="DAOS Admin/Client Tools" class="md-nav__link">
+      DAOS Admin/Client Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/test_index/" title="DAOS Test and Benchmarking" class="md-nav__link">
+      DAOS Test and Benchmarking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://wiki.hpdd.intel.com/display/DC/DAOS+IO-500+Instructions" title="IO500 Setup" class="md-nav__link">
+      IO500 Setup
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Administration Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
         Administration Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -578,17 +696,29 @@
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5" checked>
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       User Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         User Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../workflow/" title="Workflow" class="md-nav__link">
+      Workflow
+    </a>
+  </li>
+
         
           
           
@@ -638,8 +768,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#querying-a-containers-properties" class="md-nav__link">
-    Querying a container's properties
+  <a href="#querying-properties" class="md-nav__link">
+    Querying Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-properties" class="md-nav__link">
+    Changing Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-values" class="md-nav__link">
+    Property Values
   </a>
   
 </li>
@@ -664,8 +808,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#compression-encryption" class="md-nav__link">
-    Compression &amp; Encryption
+  <a href="#compression-encryption-unsupported" class="md-nav__link">
+    Compression &amp; Encryption (unsupported)
   </a>
   
 </li>
@@ -700,15 +844,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-containers-with-custom-acl" class="md-nav__link">
-    Creating Containers with Custom ACL
+  <a href="#acl-at-container-creation" class="md-nav__link">
+    ACL at Container Creation
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#displaying-a-containers-acl" class="md-nav__link">
-    Displaying a Container's ACL
+  <a href="#displaying-acl" class="md-nav__link">
+    Displaying ACL
   </a>
   
 </li>
@@ -763,8 +907,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-containers-with-specific-ownership" class="md-nav__link">
-    Creating Containers with Specific Ownership
+  <a href="#setting-ownership-at-creation" class="md-nav__link">
+    Setting Ownership at Creation
   </a>
   
 </li>
@@ -803,20 +947,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../interface/" title="Native Programming Interface" class="md-nav__link">
-      Native Programming Interface
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../posix/" title="POSIX Namespace" class="md-nav__link">
-      POSIX Namespace
+    <a href="../filesystem/" title="File System" class="md-nav__link">
+      File System
     </a>
   </li>
 
@@ -869,6 +1001,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../interface/" title="Native Programming Interface" class="md-nav__link">
+      Native Programming Interface
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -881,13 +1025,109 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
+      DAOS Test and Benchmarking
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        DAOS Test and Benchmarking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/autotest/" title="Run DAOS Autotest" class="md-nav__link">
+      Run DAOS Autotest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/cartselftest/" title="Run CaRT Self_test" class="md-nav__link">
+      Run CaRT Self_test
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/runior/" title="Run IOR" class="md-nav__link">
+      Run IOR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/mdtest/" title="Run mdtest" class="md-nav__link">
+      Run mdtest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/dbench/" title="Run dbench" class="md-nav__link">
+      Run dbench
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/datamover/" title="Datamover test" class="md-nav__link">
+      Datamover test
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
       Releases
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-7">
         Releases
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -929,13 +1169,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-8">
       Developer Zone
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-8">
         Developer Zone
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -983,7 +1223,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1078,8 +1318,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#querying-a-containers-properties" class="md-nav__link">
-    Querying a container's properties
+  <a href="#querying-properties" class="md-nav__link">
+    Querying Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#changing-properties" class="md-nav__link">
+    Changing Properties
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#property-values" class="md-nav__link">
+    Property Values
   </a>
   
 </li>
@@ -1104,8 +1358,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#compression-encryption" class="md-nav__link">
-    Compression &amp; Encryption
+  <a href="#compression-encryption-unsupported" class="md-nav__link">
+    Compression &amp; Encryption (unsupported)
   </a>
   
 </li>
@@ -1140,15 +1394,15 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-containers-with-custom-acl" class="md-nav__link">
-    Creating Containers with Custom ACL
+  <a href="#acl-at-container-creation" class="md-nav__link">
+    ACL at Container Creation
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#displaying-a-containers-acl" class="md-nav__link">
-    Displaying a Container's ACL
+  <a href="#displaying-acl" class="md-nav__link">
+    Displaying ACL
   </a>
   
 </li>
@@ -1203,8 +1457,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#creating-containers-with-specific-ownership" class="md-nav__link">
-    Creating Containers with Specific Ownership
+  <a href="#setting-ownership-at-creation" class="md-nav__link">
+    Setting Ownership at Creation
   </a>
   
 </li>
@@ -1246,140 +1500,307 @@
                 
                 
                 <h1 id="container-management">Container Management<a class="headerlink" href="#container-management" title="Permanent link">&para;</a></h1>
-<p>DAOS containers are the unit of data management for users.</p>
+<p>DAOS containers are datasets managed by the users. A container is the unit of
+snapshot and has a type. It can be a POSIX namespace, an HDF5 file or any other
+new application-specific data model. The chapter explains how to manager
+container, while the subsequent ones detail how to access a DAOS container from
+applications.</p>
 <h2 id="container-creationdestroy">Container Creation/Destroy<a class="headerlink" href="#container-creationdestroy" title="Permanent link">&para;</a></h2>
-<p>Containers can be created and destroyed through the daos_cont_create/destroy()
-functions exported by the DAOS API. A user tool called <code>daos</code> is also
+<p>Containers can be created and destroyed through the <code>daos(1)</code> utility.
 provided to manage containers.</p>
-<p>To create a container:</p>
-<pre><code class="bash">$ daos cont create --pool=a171434a-05a5-4671-8fe2-615aa0d05094
-Successfully created container 008123fc-6b6c-4768-a88a-a2a5ef34a1a2
+<p><strong>To create and then query a container labeled <code>mycont</code> on a pool
+(labeled <code>tank</code>):</strong></p>
+<pre><code class="bash">$ daos cont create tank --label mycont
+  Container UUID : daefe12c-45d4-44f7-8e56-995d02549041
+  Container Label: mycont
+  Container Type : unknown
+Successfully created container daefe12c-45d4-44f7-8e56-995d02549041
+
+$ daos cont query tank mycont
+  Container UUID             : daefe12c-45d4-44f7-8e56-995d02549041
+  Container Label            : mycont
+  Container Type             : unknown
+  Pool UUID                  : 0d1fad71-5681-48d4-acdd-7bb2e786f12e
+  Number of snapshots        : 0
+  Latest Persistent Snapshot : 0
+  Highest Aggregated Epoch   : 263546931609567249
+  Container redundancy factor: 0
+  Snapshot Epochs            :
 </code></pre>
 
+<p>The label can be up to 127 characters long and must only include
+alphanumeric characters, colon (':'), period ('.') or underscore ('_').</p>
 <p>The container type (i.e., POSIX or HDF5) can be passed via the --type option.
 As shown below, the pool UUID, container UUID, and container attributes can be
 stored in the extended attributes of a POSIX file or directory for convenience.
 Then subsequent invocations of the daos tools need to reference the path
 to the POSIX file or directory.</p>
-<pre><code class="bash">$ daos cont create --pool=a171434a-05a5-4671-8fe2-615aa0d05094 \
-      --path=/tmp/mycontainer --type=POSIX --oclass=SX \
-      --chunk_size=4K
-Successfully created container 419b7562-5bb8-453f-bd52-917c8f5d80d1 type POSIX
+<pre><code class="bash">$ daos cont create tank --path /tmp/mycontainer --type=POSIX --oclass=SX
+  Container UUID : 30e5d364-62c9-4ddf-9284-1021359455f2
+  Container Type : POSIX
 
-$ daos container query --path=/tmp/mycontainer
-Pool UUID:      a171434a-05a5-4671-8fe2-615aa0d05094
-Container UUID: 419b7562-5bb8-453f-bd52-917c8f5d80d1
-Number of snapshots: 0
-Latest Persistent Snapshot: 0
-DAOS Unified Namespace Attributes on path /tmp/mycontainer:
-Container Type: POSIX
-Object Class:   large
-Chunk Size:     4096
+Successfully created container 30e5d364-62c9-4ddf-9284-1021359455f2 type POSIX
+
+$ daos cont query --path /tmp/mycontainer
+  Container UUID             : 30e5d364-62c9-4ddf-9284-1021359455f2
+  Container Type             : POSIX
+  Pool UUID                  : 0d1fad71-5681-48d4-acdd-7bb2e786f12e
+  Number of snapshots        : 0
+  Latest Persistent Snapshot : 0
+  Highest Aggregated Epoch   : 263548861715283973
+  Container redundancy factor: 0
+  Snapshot Epochs            :
+  Object Class               : SX
+  Chunk Size                 : 1.0 MiB
+</code></pre>
+
+<p><strong>To list all containers available in a pool:</strong></p>
+<pre><code class="bash">$ daos cont list tank
+UUID                                 Label
+----                                 -----
+30e5d364-62c9-4ddf-9284-1021359455f2 container_label_not_set
+daefe12c-45d4-44f7-8e56-995d02549041 mycont
+</code></pre>
+
+<p><strong>To destroy a container:</strong></p>
+<pre><code class="bash">$ daos cont destroy tank mycont
+Successfully destroyed container mycont
+
+$ daos cont destroy --path /tmp/mycontainer
+Successfully destroyed container 30e5d364-62c9-4ddf-9284-1021359455f2
 </code></pre>
 
 <h2 id="container-properties">Container Properties<a class="headerlink" href="#container-properties" title="Permanent link">&para;</a></h2>
-<p>At creation time, a list of container properties can be specified:</p>
+<p>Container properties are the main mechanism that one can use to control the
+behavior of container. This includes the type of middleware, whether some
+features like deduplication or checksum are enabled. Some properties are
+immutable after creation creation, while some others can be dynamically
+changed.</p>
+<h3 id="querying-properties">Querying Properties<a class="headerlink" href="#querying-properties" title="Permanent link">&para;</a></h3>
+<p>The user-level administration <code>daos</code> utility may be used to query a
+container's properties. Refer to the manual page for full usage details.</p>
+<pre><code class="bash">$ daos cont get-prop tank mycont
+# -OR- --path interface shown below
+$ daos cont get-prop --path=/tmp/mycontainer
+Properties for container mycont
+Name                  Value
+----                  -----
+Highest Allocated OID 0
+Checksum              off
+Checksum Chunk Size   32 KiB
+Compression           off
+Deduplication         off
+Dedupe Threshold      4.0 KiB
+EC Cell Size          1.0 MiB
+Encryption            off
+Group                 jlombard@
+Label                 mycont
+Layout Type           unknown (0)
+Layout Version        1
+Max Snapshot          0
+Owner                 jlombard@
+Redundancy Factor     rf0
+Redundancy Level      rank (1)
+Server Checksumming   off
+Health                HEALTHY
+Access Control List   A::OWNER@:rwdtTaAo, A:G:GROUP@:rwtT
+</code></pre>
+
+<p>Additionally, a container's properties may be retrieved using the
+libdaos API <code>daos_cont_query()</code> function. Refer to the file
+src/include/daos_cont.h Doxygen comments and the online documentation
+available <a href="https://daos-stack.github.io/html/">here</a>.</p>
+<h3 id="changing-properties">Changing Properties<a class="headerlink" href="#changing-properties" title="Permanent link">&para;</a></h3>
+<p>By default, a container will inherit a set of default value for each property.
+Those can be overridden at container creation time via the <code>--properties</code> option.</p>
+<pre><code class="bash">$ daos cont create tank --label mycont2 --properties cksum:sha1,dedup:hash,rf:1
+  Container UUID : a6286ead-1952-4faa-bf87-00fc0f3785aa
+  Container Label: mycont2
+  Container Type : unknown
+Successfully created container a6286ead-1952-4faa-bf87-00fc0f3785aa
+
+$ daos cont query tank mycont2
+Properties for container mycont2
+Name                  Value
+----                  -----
+Highest Allocated OID 0
+Checksum              sha1
+Checksum Chunk Size   32 KiB
+Compression           off
+Deduplication         hash
+Dedupe Threshold      4.0 KiB
+EC Cell Size          1.0 MiB
+Encryption            off
+Group                 jlombard@
+Label                 mycont2
+Layout Type           unknown (0)
+Layout Version        1
+Max Snapshot          0
+Owner                 jlombard@
+Redundancy Factor     rf1
+Redundancy Level      rank (1)
+Server Checksumming   off
+Health                HEALTHY
+Access Control List   A::OWNER@:rwdtTaAo, A:G:GROUP@:rwtT
+</code></pre>
+
+<p>Mutable properties can be modified after container creation via the <code>set-prop</code>
+option.</p>
+<pre><code class="bash">$ daos cont set-prop tank mycont2 --properties label:mycont3
+Properties were successfully set
+</code></pre>
+
+<p>This effectively changed the container label.</p>
+<pre><code class="bash">$ daos cont get-prop tank mycont2
+ERROR: daos: DER_NONEXIST(-1005): The specified entity does not exist
+
+$ daos cont get-prop tank mycont3
+Properties for container mycont3
+Name                  Value
+----                  -----
+Highest Allocated OID 0
+Checksum              sha1
+Checksum Chunk Size   32 KiB
+Compression           off
+Deduplication         hash
+Dedupe Threshold      4.0 KiB
+EC Cell Size          1.0 MiB
+Encryption            off
+Group                 jlombard@
+Label                 mycont3
+Layout Type           unknown (0)
+Layout Version        1
+Max Snapshot          0
+Owner                 jlombard@
+Redundancy Factor     rf1
+Redundancy Level      rank (1)
+Server Checksumming   off
+Health                HEALTHY
+Access Control List   A::OWNER@:rwdtTaAo, A:G:GROUP@:rwtT
+</code></pre>
+
+<h3 id="property-values">Property Values<a class="headerlink" href="#property-values" title="Permanent link">&para;</a></h3>
+<p>The table below summarizes the different container properties available.</p>
 <table>
 <thead>
 <tr>
 <th><strong>Container Property</strong></th>
+<th><strong>Immutable</strong></th>
 <th><strong>Description</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td><code>DAOS_PROP_CO_LABEL</code><img width=400/></td>
-<td>A string that a user can associate with a container. e.g., "Cat Pics" or "ResNet-50 training data"</td>
+<td>label</td>
+<td>No</td>
+<td>String associate with a containers. e.g., "Cat_Pics" or "ResNet50_training_data".</td>
 </tr>
 <tr>
-<td><code>DAOS_PROP_CO_LAYOUT_TYPE</code></td>
-<td>The container type (POSIX, HDF5, ...)</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_CO_LAYOUT_VER</code></td>
-<td>A version of the layout that can be used by I/O middleware and application to handle interoperability.</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_CO_REDUN_FAC</code></td>
-<td>The redundancy factor that drives the minimal data protection required for objects stored in the container. e.g., RF1 means no data protection, RF3 only allows 3-way replication or erasure code N+2.</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_CO_REDUN_LVL</code></td>
-<td>The fault domain level that should be used to place data redundancy information (e.g., storage nodes, racks...). This information will be eventually consumed to determine object placement.</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_CO_CSUM</code></td>
-<td>Checksum off, or algorithm to use.</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_CO_CSUM_CHUNK_SIZE</code></td>
-<td>Checksum chunk size.</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_CO_CSUM_SERVER_VERIFY</code></td>
-<td>Perform additional checksum verification on server (default: off).</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_CO_SNAPSHOT_MAX</code></td>
-<td>Impose a limit on number of snapshots to retain (default: 0, no limitation).</td>
-</tr>
-<tr>
-<td>`DAOS_PROP_CO_ACL</td>
-<td>Container access control list.</td>
-</tr>
-<tr>
-<td><code>DAOS_PROP_CO_OWNER</code></td>
+<td>owner</td>
+<td>Yes</td>
 <td>User acting as the owner of the container.</td>
 </tr>
 <tr>
-<td><code>DAOS_PROP_CO_OWNER_GROUP</code></td>
-<td>Group acting as the owner of the container.</td>
+<td>group</td>
+<td>Yes</td>
+<td>Group acting as the owner of the container</td>
+</tr>
+<tr>
+<td>layout_type</td>
+<td>Yes</td>
+<td>The container type (POSIX, HDF5, ...)</td>
+</tr>
+<tr>
+<td>layout_ver</td>
+<td>Yes</td>
+<td>A version of the layout that can be used by I/O middleware to handle interoperability.</td>
+</tr>
+<tr>
+<td>rf</td>
+<td>Yes</td>
+<td>The redundancy factor that drives the minimal data protection required for objects stored in the container. e.g., RF1 means no data protection, RF3 only allows 3-way replication or erasure code N+2.</td>
+</tr>
+<tr>
+<td>rf_lvl</td>
+<td>Yes</td>
+<td>The fault domain level to use for data redundancy placement. This is used to determine object placement.</td>
+</tr>
+<tr>
+<td>ec_cell</td>
+<td>Yes</td>
+<td>Erasure code cell size for erasure-coded objects.</td>
+</tr>
+<tr>
+<td>cksum</td>
+<td>Yes</td>
+<td>Checksum off, or algorithm to use (adler32, crc[16</td>
+</tr>
+<tr>
+<td>cksum_size</td>
+<td>Yes</td>
+<td>Checksum chunk size.</td>
+</tr>
+<tr>
+<td>srv_cksum</td>
+<td>Yes</td>
+<td>Perform additional checksum verification on server (default: off).</td>
+</tr>
+<tr>
+<td>max_snapshot</td>
+<td>No</td>
+<td>Impose a upper limit on number of snapshots to retain (default: 0, no limitation).</td>
+</tr>
+<tr>
+<td>acl</td>
+<td>No</td>
+<td>Container access control list.</td>
+</tr>
+<tr>
+<td>compression</td>
+<td>Yes</td>
+<td>Whether online compression is enabled (off, lz4, deflate[1-4])</td>
+</tr>
+<tr>
+<td>dedup</td>
+<td>Yes</td>
+<td>Inline deduplication off, hash based (hash) or using memory compare (memcmp)</td>
+</tr>
+<tr>
+<td>dedup_threshold</td>
+<td>Yes</td>
+<td>Minimum I/O size to consider for deduplication</td>
+</tr>
+<tr>
+<td>encryption</td>
+<td>Yes</td>
+<td>Inline encryption off, or algorithm</td>
+</tr>
+<tr>
+<td>to use (XTS[128</td>
+<td>256], CBC[128</td>
+<td>192</td>
+</tr>
+<tr>
+<td>status</td>
+<td>No</td>
+<td>Current state of the container</td>
+</tr>
+<tr>
+<td>alloc_oid</td>
+<td>No</td>
+<td>Maximum allocated object ID by container allocator</td>
 </tr>
 </tbody>
 </table>
-<p>Refer to the Data Integrity and Access Control Lists sections for more
-details on the checksum and access-related properties.</p>
-<p>Refer to the Inline Deduplication section for details about additional
-properties for that preview feature that are not listed here.</p>
+<p>Refer to the <a href="#Data-Integrity">Data Integrity</a> and <a href="#Access_Control_Lists">Access Control Lists</a>
+sections for more details on the checksum and access-related properties.</p>
+<p>Refer to the <a href="#Inline_Deduplication_(Preview)">Inline Deduplication</a> section
+for details about additional properties for that preview feature that are not
+listed here.</p>
 <p>While those properties are currently stored persistently with container
 metadata, many of them are still under development. The ability to modify some
 of these properties on an existing container will also be provided in a future
 release.</p>
-<h3 id="querying-a-containers-properties">Querying a container's properties<a class="headerlink" href="#querying-a-containers-properties" title="Permanent link">&para;</a></h3>
-<p>The user-level administration <code>daos</code> utility may be used to query a
-container's properties. Refer to the manual page for full usage details.</p>
-<pre><code class="bash"># daos cont get-prop --pool=&lt;UUID&gt; --cont=&lt;UUID&gt;
-# -OR- --path interface shown below
-
-$ daos cont get-prop --path=/tmp/mycontainer
-Container properties for 419b7562-5bb8-453f-bd52-917c8f5d80d1 :
-label:                  container label not set
-layout type:            POSIX (1)
-layout version:         1
-checksum type:          off
-checksum chunk-size:    32768
-cksum verif. on server: off
-deduplication:          off
-dedup threshold:        4096
-redundancy factor:      rf0
-redundancy level:       rack
-max snapshots:          0
-compression type:       off
-encryption type:        off
-Allocated OID:          0
-owner:                  username@
-owner-group:            groupname@
-status:                 HEALTHY
-acl:
-# Entries:
-A::OWNER@:rwdtTaAo
-A:G:GROUP@:rwtT
-</code></pre>
-
-<p>Additionally, a container's properties may be retrieved using the
-libdaos API daos_cont_query() function. Refer to the file
-src/include/daos_cont.h Doxygen comments and the online documentation
-available <a href="https://daos-stack.github.io/html/">here</a>.</p>
 <h2 id="data-integrity">Data Integrity<a class="headerlink" href="#data-integrity" title="Permanent link">&para;</a></h2>
 <p>DAOS allows to detect and fix (when data protection is enabled) silent data
 corruptions. This is done by calculating checksums for both data and metadata
@@ -1393,22 +1814,12 @@ application.</p>
 <p>To enable and configure checksums, the following container properties are used
 during container create.</p>
 <ul>
-<li><code>DAOS_PROP_CO_CSUM</code>: Type of checksum algorithm to use. Supported values are</li>
-</ul>
-<pre><code class="c">  DAOS_PROP_CO_CSUM_OFF, // default
-  DAOS_PROP_CO_CSUM_CRC16,
-  DAOS_PROP_CO_CSUM_CRC32,
-  DAOS_PROP_CO_CSUM_CRC64,
-  DAOS_PROP_CO_CSUM_SHA1,
-  DAOS_PROP_CO_CSUM_SHA256,
-  DAOS_PROP_CO_CSUM_SHA512,
-  DAOS_PROP_CO_CSUM_ADLER32
-</code></pre>
-
-<ul>
-<li><code>DAOS_PROP_CO_CSUM_CHUNK_SIZE</code>: defines the chunk size used for
+<li>cksum (<code>DAOS_PROP_CO_CSUM</code>): the type of checksum algorithm to use.
+  Supported values are adler32, crc[16|32|64] or sha[1|256|512]. By default,
+  checksum is disabled for new containers.</li>
+<li>cksum_size (<code>DAOS_PROP_CO_CSUM_CHUNK_SIZE</code>): defines the chunk size used for
   creating checksums of array types. (default is 32K).</li>
-<li><code>DAOS_PROP_CO_CSUM_SERVER_VERIFY</code>: Because of the probable decrease to
+<li>srv_cksum (<code>DAOS_PROP_CO_CSUM_SERVER_VERIFY</code>): Because of the probable decrease to
   IOPS, in most cases, it is not desired to verify checksums on an object
   update on the server side. It is sufficient for the client to verify on
   a fetch because any data corruption, whether on the object update,
@@ -1417,6 +1828,18 @@ during container create.</p>
   right away, indicating to the client to retry the RPC or report an
   error to upper levels.</li>
 </ul>
+<p>For instance, to create a new container with crc64 checksum enabled and
+checksum verification on the server side, one can use the following command
+line:</p>
+<pre><code class="bash">$ daos cont create tank --label mycont --properties cksum:crc64,srv_cksum:on
+Successfully created container dfa09efd-4529-482c-b7cd-748c29ef7419
+
+$ daos cont get-prop  tank mycont4 | grep cksum
+Checksum              crc64
+Checksum Chunk Size   32 KiB
+Server Checksumming   on
+</code></pre>
+
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Note that currently, once a container is created, its checksum configuration
@@ -1443,20 +1866,14 @@ If an extent is found, then two options are provided:</p>
 <p>The inline dedup feature can be enabled on a per-container basis. To enable and
 configure dedup, the following container properties are used:</p>
 <ul>
-<li><code>DAOS_PROP_CO_DEDUP</code>: Type of dedup mechanism to use. Supported values are</li>
-</ul>
-<pre><code class="c">  DAOS_PROP_CO_DEDUP_OFF, // default
-  DAOS_PROP_CO_DEDUP_MEMCMP, // memory compare
-  DAOS_PROP_CO_CSUM_HASH // hash-based using SHA256
-</code></pre>
-
-<ul>
-<li><code>DAOS_PROP_CO_DEDUP_THRESHOLD</code>: defines the minimal I/O size to consider
-  the I/O for dedup (default is 4K).</li>
+<li>dedup (<code>DAOS_PROP_CO_DEDUP</code>): Type of dedup mechanism to use. Supported values
+  are off (default), memcmp (memory compare) or hash (hash-based using SHA256).</li>
+<li>dedup_threshold (<code>DAOS_PROP_CO_DEDUP_THRESHOLD</code>): defines the minimal I/O size
+  to consider the I/O for dedup (default is 4K).</li>
 </ul>
 <div class="admonition warning">
 <p class="admonition-title">Warning</p>
-<p>Dedup is a feature preview in 1.2 and has some known
+<p>Dedup is a feature preview in 2.0 and has some known
 limitations. Aggregation of deduplicated extents isn't supported and the
 checksum tree isn't persistent yet. This means that aggregation is disabled
 for a container with dedplication enabled and duplicated extents won't be
@@ -1464,32 +1881,54 @@ matched after a server restart.
 NVMe isn't supported for dedup enabled container, so please make sure not
 using dedup on the pool with NVMe enabled.</p>
 </div>
-<h2 id="compression-encryption">Compression &amp; Encryption<a class="headerlink" href="#compression-encryption" title="Permanent link">&para;</a></h2>
-<p>The <code>DAOS_PROP_CO_COMPRESS</code> and <code>DAOS_PROP_CO_ENCRYPT</code> properties are reserved
-for configuring respectively online compression and encryption.
+<h2 id="compression-encryption-unsupported">Compression &amp; Encryption (unsupported)<a class="headerlink" href="#compression-encryption-unsupported" title="Permanent link">&para;</a></h2>
+<p>The compression (<code>DAOS_PROP_CO_COMPRESS</code>) and encryption
+(<code>DAOS_PROP_CO_ENCRYPT</code>) properties are reserved for configuring respectively
+online compression and encryption.
 These features are currently not on the roadmap.</p>
 <h2 id="snapshot-rollback">Snapshot &amp; Rollback<a class="headerlink" href="#snapshot-rollback" title="Permanent link">&para;</a></h2>
-<p>Similar to container create/destroy, a container can be snapshotted through the
-DAOS API by calling daos_cont_create_snap(). Additional functions are provided
-to destroy and list container snapshots.</p>
-<p>The API also provides interfaces to subscribe to container snapshot events and
-to rollback the content of a container to a previous snapshot, but those
-operations are not yet fully implemented.</p>
 <p>The <code>daos</code> tool provides container {create/destroy}-snap and list-snaps
-commands. It provides access to basic snapshot create/destroy according
-to the constraints of the implementation (e.g., no named snapshots).
-It provides interfaces (commands and arguments) for the broader set of
-snapshot features, for when they are implemented later (e.g., specified
-epoch/epoch range, rollback).</p>
-<p>The <code>DAOS_PROP_CO_SNAPSHOT_MAX</code> property is used to limit the maximum number of
-snapshots to retain. When a new snapshot is taken, and the threshold is reached,
-the oldest snapshot will be automatically deleted.</p>
-<p>Rolling back the content of a container to a snapshot is planned for future DAOS
-versions.</p>
+commands.</p>
+<pre><code class="bash">$ daos cont create-snap tank mycont
+snapshot/epoch 262508437483290624 has been created
+
+$ daos cont list-snaps tank mycont
+Container's snapshots :
+262508437483290624
+
+$ daos cont destroy-snap tank mycont -e 262508437483290624
+</code></pre>
+
+<p>The max_snapshot (<code>DAOS_PROP_CO_SNAPSHOT_MAX</code>) property is used to limit the
+maximum number of snapshots to retain. When a new snapshot is taken, and the
+threshold is reached, the oldest snapshot will be automatically deleted.</p>
+<p>Rolling back the content of a container to a snapshot is planned for future
+DAOS versions.</p>
 <h2 id="user-attributes">User Attributes<a class="headerlink" href="#user-attributes" title="Permanent link">&para;</a></h2>
 <p>Similar to POSIX extended attributes, users can attach some metadata to each
-container through the daos_cont_{list/get/set}_attr() API, and through the
-utility commands: daos cont {get/set}-attr and list-attrs.</p>
+container through the <code>daos cont [set|get|list|del]-attr</code> commands or via the
+<code>daos_cont_{list/get/set}_attr()</code> functions of the libdaos API.</p>
+<pre><code class="bash">$ daos cont set-attr tank mycont import_date &quot;12/01/2021&quot;
+
+$ daos cont list-attr tank mycont
+Attributes for container mycont:
+Name
+----
+import_date
+
+$ daos cont get-attr tank mycont import_date
+Attributes for container mycont:
+Name        Value
+----        -----
+import_date 12/01/2021
+
+$ daos cont del-attr tank mycont import_date
+
+$ daos cont list-attr tank mycont
+Attributes for container mycont:
+  No attributes found.
+</code></pre>
+
 <h2 id="access-control-lists">Access Control Lists<a class="headerlink" href="#access-control-lists" title="Permanent link">&para;</a></h2>
 <p>Client user and group access for containers is controlled by
 <a href="https://daos-stack.github.io/overview/security/#access-control-lists">Access Control Lists (ACLs)</a>.</p>
@@ -1540,15 +1979,16 @@ permissions on that container.</p>
 <p>If the user does not have Delete permission on the pool, they will only be able
 to delete containers for which they have been explicitly granted Delete
 permission in the container's ACL.</p>
-<h3 id="creating-containers-with-custom-acl">Creating Containers with Custom ACL<a class="headerlink" href="#creating-containers-with-custom-acl" title="Permanent link">&para;</a></h3>
-<p>To create a container with a custom ACL:</p>
-<pre><code class="bash">$ daos cont create --pool=&lt;UUID&gt; --acl-file=&lt;path&gt;
+<h3 id="acl-at-container-creation">ACL at Container Creation<a class="headerlink" href="#acl-at-container-creation" title="Permanent link">&para;</a></h3>
+<p>To create a container labeled mycont in a pool labeled tank with a custom ACL:</p>
+<pre><code class="bash">$ daos cont create &lt;pool_label&gt; --label &lt;container_label&gt; --acl-file=&lt;path&gt;
 </code></pre>
 
-<p>The ACL file format is detailed in the <a href="https://daos-stack.github.io/overview/security/#acl-file">ACL section</a>.</p>
-<h3 id="displaying-a-containers-acl">Displaying a Container's ACL<a class="headerlink" href="#displaying-a-containers-acl" title="Permanent link">&para;</a></h3>
+<p>The ACL file format is detailed in the
+<a href="https://daos-stack.github.io/overview/security/#acl-file">security overview</a>.</p>
+<h3 id="displaying-acl">Displaying ACL<a class="headerlink" href="#displaying-acl" title="Permanent link">&para;</a></h3>
 <p>To view a container's ACL:</p>
-<pre><code class="bash">$ daos cont get-acl --pool=&lt;UUID&gt; --cont=&lt;UUID&gt;
+<pre><code class="bash">$ daos cont get-acl &lt;pool_label&gt; &lt;container_label&gt;
 </code></pre>
 
 <p>The output is in the same string format used in the ACL file during creation,
@@ -1558,18 +1998,16 @@ with one ACE per line.</p>
 noted above for container creation.</p>
 <h4 id="overwriting-the-acl">Overwriting the ACL<a class="headerlink" href="#overwriting-the-acl" title="Permanent link">&para;</a></h4>
 <p>To replace a container's ACL with a new ACL:</p>
-<pre><code class="bash">$ daos cont overwrite-acl --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; \
-      --acl-file=&lt;path&gt;
+<pre><code class="bash">$ daos cont overwrite-acl &lt;pool_label&gt; &lt;container_label&gt; --acl-file=&lt;path&gt;
 </code></pre>
 
 <h4 id="adding-and-updating-aces">Adding and Updating ACEs<a class="headerlink" href="#adding-and-updating-aces" title="Permanent link">&para;</a></h4>
 <p>To add or update multiple entries in an existing container ACL:</p>
-<pre><code class="bash">$ daos cont update-acl --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; \
-      --acl-file=&lt;path&gt;
+<pre><code class="bash">$ daos cont update-acl &lt;pool_label&gt; &lt;container_label&gt; --acl-file=&lt;path&gt;
 </code></pre>
 
 <p>To add or update a single entry in an existing container ACL:</p>
-<pre><code class="bash">$ daos cont update-acl --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; --entry &lt;ACE&gt;
+<pre><code class="bash">$ daos cont update-acl &lt;pool_label&gt; &lt;container_label&gt; --entry &lt;ACE&gt;
 </code></pre>
 
 <p>If there is no existing entry for the principal in the ACL, the new entry is
@@ -1577,13 +2015,13 @@ added to the ACL. If there is already an entry for the principal, that entry
 is replaced with the new one.</p>
 <h4 id="removing-an-ace">Removing an ACE<a class="headerlink" href="#removing-an-ace" title="Permanent link">&para;</a></h4>
 <p>To delete an entry for a given principal in an existing container ACL:</p>
-<pre><code class="bash">$ daos cont delete-acl --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; \
-      --principal=&lt;principal&gt;
+<pre><code class="bash">$ daos cont delete-acl &lt;pool_label&gt; &lt;container_label&gt; --principal=&lt;principal&gt;
 </code></pre>
 
-<p>The principal corresponds to the principal portion of an ACE that was
-set during container creation or a previous container ACL operation. For the
-delete operation, the principal argument must be formatted as follows:</p>
+<p>The <code>principal</code> argument refers to the
+<a href="https://daos-stack.github.io/overview/security/#principal">principal</a>, or
+identity, of the entry to be removed.</p>
+<p>For the delete operation, the <code>principal</code> argument must be formatted as follows:</p>
 <ul>
 <li>Named user: <code>u:username@</code></li>
 <li>Named group: <code>g:groupname@</code></li>
@@ -1600,34 +2038,40 @@ container will be decided based on the remaining ACL rules.</p>
 and <code>GROUP@</code> in the ACL. These values are a part of the container properties.
 They may be set on container creation and changed later.</p>
 <h4 id="privileges">Privileges<a class="headerlink" href="#privileges" title="Permanent link">&para;</a></h4>
-<p>The owner-user (<code>OWNER@</code>) has implicit privileges on their container. The
-owner-user can always open the container, and has set-ACL (A) and get-ACL (a)
-permissions. These permissions are included alongside any permissions that the
+<p>The owner-user (<code>OWNER@</code>) has some implicit privileges on their container.
+These permissions are silently included alongside any permissions that the
 user was explicitly granted by entries in the ACL.</p>
-<p>Because the owner's special permissions are implicit, they apply to access
-control decisions even if they do not appear in the <code>OWNER@</code> entry, and even if
-the <code>OWNER@</code> entry is deleted.</p>
-<p>The owner-group (<code>GROUP@</code>) has no special permissions outside what they are
-granted by the ACL.</p>
-<h4 id="creating-containers-with-specific-ownership">Creating Containers with Specific Ownership<a class="headerlink" href="#creating-containers-with-specific-ownership" title="Permanent link">&para;</a></h4>
+<p>The owner-user will always have the following implicit capabilities:</p>
+<ul>
+<li>Open container</li>
+<li>Set ACL (A)</li>
+<li>Get ACL (a)</li>
+</ul>
+<p>Because the owner's special permissions are implicit, they do not need to be
+specified in the <code>OWNER@</code> entry. After
+<a href="https://daos-stack.github.io/overview/security/#enforcement">determining</a>
+the user's privileges from the container ACL, DAOS checks whether the user
+requesting access is the owner-user. If so, DAOS grants the owner's
+implicit permissions to that user, in addition to any permissions granted by
+the ACL.</p>
+<p>In contrast, the owner-group (<code>GROUP@</code>) has no special permissions beyond those
+explicitly granted by the <code>GROUP@</code> entry in the ACL.</p>
+<h4 id="setting-ownership-at-creation">Setting Ownership at Creation<a class="headerlink" href="#setting-ownership-at-creation" title="Permanent link">&para;</a></h4>
 <p>The default owner user and group are the effective user and group of the user
 creating the container. However, a specific user and/or group may be specified
 at container creation time.</p>
-<pre><code class="bash">$ daos cont create --pool=&lt;UUID&gt; --user=&lt;owner-user&gt; \
-      --group=&lt;owner-group&gt;
+<pre><code class="bash">$ daos cont create &lt;pool_label&gt; &lt;container_label&gt; --user=&lt;owner-user&gt; --group=&lt;owner-group&gt;
 </code></pre>
 
 <p>The user and group names are case sensitive and must be formatted as
 <a href="https://daos-stack.github.io/overview/security/#principal">DAOS ACL user/group principals</a>.</p>
 <h4 id="changing-ownership">Changing Ownership<a class="headerlink" href="#changing-ownership" title="Permanent link">&para;</a></h4>
 <p>To change the owner user:</p>
-<pre><code class="bash">$ daos cont set-owner --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; \
-      --user=&lt;owner-user&gt;
+<pre><code class="bash">$ daos cont set-owner &lt;pool_label&gt; &lt;container_label&gt; --user=&lt;owner-user&gt;
 </code></pre>
 
 <p>To change the owner group:</p>
-<pre><code class="bash">$ daos cont set-owner --pool=&lt;UUID&gt; --cont=&lt;UUID&gt; \
-      --group=&lt;owner-group&gt;
+<pre><code class="bash">$ daos cont set-owner &lt;pool_label&gt; &lt;container_label&gt; --group=&lt;owner-group&gt;
 </code></pre>
 
 <p>The user and group names are case sensitive and must be formatted as
@@ -1653,7 +2097,7 @@ at container creation time.</p>
     <div class="md-footer-nav">
       <nav class="md-footer-nav__inner md-grid">
         
-          <a href="../../admin/env_variables/" title="Environment Variables" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+          <a href="../workflow/" title="Workflow" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
             <div class="md-flex__cell md-flex__cell--shrink">
               <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
             </div>
@@ -1662,19 +2106,19 @@ at container creation time.</p>
                 <span class="md-footer-nav__direction">
                   Previous
                 </span>
-                Environment Variables
+                Workflow
               </span>
             </div>
           </a>
         
         
-          <a href="../interface/" title="Native Programming Interface" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+          <a href="../filesystem/" title="File System" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
             <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
               <span class="md-flex__ellipsis">
                 <span class="md-footer-nav__direction">
                   Next
                 </span>
-                Native Programming Interface
+                File System
               </span>
             </div>
             <div class="md-flex__cell md-flex__cell--shrink">
@@ -1699,12 +2143,12 @@ at container creation time.</p>
     </div>
   </div>
 </footer>
-      </div>
-<script src="../../assets/javascripts/application.c33a9706.js"></script>
-<script src="../../js/jquery-3.4.1.min.js"></script>
-<script src="../../js/popper.min.js"></script>
-<script src="../../js/bootstrap-4.4.1.js"></script>
-<script>app.initialize({version:"1.1.2",url:{base:"."}})</script>
+      
+    </div>
+<script src="../../assets/javascripts/application.c33a9706.js"></script> 
+<script src="../../js/jquery-3.4.1.min.js"></script> 
+<script src="../../js/popper.min.js"></script> 
+<script src="../../js/bootstrap-4.4.1.js"></script> 
+<script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
 </body>
-
 </html>

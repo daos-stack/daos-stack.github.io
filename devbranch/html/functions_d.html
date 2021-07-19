@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Version 1.0</span>
+   &#160;<span id="projectnumber">DAOS v2.0 - dev</span>
    </div>
   </td>
  </tr>
@@ -86,6 +86,9 @@ $(document).ready(function(){initNavTree('functions_d.html',''); initResizable()
 <div class="textblock">Here is a list of all documented struct and union fields with links to the struct/union documentation for each field:</div>
 
 <h3><a id="index_d"></a>- d -</h3><ul>
+<li>da_buf
+: <a class="el" href="structdaos__anchor__t.html#a036d94665b754053e2a3760256eb44f0">daos_anchor_t</a>
+</li>
 <li>da_chunk_size
 : <a class="el" href="structdfs__attr__t.html#a99f0686f082c91df320c81a642ec949b">dfs_attr_t</a>
 , <a class="el" href="structduns__attr__t.html#a99f0686f082c91df320c81a642ec949b">duns_attr_t</a>
@@ -93,8 +96,17 @@ $(document).ready(function(){initNavTree('functions_d.html',''); initResizable()
 <li>da_cuuid
 : <a class="el" href="structduns__attr__t.html#afc6bc2480780108746dddb38a10b932e">duns_attr_t</a>
 </li>
+<li>da_flags
+: <a class="el" href="structdaos__anchor__t.html#a5556c0ee730a964b4d1fc394c166e341">daos_anchor_t</a>
+</li>
 <li>da_id
 : <a class="el" href="structdfs__attr__t.html#a83f871acfb094f9af728200928e142da">dfs_attr_t</a>
+</li>
+<li>da_no_prefix
+: <a class="el" href="structduns__attr__t.html#a08d3b868354a0ef0467f4fe179eac548">duns_attr_t</a>
+</li>
+<li>da_no_reverse_lookup
+: <a class="el" href="structduns__attr__t.html#a746400e0d23d50a0eca33b1de421dc8e">duns_attr_t</a>
 </li>
 <li>da_oclass_id
 : <a class="el" href="structdfs__attr__t.html#af3603cd1c7440c516bb372e91a0670a5">dfs_attr_t</a>
@@ -110,6 +122,9 @@ $(document).ready(function(){initNavTree('functions_d.html',''); initResizable()
 <li>da_puuid
 : <a class="el" href="structduns__attr__t.html#a41bedeb8f489555294077744e941c9ef">duns_attr_t</a>
 </li>
+<li>da_rel_path
+: <a class="el" href="structduns__attr__t.html#af0f842f991aa29359ee887439833444b">duns_attr_t</a>
+</li>
 <li>da_shard
 : <a class="el" href="structdaos__anchor__t.html#a96375363d60fa414eac39f5aa45524d9">daos_anchor_t</a>
 </li>
@@ -117,7 +132,8 @@ $(document).ready(function(){initNavTree('functions_d.html',''); initResizable()
 : <a class="el" href="structdaos__anchor__t.html#ad27778836f2ee7932a37bbcadb3c5c15">daos_anchor_t</a>
 </li>
 <li>da_type
-: <a class="el" href="structduns__attr__t.html#a32d05946dea4e65b637400b0a80642ff">duns_attr_t</a>
+: <a class="el" href="structdaos__anchor__t.html#a00ba20ce6c4029f1b8b1912f3a1627fc">daos_anchor_t</a>
+, <a class="el" href="structduns__attr__t.html#a32d05946dea4e65b637400b0a80642ff">duns_attr_t</a>
 </li>
 <li>dae_access_flags
 : <a class="el" href="structdaos__ace.html#a00212696fa07661bd6d55fc2e788c3d7">daos_ace</a>
@@ -164,10 +180,17 @@ $(document).ready(function(){initNavTree('functions_d.html',''); initResizable()
 <li>dkey
 : <a class="el" href="structdaos__obj__list__t.html#ab089b7883c4c375bdcdd7e4f7fada640">daos_obj_list_t</a>
 , <a class="el" href="structdaos__obj__punch__t.html#ab089b7883c4c375bdcdd7e4f7fada640">daos_obj_punch_t</a>
+, <a class="el" href="structdaos__obj__query__key__t.html#ab089b7883c4c375bdcdd7e4f7fada640">daos_obj_query_key_t</a>
 , <a class="el" href="structdaos__obj__rw__t.html#ab089b7883c4c375bdcdd7e4f7fada640">daos_obj_rw_t</a>
 </li>
 <li>dkey_anchor
 : <a class="el" href="structdaos__obj__list__t.html#a598f6fb316a8bc3d69f1b428e500284e">daos_obj_list_t</a>
+</li>
+<li>doi_chunk_size
+: <a class="el" href="structdfs__obj__info__t.html#aecfb7a0dfa0086df894c4745a9f8ec3e">dfs_obj_info_t</a>
+</li>
+<li>doi_oclass_id
+: <a class="el" href="structdfs__obj__info__t.html#aae575a86d6452cbcd9c1344e36c0b71f">dfs_obj_info_t</a>
 </li>
 </ul>
 </div><!-- contents -->

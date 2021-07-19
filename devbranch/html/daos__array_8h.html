@@ -27,7 +27,7 @@
   <td id="projectlogo"><img alt="Logo" src="daos_logo.png"/></td>
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">DAOS API
-   &#160;<span id="projectnumber">Version 1.0</span>
+   &#160;<span id="projectnumber">DAOS v2.0 - dev</span>
    </div>
   </td>
  </tr>
@@ -228,12 +228,12 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <p>Create an Array object. This opens a DAOS KV object and adds metadata to define the cell size and chunk size. Further access to that object using the handle will use that metadata to store the array elements.</p>
-<p>The metadata of the array is stored under a special AKEY in DKEY 0. This means that this is a generic array object with it's metadata tracked in the DAOS object. The feat bits in the oid must set DAOS_OF_DKEY_UINT64 | DAOS_OF_ARRAY. If the feat bits does not set DAOS_OF_ARRAY but sets DAOS_OF_KV_FLAT, the user would be responsible in remembering the array metadata since DAOS will not store those, and should not call this API since nothing will be written to the array object. daos_array_open_with_attrs() can be used to get an array OH in that case to access with the Array APIs.</p>
+<p>The metadata of the array is stored under a special AKEY in DKEY 0. This means that this is a generic array object with it's metadata tracked in the DAOS object. The feat bits in the oid must set DAOS_OF_DKEY_UINT64 | DAOS_OF_KV_FLAT | DAOS_OF_ARRAY. If the feat bits does not set DAOS_OF_ARRAY, the user would be responsible for remembering the array metadata since DAOS will not store those, and should not call this API since nothing will be written to the array object. daos_array_open_with_attrs() can be used to get an array OH in that case to access with the Array APIs.</p>
 <p>The metadata are just entries in the KV object, meaning that any user can open the object and overwrite that metadata. The user can recreate the array; This will not punch the existing raw data; just overwrite the metadata. However changing the metadata will cause undefined access issues. (MSC - we can force an error in this case by checking for object existence by reading the metadata. But this adds extra overhead).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">coh</td><td>Container open handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">oid</td><td>Object ID. It is required that the feat for dkey type be set to DAOS_OF_DKEY_UINT64 | DAOS_OF_ARRAY. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">oid</td><td>Object ID. It is required that the feat for dkey type be set to DAOS_OF_KV_FLAT | DAOS_OF_DKEY_UINT64 | DAOS_OF_ARRAY. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">th</td><td>Transaction handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">cell_size</td><td>Record size of the array. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">chunk_size</td><td>Number of contiguous records to store per DKey before moving to a different dkey. </td></tr>
@@ -538,7 +538,7 @@ Functions</h2></td></tr>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">coh</td><td>Container open handle. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">oid</td><td>Object ID. It is required that the feat for dkey type be set to DAOS_OF_DKEY_UINT64 | DAOS_OF_ARRAY. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">oid</td><td>Object ID. It is required that the feat for dkey type be set to DAOS_OF_KV_FLAT | DAOS_OF_DKEY_UINT64 | DAOS_OF_ARRAY. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">th</td><td>Transaction handle. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">mode</td><td>Open mode: DAOS_OO_RO/RW </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">cell_size</td><td>Record size of the array. </td></tr>

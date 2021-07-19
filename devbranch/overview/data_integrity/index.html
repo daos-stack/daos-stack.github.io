@@ -68,7 +68,10 @@
 <link href="../../css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
 <link href="../../assets/stylesheets/styles_1.css" rel="stylesheet" type="text/css">
 </head>
-<body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -88,10 +91,14 @@
     
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid"><div class="md-flex">
-  <div><img src="../../assets/images/daos_logo_wh.png" width="86" height="61" alt=""/></div>
-  <div class="md-flex__cell md-flex__cell--shrink">
-<label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://daos.io" title="DAOS v2.0 - dev" aria-label="DAOS v2.0 - dev" class="md-header-nav__button md-logo"><img src="../../assets/images/daos_logo_wh.png" width="50"/>
+</a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
@@ -201,6 +208,19 @@
   
     <li class="md-tabs__item">
       
+        <a href="../../QSG/setup/" class="md-tabs__link">
+          Installation and Setup
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
         <a href="../../admin/hardware/" class="md-tabs__link">
           Administration Guide
         </a>
@@ -214,8 +234,21 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../user/container/" class="md-tabs__link">
+        <a href="../../user/workflow/" class="md-tabs__link">
           User Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../QSG/autotest/" class="md-tabs__link">
+          DAOS Test and Benchmarking
         </a>
       
     </li>
@@ -258,14 +291,15 @@
       
     </ul>
   </div></nav>
-   <section>
+	 <section>
     <div class="dropdown show">
       <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
       </div>
     </div>
   </section>
-  <main class="md-main" role="main"><div class="md-main__inner md-grid" data-md-component="container">
+  <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
@@ -275,7 +309,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="http://daos.io" title="DAOS v2.0 - dev" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img alt="logo" src="../../graph/logo.png" width="48" height="48">
       
     </a>
     DAOS v2.0 - dev
@@ -421,10 +455,94 @@
       <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
     
     <label class="md-nav__link" for="nav-3">
-      Administration Guide
+      Installation and Setup
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
       <label class="md-nav__title" for="nav-3">
+        Installation and Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/setup/" title="DAOS CentOS Setup" class="md-nav__link">
+      DAOS CentOS Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/suse_setup/" title="DAOS openSUSE Setup" class="md-nav__link">
+      DAOS openSUSE Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/tour/" title="DAOS Admin/Client Tools" class="md-nav__link">
+      DAOS Admin/Client Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/test_index/" title="DAOS Test and Benchmarking" class="md-nav__link">
+      DAOS Test and Benchmarking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://wiki.hpdd.intel.com/display/DC/DAOS+IO-500+Instructions" title="IO500 Setup" class="md-nav__link">
+      IO500 Setup
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      Administration Guide
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
         Administration Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -574,17 +692,29 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       User Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         User Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/workflow/" title="Workflow" class="md-nav__link">
+      Workflow
+    </a>
+  </li>
+
         
           
           
@@ -604,20 +734,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
-      Native Programming Interface
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../user/posix/" title="POSIX Namespace" class="md-nav__link">
-      POSIX Namespace
+    <a href="../../user/filesystem/" title="File System" class="md-nav__link">
+      File System
     </a>
   </li>
 
@@ -670,6 +788,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
+      Native Programming Interface
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -682,13 +812,109 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
+      DAOS Test and Benchmarking
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        DAOS Test and Benchmarking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/autotest/" title="Run DAOS Autotest" class="md-nav__link">
+      Run DAOS Autotest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/cartselftest/" title="Run CaRT Self_test" class="md-nav__link">
+      Run CaRT Self_test
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/runior/" title="Run IOR" class="md-nav__link">
+      Run IOR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/mdtest/" title="Run mdtest" class="md-nav__link">
+      Run mdtest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/dbench/" title="Run dbench" class="md-nav__link">
+      Run dbench
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/datamover/" title="Datamover test" class="md-nav__link">
+      Datamover test
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
       Releases
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-7">
         Releases
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -730,13 +956,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-8">
       Developer Zone
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-8">
         Developer Zone
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -784,7 +1010,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -890,6 +1116,304 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#keys-and-value-objects" class="md-nav__link">
+    Keys and Value Objects
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keys" class="md-nav__link">
+    Keys
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#values" class="md-nav__link">
+    Values
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#single-value" class="md-nav__link">
+    Single Value
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#array-values" class="md-nav__link">
+    Array Values
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checksum-calculations" class="md-nav__link">
+    Checksum calculations
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#performance-impact" class="md-nav__link">
+    Performance Impact
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality" class="md-nav__link">
+    Quality
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#running-tests" class="md-nav__link">
+    Running Tests
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#life-of-a-checksum-wip" class="md-nav__link">
+    Life of a checksum (WIP)
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebuild" class="md-nav__link">
+    Rebuild
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#client-task-api-touch-points" class="md-nav__link">
+    Client Task API Touch Points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebuild-touch-points" class="md-nav__link">
+    Rebuild Touch Points
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#packingunpacking-checksums" class="md-nav__link">
+    Packing/unpacking checksums
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vos" class="md-nav__link">
+    VOS
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arrays" class="md-nav__link">
+    Arrays
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#updatefetch-copied-from-vosreadmemd" class="md-nav__link">
+    Update/Fetch (copied from vos/README.md)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#enumeration" class="md-nav__link">
+    Enumeration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aggregation" class="md-nav__link">
+    Aggregation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checksum-scrubbing-in-development" class="md-nav__link">
+    Checksum Scrubbing (In Development)
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#scanner" class="md-nav__link">
+    Scanner
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#goalsrequirements" class="md-nav__link">
+    Goals/Requirements
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#high-level-design" class="md-nav__link">
+    High Level Design
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sleep-or-yield" class="md-nav__link">
+    Sleep or Yield
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#corrective-actions" class="md-nav__link">
+    Corrective Actions
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#in-place-data-repair" class="md-nav__link">
+    In Place Data Repair
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ssd-eviction" class="md-nav__link">
+    SSD Eviction
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-checksum-properties-docusercontainermd-docuserpoolmd" class="md-nav__link">
+    Additional Checksum Properties &gt; doc/user/container.md / doc/user/pool.md?
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#design-details-implementation" class="md-nav__link">
+    Design Details &amp; Implementation
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#pool-ult" class="md-nav__link">
+    Pool ULT
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#silent-data-corruption-detection-todo" class="md-nav__link">
+    Silent Data Corruption Detection (TODO)
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vos-layer" class="md-nav__link">
+    VOS Layer
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#object-layer" class="md-nav__link">
+    Object Layer
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#debugging" class="md-nav__link">
+    Debugging
+  </a>
+  
+</li>
+      
       
       
       
@@ -965,12 +1489,12 @@ for details on configuring a container with checksums enabled.</p>
  the server which scans for and detects (audits checksums) silent data
  corruption and corrects.</li>
 </ol>
-<h1 id="keys-and-value-objects">Keys and Value Objects<a class="headerlink" href="#keys-and-value-objects" title="Permanent link">&para;</a></h1>
+<h2 id="keys-and-value-objects">Keys and Value Objects<a class="headerlink" href="#keys-and-value-objects" title="Permanent link">&para;</a></h2>
 <p>Because DAOS is a key/value store, the data for both keys and values is
 protected, however, the approach for both is slightly different. For the two
 different value types, single and array, the approach is also slightly
 different.</p>
-<h2 id="keys">Keys<a class="headerlink" href="#keys" title="Permanent link">&para;</a></h2>
+<h3 id="keys">Keys<a class="headerlink" href="#keys" title="Permanent link">&para;</a></h3>
 <p>On an update and fetch, the client calculates a checksum for the data used
 as the distribution and attribute keys and will send it to the server within the
 RPC. The server verifies the keys with the checksum.
@@ -985,7 +1509,7 @@ calculated and used to index the key in the server tree of the keys
 It is also expected that keys are stored only in Storage Class Memory which
 has reliable data integrity protection.</p>
 </div>
-<h2 id="values">Values<a class="headerlink" href="#values" title="Permanent link">&para;</a></h2>
+<h3 id="values">Values<a class="headerlink" href="#values" title="Permanent link">&para;</a></h3>
 <p>On an update, the client will calculate a checksum for the data of the value and
 will send it to the server within the RPC. If "server verify" is enabled, the
 server will calculate a new checksum for the value and compare with the checksum
@@ -1004,7 +1528,7 @@ of values. The following diagram illustrates a basic example.
  (See <a href="../storage/">Storage Model</a> for more details about the single value
  and array value types)</p>
 <p><img alt="Basic Checksum Flow" src="../../graph/data_integrity/basic_checksum_flow.png" /></p>
-<h3 id="single-value">Single Value<a class="headerlink" href="#single-value" title="Permanent link">&para;</a></h3>
+<h4 id="single-value">Single Value<a class="headerlink" href="#single-value" title="Permanent link">&para;</a></h4>
 <p>A Single Value is an atomic value, meaning that writes to a single value will
 update the entire value and reads retrieve the entire value. Other DAOS features
 such as Erasure Codes might split a Single Value into multiple shards to be
@@ -1014,7 +1538,7 @@ calculated, sent to the server, and stored on the server.</p>
 <p>Note that it is possible for a single value, or shard of a single value, to
 be smaller than the checksum derived from it. It is advised that if an
 application needs many small single values to use an Array Type instead.</p>
-<h3 id="array-values">Array Values<a class="headerlink" href="#array-values" title="Permanent link">&para;</a></h3>
+<h4 id="array-values">Array Values<a class="headerlink" href="#array-values" title="Permanent link">&para;</a></h4>
 <p>Unlike Single Values, Array Values can be updated and fetched at any part of
 an array. In addition, updates to an array are versioned, so a fetch can include
 parts from multiple versions of the array. Each of these versioned parts of an
@@ -1038,19 +1562,19 @@ The gray boxes around the extents represent the chunks.</p>
 <p><img alt="" src="../../graph/data_integrity/array_with_chunks.png" /></p>
 <p>(See <a href="https://github.com/daos-stack/daos/blob/master/src/object/README.md">Object Layer</a> for more details about the
 checksum process on object update and fetch)</p>
-<h1 id="checksum-calculations">Checksum calculations<a class="headerlink" href="#checksum-calculations" title="Permanent link">&para;</a></h1>
+<h2 id="checksum-calculations">Checksum calculations<a class="headerlink" href="#checksum-calculations" title="Permanent link">&para;</a></h2>
 <p>The actual checksum calculations are done by the
  <a href="https://github.com/intel/isa-l">isa-l</a>
 and <a href="https://github.com/intel/isa-l_crypto">isa-l_crypto</a> libraries. However,
 these libraries are abstracted away from much of DAOS and a common checksum
 library is used with appropriate adapters to the actual isa-l implementations.
 <a href="../../src/common/README.md#checksum">common checksum library</a></p>
-<h1 id="performance-impact">Performance Impact<a class="headerlink" href="#performance-impact" title="Permanent link">&para;</a></h1>
+<h2 id="performance-impact">Performance Impact<a class="headerlink" href="#performance-impact" title="Permanent link">&para;</a></h2>
 <p>Calculating checksums can be CPU intensive and will impact performance. To
  mitigate performance impact, checksum types with hardware acceleration should
  be chosen. For example, CRC32C is supported by recent Intel CPUs, and many are
  accelerated via SIMD.</p>
-<h1 id="quality">Quality<a class="headerlink" href="#quality" title="Permanent link">&para;</a></h1>
+<h2 id="quality">Quality<a class="headerlink" href="#quality" title="Permanent link">&para;</a></h2>
 <p>Unit and functional testing is performed at many layers.</p>
 <table>
 <thead>
@@ -1083,7 +1607,7 @@ library is used with appropriate adapters to the actual isa-l implementations.
 </tr>
 </tbody>
 </table>
-<h2 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h2>
+<h3 id="running-tests">Running Tests<a class="headerlink" href="#running-tests" title="Permanent link">&para;</a></h3>
 <p><strong>With daos_server not running</strong></p>
 <pre><code>./commont_test
 ./vos_test -z
@@ -1096,7 +1620,7 @@ library is used with appropriate adapters to the actual isa-l implementations.
 ./daos_server -i --csum_type crc64
 </code></pre>
 
-<h1 id="life-of-a-checksum-wip">Life of a checksum (WIP)<a class="headerlink" href="#life-of-a-checksum-wip" title="Permanent link">&para;</a></h1>
+<h2 id="life-of-a-checksum-wip">Life of a checksum (WIP)<a class="headerlink" href="#life-of-a-checksum-wip" title="Permanent link">&para;</a></h2>
 <h2 id="rebuild">Rebuild<a class="headerlink" href="#rebuild" title="Permanent link">&para;</a></h2>
 <p>In order for rebuild/migrate process to get checksums so it doesn't have to
 recalculate them, the object list and object fetch task api's provide a checksum
@@ -1182,12 +1706,12 @@ dedicated to csums.
 <li>srv_csum_recalc.c - the checksum verification and calculations occur here</li>
 </ul>
 <hr />
-<h1 id="checksum-scrubbing-in-development">Checksum Scrubbing (In Development)<a class="headerlink" href="#checksum-scrubbing-in-development" title="Permanent link">&para;</a></h1>
+<h2 id="checksum-scrubbing-in-development">Checksum Scrubbing (In Development)<a class="headerlink" href="#checksum-scrubbing-in-development" title="Permanent link">&para;</a></h2>
 <p>A background task will scan (when the storage server is idle to limit
 performance impact) the Version Object Store (VOS) trees to verify the data
 integrity with the checksums. Corrective actions can be taken when corruption is
 detected. See <a href="#corrective-actions">Corrective Actions</a></p>
-<h2 id="scanner">Scanner<a class="headerlink" href="#scanner" title="Permanent link">&para;</a></h2>
+<h3 id="scanner">Scanner<a class="headerlink" href="#scanner" title="Permanent link">&para;</a></h3>
 <h3 id="goalsrequirements">Goals/Requirements<a class="headerlink" href="#goalsrequirements" title="Permanent link">&para;</a></h3>
 <ul>
 <li><strong>Detect Silent Data Corruption Proactively</strong> - The whole point of the
@@ -1205,7 +1729,7 @@ detected. See <a href="#corrective-actions">Corrective Actions</a></p>
   running on a schedule. Once complete immediately start over. Throttling
   approaches should prevent from scrubbing same objects too frequently.</li>
 </ul>
-<h3 id="high-level-design">High Level Design<a class="headerlink" href="#high-level-design" title="Permanent link">&para;</a></h3>
+<h4 id="high-level-design">High Level Design<a class="headerlink" href="#high-level-design" title="Permanent link">&para;</a></h4>
 <ul>
 <li>Per Pool ULT (I/O xstream) that will iterate containers. If checksums and
   scrubber is enabled then iterate the object tree. If a record value (SV or
@@ -1341,12 +1865,12 @@ call):</p>
     </div>
   </div>
 </footer>
-      </div>
-<script src="../../assets/javascripts/application.c33a9706.js"></script>
-<script src="../../js/jquery-3.4.1.min.js"></script>
-<script src="../../js/popper.min.js"></script>
-<script src="../../js/bootstrap-4.4.1.js"></script>
-<script>app.initialize({version:"1.1.2",url:{base:"."}})</script>
+      
+    </div>
+<script src="../../assets/javascripts/application.c33a9706.js"></script> 
+<script src="../../js/jquery-3.4.1.min.js"></script> 
+<script src="../../js/popper.min.js"></script> 
+<script src="../../js/bootstrap-4.4.1.js"></script> 
+<script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
 </body>
-
 </html>

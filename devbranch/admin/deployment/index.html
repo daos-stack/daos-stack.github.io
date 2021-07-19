@@ -68,7 +68,10 @@
 <link href="../../css/bootstrap-4.4.1.css" rel="stylesheet" type="text/css">
 <link href="../../assets/stylesheets/styles_1.css" rel="stylesheet" type="text/css">
 </head>
-<body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="blue">
   
     <svg class="md-svg">
       <defs>
@@ -88,10 +91,14 @@
     
     
       <header class="md-header" data-md-component="header">
-  <nav class="md-header-nav md-grid"><div class="md-flex">
-  <div><img src="../../assets/images/daos_logo_wh.png" width="86" height="61" alt=""/></div>
-  <div class="md-flex__cell md-flex__cell--shrink">
-<label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="http://daos.io" title="DAOS v2.0 - dev" aria-label="DAOS v2.0 - dev" class="md-header-nav__button md-logo"><img src="../../assets/images/daos_logo_wh.png" width="50"/>
+</a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
       </div>
       <div class="md-flex__cell md-flex__cell--stretch">
         <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
@@ -203,6 +210,19 @@
   
     <li class="md-tabs__item">
       
+        <a href="../../QSG/setup/" class="md-tabs__link">
+          Installation and Setup
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
         <a href="../hardware/" class="md-tabs__link md-tabs__link--active">
           Administration Guide
         </a>
@@ -216,8 +236,21 @@
   
     <li class="md-tabs__item">
       
-        <a href="../../user/container/" class="md-tabs__link">
+        <a href="../../user/workflow/" class="md-tabs__link">
           User Guide
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../QSG/autotest/" class="md-tabs__link">
+          DAOS Test and Benchmarking
         </a>
       
     </li>
@@ -260,14 +293,15 @@
       
     </ul>
   </div></nav>
-   <section>
+	 <section>
     <div class="dropdown show">
       <div class="dropdown show col-xl-12"> <a class="btn btn-sm dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> DAOS Version</a>
-        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../../v1.0/index.html">1.0</a> </div>
+        <div class="dropdown-menu"> <a class="dropdown-header">Select Version</a> <a class="dropdown-item disabled" href="../../devbranch/index.html">Dev Branch</a> <a class="dropdown-item" href="../../../index.html">1.2</a><a class="dropdown-item" href="../../v1.0/index.html">1.0</a> </div>
       </div>
     </div>
   </section>
-  <main class="md-main" role="main"><div class="md-main__inner md-grid" data-md-component="container">
+  <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
           
             
               <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
@@ -277,7 +311,7 @@
   <label class="md-nav__title md-nav__title--site" for="__drawer">
     <a href="http://daos.io" title="DAOS v2.0 - dev" class="md-nav__button md-logo">
       
-        <i class="md-icon"></i>
+        <img alt="logo" src="../../graph/logo.png" width="48" height="48">
       
     </a>
     DAOS v2.0 - dev
@@ -417,18 +451,102 @@
       
       
 
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      Installation and Setup
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        Installation and Setup
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/setup/" title="DAOS CentOS Setup" class="md-nav__link">
+      DAOS CentOS Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/suse_setup/" title="DAOS openSUSE Setup" class="md-nav__link">
+      DAOS openSUSE Setup
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/tour/" title="DAOS Admin/Client Tools" class="md-nav__link">
+      DAOS Admin/Client Tools
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/test_index/" title="DAOS Test and Benchmarking" class="md-nav__link">
+      DAOS Test and Benchmarking
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="https://wiki.hpdd.intel.com/display/DC/DAOS+IO-500+Instructions" title="IO500 Setup" class="md-nav__link">
+      IO500 Setup
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
   
 
 
   <li class="md-nav__item md-nav__item--active md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4" checked>
     
-    <label class="md-nav__link" for="nav-3">
+    <label class="md-nav__link" for="nav-4">
       Administration Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-3">
+      <label class="md-nav__title" for="nav-4">
         Administration Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -556,33 +674,6 @@
     Server Startup
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parallel-launcher" class="md-nav__link">
-    Parallel Launcher
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#systemd-integration" class="md-nav__link">
-    Systemd Integration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes-pod" class="md-nav__link">
-    Kubernetes Pod
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -620,8 +711,16 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#network-scan-and-configuration" class="md-nav__link">
-    Network Scan and Configuration
+  <a href="#network-configuration" class="md-nav__link">
+    Network Configuration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-scan" class="md-nav__link">
+    Network Scan
   </a>
   
 </li>
@@ -633,22 +732,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#provider-testing" class="md-nav__link">
+    Provider Testing
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#network-scanning-all-daos-server-nodes" class="md-nav__link">
-    Network Scanning All DAOS Server Nodes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#provider-configuration-and-debug" class="md-nav__link">
-    Provider Configuration and Debug
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -725,26 +822,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-validation" class="md-nav__link">
-    System Validation
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#launch-the-client-application" class="md-nav__link">
-    Launch the client application
-  </a>
   
 </li>
         
@@ -860,17 +937,29 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
     
-    <label class="md-nav__link" for="nav-4">
+    <label class="md-nav__link" for="nav-5">
       User Guide
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-4">
+      <label class="md-nav__title" for="nav-5">
         User Guide
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
         
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/workflow/" title="Workflow" class="md-nav__link">
+      Workflow
+    </a>
+  </li>
+
         
           
           
@@ -890,20 +979,8 @@
 
 
   <li class="md-nav__item">
-    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
-      Native Programming Interface
-    </a>
-  </li>
-
-        
-          
-          
-          
-
-
-  <li class="md-nav__item">
-    <a href="../../user/posix/" title="POSIX Namespace" class="md-nav__link">
-      POSIX Namespace
+    <a href="../../user/filesystem/" title="File System" class="md-nav__link">
+      File System
     </a>
   </li>
 
@@ -956,6 +1033,18 @@
   </li>
 
         
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../user/interface/" title="Native Programming Interface" class="md-nav__link">
+      Native Programming Interface
+    </a>
+  </li>
+
+        
       </ul>
     </nav>
   </li>
@@ -968,13 +1057,109 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
     
-    <label class="md-nav__link" for="nav-5">
+    <label class="md-nav__link" for="nav-6">
+      DAOS Test and Benchmarking
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-6">
+        DAOS Test and Benchmarking
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/autotest/" title="Run DAOS Autotest" class="md-nav__link">
+      Run DAOS Autotest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/cartselftest/" title="Run CaRT Self_test" class="md-nav__link">
+      Run CaRT Self_test
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/runior/" title="Run IOR" class="md-nav__link">
+      Run IOR
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/mdtest/" title="Run mdtest" class="md-nav__link">
+      Run mdtest
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/dbench/" title="Run dbench" class="md-nav__link">
+      Run dbench
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../QSG/datamover/" title="Datamover test" class="md-nav__link">
+      Datamover test
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-7" type="checkbox" id="nav-7">
+    
+    <label class="md-nav__link" for="nav-7">
       Releases
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-5">
+      <label class="md-nav__title" for="nav-7">
         Releases
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1016,13 +1201,13 @@
 
   <li class="md-nav__item md-nav__item--nested">
     
-      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-6" type="checkbox" id="nav-6">
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-8" type="checkbox" id="nav-8">
     
-    <label class="md-nav__link" for="nav-6">
+    <label class="md-nav__link" for="nav-8">
       Developer Zone
     </label>
     <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
-      <label class="md-nav__title" for="nav-6">
+      <label class="md-nav__title" for="nav-8">
         Developer Zone
       </label>
       <ul class="md-nav__list" data-md-scrollfix>
@@ -1070,7 +1255,7 @@
 
 
   <li class="md-nav__item">
-    <a href="../../html/" title="DAOS API Documentation" class="md-nav__link">
+    <a href="../../html/index.html" title="DAOS API Documentation" class="md-nav__link">
       DAOS API Documentation
     </a>
   </li>
@@ -1203,33 +1388,6 @@
     Server Startup
   </a>
   
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#parallel-launcher" class="md-nav__link">
-    Parallel Launcher
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#systemd-integration" class="md-nav__link">
-    Systemd Integration
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#kubernetes-pod" class="md-nav__link">
-    Kubernetes Pod
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
       </ul>
@@ -1267,8 +1425,16 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#network-scan-and-configuration" class="md-nav__link">
-    Network Scan and Configuration
+  <a href="#network-configuration" class="md-nav__link">
+    Network Configuration
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-scan" class="md-nav__link">
+    Network Scan
   </a>
   
 </li>
@@ -1280,22 +1446,20 @@
   
 </li>
         
+          <li class="md-nav__item">
+  <a href="#provider-testing" class="md-nav__link">
+    Provider Testing
+  </a>
+  
+</li>
+        
       </ul>
     </nav>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#network-scanning-all-daos-server-nodes" class="md-nav__link">
-    Network Scanning All DAOS Server Nodes
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#provider-configuration-and-debug" class="md-nav__link">
-    Provider Configuration and Debug
-  </a>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1372,26 +1536,6 @@
         
       </ul>
     </nav>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#system-validation" class="md-nav__link">
-    System Validation
-  </a>
-  
-    <nav class="md-nav">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#launch-the-client-application" class="md-nav__link">
-    Launch the client application
-  </a>
   
 </li>
         
@@ -1645,10 +1789,8 @@ be set to prevent unauthorized access to the keys and certificates.</p>
 - All valid agent certs in the DAOS system (in the client cert directory, see
   config file below)</p>
 <p>After the certificates have been securely distributed, the DAOS configuration files must be
-updated in order to enable authentication and secure communications. that the configuration files have been installed under <code>/etc/daos</code> and certificate files under
-<code>/etc/daos/certs</code> and <code>/etc/daos/certs/clients</code>. The <code>certs</code> directory should have <code>root</code> ownership
-and <code>755</code> permissions and the <code>clients</code> directory should have <code>daos_server</code> ownernship and <code>700</code>
-permissions:
+updated in order to enable authentication and secure communications. These examples assume
+that the configuration and certificate files have been installed under <code>/etc/daos</code>:</p>
 <pre><code class="yaml"># /etc/daos/daos_server.yml (servers)
 
 transport_config:
@@ -1685,39 +1827,7 @@ transport_config:
 </code></pre>
 
 <h3 id="server-startup">Server Startup<a class="headerlink" href="#server-startup" title="Permanent link">&para;</a></h3>
-<p>One instance of the <code>daos_server</code> process is to be started per
-storage node. The server can be started either individually (e.g. independently
-on each storage node via systemd) or collectively (e.g. pdsh, mpirun or as a
-Kubernetes Pod).</p>
-<h4 id="parallel-launcher">Parallel Launcher<a class="headerlink" href="#parallel-launcher" title="Permanent link">&para;</a></h4>
-<p>Practically any parallel launcher can be used to start the DAOS server
-collectively on a set of storage nodes. pdsh, clush and orterun are most
-commonly used.</p>
-<pre><code class="bash">$ clush -w &lt;server_list&gt; -o &quot;-t -t&quot; daos_server start -o &lt;config_file&gt;`
-</code></pre>
-
-<p>will launch <code>daos_server</code> on the specified hosts connecting to the <code>port</code>
-parameter value specified in the server config file.
-If the number of storage node exceed the default fanout value, then "-f"
-followed by the number of storage nodes should be used.</p>
-<p>Similarly, pdsh can be used:</p>
-<pre><code class="bash">$ pdsh -w &lt;server_list&gt; daos_server start -o &lt;config_file&gt;`
-</code></pre>
-
-<p>As for orterun, the list of storage nodes can be specified on the command line
-via the -H option. To start the DAOS server, run:</p>
-<pre><code class="bash">$ orterun --map-by node --mca btl tcp,self --mca oob tcp -np &lt;num_servers&gt;
--H &lt;server_list&gt; --enable-recovery daos_server start -o &lt;config_file&gt;
-</code></pre>
-
-<p>The --enable-recovery is required for fault tolerance to guarantee that
-the fault of one server does not cause the others to be stopped.</p>
-<p>The --allow-run-as-root option can be added to the command line to
-allow the <code>daos_server</code> to run with root privileges on each storage
-nodes (for example when needing to perform privileged tasks relating
-to storage format). See the orterun(1) man page for additional options.</p>
-<h4 id="systemd-integration">Systemd Integration<a class="headerlink" href="#systemd-integration" title="Permanent link">&para;</a></h4>
-<p>The DAOS Server can be started as a systemd service. The DAOS Server
+<p>The DAOS Server is started as a systemd service. The DAOS Server
 unit file is installed in the correct location when installing from RPMs.
 The DAOS Server will be run as <code>daos-server</code> user which will be created
 during RPM install.</p>
@@ -1752,9 +1862,6 @@ configuration file. After device discovery and provisioning, an updated
 configuration file with a populated per-engine section can be stored in
 <code>/etc/daos/daos_server.yml</code>, and after reestarting the <code>daos_server</code> service
 it is then ready for the storage to be formatted.</p>
-<h4 id="kubernetes-pod">Kubernetes Pod<a class="headerlink" href="#kubernetes-pod" title="Permanent link">&para;</a></h4>
-<p>DAOS service integration with Kubernetes is planned and will be
-supported in a future DAOS version.</p>
 <h2 id="daos-server-remote-access">DAOS Server Remote Access<a class="headerlink" href="#daos-server-remote-access" title="Permanent link">&para;</a></h2>
 <p>Remote tasking of the DAOS system and individual DAOS Server processes can be
 performed via the <code>dmg</code> utility.</p>
@@ -2027,110 +2134,40 @@ engines:
 &lt;end&gt;
 </code></pre>
 
-<h3 id="network-scan-and-configuration">Network Scan and Configuration<a class="headerlink" href="#network-scan-and-configuration" title="Permanent link">&para;</a></h3>
-<p>The <code>daos_server</code> supports the <code>network scan</code> function to display the network
+<p>There are a few optional providers that are not built by default. For detailed
+information, please refer to the <a href="../../dev/development/#building-optional-components" title="Building DAOS for Development">DAOS build documentation</a>.</p>
+<blockquote>
+<p><strong><em>NOTE</em></strong></p>
+<p>The support of the optional providers is not guarantee and can be removed
+without further notification.</p>
+</blockquote>
+<h3 id="network-configuration">Network Configuration<a class="headerlink" href="#network-configuration" title="Permanent link">&para;</a></h3>
+<h4 id="network-scan">Network Scan<a class="headerlink" href="#network-scan" title="Permanent link">&para;</a></h4>
+<p>The <code>dmg</code> utility supports the <code>network scan</code> function to display the network
 interfaces, related OFI fabric providers and associated NUMA node for each
 device.
 This information is used to configure the global fabric provider and the unique
-local network interface for each I/O Engine instance on this node.
+local network interface for each I/O Engine instance on the storage nodes.
 This section will help you determine what to provide for the <code>provider</code>,
 <code>fabric_iface</code> and <code>pinned_numa_node</code> entries in the <code>daos_server.yml</code> file.</p>
 <p>The following commands are typical examples:</p>
-<pre><code class="bash">$ daos_server network scan
-$ daos_server network scan -p all
-$ daos_server network scan -p ofi+sockets
-$ daos_server network scan --provider 'ofi+verbs;ofi_rxm'
+<pre><code class="bash">$ dmg network scan
+$ dmg network scan -p all
+$ dmg network scan -p ofi+sockets
+$ dmg network scan --provider 'ofi+verbs;ofi_rxm'
 </code></pre>
 
 <p>In the early stages when a <code>daos_server</code> has not yet been fully configured and
 lacks a declaration of the system's fabric provider, it may be helpful to view
 an unfiltered list of scan results.</p>
-<p>Use either of these <code>daos_server</code> commands in the early stages to accomplish
+<p>Use either of these <code>dmg</code> commands in the early stages to accomplish
 this goal:</p>
-<pre><code class="bash">$ daos_server network scan
-$ daos_server network scan -p all
+<pre><code class="bash">$ dmg network scan
+$ dgm network scan -p all
 </code></pre>
 
 <p>Typical network scan results look as follows:</p>
-<pre><code class="bash">$ daos_server network scan -p all
----------
-localhost
----------
-
-    -------------
-    NUMA Socket 0
-    -------------
-
-        Provider          Interfaces
-        --------          ----------
-        ofi+verbs;ofi_rxm ib0
-        ofi+tcp;ofi_rxm   ib0, eth0
-        ofi+verbs         ib0
-        ofi+tcp           ib0, eth0
-        ofi+sockets       ib0, eth0
-        ofi+psm2          ib0
-
-    -------------
-    NUMA Socket 1
-    -------------
-
-        Provider          Interfaces
-        --------          ----------
-        ofi+verbs;ofi_rxm ib1
-        ofi+tcp;ofi_rxm   ib1
-        ofi+verbs         ib1
-        ofi+tcp           ib1
-        ofi+sockets       ib1
-        ofi+psm2          ib1
-</code></pre>
-
-<p>Use one of these providers to configure the <code>provider</code> in the <code>daos_server.yml</code>.
-Only one provider may be specified for the entire DAOS installation.
-Client nodes must be capable of communicating to the <code>daos_server</code> nodes via
-the same provider.
-Therefore, it is helpful to choose network settings for the <code>daos_server</code> that
-are compatible with the expected client node configuration.</p>
-<p>After the <code>daos_server.yml</code> file has been edited and contains a provider,
-subsequent <code>daos_server network scan</code> commands will filter the results based on
-that provider.
-If it is desired to view an unfiltered list again, issue <code>daos_server network
-scan -p all</code>.</p>
-<p>Regardless of the provider in the <code>daos_server.yml</code> file, the results may be
-filtered to the specified provider with the command <code>daos_server network scan
--p ofi_provider</code> where <code>ofi_provider</code> is one of the available providers from
-the list.</p>
-<p>The results of the network scan may be used to help configure the I/O Engine
-instances for this DAOS Server.</p>
-<p>Each I/O Engine instance is configured with a unique <code>fabric_iface</code> and
-optional <code>pinned_numa_node</code>.
-The interfaces and NUMA Sockets listed in the scan results map to the
-<code>daos_server.yml</code> <code>fabric_iface</code> and <code>pinned_numa_node</code> respectively.
-The use of <code>pinned_numa_node</code> is optional, but recommended for best
-performance.
-When specified with the value that matches the network interface, the I/O
-Engine will bind itself to that NUMA node and to cores purely within that NUMA
-node.
-This configuration yields the fastest access to that network device.</p>
-<h3 id="changing-network-providers">Changing Network Providers<a class="headerlink" href="#changing-network-providers" title="Permanent link">&para;</a></h3>
-<p>Information about the network configuration is stored as metadata on the DAOS
-storage.</p>
-<p>If, after initial deployment, the provider must be changed, it is necessary to
-reformat the storage devices using <code>dmg storage format</code> after the configuration
-file has been updated with the new provider.</p>
-<h2 id="network-scanning-all-daos-server-nodes">Network Scanning All DAOS Server Nodes<a class="headerlink" href="#network-scanning-all-daos-server-nodes" title="Permanent link">&para;</a></h2>
-<p>While the <code>daos_server network scan</code> is useful for scanning the localhost, it
-does not provide results for any other <code>daos_server</code> instance on the network.
-The DAOS Management tool, <code>dmg</code>, is used for that purpose. The network scan
-operates the same way as the <code>daos_server</code> network scan, however, to use the
-dmg tool, at least one known <code>daos_server</code> instance must be running.</p>
-<p>The command <code>dmg network scan</code> performs a query over all <code>daos_server</code>s in the
-<code>daos_control.yml</code> <code>hostlist</code>. By default, the scan will return results that
-are filtered by the provider that is specified in the <code>daos_server.yml</code>.
-Like the <code>daos_server network scan</code>, the <code>dmg network scan</code> supports the
-optional <code>-p/--provider</code> where a different provider may be specified, or <code>all</code>
-for an unfiltered list that is unrelated to what was already configured on the
-<code>daos_server</code> installation.</p>
-<pre><code class="bash">dmg network scan
+<pre><code class="bash">$ dmg network scan
 -------
 wolf-29
 -------
@@ -2164,13 +2201,40 @@ localhost
         ofi+sockets ib1
 </code></pre>
 
-<h2 id="provider-configuration-and-debug">Provider Configuration and Debug<a class="headerlink" href="#provider-configuration-and-debug" title="Permanent link">&para;</a></h2>
-<p>To aid in provider configuration and debug, it may be helpful to run the
-<code>fi_pingpong</code> test (delivered as part of OFI/libfabric).
-To run that test, determine the name of the provider to test usually by
-removing the "ofi+" prefix from the network scan provider data.
-Although the "ofi+" prefix is required in <code>daos_server.yml</code>, it cannot be used
-when specifying the provider for <code>fi_pingpong</code>.</p>
+<p>Use one of these providers to configure the <code>provider</code> in the <code>daos_server.yml</code>.
+Only one provider may be specified for the entire DAOS installation.
+Client nodes must be capable of communicating to the <code>daos_server</code> nodes via
+the same provider.
+Therefore, it is helpful to choose network settings for the <code>daos_server</code> that
+are compatible with the expected client node configuration.</p>
+<p>After the <code>daos_server.yml</code> file has been edited and contains a provider,
+subsequent <code>dmg network scan</code> commands will filter the results based on
+that provider.
+If it is desired to view an unfiltered list again, issue <code>dmg network
+scan -p all</code>.</p>
+<p>Regardless of the provider in the <code>daos_server.yml</code> file, the results may be
+filtered to the specified provider with the command <code>dmg network scan
+-p ofi_provider</code> where <code>ofi_provider</code> is one of the available providers from
+the list.</p>
+<p>The results of the network scan may be used to help configure the I/O Engine
+instances.</p>
+<p>Each I/O Engine instance is configured with a unique <code>fabric_iface</code> and
+optional <code>pinned_numa_node</code>.
+The interfaces and NUMA Sockets listed in the scan results map to the
+<code>daos_server.yml</code> <code>fabric_iface</code> and <code>pinned_numa_node</code> respectively.
+The use of <code>pinned_numa_node</code> is optional, but recommended for best
+performance.
+When specified with the value that matches the network interface, the I/O
+Engine will bind itself to that NUMA node and to cores purely within that NUMA
+node.
+This configuration yields the fastest access to that network device.</p>
+<h4 id="changing-network-providers">Changing Network Providers<a class="headerlink" href="#changing-network-providers" title="Permanent link">&para;</a></h4>
+<p>Information about the network configuration is stored as metadata on the DAOS
+storage.</p>
+<p>If, after initial deployment, the provider must be changed, it is necessary to
+reformat the storage devices using <code>dmg storage format</code> after the configuration
+file has been updated with the new provider.</p>
+<h4 id="provider-testing">Provider Testing<a class="headerlink" href="#provider-testing" title="Permanent link">&para;</a></h4>
 <p>Then, the <code>fi_pingpong</code> test can be used to verify that the targeted OFI
 provider works fine:</p>
 <pre><code class="bash">node1$ fi_pingpong -p psm2
@@ -2322,38 +2386,6 @@ variable before starting the <code>daos_agent</code> process:</p>
 the <code>[Service]</code> section before reloading systemd and restarting the
 <code>daos_agent</code> service:</p>
 <p><code>Environment=DAOS_AGENT_DISABLE_CACHE=true</code></p>
-<h2 id="system-validation">System Validation<a class="headerlink" href="#system-validation" title="Permanent link">&para;</a></h2>
-<p>To validate that the DAOS system is properly installed, the <code>daos_test</code>
-suite can be executed. Ensure the DAOS Agent is configured before running
-<code>daos_test</code>.  If the agent is using a non-default path for the socket, then
-configure <code>DAOS_AGENT_DRPC_DIR</code> in the client environment to point to this new
-location.</p>
-<p>DAOS automatically configures a client with a compatible fabric provider,
-network interface, network domain, CaRT timeout, and CaRT context share address,
-that will allow it to connect to the DAOS system.</p>
-<p>The client may not override the fabric provider or the CaRT context share
-address.</p>
-<p>A client application may override the three remaining settings by configuring
-environment variables in the client's shell prior to launch.</p>
-<p>To manually configure the CaRT timeout, set <code>CRT_TIMEOUT</code> such as:</p>
-<pre><code>export CRT_TIMEOUT=5
-</code></pre>
-
-<p>To manually configure the network interface, set <code>OFI_INTERFACE</code> such as:</p>
-<pre><code>export OFI_INTERFACE=lo
-</code></pre>
-
-<p>When manually configuring an Infiniband device with a verbs provider, the network
-device domain is required.  To manually configure the domain, set <code>OFI_DOMAIN</code> such as:</p>
-<pre><code>export OFI_DOMAIN=hfi1_0
-</code></pre>
-
-<h3 id="launch-the-client-application">Launch the client application<a class="headerlink" href="#launch-the-client-application" title="Permanent link">&para;</a></h3>
-<pre><code class="bash">mpirun -np &lt;num_clients&gt; --hostfile &lt;hostfile&gt; ./daos_test
-</code></pre>
-
-<p><code>daos_test</code> requires at least 8GB of SCM (or DRAM with tmpfs) storage on
-each storage node.</p>
 <div class="footnote">
 <hr />
 <ol>
@@ -2442,12 +2474,11 @@ each storage node.</p>
   </div>
 </footer>
       
-</div>
-<script src="../../assets/javascripts/application.c33a9706.js"></script>
-<script src="../../js/jquery-3.4.1.min.js"></script>
-<script src="../../js/popper.min.js"></script>
-<script src="../../js/bootstrap-4.4.1.js"></script>
-<script>app.initialize({version:"1.1.2",url:{base:"."}})</script>
+    </div>
+<script src="../../assets/javascripts/application.c33a9706.js"></script> 
+<script src="../../js/jquery-3.4.1.min.js"></script> 
+<script src="../../js/popper.min.js"></script> 
+<script src="../../js/bootstrap-4.4.1.js"></script> 
+<script>app.initialize({version:"1.1.2",url:{base:".."}})</script>
 </body>
-
 </html>
